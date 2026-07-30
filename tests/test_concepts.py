@@ -6,9 +6,12 @@ from rock_kb.concepts import (
     REQUIRED_AGENT_ENTRYPOINT_FILES,
     build_concept_guide,
     build_single_concept,
+    claim_synthesis_sort_key,
+    concept_synthesis_pack,
     concept_source_records,
     ensure_weighted_source_coverage,
     get_concept,
+    load_concept_registry_metadata,
     load_concepts,
     rank_records_for_concept,
     refresh_long_form_approved_claims,
@@ -34,6 +37,103 @@ def test_load_concepts_registry():
     ids = {concept.id for concept in concepts}
     assert "check-in" in ids
     assert "api-integrations" in ids
+    metadata = load_concept_registry_metadata()
+    assert metadata["version"] == 2
+    assert metadata["taxonomy"]["design"] == "human_reviewed_task_oriented_facets"
+
+
+def test_workflow_concept_uses_structured_documentation_branch():
+    concept = get_concept("workflows")
+    records = [
+        {
+            "id": "workflow",
+            "source_id": "rock_documentation",
+            "documentation_family": "documentation",
+            "source_title": "Workflow Actions",
+            "documentation_path": "documentation/core-concepts/workflows/workflow-actions",
+            "documentation_branches": [
+                "documentation/core-concepts",
+                "documentation/core-concepts/workflows",
+                "documentation/core-concepts/workflows/workflow-actions",
+            ],
+            "summary": "Configure workflow actions.",
+        },
+        {
+            "id": "groups",
+            "source_id": "rock_documentation",
+            "documentation_family": "documentation",
+            "source_title": "Group Workflows",
+            "documentation_path": "documentation/engagement/groups/group-workflows",
+            "documentation_branches": [
+                "documentation/engagement",
+                "documentation/engagement/groups",
+                "documentation/engagement/groups/group-workflows",
+            ],
+            "summary": "Mentions workflow behavior in a group article.",
+        },
+    ]
+
+    ranked = rank_records_for_concept(concept, records)
+
+    assert [record["id"] for record in ranked] == ["workflow"]
+
+
+def test_concept_synthesis_pack_separates_answer_claims_from_routing_context(monkeypatch):
+    monkeypatch.setattr(concepts_module, "selected_records_for_concept", lambda concept_id, limit=40: [])
+    monkeypatch.setattr(concepts_module, "public_contribution_records", lambda concept_id: [])
+    monkeypatch.setattr(
+        concepts_module,
+        "approved_claim_dependencies_for_concept",
+        lambda concept_id: [
+            {
+                "claim_id": "claim:answer",
+                "claim": "Workflow actions run in their configured order.",
+                "claim_tier": "source_backed",
+                "authority_tier": "official",
+                "rock_versions": [],
+                "version_scope_status": "version_independent",
+            },
+            {
+                "claim_id": "claim:routing",
+                "claim": "Review the workflow training source.",
+                "claim_tier": "routing_context_only",
+                "authority_tier": "rocku-confirmed",
+            },
+        ],
+    )
+
+    pack = concept_synthesis_pack("workflows")
+
+    assert [row["claim_id"] for row in pack["approved_claims"]] == ["claim:answer"]
+    assert [row["claim_id"] for row in pack["routing_context"]] == ["claim:routing"]
+    assert pack["evidence_policy"]["routing_context_is_answer_evidence"] is False
+    assert pack["evidence_policy"]["live_instance_verification"]["mode"] == "separate_bounded_read_only_review"
+
+
+def test_claim_synthesis_sort_key_uses_current_authority_vocabulary():
+    claims = [
+        {
+            "claim_id": "claim:community",
+            "claim_tier": "source_backed",
+            "authority_tier": "community-reviewed",
+        },
+        {
+            "claim_id": "claim:code",
+            "claim_tier": "source_backed",
+            "authority_tier": "source-code-confirmed",
+        },
+        {
+            "claim_id": "claim:official",
+            "claim_tier": "source_backed",
+            "authority_tier": "official",
+        },
+    ]
+
+    assert [row["claim_id"] for row in sorted(claims, key=claim_synthesis_sort_key)] == [
+        "claim:code",
+        "claim:official",
+        "claim:community",
+    ]
 
 
 def test_render_single_concept_guide():

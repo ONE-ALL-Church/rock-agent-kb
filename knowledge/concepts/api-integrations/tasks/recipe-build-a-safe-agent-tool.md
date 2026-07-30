@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build A Safe Agent Tool
 
-Follow the guide section for Recipe: Build A Safe Agent Tool.
+See Writing Custom Tools, Get Tools, and List Tools.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Build A Safe Agent Tool.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Define tool purpose and allowed user roles.
+2. Use IdKey for all entity identifiers.
+3. Use helper methods to resolve and check security.
+4. Return narrow result objects.
+5. Sanitize attribute values.
+6. Use pagination.
+7. Add explicit guardrails for writes.
+8. Test with unauthorized current person.
+9. Test missing/invalid IdKey.
+10. Document terms and date/time assumptions.
 
 ## Do Not Assume
 
@@ -34,15 +43,15 @@ Follow the guide section for Recipe: Build A Safe Agent Tool.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/helix/lava-applications/endpoints
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
-- https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/developer/helix/overview
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs
+- https://community.rockrms.com/developer/303---blast-off/attributes
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/303---blast-off/extending-communication-transports
+- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/developer/roku-docs/getting-started/applications
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+- https://community.rockrms.com/developer/303---blast-off/rock-security

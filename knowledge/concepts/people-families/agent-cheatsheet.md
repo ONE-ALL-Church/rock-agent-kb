@@ -10,16 +10,15 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md) |  |  |
-| [Recipe: Explain Why `PersonAlias` Matters](tasks/recipe-explain-why-personalias-matters.md) |  |  |
-| [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md) |  |  |
-| [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md) |  |  |
-| [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md) |  |  |
-| [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md) |  |  |
-| [Recipe: Triage An Accidental Merge](tasks/recipe-triage-an-accidental-merge.md) |  |  |
-| [Recipe: Track New Record Source](tasks/recipe-track-new-record-source.md) |  |  |
-| [Recipe: Build A Staff Directory From Person Attributes](tasks/recipe-build-a-staff-directory-from-person-attributes.md) |  |  |
-| [Recipe: Add A Bookmarked Groups-Like Profile Panel](tasks/recipe-add-a-bookmarked-groups-like-profile-panel.md) |  |  |
+| [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md) | `Attendance`, `Person`, `PersonAlias`, `Group`, `Family`, `Workflow` | `Attendance`, `Person`, `PersonAlias`, `Group`, `Family`, `Workflow` |
+| [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md) | `Attribute` | `Attribute` |
+| [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md) | `Person`, `PersonAlias`, `Workflow`, `Attribute` | `Person`, `PersonAlias`, `Workflow`, `Attribute` |
+| [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md) | `Group`, `GroupType`, `Location`, `Schedule`, `Check-in Configuration`, `Family`, `Workflow`, `Attribute` | `Group`, `GroupType`, `Location`, `Schedule`, `Check-in Configuration`, `Family`, `Workflow`, `Attribute` |
+| [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md) | `Person`, `Workflow`, `Page`, `Block`, `Attribute` | `Person`, `Workflow`, `Page`, `Block`, `Attribute` |
+| [Recipe: Triage An Accidental Merge](tasks/recipe-triage-an-accidental-merge.md) | `Attendance`, `Person`, `Group`, `Workflow`, `Attribute` | `Attendance`, `Person`, `Group`, `Workflow`, `Attribute` |
+| [Recipe: Track New Record Source](tasks/recipe-track-new-record-source.md) | `Person`, `Family`, `Workflow`, `Attribute` | `Person`, `Family`, `Workflow`, `Attribute` |
+| [Recipe: Build A Staff Directory From Person Attributes](tasks/recipe-build-a-staff-directory-from-person-attributes.md) | `Person`, `Page`, `Attribute` | `Person`, `Page`, `Attribute` |
+| [Recipe: Add A Bookmarked Groups-Like Profile Panel](tasks/recipe-add-a-bookmarked-groups-like-profile-panel.md) | `Person`, `Group` | `Person`, `Group` |
 
 ## Entities
 

@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 29,
+  "approved_claim_count": 29,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide.",
-      "claim_hash": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
+      "claim_hash": "8f164bab8fd5d57454ec1191f151c3477890eca754ae1db09505be7ec771f617",
       "claim_id": "claim:091606bd3b8b0472392a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -18,6 +20,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -31,12 +36,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "In a Rock web farm, files stored on a node's local file system are unavailable from other nodes unless the relevant directories are synchronized; Rock file types should therefore use cloud-backed or database-backed storage.",
-      "claim_hash": "c7dfea2280ffb92566913b2e37dc70984378946baae95eacd6a9ec569c95cae9",
+      "claim_hash": "22822cfe70d932208f3ed60d0b4b79c38b9c3d20e8557a9dd97fbbe020ca43fa",
       "claim_id": "claim:0ac39c6f9dbf72e1b72a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
@@ -49,6 +55,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "5f456088d071dd9b1fe6bb05cf43bd7a7be24365f63205f541d9f956c63e90b5",
       "source_record_ids": [
         "rock_documentation:article:1053"
@@ -59,12 +66,13 @@
           "title": "Architect a Server Cluster",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In a self-hosted two-server Rock deployment, SQL Server should remain private and TCP 1433 should be limited to the Rock web server and any explicitly authorized development host.",
-      "claim_hash": "34daeb66a62633aa894d0e9f76477c8cf7360c499af29e5ad992d11b8ba1074a",
+      "claim_hash": "eca6946534b7b8fdbc5b35015e2c195f7b927344b15d581dec87c27deb4e432b",
       "claim_id": "claim:249814408c9c8842ef96",
       "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
@@ -77,6 +85,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "58e3d97dce103707b3016a73528bc224fe8fcf4bf0f803c75cc77847e147c398",
       "source_record_ids": [
         "rock_documentation:article:1049"
@@ -87,42 +96,13 @@
           "title": "Configure a Two-Server Environment",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This official podcast edition supports the same Rock operating practices as the reviewed video edition: maintain supported security patches and separate ministry requirements from the first proposed technical solution. External AI commentary and conference material are context only.",
-      "claim_hash": "aa0952ba05df7797b5a7e22fe1eeb5854baefd4bd60aa402aec46c18aacbea40",
-      "claim_id": "claim:36da04a44a538e1c8e5e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "hosting-infrastructure",
-        "platform-configuration",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
-      "source_record_ids": [
-        "rock_podcast_rss:aa14f5be5cae2d59"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
-          "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period.",
-      "claim_hash": "04975f1a1125f4140ee0a0c71650a7a301eb8a36ef31c0171d1c66bb706e1262",
+      "claim_hash": "43560909ab0c865dfffb5b62b048a8c672014d0132af287f3c6ef653c5ae2c1f",
       "claim_id": "claim:3800f13989d805462464",
       "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
@@ -135,6 +115,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0e7ca43df2a782cf6ab8340bb10c077ebcef8258c569c921d42e9a1a22ec5303",
       "source_record_ids": [
         "rock_documentation:article:2137"
@@ -145,12 +126,13 @@
           "title": "Intro to SaaS Hosting",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock 19.0, Giving Analytics, Attendance Analytics, and Pledge Analytics use the RockContextAnalytics connection, which can be configured in web.ConnectionStrings.config to target a separate read-only database.",
-      "claim_hash": "e249fa722150aeea58a8c24314990225e60f5e8a89fb390f785e8d6155eb7ea1",
+      "claim_hash": "06bcf5e293da7c877e0a1705308de8d7506097e08ee9fc4620af28bf50fecc0c",
       "claim_id": "claim:3ed81d9b24e959e50b55",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -163,6 +145,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "37ee6508db3d7751c29087335a16e6115e73b313df19a5204168f886b286b776",
       "source_record_ids": [
         "rock_documentation:article:1056"
@@ -173,12 +158,13 @@
           "title": "Configure Your Rock Context",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "For a Rock 19.0 internal-hosting installation, configure SQL Server with Mixed Mode authentication and retain the SQL Server password securely because it is required when setting up the Rock database.",
-      "claim_hash": "a82868e42db1b0a28ea66ba3b72111a90e682abc17b8d6a70923050f45520167",
+      "claim_hash": "fc0ea3d268e6c4102f8f950596a7c8cd0bc9f33efd0c3440541b45ade9ffb56b",
       "claim_id": "claim:3f74a64709044adaf969",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -191,6 +177,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7a739e351f4e5b853400c8a31de923abbe1e67e664e1960cc25c0ab017aa25b5",
       "source_record_ids": [
         "rock_documentation:article:1046"
@@ -201,42 +190,13 @@
           "title": "Install SQL Server",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode mixes broad AI and leadership discussion with two durable Rock operating practices: treat supported dot releases as security maintenance, and separate a ministry problem's requirements from the first proposed technical solution. External AI commentary and conference material are context only.",
-      "claim_hash": "2819fb77cc3abe66957fd9088187f11a92f21c42aeed59639a111b3fc6f71f10",
-      "claim_id": "claim:521feeb20751ee59149f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "hosting-infrastructure",
-        "platform-configuration",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
-      "source_record_ids": [
-        "rock_youtube:5c6ca9ff317ae001"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
-          "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "In a Rock 19.0 web farm, scheduled jobs must be configured to run on only one node because the web-farm feature does not prevent multiple nodes from running them.",
-      "claim_hash": "994a7a8e696c336d513cc1fc86ed17944757e45fbf10262860cd69a3570a7f70",
+      "claim_hash": "51026484ed58e295c480a9fc2cb9cc9c0a699d39866ca6e0cebf9674d37c51f0",
       "claim_id": "claim:53bd55e60a2554640a1a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
@@ -249,6 +209,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "619d76a9ab9c0163330a9b3e13678fa45cd921bac123385841a673fc49bc6412",
       "source_record_ids": [
         "rock_documentation:article:1054"
@@ -259,12 +222,13 @@
           "title": "Configure a Rock Web Farm",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "For Azure SQL Database, create Rock's SQL-authenticated login and master-database user with the dbmanager and loginmanager roles; after Rock creates its database, add the corresponding user in that database to the db_owner role.",
-      "claim_hash": "c3145a0e6b479b97f1879650327dbe00f8f8d914bd91c61860c6e9be6541db00",
+      "claim_hash": "0821426683aa951f703f6120a577e230455c9e370a6dfbc3f9fc1b34949d9dc8",
       "claim_id": "claim:6655fc3d1ab7b3e572b8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
@@ -277,6 +241,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fa336b61fe8ca568cc4ef45cc33192ad5001ece9e77ea35a5e49b237be82f1a8",
       "source_record_ids": [
         "rock_documentation:article:1047"
@@ -287,12 +252,13 @@
           "title": "Configure SQL Server",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Azure is a supported hosting path rather than a Rock requirement; organizations should choose among hosting options based on their scale, technical capacity, cost, and service quality needs.",
-      "claim_hash": "09d72beebdf77c609f3b815fb0e87ae2aa6e3cf33ca3a373f0abac84dce464a7",
+      "claim_hash": "e9468f81a2fece1da77a2b7e90a4286fc27ba5174bed3c3d33ec9a5c3125e062",
       "claim_id": "claim:68698a0c2c178f98cb2f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -305,6 +271,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "33bf45b337a648ab0351e49eb73d91e26a028010cc98d612ac11ffebbc3b5527",
       "source_record_ids": [
         "rock_documentation:article:2124"
@@ -315,12 +282,13 @@
           "title": "Intro to Azure Hosting",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For a Rock 19.0 internal-hosting installation, use SQL Server's default instance unless the administrator is experienced with named instances, because the default instance simplifies subsequent Rock configuration.",
-      "claim_hash": "4fd323d55c76caf994c5aaad6074ad08edd61e0138c08c29f326cb0cd78e8650",
+      "claim_hash": "ca4bd1d5fe839035579b5fd442debb14d8e25ba5a22817d76689f8b693b22dce",
       "claim_id": "claim:76b31296b6897d4734e3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -333,6 +301,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7a739e351f4e5b853400c8a31de923abbe1e67e664e1960cc25c0ab017aa25b5",
       "source_record_ids": [
         "rock_documentation:article:1046"
@@ -343,12 +314,13 @@
           "title": "Install SQL Server",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock installation that processes credit cards must not place the web server and database on the same server because that topology is not PCI compliant.",
-      "claim_hash": "57866b191522693b682b97fed8b2617c3d1d545f6b81a931784b25ac481746f5",
+      "claim_hash": "9203f980c7fd56d4c11e1a2830602a3f3d9d99952f90166e13fcf6a3a25eb569",
       "claim_id": "claim:82f246088b04f492eae3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
@@ -361,6 +333,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fa336b61fe8ca568cc4ef45cc33192ad5001ece9e77ea35a5e49b237be82f1a8",
       "source_record_ids": [
         "rock_documentation:article:1047"
@@ -371,12 +344,13 @@
           "title": "Configure SQL Server",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v18 and later require SQL Server 2022 or newer according to the internal-hosting system requirements, including installations whose other sizing guidance still lists older SQL editions.",
-      "claim_hash": "c9e13845f72ca8343439091900b3f2a11ad210c1cdfc9dd67ca7fc83b9d7b71c",
+      "claim_hash": "6a84c352b364abc8a9b8bfac7ee8ae3607132c4c3a473cbca74f0b7f6ee33857",
       "claim_id": "claim:867da60eac2e0656c815",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -389,6 +363,10 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "18.0",
+        "19.0"
+      ],
       "safe_evidence_hash": "9903c07f46cd16fdcefb444e9ef459e55c74b7ded3987557f99590325b0a0fa9",
       "source_record_ids": [
         "rock_documentation:article:2123"
@@ -399,12 +377,13 @@
           "title": "Intro to Internal Hosting",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock web farm requires a Spark web-farm license and an active message-bus transport; Rock 19.0 supports Azure Service Bus or RabbitMQ, with only one transport active.",
-      "claim_hash": "e8bc6bf68736d34e74495e8a76f80225a0c44963092fa0cf46149a0afd96ecd6",
+      "claim_hash": "f8492ad6155c04bdfc577db54aba478535e59b6053e085228a0a70b53c243a97",
       "claim_id": "claim:89bb09e36da247e182b1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -417,6 +396,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "619d76a9ab9c0163330a9b3e13678fa45cd921bac123385841a673fc49bc6412",
       "source_record_ids": [
         "rock_documentation:article:1054"
@@ -427,12 +409,13 @@
           "title": "Configure a Rock Web Farm",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "With SaaS-hosted Rock, the hosting provider operates and monitors the cloud environment and database and manages infrastructure concerns such as maintenance, backups, certificates, domains, and incidents according to the selected plan; the organization remains responsible for its data, content, Rock configuration, users, security, workflows, and routine administration.",
-      "claim_hash": "e499b8dd29bb9f1686f11ae48889c3df48c3962cee83ce7df6cc6e74e9482b15",
+      "claim_hash": "ce1e8533c55c75a58d86ca15c70152ca8416d56e016b82be267f1d985b99fc72",
       "claim_id": "claim:8c1831684d187b61b4b3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -445,6 +428,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0e7ca43df2a782cf6ab8340bb10c077ebcef8258c569c921d42e9a1a22ec5303",
       "source_record_ids": [
         "rock_documentation:article:2137"
@@ -455,12 +439,13 @@
           "title": "Intro to SaaS Hosting",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For an internally hosted Rock web server, install the IIS Web Server role with the Windows ASP.NET 4.x role service appropriate to the server OS, WebSocket Protocol, Application Initialization, and .NET Framework 3.5 Features.",
-      "claim_hash": "47dd9298c0748439d318b3262e3ae8b562f79751895cb3f35a46404499de522b",
+      "claim_hash": "470809cfca759b627cf5e0cd2d523404875eaa1c31ee6ed8e11006ecafc28b79",
       "claim_id": "claim:9b9df369582719c96c6f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -473,6 +458,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d575115c9a5c02b0625af95f090d24919a94df9aad5795e9915094b121e40ee4",
       "source_record_ids": [
         "rock_documentation:article:1044"
@@ -483,12 +469,13 @@
           "title": "Install Server Roles and Features",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock web-farm gateway should enable session affinity so each client continues reaching the same web node, because check-in relies on session state.",
-      "claim_hash": "944fba1219a1ac1a1f2d78d91374ac4a1e093f02f1d64ebaaff8f65b1263dd9d",
+      "claim_hash": "704a279c781e9389a6d48a0b8d9b9334cd9d0c4bd82293cd0b67dec0fe69d2da",
       "claim_id": "claim:9c187d24db6cdacee04d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -501,6 +488,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "5f456088d071dd9b1fe6bb05cf43bd7a7be24365f63205f541d9f956c63e90b5",
       "source_record_ids": [
         "rock_documentation:article:1053"
@@ -511,12 +499,13 @@
           "title": "Architect a Server Cluster",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation.",
-      "claim_hash": "246397f581f46e71d278fb60a0c55f502b743da574d22337a13183dc862e14e2",
+      "claim_hash": "72821f51f0ee27e9bdd7c644b76dbc644531e736f93fe451224d020c5050f640",
       "claim_id": "claim:9f3fc654783d47c63bb4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -531,6 +520,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
       "source_record_ids": [
         "rock_youtube:5c6ca9ff317ae001"
@@ -544,12 +534,13 @@
           "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
           "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Azure capacity planning should treat attendance-based tiers as starting points; organizations that also host their public website in Rock should select the next larger tier, while accounting for feature usage and workload intensity.",
-      "claim_hash": "f7a380e89c0b1a5ff5de80a143121635d9c5e333a37070a1bb3e18ae3bf28ddf",
+      "claim_hash": "9e6e2a9bc439f5c8bf53d263e08a0bfb4cc1e2929258c8fa5809f3ba63c93335",
       "claim_id": "claim:b6d0c03e3e8239dd60fa",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -562,6 +553,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "27a5b399ce570e543de436bcc25abedcb610feec8bacf40009394485c894eab2",
       "source_record_ids": [
         "rock_documentation:article:1050"
@@ -572,12 +564,13 @@
           "title": "Compare Sizing and Service Options",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock 19.0, adding a RockContextReadOnly connection string to web.ConnectionStrings.config allows Data Views and Reports to use a read-only database; an administrator can disable that context for an individual Data View when its filters or plugins need to write to the database.",
-      "claim_hash": "7d65d21ffb977182c76a6709e9ac1bf6e4aee0a6cb9d1c8095db0fb44ff87bed",
+      "claim_hash": "2d0843b7a6988a95415a39e67e8a2b56e86945554efbb7d86ca91efe7d538c4f",
       "claim_id": "claim:b9c67d8e492d7f718308",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -590,6 +583,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "37ee6508db3d7751c29087335a16e6115e73b313df19a5204168f886b286b776",
       "source_record_ids": [
         "rock_documentation:article:1056"
@@ -600,12 +596,13 @@
           "title": "Configure Your Rock Context",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM.",
-      "claim_hash": "b67ed2737a969d01bf5264975842099071367ec9b93f5c2a3ce08f564d5e85a1",
+      "claim_hash": "bb0bcad7617736e2e4324a6f94a628e1116b60bd26a8ecd79b5e95c4f4a4ba8f",
       "claim_id": "claim:bed80224adc3fdd6cdd5",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -618,6 +615,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "842df7cb297c26acb57b568f5d0c789c43c907fbd00c9e47ba45779c8489dddb",
       "source_record_ids": [
         "rock_documentation:article:1052"
@@ -628,12 +626,13 @@
           "title": "Next Steps for Azure Hosting",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "When adding the required Windows server features, an unavailable-source error can be resolved by mounting matching Windows installation media and supplying its sources\\sxs directory as the alternate source path.",
-      "claim_hash": "0c03a84841e228c836a58823934b47c92a2a873db5e525bf70e23301a2a93f60",
+      "claim_hash": "81d0c2a405d645f1b082a776c4e2ea78ee0c8592922ad16876f602d85b80b82c",
       "claim_id": "claim:c73905a84136ab13b3ee",
       "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
@@ -646,6 +645,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d575115c9a5c02b0625af95f090d24919a94df9aad5795e9915094b121e40ee4",
       "source_record_ids": [
         "rock_documentation:article:1044"
@@ -656,12 +656,13 @@
           "title": "Install Server Roles and Features",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For a Rock 19.0 internal-hosting installation, place only the installer package's Start.aspx and web.config files in the IIS web root, then open /Start.aspx locally to begin the setup process.",
-      "claim_hash": "b893479014751496596dfc37a37b8e1aa4b47d4c56713e255d479a1606c1de9b",
+      "claim_hash": "32cebe61bd73ecf1e0c2f3c1c2dcf4f3a1d735197faebdb32b87ba551bf5ac0c",
       "claim_id": "claim:c8c3b5fee19159470362",
       "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
@@ -674,6 +675,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "bf6f9fdb2c279c016ff9db98a9ad181c5eb9da2dba5ef93f1097b1b0202028b9",
       "source_record_ids": [
         "rock_documentation:article:1048"
@@ -684,12 +688,13 @@
           "title": "Install Rock",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "For Rock 19.0 on IIS, configure the application pool to use .NET Framework v4.0, start automatically, run as LocalSystem, disable idle timeout, and preload the website; schedule recycling for a specific low-traffic time instead of using regular recycling intervals.",
-      "claim_hash": "f940ac83db81fc86723f7105204caead6cd3f63258d3ee89c1480604909e8b42",
+      "claim_hash": "76f43503deb1e7e365aefe905c1aec8c918ee9f236dff36d553917f0fde3e6bd",
       "claim_id": "claim:cdd73efcdcd014bed67e",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -702,6 +707,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "0f3715ef7eaf064e6c8f79d3024c1c3bcd1e7b53ae4fafab1acce3e96b68fbb9",
       "source_record_ids": [
         "rock_documentation:article:1045"
@@ -712,12 +720,13 @@
           "title": "Configure Internet Information Services (IIS)",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation.",
-      "claim_hash": "d1aba6983b97ff01a132319fea5ba4d8be8d6b068da3654aacf5efdaf736037b",
+      "claim_hash": "c421f9283f0acccfed4238cb65b494d3fb94925ea809c33c5df5e6793746c6f9",
       "claim_id": "claim:d64ec12bd44248ad3db0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -732,6 +741,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
       "source_record_ids": [
         "rock_podcast_rss:aa14f5be5cae2d59"
@@ -745,12 +755,13 @@
           "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
           "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For Azure hosting, Rock recommends running the web and application server on a Windows virtual machine using IaaS and using Azure SQL as a managed PaaS database.",
-      "claim_hash": "00e44bf79b9362b2f3ccda507548c603c4f783e863635de781c11ff62546bf16",
+      "claim_hash": "c08b46f7cd9842fa7b29ccff4d29416753586bc5da3b9caf35bbbf9e1d281634",
       "claim_id": "claim:dba9f8a7413cfd92b396",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -763,6 +774,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "27a5b399ce570e543de436bcc25abedcb610feec8bacf40009394485c894eab2",
       "source_record_ids": [
         "rock_documentation:article:1050"
@@ -773,12 +785,13 @@
           "title": "Compare Sizing and Service Options",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading.",
-      "claim_hash": "19c4f4aa7ac4a4e9a332c02c09bbed893ed698adea69e1a57c9c0e110cb8a796",
+      "claim_hash": "96931ac89d48d3554c56b6430f20245427f3824ba90d593be77a72ee0accffa2",
       "claim_id": "claim:e78d41d7fefc84b6e9e7",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -794,6 +807,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b90a6e4b80b52d009392ff9a8a1b01b5a76988a92f290d93892be88eb7ec3cd3",
       "source_record_ids": [
         "rock_youtube:5c6ca9ff317ae001"
@@ -807,12 +821,13 @@
           "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
           "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading.",
-      "claim_hash": "36b13f86207c57023a5e56c0cba24985fbb8524d972b9e88a6d170e93633d76f",
+      "claim_hash": "c16e64ffff1d93bf4fb768b11f1065f478db3922042cd895b8011fd19384bc6d",
       "claim_id": "claim:e85569aadbc37d16c9cc",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -828,6 +843,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "bb1d3626a75c102c20592a0a7545229a4fb5b09d704eb4e727971674e2e4d492",
       "source_record_ids": [
         "rock_podcast_rss:aa14f5be5cae2d59"
@@ -841,40 +857,13 @@
           "title": "The Vatican on AI and Grandmasters on Ministry | Ep 215",
           "url": "https://shows.acast.com/rock-cast/episodes/the-vatican-on-ai-and-grandmasters-on-ministry-ep-215"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "An organization that already has an Azure account should ask Microsoft Support to merge it with the nonprofit account so the nonprofit credit can be applied to the existing Azure setup.",
-      "claim_hash": "4bf13d37aa75306eeb3cfc8c5e8bac70f82a33167f248a14ffb4af2f084185a7",
-      "claim_id": "claim:ee1400c2e80326ea05c6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "hosting-infrastructure"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6dc83d23de2e78659a9614dc72c00668cea46711240a3c6a3d9a840887386d2b",
-      "source_record_ids": [
-        "rock_documentation:article:1051"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_documentation",
-          "title": "Register for Credits as a Non-Profit",
-          "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock recommends enabling snapshot isolation on its SQL Server database so that database writes do not block reads; the setting may already be enabled depending on the SQL Server edition and version.",
-      "claim_hash": "93d9b3c613e9173ec4c4bad7e7c4e484b9877de97e04eb90f296222c2606e4fa",
+      "claim_hash": "a1a272eadf907b2f754a074cfbebf213ff98614e6afe8c627067246076143a78",
       "claim_id": "claim:f62f45338771fcbbac1a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -887,6 +876,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "bf6f9fdb2c279c016ff9db98a9ad181c5eb9da2dba5ef93f1097b1b0202028b9",
       "source_record_ids": [
         "rock_documentation:article:1048"
@@ -897,12 +887,13 @@
           "title": "Install Rock",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Enable IIS dynamic-content compression when the option is available; if it is disabled because the required compression module is not installed, the step may be skipped.",
-      "claim_hash": "5e7b0a42b4eedddd6a03eb535279cd955f9d28e662a5a8fbbfadbc34c187e1b2",
+      "claim_hash": "d9cebc9e45622c7eb49c4430886811098d1a0ebed77f468a1da65be29223e961",
       "claim_id": "claim:febe1cab499e9e195f40",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -915,6 +906,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0f3715ef7eaf064e6c8f79d3024c1c3bcd1e7b53ae4fafab1acce3e96b68fbb9",
       "source_record_ids": [
         "rock_documentation:article:1045"
@@ -925,44 +917,42 @@
           "title": "Configure Internet Information Services (IIS)",
           "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:091606bd3b8b0472392a": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
-    "claim:0ac39c6f9dbf72e1b72a": "c7dfea2280ffb92566913b2e37dc70984378946baae95eacd6a9ec569c95cae9",
-    "claim:249814408c9c8842ef96": "34daeb66a62633aa894d0e9f76477c8cf7360c499af29e5ad992d11b8ba1074a",
-    "claim:36da04a44a538e1c8e5e": "aa0952ba05df7797b5a7e22fe1eeb5854baefd4bd60aa402aec46c18aacbea40",
-    "claim:3800f13989d805462464": "04975f1a1125f4140ee0a0c71650a7a301eb8a36ef31c0171d1c66bb706e1262",
-    "claim:3ed81d9b24e959e50b55": "e249fa722150aeea58a8c24314990225e60f5e8a89fb390f785e8d6155eb7ea1",
-    "claim:3f74a64709044adaf969": "a82868e42db1b0a28ea66ba3b72111a90e682abc17b8d6a70923050f45520167",
-    "claim:521feeb20751ee59149f": "2819fb77cc3abe66957fd9088187f11a92f21c42aeed59639a111b3fc6f71f10",
-    "claim:53bd55e60a2554640a1a": "994a7a8e696c336d513cc1fc86ed17944757e45fbf10262860cd69a3570a7f70",
-    "claim:6655fc3d1ab7b3e572b8": "c3145a0e6b479b97f1879650327dbe00f8f8d914bd91c61860c6e9be6541db00",
-    "claim:68698a0c2c178f98cb2f": "09d72beebdf77c609f3b815fb0e87ae2aa6e3cf33ca3a373f0abac84dce464a7",
-    "claim:76b31296b6897d4734e3": "4fd323d55c76caf994c5aaad6074ad08edd61e0138c08c29f326cb0cd78e8650",
-    "claim:82f246088b04f492eae3": "57866b191522693b682b97fed8b2617c3d1d545f6b81a931784b25ac481746f5",
-    "claim:867da60eac2e0656c815": "c9e13845f72ca8343439091900b3f2a11ad210c1cdfc9dd67ca7fc83b9d7b71c",
-    "claim:89bb09e36da247e182b1": "e8bc6bf68736d34e74495e8a76f80225a0c44963092fa0cf46149a0afd96ecd6",
-    "claim:8c1831684d187b61b4b3": "e499b8dd29bb9f1686f11ae48889c3df48c3962cee83ce7df6cc6e74e9482b15",
-    "claim:9b9df369582719c96c6f": "47dd9298c0748439d318b3262e3ae8b562f79751895cb3f35a46404499de522b",
-    "claim:9c187d24db6cdacee04d": "944fba1219a1ac1a1f2d78d91374ac4a1e093f02f1d64ebaaff8f65b1263dd9d",
-    "claim:9f3fc654783d47c63bb4": "246397f581f46e71d278fb60a0c55f502b743da574d22337a13183dc862e14e2",
-    "claim:b6d0c03e3e8239dd60fa": "f7a380e89c0b1a5ff5de80a143121635d9c5e333a37070a1bb3e18ae3bf28ddf",
-    "claim:b9c67d8e492d7f718308": "7d65d21ffb977182c76a6709e9ac1bf6e4aee0a6cb9d1c8095db0fb44ff87bed",
-    "claim:bed80224adc3fdd6cdd5": "b67ed2737a969d01bf5264975842099071367ec9b93f5c2a3ce08f564d5e85a1",
-    "claim:c73905a84136ab13b3ee": "0c03a84841e228c836a58823934b47c92a2a873db5e525bf70e23301a2a93f60",
-    "claim:c8c3b5fee19159470362": "b893479014751496596dfc37a37b8e1aa4b47d4c56713e255d479a1606c1de9b",
-    "claim:cdd73efcdcd014bed67e": "f940ac83db81fc86723f7105204caead6cd3f63258d3ee89c1480604909e8b42",
-    "claim:d64ec12bd44248ad3db0": "d1aba6983b97ff01a132319fea5ba4d8be8d6b068da3654aacf5efdaf736037b",
-    "claim:dba9f8a7413cfd92b396": "00e44bf79b9362b2f3ccda507548c603c4f783e863635de781c11ff62546bf16",
-    "claim:e78d41d7fefc84b6e9e7": "19c4f4aa7ac4a4e9a332c02c09bbed893ed698adea69e1a57c9c0e110cb8a796",
-    "claim:e85569aadbc37d16c9cc": "36b13f86207c57023a5e56c0cba24985fbb8524d972b9e88a6d170e93633d76f",
-    "claim:ee1400c2e80326ea05c6": "4bf13d37aa75306eeb3cfc8c5e8bac70f82a33167f248a14ffb4af2f084185a7",
-    "claim:f62f45338771fcbbac1a": "93d9b3c613e9173ec4c4bad7e7c4e484b9877de97e04eb90f296222c2606e4fa",
-    "claim:febe1cab499e9e195f40": "5e7b0a42b4eedddd6a03eb535279cd955f9d28e662a5a8fbbfadbc34c187e1b2"
+    "claim:091606bd3b8b0472392a": "8f164bab8fd5d57454ec1191f151c3477890eca754ae1db09505be7ec771f617",
+    "claim:0ac39c6f9dbf72e1b72a": "22822cfe70d932208f3ed60d0b4b79c38b9c3d20e8557a9dd97fbbe020ca43fa",
+    "claim:249814408c9c8842ef96": "eca6946534b7b8fdbc5b35015e2c195f7b927344b15d581dec87c27deb4e432b",
+    "claim:3800f13989d805462464": "43560909ab0c865dfffb5b62b048a8c672014d0132af287f3c6ef653c5ae2c1f",
+    "claim:3ed81d9b24e959e50b55": "06bcf5e293da7c877e0a1705308de8d7506097e08ee9fc4620af28bf50fecc0c",
+    "claim:3f74a64709044adaf969": "fc0ea3d268e6c4102f8f950596a7c8cd0bc9f33efd0c3440541b45ade9ffb56b",
+    "claim:53bd55e60a2554640a1a": "51026484ed58e295c480a9fc2cb9cc9c0a699d39866ca6e0cebf9674d37c51f0",
+    "claim:6655fc3d1ab7b3e572b8": "0821426683aa951f703f6120a577e230455c9e370a6dfbc3f9fc1b34949d9dc8",
+    "claim:68698a0c2c178f98cb2f": "e9468f81a2fece1da77a2b7e90a4286fc27ba5174bed3c3d33ec9a5c3125e062",
+    "claim:76b31296b6897d4734e3": "ca4bd1d5fe839035579b5fd442debb14d8e25ba5a22817d76689f8b693b22dce",
+    "claim:82f246088b04f492eae3": "9203f980c7fd56d4c11e1a2830602a3f3d9d99952f90166e13fcf6a3a25eb569",
+    "claim:867da60eac2e0656c815": "6a84c352b364abc8a9b8bfac7ee8ae3607132c4c3a473cbca74f0b7f6ee33857",
+    "claim:89bb09e36da247e182b1": "f8492ad6155c04bdfc577db54aba478535e59b6053e085228a0a70b53c243a97",
+    "claim:8c1831684d187b61b4b3": "ce1e8533c55c75a58d86ca15c70152ca8416d56e016b82be267f1d985b99fc72",
+    "claim:9b9df369582719c96c6f": "470809cfca759b627cf5e0cd2d523404875eaa1c31ee6ed8e11006ecafc28b79",
+    "claim:9c187d24db6cdacee04d": "704a279c781e9389a6d48a0b8d9b9334cd9d0c4bd82293cd0b67dec0fe69d2da",
+    "claim:9f3fc654783d47c63bb4": "72821f51f0ee27e9bdd7c644b76dbc644531e736f93fe451224d020c5050f640",
+    "claim:b6d0c03e3e8239dd60fa": "9e6e2a9bc439f5c8bf53d263e08a0bfb4cc1e2929258c8fa5809f3ba63c93335",
+    "claim:b9c67d8e492d7f718308": "2d0843b7a6988a95415a39e67e8a2b56e86945554efbb7d86ca91efe7d538c4f",
+    "claim:bed80224adc3fdd6cdd5": "bb0bcad7617736e2e4324a6f94a628e1116b60bd26a8ecd79b5e95c4f4a4ba8f",
+    "claim:c73905a84136ab13b3ee": "81d0c2a405d645f1b082a776c4e2ea78ee0c8592922ad16876f602d85b80b82c",
+    "claim:c8c3b5fee19159470362": "32cebe61bd73ecf1e0c2f3c1c2dcf4f3a1d735197faebdb32b87ba551bf5ac0c",
+    "claim:cdd73efcdcd014bed67e": "76f43503deb1e7e365aefe905c1aec8c918ee9f236dff36d553917f0fde3e6bd",
+    "claim:d64ec12bd44248ad3db0": "c421f9283f0acccfed4238cb65b494d3fb94925ea809c33c5df5e6793746c6f9",
+    "claim:dba9f8a7413cfd92b396": "c08b46f7cd9842fa7b29ccff4d29416753586bc5da3b9caf35bbbf9e1d281634",
+    "claim:e78d41d7fefc84b6e9e7": "96931ac89d48d3554c56b6430f20245427f3824ba90d593be77a72ee0accffa2",
+    "claim:e85569aadbc37d16c9cc": "c16e64ffff1d93bf4fb768b11f1065f478db3922042cd895b8011fd19384bc6d",
+    "claim:f62f45338771fcbbac1a": "a1a272eadf907b2f754a074cfbebf213ff98614e6afe8c627067246076143a78",
+    "claim:febe1cab499e9e195f40": "d9cebc9e45622c7eb49c4430886811098d1a0ebed77f468a1da65be29223e961"
   },
-  "approved_claims_hash": "75cfe734fb19a589f9a205088c8beaef57c506f52933393881180810f41a99c9",
+  "approved_claims_hash": "4b84257e8749aca64fc56aebdc9846911c6cdb47e13d98fde5488109b50839dd",
   "approved_claims_path": "knowledge/concepts/hosting-infrastructure/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1022,9 +1012,9 @@
   },
   "approved_media_hash": "422b7d6fc1300601bff1d1f08385501fbd284276d00641a8c6e2f1960ee65f85",
   "approved_media_path": "knowledge/concepts/hosting-infrastructure/approved-media.md",
-  "built_at": "2026-07-26T00:29:42+00:00",
+  "built_at": "2026-07-30T02:07:54+00:00",
   "concept_id": "hosting-infrastructure",
-  "guide_hash": "28b6a6699b0a1ebbd7bcef43336c18212c1fd4a822a42aa8ff425ac889eb50af",
+  "guide_hash": "a9fea847231256b89bb7baf28704f655a112fe08e498c5bccd208fab8e65747c",
   "guide_line_count": 1323,
   "guide_path": "knowledge/concepts/hosting-infrastructure/guide.md",
   "guide_word_count": 11522,
@@ -1345,6 +1335,7 @@
       "url": "https://community.rockrms.com/recipes/96"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -3438,5 +3429,6 @@
       "version": null
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

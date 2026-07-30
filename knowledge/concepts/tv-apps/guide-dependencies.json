@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 10,
+  "approved_claim_count": 10,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows.",
-      "claim_hash": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
+      "claim_hash": "a449f055046907fbe417e8984173c313823b0361df53b99983e10a7dc0e8a717",
       "claim_id": "claim:29f4e0bbc81c08861367",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -35,6 +37,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fb2381e8a0c8d6a854b3e4d4e0948910c0a736cc631c6729f1b1ea2da7a848cc",
       "source_record_ids": [
         "rock_developer:80679876651d7dc7"
@@ -45,12 +48,13 @@
           "title": "Apple TV JavaScript Commands",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock Apple TV app is created as a Rock-managed TV application record under CMS configuration, with Rock-side settings that are distinct from the App Store name.",
-      "claim_hash": "66c75fd11843ce29cb4dd2c99c095687532fd45f0b44d50af6aa9f6bd1f0a648",
+      "claim_hash": "5d8ecf5b9e5570f12963088a5f3d51590e16f0a67800e5959a4aa03e0ad256ae",
       "claim_id": "claim:30ff6291c1d3a92fea69",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -85,6 +89,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "7e6aa7c83db8c8701823dd213a68d6c33502907d354b527e50e708c878ccdb11",
       "source_record_ids": [
         "rock_developer:66cd0caee02b1e4b"
@@ -95,12 +100,13 @@
           "title": "Creating an Apple TV App",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default.",
-      "claim_hash": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+      "claim_hash": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
       "claim_id": "claim:410bf6750e90b7193262",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -137,6 +143,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a0d408d23ccf9b097684d2479ac6cf14bc5d2e76d37db21b10d1c6c2edf630c6",
       "source_record_ids": [
         "rock_lava_docs:53ad1133e1cb2d0a"
@@ -147,12 +154,13 @@
           "title": "Creating APIs Using Lava",
           "url": "https://community.rockrms.com/lava/lava-api"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater.",
-      "claim_hash": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
+      "claim_hash": "a507ea812012860459daa03e1d787125f97417f34e35aa7ba6568683ff79e2b5",
       "claim_id": "claim:49b86c70fc03c6969d42",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -166,6 +174,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "14+"
+      ],
       "safe_evidence_hash": "6b7bb4c0b2ee6aa9b665230cafaf61ada34531d79df188c6ce4d3c7fe92f89cc",
       "source_record_ids": [
         "rock_developer:74ac83f99a50c012"
@@ -176,12 +187,13 @@
           "title": "Apple TV Docs",
           "url": "https://community.rockrms.com/developer/apple-tv-docs"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "release-note-confirmed",
       "claim": "Triumph's GitHub Spotlight for the v17.0.29 pre-alpha notes that the Roku TV app feature was added for Rock v16.7, making Roku coverage version-sensitive.",
-      "claim_hash": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
+      "claim_hash": "1f6152b22ed9d2acbafe0e4638494a542fd1b8825105622bec1e441300564dde",
       "claim_id": "claim:52b50da71870c1d611da",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -195,6 +207,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "16.7+"
+      ],
       "safe_evidence_hash": "125ffbfa19b202adfa2f0563f817e353bf4e0d38c93c5d2e2dd1a5559eb159ae",
       "source_record_ids": [
         "triumph_resources:9d0ccce785ef64bb"
@@ -205,12 +220,13 @@
           "title": "GitHub Spotlight: 10/4/2024",
           "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML.",
-      "claim_hash": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
+      "claim_hash": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
       "claim_id": "claim:563e520ec15928e19628",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -225,6 +241,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1b1ae6826ce4d38969877ecc638a53231450132279d919c16acd8c11490c9091",
       "source_record_ids": [
         "rock_developer:6449dcd93497b4cd"
@@ -235,12 +252,13 @@
           "title": "Roku Pages",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage.",
-      "claim_hash": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+      "claim_hash": "056ac2b913d91d378fb85147ef9722fda1fa94d4b22ac4cac58e2d8a835e64f8",
       "claim_id": "claim:5bd2b6b4cac279be5e13",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -255,6 +273,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "7ab05312dace90846212edf514275a3af6c3b798841a05a35bcb6f2a590c7592",
       "source_record_ids": [
         "rock_developer:67f84804d07244b3"
@@ -265,12 +284,13 @@
           "title": "Apple TV Pages",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku documentation describes Roku support as a way to extend Rock-powered digital ministry to Roku TV through Rock-managed Roku integration.",
-      "claim_hash": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
+      "claim_hash": "b4b312f02973d359166634ea2792733d6180a05f98e5015065fafa26e9ce5839",
       "claim_id": "claim:669456b72f0978dc418a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -284,6 +304,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "12a74febd6a6099c457b42bd0853d4dbac432a3b895f4e1bc2003a37190a185f",
       "source_record_ids": [
         "rock_developer:35d2e6eb8d06e01f"
@@ -294,46 +315,13 @@
           "title": "Roku Docs",
           "url": "https://community.rockrms.com/developer/roku-docs"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns.",
-      "claim_hash": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-      "claim_id": "claim:8ea35a7125998a66db92",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:03",
-          "timestamp_seconds": 183.66,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas.",
-      "claim_hash": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
+      "claim_hash": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
       "claim_id": "claim:9398f3fb18e8a79c0e4d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -365,6 +353,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e53898e072789bf664b39fa2355b590fd831746f748c3ad035482b6e4af207bf",
       "source_record_ids": [
         "rock_developer:8f58264f88176697"
@@ -375,46 +364,13 @@
           "title": "Roku Commands",
           "url": "https://community.rockrms.com/developer/roku-docs/commands"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior.",
-      "claim_hash": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-      "claim_id": "claim:98aeedbbadb50affa418",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:33",
-          "timestamp_seconds": 213.54,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava.",
-      "claim_hash": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
+      "claim_hash": "34921d8cc1483c435d161d95be73a29ff406efe3a292682e41d69d2cb879663c",
       "claim_id": "claim:a43c6281e5328e7cac68",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -449,6 +405,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b08952928c1b67f52df55bafb7f274dd698de3323a0cd4b9b6de6d9d1a6d2cf6",
       "source_record_ids": [
         "rock_developer:9cff0c87fd8eab29"
@@ -459,102 +416,34 @@
           "title": "Roku Applications",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform.",
-      "claim_hash": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-      "claim_id": "claim:b83b4c10285c00974e57",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "01:26",
-          "timestamp_seconds": 86.92,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior.",
-      "claim_hash": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
-      "claim_id": "claim:f52accde86e6d6617963",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:29f4e0bbc81c08861367": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
-    "claim:30ff6291c1d3a92fea69": "66c75fd11843ce29cb4dd2c99c095687532fd45f0b44d50af6aa9f6bd1f0a648",
-    "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
-    "claim:49b86c70fc03c6969d42": "88263d519605030fa592ae701ea569ae3ae1d7bfd6c498c213f5a7454d427285",
-    "claim:52b50da71870c1d611da": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
-    "claim:563e520ec15928e19628": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
-    "claim:5bd2b6b4cac279be5e13": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
-    "claim:669456b72f0978dc418a": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
-    "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-    "claim:9398f3fb18e8a79c0e4d": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
-    "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-    "claim:a43c6281e5328e7cac68": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
-    "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-    "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
+    "claim:29f4e0bbc81c08861367": "a449f055046907fbe417e8984173c313823b0361df53b99983e10a7dc0e8a717",
+    "claim:30ff6291c1d3a92fea69": "5d8ecf5b9e5570f12963088a5f3d51590e16f0a67800e5959a4aa03e0ad256ae",
+    "claim:410bf6750e90b7193262": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
+    "claim:49b86c70fc03c6969d42": "a507ea812012860459daa03e1d787125f97417f34e35aa7ba6568683ff79e2b5",
+    "claim:52b50da71870c1d611da": "1f6152b22ed9d2acbafe0e4638494a542fd1b8825105622bec1e441300564dde",
+    "claim:563e520ec15928e19628": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
+    "claim:5bd2b6b4cac279be5e13": "056ac2b913d91d378fb85147ef9722fda1fa94d4b22ac4cac58e2d8a835e64f8",
+    "claim:669456b72f0978dc418a": "b4b312f02973d359166634ea2792733d6180a05f98e5015065fafa26e9ce5839",
+    "claim:9398f3fb18e8a79c0e4d": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
+    "claim:a43c6281e5328e7cac68": "34921d8cc1483c435d161d95be73a29ff406efe3a292682e41d69d2cb879663c"
   },
-  "approved_claims_hash": "79156c069f555175c1fc8e2ae09d5ec00897dd5750097cf8b721ae99b425049a",
+  "approved_claims_hash": "a910c58881a5bc62f93dbbeb76c0bc3ed9f52d7949339443fdd1aee633a485fc",
   "approved_claims_path": "knowledge/concepts/tv-apps/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "53ee2a24710ff95c67799de882e526601657f58de5d7d2c292036aff87771b22",
   "approved_media_path": "knowledge/concepts/tv-apps/approved-media.md",
-  "built_at": "2026-07-26T00:30:05+00:00",
+  "built_at": "2026-07-30T02:08:13+00:00",
   "concept_id": "tv-apps",
-  "guide_hash": "16847d6ee5d4b0053ff4ffab761a529a4ccb330ae339699ea3ab695fe499ef18",
-  "guide_line_count": 1111,
+  "guide_hash": "405d59e824f8a18d9bb3ded6843b7f623f4127e62b4d417229a32f2a1d8d9543",
+  "guide_line_count": 1108,
   "guide_path": "knowledge/concepts/tv-apps/guide.md",
-  "guide_word_count": 11936,
+  "guide_word_count": 11847,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -719,15 +608,6 @@
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
       "authority": "official-release",
       "content_hash": null,
       "excerpt_hash": null,
@@ -746,6 +626,7 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -1810,7 +1691,7 @@
     },
     {
       "confidence": "normal",
-      "end_line": 1061,
+      "end_line": 1058,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -1824,15 +1705,13 @@
         "53ad1133e1cb2d0a",
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f",
-        "9d0ccce785ef64bb",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5"
+        "9d0ccce785ef64bb"
       ],
       "start_line": 1036
     },
     {
       "confidence": "structural",
-      "end_line": 1068,
+      "end_line": 1065,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -1846,15 +1725,13 @@
         "53ad1133e1cb2d0a",
         "74ac83f99a50c012",
         "35d2e6eb8d06e01f",
-        "9d0ccce785ef64bb",
-        "7cf9c01c97ba95d5",
-        "7cf9c01c97ba95d5"
+        "9d0ccce785ef64bb"
       ],
-      "start_line": 1062
+      "start_line": 1059
     },
     {
       "confidence": "structural",
-      "end_line": 1070,
+      "end_line": 1067,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -1873,11 +1750,11 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1069
+      "start_line": 1066
     },
     {
       "confidence": "normal",
-      "end_line": 1111,
+      "end_line": 1108,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -1929,7 +1806,7 @@
         "a76f73c64199a534",
         "bd028713c00f4c0b"
       ],
-      "start_line": 1071
+      "start_line": 1068
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T18:14:21+00:00",
@@ -2315,16 +2192,6 @@
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Controllers/CodeGenerated/RemoteAuthenticationSessionsController.CodeGenerated.cs"
     },
     {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
       "authority": "official-release",
       "authority_score": 95,
       "kind": "citation_only",
@@ -2345,5 +2212,6 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

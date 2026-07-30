@@ -24,6 +24,18 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
 
     assert any(row["kind"] == "concept" and row["concept"] == "check-in" for row in rows)
     assert any(row["kind"] == "claim" and row["claim_tier"] for row in rows)
+    assert any(
+        row["id"] == "task_card:check-in:diagnose-labels-not-printing"
+        and row["kind"] == "task_card"
+        for row in rows
+    )
+    assert any(
+        row["kind"] == "troubleshooting_node"
+        and row["concept"] == "check-in"
+        and "label" in row["body"].lower()
+        and "print" in row["body"].lower()
+        for row in rows
+    )
     assert all("authority_tier" in row and "claim_tier" in row for row in rows)
     corroborating_claims = [
         row
@@ -230,6 +242,27 @@ def test_answer_search_rows_include_live_inspection_checklist(monkeypatch):
     assert len(rows) == 1
     assert "WorkflowActionType" in rows[0]["body"]
     assert "Workflow docs" in rows[0]["body"]
+
+
+def test_task_card_and_troubleshooting_rows_include_operational_symptom_text():
+    task = next(
+        row
+        for row in service_projection.task_card_search_rows()
+        if row["id"] == "task_card:check-in:diagnose-labels-not-printing"
+    )
+    node = next(
+        row
+        for row in service_projection.troubleshooting_node_search_rows()
+        if row["id"]
+        == "troubleshooting_node:check-in:symptom-attendance-saved-but-label-did-not-print"
+    )
+
+    assert task["claim_tier"] == "source_backed"
+    assert "printer routing" in task["body"].lower()
+    assert task["payload"]["version_scope_status"] == "unprocessed"
+    assert node["claim_tier"] == "source_backed"
+    assert "attendance" in node["body"].lower()
+    assert node["payload"]["entrypoint"]
 
 
 def test_model_map_search_rows_include_model_detail_properties():
@@ -473,7 +506,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.7.0"
+    assert skill_manifest["skill_version"] == "1.8.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))

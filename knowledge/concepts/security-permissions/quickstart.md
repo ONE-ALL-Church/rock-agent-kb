@@ -17,13 +17,13 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 
 ## Primary Tasks
 
-- [Recipe: Answer “Who Has Access To This?”](tasks/recipe-answer-who-has-access-to-this.md): Follow the guide section for Recipe: Answer “Who Has Access To This?”.
-- [Recipe: Answer “Why Was I Denied?”](tasks/recipe-answer-why-was-i-denied.md): Follow the guide section for Recipe: Answer “Why Was I Denied?”.
-- [Recipe: Review A Permission Change Request](tasks/recipe-review-a-permission-change-request.md): Follow the guide section for Recipe: Review A Permission Change Request.
-- [Recipe: Review A Custom Agent Tool](tasks/recipe-review-a-custom-agent-tool.md): Follow the guide section for Recipe: Review A Custom Agent Tool.
-- [Recipe: Review A Public Route](tasks/recipe-review-a-public-route.md): Follow the guide section for Recipe: Review A Public Route.
-- [Recipe: Review A Security Role](tasks/recipe-review-a-security-role.md): Follow the guide section for Recipe: Review A Security Role.
-- [Recipe: Review After Upgrade](tasks/recipe-review-after-upgrade.md): Follow the guide section for Recipe: Review After Upgrade.
+- [Recipe: Answer “Who Has Access To This?”](tasks/recipe-answer-who-has-access-to-this.md): Do not answer from direct `Auth` rows alone unless the question is explicitly “what rules are configured?” The role inspector recipe warns direct rows do not account for inheritance (Security Role Permissions Inspector).
+- [Recipe: Answer “Why Was I Denied?”](tasks/recipe-answer-why-was-i-denied.md): Do not stop at direct `Auth` rows: Rock security includes inherited authority and code-level action checks, and the role inspector recipe explicitly warns that direct row listings do not account for inheritance (Rock Security, Security Role Permissions Inspector).
+- [Recipe: Review A Permission Change Request](tasks/recipe-review-a-permission-change-request.md): Then implement the smallest change and test.
+- [Recipe: Review A Custom Agent Tool](tasks/recipe-review-a-custom-agent-tool.md): Source: Writing Custom Tools.
+- [Recipe: Review A Public Route](tasks/recipe-review-a-public-route.md): Sources: IdKey guidance, Helix security, and remote Lava warnings (Rock Security, Helix Security, Using Lava Remotely).
+- [Recipe: Review A Security Role](tasks/recipe-review-a-security-role.md): Complete Review A Security Role with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review After Upgrade](tasks/recipe-review-after-upgrade.md): Sources: Release Notes, GitHub Spotlight: 9/6/2024, GitHub Spotlight: 5/21/2026.
 
 ## High-Signal Sections
 

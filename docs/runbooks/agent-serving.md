@@ -14,18 +14,34 @@ Register the server with an MCP client:
 { "mcpServers": { "rock-kb": { "command": "uv", "args": ["run", "--directory", "/path/to/Rock General Knowledge Base", "kb", "serve"] } } }
 ```
 
-Available tools:
+The local stdio server is a repository-maintainer compatibility surface. It
+exposes the core read-only artifact, Model Map, Lava context, recipe, and Rock
+issue tools, but its SQLite search and claim-list responses retain the older
+local shapes. Published agents should use the hosted MCP described below for
+the current retrieval contract.
 
-- `kb_search`: full-text search across public KB artifacts. Start here for most Rock questions.
+Core local tools:
+
+- `kb_search`: local full-text search over the restored public index.
 - `kb_get_result`: full public record for one exact compact search result id.
 - `kb_get_claim`: one exact approved claim and all of its concept routes.
 - `kb_manifest`: public artifact manifest and entrypoints.
 - `kb_list_concepts`: available concept ids, titles, guide paths, and dependency metadata.
 - `kb_get_concept`: quickstart, answers, task cards, and release caveats for one concept.
 - `kb_get_claims`: approved public claims for a concept, optionally filtered by claim tier.
+- `kb_list_models` and `kb_get_model`: exact Model Map discovery and retrieval.
+- `kb_list_lava_contexts`, `kb_get_lava_context`, and
+  `kb_diff_lava_context`: exact Lava surface discovery and version comparison.
+- `kb_list_recipes` and `kb_get_recipe`: reviewed reusable recipe retrieval.
 - `kb_search_rock_issues`, `kb_list_rock_issues`, and `kb_get_rock_issue`: public Rock product issue routing metadata; exact results join separately reviewed enrichments without duplicating the issue result.
 - `kb_assess_rock_issues`: scoped conservative comparison with a bounded version, concept, platform, capability, and configuration profile. The V2 response separates matches, exclusions, unknowns, evidence, remediation, risk provenance, catalog freshness, and read-only verification.
 - `kb_plan_rock_issue_investigation`: typed read-only orchestrator-worker plan with no GitHub write path.
+
+The hosted MCP adds intent-aware search, compact/debug modes, Rock-version
+filters, bounded claim pagination, brief manifests, Rock Ideas, feedback,
+outcomes, issue reporting, review dashboards, freshness, tests, skill
+management, and registered contribution intake:
+
 - `kb_search_rock_ideas`, `kb_list_rock_ideas`, and `kb_get_rock_idea`: explicit feature-gap and roadmap routing; exact Idea and Issue lookups expose bounded typed relationships when evidence exists.
 - `kb_feedback`: fixed quality feedback for a public result.
 - `kb_outcome`: consent-attested completed-task usefulness for an exact public result; requires the opted-in anonymous installation marker.
@@ -149,9 +165,11 @@ The Worker exposes:
 - `GET /llms.txt`
 - `GET /concepts`
 - `GET /concepts/<concept-id>.md`
-- `GET /claims/<concept-id>?min_tier=source_backed`
+- `GET /claims/<concept-id>?min_claim_tier=source_backed&limit=25&offset=0`
 - `GET /claims/id/<claim-id>`
-- `GET /search?q=<query>&min_tier=routing_context_only` (compact by default; add `detail=full` for compatibility)
+- `GET /search?q=<query>&min_claim_tier=source_backed` (compact by default;
+  add `debug=true` for ranking signals, `rock_version=<version>` for compatible
+  scoped rows, or `detail=full` for compatibility)
 - `GET /results/<result-id>`
 - `GET /lava-contexts?family=<family>&surface_type=<type>`
 - `GET /lava-contexts/<context-id>?root=<root-key>`
@@ -237,7 +255,7 @@ storage scales with the small set of observed bucket combinations rather than
 request volume. D1 still bills each upsert as row-write activity; monitor the
 shared D1 row metrics when traffic grows.
 
-When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. `GET /search` and `kb_get_claims` include them by default; `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
+When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. Default search and claim listing exclude these routing-only rows; request `min_claim_tier=routing_context_only` explicitly for source-discovery or contribution-review work. `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 
 `GET /operations/dashboard` and `kb_review_dashboard` expose public operational
 counts for review queues, source conflicts, community intake, KB issue reports,
@@ -409,7 +427,7 @@ as `rock-kb`:
 uvx rock-kb search "check-in labels not printing"
 uvx rock-kb concepts
 uvx rock-kb get check-in
-uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb claims workflows --min-claim-tier source_backed
 uvx rock-kb test-round
 uvx rock-kb dashboard
 uvx rock-kb mcp-config

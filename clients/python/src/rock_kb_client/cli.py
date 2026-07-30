@@ -34,6 +34,16 @@ OUTCOME_REASON_CODES = {
     "not_useful": ("incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"),
 }
 OUTCOME_REASON_VALUES = tuple(reason for reasons in OUTCOME_REASON_CODES.values() for reason in reasons)
+CLAIM_TIER_VALUES = ("routing_context_only", "source_backed", "answer_pack_approved", "live_verified")
+AUTHORITY_TIER_VALUES = (
+    "community-unreviewed",
+    "community-reviewed",
+    "official",
+    "rocku-confirmed",
+    "release-note-confirmed",
+    "source-code-confirmed",
+    "live-verified",
+)
 TEST_ROUND_COHORT_VALUES = ("external-test", "maintainer")
 PASSIVE_SKILL_CHECK_COMMANDS = {
     "search",
@@ -121,7 +131,10 @@ def main(argv: list[str] | None = None) -> int:
     search = subparsers.add_parser("search")
     search.add_argument("query")
     search.add_argument("--limit", type=int, default=10)
-    search.add_argument("--min-tier", default="routing_context_only")
+    search.add_argument("--min-claim-tier", "--min-tier", dest="min_claim_tier", choices=CLAIM_TIER_VALUES, default="source_backed")
+    search.add_argument("--rock-version")
+    search.add_argument("--kind")
+    search.add_argument("--debug", action="store_true", help="Include ranking signals.")
     search.add_argument("--full", action="store_true", help="Include full row bodies and payloads. Compact results are the default.")
 
     result = subparsers.add_parser("result")
@@ -136,8 +149,13 @@ def main(argv: list[str] | None = None) -> int:
 
     claims = subparsers.add_parser("claims")
     claims.add_argument("concept_id")
-    claims.add_argument("--tier")
-    claims.add_argument("--min-tier", default="routing_context_only")
+    claims.add_argument("--claim-tier", choices=CLAIM_TIER_VALUES)
+    claims.add_argument("--min-claim-tier", "--min-tier", dest="min_claim_tier", choices=CLAIM_TIER_VALUES, default="source_backed")
+    claims.add_argument("--authority-tier", choices=AUTHORITY_TIER_VALUES)
+    claims.add_argument("--min-authority-tier", choices=AUTHORITY_TIER_VALUES)
+    claims.add_argument("--rock-version")
+    claims.add_argument("--limit", type=int, default=25)
+    claims.add_argument("--offset", type=int, default=0)
 
     model = subparsers.add_parser("model")
     model.add_argument("model")
@@ -240,7 +258,8 @@ def main(argv: list[str] | None = None) -> int:
     ideas_list.add_argument("--limit", type=int, default=50)
     ideas_list.add_argument("--offset", type=int, default=0)
 
-    subparsers.add_parser("manifest")
+    manifest = subparsers.add_parser("manifest")
+    manifest.add_argument("--brief", action="store_true")
     subparsers.add_parser("dashboard")
     subparsers.add_parser("freshness", help="Show authoritative hosted source and refresh-workflow health.")
     test_round = subparsers.add_parser("test-round", help="Run the public structured church testing cohort cases.")
@@ -376,7 +395,19 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "search":
         detail = "full" if args.full else "compact"
-        return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier={quote(args.min_tier)}&detail={detail}"))
+        params = [
+            f"q={quote(args.query)}",
+            f"limit={args.limit}",
+            f"min_claim_tier={quote(args.min_claim_tier)}",
+            f"detail={detail}",
+        ]
+        if args.rock_version:
+            params.append(f"rock_version={quote(args.rock_version)}")
+        if args.kind:
+            params.append(f"kind={quote(args.kind)}")
+        if args.debug:
+            params.append("debug=true")
+        return print_json(get_json(f"{base_url}/search?{'&'.join(params)}"))
     if args.command == "result":
         return print_json(get_json(f"{base_url}/results/{quote(args.result_id)}"))
     if args.command == "claim":
@@ -386,9 +417,20 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "get":
         return print_text(get_text(f"{base_url}/concepts/{quote(args.concept_id)}.md"))
     if args.command == "claims":
-        suffix = f"?min_tier={quote(args.min_tier)}"
-        if args.tier:
-            suffix += f"&tier={quote(args.tier)}"
+        params = [
+            f"min_claim_tier={quote(args.min_claim_tier)}",
+            f"limit={args.limit}",
+            f"offset={args.offset}",
+        ]
+        if args.claim_tier:
+            params.append(f"claim_tier={quote(args.claim_tier)}")
+        if args.authority_tier:
+            params.append(f"authority_tier={quote(args.authority_tier)}")
+        if args.min_authority_tier:
+            params.append(f"min_authority_tier={quote(args.min_authority_tier)}")
+        if args.rock_version:
+            params.append(f"rock_version={quote(args.rock_version)}")
+        suffix = f"?{'&'.join(params)}"
         return print_json(get_json(f"{base_url}/claims/{quote(args.concept_id)}{suffix}"))
     if args.command == "model":
         return print_model(base_url, args.model, args.fields, args.property, args.format)
@@ -501,7 +543,8 @@ def main(argv: list[str] | None = None) -> int:
                     params.append(f"{parameter}={quote(value)}")
             return print_json(get_json(f"{base_url}/rock-ideas?{'&'.join(params)}"))
     if args.command == "manifest":
-        return print_json(get_json(f"{base_url}/manifest.json"))
+        suffix = "?brief=true" if args.brief else ""
+        return print_json(get_json(f"{base_url}/manifest.json{suffix}"))
     if args.command == "dashboard":
         return print_json(get_json(f"{base_url}/operations/dashboard"))
     if args.command == "freshness":

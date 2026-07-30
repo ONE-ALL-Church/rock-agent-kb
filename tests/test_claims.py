@@ -57,24 +57,18 @@ def test_build_approved_claims_from_media_public_promotions(monkeypatch, tmp_pat
     rows = list(read_jsonl(claims_dir / "approved-claims.jsonl"))
     errors = validate_claim_file(claims_dir / "approved-claims.jsonl")
 
-    assert result["claim_count"] == 2
+    assert result["claim_count"] == 0
+    assert result["excluded_routing_context_count"] == 2
     assert not errors
-    assert {row["authority_tier"] for row in rows} == {"community-reviewed"}
-    assert all("media_url" not in json.dumps(row) for row in rows)
-    assert rows[0]["source_refs"][0]["url"] == "https://community.rockrms.com/community-hubs/example"
-    assert all("private_corpus_pointer" not in row for row in rows)
-    assert all("operational_priority" in row for row in rows)
-    assert all("answer_candidate" in row for row in rows)
-    assert all("claim_tier" in row for row in rows)
-    assert {row["claim_tier"] for row in rows} == {"routing_context_only"}
-    assert all("primary_concept_id" in row for row in rows)
-    assert rows[0]["primary_concept_id"] == "communications"
-    assert {row["generation_provenance"]["model"] for row in rows} == {"gpt-test"}
-    assert any(row.get("evidence_class") == "exploratory_roadmap" for row in rows)
-    assert any(row["claim_type"] == "release_caveat" for row in rows)
+    assert rows == []
     report = json.loads((claims_dir / "claim-export-report.json").read_text())
-    assert report["generation_provenance"]["recorded_claims"] == 2
+    assert report["generation_provenance"]["recorded_claims"] == 0
     assert report["generation_provenance"]["legacy_claims_without_provenance"] == 0
+    assert report["answer_bearing_count"] == 0
+    assert report["routing_context_count"] == 0
+    assert report["excluded_routing_context_count"] == 2
+    assert report["routing_context_destination"] == "agent/source-summaries.jsonl"
+    assert report["version_unprocessed_count"] == 0
 
 
 def test_official_rock_youtube_promotions_use_official_authority():
@@ -165,6 +159,28 @@ def test_build_approved_claims_from_source_claim_reviews(monkeypatch, tmp_path):
     assert rows[0]["generation_provenance"]["prompt_id"] == "rock-kb-source-claim-distillation"
 
 
+def test_legacy_documentation_version_pin_is_removed_unless_claim_names_version():
+    base = {
+        "source_id": "rock_documentation",
+        "rock_versions": ["19.0"],
+        "generation_provenance": {
+            "prompt_id": "rock-kb-source-claim-distillation",
+            "prompt_version": "1.0.0",
+            "method": "agent_reviewed_full_article",
+        },
+    }
+
+    implicit = claims_module.normalized_source_review_versions(
+        {**base, "claim": "A report can hide a field while retaining it in an export."}
+    )
+    explicit = claims_module.normalized_source_review_versions(
+        {**base, "claim": "In Rock 19.0, a report can hide a field while retaining it in an export."}
+    )
+
+    assert implicit == []
+    assert explicit == ["19.0"]
+
+
 def test_claim_usefulness_metadata_prioritizes_operational_claims():
     metadata = claim_usefulness_metadata(
         {
@@ -207,6 +223,33 @@ def test_official_claim_can_feed_answers_while_requiring_live_instance():
 
     row["needs_live_verification"] = True
     assert claims_module.claim_tier_for_claim(row) == "source_backed"
+
+
+def test_explicit_v_versions_are_normalized_without_guessing_bare_numbers():
+    assert claims_module.explicit_rock_versions("Rock v19 adds this behavior; v19.2 refines it.") == [
+        "19.0",
+        "19.2",
+    ]
+    assert claims_module.explicit_rock_versions("Episode 19 covered Rock in 2025.") == []
+
+
+def test_final_claim_tier_controls_answer_candidate():
+    rows = claims_module.normalize_claim_retrieval_metadata(
+        [
+            {"claim_tier": "routing_context_only", "answer_candidate": True, "rock_versions": []},
+            {"claim_tier": "source_backed", "answer_candidate": True, "rock_versions": []},
+            {"claim_tier": "answer_pack_approved", "answer_candidate": False, "rock_versions": ["19.0"]},
+            {"claim_tier": "live_verified", "answer_candidate": False, "rock_versions": []},
+        ]
+    )
+
+    assert [row["answer_candidate"] for row in rows] == [False, False, True, True]
+    assert [row["version_scope_status"] for row in rows] == [
+        "unprocessed",
+        "unprocessed",
+        "scoped",
+        "unprocessed",
+    ]
 
 
 def test_live_claim_verification_overlay_promotes_claim_to_live_verified(monkeypatch, tmp_path):

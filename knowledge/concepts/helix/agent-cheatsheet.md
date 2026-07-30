@@ -11,10 +11,10 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Find The Endpoint Behind A Button](tasks/recipe-find-the-endpoint-behind-a-button.md) |  |  |
-| [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md) |  |  |
+| [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md) | `Person`, `Attribute` | `Person`, `Attribute` |
 | [Recipe: Upgrade A Plugin-Era Helix App](tasks/recipe-upgrade-a-plugin-era-helix-app.md) |  |  |
-| [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md) |  |  |
-| [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md) |  |  |
+| [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md) | `Group`, `Page`, `Block` | `Group`, `Page`, `Block` |
+| [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md) | `Block` | `Block` |
 
 ## Entities
 

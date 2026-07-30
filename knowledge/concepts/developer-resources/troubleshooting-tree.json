@@ -1,147 +1,171 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Family",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-answer-where-is-this-configured",
-      "inspect": [],
+      "guide_section_id": "27-troubleshooting-decision-tree-the-block-does-not-render",
+      "id": "the-block-does-not-render",
+      "inspect": [
+        "Family",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
         "https://community.rockrms.com/developer",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/realtime-visualizer",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/installation-checklist",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointList/lavaEndpointListOptionsBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.Designer.cs"
+        "https://community.rockrms.com/developer/303---blast-off/exception-handling"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is it WebForms, Obsidian, Helix, Mobile, Apple TV, or Roku?",
+        "Is the block type installed and active?",
+        "Is the block instance placed on the expected page/layout/site?",
+        "Is the current user authorized to view the page and block?",
+        "Are required block settings missing?",
+        "Did a migration fail?",
+        "Are compiled assets missing?",
+        "Is the route/page correct?"
       ],
-      "title": "Recipe: Answer \"Where is this configured?\"",
-      "when": "Follow the guide section for Recipe: Answer \"Where is this configured?\"."
+      "title": "The block does not render",
+      "when": "The block does not render"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "27-troubleshooting-decision-tree-the-obsidian-block-renders-but-actions-fail",
+      "id": "the-obsidian-block-renders-but-actions-fail",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+        "https://community.rockrms.com/lava/obsidian"
+      ],
+      "start_with": [
+        "Inspect network request.",
+        "Check block action name and route.",
+        "Check server logs.",
+        "Validate input bag shape.",
+        "Check IdKey/GUID resolution.",
+        "Check authorization in the action.",
+        "Check generated TypeScript/C# view models.",
+        "Check null vs undefined behavior."
+      ],
+      "title": "The Obsidian block renders but actions fail",
+      "when": "The Obsidian block renders but actions fail"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "27-troubleshooting-decision-tree-the-helix-endpoint-behaves-differently-than-the-ui",
+      "id": "the-helix-endpoint-behaves-differently-than-the-ui",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/overview/security",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
+      ],
+      "start_with": [
+        "Call endpoint directly.",
+        "Check security mode.",
+        "Check CSRF setting.",
+        "Check enabled Lava commands.",
+        "Check input validation.",
+        "Check rate limit.",
+        "Check cache control.",
+        "Check whether endpoint uses raw IDs."
+      ],
+      "title": "The Helix endpoint behaves differently than the UI",
+      "when": "The Helix endpoint behaves differently than the UI"
     },
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Avoid using Obsidian client-side grid for unbounded data."
       ],
-      "entities": [],
-      "id": "recipe-review-a-rock-pr",
-      "inspect": [],
+      "entities": [
+        "Attribute"
+      ],
+      "guide_section_id": "27-troubleshooting-decision-tree-the-grid-is-slow",
+      "id": "the-grid-is-slow",
+      "inspect": [
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://community.rockrms.com/ask/developing",
-        "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/for-the-reviewer",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/suggestions-on-how-to-peer-review",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/prayer"
+        "https://community.rockrms.com/developer/obsidian/grids"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Count rows sent to browser.",
+        "Check whether filtering is server-side.",
+        "Check columns and nested data.",
+        "Check export behavior.",
+        "Check attribute columns.",
+        "Consider server paging or a narrower query.",
+        "Avoid using Obsidian client-side grid for unbounded data."
       ],
-      "title": "Recipe: Review a Rock PR",
-      "when": "Follow the guide section for Recipe: Review a Rock PR."
+      "title": "The grid is slow",
+      "when": "The grid is slow"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-diagnose-works-for-admin-but-not-staff",
+      "guide_section_id": "27-troubleshooting-decision-tree-the-migration-failed",
+      "id": "the-migration-failed",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/developer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/ask/developing",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/maintaining-compatibility/tips-for-maintaining-compatibility",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/for-the-reviewer",
-        "https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components/form-fields",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+        "https://community.rockrms.com/developer/202---ignition/the-data-migration",
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/writing-migrations"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify migration type: EF, plugin, hotfix, rollup/data.",
+        "Check Rock version requirement.",
+        "Check migration history.",
+        "Check duplicate GUIDs.",
+        "Check partially applied schema/data.",
+        "Check if a plugin-to-core transition exists.",
+        "Check SQL syntax/style.",
+        "Check helper method availability for the installed version."
       ],
-      "title": "Recipe: Diagnose \"Works for admin but not staff\"",
-      "when": "Follow the guide section for Recipe: Diagnose \"Works for admin but not staff\"."
+      "title": "The migration failed",
+      "when": "The migration failed"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-build-a-source-backed-answer",
-      "inspect": [],
+      "guide_section_id": "27-troubleshooting-decision-tree-the-tv-app-page-is-blank",
+      "id": "the-tv-app-page-is-blank",
+      "inspect": [
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://community.rockrms.com/ask/developing",
-        "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images"
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm Rock v14+.",
+        "Confirm app API key.",
+        "Confirm demo key points to correct app.",
+        "Validate TVML.",
+        "Check page cache settings.",
+        "Check media URL compatibility.",
+        "Check app styles and theme mode.",
+        "Check page view/auth requirements."
       ],
-      "title": "Recipe: Build a source-backed answer",
-      "when": "Follow the guide section for Recipe: Build a source-backed answer."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-rock-agent-tool",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://community.rockrms.com/ask/developing",
-        "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build a Rock agent tool",
-      "when": "Follow the guide section for Recipe: Build a Rock agent tool."
+      "title": "The TV app page is blank",
+      "when": "The TV app page is blank"
     }
   ],
   "concept_id": "developer-resources",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:03+00:00",
+  "generated_at": "2026-07-30T02:08:11+00:00",
   "guide_sections": [
     "27-troubleshooting-decision-tree",
     "27-troubleshooting-decision-tree-the-block-does-not-render",

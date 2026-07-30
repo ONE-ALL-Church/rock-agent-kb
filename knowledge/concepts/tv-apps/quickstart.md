@@ -17,12 +17,12 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 
 ## Primary Tasks
 
-- [Recipe: Audit A TV App Configuration](tasks/recipe-audit-a-tv-app-configuration.md): Follow the guide section for Recipe: Audit A TV App Configuration.
-- [Recipe: Trace A Page GUID](tasks/recipe-trace-a-page-guid.md): Follow the guide section for Recipe: Trace A Page GUID.
-- [Recipe: Validate Remote Auth In Data](tasks/recipe-validate-remote-auth-in-data.md): Follow the guide section for Recipe: Validate Remote Auth In Data.
-- [Recipe: Review A Roku Page For Focus](tasks/recipe-review-a-roku-page-for-focus.md): Follow the guide section for Recipe: Review A Roku Page For Focus.
-- [Recipe: Review Apple TV Markup](tasks/recipe-review-apple-tv-markup.md): Follow the guide section for Recipe: Review Apple TV Markup.
-- [Recipe: Decide Cache Policy](tasks/recipe-decide-cache-policy.md): Follow the guide section for Recipe: Decide Cache Policy.
+- [Recipe: Audit A TV App Configuration](tasks/recipe-audit-a-tv-app-configuration.md): Complete Audit A TV App Configuration with evidence-backed checks and a verifiable outcome.
+- [Recipe: Trace A Page GUID](tasks/recipe-trace-a-page-guid.md): Complete Trace A Page GUID with evidence-backed checks and a verifiable outcome.
+- [Recipe: Validate Remote Auth In Data](tasks/recipe-validate-remote-auth-in-data.md): Complete Validate Remote Auth In Data with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review A Roku Page For Focus](tasks/recipe-review-a-roku-page-for-focus.md): Complete Review A Roku Page For Focus with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review Apple TV Markup](tasks/recipe-review-apple-tv-markup.md): Sources: Apple TV Tips, Apple TV Templates.
+- [Recipe: Decide Cache Policy](tasks/recipe-decide-cache-policy.md): Verify actual headers and CDN behavior in the live environment.
 
 ## High-Signal Sections
 
@@ -44,6 +44,7 @@ Apple TV and Roku developer documentation for Rock-powered TV applications, page
 - `Label`: Rock concept/entity referenced by the tv-apps guide.
 - `Page`: Rock concept/entity referenced by the tv-apps guide.
 - `Person`: Rock concept/entity referenced by the tv-apps guide.
+- `PersonAlias`: Rock concept/entity referenced by the tv-apps guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 
 ## Version Caveats

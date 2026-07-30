@@ -1,0 +1,784 @@
+{
+  "concept_count": 31,
+  "concepts": [
+    {
+      "answer_bearing_claim_count": 18,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 18,
+      "concept_id": "ai-agents-automation",
+      "documentation_branches": [
+        "developer/ai-agents"
+      ],
+      "matching_branch_record_count": 24,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 24,
+      "selected_record_count": 80,
+      "title": "AI Agents And Automation",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 16,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 16,
+      "concept_id": "api-integrations",
+      "documentation_branches": [],
+      "matching_branch_record_count": 0,
+      "parent_concept_id": "",
+      "path_constrained": false,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 45,
+      "selected_record_count": 80,
+      "title": "API And Integrations",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 16,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 16,
+      "concept_id": "apple-tv",
+      "documentation_branches": [],
+      "matching_branch_record_count": 57,
+      "parent_concept_id": "tv-apps",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 58,
+      "selected_record_count": 80,
+      "title": "Apple TV Apps",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 35,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 35,
+      "concept_id": "check-in",
+      "documentation_branches": [
+        "documentation/church-management/check-in"
+      ],
+      "matching_branch_record_count": 76,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 56,
+      "selected_record_count": 80,
+      "title": "Check-In",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 33,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 33,
+      "concept_id": "cms-websites",
+      "documentation_branches": [
+        "documentation/digital-publishing/websites"
+      ],
+      "matching_branch_record_count": 41,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 40,
+      "selected_record_count": 80,
+      "title": "CMS And Websites",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 15,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 15,
+      "concept_id": "communications",
+      "documentation_branches": [
+        "documentation/engagement/communications"
+      ],
+      "matching_branch_record_count": 40,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 40,
+      "selected_record_count": 80,
+      "title": "Communications",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 19,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 19,
+      "concept_id": "connections",
+      "documentation_branches": [
+        "documentation/engagement/connections"
+      ],
+      "matching_branch_record_count": 21,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 21,
+      "selected_record_count": 80,
+      "title": "Connections",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 101,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 101,
+      "concept_id": "content-personalization",
+      "documentation_branches": [
+        "documentation/digital-publishing/content-management",
+        "documentation/digital-publishing/personalization"
+      ],
+      "matching_branch_record_count": 78,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 73,
+      "selected_record_count": 80,
+      "title": "Content And Personalization",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 41,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 41,
+      "concept_id": "data-views-reports",
+      "documentation_branches": [
+        "documentation/church-management/reporting"
+      ],
+      "matching_branch_record_count": 32,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 28,
+      "selected_record_count": 80,
+      "title": "Data Views And Reports",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 13,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 13,
+      "concept_id": "developer-resources",
+      "documentation_branches": [],
+      "matching_branch_record_count": 636,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "aggregate",
+      "selected_official_document_count": 113,
+      "selected_record_count": 120,
+      "title": "Rock Developer Resources",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 26,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 26,
+      "concept_id": "documents-signatures",
+      "documentation_branches": [
+        "documentation/core-concepts/documents"
+      ],
+      "matching_branch_record_count": 20,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 20,
+      "selected_record_count": 60,
+      "title": "Documents And Signatures",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 107,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 107,
+      "concept_id": "engagement-tracking",
+      "documentation_branches": [
+        "documentation/engagement/steps",
+        "documentation/engagement/streaks",
+        "documentation/engagement/assessments",
+        "documentation/engagement/additional-engagement-tools"
+      ],
+      "matching_branch_record_count": 76,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 72,
+      "selected_record_count": 80,
+      "title": "Engagement Tracking",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 7,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 7,
+      "concept_id": "event-registration",
+      "documentation_branches": [
+        "documentation/church-management/event-calendar"
+      ],
+      "matching_branch_record_count": 19,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 19,
+      "selected_record_count": 80,
+      "title": "Event Registration",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 8,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 8,
+      "concept_id": "giving-finance",
+      "documentation_branches": [
+        "documentation/church-management/finance"
+      ],
+      "matching_branch_record_count": 70,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 70,
+      "selected_record_count": 80,
+      "title": "Giving And Finance",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 19,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 19,
+      "concept_id": "groups",
+      "documentation_branches": [
+        "documentation/engagement/groups"
+      ],
+      "matching_branch_record_count": 89,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 76,
+      "selected_record_count": 80,
+      "title": "Groups",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 17,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 17,
+      "concept_id": "helix",
+      "documentation_branches": [],
+      "matching_branch_record_count": 27,
+      "parent_concept_id": "developer-resources",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 31,
+      "selected_record_count": 80,
+      "title": "Helix",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 29,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 29,
+      "concept_id": "hosting-infrastructure",
+      "documentation_branches": [
+        "documentation/supporting-rock/hosting"
+      ],
+      "matching_branch_record_count": 21,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 21,
+      "selected_record_count": 60,
+      "title": "Hosting And Infrastructure",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 30,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 30,
+      "concept_id": "lava",
+      "documentation_branches": [],
+      "matching_branch_record_count": 0,
+      "parent_concept_id": "",
+      "path_constrained": false,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 13,
+      "selected_record_count": 80,
+      "title": "Lava",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 12,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 12,
+      "concept_id": "learning-lms-engagement",
+      "documentation_branches": [
+        "documentation/engagement/learning-management-system"
+      ],
+      "matching_branch_record_count": 33,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 30,
+      "selected_record_count": 38,
+      "title": "Learning, LMS, And Engagement",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 21,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 21,
+      "concept_id": "mobile",
+      "documentation_branches": [
+        "developer/mobile-docs"
+      ],
+      "matching_branch_record_count": 275,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 76,
+      "selected_record_count": 80,
+      "title": "Rock Mobile",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 74,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 74,
+      "concept_id": "obsidian-development",
+      "documentation_branches": [
+        "developer/obsidian"
+      ],
+      "matching_branch_record_count": 47,
+      "parent_concept_id": "developer-resources",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 47,
+      "selected_record_count": 80,
+      "title": "Obsidian Development",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 32,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 32,
+      "concept_id": "people-families",
+      "documentation_branches": [
+        "documentation/church-management/people"
+      ],
+      "matching_branch_record_count": 39,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 39,
+      "selected_record_count": 80,
+      "title": "People And Families",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 45,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 45,
+      "concept_id": "platform-configuration",
+      "documentation_branches": [],
+      "matching_branch_record_count": 0,
+      "parent_concept_id": "",
+      "path_constrained": false,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 31,
+      "selected_record_count": 80,
+      "title": "Platform Configuration",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 23,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 23,
+      "concept_id": "prayer-care",
+      "documentation_branches": [
+        "documentation/engagement/prayer"
+      ],
+      "matching_branch_record_count": 17,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 17,
+      "selected_record_count": 50,
+      "title": "Prayer And Care",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 16,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 16,
+      "concept_id": "roku",
+      "documentation_branches": [],
+      "matching_branch_record_count": 20,
+      "parent_concept_id": "tv-apps",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 20,
+      "selected_record_count": 80,
+      "title": "Roku Apps",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 9,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 9,
+      "concept_id": "scheduling-locations",
+      "documentation_branches": [],
+      "matching_branch_record_count": 0,
+      "parent_concept_id": "",
+      "path_constrained": false,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 48,
+      "selected_record_count": 80,
+      "title": "Scheduling And Locations",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 63,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 63,
+      "concept_id": "security-permissions",
+      "documentation_branches": [
+        "documentation/core-concepts/security"
+      ],
+      "matching_branch_record_count": 43,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 43,
+      "selected_record_count": 80,
+      "title": "Security And Permissions",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 10,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 10,
+      "concept_id": "serving-volunteer-ops",
+      "documentation_branches": [],
+      "matching_branch_record_count": 0,
+      "parent_concept_id": "",
+      "path_constrained": false,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 30,
+      "selected_record_count": 80,
+      "title": "Serving And Volunteer Operations",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 1,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 1,
+      "concept_id": "system-admin-ops",
+      "documentation_branches": [
+        "documentation/supporting-rock/data",
+        "documentation/supporting-rock/caching",
+        "documentation/core-concepts/search"
+      ],
+      "matching_branch_record_count": 69,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "cross_cutting",
+      "selected_official_document_count": 69,
+      "selected_record_count": 80,
+      "title": "System Administration And Operations",
+      "warnings": [
+        "thin_answer_bearing_claim_coverage"
+      ]
+    },
+    {
+      "answer_bearing_claim_count": 10,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 10,
+      "concept_id": "tv-apps",
+      "documentation_branches": [],
+      "matching_branch_record_count": 77,
+      "parent_concept_id": "developer-resources",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "aggregate",
+      "selected_official_document_count": 77,
+      "selected_record_count": 80,
+      "title": "TV Apps",
+      "warnings": []
+    },
+    {
+      "answer_bearing_claim_count": 53,
+      "answer_bearing_ratio": 1.0,
+      "claim_facet_count": 53,
+      "concept_id": "workflows",
+      "documentation_branches": [
+        "documentation/core-concepts/workflows"
+      ],
+      "matching_branch_record_count": 60,
+      "parent_concept_id": "",
+      "path_constrained": true,
+      "routing_context_claim_count": 0,
+      "routing_role": "primary",
+      "selected_official_document_count": 60,
+      "selected_record_count": 80,
+      "title": "Workflows",
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "generated_at": "2026-07-30T02:06:34+00:00",
+  "highest_overlap_records": [
+    {
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:186"
+    },
+    {
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:315"
+    },
+    {
+      "concept_ids": [
+        "api-integrations",
+        "apple-tv",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:125"
+    },
+    {
+      "concept_ids": [
+        "apple-tv",
+        "developer-resources",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:141"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:311"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:312"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:313"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:316"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:321"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:322"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:323"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:324"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:325"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:327"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "roku",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:329"
+    },
+    {
+      "concept_ids": [
+        "developer-resources",
+        "helix",
+        "lava"
+      ],
+      "source_record_id": "rock_developer:article:331"
+    },
+    {
+      "concept_ids": [
+        "api-integrations",
+        "helix",
+        "lava"
+      ],
+      "source_record_id": "rock_developer:article:348"
+    },
+    {
+      "concept_ids": [
+        "api-integrations",
+        "developer-resources",
+        "obsidian-development"
+      ],
+      "source_record_id": "rock_developer:article:368"
+    },
+    {
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "source_record_id": "rock_documentation:article:1527"
+    },
+    {
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "source_record_id": "rock_documentation:article:1548"
+    },
+    {
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "source_record_id": "rock_documentation:article:1555"
+    },
+    {
+      "concept_ids": [
+        "groups",
+        "scheduling-locations",
+        "serving-volunteer-ops"
+      ],
+      "source_record_id": "rock_documentation:article:1919"
+    },
+    {
+      "concept_ids": [
+        "api-integrations",
+        "platform-configuration",
+        "security-permissions"
+      ],
+      "source_record_id": "rock_documentation:article:2061"
+    },
+    {
+      "concept_ids": [
+        "ai-agents-automation",
+        "api-integrations"
+      ],
+      "source_record_id": "rock_developer:article:1029"
+    },
+    {
+      "concept_ids": [
+        "ai-agents-automation",
+        "lava"
+      ],
+      "source_record_id": "rock_developer:article:1030"
+    }
+  ],
+  "metrics": {
+    "explicit_branch_count": 27,
+    "overlapping_selected_official_record_count": 210,
+    "selected_official_record_count": 1172,
+    "selected_official_record_overlap_distribution": {
+      "1": 962,
+      "2": 187,
+      "3": 21,
+      "4": 2
+    }
+  },
+  "registry_version": 2,
+  "schema": "rock-kb-concept-taxonomy-audit-v1",
+  "status": "needs_review",
+  "taxonomy": {
+    "design": "human_reviewed_task_oriented_facets",
+    "proposal_prompt_id": "rock-kb-concept-taxonomy-review",
+    "proposal_prompt_version": "1.0.0",
+    "recommended_reasoning_effort": "xhigh",
+    "recommended_review_model": "gpt-5.6-sol",
+    "source_branches_are_routing_signals": true
+  },
+  "warnings": [
+    {
+      "code": "thin_answer_bearing_claim_coverage",
+      "concept_id": "system-admin-ops",
+      "message": "Fewer than five approved answer-bearing claims are routed here."
+    }
+  ]
+}

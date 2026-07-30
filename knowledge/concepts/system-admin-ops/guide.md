@@ -1614,23 +1614,12 @@ Use [release notes](https://www.rockrms.com/releasenotes) as primary authority.
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `12`
+- Approved claims routed to this concept: `1`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | release_caveat | The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| community-reviewed | operational_guidance | Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| community-reviewed | operational_guidance | Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| community-reviewed | operational_guidance | Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| community-reviewed | operational_guidance | A practical cleanup program should separate low-effort automations from medium-effort reports and high-effort duplicate decisions, so staff and volunteers spend human review time on records that require judgment. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| community-reviewed | operational_guidance | Before pursuing BIMI or logo display, teams should verify SPF, DKIM, DMARC, domain alignment, and the logo-hosting requirements for the target mail clients. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| community-reviewed | operational_guidance | Self-asserted, CMC, and VMC-style verification paths differ in cost, trademark requirements, and inbox support, so churches should pick the level that matches their domain risk and communication volume. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| community-reviewed | operational_guidance | Logo display and domain authentication should be documented separately from Mailgun, IP reputation, list quality, and message-content factors that influence deliverability. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| community-reviewed | operational_guidance | Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| community-reviewed | operational_guidance | Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| community-reviewed | source_summary | This Digital Strategy Hub session gives a practical overview of email logo branding for churches, including BIMI-style logo display, DMARC/SPF/DKIM prerequisites, certificate options, Apple and Gmail behavior, and the distinction between sender trust and actual deliverability. It is useful public guidance for Rock communication administrators evaluating domain authentication and brand-trust work around email sent from Rock or related tools. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| community-reviewed | source_summary | This Data Analytics Hub presentation gives public-safe operational guidance for Rock data quality programs: use built-in automation where possible, prioritize a small number of high-value data defects, move actionable cleanup reports into Rock, train a bounded volunteer team, and connect data quality work to ministry outcomes such as check-in, communication, and leadership reporting. _(live verification recommended)_ | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1639,13 +1628,11 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `4`
+- Approved media records routed to this concept: `2`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Data Integrity Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) | approved_for_public_distillation | 2 | media-insight:71943d00f00d6d5c |
-| [Data Integrity Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) | approved_for_public_distillation | 2 | media-insight:8a7a44d45ee79557 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) | approved_for_public_distillation | 5 | media-insight:574371376cd3e666 |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) | approved_for_public_distillation | 4 | media-insight:e57ad3db15510f24 |
 

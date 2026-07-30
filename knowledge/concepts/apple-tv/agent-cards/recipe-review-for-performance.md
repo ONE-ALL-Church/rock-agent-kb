@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review For Performance
 
-Follow the guide section for Recipe: Review For Performance.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Review For Performance.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Schedule`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Schedule`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. List all images and sizes.
+2. Check for huge images.
+3. Check for SVG.
+4. Check dynamic Lava loops.
+5. Check scheduled content shortcodes.
+6. Check cacheability.
+7. Check media URL performance.
+8. Test cold launch.
+9. Test page transitions.
+10. Test on real Apple TV hardware.
 
 ## Do Not Assume
 
@@ -34,7 +43,11 @@ Follow the guide section for Recipe: Review For Performance.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs/javascript
 - https://community.rockrms.com/developer/apple-tv-docs
-- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
+- https://community.rockrms.com/developer/apple-tv-docs/javascript
 - https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts

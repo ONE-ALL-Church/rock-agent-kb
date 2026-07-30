@@ -163,7 +163,7 @@ uv run kb private impact \
 Approved public contribution bundles are included in synthesis packs by default:
 
 ```bash
-uv run kb concepts synthesize --concept workflows --hydrate-sources --include-contributions --model gpt-5.5
+uv run kb concepts synthesize --concept workflows --hydrate-sources --include-contributions --model gpt-5.6-sol --reasoning-effort xhigh
 ```
 
 Private draft contribution rows are excluded unless explicitly requested for local-only synthesis:

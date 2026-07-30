@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Determine Whether A Helix App Is Public-Safe
 
-Follow the guide section for Recipe: Determine Whether A Helix App Is Public-Safe.
+Complete Determine Whether A Helix App Is Public-Safe with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,33 +16,32 @@ Follow the guide section for Recipe: Determine Whether A Helix App Is Public-Saf
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify every endpoint.
+2. Mark each endpoint read-only or write/destructive.
+3. Confirm GET endpoints do not modify data.
+4. Confirm public endpoints expose only public data.
+5. Confirm identifiers use GUIDs or IdKeys where appropriate.
+6. Confirm direct endpoint calls cannot access unauthorized records.
+7. Confirm SQL input is sanitized or removed.
+8. Confirm no sensitive attribute security bypass exists.
+9. Confirm cache settings cannot leak personalized fragments.
+10. Document residual risk.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Confirm GET endpoints do not modify data.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://community.rockrms.com/developer/helix/lava-applications
-- https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/helix/forms-controls
-- https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/developer/helix/htmx
-- https://community.rockrms.com/lava/tags/observe
-- https://community.rockrms.com/developer/helix/strategies
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/lava/filters/attribute-filters

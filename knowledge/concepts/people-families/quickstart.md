@@ -17,16 +17,15 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 
 ## Primary Tasks
 
-- [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md): Follow the guide section for Recipe: Identify A Person Safely.
-- [Recipe: Explain Why `PersonAlias` Matters](tasks/recipe-explain-why-personalias-matters.md): Follow the guide section for Recipe: Explain Why `PersonAlias` Matters.
-- [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md): Follow the guide section for Recipe: Inspect A Person Attribute.
-- [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md): Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias Guid.
-- [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md): Follow the guide section for Recipe: Audit A Family For Check-In.
-- [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md): Follow the guide section for Recipe: Review A Person Profile Customization.
-- [Recipe: Triage An Accidental Merge](tasks/recipe-triage-an-accidental-merge.md): Follow the guide section for Recipe: Triage An Accidental Merge.
-- [Recipe: Track New Record Source](tasks/recipe-track-new-record-source.md): Follow the guide section for Recipe: Track New Record Source.
-- [Recipe: Build A Staff Directory From Person Attributes](tasks/recipe-build-a-staff-directory-from-person-attributes.md): Follow the guide section for Recipe: Build A Staff Directory From Person Attributes.
-- [Recipe: Add A Bookmarked Groups-Like Profile Panel](tasks/recipe-add-a-bookmarked-groups-like-profile-panel.md): Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel.
+- [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md): Then verify whether any referenced workflow, attendance, communication, registration, or financial record uses `PersonAliasId` or alias GUID.
+- [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md): Complete Inspect A Person Attribute with evidence-backed checks and a verifiable outcome.
+- [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md): Complete Determine If A Value Is Person Id Or Alias Guid with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md): Source landmarks: Check-In RockU (Check-In), `FindFamilies.cs` (source), `FindRelationships.cs` (source).
+- [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md): Complete Review A Person Profile Customization with evidence-backed checks and a verifiable outcome.
+- [Recipe: Triage An Accidental Merge](tasks/recipe-triage-an-accidental-merge.md): Complete Triage An Accidental Merge with evidence-backed checks and a verifiable outcome.
+- [Recipe: Track New Record Source](tasks/recipe-track-new-record-source.md): Complete Track New Record Source with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build A Staff Directory From Person Attributes](tasks/recipe-build-a-staff-directory-from-person-attributes.md): Complete Build A Staff Directory From Person Attributes with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add A Bookmarked Groups-Like Profile Panel](tasks/recipe-add-a-bookmarked-groups-like-profile-panel.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

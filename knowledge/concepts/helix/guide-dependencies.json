@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 17,
+  "approved_claim_count": 17,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "In Rock 18 or later, Helix loading indicators can reference spinner assets under `/Assets/Images/Spinners/`; installations using the Helix plugin instead use `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/`.",
-      "claim_hash": "439ae258ff0489dee5b562060c5867388022f37c07b3cc77edd769529cc19a29",
+      "claim_hash": "0c5953ebb6143c34d8ea67bfbe5b17bcaccc29ce960dce5d906ac664916036ca",
       "claim_id": "claim:1ab863013d2610a31c7d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -16,6 +18,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "18.0"
+      ],
       "safe_evidence_hash": "1d0e06bbffe1d114c56b042710b2f066b10867de2bfc5c37b3436d5e0ed63126",
       "source_record_ids": [
         "rock_developer:article:358"
@@ -26,12 +31,13 @@
           "title": "Loading Indicator",
           "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior.",
-      "claim_hash": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+      "claim_hash": "3aeb76b361606f314090a82fd2d4a4b1e3f20ce8cb73ed1b50f97252debd7f53",
       "claim_id": "claim:2a7f5e6781a2d2fa30a4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -46,6 +52,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "45d66f70e5d53094b362fb5564cac67e115637d15bc8ecbd76fc898ac0adfc21",
       "source_record_ids": [
         "rock_developer:c877aeede8d53f3d"
@@ -56,12 +63,13 @@
           "title": "Understanding Helix Forms",
           "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock 19 and later, Helix Lava endpoints expose request content through Body and RawBody merge fields; Body converts JSON or XML into objects, RawBody preserves the original string, and neither field supplies a body for GET requests.",
-      "claim_hash": "eac9eeb6006d868e760868cd5f29af068f0376d0e91976692cd453c4771e3ac9",
+      "claim_hash": "5de3158a407fe6b2513a262e3ce691196f38290a3600fe1e1b78af8ebdbd3bb1",
       "claim_id": "claim:399553446fce014cb4bf",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -74,6 +82,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "source_record_ids": [
         "rock_developer:article:345"
@@ -84,12 +95,13 @@
           "title": "Endpoints",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "When developing Helix Lava Applications, monitor endpoint observability data to identify inefficient execution and excessive database calls.",
-      "claim_hash": "2b7796fa1c67a435cc6b8008d36ba40d6ab349cb8ee84c808c431bd939230388",
+      "claim_hash": "9ea7748ee5446f123f5862fd8c06bd42c414f57f899455ef444a9918951ba68b",
       "claim_id": "claim:3f3dca6b455e9c9ed915",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -102,6 +114,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
       "source_record_ids": [
         "rock_developer:article:348"
@@ -112,12 +125,13 @@
           "title": "Observability",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Consider replacing a Helix Lava Application with a purpose-built custom solution if it would require custom models, at least 50 endpoints, or has become difficult and fragile to develop.",
-      "claim_hash": "23aaaec98100ab870b0872b5c85b6eed8ac9e1931c0d56bbd7b0ee8460f8d858",
+      "claim_hash": "94422a0812e487a63028f44857d9937caa649b985a871338dfe52a3b2c97e07a",
       "claim_id": "claim:6cccc1a4cde68921fa28",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -130,6 +144,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "780b64a14ee6a1ec6a3e8340b9cf502760ac91f7961738fdcb783ff47dd642af",
       "source_record_ids": [
         "rock_developer:article:332"
@@ -140,14 +155,15 @@
           "title": "Customizing Rock",
           "url": "https://community.rockrms.com/developer/helix/overview/customizing-rock"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
-      "claim_hash": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
+      "claim_hash": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
       "claim_id": "claim:72d56e7ee7ef0be4b92e",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -158,8 +174,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
       "source_record_ids": [
         "rock_developer:article:336"
@@ -170,12 +187,13 @@
           "title": "Security",
           "url": "https://community.rockrms.com/developer/helix/overview/security"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development.",
-      "claim_hash": "966e4595a896377af3794037bbff393eff6f1e92e974ddfbc5587c7afc65fae3",
+      "claim_hash": "da096325024fbf4860b8122aec44bfae07bc1d3ecfef21f65f9e918baae57b38",
       "claim_id": "claim:7714f93d21d6594b978d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -188,6 +206,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0995a78135633e48c97fe8baa26269bc7cef6247d89b014fe8986e87a6421327",
       "source_record_ids": [
         "rock_developer:article:347"
@@ -198,12 +217,13 @@
           "title": "Magnus",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development.",
-      "claim_hash": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
+      "claim_hash": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
       "claim_id": "claim:940f299b268510da61d8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -218,6 +238,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d95944d125c6f3535b7b847ce368de6ecbd40157c9f3c12f60a65ce92a7f930a",
       "source_record_ids": [
         "rock_developer:802567c280193bd0"
@@ -228,12 +249,13 @@
           "title": "Helix Overview",
           "url": "https://community.rockrms.com/developer/helix/overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Each Helix Lava Endpoint call creates an observability activity whose name identifies both the endpoint and its Lava Application; the root activity also records their names as attributes, while the HTTP method is available through an existing activity attribute.",
-      "claim_hash": "14aebe844f9f56a375c0f1484fd776207ba2ebfc205637c4a1abc769c400940b",
+      "claim_hash": "3d61ee13a1304d7e03f00dadc89a20b7919de60c287e5a500e79d2cad6163fe9",
       "claim_id": "claim:9b7c0c788640e9ade1e9",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -246,6 +268,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
       "source_record_ids": [
         "rock_developer:article:348"
@@ -256,12 +279,13 @@
           "title": "Observability",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Lava javascript and stylesheet commands do not function in Helix endpoint templates because endpoint output is injected into the page by JavaScript, which prevents reliable detection of resources already present on the page.",
-      "claim_hash": "4b6d1f0409bd3aee7f2f731b77fa518911714469db7b1bcf1659da226e2c65ee",
+      "claim_hash": "a7f593982cd7cd1a99001796ccf84231b68bf457ccc540caf77f4bf9114f7871",
       "claim_id": "claim:b297afe1c2b0a341ed44",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -274,6 +298,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "source_record_ids": [
         "rock_developer:article:345"
@@ -284,12 +309,13 @@
           "title": "Endpoints",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Helix form can display a form-level HTMX loading indicator by placing an element with the `htmx-indicator` class inside the form and setting the submitting control's `hx-indicator` attribute to target that form.",
-      "claim_hash": "2e0dfa4092fc3affbe81a488119a28eb92a4ed233722c513ac07c498f56f1429",
+      "claim_hash": "739878fe7ea66c9b84e4787f76af91762c52d9f0a944444be774cf15a68e982f",
       "claim_id": "claim:c5503c9cb23c6cca98d4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -302,6 +328,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1d0e06bbffe1d114c56b042710b2f066b10867de2bfc5c37b3436d5e0ed63126",
       "source_record_ids": [
         "rock_developer:article:358"
@@ -312,12 +339,13 @@
           "title": "Loading Indicator",
           "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix does not support the Lava javascript and stylesheet commands because they depend on RockPage, which is unavailable when Helix dynamically replaces page regions.",
-      "claim_hash": "bff77b453beb1b61f7cb4515d5295b52541bb3a5817eeafeb487eea040627679",
+      "claim_hash": "73abf8c5cc5aec78f6d26f853c92307e2ee5dda032836448d4f550dbec96ff8a",
       "claim_id": "claim:c707a9d9cd2878d9e056",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -330,6 +358,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "f445db4a368f7b1ea536ec6d7e74a6d75c3190ca20dcc5a3a1c35dddce572b55",
       "source_record_ids": [
         "rock_developer:article:361"
@@ -340,12 +369,13 @@
           "title": "Limitations",
           "url": "https://community.rockrms.com/developer/helix/strategies/limitations"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow.",
-      "claim_hash": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+      "claim_hash": "35a6332eb1d1447d497a0e205e12a6ae664f7ed7d8d0807cfa69466c8fa4ac29",
       "claim_id": "claim:d35ed98aadeaabd2cf1e",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -381,6 +411,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "bb0bbed1aa822e9191bc8ca5ef1961056f85c2880091f1e7160cf69cd95913d0",
       "source_record_ids": [
         "rock_developer:6a9eebe7a077d89a"
@@ -391,12 +422,13 @@
           "title": "Helix Lava Application Endpoints",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix applications require explicit security and data-integrity review because endpoint-backed application surfaces can expose data or perform work beyond static content rendering.",
-      "claim_hash": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
+      "claim_hash": "bc51e8a30022e47ab5eeb91aa1bdc200c4c321cfa71a59b0a171024bd485b4ce",
       "claim_id": "claim:da56681f6277c12df324",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -431,6 +463,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "28e170d268c93802af48503f7c2a1c14dee3fe2bf628931e65106de661cf7e46",
       "source_record_ids": [
         "rock_developer:dfd0cdc56d97fa7f"
@@ -441,12 +474,13 @@
           "title": "Helix Security",
           "url": "https://community.rockrms.com/developer/helix/overview/security"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For readable Helix HTMX markup, place each HTML attribute on its own line and list the CSS class attribute first.",
-      "claim_hash": "d017cd076b4b53254a5eadeafa595004f4298b81fc846e8d79002776468896c9",
+      "claim_hash": "12c7e5a64046478e4bacf3151efad5a4ec96a61c6143c1633d4baf5e4f6b279d",
       "claim_id": "claim:ecb2447933839fcdfb1b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -459,6 +493,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c35e04ee612098be5d624c9cf7af769dc40a6b71ab33724badf29b93fc976bb2",
       "source_record_ids": [
         "rock_developer:article:343"
@@ -469,12 +504,13 @@
           "title": "Syntax Style Guides",
           "url": "https://community.rockrms.com/developer/helix/htmx/syntax-style-guides"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
-      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_hash": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f",
       "claim_id": "claim:ee2f4e5a371c3b243567",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -490,6 +526,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "2.0"
+      ],
       "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
       "source_record_ids": [
         "rock_developer:article:346"
@@ -500,12 +539,13 @@
           "title": "Content Block",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "A Helix Lava Application groups server-side endpoints that return HTML fragments, and each endpoint is addressed by a route composed from the application slug and endpoint slug; endpoints may share that route when they use different HTTP methods.",
-      "claim_hash": "826375821d32c2362582d205fdf5a0fe25afd306df2b2f54ab1cff6a3232c477",
+      "claim_hash": "b876820f26130c2811703662b73feac424a8f9c362eea1aedf8e13b2ef43057d",
       "claim_id": "claim:fa508a4851ef572dee65",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -518,6 +558,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "047c660c6c70636b4593ea3ebe9cf68b45658254b18b6ebd861b32f29e2d9dcc",
       "source_record_ids": [
         "rock_developer:article:338"
@@ -528,35 +569,36 @@
           "title": "Lava Applications",
           "url": "https://community.rockrms.com/developer/helix/lava-applications"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:1ab863013d2610a31c7d": "439ae258ff0489dee5b562060c5867388022f37c07b3cc77edd769529cc19a29",
-    "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
-    "claim:399553446fce014cb4bf": "eac9eeb6006d868e760868cd5f29af068f0376d0e91976692cd453c4771e3ac9",
-    "claim:3f3dca6b455e9c9ed915": "2b7796fa1c67a435cc6b8008d36ba40d6ab349cb8ee84c808c431bd939230388",
-    "claim:6cccc1a4cde68921fa28": "23aaaec98100ab870b0872b5c85b6eed8ac9e1931c0d56bbd7b0ee8460f8d858",
-    "claim:72d56e7ee7ef0be4b92e": "459ee3520603a247618e7b1f202112aa6225dfef3133f3bea85ebb1cc2e901b4",
-    "claim:7714f93d21d6594b978d": "966e4595a896377af3794037bbff393eff6f1e92e974ddfbc5587c7afc65fae3",
-    "claim:940f299b268510da61d8": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
-    "claim:9b7c0c788640e9ade1e9": "14aebe844f9f56a375c0f1484fd776207ba2ebfc205637c4a1abc769c400940b",
-    "claim:b297afe1c2b0a341ed44": "4b6d1f0409bd3aee7f2f731b77fa518911714469db7b1bcf1659da226e2c65ee",
-    "claim:c5503c9cb23c6cca98d4": "2e0dfa4092fc3affbe81a488119a28eb92a4ed233722c513ac07c498f56f1429",
-    "claim:c707a9d9cd2878d9e056": "bff77b453beb1b61f7cb4515d5295b52541bb3a5817eeafeb487eea040627679",
-    "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
-    "claim:da56681f6277c12df324": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
-    "claim:ecb2447933839fcdfb1b": "d017cd076b4b53254a5eadeafa595004f4298b81fc846e8d79002776468896c9",
-    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
-    "claim:fa508a4851ef572dee65": "826375821d32c2362582d205fdf5a0fe25afd306df2b2f54ab1cff6a3232c477"
+    "claim:1ab863013d2610a31c7d": "0c5953ebb6143c34d8ea67bfbe5b17bcaccc29ce960dce5d906ac664916036ca",
+    "claim:2a7f5e6781a2d2fa30a4": "3aeb76b361606f314090a82fd2d4a4b1e3f20ce8cb73ed1b50f97252debd7f53",
+    "claim:399553446fce014cb4bf": "5de3158a407fe6b2513a262e3ce691196f38290a3600fe1e1b78af8ebdbd3bb1",
+    "claim:3f3dca6b455e9c9ed915": "9ea7748ee5446f123f5862fd8c06bd42c414f57f899455ef444a9918951ba68b",
+    "claim:6cccc1a4cde68921fa28": "94422a0812e487a63028f44857d9937caa649b985a871338dfe52a3b2c97e07a",
+    "claim:72d56e7ee7ef0be4b92e": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
+    "claim:7714f93d21d6594b978d": "da096325024fbf4860b8122aec44bfae07bc1d3ecfef21f65f9e918baae57b38",
+    "claim:940f299b268510da61d8": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
+    "claim:9b7c0c788640e9ade1e9": "3d61ee13a1304d7e03f00dadc89a20b7919de60c287e5a500e79d2cad6163fe9",
+    "claim:b297afe1c2b0a341ed44": "a7f593982cd7cd1a99001796ccf84231b68bf457ccc540caf77f4bf9114f7871",
+    "claim:c5503c9cb23c6cca98d4": "739878fe7ea66c9b84e4787f76af91762c52d9f0a944444be774cf15a68e982f",
+    "claim:c707a9d9cd2878d9e056": "73abf8c5cc5aec78f6d26f853c92307e2ee5dda032836448d4f550dbec96ff8a",
+    "claim:d35ed98aadeaabd2cf1e": "35a6332eb1d1447d497a0e205e12a6ae664f7ed7d8d0807cfa69466c8fa4ac29",
+    "claim:da56681f6277c12df324": "bc51e8a30022e47ab5eeb91aa1bdc200c4c321cfa71a59b0a171024bd485b4ce",
+    "claim:ecb2447933839fcdfb1b": "12c7e5a64046478e4bacf3151efad5a4ec96a61c6143c1633d4baf5e4f6b279d",
+    "claim:ee2f4e5a371c3b243567": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f",
+    "claim:fa508a4851ef572dee65": "b876820f26130c2811703662b73feac424a8f9c362eea1aedf8e13b2ef43057d"
   },
-  "approved_claims_hash": "5194d3a8c2a642069ebe65244642a05baebabde0a6c5f5d565b5d7c776e28ab0",
+  "approved_claims_hash": "2b799fec76c06e1300b42ad4918cf89535f41e856fa927e51e0f566c54ee874d",
   "approved_claims_path": "knowledge/concepts/helix/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
   "approved_media_path": "knowledge/concepts/helix/approved-media.md",
-  "built_at": "2026-07-26T00:30:01+00:00",
+  "built_at": "2026-07-30T02:08:10+00:00",
   "concept_id": "helix",
   "guide_hash": "542e1f359d9a79ff5b03d7bf5a5db37a75798abaed44b576d17926645c2acfa7",
   "guide_line_count": 1126,
@@ -780,6 +822,7 @@
       "url": "https://community.rockrms.com/lava/remote-lava"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -2276,5 +2319,6 @@
       "version": null
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

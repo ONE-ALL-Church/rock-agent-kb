@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit A TV App Configuration
 
-Follow the guide section for Recipe: Audit A TV App Configuration.
+Complete Audit A TV App Configuration with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,36 @@ Follow the guide section for Recipe: Audit A TV App Configuration.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Platform: Apple TV or Roku.
+2. Rock version.
+3. Application record name, GUID/ID if available.
+4. API key ID/person.
+5. Page-view enabled flag.
+6. Retention days.
+7. Authentication page.
+8. Root/start page.
+9. Global styles/components.
+10. All page GUIDs referenced by commands.
+11. Cache settings for each page.
+12. Media URL sources.
+13. Remote auth block page and attributes.
+14. Configuration summary.
+15. Security concerns.
+16. Cache concerns.
 
 ## Do Not Assume
 
@@ -34,15 +53,15 @@ Follow the guide section for Recipe: Audit A TV App Configuration.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs
 - https://community.rockrms.com/developer/roku-docs
+- https://community.rockrms.com/developer/apple-tv-docs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
 - https://community.rockrms.com/lava/lava-api
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/api-docs
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs

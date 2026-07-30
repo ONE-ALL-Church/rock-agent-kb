@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.7.0"
+  rock-kb-skill-version: "1.8.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-29T22:41:02Z"
-  rock-kb-minimum-client-version: "0.18.0"
+  rock-kb-published-at: "2026-07-29T23:55:43Z"
+  rock-kb-minimum-client-version: "0.19.0"
 ---
 
 # Rock KB Agent
@@ -154,7 +154,7 @@ uvx rock-kb search "check-in labels not printing"
 uvx rock-kb result '<result-id>'
 uvx rock-kb claim '<claim-id>'
 uvx rock-kb get check-in
-uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb claims workflows --min-claim-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb lava-context list --family check-in-label
@@ -192,7 +192,7 @@ changes, use the checked-in client instead:
 ```bash
 uv run --project clients/python rock-kb search "check-in labels not printing"
 uv run --project clients/python rock-kb get check-in
-uv run --project clients/python rock-kb claims workflows --min-tier source_backed
+uv run --project clients/python rock-kb claims workflows --min-claim-tier source_backed
 uv run --project clients/python rock-kb model-map list
 uv run --project clients/python rock-kb model group
 uv run --project clients/python rock-kb lava-context list --family check-in-label
@@ -287,20 +287,26 @@ When connected through hosted HTTP MCP, use the same retrieval pattern with MCP
 tools instead of shell commands:
 
 - `kb_search`: start here for symptoms, errors, broad Rock questions, and Lava
-  context queries. Results are compact and include stable IDs, snippets, trust
-  tiers, source URLs, scores, and ranking signals.
+  context queries. It defaults to `source_backed` or stronger rows, classifies
+  intent, and promotes task cards and troubleshooting nodes for symptom-shaped
+  questions. Results include stable IDs, snippets, trust tiers, version-scope
+  state, source URLs, and rounded scores. Request `debug: true` only when
+  diagnosing ranking; detailed signals are omitted by default.
 - `kb_get_result`: expand one `kb_search` result ID into its full body and
   structured payload.
 - `kb_get_claim`: fetch one approved claim directly by `claim_id`, including
   all concept routes and result IDs.
-- `kb_manifest`: discover public agent entrypoints such as model-map digests,
-  Lava contexts, source authority rules, live checklists, and troubleshooting
-  trees.
+- `kb_manifest`: use `brief: true` for compact concept counts and honest
+  knowledge-quality/completeness metrics. Request the full manifest only when
+  artifact paths are needed.
 - `kb_list_concepts`: list valid concept IDs before using `kb_get_concept`,
   `kb_get_claims`, or writing contribution rows.
 - `kb_get_concept`: open one concept package with guide, quickstart, task cards,
   caveats, answers, and claims.
-- `kb_get_claims`: inspect structured claims and trust tiers for one concept.
+- `kb_get_claims`: inspect one bounded page of structured claims. Prefer
+  `claim_tier`/`min_claim_tier` and `authority_tier`/`min_authority_tier`;
+  follow `has_more` and `next_offset`. The old `tier` alias is ambiguous and
+  should not be used in new agent code.
 - `kb_list_models`: list stable Model Map models with slugs, categories,
   versions, and property/method counts.
 - `kb_get_model`: fetch an exact stable Model Map digest by slug or model name,
@@ -480,7 +486,7 @@ consent notice version changes or retained fields expand.
 ```bash
 uvx rock-kb search "<question or error>"
 uvx rock-kb get <concept-id>
-uvx rock-kb claims <concept-id> --min-tier source_backed
+uvx rock-kb claims <concept-id> --min-claim-tier source_backed
 uvx rock-kb dashboard
 ```
 

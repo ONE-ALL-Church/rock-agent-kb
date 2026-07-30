@@ -1,205 +1,192 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-audit-a-single-sent-communication",
+      "guide_section_id": "16-troubleshooting-decision-tree-a-communication-did-not-send",
+      "id": "a-communication-did-not-send",
       "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
-        "https://community.rockrms.com/recipes/138",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Find the `Communication` record.",
+        "Check status: draft, pending approval, approved, sent, failed, or future-dated.",
+        "Check `FutureSendDateTime`.",
+        "Check approval state and approver permissions.",
+        "Check Communications Send Job state and history.",
+        "Check recipient rows: are there pending recipients?",
+        "Check medium entity type on recipients.",
+        "Check transport active/configured state."
       ],
-      "title": "Recipe: Audit a single sent communication",
-      "when": "Follow the guide section for Recipe: Audit a single sent communication."
+      "title": "A communication did not send",
+      "when": "A communication did not send"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Workflow"
       ],
-      "entities": [],
-      "id": "recipe-explain-why-a-person-did-not-get-an-email",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-some-recipients-are-missing",
+      "id": "some-recipients-are-missing",
+      "inspect": [
+        "Group",
+        "Workflow"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
-        "https://community.rockrms.com/recipes/138",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify recipient source: list, communication, grid, entity set, workflow, connection requests.",
+        "If list-based, inspect group membership and active status.",
+        "Check deceased status.",
+        "Check segments and AND/OR match behavior.",
+        "Check duplicate removal.",
+        "Check email/SMS/push eligibility.",
+        "Check communication type changes during wizard authoring.",
+        "Check v18.2 recipient exclusion fix if the user changed communication type mid-wizard (Rock Release Notes)."
       ],
-      "title": "Recipe: Explain why a person did not get an email",
-      "when": "Follow the guide section for Recipe: Explain why a person did not get an email."
+      "title": "Some recipients are missing",
+      "when": "Some recipients are missing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
       ],
-      "entities": [],
-      "id": "recipe-explain-why-a-person-did-not-get-sms",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing",
+      "id": "email-delivered-but-analytics-are-missing",
+      "inspect": [
+        "Workflow"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
-        "https://community.rockrms.com/recipes/138"
+        "https://community.rockrms.com/ask/using/2824"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the send created `CommunicationRecipient` records.",
+        "Confirm it used the expected email medium.",
+        "Confirm transport supports analytics.",
+        "Confirm tracking is enabled for this send path.",
+        "Confirm provider webhooks/callbacks.",
+        "Confirm Rock has opens/clicks in the relevant analytics table or model.",
+        "Compare with a wizard-sent test email.",
+        "If workflow-sent, verify whether the workflow action path supports communication analytics. A community Q&A reports this exact difference for Mailgun but does not provide a confirmed fix in the source pack (Mailgun Tracking Q&A)."
       ],
-      "title": "Recipe: Explain why a person did not get SMS",
-      "when": "Follow the guide section for Recipe: Explain why a person did not get SMS."
+      "title": "Email delivered but analytics are missing",
+      "when": "Email delivered but analytics are missing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-audit-communication-list-freshness",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-sms-reply-is-not-visible",
+      "id": "sms-reply-is-not-visible",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check provider inbound webhook delivery.",
+        "Check SMS Pipeline.",
+        "Confirm SMS Conversations action is present.",
+        "Check system phone number.",
+        "Check conversation block filters and allowed numbers.",
+        "Check assigned person and personal-number filters.",
+        "Check conversation age/month limit.",
+        "Check page/block security."
       ],
-      "title": "Recipe: Audit communication list freshness",
-      "when": "Follow the guide section for Recipe: Audit communication list freshness."
+      "title": "SMS reply is not visible",
+      "when": "SMS reply is not visible"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person"
       ],
-      "entities": [],
-      "id": "recipe-review-a-communication-template",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-sms-recipient-did-not-receive-message",
+      "id": "sms-recipient-did-not-receive-message",
+      "inspect": [
+        "Person"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
-        "https://community.rockrms.com/recipes/138",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Review a communication template",
-      "when": "Follow the guide section for Recipe: Review a communication template."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-investigate-sms-conversation-access",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
         "https://community.rockrms.com/recipes/438",
-        "https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/recipes/507"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check recipient `CommunicationRecipient` status and status note.",
+        "Check person's phone record.",
+        "Confirm mobile phone type.",
+        "Confirm SMS enabled state.",
+        "Confirm opt-out state.",
+        "Confirm bad-number provider errors.",
+        "Confirm From number and provider send logs.",
+        "Check whether the UI only appeared to send. Community experience shows staff can miss pending/failure state without stronger UI warnings (Disabled SMS Mobile Phone Warning)."
       ],
-      "title": "Recipe: Investigate SMS conversation access",
-      "when": "Follow the guide section for Recipe: Investigate SMS conversation access."
+      "title": "SMS recipient did not receive message",
+      "when": "SMS recipient did not receive message"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-determine-whether-a-workflow-email-supports-analytics",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-template-is-missing-from-wizard",
+      "id": "template-is-missing-from-wizard",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/communication",
-        "https://community.rockrms.com/documentation/bookcontent/8",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs",
-        "https://community.rockrms.com/rocku/communication/sms-pipeline",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs",
-        "https://community.rockrms.com/recipes/138",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list"
+        "https://community.rockrms.com/documentation/bookcontent/8"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check template active state.",
+        "Check category filter.",
+        "Check template permissions.",
+        "Check whether template supports the wizard.",
+        "Check template version.",
+        "Check block allowed communication types.",
+        "Check whether it is a Communication Flow template rather than a system-wide Communication Template.",
+        "Check whether the current user has edit/view rights, as the official manual notes templates may be hidden by permissions or setup (Communicating With Rock)."
       ],
-      "title": "Recipe: Determine whether a workflow email supports analytics",
-      "when": "Follow the guide section for Recipe: Determine whether a workflow email supports analytics."
+      "title": "Template is missing from wizard",
+      "when": "Template is missing from wizard"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "16-troubleshooting-decision-tree-user-cannot-view-communication-detail",
+      "id": "user-cannot-view-communication-detail",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Check page and block security.",
+        "Check whether the user created or sent the communication.",
+        "Check Communication Detail `Communication Access Mode`.",
+        "Check `View All` security action in v19.1+.",
+        "Check whether strict access is expected.",
+        "Review release notes and tech bulletin for the current version (Rock Release Notes)."
+      ],
+      "title": "User cannot view communication detail",
+      "when": "User cannot view communication detail"
     }
   ],
   "concept_id": "communications",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:53+00:00",
+  "generated_at": "2026-07-30T02:08:03+00:00",
   "guide_sections": [
     "16-troubleshooting-decision-tree",
     "16-troubleshooting-decision-tree-a-communication-did-not-send",

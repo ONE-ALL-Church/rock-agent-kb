@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review Web Farm
 
-Follow the guide section for Recipe: Review Web Farm.
+Complete Review Web Farm with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,17 @@ Follow the guide section for Recipe: Review Web Farm.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Web farm enabled.
+2. License status.
+3. Nodes and names.
+4. Leader node.
+5. Message bus provider.
+6. Load balancer.
+7. Health checks.
+8. Shared storage.
+9. Job behavior.
+10. Cache behavior.
+11. Version caveats.
 
 ## Do Not Assume
 
@@ -35,11 +43,3 @@ Follow the guide section for Recipe: Review Web Farm.
 ## Source Links
 
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
-- https://www.triumph.tech/resources/github-spotlight-1152026
-- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://community.rockrms.com/recipes/176
-- https://community.rockrms.com/recipes/202

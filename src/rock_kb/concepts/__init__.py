@@ -9,9 +9,10 @@ from ._shared import *  # noqa: F401,F403
 from .registry import *  # noqa: F401,F403
 from .build import *  # noqa: F401,F403
 from .synthesize import *  # noqa: F401,F403
-from . import _shared, registry, build, synthesize
+from .audit import *  # noqa: F401,F403
+from . import _shared, registry, build, synthesize, audit
 
-_MODULES: tuple[ModuleType, ...] = (_shared, registry, build, synthesize)
+_MODULES: tuple[ModuleType, ...] = (_shared, registry, build, synthesize, audit)
 
 _OWNER_BY_NAME: dict[str, ModuleType] = {}
 _RAW_BY_NAME: dict[str, Any] = {}

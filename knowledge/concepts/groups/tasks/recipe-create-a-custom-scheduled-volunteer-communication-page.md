@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Create A Custom Scheduled Volunteer Communication Page
 
-Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communication Page.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communi
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Date range.
+2. Group Type(s).
+3. Groups.
+4. Locations.
+5. Schedules.
+6. Assignment/status records.
+7. Communication eligibility.
+8. Security.
 
 ## Do Not Assume
 
@@ -36,13 +49,13 @@ Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communi
 
 - https://community.rockrms.com/documentation/bookcontent/7
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
+- https://community.rockrms.com/ask/developing/2801
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://community.rockrms.com/rocku/groups/group-administrator
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view
+- https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
+- https://community.rockrms.com/recipes/220
+- https://community.rockrms.com/recipes/519
+- https://community.rockrms.com/recipes/329
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry

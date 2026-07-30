@@ -17,11 +17,11 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 
 ## Primary Tasks
 
-- [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md): Follow the guide section for Recipe: Find All Pending Signature Requests For A Template.
-- [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md): Follow the guide section for Recipe: Verify A Person Has A Valid Signed Waiver.
-- [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md): Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
-- [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md): Follow the guide section for Recipe: Audit Public Exposure Risk.
-- [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md): Follow the guide section for Recipe: Build A Staff Resend Process.
+- [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md): Complete Find All Pending Signature Requests For A Template with evidence-backed checks and a verifiable outcome.
+- [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md): Complete Verify A Person Has A Valid Signed Waiver with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md): Complete Diagnose A Failed Registration Signature with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md): Complete Audit Public Exposure Risk with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md): Prefer supported UI actions first. Manage Signature Documents notes that signed document detail can resend completion email. For invite resends or reissue scenarios, inspect current Rock-supported actions before using custom workflows.
 
 ## High-Signal Sections
 
@@ -43,6 +43,7 @@ Documents, document templates, generated PDFs, electronic signatures, signature 
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the documents-signatures guide.
 - `Person`: Rock concept/entity referenced by the documents-signatures guide.
+- `PersonAlias`: Rock concept/entity referenced by the documents-signatures guide.
 - `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the documents-signatures guide.
 

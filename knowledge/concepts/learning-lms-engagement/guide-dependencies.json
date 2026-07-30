@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 12,
+  "approved_claim_count": 12,
   "approved_claim_dependencies": [
     {
       "authority_tier": "community-reviewed",
       "claim": "For dashboard speed, expensive journey analytics can be calculated into a persisted dataset on a schedule rather than recalculating all historical engagement data on each page load.",
-      "claim_hash": "202ad783e181d408c46e938a607c2f913ecdd652ea29916720fe9bd82e390e55",
+      "claim_hash": "b3a0523241223753db240dae8f31cc81c1d8323a44f854f91f6976112248d842",
       "claim_id": "claim:01d746f9a6bc23a6d503",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -37,6 +39,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
       "source_record_ids": [
         "rock_community_hubs:95396b5eafd3b56c"
@@ -50,44 +53,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub walkthrough describes a Rock-based journey engagement dashboard that combines content-channel journey definitions, group/member participation, group member attendance, campus filters, persisted datasets, and Lava chart shortcodes to help ministry teams evaluate engagement and improve content strategy.",
-      "claim_hash": "185a2092fd6f3d4c89cd5a3c2e2e40656f0fa4e2f94a7773e60d22647a36fd63",
-      "claim_id": "claim:03fa1cffb8ed10d2485f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
+      "claim_hash": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
       "claim_id": "claim:07a75e5ff71510d708de",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -104,6 +76,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -117,180 +92,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds practical LMS guidance from churches beginning to build training content in Rock. It treats LMS as a way to deliver volunteer and staff training, reuse existing teaching assets, and pair content with communications that invite people into structured learning rather than leaving training scattered across unrelated pages.",
-      "claim_hash": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
-      "claim_id": "claim:0830c40b568944ecfd1a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight.",
-      "claim_hash": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-      "claim_id": "claim:32a99dc42dcf7a1796f3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "07:13",
-          "timestamp_seconds": 433.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Publishing a ministry dashboard can change behavior when it exposes underused content or completion gaps; teams can then adjust marketing, launch timing, content length, and follow-up strategy based on observed engagement.",
-      "claim_hash": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
-      "claim_id": "claim:3c7dd4483413d17faf8a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "20:26",
-          "timestamp_seconds": 1226.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Journey reporting may need to join content-channel items, generated groups, group members, notes/comments, and attendance-style completion events because the ministry experience spans both content and group participation models.",
-      "claim_hash": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
-      "claim_id": "claim:42ce1ba2afef374bebeb",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "09:23",
-          "timestamp_seconds": 563.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Voice AI services may use provider-specific usage pricing rather than a fixed monthly fee. Churches should estimate realistic usage, compare cost with ministry value and verify current provider pricing before rollout.",
-      "claim_hash": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
-      "claim_id": "claim:49224f61275c9a1f8e96",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
-      "source_record_ids": [
-        "rock_youtube:1ea957f46e0460f1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=372s",
-          "timestamp": "06:12",
-          "timestamp_seconds": 372.36,
-          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
-          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record.",
-      "claim_hash": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
+      "claim_hash": "028703347fc1a24be182fe6f594f534cefbf86a11922205ae9dd2a198f6f6c75",
       "claim_id": "claim:4b083dda9f0d9ccc4aff",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -305,6 +113,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -318,12 +127,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up.",
-      "claim_hash": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
+      "claim_hash": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
       "claim_id": "claim:4bc0aee305fa6b1bd524",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -362,6 +172,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -375,79 +186,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When moving from another LMS into Rock, plan for differences in platform logic instead of assuming videos and lessons can be imported without redesign.",
-      "claim_hash": "475b0194aca066403017295f12579b6b951e87945093c86536285e386e26c2be",
-      "claim_id": "claim:5308f526e81645ec0648",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz",
-          "timestamp": "02:29",
-          "timestamp_seconds": 149.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Online next-step pathways can combine dashboards, content, and LMS when the church defines the discipleship path being supported.",
-      "claim_hash": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-      "claim_id": "claim:5b83b8bc3538dc3e23d8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "02:17",
-          "timestamp_seconds": 137.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
+      "claim_hash": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
       "claim_id": "claim:66eb84b2b9cc466ce78b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -464,6 +209,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -477,43 +225,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session frames AI-assisted coaching and online learning as tools that still need ministry ownership. It connects LMS, dashboards, content, and mobile engagement to a discipleship path, while warning that AI should support reviewed coaching and resource routing rather than make ungoverned ministry decisions.",
-      "claim_hash": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-      "claim_id": "claim:679a11bb5e644db4bfaa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread.",
-      "claim_hash": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
+      "claim_hash": "7bc8df66376549a50a03f768048c404547fd0e9b54a8427d501cd0f423f0d061",
       "claim_id": "claim:679a38216f2b07097624",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -528,6 +246,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -541,150 +260,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A binge-style content idea can become a structured learning path when the church defines sequence, purpose, and completion signals rather than only embedding videos.",
-      "claim_hash": "2d7702e293746feaad73194efd82f0d6e61662a299a3db9822204f2ffda3d591",
-      "claim_id": "claim:762d02ec5e1b9532d039",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "02:23",
-          "timestamp_seconds": 143.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Early LMS work should start with a few clear training use cases, such as volunteer or staff onboarding, before attempting a large content migration.",
-      "claim_hash": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
-      "claim_id": "claim:794a1e10cee85f1c6b78",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "00:11",
-          "timestamp_seconds": 11.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Engagement goals should be tied to the path the church wants people to take, not simply to whether a digital tool was launched.",
-      "claim_hash": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-      "claim_id": "claim:79a3f931150e2af8fdf7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "03:39",
-          "timestamp_seconds": 219.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Reusable communication sections and global style controls can reduce template drift when churches standardize common layouts, buttons, text styles, columns, and Lava/code blocks.",
-      "claim_hash": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-      "claim_id": "claim:7d612089a965482f7eed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "51:40",
-          "timestamp_seconds": 3100.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities.",
-      "claim_hash": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
+      "claim_hash": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
       "claim_id": "claim:882208fdf2bb82703931",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -721,6 +303,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -734,12 +317,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version.",
-      "claim_hash": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
+      "claim_hash": "652300b34467a8d689502f1bdcafc9220972617627778399802e05dc01dff474",
       "claim_id": "claim:91be2ad338eb6b1cdaed",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -755,6 +339,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -768,78 +353,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This February 2025 Media Watch session is a high-value public-safe source for Rock LMS and the new communications wizard direction. It explains LMS programs, courses, classes, learning plans, participants, on-demand versus academic-calendar modes, activity types, facilitator grading, availability rules, and workflow hooks, then demonstrates communications beta features such as topics, reachable-audience counts, starter templates, global styles, reusable sections, drag-and-drop blocks, image/column controls, and Lava/code blocks.",
-      "claim_hash": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-      "claim_id": "claim:9b6fa66cbcb39e42d811",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "LMS is most valuable when the church treats it as part of a broader volunteer readiness system, not just a content repository.",
-      "claim_hash": "b59169633e8fe9f679ccde6cf28132463c8deb13b2dcef985f11ffc443172786",
-      "claim_id": "claim:b14b4468388319eb2a34",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz",
-          "timestamp": "03:41",
-          "timestamp_seconds": 221.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Existing training videos can become Rock LMS activities, but completion, sequencing, and facilitator review should be configured intentionally around the desired learner outcome.",
-      "claim_hash": "783c0fca252106154a0afff0d1287eb6003db96bec36931e2cbf7961e14963bd",
+      "claim_hash": "09952a68c034e0650863bd688cc8d438bb5be259f0da290659c5ff5bdab8bcb3",
       "claim_id": "claim:c538cf61594b1114dc41",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -874,6 +394,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
       "source_record_ids": [
         "rock_community_hubs:b68311e84ce45057"
@@ -887,77 +408,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A journey dashboard can define completion as finishing every day in a journey, then use group member attendance and participation records to compare completion across solo, group, spouse, campus, demographic, and journey-category dimensions.",
-      "claim_hash": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
-      "claim_id": "claim:c7ce2d177c5707d8635a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "05:32",
-          "timestamp_seconds": 332.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode connects AI adoption with practical staff-training governance. It covers usage-based AI costs, durable agent artifacts, short change-training videos, role-based Rock LMS assignments, shadow-tool risk and staff-first training. Treat external AI pricing and preview product statements as release-sensitive, and verify current Rock behavior before implementation.",
-      "claim_hash": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
-      "claim_id": "claim:c803dbe27136969cf6e5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
-      "source_record_ids": [
-        "rock_youtube:1ea957f46e0460f1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
-          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality.",
-      "claim_hash": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+      "claim_hash": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
       "claim_id": "claim:c8c3a60f71790dd3616d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -973,6 +430,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -986,12 +444,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan.",
-      "claim_hash": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
+      "claim_hash": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b",
       "claim_id": "claim:c9c1fa08cb0434d501e6",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1006,6 +465,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -1019,78 +479,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds implementation-oriented LMS guidance from a church activating the LMS engine and migrating content from another learning platform. It is useful for planning how existing videos and course material can be restructured into Rock LMS while preserving the ministry logic of training paths, groups, and volunteer readiness.",
-      "claim_hash": "f53ba37ef9d9f599a45a60a40956b65fded536cb98d0554467848b61c7ead3a0",
-      "claim_id": "claim:d65eaa017f0b1ea39b33",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The communications beta wizard introduces topic tagging and reachable-audience counts by medium, helping senders choose email, SMS, or push based on actual contactability rather than only the size of a communication list.",
-      "claim_hash": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-      "claim_id": "claim:da22995bb2d271a00d5b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "42:38",
-          "timestamp_seconds": 2558.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based.",
-      "claim_hash": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
+      "claim_hash": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
       "claim_id": "claim:dd3b03571388d00cc80b",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1129,6 +524,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -1142,206 +538,36 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Existing teaching series or training videos can become LMS content, but teams should still design the course path, completion expectations, and follow-up communication around the learner.",
-      "claim_hash": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53",
-      "claim_id": "claim:f52e305b2187f1ab53da",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "01:42",
-          "timestamp_seconds": 102.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:01d746f9a6bc23a6d503": "202ad783e181d408c46e938a607c2f913ecdd652ea29916720fe9bd82e390e55",
-    "claim:03fa1cffb8ed10d2485f": "185a2092fd6f3d4c89cd5a3c2e2e40656f0fa4e2f94a7773e60d22647a36fd63",
-    "claim:07a75e5ff71510d708de": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
-    "claim:0830c40b568944ecfd1a": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
-    "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-    "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
-    "claim:42ce1ba2afef374bebeb": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
-    "claim:49224f61275c9a1f8e96": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
-    "claim:4b083dda9f0d9ccc4aff": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
-    "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
-    "claim:5308f526e81645ec0648": "475b0194aca066403017295f12579b6b951e87945093c86536285e386e26c2be",
-    "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-    "claim:66eb84b2b9cc466ce78b": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
-    "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-    "claim:679a38216f2b07097624": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
-    "claim:762d02ec5e1b9532d039": "2d7702e293746feaad73194efd82f0d6e61662a299a3db9822204f2ffda3d591",
-    "claim:794a1e10cee85f1c6b78": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
-    "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-    "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-    "claim:882208fdf2bb82703931": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
-    "claim:91be2ad338eb6b1cdaed": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
-    "claim:9b6fa66cbcb39e42d811": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-    "claim:b14b4468388319eb2a34": "b59169633e8fe9f679ccde6cf28132463c8deb13b2dcef985f11ffc443172786",
-    "claim:c538cf61594b1114dc41": "783c0fca252106154a0afff0d1287eb6003db96bec36931e2cbf7961e14963bd",
-    "claim:c7ce2d177c5707d8635a": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
-    "claim:c803dbe27136969cf6e5": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
-    "claim:c8c3a60f71790dd3616d": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
-    "claim:c9c1fa08cb0434d501e6": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
-    "claim:d65eaa017f0b1ea39b33": "f53ba37ef9d9f599a45a60a40956b65fded536cb98d0554467848b61c7ead3a0",
-    "claim:da22995bb2d271a00d5b": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-    "claim:dd3b03571388d00cc80b": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
-    "claim:f52e305b2187f1ab53da": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53"
+    "claim:01d746f9a6bc23a6d503": "b3a0523241223753db240dae8f31cc81c1d8323a44f854f91f6976112248d842",
+    "claim:07a75e5ff71510d708de": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
+    "claim:4b083dda9f0d9ccc4aff": "028703347fc1a24be182fe6f594f534cefbf86a11922205ae9dd2a198f6f6c75",
+    "claim:4bc0aee305fa6b1bd524": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
+    "claim:66eb84b2b9cc466ce78b": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
+    "claim:679a38216f2b07097624": "7bc8df66376549a50a03f768048c404547fd0e9b54a8427d501cd0f423f0d061",
+    "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
+    "claim:91be2ad338eb6b1cdaed": "652300b34467a8d689502f1bdcafc9220972617627778399802e05dc01dff474",
+    "claim:c538cf61594b1114dc41": "09952a68c034e0650863bd688cc8d438bb5be259f0da290659c5ff5bdab8bcb3",
+    "claim:c8c3a60f71790dd3616d": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
+    "claim:c9c1fa08cb0434d501e6": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b",
+    "claim:dd3b03571388d00cc80b": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652"
   },
-  "approved_claims_hash": "1fceb012bc9d8dcff8cecde469b6cfcd55bd6d41a4ac498cef94c0a5b5ffb08f",
+  "approved_claims_hash": "2c6eb4c42c3aa7d8ac77c661eabac6a19e648db462c7a577efd50119b39166fd",
   "approved_claims_path": "knowledge/concepts/learning-lms-engagement/approved-claims.md",
-  "approved_media_dependencies": [
-    {
-      "approved_concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "a65ec527228a1535329b795f207f426d3705e3ff72c6f6b0da625e868f088d8c",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a5cb300eafd257ca",
-      "public_promotion_id": "media-public-promotion:a65ec527228a1535",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:a5cb300eafd257ca",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:ee02b5c27faeaa28",
-      "public_promotion_id": "media-public-promotion:7a9974c9d0e9ff7e",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:ee02b5c27faeaa28",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "content_hash": "9c51ff5dc858db6cd2cf959ad669f38d5941101f771da6e8e6fe1def3d203bc6",
-      "key_insight_count": 5,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:d1eb1a265dd0762b",
-      "public_promotion_id": "media-public-promotion:9c51ff5dc858db6c",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:d1eb1a265dd0762b",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "content_hash": "1bf6bd15e7e3c885f14ee02abc44902cdb5c92ed60744ff3d01808739e23ba20",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:51fb82169d3a4818",
-      "public_promotion_id": "media-public-promotion:1bf6bd15e7e3c885",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:51fb82169d3a4818",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "content_hash": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
-      "key_insight_count": 6,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:1cb65e44984bb55c",
-      "public_promotion_id": "media-public-promotion:29cd703cc38909fd",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_youtube",
-      "source_record_id": "media-insight:1cb65e44984bb55c",
-      "source_title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214 Transcript Insight",
-      "source_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "content_hash": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:927b060aba73b666",
-      "public_promotion_id": "media-public-promotion:3eb05b8c47127f5c",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:927b060aba73b666",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    }
-  ],
-  "approved_media_dependency_hashes": {
-    "media-insight:1cb65e44984bb55c": "29cd703cc38909fd39e3d60c17961360187fbe5dd56143442ce1d0404ba98a23",
-    "media-insight:51fb82169d3a4818": "1bf6bd15e7e3c885f14ee02abc44902cdb5c92ed60744ff3d01808739e23ba20",
-    "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
-    "media-insight:a5cb300eafd257ca": "a65ec527228a1535329b795f207f426d3705e3ff72c6f6b0da625e868f088d8c",
-    "media-insight:d1eb1a265dd0762b": "9c51ff5dc858db6cd2cf959ad669f38d5941101f771da6e8e6fe1def3d203bc6",
-    "media-insight:ee02b5c27faeaa28": "7a9974c9d0e9ff7eb40c7ca5515b2d3a832fdb85aa97b1062208fa1b1deeff6a"
-  },
-  "approved_media_hash": "a0b57d334071cf790dbc08ce3846995364523241e8f5042bbc9fefde7c58459d",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "0fc0a475d8f593d335935a585499fce62114ba4f53fc18427ffba406a4a4a6df",
   "approved_media_path": "knowledge/concepts/learning-lms-engagement/approved-media.md",
-  "built_at": "2026-07-26T00:29:39+00:00",
+  "built_at": "2026-07-30T02:07:51+00:00",
   "concept_id": "learning-lms-engagement",
-  "guide_hash": "ee568f09b6c280276d4bc2c43fcc1238856ddc3d70427508ab4e1495ed4265bc",
-  "guide_line_count": 1269,
+  "guide_hash": "82624700dbf75aec0d1f55e0523d903bae23e7b38a3686ca7ca106a3d3a41f8b",
+  "guide_line_count": 1257,
   "guide_path": "knowledge/concepts/learning-lms-engagement/guide.md",
-  "guide_word_count": 11211,
+  "guide_word_count": 11062,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1609,20 +835,12 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "8540c4be8f5de2d1",
+      "source_key": "e3517fa274c4048c",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "121d4215e1fc4edb",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -2667,7 +1885,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1203,
+      "end_line": 1202,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -2678,34 +1896,40 @@
         "bd359c503b146774",
         "bd359c503b146774",
         "5fa353d6f0648800",
-        "bd359c503b146774",
-        "bd359c503b146774",
         "892f43823742ae10",
         "95396b5eafd3b56c",
         "892f43823742ae10",
-        "b68311e84ce45057"
+        "b68311e84ce45057",
+        "892f43823742ae10",
+        "e3517fa274c4048c"
       ],
       "start_line": 1178
     },
     {
-      "confidence": "citation-only",
-      "end_line": 1221,
+      "confidence": "structural",
+      "end_line": 1209,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
         "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "bd359c503b146774",
+        "5fa353d6f0648800",
+        "892f43823742ae10",
         "95396b5eafd3b56c",
-        "8540c4be8f5de2d1",
+        "892f43823742ae10",
         "b68311e84ce45057",
         "892f43823742ae10",
-        "121d4215e1fc4edb"
+        "e3517fa274c4048c"
       ],
-      "start_line": 1204
+      "start_line": 1203
     },
     {
       "confidence": "high",
-      "end_line": 1269,
+      "end_line": 1257,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2734,7 +1958,7 @@
         "a1ed0fff68d780b1",
         "87c8ac3acde5fa9a"
       ],
-      "start_line": 1222
+      "start_line": 1210
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T19:55:32+00:00",
@@ -3215,21 +2439,12 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
-      "source_key": "8540c4be8f5de2d1",
+      "source_key": "e3517fa274c4048c",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "121d4215e1fc4edb",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
+      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

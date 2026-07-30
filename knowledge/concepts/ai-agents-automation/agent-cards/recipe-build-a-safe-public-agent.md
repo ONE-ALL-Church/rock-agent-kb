@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Build A Safe Public Agent”
 
-Follow the guide section for Recipe: “Build A Safe Public Agent”.
+Complete “Build A Safe Public Agent” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,33 +16,41 @@ Follow the guide section for Recipe: “Build A Safe Public Agent”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Define anonymous/authenticated boundary.
+2. Use only public-safe tools.
+3. Avoid broad person search.
+4. Use current-person-only data for authenticated users.
+5. Avoid internal reports.
+6. Avoid raw IDs.
+7. Avoid write tools unless backed by a workflow with validation.
+8. Test as anonymous, authenticated user, and staff.
+9. Review transcripts/session history.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Avoid broad person search.
+- Avoid internal reports.
+- Avoid raw IDs.
+- Avoid write tools unless backed by a workflow with validation.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/ai-agents
 - https://community.rockrms.com/documentation/BookContent/9
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/ask/developing/2708
 - https://community.rockrms.com/rocku/individuals-in-rock/data-automation
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
+- https://community.rockrms.com/ask/developing/2708
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://community.rockrms.com/ModelMap
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude

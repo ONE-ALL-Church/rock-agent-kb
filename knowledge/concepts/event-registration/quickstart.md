@@ -17,14 +17,14 @@ Registration instances, templates, payments, forms, event occurrences, and regis
 
 ## Primary Tasks
 
-- [Recipe: Summarize A Registration Instance](tasks/recipe-summarize-a-registration-instance.md): Follow the guide section for Recipe: Summarize A Registration Instance.
-- [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md): Follow the guide section for Recipe: Verify A Public Registration URL.
-- [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md): Follow the guide section for Recipe: Audit Payment Risk.
-- [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md): Follow the guide section for Recipe: Audit Discount Codes.
-- [Recipe: Audit Wait List](tasks/recipe-audit-wait-list.md): Follow the guide section for Recipe: Audit Wait List.
-- [Recipe: Build A Registrant Packet Export](tasks/recipe-build-a-registrant-packet-export.md): Follow the guide section for Recipe: Build A Registrant Packet Export.
-- [Recipe: Add Staff Notes To Registration Detail](tasks/recipe-add-staff-notes-to-registration-detail.md): Follow the guide section for Recipe: Add Staff Notes To Registration Detail.
-- [Recipe: Investigate API Registration URL Issues](tasks/recipe-investigate-api-registration-url-issues.md): Follow the guide section for Recipe: Investigate API Registration URL Issues.
+- [Recipe: Summarize A Registration Instance](tasks/recipe-summarize-a-registration-instance.md): Complete Summarize A Registration Instance with evidence-backed checks and a verifiable outcome.
+- [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md): Return whether the URL targets the intended registration and why it is open, closed, full, wait-listing, or broken.
+- [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md): Return a prioritized collection list.
+- [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md): Return codes only to authorized staff.
+- [Recipe: Audit Wait List](tasks/recipe-audit-wait-list.md): Return who is waiting, what data is missing, and what staff action is needed.
+- [Recipe: Build A Registrant Packet Export](tasks/recipe-build-a-registrant-packet-export.md): Complete Build A Registrant Packet Export with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add Staff Notes To Registration Detail](tasks/recipe-add-staff-notes-to-registration-detail.md): Complete Add Staff Notes To Registration Detail with evidence-backed checks and a verifiable outcome.
+- [Recipe: Investigate API Registration URL Issues](tasks/recipe-investigate-api-registration-url-issues.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

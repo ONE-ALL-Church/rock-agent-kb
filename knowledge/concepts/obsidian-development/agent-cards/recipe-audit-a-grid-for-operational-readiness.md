@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit A Grid For Operational Readiness
 
-Follow the guide section for Recipe: Audit A Grid For Operational Readiness.
+Complete Audit A Grid For Operational Readiness with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,28 @@ Follow the guide section for Recipe: Audit A Grid For Operational Readiness.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Count expected rows.
+2. Estimate payload size.
+3. Confirm `keyField`.
+4. Confirm row fields match columns.
+5. Confirm quick filter values.
+6. Confirm sort values.
+7. Confirm export values.
+8. Confirm dynamic attributes.
+9. Confirm person fields are added server-side when using `PersonColumn`.
+10. Confirm permissions for edit/delete/security/reorder.
+11. Test export title and invalid characters.
+12. Test large row count in a realistic browser.
 
 ## Do Not Assume
 
@@ -36,13 +47,7 @@ Follow the guide section for Recipe: Audit A Grid For Operational Readiness.
 
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/obsidian/grid-reference
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
 - https://community.rockrms.com/developer/obsidian/null-vs-undefined
-- https://community.rockrms.com/developer/obsidian/grids
-- https://community.rockrms.com/developer/obsidian
-- https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/obsidian/browser-bus
-- https://community.rockrms.com/developer/obsidian/form-validation

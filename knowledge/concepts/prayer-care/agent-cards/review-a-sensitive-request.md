@@ -7,7 +7,7 @@ generated: true
 
 # Review A Sensitive Request
 
-Follow the guide section for Review A Sensitive Request.
+Complete Review A Sensitive Request with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Review A Sensitive Request.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Campus`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Campus`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Open the request detail.
+2. Check text, original request, AI-formatted text, and comments.
+3. Check requester identity and email.
+4. Check public, approved, active, urgent, category, campus, expiration, group.
+5. Look for identifying or crisis details.
+6. If unsafe, make private or unapproved according to policy.
+7. Escalate to staff if needed.
+8. Add only appropriate internal notes or workflow actions.
 
 ## Do Not Assume
 
@@ -35,14 +44,14 @@ Follow the guide section for Review A Sensitive Request.
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/prayer
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs
+- https://community.rockrms.com/recipes/135
+- https://community.rockrms.com/recipes/338
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
 - https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs
+- https://community.rockrms.com/recipes/121
+- https://community.rockrms.com/recipes/389
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs
+- https://community.rockrms.com/recipes/350
+- https://community.rockrms.com/recipes/157
+- https://community.rockrms.com/recipes/149

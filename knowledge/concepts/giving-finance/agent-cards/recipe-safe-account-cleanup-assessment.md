@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Safe Account Cleanup Assessment
 
-Follow the guide section for Recipe: Safe Account Cleanup Assessment.
+Complete Safe Account Cleanup Assessment with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,36 @@ Follow the guide section for Recipe: Safe Account Cleanup Assessment.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Location`
+- `Schedule`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Location`
+- `Schedule`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Historical transactions by account.
+2. Scheduled transaction details.
+3. Pledges.
+4. Online giving block settings.
+5. Statement saved settings.
+6. Reports/Data Views.
+7. External fund mappings.
+8. Attributes/integrations.
+9. Security.
+10. Whether account can be deactivated.
+11. What still references it.
+12. Whether transactions should remain historical.
+13. Migration plan if allocations must move.
+14. Risks to statements and reporting.
 
 ## Do Not Assume
 
@@ -34,14 +53,15 @@ Follow the guide section for Recipe: Safe Account Cleanup Assessment.
 
 ## Source Links
 
+- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
 - https://community.rockrms.com/recipes/254
 - https://community.rockrms.com/documentation/bookcontent/15
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs
-- https://community.rockrms.com/rocku/finance
-- https://community.rockrms.com/rocku/finance/accounts
-- https://community.rockrms.com/recipes/122
-- https://community.rockrms.com/recipes/90
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/FinancialScheduledTransactionPaymentPlanPair.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs

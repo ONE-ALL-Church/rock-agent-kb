@@ -1,149 +1,193 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-find-the-endpoint-behind-a-button",
-      "inspect": [],
+      "guide_section_id": "21-troubleshooting-decision-tree-the-button-does-nothing",
+      "id": "the-button-does-nothing",
+      "inspect": [
+        "Page",
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/helix/lava-applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://community.rockrms.com/developer/helix/htmx",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/ModelMap"
+        "https://community.rockrms.com/developer/helix/strategies/tips"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is HTMX loaded?",
+        "Is the block a Lava Application Content block?",
+        "Is the element inside markup rendered after page load?",
+        "Is the `hx-*` attribute valid?",
+        "Is another parent `hx-*` attribute inherited unexpectedly?",
+        "Is JavaScript blocked by a page error?"
       ],
-      "title": "Recipe: Find The Endpoint Behind A Button",
-      "when": "Follow the guide section for Recipe: Find The Endpoint Behind A Button."
+      "title": "The button does nothing",
+      "when": "The button does nothing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-determine-whether-a-helix-app-is-public-safe",
+      "guide_section_id": "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
+      "id": "the-request-is-sent-but-endpoint-is-not-found",
       "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/helix/lava-applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://community.rockrms.com/developer/helix/strategies",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/ModelMap"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Application slug.",
+        "Endpoint slug.",
+        "Caret notation.",
+        "HTTP method.",
+        "Endpoint active state.",
+        "Application active state.",
+        "Whether route changed during migration.",
+        "Whether the full endpoint route differs in this Rock version."
       ],
-      "title": "Recipe: Determine Whether A Helix App Is Public-Safe",
-      "when": "Follow the guide section for Recipe: Determine Whether A Helix App Is Public-Safe."
+      "title": "The request is sent but endpoint is not found",
+      "when": "The request is sent but endpoint is not found"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-upgrade-a-plugin-era-helix-app",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/helix/lava-applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/ModelMap"
+      "guide_section_id": "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
+      "id": "the-endpoint-returns-login-markup-or-unauthorized",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "CurrentPerson context.",
+        "Page/block security versus endpoint security.",
+        "Endpoint Security Mode.",
+        "Endpoint Execute permission.",
+        "Application View/Edit/Administrate permission if inherited.",
+        "Anonymous access expectations.",
+        "Whether the request is cross-site or missing auth cookies."
       ],
-      "title": "Recipe: Upgrade A Plugin-Era Helix App",
-      "when": "Follow the guide section for Recipe: Upgrade A Plugin-Era Helix App."
+      "title": "The endpoint returns login markup or unauthorized",
+      "when": "The endpoint returns login markup or unauthorized"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-review-a-community-recipe-before-use",
+      "guide_section_id": "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
+      "id": "the-endpoint-works-in-ui-but-fails-when-called-directly",
       "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/helix/lava-applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/developer/helix/htmx",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/ModelMap"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Required parameters.",
+        "Body parsing.",
+        "CSRF or auth expectations.",
+        "Server-side validation.",
+        "Explicit entity authorization.",
+        "Error handling for missing values."
       ],
-      "title": "Recipe: Review A Community Recipe Before Use",
-      "when": "Follow the guide section for Recipe: Review A Community Recipe Before Use."
+      "title": "The endpoint works in UI but fails when called directly",
+      "when": "The endpoint works in UI but fails when called directly"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-add-observability-to-a-complex-endpoint",
-      "inspect": [],
+      "guide_section_id": "21-troubleshooting-decision-tree-validation-does-not-run",
+      "id": "validation-does-not-run",
+      "inspect": [
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/helix/lava-applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://community.rockrms.com/developer/helix/forms-controls",
-        "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-        "https://community.rockrms.com/lava/tags/observe",
-        "https://community.rockrms.com/developer/helix/htmx",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/strategies",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/ModelMap"
+        "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Controls are inside `<lava-form>`.",
+        "Method is POST, PUT, or DELETE.",
+        "Required validation attributes are present.",
+        "Validation summary is inside `<lava-form>`.",
+        "Shortcode output includes expected IDs and messages.",
+        "GET requests are not expected to validate (Form Validation)."
       ],
-      "title": "Recipe: Add Observability To A Complex Endpoint",
-      "when": "Follow the guide section for Recipe: Add Observability To A Complex Endpoint."
+      "title": "Validation does not run",
+      "when": "Validation does not run"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "21-troubleshooting-decision-tree-spinner-does-not-show",
+      "id": "spinner-does-not-show",
+      "inspect": [],
+      "source_urls": [],
+      "start_with": [
+        "`htmx-indicator` class exists.",
+        "Image path matches core v18+ or plugin-era path.",
+        "Request is long enough to see it.",
+        "CSS does not hide it permanently.",
+        "The indicator is inside or associated with the triggering element."
+      ],
+      "title": "Spinner does not show",
+      "when": "Spinner does not show"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
+      ],
+      "guide_section_id": "21-troubleshooting-decision-tree-endpoint-is-slow",
+      "id": "endpoint-is-slow",
+      "inspect": [
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/observability"
+      ],
+      "start_with": [
+        "Entity command loops.",
+        "Missing `limit`.",
+        "Missing pagination.",
+        "Attribute prefetch patterns.",
+        "Security checks on large entity result sets.",
+        "Repeated endpoint calls from HTMX triggers.",
+        "Cache eligibility.",
+        "SQL command performance."
+      ],
+      "title": "Endpoint is slow",
+      "when": "Endpoint is slow"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
+      "id": "endpoint-modifies-wrong-data",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Identifier source.",
+        "GUID/IdKey mapping.",
+        "CurrentPerson authorization.",
+        "Entity type IDs in configuration.",
+        "Live instance entity IDs versus copied recipe IDs.",
+        "HTTP method.",
+        "Server-side validation.",
+        "Enabled modify/delete commands."
+      ],
+      "title": "Endpoint modifies wrong data",
+      "when": "Endpoint modifies wrong data"
     }
   ],
   "concept_id": "helix",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:01+00:00",
+  "generated_at": "2026-07-30T02:08:10+00:00",
   "guide_sections": [
     "21-troubleshooting-decision-tree",
     "21-troubleshooting-decision-tree-the-button-does-nothing",

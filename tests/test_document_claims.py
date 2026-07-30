@@ -58,6 +58,31 @@ def test_build_document_claim_candidates_uses_full_text_and_stable_source_hash(m
     assert row["concept_ids"] == ["documents-signatures"]
 
 
+def test_build_document_claim_candidates_allows_concepts_without_path_constraints(monkeypatch, tmp_path: Path):
+    record = documentation_record(
+        "rock_documentation:rest-api-integration",
+        "documentation/automation/rest-api-integration",
+        "REST API Integration",
+        "Rock API integrations should preserve authorization and use supported endpoints for bounded automation.",
+    )
+    output = tmp_path / "candidates.jsonl"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    result = document_claims.build_document_claim_candidates(
+        concept_ids=["api-integrations"],
+        limit_per_concept=1,
+        output_path=output,
+        records=[record],
+        context_loader=lambda _record: (
+            "This full official article explains how Rock REST API integrations "
+            "authenticate, authorize requests, and use supported endpoints."
+        ),
+    )
+
+    assert result["candidate_count"] == 1
+    assert next(read_jsonl(output))["concept_ids"] == ["api-integrations"]
+
+
 def test_build_document_claim_candidates_skips_truncated_full_article(monkeypatch, tmp_path: Path):
     record = documentation_record(
         "rock_documentation:test-long",
@@ -112,6 +137,8 @@ def test_promote_document_claim_rewrite_builds_public_safe_review(monkeypatch, t
                 "claim_type": "behavior",
                 "evidence_class": "current_behavior",
                 "temporal_status": "current",
+                "rock_versions": ["19.0"],
+                "version_scope_status": "scoped",
                 "needs_live_verification": False,
             }
         ],
@@ -134,9 +161,12 @@ def test_promote_document_claim_rewrite_builds_public_safe_review(monkeypatch, t
     assert result["next_command"] == "uv run kb build --stage claims --force"
     assert row["generation_provenance"]["model"] == "gpt-test"
     assert row["safe_evidence_hash"] == source_hash
+    assert row["version_scope_status"] == "scoped"
+    assert row["rock_versions"] == ["19.0"]
     assert "source_context" not in json.dumps(row)
     assert public_claim["evidence_class"] == "current_behavior"
     assert public_claim["temporal_status"] == "current"
+    assert public_claim["version_scope_status"] == "scoped"
     assert public_claim["derived_from"]["candidate_id"] == candidate["id"]
 
 
@@ -173,6 +203,14 @@ def test_developer_documentation_version_is_not_treated_as_rock_version():
 
     assert document_claims.normalized_rock_versions(candidate, {}) == []
     assert document_claims.normalized_rock_versions(candidate, {"rock_versions": ["19.0"]}) == ["19.0"]
+    assert document_claims.normalized_rock_versions(
+        {"source_id": "rock_documentation", "documentation_current_version": "v19.0"},
+        {},
+    ) == []
+    assert document_claims.normalized_version_scope_status({}, []) == "unprocessed"
+    assert document_claims.normalized_version_scope_status({"version_scope_status": "version_independent"}, []) == "version_independent"
+    with pytest.raises(ValueError, match="version_scope_status must be"):
+        document_claims.normalized_version_scope_status({"version_scope_status": "scoped"}, [])
 
 
 def test_promote_document_claim_rewrite_accepts_reviewed_candidate_with_no_claims(monkeypatch, tmp_path: Path):

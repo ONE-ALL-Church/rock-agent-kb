@@ -43,6 +43,7 @@ EvidenceClass = Literal[
     "exploratory_roadmap",
 ]
 TemporalStatus = Literal["current", "release_sensitive", "exploratory", "unknown"]
+VersionScopeStatus = Literal["scoped", "version_independent", "unprocessed"]
 ReviewStatus = Literal[
     "approved_for_public_distillation",
     "redaction_reviewed",
@@ -114,6 +115,7 @@ class Claim(KBRecord):
     license_status: LicenseStatus
     public_publish_mode: PublicPublishMode
     rock_versions: list[str] = Field(default_factory=list)
+    version_scope_status: VersionScopeStatus = "unprocessed"
     safe_evidence_hash: str
     needs_live_verification: bool
     created_at: str
@@ -142,4 +144,10 @@ class Claim(KBRecord):
     def require_live_verification_for_live_verified(self) -> Claim:
         if self.claim_tier == "live_verified" and self.live_verification is None:
             raise ValueError("live_verified claim must include live_verification evidence")
+        if self.rock_versions and self.version_scope_status == "unprocessed":
+            self.version_scope_status = "scoped"
+        if self.version_scope_status == "scoped" and not self.rock_versions:
+            raise ValueError("scoped claims must include at least one rock_versions value")
+        if self.version_scope_status == "version_independent" and self.rock_versions:
+            raise ValueError("version_independent claims cannot include rock_versions")
         return self

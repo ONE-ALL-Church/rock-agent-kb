@@ -120,7 +120,7 @@ After that, use the CLI for common lookups:
 uvx rock-kb get check-in
 uvx rock-kb result '<result-id>'
 uvx rock-kb claim '<claim-id>'
-uvx rock-kb claims security-permissions --min-tier source_backed
+uvx rock-kb claims security-permissions --min-claim-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb recipes list
@@ -132,7 +132,8 @@ uvx rock-kb dashboard
 ```
 
 Search is intentionally compact: it returns ranked IDs, titles, snippets,
-tiers, source URLs, and ranking signals. Open only the relevant hit with
+tiers, source URLs, version-scope state, and rounded scores. Detailed ranking
+signals are available only with `--debug`. Open only the relevant hit with
 `result <result-id>`, or fetch an approved claim directly with `claim
 <claim-id>`. `search --full` remains available for older one-step workflows.
 

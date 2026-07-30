@@ -10,13 +10,13 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md) |  |  |
+| [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md) | `Attribute` | `Attribute` |
 | [Recipe: Explain A Platform Configuration Object To A User](tasks/recipe-explain-a-platform-configuration-object-to-a-user.md) |  |  |
-| [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md) |  |  |
-| [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md) |  |  |
-| [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md) |  |  |
-| [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md) |  |  |
-| [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md) |  |  |
+| [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
+| [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md) | `Attribute` | `Attribute` |
+| [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md) | `Block`, `Attribute` | `Block`, `Attribute` |
+| [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md) | `Attribute` | `Attribute` |
+| [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
 
 ## Entities
 

@@ -28,14 +28,16 @@ test("search is compact by default and exact result expands the row", async () =
     const search = await searchResponse.json();
 
     assert.equal(searchResponse.status, 200);
-    assert.equal(search.schema, "rock-kb-search-result-v2");
+    assert.equal(search.schema, "rock-kb-search-result-v3");
     assert.equal(search.detail, "compact");
+    assert.equal(search.intent, "reference");
+    assert.equal(search.min_claim_tier, "source_backed");
     assert.equal(search.results.length, 1);
     assert.equal(search.results[0].id, "claim:claim:abc123");
     assert.deepEqual(search.results[0].concepts, ["check-in"]);
     assert.equal(typeof search.results[0].snippet, "string");
     assert.equal(typeof search.results[0].score, "number");
-    assert.equal(typeof search.results[0].signals.title_overlap, "number");
+    assert.equal("signals" in search.results[0], false);
     assert.equal("body" in search.results[0], false);
     assert.equal("payload" in search.results[0], false);
 
@@ -46,6 +48,17 @@ test("search is compact by default and exact result expands the row", async () =
     assert.equal(result.canonical_result_id, "claim:claim:abc123");
     assert.match(result.result.body, /printing/);
     assert.equal(result.result.payload.claim_id, "claim:abc123");
+
+    const conceptResponse = await mf.dispatchFetch("https://kb.example.test/results/concept%3Acheck-in");
+    const concept = await conceptResponse.json();
+    assert.equal(concept.status, "ok");
+    assert.match(concept.result.body, /eligibility and availability troubleshooting/);
+
+    const debugResponse = await mf.dispatchFetch("https://kb.example.test/search?q=labels%20printing&limit=1&debug=true");
+    const debug = await debugResponse.json();
+    assert.equal(typeof debug.results[0].signals.title_overlap, "number");
+    assert.equal(Number.isInteger(debug.results[0].score * 100), true);
+    assert.ok(JSON.stringify(search.results[0]).length <= JSON.stringify(debug.results[0]).length * 0.7);
   } finally {
     await mf.dispose();
   }
@@ -83,6 +96,250 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
     const callResult = JSON.parse(callResponse.result.content[0].text);
     assert.equal(callResult.claim.claim_id, "claim:abc123");
     assert.equal(callResponse.result.structuredContent.claim.claim_id, "claim:abc123");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("claim listing is paginated, validates tier vocabularies, and supports the authority alias", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const extraRows = [
+      {
+        id: "claim:claim:official-second",
+        kind: "claim",
+        title: "Second official check-in claim",
+        body: "A second source-backed check-in claim.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/second",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ claim_id: "claim:official-second", version_scope_status: "unprocessed" }),
+      },
+      {
+        id: "claim:claim:routing-only",
+        kind: "claim",
+        title: "Routing-only check-in source",
+        body: "Use this only to route an agent to a training source.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/routing",
+        concept: "check-in",
+        authority_tier: "rocku-confirmed",
+        claim_tier: "routing_context_only",
+        claim_tier_rank: 0,
+        source_id: "rock_rocku",
+        payload_json: JSON.stringify({ claim_id: "claim:routing-only", version_scope_status: "unprocessed" }),
+      },
+    ];
+    for (const row of extraRows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+      await db.prepare("INSERT INTO search_row_concepts (row_id, concept) VALUES (?, ?)")
+        .bind(row.id, row.concept).run();
+    }
+
+    const pageResponse = await mf.dispatchFetch("https://kb.example.test/claims/check-in?tier=official&limit=1");
+    const page = await pageResponse.json();
+    assert.equal(pageResponse.status, 200);
+    assert.equal(page.schema, "rock-kb-claims-result-v2");
+    assert.equal(page.count, 1);
+    assert.equal(page.total_count, 2);
+    assert.equal(page.has_more, true);
+    assert.equal(page.next_offset, 1);
+    assert.equal(page.filters.authority_tier, "official");
+
+    const secondPage = await (await mf.dispatchFetch("https://kb.example.test/claims/check-in?authority_tier=official&limit=1&offset=1")).json();
+    assert.equal(secondPage.count, 1);
+    assert.equal(secondPage.has_more, false);
+
+    const defaultPage = await (await mf.dispatchFetch("https://kb.example.test/claims/check-in?limit=10")).json();
+    assert.equal(defaultPage.total_count, 2);
+    assert.equal(defaultPage.claims.some((row) => row.claim_id === "claim:routing-only"), false);
+
+    const routingPage = await (await mf.dispatchFetch("https://kb.example.test/claims/check-in?min_claim_tier=routing_context_only&limit=10")).json();
+    assert.equal(routingPage.total_count, 3);
+
+    const invalidResponse = await mf.dispatchFetch("https://kb.example.test/claims/check-in?tier=not-a-tier");
+    const invalid = await invalidResponse.json();
+    assert.equal(invalidResponse.status, 400);
+    assert.equal(invalid.status, "rejected");
+    assert.equal(invalid.error_code, "invalid_tier");
+    assert.ok(invalid.valid_values.includes("official"));
+
+    const mcpResponse = await mcp(mf, "tools/call", {
+      name: "kb_get_claims",
+      arguments: { concept_id: "check-in", authority_tier: "official", limit: 1 },
+    });
+    assert.equal(mcpResponse.result.structuredContent.total_count, 2);
+    assert.equal(mcpResponse.result.structuredContent.count, 1);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("symptom search routes to task cards and troubleshooting nodes before field references", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const guidanceRows = [
+      {
+        id: "task_card:check-in:diagnose-labels-not-printing",
+        kind: "task_card",
+        title: "Diagnose Labels Not Printing",
+        body: "Find whether check-in labels are not printing because of network printer routing, device configuration, printer hardware, or attendance state.",
+        path: "knowledge/concepts/check-in/tasks/diagnose-labels-not-printing.md",
+        url: "https://example.test/check-in",
+        concept: "check-in",
+        authority_tier: "community-reviewed",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ concept_id: "check-in", task_id: "diagnose-labels-not-printing", version_scope_status: "unprocessed" }),
+      },
+      {
+        id: "troubleshooting_node:check-in:diagnose-labels-not-printing",
+        kind: "troubleshooting_node",
+        title: "Diagnose Labels Not Printing",
+        body: "When a network printer does not print a check-in label, inspect printer routing and whether attendance saved.",
+        path: "knowledge/concepts/check-in/troubleshooting-tree.json",
+        url: "https://example.test/check-in",
+        concept: "check-in",
+        authority_tier: "community-reviewed",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ concept_id: "check-in", id: "diagnose-labels-not-printing", version_scope_status: "unprocessed" }),
+      },
+    ];
+    for (const row of guidanceRows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+    }
+
+    const query = encodeURIComponent("check-in labels not printing to network printer");
+    const response = await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&limit=5`);
+    const payload = await response.json();
+    assert.equal(payload.intent, "symptom");
+    assert.equal(payload.results[0].kind, "task_card");
+    assert.equal(payload.results[0].intent, "symptom");
+    assert.ok(payload.results.slice(0, 3).some((row) => row.kind === "task_card"));
+
+    const taskOnly = await (await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&kind=task_card`)).json();
+    assert.equal(taskOnly.results[0].kind, "task_card");
+    const nodeOnly = await (await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&kind=troubleshooting_node`)).json();
+    assert.equal(nodeOnly.results[0].kind, "troubleshooting_node");
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("Rock version filtering excludes conflicting scoped rows and labels uncertain rows", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "claim:claim:version-probe-18",
+        kind: "claim",
+        title: "Version filter probe for Rock 18",
+        body: "Version filter probe behavior for Rock 18.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/version-18",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({
+          claim_id: "claim:version-probe-18",
+          rock_versions: ["18.0+"],
+          version_scope_status: "scoped",
+        }),
+      },
+      {
+        id: "claim:claim:version-probe-19",
+        kind: "claim",
+        title: "Version filter probe for Rock 19",
+        body: "Version filter probe behavior for Rock 19.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/version-19",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({
+          claim_id: "claim:version-probe-19",
+          rock_versions: ["19.0"],
+          version_scope_status: "scoped",
+        }),
+      },
+      {
+        id: "claim:claim:version-probe-unprocessed",
+        kind: "claim",
+        title: "Version filter probe with unprocessed scope",
+        body: "Version filter probe behavior with unknown version scope.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/version-unknown",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({
+          claim_id: "claim:version-probe-unprocessed",
+          rock_versions: [],
+          version_scope_status: "unprocessed",
+        }),
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+      await db.prepare("INSERT INTO search_row_concepts (row_id, concept) VALUES (?, ?)")
+        .bind(row.id, row.concept).run();
+    }
+
+    const response = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=version%20filter%20probe&rock_version=18.2&limit=10",
+    );
+    const payload = await response.json();
+    const byId = new Map(payload.results.map((row) => [row.id, row]));
+    assert.equal(byId.has("claim:claim:version-probe-18"), true);
+    assert.equal(byId.has("claim:claim:version-probe-19"), false);
+    assert.equal(byId.has("claim:claim:version-probe-unprocessed"), true);
+    assert.equal(byId.get("claim:claim:version-probe-18").version_match, "matched");
+    assert.equal(byId.get("claim:claim:version-probe-unprocessed").version_match, "unprocessed");
+
+    const claimsResponse = await mf.dispatchFetch(
+      "https://kb.example.test/claims/check-in?authority_tier=official&rock_version=18.2&limit=100",
+    );
+    const claimsPayload = await claimsResponse.json();
+    const claimIds = new Set(claimsPayload.claims.map((row) => row.claim_id));
+    assert.equal(claimIds.has("claim:version-probe-18"), true);
+    assert.equal(claimIds.has("claim:version-probe-19"), false);
+    assert.equal(claimIds.has("claim:version-probe-unprocessed"), true);
+
+    const invalidResponse = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=labels&min_claim_tier=official",
+    );
+    const invalid = await invalidResponse.json();
+    assert.equal(invalidResponse.status, 400);
+    assert.equal(invalid.error_code, "invalid_min_claim_tier");
+    assert.ok(invalid.valid_values.includes("source_backed"));
   } finally {
     await mf.dispose();
   }
@@ -1041,7 +1298,7 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
     }
 
     const query = encodeURIComponent("AI direct database access managed Rock authorization business rules");
-    const response = await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&min_tier=answer_pack_approved&limit=5`);
+    const response = await mf.dispatchFetch(`https://kb.example.test/search?q=${query}&min_tier=answer_pack_approved&limit=5&debug=true`);
     const payload = await response.json();
 
     assert.equal(response.status, 200);

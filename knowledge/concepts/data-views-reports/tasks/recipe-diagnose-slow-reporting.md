@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose Slow Reporting
 
-Follow the guide section for Recipe: Diagnose Slow Reporting.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Diagnose Slow Reporting.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify exact report/page.
+2. Measure load time.
+3. Measure Data View execution time.
+4. Check row count.
+5. Inspect filters.
+6. Check SQL/Lava columns.
+7. Check related Data Views.
+8. Check database CPU/worker waits.
+9. Test with narrower date range.
+10. Recommend Data View simplification, caching, analytics table, SQL optimization, or BI.
 
 ## Do Not Assume
 
@@ -34,15 +43,15 @@ Follow the guide section for Recipe: Diagnose Slow Reporting.
 
 ## Source Links
 
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
 - https://community.rockrms.com/recipes/264
 - https://community.rockrms.com/recipes/397
 - https://community.rockrms.com/documentation/bookcontent/6/331
-- https://community.rockrms.com/lava/commands/sql-commands
-- https://community.rockrms.com/rocku/reporting
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/recipes/349
-- https://community.rockrms.com/recipes/526/sql-model-map-qol-reference
-- https://community.rockrms.com/recipes/391
-- https://www.triumph.tech/resources/what-is-maxdop
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Reporting/DataViewFilterBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Reporting/DataFilter/Group/LocationDataViewDataFilterTests.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Group/LocationDataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/BenevolenceRequest/BenevolenceResultDataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilterOverride.cs

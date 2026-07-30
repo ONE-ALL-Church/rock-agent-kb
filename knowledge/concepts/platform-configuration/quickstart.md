@@ -17,13 +17,13 @@ Attributes, defined types, categories, entity types, campuses, global attributes
 
 ## Primary Tasks
 
-- [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md): Follow the guide section for Recipe: Find Available Attributes For An Add Or Update Operation.
-- [Recipe: Explain A Platform Configuration Object To A User](tasks/recipe-explain-a-platform-configuration-object-to-a-user.md): Follow the guide section for Recipe: Explain A Platform Configuration Object To A User.
-- [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md): Follow the guide section for Recipe: Safely Answer “Can We Delete This?”.
-- [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md): Follow the guide section for Recipe: Build A Source-Backed Explanation.
-- [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md): Follow the guide section for Recipe: Triage Attribute Security.
-- [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md): Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined Value.
-- [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md): Follow the guide section for Recipe: Diagnose Attribute Field Type Mismatch.
+- [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md): The AvailableAttributes developer docs explicitly distinguish available attribute definitions from actual values and note the add-operation case where no existing entity exists (AvailableAttributes Tools).
+- [Recipe: Explain A Platform Configuration Object To A User](tasks/recipe-explain-a-platform-configuration-object-to-a-user.md): Complete Explain A Platform Configuration Object To A User with evidence-backed checks and a verifiable outcome.
+- [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md): Complete Safely Answer “Can We Delete This?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md): Example: For a missing content channel item attribute category, cite the release note and then instruct inspection of the live content channel type, attribute entity type, qualifier, and category assignment (Rock Core Release Notes).
+- [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md): Complete Triage Attribute Security with evidence-backed checks and a verifiable outcome.
+- [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md): Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

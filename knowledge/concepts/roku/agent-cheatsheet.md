@@ -10,12 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inventory Existing Roku App](tasks/recipe-inventory-existing-roku-app.md) |  |  |
-| [Recipe: Review A Roku Page For Safety](tasks/recipe-review-a-roku-page-for-safety.md) |  |  |
-| [Recipe: Convert A Static Media List To Dynamic RowList](tasks/recipe-convert-a-static-media-list-to-dynamic-rowlist.md) |  |  |
-| [Recipe: Diagnose A Cache Leak](tasks/recipe-diagnose-a-cache-leak.md) |  |  |
-| [Recipe: Add A Safe Diagnostic Page](tasks/recipe-add-a-safe-diagnostic-page.md) |  |  |
-| [Recipe: Validate Post-Upgrade Roku Behavior](tasks/recipe-validate-post-upgrade-roku-behavior.md) |  |  |
+| [Recipe: Inventory Existing Roku App](tasks/recipe-inventory-existing-roku-app.md) | `Person`, `Page` | `Person`, `Page` |
+| [Recipe: Review A Roku Page For Safety](tasks/recipe-review-a-roku-page-for-safety.md) | `Person`, `Page`, `Attribute` | `Person`, `Page`, `Attribute` |
+| [Recipe: Convert A Static Media List To Dynamic RowList](tasks/recipe-convert-a-static-media-list-to-dynamic-rowlist.md) | `Page`, `Attribute` | `Page`, `Attribute` |
+| [Recipe: Diagnose A Cache Leak](tasks/recipe-diagnose-a-cache-leak.md) | `Person`, `Device`, `Page` | `Person`, `Device`, `Page` |
+| [Recipe: Add A Safe Diagnostic Page](tasks/recipe-add-a-safe-diagnostic-page.md) | `Person`, `Label`, `Page`, `Attribute` | `Person`, `Label`, `Page`, `Attribute` |
+| [Recipe: Validate Post-Upgrade Roku Behavior](tasks/recipe-validate-post-upgrade-roku-behavior.md) | `Page`, `Attribute` | `Page`, `Attribute` |
 
 ## Entities
 

@@ -1901,24 +1901,24 @@ Community lapsed giver and giving age-band recipes show this category often requ
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `566`
+- Approved claims routed to this concept: `41`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
+| official | behavior | A field included in a Rock Report can be hidden from the on-screen grid while remaining available in the report's Excel export, which supports supplemental export-only data without cluttering the interactive view. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
+| official | configuration | Report security controls who can view a report, while entity-appropriate grid actions can use its results for operations such as communication or export. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports) |
+| official | configuration | Rock's BI analytics tables are populated only when the Process BI Analytics job runs, so the shipped job must be scheduled and run at least once before BI reports can contain data. | [source](https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job) |
+| official | configuration | A Rock Report selects an entity type and an optional Data View as its record source, then independently defines display fields, sort order, and an optional result-row limit. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
+| official | configuration | Dynamic Report filter settings separately control whether a filter is visible, whether its criteria can be edited, and whether the filter can be toggled off; supported filters can also be initialized through URL parameters. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
+| official | implementation_pattern | The Dynamic Report block renders a selected Report and can expose chosen filters from its underlying Data View, allowing one report definition to accept viewer-controlled criteria instead of duplicating a report per campus or similar dimension. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
+| official | implementation_pattern | Administrators can use multiple Process BI Analytics job instances with different enabled processes and schedules when some BI domains need more frequent refreshes than others. | [source](https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job) |
+| official | operational_guidance | Rock records each Report's run duration, execution count, and most recent run date, giving administrators evidence for identifying slow or unused reports. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports) |
 | official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | release_caveat | Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
-| rocku-confirmed | operational_guidance | Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
-| rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
-| rocku-confirmed | operational_guidance | People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
-| More |  | 554 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 29 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1927,7 +1927,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `76`
+- Approved media records routed to this concept: `49`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1940,7 +1940,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [BI Financial Transaction Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) | approved_for_public_distillation | 3 | media-insight:a815728575995f92 |
 | [BI Job Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-job) | approved_for_public_distillation | 2 | media-insight:1783ed2aacc57cc3 |
 | [BI Models Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-models) | approved_for_public_distillation | 3 | media-insight:10e310226ed0945a |
-| More |  | 68 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 41 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

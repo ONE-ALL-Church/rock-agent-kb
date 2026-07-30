@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit Reporting Security
 
-Follow the guide section for Recipe: Audit Reporting Security.
+Complete Audit Reporting Security with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Audit Reporting Security.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `DataView`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `DataView`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. List Data Views by category.
+2. List Reports by category.
+3. List Dynamic Report pages.
+4. List Dynamic Data pages.
+5. List HTML blocks with SQL enabled.
+6. List BI embed pages.
+7. Test as representative users.
+8. Flag finance/minor/care/attendance reports.
+9. Verify exports.
+10. Produce remediation list.
 
 ## Do Not Assume
 
@@ -34,15 +47,15 @@ Follow the guide section for Recipe: Audit Reporting Security.
 
 ## Source Links
 
-- https://community.rockrms.com/recipes/397
-- https://community.rockrms.com/rocku/reporting
-- https://community.rockrms.com/recipes/264
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
 - https://community.rockrms.com/documentation/bookcontent/6/331
 - https://community.rockrms.com/lava/commands/sql-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
+- https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report
+- https://www.triumph.tech/resources/grouping-sets
+- https://www.triumph.tech/resources/sql-window-functions
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/recipes/349
-- https://community.rockrms.com/recipes/262
-- https://community.rockrms.com/recipes/526/sql-model-map-qol-reference
-- https://community.rockrms.com/recipes/391
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs
+- https://community.rockrms.com/recipes/264
+- https://community.rockrms.com/rocku/lava/sql-command
+- https://community.rockrms.com/recipes/397

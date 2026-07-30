@@ -20,6 +20,7 @@ from ..claims import approved_claims_path, build_approved_claims, validate_claim
 from ..concepts import (
     build_all_concepts,
     build_single_concept,
+    concept_taxonomy_audit,
     concept_synthesis_pack,
     load_concepts,
     refresh_long_form_approved_claims,
@@ -46,7 +47,7 @@ from ..document_claims import (
     promote_document_claim_rewrites,
 )
 from ..community import discover_community_urls, fetch_community_pages, normalize_community_fetch, probe_endpoints
-from ..extract import build_raw_manifest, fetch_url, main_markdown, now_iso, optional_command
+from ..extract import build_raw_manifest, fetch_url, main_markdown, now_iso, optional_command, sha256_text
 from ..github_sources import discover_github_repositories, normalize_github_search_records
 from ..guide_intel import (
     audit_guide_quality,
@@ -134,6 +135,10 @@ from ..source_orchestration import (
 console = Console()
 
 DEFAULT_MODEL_MAP_NODE_PATH = Path("/tmp/rock-model-map-scrape/node_modules")
+CONCEPT_GUIDE_PROMPT_ID = "rock-kb-concept-guide-synthesis"
+CONCEPT_GUIDE_PROMPT_VERSION = "2.0.0"
+CONCEPT_GUIDE_PROMPT_PATH = REPO_ROOT / "docs" / "prompts" / "concept-guide-synthesis-v2.md"
+CONCEPT_GUIDE_REASONING_EFFORTS = {"medium", "high", "xhigh", "max", "ultra"}
 
 
 def list_sources() -> None:
@@ -181,6 +186,14 @@ def list_concepts() -> None:
     for concept in load_concepts():
         table.add_row(concept.id, concept.title, str(concept.max_records), concept.rebuild_policy)
     console.print(table)
+
+
+def audit_concepts() -> None:
+    """Audit concept ownership, source routing, and answer-bearing coverage."""
+    report = concept_taxonomy_audit()
+    console.print_json(json.dumps(report))
+    if report["errors"]:
+        raise typer.Exit(code=1)
 
 
 def stale_concepts() -> None:
@@ -1183,7 +1196,7 @@ def document_claim_promote_command(
     reviewer: str = typer.Option("local-review", "--reviewer"),
     model: str = typer.Option(..., "--model"),
     prompt_id: str = typer.Option("rock-kb-source-claim-distillation", "--prompt-id"),
-    prompt_version: str = typer.Option("1.0.0", "--prompt-version"),
+    prompt_version: str = typer.Option("1.1.0", "--prompt-version"),
     review_method: str = typer.Option("agent_reviewed_full_article", "--review-method"),
 ) -> None:
     """Validate and promote reviewed official-document claims into the private review layer."""
@@ -1345,7 +1358,12 @@ def refresh_guide_claims(
 
 def synthesize_concept_command(
     concept: str = typer.Option(..., "--concept", "-c"),
-    model: str = typer.Option("gpt-5.5", "--model", "-m"),
+    model: str = typer.Option("gpt-5.6-sol", "--model", "-m"),
+    reasoning_effort: str = typer.Option(
+        "xhigh",
+        "--reasoning-effort",
+        help="Codex reasoning effort recorded with the guide provenance.",
+    ),
     limit: int = typer.Option(40, "--limit"),
     profile: str = typer.Option(
         "standard",
@@ -1358,7 +1376,7 @@ def synthesize_concept_command(
         help="Refetch cited pages and public Rock source files into a bounded synthesis pack.",
     ),
     github_file_limit: int = typer.Option(18, "--github-file-limit"),
-    max_page_chars: int = typer.Option(2600, "--max-page-chars"),
+    max_page_chars: int = typer.Option(6000, "--max-page-chars"),
     max_code_chars: int = typer.Option(3200, "--max-code-chars"),
     include_contributions: bool = typer.Option(True, "--include-contributions/--no-include-contributions"),
     include_private_drafts: bool = typer.Option(False, "--include-private-drafts"),
@@ -1370,6 +1388,13 @@ def synthesize_concept_command(
     codex = str(codex_path or optional_command("codex") or "/Applications/Codex.app/Contents/Resources/codex")
     if not Path(codex).exists():
         console.print("[red]Codex CLI was not found. Pass --codex-path or install Codex CLI.[/red]")
+        raise typer.Exit(code=1)
+    if reasoning_effort not in CONCEPT_GUIDE_REASONING_EFFORTS:
+        console.print(
+            "[red]--reasoning-effort must be one of "
+            + ", ".join(sorted(CONCEPT_GUIDE_REASONING_EFFORTS))
+            + ".[/red]"
+        )
         raise typer.Exit(code=1)
 
     pack = (
@@ -1390,6 +1415,12 @@ def synthesize_concept_command(
         console.print("[red]--include-private-drafts requires --hydrate-sources so private records are written only to private hydrated packs.[/red]")
         raise typer.Exit(code=1)
     pack["synthesis_profile"] = profile
+    pack["synthesis_request"] = {
+        "model": model,
+        "reasoning_effort": reasoning_effort,
+        "prompt_id": CONCEPT_GUIDE_PROMPT_ID,
+        "prompt_version": CONCEPT_GUIDE_PROMPT_VERSION,
+    }
     review_dir = REVIEW_DIR / "concept-synthesis"
     review_dir.mkdir(parents=True, exist_ok=True)
     pack_suffix = "hydrated-source-pack" if hydrate_sources else "source-pack"
@@ -1400,6 +1431,7 @@ def synthesize_concept_command(
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     pack_path.write_text(json.dumps(pack, ensure_ascii=False, indent=2), encoding="utf-8")
+    source_pack_hash = sha256_text(json.dumps(pack, ensure_ascii=False, sort_keys=True))
     prompt = concept_synthesis_prompt(pack)
     prompt_path.write_text(prompt, encoding="utf-8")
 
@@ -1411,6 +1443,8 @@ def synthesize_concept_command(
             str(REPO_ROOT),
             "-m",
             model,
+            "-c",
+            f'model_reasoning_effort="{reasoning_effort}"',
             "-s",
             "read-only",
             "-c",
@@ -1427,6 +1461,10 @@ def synthesize_concept_command(
     row = {
         "concept_id": concept,
         "model": model,
+        "reasoning_effort": reasoning_effort,
+        "prompt_id": CONCEPT_GUIDE_PROMPT_ID,
+        "prompt_version": CONCEPT_GUIDE_PROMPT_VERSION,
+        "source_pack_hash": source_pack_hash,
         "profile": profile,
         "hydrate_sources": hydrate_sources,
         "returncode": result.returncode,
@@ -1442,15 +1480,34 @@ def synthesize_concept_command(
         console.print(f"[red]Codex synthesis failed with code {result.returncode}.[/red]")
         console.print(result.stderr[-4000:])
         raise typer.Exit(code=result.returncode)
+    stamp_synthesized_guide_provenance(
+        output_path,
+        model=model,
+        reasoning_effort=reasoning_effort,
+        source_pack_hash=source_pack_hash,
+    )
     guide_intel = build_guide_intelligence(concept)
-    console.print_json(json.dumps({"concept_id": concept, "model": model, "output_path": str(output_path), "guide_intel": guide_intel}))
+    console.print_json(
+        json.dumps(
+            {
+                "concept_id": concept,
+                "model": model,
+                "reasoning_effort": reasoning_effort,
+                "prompt_id": CONCEPT_GUIDE_PROMPT_ID,
+                "prompt_version": CONCEPT_GUIDE_PROMPT_VERSION,
+                "source_pack_hash": source_pack_hash,
+                "output_path": str(output_path),
+                "guide_intel": guide_intel,
+            }
+        )
+    )
 
 
 def hydrate_concept_command(
     concept: str = typer.Option(..., "--concept", "-c"),
     limit: int = typer.Option(40, "--limit"),
     github_file_limit: int = typer.Option(18, "--github-file-limit"),
-    max_page_chars: int = typer.Option(2600, "--max-page-chars"),
+    max_page_chars: int = typer.Option(6000, "--max-page-chars"),
     max_code_chars: int = typer.Option(3200, "--max-code-chars"),
     include_contributions: bool = typer.Option(True, "--include-contributions/--no-include-contributions"),
     include_private_drafts: bool = typer.Option(False, "--include-private-drafts"),
@@ -1490,80 +1547,62 @@ def hydrate_concept_command(
 def concept_synthesis_prompt(pack: dict) -> str:
     concept = pack["concept"]
     profile = str(pack.get("synthesis_profile") or "standard")
-    hydrated_sources = pack.get("hydrated_sources") or []
-    github_files = pack.get("github_source_files") or []
-    contribution_records = pack.get("contribution_records") or []
-    private_drafts = pack.get("private_draft_contribution_records") or []
-    hydration_note = ""
-    if hydrated_sources or github_files:
-        hydration_note = (
-            "This pack includes hydrated source excerpts and GitHub source-code snippets. "
-            "Use those deeper records first, then use compact source records as coverage and citation metadata. "
-            "Do not copy long passages from hydrated excerpts or source files.\n"
-        )
-    contribution_note = ""
-    if contribution_records:
-        contribution_note = (
-            "This pack includes reviewed public contribution records. Treat them as community/org-derived examples, "
-            "not official Rock guidance. Use them to identify operational patterns, and support important claims with official docs, release notes, source code, or live verification.\n"
-        )
-    private_note = ""
-    if private_drafts:
-        private_note = (
-            "This pack includes private draft contribution records for local synthesis only. Do not quote them, cite them publicly, "
-            "or treat them as public source material. Any guidance influenced by private drafts must be rewritten, source-supported with public links, "
-            "and marked for live verification when appropriate.\n"
-        )
-    depth_note = ""
-    required_sections = (
-        "1. What This Is\n"
-        "2. Mental Model\n"
-        "3. Core Rock Areas And Entities\n"
-        "4. Common Implementation Tasks\n"
-        "5. Configuration And Operational Checklist\n"
-        "6. Version And Release Caveats\n"
-        "7. Troubleshooting Playbook\n"
-        "8. Agent Playbook\n"
-        "9. Source Map\n\n"
+    instructions = CONCEPT_GUIDE_PROMPT_PATH.read_text(encoding="utf-8").strip()
+    depth_note = (
+        "Cover every evidence-supported subguide and operational workflow in the pack."
+        if profile == "comprehensive"
+        else "Prioritize the highest-value evidenced workflows and gaps."
     )
-    if profile == "comprehensive":
-        depth_note = (
-            "Write a comprehensive authoritative guide, not an overview. The target is a long-form concept manual "
-            "that should be more detailed and more operationally useful than any single source page in the pack. "
-            "Prefer 10,000-18,000 words when the source material supports it. Do not omit details merely to be concise. "
-            "Integrate official docs, RockU, release notes, Model Map, developer docs, source-code snippets, and community examples into one coherent guide. "
-            "Include precise configuration fields, entity relationships, implementation paths, version caveats, operational checks, and troubleshooting branches. "
-            "When source material is thin, say what must be verified in a live Rock instance instead of inventing behavior.\n"
-        )
-        required_sections = comprehensive_required_sections(concept)
     return (
-        "You are writing an original, agent-first Rock RMS concept guide from a machine-readable source pack.\n"
-        "Do not copy long passages from sources. Write a transformative synthesis in your own words.\n"
-        "Use citations as Markdown links to the provided source URLs. Prefer official/docs/RockU/source-code/model-map/release-note records over community Q&A/recipes.\n"
-        + hydration_note
-        + contribution_note
-        + private_note
-        + depth_note
-        + "Output Markdown only. Do not mention that you are an AI. Do not run shell commands.\n\n"
-        + "Required structure:\n"
-        "---\n"
-        f"id: authored-{concept['id']}\n"
-        f"title: {concept['title']}\n"
-        "generated: true\n"
-        "guide_status: llm_generated_needs_review\n"
-        "authority_level: draft\n"
-        "reviewed_by:\n"
-        "reviewed_at:\n"
-        "---\n\n"
-        f"# {concept['title']}\n\n"
-        "Then include these sections:\n"
-        + required_sections
-        + "Keep it practical for agents doing real Rock work. Include specific source links inline.\n"
-        "For facts that need verification in a live Rock instance, say what to inspect rather than pretending certainty.\n\n"
+        instructions
+        + "\n\n## Current Request\n\n"
+        + f"- Concept ID: `{concept['id']}`\n"
+        + f"- Concept title: `{concept['title']}`\n"
+        + f"- Profile: `{profile}`\n"
+        + f"- Direction: {depth_note}\n"
+        + "- Output only the requested Markdown guide. Do not run commands or describe your process.\n\n"
         "<source_pack_json>\n"
         + json.dumps(pack, ensure_ascii=False, indent=2)
         + "\n</source_pack_json>\n"
     )
+
+
+def stamp_synthesized_guide_provenance(
+    path: Path,
+    *,
+    model: str,
+    reasoning_effort: str,
+    source_pack_hash: str,
+) -> None:
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---\n"):
+        raise ValueError(f"Synthesized guide at {path} is missing YAML frontmatter")
+    marker = "\n---\n"
+    end = text.find(marker, 4)
+    if end < 0:
+        raise ValueError(f"Synthesized guide at {path} has unterminated YAML frontmatter")
+    provenance_keys = {
+        "synthesis_model",
+        "synthesis_reasoning_effort",
+        "synthesis_prompt_id",
+        "synthesis_prompt_version",
+        "synthesis_source_pack_hash",
+    }
+    frontmatter = [
+        line
+        for line in text[4:end].splitlines()
+        if line.split(":", 1)[0].strip() not in provenance_keys
+    ]
+    frontmatter.extend(
+        [
+            f"synthesis_model: {json.dumps(model)}",
+            f"synthesis_reasoning_effort: {json.dumps(reasoning_effort)}",
+            f"synthesis_prompt_id: {json.dumps(CONCEPT_GUIDE_PROMPT_ID)}",
+            f"synthesis_prompt_version: {json.dumps(CONCEPT_GUIDE_PROMPT_VERSION)}",
+            f"synthesis_source_pack_hash: {json.dumps(source_pack_hash)}",
+        ]
+    )
+    path.write_text("---\n" + "\n".join(frontmatter) + text[end:], encoding="utf-8")
 
 
 def comprehensive_required_sections(concept: dict) -> str:

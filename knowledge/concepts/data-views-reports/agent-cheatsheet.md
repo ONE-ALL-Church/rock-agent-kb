@@ -10,14 +10,14 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Answer "What Does This Report Actually Show?"](tasks/recipe-answer-what-does-this-report-actually-show.md) |  |  |
-| [Recipe: Answer "Can I Change This Data View?"](tasks/recipe-answer-can-i-change-this-data-view.md) |  |  |
-| [Recipe: Build "People Who Attended X But Not Y"](tasks/recipe-build-people-who-attended-x-but-not-y.md) |  |  |
+| [Recipe: Answer "What Does This Report Actually Show?"](tasks/recipe-answer-what-does-this-report-actually-show.md) | `DataView`, `Page`, `Block` | `DataView`, `Page`, `Block` |
+| [Recipe: Answer "Can I Change This Data View?"](tasks/recipe-answer-can-i-change-this-data-view.md) | `DataView`, `Group`, `Workflow`, `Page`, `Block` | `DataView`, `Group`, `Workflow`, `Page`, `Block` |
+| [Recipe: Build "People Who Attended X But Not Y"](tasks/recipe-build-people-who-attended-x-but-not-y.md) | `Attendance`, `Person`, `PersonAlias`, `DataView` | `Attendance`, `Person`, `PersonAlias`, `DataView` |
 | [Recipe: Build "Lapsed Givers"](tasks/recipe-build-lapsed-givers.md) |  |  |
-| [Recipe: Build "Where Are Our Reporting Tools?"](tasks/recipe-build-where-are-our-reporting-tools.md) |  |  |
-| [Recipe: Validate A BI Finance Dashboard](tasks/recipe-validate-a-bi-finance-dashboard.md) |  |  |
-| [Recipe: Audit Reporting Security](tasks/recipe-audit-reporting-security.md) |  |  |
-| [Recipe: Diagnose Slow Reporting](tasks/recipe-diagnose-slow-reporting.md) |  |  |
+| [Recipe: Build "Where Are Our Reporting Tools?"](tasks/recipe-build-where-are-our-reporting-tools.md) | `DataView`, `Label`, `Page`, `Block` | `DataView`, `Label`, `Page`, `Block` |
+| [Recipe: Validate A BI Finance Dashboard](tasks/recipe-validate-a-bi-finance-dashboard.md) | `Group`, `Campus` | `Group`, `Campus` |
+| [Recipe: Audit Reporting Security](tasks/recipe-audit-reporting-security.md) | `Attendance`, `DataView`, `Page`, `Block` | `Attendance`, `DataView`, `Page`, `Block` |
+| [Recipe: Diagnose Slow Reporting](tasks/recipe-diagnose-slow-reporting.md) | `DataView`, `Page` | `DataView`, `Page` |
 
 ## Entities
 
@@ -136,7 +136,6 @@ generated: true
 | `18-agent-task-recipes-recipe-build-where-are-our-reporting-tools` | community-supported | community-supported |
 | `18-agent-task-recipes-recipe-audit-reporting-security` | structural | live verification |
 | `18-agent-task-recipes-recipe-diagnose-slow-reporting` | structural | live verification |
-| `approved-claim-coverage` | normal | live verification |
 | `19-source-map-and-dependency-notes-official-and-training-sources` | normal | live verification |
 | `19-source-map-and-dependency-notes-source-code-landmarks` | normal | live verification |
 | `19-source-map-and-dependency-notes-community-and-partner-pattern-sources` | normal | live verification |

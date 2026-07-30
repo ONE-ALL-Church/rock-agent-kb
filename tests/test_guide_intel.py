@@ -3,12 +3,16 @@ from rock_kb.guide_intel import (
     authority_for_source_id,
     build_entity_rows,
     build_source_index,
+    build_task_cards,
+    build_troubleshooting_tree,
     entity_search_terms,
+    guide_synthesis_provenance,
     parse_markdown_sections,
     release_caveat_rows,
     section_source_map,
     source_id_for_url,
 )
+from rock_kb.guide_intel.manifest import concept_knowledge_quality
 
 
 def test_parse_markdown_sections_tracks_parent_and_lines():
@@ -21,6 +25,77 @@ def test_parse_markdown_sections_tracks_parent_and_lines():
     assert sections[0].level == 2
     assert sections[1].heading == "Child"
     assert sections[1].parent == "Parent"
+
+
+def test_task_cards_use_authored_recipe_steps():
+    markdown = (
+        "## Agent Task Recipes\n\n"
+        "### Recipe: Diagnose A Stalled Workflow\n\n"
+        "Find the first action that did not complete.\n\n"
+        "1. Inspect the Workflow record and its current activity.\n"
+        "2. Compare the configured action order with the execution log.\n"
+        "3. Stop when the failing action and evidence are identified.\n\n"
+        "**Do not assume:**\n"
+        "- The last visible action caused the failure.\n"
+        "- A retry is safe merely because the workflow remains active."
+    )
+    section_rows = section_source_map("workflows", parse_markdown_sections(markdown), {})
+
+    cards = build_task_cards("workflows", markdown, section_rows, {})
+
+    assert len(cards) == 1
+    assert cards[0]["task_id"] == "recipe-diagnose-a-stalled-workflow"
+    assert cards[0]["steps"][0].startswith("Inspect the Workflow record")
+    assert len(cards[0]["steps"]) == 3
+    assert cards[0]["goal"] == "Find the first action that did not complete."
+    assert cards[0]["do_not_assume"] == [
+        "The last visible action caused the failure.",
+        "A retry is safe merely because the workflow remains active.",
+    ]
+
+
+def test_troubleshooting_tree_uses_authored_symptom_branches():
+    markdown = (
+        "## Troubleshooting Decision Tree\n\n"
+        "### Workflow Is Stuck In Processing\n\n"
+        "1. Inspect the Workflow and current activity.\n"
+        "2. Check the configured action and its completion state. "
+        "[Workflow Actions](https://community.rockrms.com/documentation/workflow-actions)\n\n"
+        "Do not assume the last visible action caused the failure."
+    )
+    section_rows = section_source_map("workflows", parse_markdown_sections(markdown), {})
+
+    tree = build_troubleshooting_tree("workflows", markdown, [], section_rows)
+
+    assert [row["title"] for row in tree["branches"]] == ["Workflow Is Stuck In Processing"]
+    assert tree["branches"][0]["start_with"][0].startswith("Inspect the Workflow")
+    assert tree["branches"][0]["start_with"][1] == "Check the configured action and its completion state."
+    assert tree["branches"][0]["guide_section_id"]
+
+
+def test_guide_synthesis_provenance_prefers_stamped_frontmatter():
+    guide = (
+        "---\n"
+        'synthesis_model: "gpt-5.6-sol"\n'
+        'synthesis_reasoning_effort: "xhigh"\n'
+        'synthesis_prompt_id: "rock-kb-concept-guide-synthesis"\n'
+        'synthesis_prompt_version: "2.0.0"\n'
+        'synthesis_source_pack_hash: "abc123"\n'
+        "---\n\n# Workflows\n"
+    )
+
+    provenance = guide_synthesis_provenance(
+        guide,
+        {"synthesis_request": {"model": "old-model", "prompt_version": "1.0.0"}},
+    )
+
+    assert provenance == {
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "xhigh",
+        "prompt_id": "rock-kb-concept-guide-synthesis",
+        "prompt_version": "2.0.0",
+        "source_pack_hash": "abc123",
+    }
 
 
 def test_section_source_map_links_citations_to_pack_sources():
@@ -150,6 +225,45 @@ def test_audit_guide_quality_flags_shallow_guides():
 
     assert audit["status"] == "fail"
     assert any(check["id"] == "min_words" and not check["passed"] for check in audit["checks"])
+
+
+def test_concept_knowledge_quality_separates_answer_value_from_artifact_completeness():
+    claims = [
+        {
+            "claim_id": "claim:answer",
+            "concept_ids": ["workflows"],
+            "primary_concept_id": "workflows",
+            "claim_tier": "answer_pack_approved",
+            "claim_type": "configuration",
+            "rock_versions": ["19.0"],
+            "version_scope_status": "scoped",
+            "source_refs": [{"url": "https://example.test"}],
+        },
+        {
+            "claim_id": "claim:routing",
+            "concept_ids": ["workflows"],
+            "primary_concept_id": "workflows",
+            "claim_tier": "routing_context_only",
+            "claim_type": "source_summary",
+            "rock_versions": [],
+            "version_scope_status": "unprocessed",
+            "source_refs": [{"url": "https://example.test"}],
+        },
+    ]
+
+    quality = concept_knowledge_quality("workflows", claims, [])
+    secondary_only = concept_knowledge_quality(
+        "system-admin-ops",
+        [{**claims[0], "concept_ids": ["system-admin-ops"], "primary_concept_id": "workflows"}],
+        [],
+    )
+
+    assert quality["metrics"]["answer_bearing_rate"] == 0.5
+    assert quality["metrics"]["version_scope_rate"] == 1.0
+    assert quality["metrics"]["retrieval_evaluation_status"] == "pending_service"
+    assert quality["score"] < 100
+    assert secondary_only["status"] == "needs_coverage"
+    assert secondary_only["score"] <= 49
 
 
 def test_audit_guide_quality_marks_explicit_starter_guides():

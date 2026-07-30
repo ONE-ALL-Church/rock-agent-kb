@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Validate Azure Hosting
 
-Follow the guide section for Recipe: Validate Azure Hosting.
+Complete Validate Azure Hosting with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: Validate Azure Hosting.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Step`
+- `Group`
 
 ## Entities And Tables
 
-- `See guide`
+- `Step`
+- `Group`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Resource group and region.
+2. Compute resources.
+3. SQL tier and utilization.
+4. Storage resources.
+5. Network path.
+6. Public endpoints.
+7. Backups.
+8. Alerts.
+9. Cost drivers.
+10. Nonprofit credit status if relevant.
+11. Gaps against official Azure setup guidance Next Steps for Azure Hosting.
 
 ## Do Not Assume
 
@@ -34,15 +44,8 @@ Follow the guide section for Recipe: Validate Azure Hosting.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/recipes/259
-- https://community.rockrms.com/recipes/355
-- https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms
-- https://www.triumph.tech/resources/azure-mobile-app
-- https://community.rockrms.com/recipes/202
-- https://community.rockrms.com/recipes/176
-- https://community.rockrms.com/recipes/352
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
+- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/AccountEntry/AccountEntryStep.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/Login/PasswordlessLoginStep.cs

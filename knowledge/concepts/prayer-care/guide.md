@@ -1211,7 +1211,7 @@ Check:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `25`
+- Approved claims routed to this concept: `23`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1228,7 +1228,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | behavior | A prayer session records another prayer count when a team member views a request, and enabled team flagging can unapprove a request once the block's configured flag threshold is reached. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session) |
 | official | configuration | Prayer-category AI settings can pass from a parent category to its direct children, but the inherited settings do not cascade from those children to grandchildren. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations) |
 | official | configuration | The Prayer Request Entry block's expiration period controls how long an approved request stays active, but this setting applies only when automatic approval is enabled. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 13 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 11 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

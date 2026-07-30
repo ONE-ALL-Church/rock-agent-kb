@@ -17,14 +17,14 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 ## Primary Tasks
 
-- [Recipe: “Find The Right Person”](tasks/recipe-find-the-right-person.md): Follow the guide section for Recipe: “Find The Right Person”.
-- [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md): Follow the guide section for Recipe: “Summarize This Person”.
-- [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md): Follow the guide section for Recipe: “Draft A Communication”.
-- [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md): Follow the guide section for Recipe: “Create A Connection Request”.
-- [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md): Follow the guide section for Recipe: “Explain A Workflow Queue”.
-- [Recipe: “Audit Agent Security”](tasks/recipe-audit-agent-security.md): Follow the guide section for Recipe: “Audit Agent Security”.
-- [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md): Follow the guide section for Recipe: “Build A Safe Public Agent”.
-- [Recipe: “Review An Agent Answer”](tasks/recipe-review-an-agent-answer.md): Follow the guide section for Recipe: “Review An Agent Answer”.
+- [Recipe: “Find The Right Person”](tasks/recipe-find-the-right-person.md): Never assume the first name match is correct when the requested action is sensitive.
+- [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md): Complete “Summarize This Person” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md): Complete “Draft A Communication” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md): Complete “Create A Connection Request” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md): Complete “Explain A Workflow Queue” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Audit Agent Security”](tasks/recipe-audit-agent-security.md): Complete “Audit Agent Security” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md): Complete “Build A Safe Public Agent” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Review An Agent Answer”](tasks/recipe-review-an-agent-answer.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

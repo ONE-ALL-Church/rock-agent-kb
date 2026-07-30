@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Roku Page For Safety
 
-Follow the guide section for Recipe: Review A Roku Page For Safety.
+Report findings by severity: security/cache leaks first, broken rendering second, analytics inaccuracies third, maintainability last.
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Review A Roku Page For Safety.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. XML validity after Lava render.
+2. `Rock:Page` root.
+3. `initialFocus`.
+4. `rockCommand` names.
+5. Page GUID references.
+6. Media URL sources.
+7. Cache settings.
+8. Lava command usage.
+9. Attribute security bypasses.
+10. SQL usage.
+11. Current-person data.
+12. Interaction suppression.
 
 ## Do Not Assume
 
@@ -36,13 +49,13 @@ Follow the guide section for Recipe: Review A Roku Page For Safety.
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/remote-lava
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://www.triumph.tech/resources/ai-in-digital-ministry
-- https://www.triumph.tech/resources/github-spotlight-1042024
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/lava/commands/personalize-commands
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/PersonalizationSegmentDetail/pageViewSegmentFilterBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs

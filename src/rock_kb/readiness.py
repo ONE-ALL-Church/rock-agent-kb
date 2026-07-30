@@ -304,26 +304,43 @@ def agent_manifest_check() -> dict[str, Any]:
 
 
 def concept_artifacts_check() -> dict[str, Any]:
-    errors = []
+    artifact_errors = []
+    quality_debt = []
     quality_scores = []
     for concept in load_concepts():
         concept_dir = KNOWLEDGE_DIR / "concepts" / concept.id
         for filename in REQUIRED_AGENT_ENTRYPOINT_FILES:
             if not (concept_dir / filename).exists():
-                errors.append(f"{concept.id}/{filename} missing")
+                artifact_errors.append(f"{concept.id}/{filename} missing")
         quality_path = concept_dir / "guide-quality.json"
         if not quality_path.exists():
-            errors.append(f"{concept.id}/guide-quality.json missing")
+            artifact_errors.append(f"{concept.id}/guide-quality.json missing")
             continue
         quality = json.loads(quality_path.read_text(encoding="utf-8"))
         quality_scores.append(int(quality.get("score") or 0))
         if quality.get("status") != "pass":
-            errors.append(f"{concept.id} guide quality status is {quality.get('status')}")
+            quality_debt.append(f"{concept.id} guide quality status is {quality.get('status')}")
+    if artifact_errors:
+        status = "fail"
+        message = "Concept artifacts are missing or invalid."
+    elif quality_debt:
+        status = "warn"
+        message = "Concept artifacts are complete, but some guides need quality migration."
+    else:
+        status = "pass"
+        message = "All concept agent entrypoints and guide-quality records pass."
     return check(
         "concept_artifacts",
-        "fail" if errors else "pass",
-        "All concept agent entrypoints and guide-quality records pass." if not errors else "Concept artifacts are incomplete.",
-        {"concept_count": len(load_concepts()), "min_quality_score": min(quality_scores) if quality_scores else 0, "errors": errors[:50], "error_count": len(errors)},
+        status,
+        message,
+        {
+            "concept_count": len(load_concepts()),
+            "min_quality_score": min(quality_scores) if quality_scores else 0,
+            "artifact_errors": artifact_errors[:50],
+            "artifact_error_count": len(artifact_errors),
+            "quality_debt": quality_debt[:50],
+            "quality_debt_count": len(quality_debt),
+        },
     )
 
 

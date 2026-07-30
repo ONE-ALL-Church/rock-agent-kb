@@ -10,12 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Answer “Is The System Healthy?”](tasks/recipe-answer-is-the-system-healthy.md) |  |  |
-| [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md) |  |  |
+| [Recipe: Answer “Is The System Healthy?”](tasks/recipe-answer-is-the-system-healthy.md) | `DataView` | `DataView` |
+| [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md) | `DataView` | `DataView` |
 | [Recipe: Answer “Can I Clear Cache?”](tasks/recipe-answer-can-i-clear-cache.md) |  |  |
-| [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md) |  |  |
-| [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md) |  |  |
-| [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md) |  |  |
+| [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md) | `Schedule`, `Workflow` | `Schedule`, `Workflow` |
+| [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md) | `DataView` | `DataView` |
+| [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md) | `Workflow` | `Workflow` |
 
 ## Entities
 
@@ -25,7 +25,6 @@ generated: true
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
@@ -111,5 +110,4 @@ generated: true
 | `19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start` | structural | live verification |
 | `19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow` | structural | live verification |
 | `19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally` | normal | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
 | `20-source-map-and-dependency-notes` | high | live verification |

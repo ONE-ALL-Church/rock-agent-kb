@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit One Connection Type
 
-Follow the guide section for Recipe: Audit One Connection Type.
+Complete Audit One Connection Type with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,32 @@ Follow the guide section for Recipe: Audit One Connection Type.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Campus`
+- `Workflow`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Campus`
+- `Workflow`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Type name/id/guid.
+2. Active state.
+3. Enabled views.
+4. Statuses with order/default/active/auto behavior.
+5. Opportunities with active state, order, campus, connector groups, default connector.
+6. Open request counts by status/state.
+7. Idle request count.
+8. Future follow-up count.
+9. Requests missing connector.
+10. Workflows and automation summary.
+11. Security concerns.
+12. Version caveats.
 
 ## Do Not Assume
 
@@ -35,14 +50,14 @@ Follow the guide section for Recipe: Audit One Connection Type.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
+- https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
-- https://community.rockrms.com/recipes/446
-- https://community.rockrms.com/ask/developing/2645
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts
+- https://www.triumph.tech/resources/github-spotlight-422025
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
+- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Streak Type Before Rebuild
 
-Follow the guide section for Recipe: Review A Streak Type Before Rebuild.
+Sources: Streak Type Detail, Rebuild Streak Type.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: Review A Streak Type Before Rebuild.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Person`
+- `Location`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Person`
+- `Location`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Streak Type settings.
+2. Enrollment count.
+3. Start date.
+4. Occurrence map summary.
+5. Location exclusions.
+6. Sample person current/longest streak.
+7. Manual map edits, if known.
+8. Attendance source completeness.
+9. Achievement dependencies.
 
 ## Do Not Assume
 
@@ -34,15 +44,11 @@ Follow the guide section for Recipe: Review A Streak Type Before Rebuild.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/engagement/streaks
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/engagement/assessments
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
-- https://community.rockrms.com/documentation/engagement/steps
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/recipes/233
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
 - https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments

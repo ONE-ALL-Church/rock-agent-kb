@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Trace A Page GUID
 
-Follow the guide section for Recipe: Trace A Page GUID.
+Complete Trace A Page GUID with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Trace A Page GUID.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Device`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Device`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Search TV page records for the GUID.
+2. Confirm platform and parent application.
+3. Render the page with relevant query parameters.
+4. Inspect final XML.
+5. Check merge fields used.
+6. Check page cache settings.
+7. Check page security.
+8. Check commands pointing out from the page.
+9. Check whether page writes interactions.
+10. Test device navigation.
 
 ## Do Not Assume
 
@@ -34,15 +43,12 @@ Follow the guide section for Recipe: Trace A Page GUID.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs
 - https://community.rockrms.com/developer/roku-docs
+- https://community.rockrms.com/developer/apple-tv-docs
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
-- https://community.rockrms.com/lava/lava-api
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/api-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs

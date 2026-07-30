@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Find All Pending Signature Requests For A Template
 
-Follow the guide section for Recipe: Find All Pending Signature Requests For A Template.
+Complete Find All Pending Signature Requests For A Template with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Find All Pending Signature Requests For A T
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. `SignatureDocumentTemplate` by name or ID.
+2. Related `SignatureDocument` records where status is `Sent`.
+3. Assigned-to person alias.
+4. Last invite date.
+5. Invite count.
+6. Related entity type and ID.
+7. Template name.
+8. Count pending.
+9. Oldest pending request.
+10. Requests with no assigned person.
+11. Requests with missing email.
+12. Requests tied to registration or workflow.
 
 ## Do Not Assume
 
@@ -36,13 +49,13 @@ Follow the guide section for Recipe: Find All Pending Signature Requests For A T
 
 - https://community.rockrms.com/documentation/core-concepts/documents
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/recipes/434
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs
-- https://community.rockrms.com/rocku/cms/entity-documents
 - https://community.rockrms.com/rocku/workflows/electronic-signatures-1
-- https://www.triumph.tech/resources/github-spotlight-182025
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/rocku/event-registration/electronic-signatures
-- https://community.rockrms.com/recipes/482
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
+- https://community.rockrms.com/rocku/cms/entity-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow
+- https://community.rockrms.com/rocku/workflows/workflow-person-entry
+- https://community.rockrms.com/rocku/workflows/workflow-entry
+- https://community.rockrms.com/rocku/workflows/components-of-a-workflow
+- https://community.rockrms.com/rocku/workflows/persisted-workflows
+- https://community.rockrms.com/rocku/workflows/workflow-performance-tips

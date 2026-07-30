@@ -17,11 +17,11 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 
 ## Primary Tasks
 
-- [Recipe: Answer "Where is this configured?"](tasks/recipe-answer-where-is-this-configured.md): Follow the guide section for Recipe: Answer "Where is this configured?".
-- [Recipe: Review a Rock PR](tasks/recipe-review-a-rock-pr.md): Follow the guide section for Recipe: Review a Rock PR.
-- [Recipe: Diagnose "Works for admin but not staff"](tasks/recipe-diagnose-works-for-admin-but-not-staff.md): Follow the guide section for Recipe: Diagnose "Works for admin but not staff".
-- [Recipe: Build a source-backed answer](tasks/recipe-build-a-source-backed-answer.md): Follow the guide section for Recipe: Build a source-backed answer.
-- [Recipe: Build a Rock agent tool](tasks/recipe-build-a-rock-agent-tool.md): Follow the guide section for Recipe: Build a Rock agent tool.
+- [Recipe: Answer "Where is this configured?"](tasks/recipe-answer-where-is-this-configured.md): Complete Answer "Where is this configured?" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review a Rock PR](tasks/recipe-review-a-rock-pr.md): References: Codex coding standards, peer review, compatibility, testing (Coding Standards, Suggestions on How to Peer Review, Tips for Maintaining Compatibility, Testing).
+- [Recipe: Diagnose "Works for admin but not staff"](tasks/recipe-diagnose-works-for-admin-but-not-staff.md): References: 303 security, Helix security, release notes (Rock Security, Helix Security, Release Notes).
+- [Recipe: Build a source-backed answer](tasks/recipe-build-a-source-backed-answer.md): Complete Build a source-backed answer with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build a Rock agent tool](tasks/recipe-build-a-rock-agent-tool.md): Reference: AI Agents docs (AI Agents).
 
 ## High-Signal Sections
 
@@ -37,6 +37,7 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the developer-resources guide.
 - `Block`: Rock concept/entity referenced by the developer-resources guide.
+- `DataView`: Rock concept/entity referenced by the developer-resources guide.
 - `DefinedType`: Rock concept/entity referenced by the developer-resources guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the developer-resources guide.
@@ -45,7 +46,6 @@ Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix,
 - `Page`: Rock concept/entity referenced by the developer-resources guide.
 - `Person`: Rock concept/entity referenced by the developer-resources guide.
 - `PersonAlias`: Rock concept/entity referenced by the developer-resources guide.
-- `Step`: Person-specific engagement milestone instance.
 
 ## Version Caveats
 

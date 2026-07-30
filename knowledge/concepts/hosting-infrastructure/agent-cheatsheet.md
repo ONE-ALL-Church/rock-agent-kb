@@ -11,9 +11,9 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Inventory Hosting](tasks/recipe-inventory-hosting.md) |  |  |
-| [Recipe: Validate Azure Hosting](tasks/recipe-validate-azure-hosting.md) |  |  |
+| [Recipe: Validate Azure Hosting](tasks/recipe-validate-azure-hosting.md) | `Step`, `Group` | `Step`, `Group` |
 | [Recipe: Review SQL Performance](tasks/recipe-review-sql-performance.md) |  |  |
-| [Recipe: Review Backup And Restore](tasks/recipe-review-backup-and-restore.md) |  |  |
+| [Recipe: Review Backup And Restore](tasks/recipe-review-backup-and-restore.md) | `Person`, `Step` | `Person`, `Step` |
 | [Recipe: Review Web Farm](tasks/recipe-review-web-farm.md) |  |  |
 | [Recipe: Public Launch Hosting Gate](tasks/recipe-public-launch-hosting-gate.md) |  |  |
 

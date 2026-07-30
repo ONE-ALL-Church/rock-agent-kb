@@ -73,7 +73,7 @@ Common commands:
 uvx rock-kb get check-in
 uvx rock-kb result '<result-id>'
 uvx rock-kb claim '<claim-id>'
-uvx rock-kb claims workflows --min-tier source_backed
+uvx rock-kb claims workflows --min-claim-tier source_backed
 uvx rock-kb model-map list
 uvx rock-kb model group
 uvx rock-kb lava-context list --family check-in-label
@@ -138,10 +138,23 @@ usefulness outcomes, Lava-context verification, malfunction reports,
 test-review submission, and knowledge submission; it is not a more current
 knowledge source.
 
-Search output is compact by default. It returns stable IDs, snippets, trust
-tiers, source URLs, scores, and ranking signals. Use `rock-kb result <id>` or
-`rock-kb claim <claim-id>` for full detail. Use `search --full` only for
+Search output is compact by default and excludes routing-only rows unless
+`--min-claim-tier routing_context_only` is explicitly requested. It returns
+stable IDs, inferred intent, snippets, trust tiers, version-scope state, source
+URLs, and rounded scores. Detailed ranking signals require `--debug`. Symptom
+queries prefer task cards and troubleshooting nodes. Use `rock-kb result <id>`
+or `rock-kb claim <claim-id>` for full detail, and use `search --full` only for
 compatibility with workflows that still need full rows in one response.
+
+Claim listing is paginated:
+
+```bash
+uvx rock-kb claims check-in --authority-tier official --limit 25
+uvx rock-kb claims workflows --min-claim-tier source_backed --rock-version 19.2
+```
+
+Use the returned `next_offset` while `has_more` is true. Authority and claim
+tiers are different vocabularies; do not pass `official` as a claim tier.
 
 For Lava merge-field questions, use `lava-context list` to discover an exact
 rendering-surface ID and `lava-context get` to retrieve its grouped roots,

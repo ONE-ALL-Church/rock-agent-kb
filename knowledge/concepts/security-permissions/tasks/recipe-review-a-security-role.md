@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Security Role
 
-Follow the guide section for Recipe: Review A Security Role.
+Complete Review A Security Role with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Review A Security Role.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Role name.
+2. Purpose/description.
+3. Active members.
+4. Former/inactive members.
+5. Direct auth entries.
+6. Sensitive domains granted.
+7. Deny rules.
+8. Person-specific overlaps.
+9. API keys or workflows depending on the role.
+10. Recommended cleanup.
 
 ## Do Not Assume
 
@@ -35,14 +44,14 @@ Follow the guide section for Recipe: Review A Security Role.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
-- https://community.rockrms.com/developer/303---blast-off/rock-security
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs
 - https://community.rockrms.com/lava/remote-lava
 - https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
-- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://community.rockrms.com/recipes/441
+- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
+- https://community.rockrms.com/rocku/groups/group-security
+- https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol
+- https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
+- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns

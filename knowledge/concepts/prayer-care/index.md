@@ -2,7 +2,7 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-07-26T00:28:33+00:00
+last_built: 2026-07-30T02:06:14+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
@@ -79,7 +79,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | configuration | A Prayer Card View block can launch a workflow after a request is prayed for or flagged; the workflow receives the prayer request as an entity and identifies the acting person through the PrayerOfferedByPersonId or FlaggedByPersonId workflow attribute, respectively. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block) |
 | official | implementation_pattern | The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request. | [source](https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests) |
-| More |  | 7 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| More |  | 5 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -229,7 +229,7 @@ Keywords: `follow-up, communication, notification, pastoral care`
 ## Rebuild Dependencies
 
 - Source records: `61`
-- Approved claims: `25`
+- Approved claims: `23`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

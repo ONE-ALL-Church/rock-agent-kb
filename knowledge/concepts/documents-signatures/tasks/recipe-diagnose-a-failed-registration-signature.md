@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose A Failed Registration Signature
 
-Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
+Complete Diagnose A Failed Registration Signature with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,32 @@ Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Registration instance.
+2. Registration template required signature template.
+3. External Registration Entry block generation.
+4. Registrant person alias.
+5. Registrant `SignatureDocumentId`.
+6. Existing valid signatures for that person and template.
+7. Signature document status.
+8. Exception logs.
+9. Whether the signature was required.
+10. Whether it was skipped because a valid signature already existed.
+11. Whether a Signature Document was created.
+12. Whether the registrant is linked to it.
+13. Whether the signer completed it.
+14. Whether the PDF and completion email exist.
 
 ## Do Not Assume
 
@@ -35,14 +50,14 @@ Follow the guide section for Recipe: Diagnose A Failed Registration Signature.
 ## Source Links
 
 - https://community.rockrms.com/documentation/core-concepts/documents
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/recipes/434
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs
-- https://community.rockrms.com/rocku/workflows/electronic-signatures-1
-- https://community.rockrms.com/rocku/cms/entity-documents
-- https://www.triumph.tech/resources/github-spotlight-182025
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/rocku/event-registration/electronic-signatures
-- https://community.rockrms.com/recipes/482
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentDetail/signatureDocumentBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/SignatureDocumentTemplateDetailOptionsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/signatureDocumentTemplateDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/SignatureDocumentTemplateBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateList/signatureDocumentTemplateListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/SignatureDocumentTemplateList.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/SignatureDocumentTemplateDetail.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/signatureDocumentTemplateBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts

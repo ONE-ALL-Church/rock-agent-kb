@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review For Security
 
-Follow the guide section for Recipe: Review For Security.
+Complete Review For Security with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,28 @@ Follow the guide section for Recipe: Review For Security.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify API key and owner.
+2. List pages using `CurrentPerson`.
+3. List pages using Lava entity commands or APIs.
+4. Inspect page cacheability.
+5. Inspect command cache controls.
+6. Inspect Remote Authentication block route.
+7. Inspect remote session REST access if enabled.
+8. Confirm no secrets in TVML.
+9. Confirm no private data in public pages.
+10. Confirm retention settings.
 
 ## Do Not Assume
 
@@ -34,15 +45,15 @@ Follow the guide section for Recipe: Review For Security.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs/javascript
 - https://community.rockrms.com/developer/apple-tv-docs
+- https://community.rockrms.com/developer/apple-tv-docs/javascript
 - https://github.com/SparkDevNetwork/Rock
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/Login/externalAuthenticationButtonBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/UserLoginList/authenticationComponentBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx.cs

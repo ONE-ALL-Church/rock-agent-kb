@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit a single sent communication
 
-Follow the guide section for Recipe: Audit a single sent communication.
+Complete Audit a single sent communication with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,22 @@ Follow the guide section for Recipe: Audit a single sent communication.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Communication ID/GUID
+2. created by
+3. sender fields
+4. subject/content summary
+5. communication type
+6. status
+7. future send date
+8. approval state
+9. template
+10. recipient count by status
+11. recipient count by medium
+12. failures with status notes
+13. unsubscribe count
+14. open/click metrics if available
+15. transport used
+16. job/exceptions if relevant
 
 ## Do Not Assume
 
@@ -35,14 +48,3 @@ Follow the guide section for Recipe: Audit a single sent communication.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/communication
-- https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs
-- https://community.rockrms.com/recipes/138
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list

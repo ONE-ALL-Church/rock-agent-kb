@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Generate Labels With Lava
 
-Follow the guide section for Recipe: Generate Labels With Lava.
+Source: Print ZPL.
 
 ## When To Use
 
@@ -16,33 +16,34 @@ Follow the guide section for Recipe: Generate Labels With Lava.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Device`
+- `Label`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Device`
+- `Label`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Enable `PrintZPL` only in trusted staff contexts.
+2. Use `deviceid` for configured Rock devices when possible.
+3. Validate ZPL.
+4. Avoid duplicate execution.
+5. Escape dynamic text.
+6. Test printer output physically.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Avoid duplicate execution.
 
 ## Source Links
 
 - https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/fluid/differences
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools
-- https://community.rockrms.com/developer/helix/lava-commands
-- https://community.rockrms.com/lava/commands/taglist-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs
+- https://community.rockrms.com/recipes/386
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts
+- https://community.rockrms.com/recipes/290
+- https://community.rockrms.com/recipes/370

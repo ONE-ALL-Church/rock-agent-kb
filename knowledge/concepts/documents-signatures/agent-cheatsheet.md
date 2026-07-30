@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md) |  |  |
-| [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md) |  |  |
-| [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md) |  |  |
-| [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md) |  |  |
-| [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md) |  |  |
+| [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md) | `Person`, `PersonAlias`, `Workflow` | `Person`, `PersonAlias`, `Workflow` |
+| [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md) | `Person`, `PersonAlias` | `Person`, `PersonAlias` |
+| [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md) | `Person`, `PersonAlias`, `Block` | `Person`, `PersonAlias`, `Block` |
+| [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md) | `Workflow`, `Page` | `Workflow`, `Page` |
+| [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md) | `Person`, `Workflow` | `Person`, `Workflow` |
 
 ## Entities
 
@@ -29,6 +29,7 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 

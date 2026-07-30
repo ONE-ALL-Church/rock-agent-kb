@@ -17,12 +17,12 @@ Obsidian block development, grid reference, custom actions, field types, browser
 
 ## Primary Tasks
 
-- [Recipe: Identify The Source Files Behind A Visible Obsidian Block](tasks/recipe-identify-the-source-files-behind-a-visible-obsidian-block.md): Follow the guide section for Recipe: Identify The Source Files Behind A Visible Obsidian Block.
-- [Recipe: Determine Whether A Bug Is Version-Related](tasks/recipe-determine-whether-a-bug-is-version-related.md): Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related.
-- [Recipe: Review An Obsidian Pull Request](tasks/recipe-review-an-obsidian-pull-request.md): Follow the guide section for Recipe: Review An Obsidian Pull Request.
-- [Recipe: Audit A Block For Security](tasks/recipe-audit-a-block-for-security.md): Follow the guide section for Recipe: Audit A Block For Security.
-- [Recipe: Audit A Grid For Operational Readiness](tasks/recipe-audit-a-grid-for-operational-readiness.md): Follow the guide section for Recipe: Audit A Grid For Operational Readiness.
-- [Recipe: Decide Whether To Use Browser Bus](tasks/recipe-decide-whether-to-use-browser-bus.md): Follow the guide section for Recipe: Decide Whether To Use Browser Bus.
+- [Recipe: Identify The Source Files Behind A Visible Obsidian Block](tasks/recipe-identify-the-source-files-behind-a-visible-obsidian-block.md): Start from the live block type and follow the conventions documented in the Obsidian developer documentation and Grid Columns. Confirm paths against the exact source revision because core, generated view-model, and plugin layouts can differ by version.
+- [Recipe: Determine Whether A Bug Is Version-Related](tasks/recipe-determine-whether-a-bug-is-version-related.md): Complete Determine Whether A Bug Is Version-Related with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review An Obsidian Pull Request](tasks/recipe-review-an-obsidian-pull-request.md): Review against the current Obsidian developer documentation, Null vs Undefined, and Rock Core Release Notes. Build and exercise the changed block on its supported Rock version; static review alone cannot establish authorization, payload, grid, or lifecycle behavior.
+- [Recipe: Audit A Block For Security](tasks/recipe-audit-a-block-for-security.md): Complete Audit A Block For Security with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit A Grid For Operational Readiness](tasks/recipe-audit-a-grid-for-operational-readiness.md): Complete Audit A Grid For Operational Readiness with evidence-backed checks and a verifiable outcome.
+- [Recipe: Decide Whether To Use Browser Bus](tasks/recipe-decide-whether-to-use-browser-bus.md): The browser bus is page-local only (Browser Bus).
 
 ## High-Signal Sections
 

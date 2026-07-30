@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build "Lapsed Givers"
 
-Follow the guide section for Recipe: Build "Lapsed Givers".
+Complete Build "Lapsed Givers" with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,15 @@ Follow the guide section for Recipe: Build "Lapsed Givers".
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Get finance definition of lapsed.
+2. Define annual amount threshold.
+3. Define current inactivity window.
+4. Define prior comparable period.
+5. Exclude registration payments if required.
+6. Use analytics tables or SQL if comparing periods.
+7. Validate with finance owner.
+8. Secure report.
+9. Document date logic.
 
 ## Do Not Assume
 
@@ -34,14 +40,5 @@ Follow the guide section for Recipe: Build "Lapsed Givers".
 
 ## Source Links
 
-- https://community.rockrms.com/recipes/264
-- https://community.rockrms.com/recipes/397
-- https://community.rockrms.com/lava/commands/sql-commands
-- https://community.rockrms.com/rocku/reporting
 - https://community.rockrms.com/recipes/349
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
-- https://community.rockrms.com/rocku/business-intelligence-bi/bi-template
-- https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report
 - https://community.rockrms.com/recipes/109
-- https://community.rockrms.com/recipes/262
-- https://community.rockrms.com/recipes/391

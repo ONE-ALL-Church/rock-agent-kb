@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Create A Connection Request”
 
-Follow the guide section for Recipe: “Create A Connection Request”.
+Complete “Create A Connection Request” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,20 @@ Follow the guide section for Recipe: “Create A Connection Request”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Lookup person.
+2. Lookup connection type/opportunity.
+3. Confirm status/priority/comment.
+4. Create through add tool.
+5. Verify created request.
+6. Report next owner/follow-up if available.
 
 ## Do Not Assume
 
@@ -34,15 +37,5 @@ Follow the guide section for Recipe: “Create A Connection Request”.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/BookContent/9
-- https://community.rockrms.com/rocku/core-concepts/automations
 - https://community.rockrms.com/ask/developing/2708
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://community.rockrms.com/ModelMap
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude
+- https://community.rockrms.com/developer/ai-agents

@@ -11,13 +11,13 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Summarize A Registration Instance](tasks/recipe-summarize-a-registration-instance.md) |  |  |
-| [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md) |  |  |
-| [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md) |  |  |
-| [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md) |  |  |
+| [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md) | `Label`, `Block` | `Label`, `Block` |
+| [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md) | `Schedule` | `Schedule` |
+| [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md) | `Schedule` | `Schedule` |
 | [Recipe: Audit Wait List](tasks/recipe-audit-wait-list.md) |  |  |
-| [Recipe: Build A Registrant Packet Export](tasks/recipe-build-a-registrant-packet-export.md) |  |  |
-| [Recipe: Add Staff Notes To Registration Detail](tasks/recipe-add-staff-notes-to-registration-detail.md) |  |  |
-| [Recipe: Investigate API Registration URL Issues](tasks/recipe-investigate-api-registration-url-issues.md) |  |  |
+| [Recipe: Build A Registrant Packet Export](tasks/recipe-build-a-registrant-packet-export.md) | `Person`, `PersonAlias`, `Page`, `Attribute` | `Person`, `PersonAlias`, `Page`, `Attribute` |
+| [Recipe: Add Staff Notes To Registration Detail](tasks/recipe-add-staff-notes-to-registration-detail.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Investigate API Registration URL Issues](tasks/recipe-investigate-api-registration-url-issues.md) | `Page`, `Block` | `Page`, `Block` |
 
 ## Entities
 

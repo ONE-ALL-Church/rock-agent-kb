@@ -17,12 +17,12 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 ## Primary Tasks
 
-- [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md): Follow the guide section for Recipe: Audit A Step Program.
-- [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md): Follow the guide section for Recipe: Diagnose Step Badge Display.
-- [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md): Follow the guide section for Recipe: Review A Streak Type Before Rebuild.
-- [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md): Follow the guide section for Recipe: Verify Assessment Request Flow.
-- [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md): Follow the guide section for Recipe: Audit Achievement Type.
-- [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md): Follow the guide section for Recipe: Explain Engagement Data To A Ministry User.
+- [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md): Primary sources: Edit Step Programs, Edit Step Types.
+- [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md): Source: Steps Badges.
+- [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md): Sources: Streak Type Detail, Rebuild Streak Type.
+- [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md): Sources: Send Requests, Retake Assessments, View Assessment History.
+- [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md): Sources: Add Achievement Types, Achievement Type Advanced Settings, `AchievementType.cs`.
+- [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md): Then ask for the operational decision they need to make. That determines the correct data source.
 
 ## High-Signal Sections
 
@@ -39,6 +39,7 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 - `Attribute`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Block`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Campus`: Rock concept/entity referenced by the engagement-tracking guide.
+- `DataView`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Family`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Label`: Rock concept/entity referenced by the engagement-tracking guide.
@@ -46,7 +47,6 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the engagement-tracking guide.
 - `Person`: Rock concept/entity referenced by the engagement-tracking guide.
-- `PersonAlias`: Rock concept/entity referenced by the engagement-tracking guide.
 
 ## Version Caveats
 

@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-07-26T00:28:47+00:00
+last_built: 2026-07-30T02:06:24+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -74,20 +74,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| official | source_summary | This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| rocku-confirmed | operational_guidance | The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/scheduled-transactions) |
-| rocku-confirmed | operational_guidance | For ministry process design, Person Preferences and Auto Schedule should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) |
-| rocku-confirmed | operational_guidance | The Locations RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/locations) |
-| rocku-confirmed | operational_guidance | The Group Location RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-location) |
-| rocku-confirmed | operational_guidance | The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) |
-| rocku-confirmed | operational_guidance | The Schedules RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/schedules) |
-| rocku-confirmed | operational_guidance | For staff training and operational readiness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) |
-| rocku-confirmed | operational_guidance | The Campuses RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
-| rocku-confirmed | operational_guidance | For ministry process design, Schedules should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/check-in/schedules) |
-| rocku-confirmed | operational_guidance | For Rock operations and administration, Campuses should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/core-concepts/campuses) |
-| rocku-confirmed | operational_guidance | The Group Scheduler and Status Board RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) |
-| rocku-confirmed | release_caveat | For version, roadmap, and release-caveat awareness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board) |
-| More |  | 17 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| community-reviewed | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
+| community-reviewed | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) |
 
 ## Source Coverage
 
@@ -233,7 +223,7 @@ Keywords: `reservation, resource`
 ## Rebuild Dependencies
 
 - Source records: `92`
-- Approved claims: `35`
+- Approved claims: `9`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

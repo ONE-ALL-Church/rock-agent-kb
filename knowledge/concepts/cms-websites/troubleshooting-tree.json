@@ -1,199 +1,221 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-find-the-block-that-controls-this-text",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-the-page-returns-not-found",
+      "id": "the-page-returns-not-found",
+      "inspect": [
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
-        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+        "https://community.rockrms.com/rocku/cms/short-links",
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "If the URL is a short link, inspect Short Links first (Short Links).",
+        "If the host is wrong, inspect Site domains.",
+        "If the route is wrong, inspect page routes.",
+        "If the page exists but user lacks View, inspect page security.",
+        "If only content item detail links fail, inspect Content Channel Item View query parameter and item status.",
+        "If breadcrumbs cause Page Not Found on direct item links, check version around the v17.1 breadcrumb fix (Rock Release Notes)."
       ],
-      "title": "Recipe: “Find The Block That Controls This Text”",
-      "when": "Follow the guide section for Recipe: “Find The Block That Controls This Text”."
+      "title": "The Page Returns Not Found",
+      "when": "The Page Returns Not Found"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-why-is-this-content-item-not-public",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/rocku/cms",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/535",
-        "https://www.triumph.tech/resources/github-spotlight-1242025",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list"
+      "guide_section_id": "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
+      "id": "the-page-loads-but-content-is-missing",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check block exists and is in a rendered zone.",
+        "Check block View security.",
+        "Check block settings.",
+        "Check content channel/item status and dates.",
+        "Check item security.",
+        "Check category/page parameter filters.",
+        "Check Lava errors.",
+        "Check cache duration and cache tags."
       ],
-      "title": "Recipe: “Why Is This Content Item Not Public?”",
-      "when": "Follow the guide section for Recipe: “Why Is This Content Item Not Public?”."
+      "title": "The Page Loads But Content Is Missing",
+      "when": "The Page Loads But Content Is Missing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-can-i-enable-sql-in-this-html-block",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/rocku/content-channels/adding-content"
+      "guide_section_id": "17-troubleshooting-decision-tree-the-wrong-content-shows",
+      "id": "the-wrong-content-shows",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check route-to-page mapping.",
+        "Check block query parameter name.",
+        "Check `display most recent` behavior on content item view.",
+        "Check listing/detail page configuration.",
+        "Check cache.",
+        "Check shared HTML context.",
+        "Check personalization.",
+        "Check whether content was edited in a different channel/item than the one displayed."
       ],
-      "title": "Recipe: “Can I Enable SQL In This HTML Block?”",
-      "when": "Follow the guide section for Recipe: “Can I Enable SQL In This HTML Block?”."
+      "title": "The Wrong Content Shows",
+      "when": "The Wrong Content Shows"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-add-a-detail-page-for-channel-items",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-authors-cannot-edit-content",
+      "id": "authors-cannot-edit-content",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/rocku/cms",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check page/block Edit security.",
+        "Check Content Channel security.",
+        "Check item security.",
+        "Check whether management block is the correct version/type.",
+        "Check approval configuration.",
+        "Check browser console/server logs.",
+        "If delete buttons behave unexpectedly, check the v18.2 Content Channel delete authorization fix (Rock Release Notes)."
       ],
-      "title": "Recipe: “Add A Detail Page For Channel Items”",
-      "when": "Follow the guide section for Recipe: “Add A Detail Page For Channel Items”."
+      "title": "Authors Cannot Edit Content",
+      "when": "Authors Cannot Edit Content"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-review-a-community-recipe-before-installing",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/recipes/535",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+      "guide_section_id": "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
+      "id": "lava-works-for-staff-but-not-public",
+      "inspect": [
+        "Person",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check block View security.",
+        "Check enabled commands.",
+        "Check whether Lava depends on `CurrentPerson`.",
+        "Check whether public user lacks entity access.",
+        "Check whether a command is disabled in the public block instance.",
+        "Check caching by person.",
+        "Check null handling."
       ],
-      "title": "Recipe: “Review A Community Recipe Before Installing”",
-      "when": "Follow the guide section for Recipe: “Review A Community Recipe Before Installing”."
+      "title": "Lava Works For Staff But Not Public",
+      "when": "Lava Works For Staff But Not Public"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-build-a-page-view-report",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-analytics-are-empty",
+      "id": "analytics-are-empty",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/rocku/cms",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/commands",
         "https://community.rockrms.com/recipes/261",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/documentation/bookcontent/6",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
-        "https://community.rockrms.com/rocku/content-channels/adding-content"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "For page views, confirm site Log Page Views is enabled (Easy Page Views Reporting).",
+        "For content items, confirm item view interaction logging settings (ContentChannelItemView settings source).",
+        "Confirm user identity rules.",
+        "Confirm crawler exclusion.",
+        "Confirm interaction token generation and de-duplication behavior (ContentChannelItemView options source).",
+        "Confirm reporting query filters and date range.",
+        "Confirm aggregation jobs if used."
       ],
-      "title": "Recipe: “Build A Page View Report”",
-      "when": "Follow the guide section for Recipe: “Build A Page View Report”."
+      "title": "Analytics Are Empty",
+      "when": "Analytics Are Empty"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
       ],
-      "entities": [],
-      "id": "recipe-troubleshoot-required-watching",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
+      "id": "files-or-documents-are-accessible-to-the-wrong-users",
+      "inspect": [
+        "Workflow"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/cms",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-        "https://community.rockrms.com/rocku/cms/rock-media-required-watching",
-        "https://community.rockrms.com/recipes/432",
-        "https://community.rockrms.com/recipes/261"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Inspect File Type security.",
+        "Inspect BinaryFile.",
+        "Inspect Document and Document Type.",
+        "Inspect entity document linkage.",
+        "Check v18.2 document upload linkage fix if using Entity Document Add workflow action (Rock Release Notes).",
+        "Test direct file URLs and document URLs.",
+        "Restrict public links until verified."
       ],
-      "title": "Recipe: “Troubleshoot Required Watching”",
-      "when": "Follow the guide section for Recipe: “Troubleshoot Required Watching”."
+      "title": "Files Or Documents Are Accessible To The Wrong Users",
+      "when": "Files Or Documents Are Accessible To The Wrong Users"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
+      "id": "styling-or-icons-are-broken",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms/font-awesome-5-1",
+        "https://community.rockrms.com/rocku/cms/tabler-icons"
+      ],
+      "start_with": [
+        "Confirm theme and layout.",
+        "Confirm CSS/JS files load.",
+        "Confirm icon library: Font Awesome legacy versus Tabler Icons (Font Awesome 5 Legacy, Tabler Icons).",
+        "Confirm compiled theme assets are current.",
+        "Confirm CDN/browser cache.",
+        "Confirm no CMS block injected conflicting CSS/JS."
+      ],
+      "title": "Styling Or Icons Are Broken",
+      "when": "Styling Or Icons Are Broken"
     }
   ],
   "concept_id": "cms-websites",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:51+00:00",
+  "generated_at": "2026-07-30T02:08:02+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-page-returns-not-found",

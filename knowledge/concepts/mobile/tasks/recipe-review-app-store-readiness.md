@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review App Store Readiness
 
-Follow the guide section for Recipe: Review App Store Readiness.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Review App Store Readiness.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. App name within current store limits.
+2. Icon provided.
+3. Screenshots current.
+4. Description and promotional text current.
+5. Keywords and categories selected.
+6. Support URL works.
+7. Marketing URL works if used.
+8. Copyright correct.
+9. Review logins active.
+10. Developer account access confirmed.
+11. Android keystore secured.
+12. Push/giving disclosures ready.
 
 ## Do Not Assume
 
@@ -38,11 +47,8 @@ Follow the guide section for Recipe: Review App Store Readiness.
 - https://www.rockrms.com/mobilereleasenotes
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
 - https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
-- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
-- https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources
-- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
-- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
-- https://community.rockrms.com/developer/mobile-docs/app-factory
-- https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications
+- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/recipes/402

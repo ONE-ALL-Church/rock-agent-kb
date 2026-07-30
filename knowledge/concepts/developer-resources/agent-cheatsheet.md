@@ -10,9 +10,9 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Answer "Where is this configured?"](tasks/recipe-answer-where-is-this-configured.md) |  |  |
+| [Recipe: Answer "Where is this configured?"](tasks/recipe-answer-where-is-this-configured.md) | `DataView`, `Workflow`, `Page`, `Block` | `DataView`, `Workflow`, `Page`, `Block` |
 | [Recipe: Review a Rock PR](tasks/recipe-review-a-rock-pr.md) |  |  |
-| [Recipe: Diagnose "Works for admin but not staff"](tasks/recipe-diagnose-works-for-admin-but-not-staff.md) |  |  |
+| [Recipe: Diagnose "Works for admin but not staff"](tasks/recipe-diagnose-works-for-admin-but-not-staff.md) | `Person`, `Workflow`, `Page`, `Block` | `Person`, `Workflow`, `Page`, `Block` |
 | [Recipe: Build a source-backed answer](tasks/recipe-build-a-source-backed-answer.md) |  |  |
 | [Recipe: Build a Rock agent tool](tasks/recipe-build-a-rock-agent-tool.md) |  |  |
 
@@ -23,6 +23,7 @@ generated: true
 | `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DefinedType` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |

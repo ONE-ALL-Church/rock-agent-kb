@@ -80,6 +80,7 @@ def concept_synthesis_pack(
     concept = get_concept(concept_id)
     records = selected_records_for_concept(concept_id, limit=limit)
     contribution_records = public_contribution_records(concept_id) if include_contributions else []
+    approved_claims, routing_context = claims_for_concept_synthesis(concept_id)
     return {
         "concept": {
             "id": concept.id,
@@ -87,11 +88,103 @@ def concept_synthesis_pack(
             "description": concept.description,
             "depends_on_topics": concept.depends_on_topics,
             "subguides": concept.subguides,
+            "routing_role": concept.routing_role,
+            "parent_concept_id": concept.parent_concept_id,
+            "documentation_branches": record_constraint_values(concept.raw, "documentation_branches"),
             "guide_status": "llm_generated_needs_review",
         },
+        "approved_claims": approved_claims,
+        "routing_context": routing_context,
         "source_records": [compact_record_for_synthesis(record) for record in records],
         "contribution_records": [compact_record_for_synthesis(record) for record in contribution_records],
+        "evidence_policy": concept_synthesis_evidence_policy(),
     }
+
+def concept_synthesis_evidence_policy() -> dict[str, Any]:
+    return {
+        "factual_spine": "approved_claims",
+        "routing_context_is_answer_evidence": False,
+        "source_excerpts_require_direct_support": True,
+        "public_source_code": {
+            "use_when_helpful": True,
+            "requires_supplied_excerpt": True,
+            "requires_public_commit_ref": True,
+            "authority": "implementation_evidence_not_universal_configuration",
+        },
+        "live_instance_verification": {
+            "default": "not_performed",
+            "use_when_helpful": True,
+            "mode": "separate_bounded_read_only_review",
+            "appropriate_for": [
+                "installed_schema_or_configuration",
+                "version_or_plugin_applicability",
+                "issue_reproduction_or_instance_impact",
+                "existence_and_count_checks",
+            ],
+            "prohibited": [
+                "sql_writes",
+                "raw_private_data_in_public_outputs",
+                "treating_one_instance_as_universal_behavior",
+            ],
+            "public_use_requires_reviewed_safe_conclusion": True,
+        },
+    }
+
+def claims_for_concept_synthesis(
+    concept_id: str,
+    *,
+    answer_limit: int = 160,
+    routing_limit: int = 24,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    dependencies = approved_claim_dependencies_for_concept(concept_id)
+    answer_bearing = [
+        row
+        for row in dependencies
+        if str(row.get("claim_tier") or "") in {"source_backed", "answer_pack_approved", "live_verified"}
+    ]
+    routing = [
+        row for row in dependencies if str(row.get("claim_tier") or "") == "routing_context_only"
+    ]
+    answer_bearing.sort(key=claim_synthesis_sort_key)
+    routing.sort(key=claim_synthesis_sort_key)
+    return (
+        [compact_claim_for_synthesis(row) for row in answer_bearing[:answer_limit]],
+        [compact_claim_for_synthesis(row) for row in routing[:routing_limit]],
+    )
+
+def claim_synthesis_sort_key(row: dict[str, Any]) -> tuple[int, int, str]:
+    tier = {"live_verified": 0, "answer_pack_approved": 1, "source_backed": 2}.get(
+        str(row.get("claim_tier") or ""),
+        3,
+    )
+    authority = {
+        "live-verified": 0,
+        "release-note-confirmed": 1,
+        "source-code-confirmed": 1,
+        "official": 2,
+        "rocku-confirmed": 3,
+        "community-reviewed": 4,
+        "community-unreviewed": 5,
+    }.get(str(row.get("authority_tier") or ""), 6)
+    return tier, authority, str(row.get("claim_id") or "")
+
+def compact_claim_for_synthesis(row: dict[str, Any]) -> dict[str, Any]:
+    keep = [
+        "claim_id",
+        "claim",
+        "claim_type",
+        "authority_tier",
+        "claim_tier",
+        "confidence",
+        "rock_versions",
+        "version_scope_status",
+        "concept_ids",
+        "source_record_ids",
+        "source_refs",
+        "needs_live_verification",
+        "live_verification",
+    ]
+    return {key: row.get(key) for key in keep if row.get(key) not in (None, "", [], {})}
 
 def compact_record_for_synthesis(record: dict[str, Any]) -> dict[str, Any]:
     keep = [

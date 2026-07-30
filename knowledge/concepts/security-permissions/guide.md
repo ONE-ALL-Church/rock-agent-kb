@@ -1704,24 +1704,24 @@ Sources: [Release Notes](https://www.rockrms.com/releasenotes), [GitHub Spotligh
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `308`
+- Approved claims routed to this concept: `63`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
-| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
+| official | behavior | Rock's PersonActionIdentifier identifies a person only for a specific bound action, such as RSVP, rather than functioning as a general-purpose authentication or authorization token. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
+| official | behavior | Rock evaluates an item's ordered Allow and Deny permission rules from top to bottom and applies the first rule matching the current person, so a broad deny placed above a narrower allow can block the narrower role. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
+| official | behavior | The Security Change Audit records changes to an item's permission rules, including role rules or direct user rules, but it does not record adding or removing a person from a security role. | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit) |
+| official | configuration | Creating a top-level Sign-Up group requires Edit permission on both the Project Type group attribute and the Sign-Up Groups block, in addition to the permissions needed to manage the project or its attendees. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) |
 | official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
-| official | operational_guidance | The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
+| official | implementation_pattern | For public-facing Obsidian blocks beginning with Rock v14, IdKey is preferred over exposing numeric entity IDs in URLs, but the server must still authorize and validate the referenced entity. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
+| official | operational_guidance | The Inspect Security page can show the source of a person's effective permission for a selected entity type and entity ID or GUID, including the parent from which an inherited rule originates. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
 | official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | operational_guidance | Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | operational_guidance | AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access. | [source](https://www.youtube.com/watch?v=mYTaGxYMyyQ) |
-| official | operational_guidance | LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| More |  | 296 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 51 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1730,20 +1730,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `76`
+- Approved media records routed to this concept: `35`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight](https://www.youtube.com/watch?v=UvW68dZBcJ8) | approved_for_public_distillation | 11 | media-insight:d03a93f4e7ef8c02 |
-| [Account Protection Profiles Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/account-protection-profiles) | approved_for_public_distillation | 3 | media-insight:06f483c71c224790 |
-| [Adding Pages and Blocks Transcript Insight](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) | approved_for_public_distillation | 2 | media-insight:7848aa46e6ac3794 |
-| [Adding Steps Transcript Insight](https://community.rockrms.com/rocku/engagement/adding-steps) | approved_for_public_distillation | 2 | media-insight:3910dddf1fe8be0c |
 | [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
 | [Assessments - Emotional Intelligence (EQ) Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence) | approved_for_public_distillation | 2 | media-insight:2d198493692adb6c |
 | [Attendance Self-Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-self-entry) | approved_for_public_distillation | 3 | media-insight:1fb05cc8930bc9e2 |
 | [BI Embed Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report) | approved_for_public_distillation | 3 | media-insight:5fc8b3a315612c59 |
-| More |  | 68 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Check-in Celebrations Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-celebrations) | approved_for_public_distillation | 2 | media-insight:726c382b13da37a9 |
+| [Check-in Settings Transcript Insight](https://community.rockrms.com/rocku/check-in/settings) | approved_for_public_distillation | 3 | media-insight:43111d964e899603 |
+| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
+| [Communication Templates [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates-legacy) | approved_for_public_distillation | 3 | media-insight:66b971954eb3655e |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

@@ -1,76 +1,11 @@
 {
+  "answer_bearing_claim_count": 9,
+  "approved_claim_count": 9,
   "approved_claim_dependencies": [
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "23404f33688b9ffa28e1187bc8818f1141260d809fe313bbd8af24027d80d52f",
-      "claim_id": "claim:01ff9ed6a6b877b9f731",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
-      "source_record_ids": [
-        "rock_rocku:7e09b4c6a92264f6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
-          "timestamp": "06:59",
-          "timestamp_seconds": 419.0,
-          "title": "Group Scheduler and Status Board",
-          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "5d0a3b772329d3225ec849db095ce9e9d9cf2c06fad974e8b920985e39a50622",
-      "claim_id": "claim:0772c6dac6606362f1fc",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "giving-finance",
-        "scheduling-locations",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
-      "source_record_ids": [
-        "rock_rocku:cc6fb3df674b28c2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Scheduled Transactions",
-          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
-        }
-      ]
-    },
     {
       "authority_tier": "official",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
+      "claim_hash": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
       "claim_id": "claim:07a75e5ff71510d708de",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -87,6 +22,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -100,209 +38,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying reporting, analytics, and measurement ideas from Product Grooming & the Giving Landscape, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
-      "claim_id": "claim:0c31d43da1ea06728ca9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "scheduling-locations"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
-      "source_record_ids": [
-        "rock_podcast_rss:6b2614dc656c60bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
-          "timestamp": "02:21",
-          "timestamp_seconds": 141.3,
-          "title": "Product Grooming & the Giving Landscape",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Person Preferences and Auto Schedule should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
-      "claim_id": "claim:10270a60fc64380cd39d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Group Location is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "d9a8fb052a7393e5576a80b2a96f1ded2bc9585b3b6b48f0e5b9ba5e2e1624d1",
-      "claim_id": "claim:162b50b245449650877f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4c4b92debc46c8e09f5b7d21746b443d9d746dc1115b637cccbf57976aea4aab",
-      "source_record_ids": [
-        "rock_rocku:d0d7d71631f3f890"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Group Location",
-          "url": "https://community.rockrms.com/rocku/groups/group-location"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Locations RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
-      "claim_id": "claim:20180d84d33561850701",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
-      "source_record_ids": [
-        "rock_rocku:90ed168a3283ccaa"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/locations",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Locations",
-          "url": "https://community.rockrms.com/rocku/check-in/locations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Group Location RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "df406abf0766ea0e0999e2b9b6af62fccb6ec04a159f552f93846b8542163ac8",
-      "claim_id": "claim:203bc3811bcc6f7af24f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4c4b92debc46c8e09f5b7d21746b443d9d746dc1115b637cccbf57976aea4aab",
-      "source_record_ids": [
-        "rock_rocku:d0d7d71631f3f890"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-location",
-          "timestamp": "00:45",
-          "timestamp_seconds": 45.0,
-          "title": "Group Location",
-          "url": "https://community.rockrms.com/rocku/groups/group-location"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
-      "claim_id": "claim:273569623174af9b2460",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
-      "claim_hash": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
+      "claim_hash": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
       "claim_id": "claim:2a9844acce5ba6150dec",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -320,6 +62,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -333,73 +78,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Product Grooming & the Giving Landscape is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, ministry process design, reporting, analytics, and measurement. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
-      "claim_id": "claim:2d57166dfa20c91564d0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "scheduling-locations"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
-      "source_record_ids": [
-        "rock_podcast_rss:6b2614dc656c60bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Product Grooming & the Giving Landscape",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation.",
-      "claim_hash": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
-      "claim_id": "claim:3122ff168111783bf1b7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
-      "source_record_ids": [
-        "rock_youtube:ada1b1391c0864f3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
-          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_hash": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
       "claim_id": "claim:32f0173b23a7d2c356c0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -417,6 +102,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -430,12 +118,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
-      "claim_hash": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
+      "claim_hash": "754e7f08fb45e2fdb878564df58b2df2b8603e5aa25c6c90d70d517a0f201270",
       "claim_id": "claim:3e398ac03167b9c52704",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -453,6 +142,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -466,45 +158,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Schedules RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
-      "claim_id": "claim:478537db6c6c72a01a23",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_hash": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
       "claim_id": "claim:4c4098a035a5ca256bfe",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -522,6 +182,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -535,108 +198,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Person Preferences and Auto Schedule is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
-      "claim_id": "claim:57298eb943d1acbad3ee",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Scheduled Transactions should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "d8ab8e3b22ffd0fbe667177bdb88f8478c7332f6c9040e945e505b56bea163d6",
-      "claim_id": "claim:5b59d0c1ed8cffb794c6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "giving-finance",
-        "scheduling-locations",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
-      "source_record_ids": [
-        "rock_rocku:cc6fb3df674b28c2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
-          "timestamp": "01:04",
-          "timestamp_seconds": 64.52,
-          "title": "Scheduled Transactions",
-          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This official podcast edition supports the same v19 rollout and operational feature guidance as the reviewed video edition: prepare Connections users, configure built-in CAPTCHA, expect real-time Check-In Manager updates and use materialized schedule dates. Verify exact behavior against the installed v19 build.",
-      "claim_hash": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
-      "claim_id": "claim:5e95f49027f612b41532",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
-      "source_record_ids": [
-        "rock_podcast_rss:c599eeb5406e175c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
-          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
+      "claim_hash": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
       "claim_id": "claim:66eb84b2b9cc466ce78b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -653,6 +221,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -666,74 +237,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Campuses is approved as a public-safe RockU training distillation for staff training and operational readiness, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
-      "claim_id": "claim:765e97c1095c16a9a4bd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
-      "source_record_ids": [
-        "rock_rocku:f4d1879d32a182fe"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Campuses",
-          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Group Scheduler and Status Board should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "d1a8b4362de69191a2d67330520b54d30e14c1ffa055dea56b83632f7a0d38c4",
-      "claim_id": "claim:96bf5b217e3ab42f1544",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
-      "source_record_ids": [
-        "rock_rocku:7e09b4c6a92264f6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
-          "timestamp": "02:24",
-          "timestamp_seconds": 144.0,
-          "title": "Group Scheduler and Status Board",
-          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
-      "claim_hash": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
+      "claim_hash": "14ce250784b870a2f1d890c50e5999a3f4968431e2e9d6257a8c41220b4805f1",
       "claim_id": "claim:9ad17cb08b8955d0d3ec",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -749,6 +259,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -762,12 +275,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
-      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_hash": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
       "claim_id": "claim:9c8ce297c9c4a4cda982",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -783,6 +297,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -796,203 +311,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Campuses RockU lesson provides training context for staff training and operational readiness; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "2f3396337748f9a5c12c535a40c4b90262ff30aca432f701fc664fb946a56733",
-      "claim_id": "claim:a252f6b9f779ae33781a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
-      "source_record_ids": [
-        "rock_rocku:f4d1879d32a182fe"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/core-concepts/campuses",
-          "timestamp": "01:15",
-          "timestamp_seconds": 75.0,
-          "title": "Campuses",
-          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Schedules should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
-      "claim_id": "claim:ae356a9d7df599b21ea2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
-          "timestamp": "03:30",
-          "timestamp_seconds": 210.48000000000002,
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Product Grooming & the Giving Landscape, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "6addb4c2840348f8a88775986ead1c2354f1c7704fb998e9f478edd09e10ffef",
-      "claim_id": "claim:b2f31282c94920ff55aa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "scheduling-locations"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
-      "source_record_ids": [
-        "rock_podcast_rss:6b2614dc656c60bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
-          "timestamp": "04:40",
-          "timestamp_seconds": 280.40000000000003,
-          "title": "Product Grooming & the Giving Landscape",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, Campuses should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "efcbfa582e7becbd38564b9ec5787bcaaddeeaecad34e1fdb08616b73a33850f",
-      "claim_id": "claim:b37636e7ad6ebd09a089",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3dc426690312378a6b4dd978361f31701a6df4db4a0c2a48a72dbde1a7173779",
-      "source_record_ids": [
-        "rock_rocku:f4d1879d32a182fe"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/core-concepts/campuses",
-          "timestamp": "00:26",
-          "timestamp_seconds": 26.0,
-          "title": "Campuses",
-          "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Schedules is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
-      "claim_id": "claim:b626c6ef85b2988091af",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Scheduled Transactions is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "b930c693d90d7d5582c9d0ad924e5ce1b44efa7b746325eeaeb76cae807da6b1",
-      "claim_id": "claim:d8d346e564827b9ead2b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "giving-finance",
-        "scheduling-locations",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "687066c2cb8db69e18cc87cda8d65aac56ec72cdc7416df4fd246d024ebf0fa5",
-      "source_record_ids": [
-        "rock_rocku:cc6fb3df674b28c2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Scheduled Transactions",
-          "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
-      "claim_hash": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
+      "claim_hash": "edca05774cb4620ebe2b98aeea5c73a5edf5f9afd5afa8301c28189948fa13e7",
       "claim_id": "claim:dc7cb132c34cdde8cb4e",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1008,6 +333,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -1021,173 +349,22 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Product Grooming & the Giving Landscape episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
-      "claim_id": "claim:e42b0edf071d6f51a5d2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "scheduling-locations"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4295df460b0b570ec0fc813c6c31a35178e1559141ca8d21abd92944165c2a5b",
-      "source_record_ids": [
-        "rock_podcast_rss:6b2614dc656c60bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
-          "timestamp": "01:31",
-          "timestamp_seconds": 91.06,
-          "title": "Product Grooming & the Giving Landscape",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Group Scheduler and Status Board RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
-      "claim_id": "claim:e76ced6026d1e165795e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
-      "source_record_ids": [
-        "rock_rocku:7e09b4c6a92264f6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
-          "timestamp": "05:57",
-          "timestamp_seconds": 357.0,
-          "title": "Group Scheduler and Status Board",
-          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Locations is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
-      "claim_id": "claim:e8bfb77009f754c3faa1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
-      "source_record_ids": [
-        "rock_rocku:90ed168a3283ccaa"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Locations",
-          "url": "https://community.rockrms.com/rocku/check-in/locations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Group Scheduler and Status Board is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "392b914d667f2f191862e5bebc2d5f9867e5b153b9d5a110e89e87c4ea91ba70",
-      "claim_id": "claim:fc39b9c1c14db6752b48",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ca5555ea5f1c5dac3b3d08e04af4a73a9eecac36a3f93f426c9a049eedfafea6",
-      "source_record_ids": [
-        "rock_rocku:7e09b4c6a92264f6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Group Scheduler and Status Board",
-          "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
-        }
-      ]
+      "version_scope_status": "scoped"
     }
   ],
   "approved_claim_hashes": {
-    "claim:01ff9ed6a6b877b9f731": "23404f33688b9ffa28e1187bc8818f1141260d809fe313bbd8af24027d80d52f",
-    "claim:0772c6dac6606362f1fc": "5d0a3b772329d3225ec849db095ce9e9d9cf2c06fad974e8b920985e39a50622",
-    "claim:07a75e5ff71510d708de": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
-    "claim:0c31d43da1ea06728ca9": "7d2b2c0a599171716fadda39d5ab8804e88fcb3a607b88e8ec82cacb114732f0",
-    "claim:10270a60fc64380cd39d": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
-    "claim:162b50b245449650877f": "d9a8fb052a7393e5576a80b2a96f1ded2bc9585b3b6b48f0e5b9ba5e2e1624d1",
-    "claim:20180d84d33561850701": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
-    "claim:203bc3811bcc6f7af24f": "df406abf0766ea0e0999e2b9b6af62fccb6ec04a159f552f93846b8542163ac8",
-    "claim:273569623174af9b2460": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
-    "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
-    "claim:2d57166dfa20c91564d0": "4a2331ee45c861660f82cf88b32108154cfbbd84c8ea81dc16c7e96425796e2a",
-    "claim:3122ff168111783bf1b7": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
-    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
-    "claim:3e398ac03167b9c52704": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
-    "claim:478537db6c6c72a01a23": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
-    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
-    "claim:57298eb943d1acbad3ee": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
-    "claim:5b59d0c1ed8cffb794c6": "d8ab8e3b22ffd0fbe667177bdb88f8478c7332f6c9040e945e505b56bea163d6",
-    "claim:5e95f49027f612b41532": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
-    "claim:66eb84b2b9cc466ce78b": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
-    "claim:765e97c1095c16a9a4bd": "74d46fc99cc84705bfcef728e1437eaab27a48c93f974e57fbe859de30b3e05c",
-    "claim:96bf5b217e3ab42f1544": "d1a8b4362de69191a2d67330520b54d30e14c1ffa055dea56b83632f7a0d38c4",
-    "claim:9ad17cb08b8955d0d3ec": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
-    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
-    "claim:a252f6b9f779ae33781a": "2f3396337748f9a5c12c535a40c4b90262ff30aca432f701fc664fb946a56733",
-    "claim:ae356a9d7df599b21ea2": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
-    "claim:b2f31282c94920ff55aa": "6addb4c2840348f8a88775986ead1c2354f1c7704fb998e9f478edd09e10ffef",
-    "claim:b37636e7ad6ebd09a089": "efcbfa582e7becbd38564b9ec5787bcaaddeeaecad34e1fdb08616b73a33850f",
-    "claim:b626c6ef85b2988091af": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
-    "claim:d8d346e564827b9ead2b": "b930c693d90d7d5582c9d0ad924e5ce1b44efa7b746325eeaeb76cae807da6b1",
-    "claim:dc7cb132c34cdde8cb4e": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
-    "claim:e42b0edf071d6f51a5d2": "12ddd3457799437d9a815d8ef89237bc4853c017cefa75c6a54a644152b0b353",
-    "claim:e76ced6026d1e165795e": "925e6b7b449e8ea703758dbe3605d988384fdbc4f9fcafa9d3537b0bd75e253f",
-    "claim:e8bfb77009f754c3faa1": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
-    "claim:fc39b9c1c14db6752b48": "392b914d667f2f191862e5bebc2d5f9867e5b153b9d5a110e89e87c4ea91ba70"
+    "claim:07a75e5ff71510d708de": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
+    "claim:2a9844acce5ba6150dec": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
+    "claim:32f0173b23a7d2c356c0": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
+    "claim:3e398ac03167b9c52704": "754e7f08fb45e2fdb878564df58b2df2b8603e5aa25c6c90d70d517a0f201270",
+    "claim:4c4098a035a5ca256bfe": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
+    "claim:66eb84b2b9cc466ce78b": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
+    "claim:9ad17cb08b8955d0d3ec": "14ce250784b870a2f1d890c50e5999a3f4968431e2e9d6257a8c41220b4805f1",
+    "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
+    "claim:dc7cb132c34cdde8cb4e": "edca05774cb4620ebe2b98aeea5c73a5edf5f9afd5afa8301c28189948fa13e7"
   },
-  "approved_claims_hash": "de1f39f26197d17c1118cd7b0384ab62566db30a94c28a9eaeb611fab8e6dff7",
+  "approved_claims_hash": "94635be2dcec2ebe7fcdcd394b0b0c1227b5fac319a69e6b0396f2b322a01824",
   "approved_claims_path": "knowledge/concepts/scheduling-locations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1378,12 +555,12 @@
   },
   "approved_media_hash": "aebcaa061fb04d7cb10d9f129006a9537fe6b88c39fabbbed8010a7354aa6976",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-07-26T00:30:11+00:00",
+  "built_at": "2026-07-30T02:08:18+00:00",
   "concept_id": "scheduling-locations",
-  "guide_hash": "28f3952df7109253200d8b283e722471eb07636ea5faaa9d2d353da334d9f4f0",
-  "guide_line_count": 1148,
+  "guide_hash": "3ab1004060b037c32ff0c0facef8a94309c70a422cdb05adeaea0e021f99f429",
+  "guide_line_count": 1144,
   "guide_path": "knowledge/concepts/scheduling-locations/guide.md",
-  "guide_word_count": 11520,
+  "guide_word_count": 11358,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1926,42 +1103,6 @@
       "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
     },
     {
-      "authority": "official-training",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "cc6fb3df674b28c2",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
-      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
-      "source_id": "rock_rocku",
-      "source_key": "2a863471e239f0b9",
-      "source_record_id": "rock_rocku:2a863471e239f0b9",
-      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
-      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
-      "source_id": "rock_rocku",
-      "source_key": "90ed168a3283ccaa",
-      "source_record_id": "rock_rocku:90ed168a3283ccaa",
-      "url": "https://community.rockrms.com/rocku/check-in/locations"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "7cbd0733c3fa2a587bcce7dcba3acdb9a2ec66380e4bde48a3fca83e9c7a2aeb",
-      "excerpt_hash": "198304fc3b8b16faa7339f31c24bf12587dc8c74f7ed061fe33f1605bcaea8ad",
-      "source_id": "rock_rocku",
-      "source_key": "aa94e8b3d8886a7a",
-      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
-      "url": "https://community.rockrms.com/rocku/check-in/schedules"
-    },
-    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1978,6 +1119,24 @@
       "source_key": "f4d1879d32a182fe",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
+      "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "url": "https://community.rockrms.com/rocku/check-in/locations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
+      "source_id": "rock_rocku",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
     },
     {
       "authority": "unknown",
@@ -2025,6 +1184,7 @@
       "url": "https://community.rockrms.com/recipes/459"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -3188,7 +2348,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1093,
+      "end_line": 1089,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -3198,19 +2358,16 @@
         "5fa353d6f0648800",
         "5fa353d6f0648800",
         "a56a73c5681795bd",
-        "5fa353d6f0648800",
-        "cc6fb3df674b28c2",
-        "2a863471e239f0b9",
-        "90ed168a3283ccaa",
-        "d0d7d71631f3f890",
-        "2a863471e239f0b9",
-        "aa94e8b3d8886a7a"
+        "e3517fa274c4048c",
+        "e3517fa274c4048c",
+        "e3517fa274c4048c",
+        "e3517fa274c4048c"
       ],
       "start_line": 1068
     },
     {
       "confidence": "citation-only",
-      "end_line": 1114,
+      "end_line": 1110,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3224,11 +2381,11 @@
         "2a863471e239f0b9",
         "3d0824ff41704b39"
       ],
-      "start_line": 1094
+      "start_line": 1090
     },
     {
       "confidence": "high",
-      "end_line": 1148,
+      "end_line": 1144,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
@@ -3276,7 +2433,7 @@
         "8e315d226b2c1474",
         "7a617924deb729b4"
       ],
-      "start_line": 1115
+      "start_line": 1111
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T20:25:44+00:00",
@@ -4658,38 +3815,24 @@
       "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "unknown",
+      "authority_score": 0,
       "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "cc6fb3df674b28c2",
+      "source_id": "citation",
+      "source_key": "e3517fa274c4048c",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
-      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
+      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
+      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
     },
     {
       "authority": "official-training",
       "authority_score": 75,
-      "change_type": null,
-      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
-      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_rocku",
-      "source_key": "2a863471e239f0b9",
-      "source_record_id": "rock_rocku:2a863471e239f0b9",
-      "title": "Person Preferences and Auto Schedule",
-      "topics": [
-        "check-in",
-        "security",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
-      "version": null
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/core-concepts/campuses",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
     },
     {
       "authority": "official-training",
@@ -4720,46 +3863,25 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "7cbd0733c3fa2a587bcce7dcba3acdb9a2ec66380e4bde48a3fca83e9c7a2aeb",
-      "excerpt_hash": "198304fc3b8b16faa7339f31c24bf12587dc8c74f7ed061fe33f1605bcaea8ad",
+      "content_hash": "37b57a7ec9a18f0778ea8317f680a27a970ccb1f12e23daf7db7dd208ccd29d0",
+      "excerpt_hash": "8f2140f006735c962d65c2b935a1f7dd78379bfcfd73bdab4e77c42e76088fd2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "aa94e8b3d8886a7a",
-      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
-      "title": "Schedules",
+      "source_key": "2a863471e239f0b9",
+      "source_record_id": "rock_rocku:2a863471e239f0b9",
+      "title": "Person Preferences and Auto Schedule",
       "topics": [
-        "api",
         "check-in",
-        "mobile",
+        "security",
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/check-in/schedules",
+      "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
       "version": null
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "e3517fa274c4048c",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
-      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "f4d1879d32a182fe",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/core-concepts/campuses",
-      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
     },
     {
       "authority": "unknown",
@@ -4867,5 +3989,6 @@
       "version": null
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

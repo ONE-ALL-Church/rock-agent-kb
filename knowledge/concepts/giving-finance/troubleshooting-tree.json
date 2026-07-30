@@ -1,139 +1,168 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Family"
       ],
-      "entities": [],
-      "id": "recipe-read-only-finance-record-inspection",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
+      "id": "a-gift-is-missing-from-a-person-s-giving-history",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Family"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/finance",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/bookcontent/15",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/recipes/122",
-        "https://community.rockrms.com/recipes/254",
-        "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Search for the transaction by amount/date/gateway code.",
+        "Confirm it exists in `FinancialTransaction`.",
+        "Confirm `AuthorizedPersonAliasId` points to the expected person/business.",
+        "Confirm transaction type is included in giving history.",
+        "Confirm transaction details exist.",
+        "Confirm date range.",
+        "Confirm account filters.",
+        "Confirm combine-giving/API include-family behavior."
       ],
-      "title": "Recipe: Read-Only Finance Record Inspection",
-      "when": "Follow the guide section for Recipe: Read-Only Finance Record Inspection."
+      "title": "A Gift Is Missing From A Person's Giving History",
+      "when": "A Gift Is Missing From A Person's Giving History"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView"
       ],
-      "entities": [],
-      "id": "recipe-statement-eligibility-explanation",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
+      "id": "a-gift-is-missing-from-a-statement",
+      "inspect": [
+        "Person",
+        "DataView"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/rocku/finance",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
-        "https://community.rockrms.com/rocku/finance/contribution-statements",
-        "https://community.rockrms.com/recipes/122",
-        "https://community.rockrms.com/recipes/90"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the transaction is a contribution or selected transaction type.",
+        "Confirm detail account is selected/included.",
+        "Confirm transaction date is inside statement date range.",
+        "Confirm currency type is selected.",
+        "Confirm refunded/corrected settings.",
+        "Confirm authorized person/business.",
+        "Confirm combine-giving settings.",
+        "Confirm address requirements."
       ],
-      "title": "Recipe: Statement Eligibility Explanation",
-      "when": "Follow the guide section for Recipe: Statement Eligibility Explanation."
+      "title": "A Gift Is Missing From A Statement",
+      "when": "A Gift Is Missing From A Statement"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-safe-account-cleanup-assessment",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-batch-total-does-not-match",
+      "id": "batch-total-does-not-match",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/recipes/254",
-        "https://community.rockrms.com/documentation/bookcontent/15",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs",
-        "https://community.rockrms.com/rocku/finance",
-        "https://community.rockrms.com/rocku/finance/accounts",
-        "https://community.rockrms.com/recipes/122",
-        "https://community.rockrms.com/recipes/90"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm control amount.",
+        "Sum transaction details in the batch.",
+        "Count transactions and compare item count.",
+        "Look for pending/failed text-giving records.",
+        "Check refunds/reversals.",
+        "Check split gifts and negative corrections.",
+        "Check moved transactions.",
+        "Check whether Transaction List block account summary settings are honored in this version."
       ],
-      "title": "Recipe: Safe Account Cleanup Assessment",
-      "when": "Follow the guide section for Recipe: Safe Account Cleanup Assessment."
+      "title": "Batch Total Does Not Match",
+      "when": "Batch Total Does Not Match"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Schedule"
       ],
-      "entities": [],
-      "id": "recipe-giving-automation-review",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
+      "id": "recurring-gift-did-not-run",
+      "inspect": [
+        "Schedule"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/finance",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/bookcontent/15",
-        "https://community.rockrms.com/recipes/122",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
-        "https://community.rockrms.com/recipes/254",
-        "https://www.triumph.tech/resources/giving-unit-analytics",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs",
-        "https://community.rockrms.com/rocku/finance/giving-alerts"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm scheduled transaction is active.",
+        "Confirm next payment date/frequency.",
+        "Confirm gateway profile exists and is active.",
+        "Confirm saved payment token is valid.",
+        "Confirm gateway/download jobs.",
+        "Check exception logs.",
+        "Check donor communication logs.",
+        "Confirm account details are valid/active."
       ],
-      "title": "Recipe: Giving Automation Review",
-      "when": "Follow the guide section for Recipe: Giving Automation Review."
+      "title": "Recurring Gift Did Not Run",
+      "when": "Recurring Gift Did Not Run"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-pledge-progress-analysis",
+      "guide_section_id": "17-troubleshooting-decision-tree-receipt-language-is-wrong",
+      "id": "receipt-language-is-wrong",
       "inspect": [],
       "source_urls": [
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/90",
-        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-        "https://community.rockrms.com/rocku/finance/pledges",
-        "https://community.rockrms.com/recipes/122"
+        "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify the system email/template.",
+        "Inspect merge fields available for the receipt.",
+        "Inspect account `PublicName` and `IsTaxDeductible`.",
+        "Check v18.1 public-name behavior for Giving Receipt System Emails (Rock Core Release Notes).",
+        "Test split transactions.",
+        "Test non-deductible payments.",
+        "Review custom Lava/shortcodes.",
+        "If using community shortcode patterns, review them for security and multi-account behavior (Giving Receipt System Email Shortcodes)."
       ],
-      "title": "Recipe: Pledge Progress Analysis",
-      "when": "Follow the guide section for Recipe: Pledge Progress Analysis."
+      "title": "Receipt Language Is Wrong",
+      "when": "Receipt Language Is Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-external-import-created-duplicates",
+      "id": "external-import-created-duplicates",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Identify source transaction IDs.",
+        "Search Rock transaction attributes/integration table for source IDs.",
+        "Confirm idempotency logic.",
+        "Confirm webhook retry behavior.",
+        "Confirm workflow re-entry paths.",
+        "Confirm batch naming and dates.",
+        "Void/remove duplicates only with finance approval.",
+        "Add duplicate detection before re-enabling automation."
+      ],
+      "title": "External Import Created Duplicates",
+      "when": "External Import Created Duplicates"
     }
   ],
   "concept_id": "giving-finance",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:31+00:00",
+  "generated_at": "2026-07-30T02:07:44+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",

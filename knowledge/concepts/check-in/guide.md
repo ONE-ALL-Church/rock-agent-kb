@@ -1550,7 +1550,7 @@ Report:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `120`
+- Approved claims routed to this concept: `35`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1560,14 +1560,14 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
-| official | source_summary | This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | rocku-confirmed | configuration | The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized. | [source](https://community.rockrms.com/rocku/check-in/using-mobile-check-in) |
 | rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Next-Gen Labels should be reviewed as part of the full check-in print path: label definition, merge data, printer routing, room configuration, and live attendance context all matter. | [source](https://community.rockrms.com/rocku/check-in/next-gen-labels) |
 | rocku-confirmed | operational_guidance | Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens. | [source](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) |
-| More |  | 108 additional approved claims are tracked in `approved-claims.md`. |  |
+| rocku-confirmed | operational_guidance | When labels fail or show unexpected data, agents should inspect label template configuration and the active check-in context before assuming a printer-only problem. | [source](https://community.rockrms.com/rocku/check-in/next-gen-labels) |
+| More |  | 23 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1576,20 +1576,20 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `33`
+- Approved media records routed to this concept: `22`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217) | approved_for_public_distillation | 4 | media-insight:1996763c554953f9 |
-| [3 Underrated Features Churches Are Overlooking \| Ep 217 Transcript Insight](https://www.youtube.com/watch?v=edanHiYSDIM) | approved_for_public_distillation | 4 | media-insight:e966cbaf8af14d10 |
 | [Aero Check-in Theme Transcript Insight](https://community.rockrms.com/rocku/check-in/aero-check-in-theme) | approved_for_public_distillation | 2 | media-insight:6177a74e098f3302 |
 | [Attendance Analytics Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-analytics) | approved_for_public_distillation | 3 | media-insight:e066ef3153b2cc3d |
 | [Attendance Self-Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-self-entry) | approved_for_public_distillation | 3 | media-insight:1fb05cc8930bc9e2 |
 | [BI Attendance Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report) | approved_for_public_distillation | 1 | media-insight:b32a4e808360fabc |
 | [Check-In Manager Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-manager-1) | approved_for_public_distillation | 2 | media-insight:b9cfbae2df04e08f |
 | [Check-in Celebrations Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-celebrations) | approved_for_public_distillation | 2 | media-insight:726c382b13da37a9 |
-| More |  | 25 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Check-in Manager Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-manager) | approved_for_public_distillation | 2 | media-insight:b9ebb5bbd2009098 |
+| [Check-in Settings Transcript Insight](https://community.rockrms.com/rocku/check-in/settings) | approved_for_public_distillation | 3 | media-insight:43111d964e899603 |
+| More |  | 14 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Explain A Platform Configuration Object To A User
 
-Follow the guide section for Recipe: Explain A Platform Configuration Object To A User.
+Complete Explain A Platform Configuration Object To A User with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,14 @@ Follow the guide section for Recipe: Explain A Platform Configuration Object To 
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. What it is.
+2. Where it is configured.
+3. Which entity type it applies to.
+4. Which records consume it.
+5. Whether it stores values or only definitions.
+6. Whether changing it affects historical data.
+7. What to inspect before editing.
+8. Version caveats.
 
 ## Do Not Assume
 
@@ -34,15 +39,4 @@ Follow the guide section for Recipe: Explain A Platform Configuration Object To 
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker
-- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor
-- https://community.rockrms.com/ModelMap

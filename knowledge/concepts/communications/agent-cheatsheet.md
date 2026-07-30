@@ -11,12 +11,12 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Audit a single sent communication](tasks/recipe-audit-a-single-sent-communication.md) |  |  |
-| [Recipe: Explain why a person did not get an email](tasks/recipe-explain-why-a-person-did-not-get-an-email.md) |  |  |
-| [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md) |  |  |
-| [Recipe: Audit communication list freshness](tasks/recipe-audit-communication-list-freshness.md) |  |  |
+| [Recipe: Explain why a person did not get an email](tasks/recipe-explain-why-a-person-did-not-get-an-email.md) | `Person` | `Person` |
+| [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md) | `Block` | `Block` |
+| [Recipe: Audit communication list freshness](tasks/recipe-audit-communication-list-freshness.md) | `DataView`, `Group`, `GroupType` | `DataView`, `Group`, `GroupType` |
 | [Recipe: Review a communication template](tasks/recipe-review-a-communication-template.md) |  |  |
-| [Recipe: Investigate SMS conversation access](tasks/recipe-investigate-sms-conversation-access.md) |  |  |
-| [Recipe: Determine whether a workflow email supports analytics](tasks/recipe-determine-whether-a-workflow-email-supports-analytics.md) |  |  |
+| [Recipe: Investigate SMS conversation access](tasks/recipe-investigate-sms-conversation-access.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: Determine whether a workflow email supports analytics](tasks/recipe-determine-whether-a-workflow-email-supports-analytics.md) | `Workflow` | `Workflow` |
 
 ## Entities
 
@@ -25,9 +25,11 @@ generated: true
 | `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `GroupType` | `Group` | Confirm the type takes attendance and supports the intended check-in pattern. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |

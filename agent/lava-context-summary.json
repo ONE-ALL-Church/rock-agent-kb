@@ -24,7 +24,7 @@
     "reviewed_curated": 120
   },
   "extension_context_count": 0,
-  "generated_at": "2026-07-26T03:03:12+00:00",
+  "generated_at": "2026-07-30T02:08:24+00:00",
   "model_link_count": 75,
   "needs_live_verification_count": 43,
   "paths": {
@@ -35,8 +35,8 @@
     "directory": "knowledge/concepts/lava/lava-context-directory.md"
   },
   "schema": "rock-kb-lava-context-summary-v3",
-  "source_commit": "3207dce85ab189fee70a865808ff6becf6bc069f",
-  "source_commit_date": "2026-07-25T21:56:32Z",
+  "source_commit": "b4510b95dbecddc2d72a818b1949cbe72646abf7",
+  "source_commit_date": "2026-07-30T00:03:56Z",
   "source_file_count": 80,
   "source_id": "sparkdevnetwork_rock",
   "source_ref": "develop",

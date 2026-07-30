@@ -437,13 +437,13 @@ def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
 
     def fake_get_json(url: str):
         urls.append(url)
-        return {"schema": "rock-kb-search-result-v2", "results": []}
+        return {"schema": "rock-kb-search-result-v3", "results": []}
 
     monkeypatch.setattr(cli, "get_json", fake_get_json)
 
     assert cli.main(["--url", "https://example.test", "search", "check in labels"]) == 0
-    assert urls == ["https://example.test/search?q=check%20in%20labels&limit=10&min_tier=routing_context_only&detail=compact"]
-    assert "rock-kb-search-result-v2" in capsys.readouterr().out
+    assert urls == ["https://example.test/search?q=check%20in%20labels&limit=10&min_claim_tier=source_backed&detail=compact"]
+    assert "rock-kb-search-result-v3" in capsys.readouterr().out
 
 
 def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
@@ -1680,7 +1680,7 @@ def test_if_due_check_skips_network_and_passive_auto_update_uses_persisted_conse
         if url.endswith("/health"):
             return {"status": "ok", "version": "test"}
         if "/search?" in url:
-            return {"schema": "rock-kb-search-result-v2", "results": []}
+            return {"schema": "rock-kb-search-result-v3", "results": []}
         raise AssertionError(url)
 
     monkeypatch.setattr(cli, "get_json", service_json)

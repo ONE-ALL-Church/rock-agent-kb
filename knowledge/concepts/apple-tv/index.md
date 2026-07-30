@@ -2,7 +2,7 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-07-26T00:28:44+00:00
+last_built: 2026-07-30T02:06:22+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -69,9 +69,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | risk | Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default. | [source](https://community.rockrms.com/lava/lava-api) |
 | official | risk | A TVML text shadow can be specified with horizontal offset, vertical offset, blur radius, and color, but its surrounding element may clip the shadow vertically; keeping the shadow near the text reduces that risk. | [source](https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style) |
 | official | source_summary | Rock Apple TV is documented as a set-top extension of Rock RMS for TVML applications linked to Rock, and the Apple TV functionality requires Rock version 14 or greater. | [source](https://community.rockrms.com/developer/apple-tv-docs) |
-| community-reviewed | operational_guidance | MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
-| community-reviewed | operational_guidance | Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior. _(live verification recommended)_ | [source](https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen) |
-| More |  | 2 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -217,7 +214,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 - Source records: `127`
 - Lava capability source records: `53`
-- Approved claims: `20`
+- Approved claims: `16`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

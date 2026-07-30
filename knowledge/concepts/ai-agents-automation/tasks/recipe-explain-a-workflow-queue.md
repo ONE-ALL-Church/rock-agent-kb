@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Explain A Workflow Queue”
 
-Follow the guide section for Recipe: “Explain A Workflow Queue”.
+Complete “Explain A Workflow Queue” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,33 +16,33 @@ Follow the guide section for Recipe: “Explain A Workflow Queue”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify workflow type.
+2. Use list/insight tool for active workflows by activity/status.
+3. Aggregate age and assignment.
+4. Return bottlenecks.
+5. Offer selected workflow summaries.
+6. Do not terminate or advance workflows without approval.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not terminate or advance workflows without approval.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/ai-agents
 - https://community.rockrms.com/documentation/BookContent/9
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/ask/developing/2708
 - https://community.rockrms.com/rocku/individuals-in-rock/data-automation
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://community.rockrms.com/ModelMap
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude
+- https://community.rockrms.com/ask/developing/2708

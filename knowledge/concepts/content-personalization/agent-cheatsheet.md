@@ -10,12 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Audit a content channel before editing](tasks/recipe-audit-a-content-channel-before-editing.md) |  |  |
-| [Recipe: Diagnose “editor cannot see channel in Tools > Content”](tasks/recipe-diagnose-editor-cannot-see-channel-in-tools-content.md) |  |  |
-| [Recipe: Diagnose “segment should include this person”](tasks/recipe-diagnose-segment-should-include-this-person.md) |  |  |
-| [Recipe: Create safe Lava for channel display](tasks/recipe-create-safe-lava-for-channel-display.md) |  |  |
-| [Recipe: Verify content interactions](tasks/recipe-verify-content-interactions.md) |  |  |
-| [Recipe: Public launch review for content personalization](tasks/recipe-public-launch-review-for-content-personalization.md) |  |  |
+| [Recipe: Audit a content channel before editing](tasks/recipe-audit-a-content-channel-before-editing.md) | `Person`, `Workflow`, `Page`, `Block`, `Attribute` | `Person`, `Workflow`, `Page`, `Block`, `Attribute` |
+| [Recipe: Diagnose “editor cannot see channel in Tools > Content”](tasks/recipe-diagnose-editor-cannot-see-channel-in-tools-content.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Diagnose “segment should include this person”](tasks/recipe-diagnose-segment-should-include-this-person.md) | `Person`, `PersonAlias`, `Group`, `Page`, `Attribute` | `Person`, `PersonAlias`, `Group`, `Page`, `Attribute` |
+| [Recipe: Verify content interactions](tasks/recipe-verify-content-interactions.md) | `Person`, `PersonAlias`, `Block` | `Person`, `PersonAlias`, `Block` |
+| [Recipe: Public launch review for content personalization](tasks/recipe-public-launch-review-for-content-personalization.md) | `Person`, `Page` | `Person`, `Page` |
 
 ## Entities
 
@@ -29,6 +28,7 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |

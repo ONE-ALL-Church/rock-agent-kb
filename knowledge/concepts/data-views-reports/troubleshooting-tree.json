@@ -1,232 +1,201 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Group",
+        "Campus",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-answer-what-does-this-report-actually-show",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
+      "id": "symptom-report-shows-no-rows",
+      "inspect": [
+        "DataView",
+        "Group",
+        "Campus",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/349",
-        "https://community.rockrms.com/recipes/240",
-        "https://community.rockrms.com/recipes/262",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
+        "https://community.rockrms.com/rocku/reporting/data-view-overview",
+        "https://community.rockrms.com/rocku/reporting/reports",
+        "https://community.rockrms.com/rocku/reporting/dynamic-report-block"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does the underlying Data View show rows in Tools > Data Views?",
+        "Does the current user have permission?",
+        "Does the Report reference the intended Data View?",
+        "Are runtime filters applied on the Dynamic Report block?",
+        "Are date filters relative to today/timezone?",
+        "Did a referenced category/value/group/campus get deleted?",
+        "Does a related child Data View return rows?",
+        "Did a filter component fail after upgrade?"
       ],
-      "title": "Recipe: Answer \"What Does This Report Actually Show?\"",
-      "when": "Follow the guide section for Recipe: Answer \"What Does This Report Actually Show?\"."
+      "title": "Symptom: Report Shows No Rows",
+      "when": "Symptom: Report Shows No Rows"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Group",
+        "Campus"
       ],
-      "entities": [],
-      "id": "recipe-answer-can-i-change-this-data-view",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/recipes/397",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/349",
-        "https://community.rockrms.com/ModelMap",
-        "https://www.triumph.tech/resources/what-is-maxdop",
-        "https://community.rockrms.com/recipes/391"
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
+      "id": "symptom-report-shows-too-many-rows",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Group",
+        "Campus"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Any/all filter groups.",
+        "Missing active/deceased/archived exclusions.",
+        "Person vs group member row grain.",
+        "Related Data View join path.",
+        "Runtime filter overrides.",
+        "Report field filtering hidden in display.",
+        "Duplicate rows from one-to-many relationships.",
+        "Security: admin sees more than target user."
       ],
-      "title": "Recipe: Answer \"Can I Change This Data View?\"",
-      "when": "Follow the guide section for Recipe: Answer \"Can I Change This Data View?\"."
+      "title": "Symptom: Report Shows Too Many Rows",
+      "when": "Symptom: Report Shows Too Many Rows"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Campus"
       ],
-      "entities": [],
-      "id": "recipe-build-people-who-attended-x-but-not-y",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-report-is-slow",
+      "id": "symptom-report-is-slow",
+      "inspect": [
+        "DataView",
+        "Campus"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://www.triumph.tech/resources/what-is-maxdop",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
-        "https://community.rockrms.com/recipes/349"
+        "https://www.triumph.tech/resources/what-is-maxdop"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Data View execution time.",
+        "Deep related Data View chains.",
+        "Unbounded date ranges.",
+        "Large exports.",
+        "Lava per-row logic.",
+        "SQL scans.",
+        "Missing date/campus/account filters.",
+        "Analytics table alternative."
       ],
-      "title": "Recipe: Build \"People Who Attended X But Not Y\"",
-      "when": "Follow the guide section for Recipe: Build \"People Who Attended X But Not Y\"."
+      "title": "Symptom: Report Is Slow",
+      "when": "Symptom: Report Is Slow"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-build-lapsed-givers",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/recipes/349",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
-        "https://community.rockrms.com/recipes/109",
-        "https://community.rockrms.com/recipes/262",
-        "https://community.rockrms.com/recipes/391"
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-dynamic-report-differs-from-data-view-editor",
+      "id": "symptom-dynamic-report-differs-from-data-view-editor",
+      "inspect": [
+        "DataView",
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Block runtime filters.",
+        "Multiple Data View filter capability in the block/version.",
+        "Query string parameters.",
+        "Current user security.",
+        "Persisted value usage.",
+        "Data View filter overrides.",
+        "Report columns with conditional Lava.",
+        "Page-specific context."
       ],
-      "title": "Recipe: Build \"Lapsed Givers\"",
-      "when": "Follow the guide section for Recipe: Build \"Lapsed Givers\"."
+      "title": "Symptom: Dynamic Report Differs From Data View Editor",
+      "when": "Symptom: Dynamic Report Differs From Data View Editor"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Campus"
       ],
-      "entities": [],
-      "id": "recipe-build-where-are-our-reporting-tools",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/397",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://www.triumph.tech/resources/grouping-sets",
-        "https://www.triumph.tech/resources/giving-unit-analytics",
-        "https://www.triumph.tech/resources/sql-window-functions",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/349",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs"
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-bi-dashboard-is-wrong",
+      "id": "symptom-bi-dashboard-is-wrong",
+      "inspect": [
+        "Campus"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "BI job last success.",
+        "Dataset refresh time.",
+        "Power BI credentials.",
+        "Model/table version compatibility.",
+        "Date/campus filters.",
+        "Row-level security.",
+        "Rock UI reconciliation.",
+        "Analytics table refresh."
       ],
-      "title": "Recipe: Build \"Where Are Our Reporting Tools?\"",
-      "when": "Follow the guide section for Recipe: Build \"Where Are Our Reporting Tools?\"."
+      "title": "Symptom: BI Dashboard Is Wrong",
+      "when": "Symptom: BI Dashboard Is Wrong"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-validate-a-bi-finance-dashboard",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-lava-sql-report-is-unsafe",
+      "id": "symptom-lava-sql-report-is-unsafe",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs",
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/349",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilterOverrides.cs"
+        "https://community.rockrms.com/lava/commands/sql-commands"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "SQL enabled on block.",
+        "Page/block security.",
+        "User input interpolation.",
+        "Parameter use.",
+        "Timeout use.",
+        "Write statements.",
+        "Cache flush after writes.",
+        "PII/finance/minor exposure."
       ],
-      "title": "Recipe: Validate A BI Finance Dashboard",
-      "when": "Follow the guide section for Recipe: Validate A BI Finance Dashboard."
+      "title": "Symptom: Lava SQL Report Is Unsafe",
+      "when": "Symptom: Lava SQL Report Is Unsafe"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-audit-reporting-security",
+      "guide_section_id": "17-troubleshooting-decision-tree-symptom-data-view-fails-after-upgrade",
+      "id": "symptom-data-view-fails-after-upgrade",
       "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/349",
-        "https://community.rockrms.com/recipes/262",
-        "https://community.rockrms.com/recipes/526/sql-model-map-qol-reference",
-        "https://community.rockrms.com/recipes/391",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Installed Rock version.",
+        "Filter component entity type exists.",
+        "Plugin installed/enabled.",
+        "Selection string deserializes.",
+        "Referenced IDs/GUIDs still exist.",
+        "Obsidian component data migration.",
+        "Cache invalidation.",
+        "Exception logs."
       ],
-      "title": "Recipe: Audit Reporting Security",
-      "when": "Follow the guide section for Recipe: Audit Reporting Security."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-diagnose-slow-reporting",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/264",
-        "https://community.rockrms.com/recipes/397",
-        "https://community.rockrms.com/documentation/bookcontent/6/331",
-        "https://community.rockrms.com/lava/commands/sql-commands",
-        "https://community.rockrms.com/rocku/reporting",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/349",
-        "https://community.rockrms.com/recipes/526/sql-model-map-qol-reference",
-        "https://community.rockrms.com/recipes/391",
-        "https://www.triumph.tech/resources/what-is-maxdop",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Diagnose Slow Reporting",
-      "when": "Follow the guide section for Recipe: Diagnose Slow Reporting."
+      "title": "Symptom: Data View Fails After Upgrade",
+      "when": "Symptom: Data View Fails After Upgrade"
     }
   ],
   "concept_id": "data-views-reports",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:56+00:00",
+  "generated_at": "2026-07-30T02:08:06+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",

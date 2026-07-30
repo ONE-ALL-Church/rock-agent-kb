@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Find The Real Object Behind A Serving Issue
 
-Follow the guide section for Recipe: Find The Real Object Behind A Serving Issue.
+Complete Find The Real Object Behind A Serving Issue with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,36 @@ Follow the guide section for Recipe: Find The Real Object Behind A Serving Issue
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Person`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Person`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Ask for the person, date, team, and service time.
+2. Resolve person and aliases.
+3. Identify the serving group.
+4. Identify group type.
+5. Identify group location.
+6. Identify schedule.
+7. Identify attendance occurrence.
+8. Identify attendance/scheduling row.
+9. Identify communication/workflow history.
+10. Report the exact broken link in the chain.
 
 ## Do Not Assume
 
@@ -36,13 +55,13 @@ Follow the guide section for Recipe: Find The Real Object Behind A Serving Issue
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/10/266
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox
-- https://community.rockrms.com/recipes/169
-- https://community.rockrms.com/rocku/groups/group-requirements
+- https://community.rockrms.com/documentation/bookcontent/10/266
+- https://community.rockrms.com/rocku/groups/group-details
 - https://community.rockrms.com/rocku/groups/group-types
+- https://community.rockrms.com/rocku/groups/group-security
 - https://community.rockrms.com/rocku/groups/group-scheduling-overview
 - https://community.rockrms.com/recipes/459
-- https://community.rockrms.com/rocku/groups/group-security
-- https://community.rockrms.com/recipes/489
-- https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback
+- https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule
+- https://community.rockrms.com/rocku/groups/group-attendance
+- https://community.rockrms.com/rocku/groups/group-requirements

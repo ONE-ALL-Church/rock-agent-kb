@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build A Registrant Packet Export
 
-Follow the guide section for Recipe: Build A Registrant Packet Export.
+Complete Build A Registrant Packet Export with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,28 @@ Follow the guide section for Recipe: Build A Registrant Packet Export.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Filters by RegistrationInstanceId.
+2. Excludes wait-listed registrants unless requested.
+3. Joins registrant to person through PersonAlias.
+4. Pulls only needed attributes.
+5. Avoids exposing sensitive data broadly.
+6. Sorts predictably.
+7. Supports printing/page breaks if needed.
+8. Uses safe parameter handling.
 
 ## Do Not Assume
 
@@ -34,15 +45,12 @@ Follow the guide section for Recipe: Build A Registrant Packet Export.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/29
-- https://community.rockrms.com/rocku/event-registration
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
-- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://www.triumph.tech/resources/github-spotlight-182025
-- https://community.rockrms.com/recipes/313
-- https://community.rockrms.com/developer/ai-agents/skills
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
-- https://community.rockrms.com/recipes/245
+- https://www.triumph.tech/resources/github-spotlight-182025
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
+- https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
+- https://community.rockrms.com/rocku/event-registration/event-attributes
+- https://community.rockrms.com/rocku/event-registration
+- https://community.rockrms.com/recipes/313
+- https://community.rockrms.com/recipes/361

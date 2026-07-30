@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose A Cache Leak
 
-Follow the guide section for Recipe: Diagnose A Cache Leak.
+Complete Diagnose A Cache Leak with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Diagnose A Cache Leak.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Device`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Device`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Load personalized page as User A.
+2. Record rendered identifying content.
+3. Sign out or use separate device/session as User B.
+4. Load same page.
+5. If User A content appears, inspect page Cacheability Type, Max Age, Max Shared Age, command-level `rockPageCacheControl`, CDN cache key, and whether the URL varies by person.
+6. Switch to private/no-store or personal cache behavior.
+7. Purge shared cache.
+8. Retest with both users.
 
 ## Do Not Assume
 
@@ -36,13 +45,13 @@ Follow the guide section for Recipe: Diagnose A Cache Leak.
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/lava/commands/personalize-commands
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/remote-lava
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://www.triumph.tech/resources/ai-in-digital-ministry
-- https://www.triumph.tech/resources/github-spotlight-1042024
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/PersonalizationSegmentDetail/pageViewSegmentFilterBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs

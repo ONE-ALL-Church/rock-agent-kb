@@ -10,13 +10,13 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find The Real Object Behind A Serving Issue](tasks/recipe-find-the-real-object-behind-a-serving-issue.md) |  |  |
-| [Recipe: Confirm A Volunteer Is Eligible To Serve](tasks/recipe-confirm-a-volunteer-is-eligible-to-serve.md) |  |  |
-| [Recipe: Explain Why A Volunteer Was Not Scheduled](tasks/recipe-explain-why-a-volunteer-was-not-scheduled.md) |  |  |
-| [Recipe: Verify Schedule Confirmation Send Health](tasks/recipe-verify-schedule-confirmation-send-health.md) |  |  |
-| [Recipe: Safely Customize A Volunteer-Facing Page](tasks/recipe-safely-customize-a-volunteer-facing-page.md) |  |  |
-| [Recipe: Investigate Family Serving Response Request](tasks/recipe-investigate-family-serving-response-request.md) |  |  |
-| [Recipe: Build A Serving Health Dashboard](tasks/recipe-build-a-serving-health-dashboard.md) |  |  |
+| [Recipe: Find The Real Object Behind A Serving Issue](tasks/recipe-find-the-real-object-behind-a-serving-issue.md) | `Attendance`, `Person`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow` | `Attendance`, `Person`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow` |
+| [Recipe: Confirm A Volunteer Is Eligible To Serve](tasks/recipe-confirm-a-volunteer-is-eligible-to-serve.md) | `Person`, `Group`, `Schedule`, `Workflow`, `Attribute` | `Person`, `Group`, `Schedule`, `Workflow`, `Attribute` |
+| [Recipe: Explain Why A Volunteer Was Not Scheduled](tasks/recipe-explain-why-a-volunteer-was-not-scheduled.md) | `Group`, `Location`, `Schedule` | `Group`, `Location`, `Schedule` |
+| [Recipe: Verify Schedule Confirmation Send Health](tasks/recipe-verify-schedule-confirmation-send-health.md) | `Group`, `Location`, `Schedule`, `Block` | `Group`, `Location`, `Schedule`, `Block` |
+| [Recipe: Safely Customize A Volunteer-Facing Page](tasks/recipe-safely-customize-a-volunteer-facing-page.md) | `Person`, `Group`, `Schedule`, `Page`, `Block` | `Person`, `Group`, `Schedule`, `Page`, `Block` |
+| [Recipe: Investigate Family Serving Response Request](tasks/recipe-investigate-family-serving-response-request.md) | `Attendance`, `Person`, `Schedule`, `Family`, `Workflow` | `Attendance`, `Person`, `Schedule`, `Family`, `Workflow` |
+| [Recipe: Build A Serving Health Dashboard](tasks/recipe-build-a-serving-health-dashboard.md) | `Attendance`, `Group`, `GroupType`, `Schedule` | `Attendance`, `Group`, `GroupType`, `Schedule` |
 
 ## Entities
 

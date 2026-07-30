@@ -1,225 +1,200 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-find-the-right-person",
+      "guide_section_id": "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
+      "id": "agent-does-not-call-the-expected-tool",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212"
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the tool attached to a skill?",
+        "Is the skill attached to the agent?",
+        "Does the user have access to the agent, skill, and tool?",
+        "Is the tool name clear?",
+        "Does the tool description match the request?",
+        "Do agent or skill instructions discourage the tool?",
+        "Is the request ambiguous?",
+        "Is cached configuration stale?"
       ],
-      "title": "Recipe: “Find The Right Person”",
-      "when": "Follow the guide section for Recipe: “Find The Right Person”."
+      "title": "Agent Does Not Call The Expected Tool",
+      "when": "Agent Does Not Call The Expected Tool"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Group",
+        "Campus",
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-tool-returns-no-records",
+      "id": "tool-returns-no-records",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Group",
+        "Campus",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Current person's authorization.",
+        "Active/inactive filters.",
+        "Campus/group/entity filters.",
+        "Date filters and timezone.",
+        "IdKey decoding.",
+        "Attribute key spelling.",
+        "Data View/report security.",
+        "Whether the record exists in live Rock."
+      ],
+      "title": "Tool Returns No Records",
+      "when": "Tool Returns No Records"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-tool-returns-too-much-data",
+      "id": "tool-returns-too-much-data",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Missing filters.",
+        "Lookup used where list was needed.",
+        "Summary returning raw child collections.",
+        "Sensitive fields included unnecessarily.",
+        "Lack of pagination.",
+        "No result cap.",
+        "Overly broad current-person access.",
+        "Tool description causing overuse."
+      ],
+      "title": "Tool Returns Too Much Data",
+      "when": "Tool Returns Too Much Data"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-write-tool-fails",
+      "id": "write-tool-fails",
+      "inspect": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Approval was explicit.",
+        "IdKey resolves.",
+        "Target entity exists.",
+        "Current person has edit/write permission.",
+        "Required fields are present.",
+        "Attribute field values are valid.",
+        "Workflow/activity state allows the change.",
+        "Save validation errors."
+      ],
+      "title": "Write Tool Fails",
+      "when": "Write Tool Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-permissions-look-wrong",
+      "id": "permissions-look-wrong",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/BookContent/9"
+      ],
+      "start_with": [
+        "Tool security.",
+        "Skill security.",
+        "Agent security.",
+        "Entity security.",
+        "Page/block security.",
+        "Security role membership.",
+        "Elevated security levels.",
+        "Inherited permissions."
+      ],
+      "title": "Permissions Look Wrong",
+      "when": "Permissions Look Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-api-endpoint-denies-access",
+      "id": "api-endpoint-denies-access",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Block"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Authentication.",
+        "API key/person permissions.",
+        "Generated v2 route path.",
+        "Required action security such as unrestricted read/write in generated controller snippets (AIAgentSessionsController.CodeGenerated.cs).",
+        "Version-specific bugs or release notes.",
+        "DataView endpoint behavior if using DataView routes, especially around the Rock 17.5 permission fix (Rock Core Release Notes).",
+        "Whether endpoint behavior intentionally bypasses entity security but relies on action-level security.",
+        "Whether a custom controller or block action is safer than direct model endpoint use."
+      ],
+      "title": "API Endpoint Denies Access",
+      "when": "API Endpoint Denies Access"
     },
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Avoid embedding long-lived tokens directly in Lava prompts."
       ],
       "entities": [],
-      "id": "recipe-summarize-this-person",
+      "guide_section_id": "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
+      "id": "lava-webrequest-or-external-call-behaves-unexpectedly",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation"
+        "https://community.rockrms.com/ask/developing/2708"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Test the endpoint outside Lava.",
+        "Test from the Rock server.",
+        "Confirm headers and token format.",
+        "Check Lava command availability/security.",
+        "Check exception logs.",
+        "Check network/TLS/firewall behavior.",
+        "Avoid embedding long-lived tokens directly in Lava prompts.",
+        "Prefer native tools or secured integrations for important external API calls."
       ],
-      "title": "Recipe: “Summarize This Person”",
-      "when": "Follow the guide section for Recipe: “Summarize This Person”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-draft-a-communication",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://community.rockrms.com/ModelMap",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Draft A Communication”",
-      "when": "Follow the guide section for Recipe: “Draft A Communication”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-create-a-connection-request",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://community.rockrms.com/ModelMap",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Create A Connection Request”",
-      "when": "Follow the guide section for Recipe: “Create A Connection Request”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-explain-a-workflow-queue",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://community.rockrms.com/ModelMap",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Explain A Workflow Queue”",
-      "when": "Follow the guide section for Recipe: “Explain A Workflow Queue”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-audit-agent-security",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper",
-        "https://community.rockrms.com/developer/ai-agents/skills/creating-skills"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Audit Agent Security”",
-      "when": "Follow the guide section for Recipe: “Audit Agent Security”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-safe-public-agent",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://community.rockrms.com/ModelMap",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Build A Safe Public Agent”",
-      "when": "Follow the guide section for Recipe: “Build A Safe Public Agent”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-review-an-agent-answer",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/BookContent/9",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/ask/developing/2708",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-automation",
-        "https://community.rockrms.com/rocku/engagement/connection-request-status-automation",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent",
-        "https://community.rockrms.com/ModelMap",
-        "https://www.triumph.tech/resources/ai-agentic-cohort-with-claude",
-        "https://community.rockrms.com/developer/ai-agents/agents/context-anchors"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: “Review An Agent Answer”",
-      "when": "Follow the guide section for Recipe: “Review An Agent Answer”."
+      "title": "Lava WebRequest Or External Call Behaves Unexpectedly",
+      "when": "Lava WebRequest Or External Call Behaves Unexpectedly"
     }
   ],
   "concept_id": "ai-agents-automation",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:37+00:00",
+  "generated_at": "2026-07-30T02:07:49+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",

@@ -37,9 +37,9 @@ Follow the guide section for Recipe: Explain A Workflow To A Staff Owner.
 - https://community.rockrms.com/documentation/BookContent/12
 - https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/recipes/473
-- https://community.rockrms.com/lava/commands/workflow-activate-commands
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs
+- https://community.rockrms.com/lava/commands/workflow-activate-commands
 - https://community.rockrms.com/recipes/257
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs

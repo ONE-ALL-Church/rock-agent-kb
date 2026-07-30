@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Investigate Connector Workload
 
-Follow the guide section for Recipe: Investigate Connector Workload.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,21 @@ Follow the guide section for Recipe: Investigate Connector Workload.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Connector group membership by opportunity.
+2. Open request count by connector.
+3. Requests with no connector.
+4. Idle requests by connector.
+5. Future follow-up by connector.
+6. Availability/leave process.
+7. Suggested assignment correction.
 
 ## Do Not Assume
 
@@ -35,13 +39,8 @@ Follow the guide section for Recipe: Investigate Connector Workload.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/recipes/446
-- https://community.rockrms.com/documentation/bookcontent/39
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/defaultConnectorOptionsRequestBag.d.ts
+- https://www.triumph.tech/resources/github-spotlight-422025
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
-- https://community.rockrms.com/ask/developing/2645
+- https://community.rockrms.com/recipes/446

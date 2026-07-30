@@ -17,13 +17,13 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 
 ## Primary Tasks
 
-- [Recipe: Audit a single sent communication](tasks/recipe-audit-a-single-sent-communication.md): Follow the guide section for Recipe: Audit a single sent communication.
-- [Recipe: Explain why a person did not get an email](tasks/recipe-explain-why-a-person-did-not-get-an-email.md): Follow the guide section for Recipe: Explain why a person did not get an email.
-- [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md): Follow the guide section for Recipe: Explain why a person did not get SMS.
-- [Recipe: Audit communication list freshness](tasks/recipe-audit-communication-list-freshness.md): Follow the guide section for Recipe: Audit communication list freshness.
-- [Recipe: Review a communication template](tasks/recipe-review-a-communication-template.md): Follow the guide section for Recipe: Review a communication template.
-- [Recipe: Investigate SMS conversation access](tasks/recipe-investigate-sms-conversation-access.md): Follow the guide section for Recipe: Investigate SMS conversation access.
-- [Recipe: Determine whether a workflow email supports analytics](tasks/recipe-determine-whether-a-workflow-email-supports-analytics.md): Follow the guide section for Recipe: Determine whether a workflow email supports analytics.
+- [Recipe: Audit a single sent communication](tasks/recipe-audit-a-single-sent-communication.md): Complete Audit a single sent communication with evidence-backed checks and a verifiable outcome.
+- [Recipe: Explain why a person did not get an email](tasks/recipe-explain-why-a-person-did-not-get-an-email.md): Answer in evidence form: "Person was in audience but excluded by preference", "Person was not in audience", "Person had pending recipient row but transport failed", or "Rock sent successfully; provider logs must be checked."
+- [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md): Complete Explain why a person did not get SMS with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit communication list freshness](tasks/recipe-audit-communication-list-freshness.md): Flag if the list is one of Rock's shipped lists and no sync path exists, because RockU notes shipped lists are not automatically synced (Communication Lists & Segments).
+- [Recipe: Review a communication template](tasks/recipe-review-a-communication-template.md): Complete Review a communication template with evidence-backed checks and a verifiable outcome.
+- [Recipe: Investigate SMS conversation access](tasks/recipe-investigate-sms-conversation-access.md): Complete Investigate SMS conversation access with evidence-backed checks and a verifiable outcome.
+- [Recipe: Determine whether a workflow email supports analytics](tasks/recipe-determine-whether-a-workflow-email-supports-analytics.md): Do not promise analytics for workflow emails unless confirmed in the live instance. The source pack includes an unanswered community question showing this can differ by path (Mailgun Tracking Q&A).
 
 ## High-Signal Sections
 
@@ -39,14 +39,15 @@ Email, SMS, communication templates, transports, segments, and deliverability.
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Block`: Rock concept/entity referenced by the communications guide.
 - `Campus`: Rock concept/entity referenced by the communications guide.
+- `DataView`: Rock concept/entity referenced by the communications guide.
 - `Family`: Rock concept/entity referenced by the communications guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `GroupMember`: Rock concept/entity referenced by the communications guide.
+- `GroupType`: Rule container for groups, including attendance/check-in settings and inherited behavior.
 - `Page`: Rock concept/entity referenced by the communications guide.
 - `Person`: Rock concept/entity referenced by the communications guide.
 - `PersonAlias`: Rock concept/entity referenced by the communications guide.
 - `Step`: Person-specific engagement milestone instance.
-- `Workflow`: Rock concept/entity referenced by the communications guide.
 
 ## Version Caveats
 

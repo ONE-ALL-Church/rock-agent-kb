@@ -1,13 +1,23 @@
-version: 1
+version: 2
+taxonomy:
+  design: human_reviewed_task_oriented_facets
+  source_branches_are_routing_signals: true
+  proposal_prompt_id: rock-kb-concept-taxonomy-review
+  proposal_prompt_version: 1.0.0
+  recommended_review_model: gpt-5.6-sol
+  recommended_reasoning_effort: xhigh
 defaults:
   rebuild_policy: source_hash_changed_or_weekly
   guide_status: generated_needs_review
   max_records: 80
+  routing_role: primary
 concepts:
   - id: check-in
     title: Check-In
     description: Attendance, kiosks, labels, families, schedules, locations, mobile check-in, and troubleshooting.
     keywords: [check-in, check in, attendance, label, kiosk, family check-in, mobile check-in, rapid attendance]
+    documentation_branches:
+      - documentation/church-management/check-in
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -36,6 +46,8 @@ concepts:
     title: Groups
     description: Group types, group members, attendance, group finder, small groups, serving teams, and security.
     keywords: [group, groups, group type, group member, group finder, small group, serving team]
+    documentation_branches:
+      - documentation/engagement/groups
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -60,6 +72,8 @@ concepts:
     title: Workflows
     description: Workflow types, actions, triggers, forms, automation, jobs, and operational process design.
     keywords: [workflow, workflows, action, trigger, form, activate, automation, job]
+    documentation_branches:
+      - documentation/core-concepts/workflows
     source_weights:
       rock_documentation: 3
       rock_rocku: 4
@@ -84,6 +98,8 @@ concepts:
     title: Connections
     description: Connection types, opportunities, requests, statuses, boards, lists, assignments, follow-up, and pipeline reporting.
     keywords: [connection, connections, connection type, connection opportunity, connection request, connection status, connections board, connections list, placement, opportunity]
+    documentation_branches:
+      - documentation/engagement/connections
     source_weights:
       rock_documentation: 4
       rock_rocku: 5
@@ -114,6 +130,7 @@ concepts:
     title: Lava
     description: Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational use.
     keywords: [lava, filter, command, shortcode, fluid, dotliquid, remote lava]
+    routing_role: cross_cutting
     source_weights:
       rock_lava_docs: 5
       rock_developer: 3
@@ -137,6 +154,8 @@ concepts:
     title: Giving And Finance
     description: Giving, transactions, batches, statements, pledges, gateways, and finance administration.
     keywords: [giving, finance, financial, transaction, batch, pledge, statement, payment, gateway]
+    documentation_branches:
+      - documentation/church-management/finance
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -165,6 +184,11 @@ concepts:
     title: System Administration And Operations
     description: Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings, diagnostics, and operational health.
     keywords: [service job, job history, exception log, exceptionlog, cache, cleanup, data integrity, indexing, index, global attribute, defined type, defined value, system setting, diagnostics, health]
+    routing_role: cross_cutting
+    documentation_branches:
+      - documentation/supporting-rock/data
+      - documentation/supporting-rock/caching
+      - documentation/core-concepts/search
     source_weights:
       rock_documentation: 4
       rock_developer: 4
@@ -199,6 +223,7 @@ concepts:
     title: Platform Configuration
     description: Attributes, defined types, categories, entity types, campuses, global attributes, system settings, and cross-domain configuration patterns.
     keywords: [attribute, attributes, attribute value, defined type, defined value, category, categories, entity type, campus, campuses, global attribute, system setting, configuration, inherited configuration]
+    routing_role: cross_cutting
     source_weights:
       rock_documentation: 4
       rock_rocku: 5
@@ -230,6 +255,7 @@ concepts:
     title: Serving And Volunteer Operations
     description: Serving teams, volunteer schedules, requirements, confirmations, attendance, volunteer communications, and follow-up.
     keywords: [serving, volunteer, volunteers, serving team, serve team, schedule, scheduling, serving schedule, serving group, team member, confirmation, decline, RSVP, requirement, attendance, follow-up]
+    routing_role: cross_cutting
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -261,6 +287,8 @@ concepts:
     title: AI Agents And Automation
     description: Rock AI agents, custom tools, automation patterns, tool security, least privilege, prompt/tool boundaries, review gates, and live verification.
     keywords: [ai agent, ai agents, agent, agents, automation, automations, custom tool, lookup tool, native tool, prompt, tool security, least privilege, permission, review gate, verification, hallucination, workflow automation]
+    documentation_branches:
+      - developer/ai-agents
     source_weights:
       rock_developer: 5
       rock_documentation: 3
@@ -292,6 +320,8 @@ concepts:
     description: Learning programs, LMS courses, lessons, requirements, completion tracking, engagement journeys, and learning-related reporting.
     max_records: 38
     keywords: [learning, lms, course, courses, lesson, lessons, class, classes, training, completion, requirement, requirements, engagement, engagement journey, journey, steps, streak, achievement]
+    documentation_branches:
+      - documentation/engagement/learning-management-system
     source_weights:
       rock_documentation: 4
       rock_rocku: 5
@@ -505,6 +535,7 @@ concepts:
     title: Obsidian Development
     description: Obsidian block development, grid reference, custom actions, field types, browser bus, TypeScript patterns, development environment, and migration from WebForms blocks.
     max_records: 80
+    parent_concept_id: developer-resources
     keywords: [obsidian, obsidian block, typescript, grid reference, field type, browser bus, custom action, list block, detail block]
     documentation_branches:
       - developer/obsidian
@@ -549,6 +580,8 @@ concepts:
     title: Event Registration
     description: Registration instances, templates, payments, forms, event occurrences, and registration operations.
     keywords: [registration, event registration, registration instance, registrant, event item, occurrence]
+    documentation_branches:
+      - documentation/church-management/event-calendar
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -578,6 +611,8 @@ concepts:
     title: CMS And Websites
     description: Pages, blocks, themes, content channels, personalization, media, and website operations.
     keywords: [cms, website, page, block, theme, content channel, personalization, media, html block]
+    documentation_branches:
+      - documentation/digital-publishing/websites
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -605,6 +640,8 @@ concepts:
     title: Communications
     description: Email, SMS, communication templates, transports, segments, and deliverability.
     keywords: [communication, email, sms, texting, transport, template, recipient, deliverability]
+    documentation_branches:
+      - documentation/engagement/communications
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -629,6 +666,8 @@ concepts:
     title: Security And Permissions
     description: Authorization, roles, security inheritance, API auth, block/page security, and operational guardrails.
     keywords: [security, permission, permissions, authorization, auth, role, access, api key]
+    documentation_branches:
+      - documentation/core-concepts/security
     source_weights:
       rock_documentation: 4
       rock_developer: 4
@@ -650,6 +689,8 @@ concepts:
     title: Data Views And Reports
     description: Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
     keywords: [data view, report, reports, sql, metric, analytics, bi, model map, query]
+    documentation_branches:
+      - documentation/church-management/reporting
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -674,6 +715,8 @@ concepts:
     title: Rock Mobile
     description: Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile release caveats.
     keywords: [mobile, xaml, maui, command, control, shell, ios, android, app]
+    documentation_branches:
+      - developer/mobile-docs
     source_weights:
       rock_mobile_docs: 8
       rock_mobile_release_notes: 12
@@ -704,6 +747,7 @@ concepts:
     title: API And Integrations
     description: REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-code landmarks.
     keywords: [api, rest, odata, webhook, integration, endpoint, bearer, token]
+    routing_role: cross_cutting
     source_weights:
       rock_api_docs: 5
       rock_demo_api_docs_v1: 4
@@ -731,6 +775,7 @@ concepts:
     title: Helix
     description: Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks, forms and controls, endpoint security, observability, and production-readiness caveats.
     max_records: 80
+    parent_concept_id: developer-resources
     keywords: [helix, htmx, lava application, lava applications, lava endpoint, lava endpoints, lava app, endpoint security, control shortcode, form validation, loading indicator, magnus, observability, related entities]
     source_url_prefixes:
       - https://community.rockrms.com/developer/helix
@@ -795,6 +840,7 @@ concepts:
     title: Rock Developer Resources
     description: Rock developer documentation across tutorials, Developer Codex, Obsidian, Helix, mobile and TV shells, packaging, Slingshot migration, design-system, dynamic LINQ, release/changelog notes, and developer utilities.
     max_records: 120
+    routing_role: aggregate
     keywords: [developer, developer resources, developer codex, launchpad, ignition, blast off, obsidian, helix, mobile docs, apple tv, roku, packaging, plugin, theme, quickstart, slingshot, design system, dynamic linq, realtime visualizer, rock branches, sql style guide]
     source_url_prefixes:
       - https://community.rockrms.com/developer
@@ -910,6 +956,8 @@ concepts:
     title: TV Apps
     description: Apple TV and Roku developer documentation for Rock-powered TV applications, pages, commands, controls, styling, media, authentication, and app operations.
     max_records: 80
+    routing_role: aggregate
+    parent_concept_id: developer-resources
     keywords: [tv app, tv apps, apple tv, apple tv docs, roku, roku docs, tvml, brightscript, scenegraph, lava, media, focus, remote, themes]
     source_url_prefixes:
       - https://community.rockrms.com/developer/apple-tv-docs
@@ -964,6 +1012,7 @@ concepts:
     title: Apple TV Apps
     description: Apple TV developer documentation for Rock-powered TVML applications, pages, content, sign-in, media commands, styling, themes, images, templates, testing, and operational guardrails.
     max_records: 80
+    parent_concept_id: tv-apps
     keywords: [apple tv, apple tv docs, tvml, tv-template, tv app, tv pages, sign in page, media commands, tv text style, themes, parallax images, app icons]
     source_url_prefixes:
       - https://community.rockrms.com/developer/apple-tv-docs
@@ -1010,6 +1059,7 @@ concepts:
     title: Roku Apps
     description: Roku developer documentation for Rock-powered SceneGraph applications, pages, commands, controls, focus handling, media playback, layout nodes, resources, and operational guardrails.
     max_records: 80
+    parent_concept_id: tv-apps
     keywords: [roku, roku docs, roku app, roku applications, roku pages, brightscript, scenegraph, focus group, rowlist, layout nodes, media commands]
     source_url_prefixes:
       - https://community.rockrms.com/developer/roku-docs
@@ -1056,6 +1106,8 @@ concepts:
     title: People And Families
     description: Person records, families, aliases, attributes, relationships, and data hygiene.
     keywords: [person, people, family, families, alias, attribute, relationship, individual]
+    documentation_branches:
+      - documentation/church-management/people
     source_weights:
       rock_documentation: 4
       rock_rocku: 4
@@ -1082,6 +1134,7 @@ concepts:
     title: Scheduling And Locations
     description: Locations, schedules, rooms, resources, reservations, calendars, and operational planning.
     keywords: [schedule, schedules, location, locations, room, reservation, calendar, resource]
+    routing_role: cross_cutting
     source_weights:
       rock_documentation: 4
       rock_rocku: 3

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Identify The Source Files Behind A Visible Obsidian Block
 
-Follow the guide section for Recipe: Identify The Source Files Behind A Visible Obsidian Block.
+Start from the live block type and follow the conventions documented in the Obsidian developer documentation and Grid Columns. Confirm paths against the exact source revision because core, generated view-model, and plugin layouts can differ by version.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: Identify The Source Files Behind A Visible 
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Record page URL, block name, and visible UI text.
+2. In Rock admin, inspect the page's block instance and Block Type.
+3. Record C# block class, category, and component path.
+4. Find the C# block under `Rock.Blocks` or plugin block path.
+5. Find the `.obs` component under `Rock.JavaScript.Obsidian.Blocks/src/...` or plugin Obsidian path.
+6. Find generated view model bags referenced by imports.
+7. Inspect block actions.
+8. Inspect block attributes and custom actions.
+9. Compare target version with release notes.
 
 ## Do Not Assume
 
@@ -35,14 +45,14 @@ Follow the guide section for Recipe: Identify The Source Files Behind A Visible 
 ## Source Links
 
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/obsidian/grid-reference
-- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
-- https://community.rockrms.com/developer/obsidian/null-vs-undefined
-- https://community.rockrms.com/developer/obsidian
+- https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions
+- https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks
+- https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks
 - https://community.rockrms.com/developer/obsidian/grids
-- https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/obsidian/browser-bus
-- https://community.rockrms.com/developer/obsidian/creating-ui-controls
+- https://community.rockrms.com/developer/obsidian/null-vs-undefined
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
+- https://community.rockrms.com/developer/obsidian/form-validation
+- https://community.rockrms.com/developer/obsidian/blocks

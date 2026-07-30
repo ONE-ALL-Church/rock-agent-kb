@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Review An Agent Answer”
 
-Follow the guide section for Recipe: “Review An Agent Answer”.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -24,9 +24,12 @@ Follow the guide section for Recipe: “Review An Agent Answer”.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify which tool results support the answer.
+2. Re-run the live lookup/get/report if needed.
+3. Check date/time and version assumptions.
+4. Check whether ambiguous entities were resolved.
+5. Check security and sensitive-field handling.
+6. If the answer included an action, verify the record changed.
 
 ## Do Not Assume
 
@@ -34,15 +37,4 @@ Follow the guide section for Recipe: “Review An Agent Answer”.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/BookContent/9
-- https://community.rockrms.com/rocku/core-concepts/automations
 - https://community.rockrms.com/ask/developing/2708
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://community.rockrms.com/ModelMap
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude
-- https://community.rockrms.com/developer/ai-agents/agents/context-anchors

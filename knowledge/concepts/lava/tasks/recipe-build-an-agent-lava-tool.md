@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build An Agent Lava Tool
 
-Follow the guide section for Recipe: Build An Agent Lava Tool.
+```json
 
 ## When To Use
 
@@ -24,9 +24,14 @@ Follow the guide section for Recipe: Build An Agent Lava Tool.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Name: specific action, not generic.
+2. Description: tells the agent when to call it.
+3. Parameters: typed, required only when necessary.
+4. Prompt: Lava template with parameterized SQL or entity commands.
+5. Output: JSON with stable keys.
+6. Commands: minimal.
+7. Security: same review as any Lava endpoint.
+8. Failure: include status and message fields.
 
 ## Do Not Assume
 
@@ -34,15 +39,4 @@ Follow the guide section for Recipe: Build An Agent Lava Tool.
 
 ## Source Links
 
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/fluid/differences
-- https://community.rockrms.com/lava/commands/taglist-commands
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/helix/lava-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools

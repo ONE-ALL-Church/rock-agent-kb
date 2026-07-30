@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md) |  |  |
-| [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md) |  |  |
-| [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md) |  |  |
-| [Recipe: Review For Security](tasks/recipe-review-for-security.md) |  |  |
-| [Recipe: Review For Performance](tasks/recipe-review-for-performance.md) |  |  |
+| [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md) | `Person`, `Device`, `Page` | `Person`, `Device`, `Page` |
+| [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md) | `Family`, `Page` | `Family`, `Page` |
+| [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md) | `Page` | `Page` |
+| [Recipe: Review For Security](tasks/recipe-review-for-security.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: Review For Performance](tasks/recipe-review-for-performance.md) | `Schedule`, `Page` | `Schedule`, `Page` |
 
 ## Entities
 
@@ -29,6 +29,7 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 

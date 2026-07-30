@@ -17,12 +17,12 @@ Group types, group members, attendance, group finder, small groups, serving team
 
 ## Primary Tasks
 
-- [Recipe: Identify Why A Group Is Not Visible](tasks/recipe-identify-why-a-group-is-not-visible.md): Follow the guide section for Recipe: Identify Why A Group Is Not Visible.
-- [Recipe: Audit A Group Type Before Launch](tasks/recipe-audit-a-group-type-before-launch.md): Follow the guide section for Recipe: Audit A Group Type Before Launch.
-- [Recipe: Debug Group Attendance Reminder Failures](tasks/recipe-debug-group-attendance-reminder-failures.md): Follow the guide section for Recipe: Debug Group Attendance Reminder Failures.
-- [Recipe: Build A Group Finder QA Checklist](tasks/recipe-build-a-group-finder-qa-checklist.md): Follow the guide section for Recipe: Build A Group Finder QA Checklist.
-- [Recipe: Move Members Between Groups Safely](tasks/recipe-move-members-between-groups-safely.md): Follow the guide section for Recipe: Move Members Between Groups Safely.
-- [Recipe: Create A Custom Scheduled Volunteer Communication Page](tasks/recipe-create-a-custom-scheduled-volunteer-communication-page.md): Follow the guide section for Recipe: Create A Custom Scheduled Volunteer Communication Page.
+- [Recipe: Identify Why A Group Is Not Visible](tasks/recipe-identify-why-a-group-is-not-visible.md): Complete Identify Why A Group Is Not Visible with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit A Group Type Before Launch](tasks/recipe-audit-a-group-type-before-launch.md): Complete Audit A Group Type Before Launch with evidence-backed checks and a verifiable outcome.
+- [Recipe: Debug Group Attendance Reminder Failures](tasks/recipe-debug-group-attendance-reminder-failures.md): Complete Debug Group Attendance Reminder Failures with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build A Group Finder QA Checklist](tasks/recipe-build-a-group-finder-qa-checklist.md): Complete Build A Group Finder QA Checklist with evidence-backed checks and a verifiable outcome.
+- [Recipe: Move Members Between Groups Safely](tasks/recipe-move-members-between-groups-safely.md): Complete Move Members Between Groups Safely with evidence-backed checks and a verifiable outcome.
+- [Recipe: Create A Custom Scheduled Volunteer Communication Page](tasks/recipe-create-a-custom-scheduled-volunteer-communication-page.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

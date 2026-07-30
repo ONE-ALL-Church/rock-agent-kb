@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose External Website API Failure
 
-Follow the guide section for Recipe: Diagnose External Website API Failure.
+Complete Diagnose External Website API Failure with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,14 @@ Follow the guide section for Recipe: Diagnose External Website API Failure.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Determine browser vs server caller.
+2. If browser, inspect CORS and token exposure.
+3. If server, inspect auth header/token.
+4. Test route with same method and headers.
+5. Verify REST action security.
+6. Verify entity security.
+7. Check API docs and ExceptionLog.
+8. Prefer public feed or server proxy if sensitive token would otherwise be exposed.
 
 ## Do Not Assume
 
@@ -35,14 +40,3 @@ Follow the guide section for Recipe: Diagnose External Website API Failure.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
-- https://community.rockrms.com/developer/roku-docs/getting-started/applications
-- https://community.rockrms.com/api-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
-- https://community.rockrms.com/lava/lava-api

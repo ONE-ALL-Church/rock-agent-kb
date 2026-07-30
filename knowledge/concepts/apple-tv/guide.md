@@ -1252,7 +1252,7 @@ Check:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `20`
+- Approved claims routed to this concept: `16`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1269,7 +1269,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | implementation_pattern | An Apple TV login menu item can use the login command with page GUIDs for the login, timeout, and success destinations; the login TVML receives single-brace authQrCodeUrl and authCode fields for presenting QR-code or manual-code authentication. | [source](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page) |
 | official | implementation_pattern | For Apple TV media playback, supplying an existing watch map sets the resume position; pairing that map with an interaction GUID appends viewing progress to the existing interaction, while omitting the interaction GUID creates a new interaction and watch map beginning from the prior stopping point. | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands) |
 | official | operational_guidance | When building a Rock-linked Apple TV app, use Apple’s TVML documentation for the underlying markup and Rock’s documentation for Rock-specific extensions; modifying the application’s JavaScript is discouraged. | [source](https://community.rockrms.com/developer/apple-tv-docs) |
-| More |  | 8 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 4 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build A Staff Directory From Person Attributes
 
-Follow the guide section for Recipe: Build A Staff Directory From Person Attributes.
+Complete Build A Staff Directory From Person Attributes with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,24 @@ Follow the guide section for Recipe: Build A Staff Directory From Person Attribu
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Create person attributes for staff hire date and title if not already present.
+2. Set security to HR/staff admins as appropriate.
+3. Use a report or Dynamic Data page only in secure internal context.
+4. Join person attribute values by attribute id/key.
+5. Exclude former staff using a clear status or attribute, not a magic date if avoidable.
+6. Review community examples critically (Internal Staff Directory).
 
 ## Do Not Assume
 
@@ -36,13 +43,13 @@ Follow the guide section for Recipe: Build A Staff Directory From Person Attribu
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
-- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
-- https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/lava/workflows
+- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava/filters/person-filters
-- https://community.rockrms.com/rocku/individuals-in-rock
 - https://community.rockrms.com/lava/commands/entity-commands
+- https://community.rockrms.com/lava/filters/person-filters
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/rocku/individuals-in-rock/person-profile
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
+- https://community.rockrms.com/rocku/individuals-in-rock
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values

@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 32,
+  "approved_claim_count": 32,
   "approved_claim_dependencies": [
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Person Notes should be handled as structured staff context on a person record; note type, visibility, sensitivity, and lifecycle matter as much as the note text itself.",
-      "claim_hash": "fd5e81cc9715e37783e2dcbc04ac766f2a0ba4c4b4879a53396cfc2222580da4",
+      "claim_hash": "6702bda9204c30dd5ff98279b09ceba645c8d6f9a75498ddcde1755f76a57197",
       "claim_id": "claim:00300ae5ab574ad7c48b",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -35,6 +37,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fd17c3ba5ba32ff7925b4f7a14bb3d124cb603ad6814825596756fc4975c9759",
       "source_record_ids": [
         "rock_rocku:a7e02a5142f7bd4b"
@@ -48,75 +51,13 @@
           "title": "Person Note",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile development is part of the same product ecosystem as the core web platform, so mobile guidance should be routed alongside core profile, UX, and app-development context.",
-      "claim_hash": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-      "claim_id": "claim:02385390c0f4337809d5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "01:07",
-          "timestamp_seconds": 67.96,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Nameless People is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "744ba77f8757fa4ec0f49842ff0dfa8459757a8fb83c90e08b0a81898c801d26",
-      "claim_id": "claim:0908427b3d9b47d8b69e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "905c846b4365f973d7ffd4a011194f54385b87746fd5de206541a325a26ddfd1",
-      "source_record_ids": [
-        "rock_rocku:37a5719afb8ff6dc"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Nameless People",
-          "url": "https://community.rockrms.com/rocku/communication/nameless-people"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Use Note Types to govern where notes appear, how they are categorized, and which staff roles can create or view sensitive notes; do not treat all person notes as one undifferentiated field.",
-      "claim_hash": "edb3898f19f4f00207bab521cbae41152049de6f7cf562d6e3e0bac44652f03a",
+      "claim_hash": "d18c80cef07192f4cf0c2ee41f707b14b3b45f34a4132fec0d7f3b464fceff7b",
       "claim_id": "claim:09c6a4834867ba6879d7",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -148,6 +89,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ffac4cd818a9d2c78de7f175101a4783939eb46a93bc80fe9ce20b3e13ff39ec",
       "source_record_ids": [
         "rock_rocku:094493cd4f8f0313"
@@ -161,142 +103,13 @@
           "title": "Note Types",
           "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The BI Family Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "c73aac9ced663a97023764275c22e740dc777757555a7ae73672de6b412d3f66",
-      "claim_id": "claim:0ddb889a54d8094652dd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a8bfc29252254683095f2c5dea2ca743bc8680301485632cc4683f67a6b40",
-      "source_record_ids": [
-        "rock_rocku:add61f36fc8d2512"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "BI Family Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Person Preferences and Auto Schedule should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
-      "claim_id": "claim:10270a60fc64380cd39d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Searching for a Person should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "1c34278a35b0c97451038780bea8b6a7a20a2c012320ee8b8fd83a362a8bfcb8",
-      "claim_id": "claim:1c9c3c9397fda34d3851",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7e003149aa615d9ed27920c3f06357a1dfad94adffcf2fe4465e80cf85897f6b",
-      "source_record_ids": [
-        "rock_rocku:fbc68cdc60f66de6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person",
-          "timestamp": "01:57",
-          "timestamp_seconds": 117.0,
-          "title": "Searching for a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Impersonation is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "6fae11ea06f5a28bea618b1ac21e27fe0b1a9a709bdeb5a7f9b13248fe788a4c",
-      "claim_id": "claim:22176cf38ff41cb388f6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "844fb872e3e2d334710146a85eecc25d5cbff862a3c9cd9b6cb85a5d17b2d8ac",
-      "source_record_ids": [
-        "rock_rocku:0d3708c1310b86f4"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Impersonation",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "When a v19 person merge changes the surviving last name, Rock can add the former value to Previous Last Names for visible continuity on the person profile. Verify local field visibility and data-handling policy before relying on it.",
-      "claim_hash": "0877c91852fbbf53266f17654ccb482a4cec3dd5bba97c16963f079ed94a27e2",
+      "claim_hash": "b225573ceac0a841db4ad3fecd5b36581f1113367e3d19d46ebbdc2eac86162f",
       "claim_id": "claim:23c173130e89f0eba735",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -310,6 +123,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -323,186 +139,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Person Preferences and Auto Schedule RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
-      "claim_id": "claim:273569623174af9b2460",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds.",
-      "claim_hash": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-      "claim_id": "claim:297b44312bdcc4c81dfd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "25:51",
-          "timestamp_seconds": 1551.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Family Pre-Registration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
-      "claim_id": "claim:2a687dbd43ece0d98a0b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
-      "source_record_ids": [
-        "rock_rocku:f100a7c66d47ef32"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
-          "timestamp": "02:29",
-          "timestamp_seconds": 149.0,
-          "title": "Family Pre-Registration",
-          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Family Pre-Registration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
-      "claim_id": "claim:2fed0aac2c5693503a5d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
-      "source_record_ids": [
-        "rock_rocku:f100a7c66d47ef32"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
-          "timestamp": "02:54",
-          "timestamp_seconds": 174.0,
-          "title": "Family Pre-Registration",
-          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment.",
-      "claim_hash": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-      "claim_id": "claim:2fedca54c255f13d1e3d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "28:48",
-          "timestamp_seconds": 1728.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The Person Profile is a dense operational surface; agents should identify which tab, block, badge, note, attribute, or action is involved before troubleshooting or changing access.",
-      "claim_hash": "bd09afc19dfda0624bdac389ca98ea4aa9bd1a48f82ab85eaf048e523411714d",
+      "claim_hash": "32e76c9421e03c1e10fece13b0ddbc19fba2850caf1a95f386cf30305bd71b50",
       "claim_id": "claim:34144e7226c4a430a307",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -537,6 +180,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "809716c09705e3c02cdb709ec8fb8c087e53df37e0e80467ded7e3bf0cf2717d",
       "source_record_ids": [
         "rock_rocku:303d884642f1666d"
@@ -550,206 +194,13 @@
           "title": "Person Profile",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, BI Family Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "eff76d88728e02c8950e1ceba13efc3cb52ee67b918fb18bdaacf047450b5b8f",
-      "claim_id": "claim:3f738c05a64d9c6dad01",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a8bfc29252254683095f2c5dea2ca743bc8680301485632cc4683f67a6b40",
-      "source_record_ids": [
-        "rock_rocku:add61f36fc8d2512"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report",
-          "timestamp": "06:58",
-          "timestamp_seconds": 418.42,
-          "title": "BI Family Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, BI Family Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "1ff676cc28571dd661441be4a5fa6a8464752c714e59eecf4047295d26820cd3",
-      "claim_id": "claim:3fc56ad5fc19cdfd4440",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a8bfc29252254683095f2c5dea2ca743bc8680301485632cc4683f67a6b40",
-      "source_record_ids": [
-        "rock_rocku:add61f36fc8d2512"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report",
-          "timestamp": "00:18",
-          "timestamp_seconds": 18.84,
-          "title": "BI Family Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Family Pre-Registration is approved as a public-safe RockU training distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "798e0876b54a915284ccc8063e7cd2d3cf50c3b0de2e3fbe12316946f6dd087b",
-      "claim_id": "claim:42a75a1b8fa81b064517",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
-      "source_record_ids": [
-        "rock_rocku:f100a7c66d47ef32"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Family Pre-Registration",
-          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For reporting, analytics, and measurement, Person Attributes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "9a4ce8717b5accdfb6b04ea1902f295f9fed272c4f033b2405fd12998e46a5bd",
-      "claim_id": "claim:44be8d2c614db1eb61cf",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0c81683042f040135db363b9f84cbdcd968cb130bbcb078c16126a9a3b335e59",
-      "source_record_ids": [
-        "rock_rocku:4bd8c9362f206617"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes",
-          "timestamp": "03:31",
-          "timestamp_seconds": 211.54,
-          "title": "Person Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Family Attributes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "f2a4559b86cc412e1007094e3c24bf00a04654fb1eb70b7be6d812f7dc170b6c",
-      "claim_id": "claim:492590a6f2c5663ddb8d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "830eab47f9ad69eb61cdb8e33e5df4a4d46c5fc43596bc3d40e311b3d4b28186",
-      "source_record_ids": [
-        "rock_rocku:103246342712cd75"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes",
-          "timestamp": "00:14",
-          "timestamp_seconds": 14.46,
-          "title": "Family Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "BI Family Report is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, ministry process design, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "939bf6415f9bcf3fca94634aeedc20d30b5f104f83607f7fa65b9a3a00ef6553",
-      "claim_id": "claim:49c7e201c622845cdc6d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a8bfc29252254683095f2c5dea2ca743bc8680301485632cc4683f67a6b40",
-      "source_record_ids": [
-        "rock_rocku:add61f36fc8d2512"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "BI Family Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-family-report"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Data Integrity work should be repeatable: identify the record population, define the correction rule, test with known examples, and document the owner before making bulk changes.",
-      "claim_hash": "a008c43fdf23bccfbd9a8e04f7acb87716e63cd830ab807e9588131c630b17c9",
+      "claim_hash": "7bc3d88e4c1e7620d2baf5ef65ec63090a31e536adf83521b4498013bd63bfc1",
       "claim_id": "claim:4ccbececc1c30ce62894",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -763,6 +214,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fdeb2c3c7364296a3fab105aa80be32a7fe9fcfc29c62db5615f248e4d683341",
       "source_record_ids": [
         "rock_rocku:c680a16482a4af12"
@@ -776,198 +228,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For reporting, analytics, and measurement, Family Attributes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "0a6a08a10e47ef2b03f0a07c2f44027629c0fdaea5b7a772bf87dcf1ffc8877f",
-      "claim_id": "claim:4e652fba430b78fbed99",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "830eab47f9ad69eb61cdb8e33e5df4a4d46c5fc43596bc3d40e311b3d4b28186",
-      "source_record_ids": [
-        "rock_rocku:103246342712cd75"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes",
-          "timestamp": "01:36",
-          "timestamp_seconds": 96.41999999999999,
-          "title": "Family Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Searching for a Person is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "d0579b1436c6556d4e31adeaddf3b97b96f6b9b3b842cdcd84bccb477da829a7",
-      "claim_id": "claim:4f68b83980d6f8b3883e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7e003149aa615d9ed27920c3f06357a1dfad94adffcf2fe4465e80cf85897f6b",
-      "source_record_ids": [
-        "rock_rocku:fbc68cdc60f66de6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Searching for a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Family Attributes is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "f4e31a94b34f5260f3500c2488d22d8653993b0119c19bf03c2603b3b8b24693",
-      "claim_id": "claim:500a7b4f982a05581d2e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "830eab47f9ad69eb61cdb8e33e5df4a4d46c5fc43596bc3d40e311b3d4b28186",
-      "source_record_ids": [
-        "rock_rocku:103246342712cd75"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Family Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Workflow Person Entry RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "be450b631c04fa8ff2a691efce1dd2834ede24a11eb513b619f62386c206809e",
-      "claim_id": "claim:501653152b1f906ccfcd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "9d03c269814303f9acd3da1274334fb7627824e553f38d5561c25405762f7f53",
-      "source_record_ids": [
-        "rock_rocku:ea6aab44a90c83e0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Workflow Person Entry",
-          "url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Person Attributes is approved as a public-safe RockU training distillation for risk, governance, permissions, and policy review, reporting, analytics, and measurement, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "e27dd6401314310c3d087e694295dac4de8a781770d7ffd9ef1db253b7d13ed6",
-      "claim_id": "claim:540a7f1cff7d052229d5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0c81683042f040135db363b9f84cbdcd968cb130bbcb078c16126a9a3b335e59",
-      "source_record_ids": [
-        "rock_rocku:4bd8c9362f206617"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Person Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Person Preferences and Auto Schedule is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
-      "claim_id": "claim:57298eb943d1acbad3ee",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "groups",
-        "people-families",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b1046016d72918b56935e8692e0af9328fc3155e441b944d77fac24357f676f",
-      "source_record_ids": [
-        "rock_rocku:2a863471e239f0b9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Person Preferences and Auto Schedule",
-          "url": "https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up.",
-      "claim_hash": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
+      "claim_hash": "15885df0d3612cc6c4e48e7a0ab19226f4146a3f7a98b63622535ccfdef56547",
       "claim_id": "claim:57b56ebf5bb293682e3d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -1006,6 +273,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -1019,46 +287,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, How to Delete a Person should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "e70bd166c14df13c853fd8e42dc5cb0e8a4cc7478c67eafc7465c230698e7fd9",
-      "claim_id": "claim:5aa2748e70047b547cb0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "18689956e917a1c9ae21f03749b116867fc1b56a7b0a6647cc7f5a6dfff9cd48",
-      "source_record_ids": [
-        "rock_rocku:c59b260abd179b4d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person",
-          "timestamp": "00:20",
-          "timestamp_seconds": 20.46,
-          "title": "How to Delete a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Person Profile security should be reviewed at the page, block, entity, action, and data-field level because profile visibility does not imply permission to edit every person-related record.",
-      "claim_hash": "a981e2adfcd030763a98fdf5795df2fcc8a877003cb8922ab40f354f68cbea33",
+      "claim_hash": "63ee2ee2770ee6081caa95cee079d0b6b89fa6c5b5e558137c5a5bbd56b9fb9b",
       "claim_id": "claim:5c53977793c7673b19e9",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -1093,6 +328,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "809716c09705e3c02cdb709ec8fb8c087e53df37e0e80467ded7e3bf0cf2717d",
       "source_record_ids": [
         "rock_rocku:303d884642f1666d"
@@ -1106,48 +342,13 @@
           "title": "Person Profile",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A practical cleanup program should separate low-effort automations from medium-effort reports and high-effort duplicate decisions, so staff and volunteers spend human review time on records that require judgment.",
-      "claim_hash": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-      "claim_id": "claim:5c7aec32d916e2cb2902",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "20:00",
-          "timestamp_seconds": 1200.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 can assign record sources on external person-entry blocks and show that source in duplicate detail, helping data-integrity staff trace where repeated records originated.",
-      "claim_hash": "6fac8a2dfdc46fb4612fd1a21f29a28899b4d56812a50b7e6c63f35cc32d36ca",
+      "claim_hash": "456550ceabe1684968591dda0b8935b58a11c5a638debcd30481357d8d7c50fa",
       "claim_id": "claim:5d80cd1847429a0181d0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1161,6 +362,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -1174,12 +378,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When diagnosing personalization, inspect the audience rule, person data used by the rule, fallback content, cache behavior, and the exact logged-in or anonymous state being tested.",
-      "claim_hash": "1321b57ae11d8c65743803bf0809a35915d373a0ffc15bdc6189e705618f4334",
+      "claim_hash": "ae63faa268d61153f6bcdd63a541e4df7222b918aea292545c512fba664fe1c0",
       "claim_id": "claim:64100db2b5d60396b9fd",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1214,6 +419,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "3997f1cd44a656b3a2d4b021140a30fec9c9eb6c0d138d0356d9451b67d34ba6",
       "source_record_ids": [
         "rock_rocku:11cdf9c3e9ac92ed"
@@ -1227,171 +433,13 @@
           "title": "Personalization",
           "url": "https://community.rockrms.com/rocku/cms/personalization"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Person Attributes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "4a9e9c41abd95b63c142cf7eb66549b49360ddd7f8cf9dff5266650751b4d785",
-      "claim_id": "claim:6c582edbd5e893707de9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0c81683042f040135db363b9f84cbdcd968cb130bbcb078c16126a9a3b335e59",
-      "source_record_ids": [
-        "rock_rocku:4bd8c9362f206617"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes",
-          "timestamp": "01:24",
-          "timestamp_seconds": 84.32000000000001,
-          "title": "Person Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Workflow Person Entry is approved as a public-safe RockU training distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "5eac60a0f814af58054b346132a46244f6eb5730127b8a107f9e47b2bcea6f62",
-      "claim_id": "claim:6ea0912f1e9a77889f5f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "9d03c269814303f9acd3da1274334fb7627824e553f38d5561c25405762f7f53",
-      "source_record_ids": [
-        "rock_rocku:ea6aab44a90c83e0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Workflow Person Entry",
-          "url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The Science of Finding Greatness in People episode gives public operational perspective on ministry process design; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "28a47193a88b438f695d320b6555296f2e9b3111ef23295d741bda544558de52",
-      "claim_id": "claim:6f98a09c6c7d3a9a4665",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b44b10e27b5f61d577850026bdc9202568938bfe89e439fcd5c3daaae713f55",
-      "source_record_ids": [
-        "rock_podcast_rss:8babd99aff812f66"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people",
-          "title": "The Science of Finding Greatness in People",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Family Pre-Registration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "97b398628db5a0a8e777f470e933ba1ee2cd4a478c0c2ed77e001f618fe3dbd7",
-      "claim_id": "claim:7294ceea1bdeccdf7ea0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59183fb55a24aadaf7e1d998fae47df5c7e893ef522780c716a740b6c2f3d698",
-      "source_record_ids": [
-        "rock_rocku:f100a7c66d47ef32"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/family-pre-registration",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Family Pre-Registration",
-          "url": "https://community.rockrms.com/rocku/cms/family-pre-registration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Person Attributes - Check-In Manager RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "d52df06742b25e880e1daef7aaf72eb825954f653dcde6d775a8a6a1065247ad",
-      "claim_id": "claim:791458dc76400b3da8da",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "78f02c0d75e6110200590961e43c83db36545656ef3ad8851234e5dfd2a52900",
-      "source_record_ids": [
-        "rock_rocku:0a3e0444a99bc227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Attributes - Check-In Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records.",
-      "claim_hash": "3402a0bab5b18062be80c6cb7a6076b18ebb3f34db5623e03778d1674e46d4e5",
+      "claim_hash": "0ca9ea97dfe7443f3179bb06e603552ff11ecc7acf98c6a415148b7099905bc5",
       "claim_id": "claim:7e9a4bdea4ebdb5d77a4",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1425,6 +473,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "defa838ee717a3c90564a987a5b26caf4bc0ef964ea1ed7e25d3c4bbc6550e01",
       "source_record_ids": [
         "rock_rocku:8d8c28f726e09218"
@@ -1438,12 +487,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Person Profile adds people/security guidance: profile work should identify the exact tab, block, action, and data surface before troubleshooting visibility or edit access.",
-      "claim_hash": "45723a40d67b6481835a902391d0f6b18d462d54a8f546efee6b94f459515882",
+      "claim_hash": "bc89eda10ee02f19483b41be7c410e2d2908191233fbce50e8fa175e63c93d15",
       "claim_id": "claim:82a64d99bfa7fdab38bc",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1477,6 +527,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "809716c09705e3c02cdb709ec8fb8c087e53df37e0e80467ded7e3bf0cf2717d",
       "source_record_ids": [
         "rock_rocku:303d884642f1666d"
@@ -1487,12 +538,13 @@
           "title": "Person Profile",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "People and reporting guides should distinguish cleanup, merge, verification, and governance tasks because each has different audit and permission requirements.",
-      "claim_hash": "fe3dd70c1fdfcfa8ca43ae9e7e0d73dd1e2b15e562a8dd6e90f2b70a73b352e9",
+      "claim_hash": "d9596173dc88b1d1477e5ef273d76282d04b5773f396faca72866075fcf78243",
       "claim_id": "claim:8ffba8d5adf492765f21",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1526,6 +578,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "defa838ee717a3c90564a987a5b26caf4bc0ef964ea1ed7e25d3c4bbc6550e01",
       "source_record_ids": [
         "rock_rocku:8d8c28f726e09218"
@@ -1539,12 +592,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Agents should inspect connection types, opportunities, statuses, activities, workflows, and staff ownership together because a connection request is both a person record and a process state.",
-      "claim_hash": "07e30a0a7b2ec45702c69a65b961e28794ca5f6e4f4433fd79dd5c2a402a0ba6",
+      "claim_hash": "74dd412c474f9d293a2a6efc5964ddde273dabb80bc4ab2d27763d39fcbdf0d6",
       "claim_id": "claim:90c918310ef30a92a729",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -1579,6 +633,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "784e2b127aaf5eaddb25ac74c524f793280e7763122c37a860425e0b5a0f5d87",
       "source_record_ids": [
         "rock_rocku:a7cecea2cefec5f0"
@@ -1592,12 +647,13 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action.",
-      "claim_hash": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
+      "claim_hash": "703c36edbfac623b571e7d95b6fdd399c3b93f6715dc494e616981ff621cfb7a",
       "claim_id": "claim:90fecb6ea51cf994ff92",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -1634,6 +690,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -1647,102 +704,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The Science of Finding Greatness in People is approved as a public-safe Rock Cast episode distillation for ministry process design, staff training and operational readiness, Rock operations and administration. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "eab3a126e7e8c231d50f31e0d985d6fc31c60df8bfc0dde7dfb55eeebcd6e1e8",
-      "claim_id": "claim:913ffb3303c6dcb2e26c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b44b10e27b5f61d577850026bdc9202568938bfe89e439fcd5c3daaae713f55",
-      "source_record_ids": [
-        "rock_podcast_rss:8babd99aff812f66"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "The Science of Finding Greatness in People",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Person Attributes - Check-In Manager is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "cb23434dd4e23b6f478755e8f6606346254bd9c89d19c7abd8aea4b59bf0d156",
-      "claim_id": "claim:91ee6520b15a13ead962",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "78f02c0d75e6110200590961e43c83db36545656ef3ad8851234e5dfd2a52900",
-      "source_record_ids": [
-        "rock_rocku:0a3e0444a99bc227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Person Attributes - Check-In Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Searching for a Person should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "3fa39191b7c1c42b4b6b0b06bc5133a457a4fdbe02c4c99f57489475ad9daea1",
-      "claim_id": "claim:9260ce1aea17941a5a86",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7e003149aa615d9ed27920c3f06357a1dfad94adffcf2fe4465e80cf85897f6b",
-      "source_record_ids": [
-        "rock_rocku:fbc68cdc60f66de6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person",
-          "timestamp": "00:57",
-          "timestamp_seconds": 57.0,
-          "title": "Searching for a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Personalization should be reviewed as conditional content delivery, not as a security substitute; hidden or targeted content still needs proper page, block, and entity authorization.",
-      "claim_hash": "4170d26f990ea8c93ecd844887403d95362ddbfd5002e0c1d4cf0715617c178e",
+      "claim_hash": "4241c9768edba83e7bea7119ac7e11f5589850094bceb2221faf89016d00ebc3",
       "claim_id": "claim:95e015e3407ed10e9e7c",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1777,6 +745,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "3997f1cd44a656b3a2d4b021140a30fec9c9eb6c0d138d0356d9451b67d34ba6",
       "source_record_ids": [
         "rock_rocku:11cdf9c3e9ac92ed"
@@ -1790,12 +759,13 @@
           "title": "Personalization",
           "url": "https://community.rockrms.com/rocku/cms/personalization"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When troubleshooting connections, identify whether the problem is person context, request status, opportunity configuration, staff assignment, or automation rather than treating it as one generic workflow issue.",
-      "claim_hash": "1c5f232765de7a52ca786f3a6ecb9ea97c64eb6c3b9cbc924f26016eeb44fefa",
+      "claim_hash": "d86875d152f3b91875783ef274f8819c205d653fb1ad1745c8059514a0d70fe7",
       "claim_id": "claim:970086a35aa016eccb8d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -1829,6 +799,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ac34d22febf1751c2cf4a5a64e4c38f7e5c84cf07e762461ce7d95e1a1c3e626",
       "source_record_ids": [
         "rock_rocku:028b35260711018b"
@@ -1842,12 +813,13 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/connections-overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Connections Overview adds workflow guidance for connection ministries: separate person context, request status, opportunity setup, assignment, and automation when diagnosing issues.",
-      "claim_hash": "80dbf19abc4366255657a2c099a332321d7b5ab5361022a0c3df1452f4e05838",
+      "claim_hash": "b7921a4ce7b749ec7bb2dfcb88f8d67f5d81b9867e509cecf44f1fce491cae67",
       "claim_id": "claim:97ae57b97266caea8f75",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1881,6 +853,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ac34d22febf1751c2cf4a5a64e4c38f7e5c84cf07e762461ce7d95e1a1c3e626",
       "source_record_ids": [
         "rock_rocku:028b35260711018b"
@@ -1891,46 +864,13 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/connections-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Person Attributes RockU lesson provides training context for risk, governance, permissions, and policy review; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "ebf9d05e602429c64af8aa38069e7d3ffdaf7f5894cc46b8e964ba4683682f49",
-      "claim_id": "claim:9a034b921673b77040a0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0c81683042f040135db363b9f84cbdcd968cb130bbcb078c16126a9a3b335e59",
-      "source_record_ids": [
-        "rock_rocku:4bd8c9362f206617"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes",
-          "timestamp": "07:13",
-          "timestamp_seconds": 433.08,
-          "title": "Person Attributes",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Personalization adds CMS/security guidance: targeted content should be tested with real actor state and must not be treated as a replacement for authorization.",
-      "claim_hash": "53363baf4947b29c41b3b1b6e201644bc282f5edea6a8fe3b94935f4b96ca827",
+      "claim_hash": "dd34909fe1e8291a5d97567b4c28cb73b234029161c1f38ac1e0cfaa030da1b7",
       "claim_id": "claim:9a75fb2b9c38be765e70",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1965,6 +905,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "3997f1cd44a656b3a2d4b021140a30fec9c9eb6c0d138d0356d9451b67d34ba6",
       "source_record_ids": [
         "rock_rocku:11cdf9c3e9ac92ed"
@@ -1975,12 +916,13 @@
           "title": "Personalization",
           "url": "https://community.rockrms.com/rocku/cms/personalization"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Connections Overview adds workflow guidance for engagement processes: connection requests should be audited as both person context and ministry process state.",
-      "claim_hash": "476b04d7134e5e868cfe33e3f9dec47e1396b71b67fdecf4b98ad2925c193736",
+      "claim_hash": "d0d27bfc907f3594bca7ed5460f25e10bec9cf44e6e3476f53e9f487fd0e4a55",
       "claim_id": "claim:9c621a0a1da89f842a39",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -2014,6 +956,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "784e2b127aaf5eaddb25ac74c524f793280e7763122c37a860425e0b5a0f5d87",
       "source_record_ids": [
         "rock_rocku:a7cecea2cefec5f0"
@@ -2024,140 +967,13 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Searching for a Person RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "f4187bd256ffac251504e97c344c73dfd11a6a65fad2b3f090efd29054bc5300",
-      "claim_id": "claim:a597e840492b8dafcc0f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7e003149aa615d9ed27920c3f06357a1dfad94adffcf2fe4465e80cf85897f6b",
-      "source_record_ids": [
-        "rock_rocku:fbc68cdc60f66de6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person",
-          "timestamp": "00:14",
-          "timestamp_seconds": 14.0,
-          "title": "Searching for a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/searching-for-a-person"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile gives public-safe context that the Spark team was investing in core profile-page user experience work and Rock Mobile development at the same time. For the KB, the useful takeaway is that profile/person-facing UI, mobile app work, and developer onboarding are connected product surfaces rather than isolated documentation topics.",
-      "claim_hash": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-      "claim_id": "claim:a5c497a69f1a8269eb53",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Impersonation should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "8f6a09363489fdae6f51e7e0bb084dc2eb8682655b3ad38fd034a63581f041e2",
-      "claim_id": "claim:a8588d83f55b13b80b22",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "844fb872e3e2d334710146a85eecc25d5cbff862a3c9cd9b6cb85a5d17b2d8ac",
-      "source_record_ids": [
-        "rock_rocku:0d3708c1310b86f4"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation",
-          "timestamp": "01:20",
-          "timestamp_seconds": 80.0,
-          "title": "Impersonation",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Workflow Person Entry should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "7570ff3462df353103c0c5b8b7d904653b4d3bcd54b9bcb185ba81ff96a9ce42",
-      "claim_id": "claim:aa9bc11f94de611f2ce6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "9d03c269814303f9acd3da1274334fb7627824e553f38d5561c25405762f7f53",
-      "source_record_ids": [
-        "rock_rocku:ea6aab44a90c83e0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry",
-          "timestamp": "04:17",
-          "timestamp_seconds": 257.0,
-          "title": "Workflow Person Entry",
-          "url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in.",
-      "claim_hash": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
+      "claim_hash": "0740ed2aa3851d01c7f9629557d61fd505526d96e3e5b62d480868ecb0744da9",
       "claim_id": "claim:b6025804c011523e291d",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2195,6 +1011,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -2208,12 +1025,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Note Types adds public-safe guidance for people-record governance: configure note categories intentionally, verify note-type visibility, and audit sensitive notes by type and entity context.",
-      "claim_hash": "168748c6a4033d04eb60fa00138838d28169ebb664230af1ee6c4e1a25fd1a54",
+      "claim_hash": "2aee8765d47419d247a71ad1a92c8881f00b1d7e539c59e57e0bf1df98b16344",
       "claim_id": "claim:b70ff909b2c3eb102800",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -2245,6 +1063,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ffac4cd818a9d2c78de7f175101a4783939eb46a93bc80fe9ce20b3e13ff39ec",
       "source_record_ids": [
         "rock_rocku:094493cd4f8f0313"
@@ -2255,12 +1074,13 @@
           "title": "Note Types",
           "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A v19 person-merge requester who lacks merge permission can ask to be notified when the reviewed merge completes, keeping request submission separate from merge authorization.",
-      "claim_hash": "9abac694eb92505d72cb40ed5f541614abaf80ef99c69b3b8f727df738c1cd78",
+      "claim_hash": "a3e83e28f037c3b89f73487ae13faa6694baabd6443d0e689a0d4a0fb92a477e",
       "claim_id": "claim:b81391274ac89ca6c69f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -2275,6 +1095,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -2288,140 +1111,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying staff training and operational readiness ideas from The Science of Finding Greatness in People, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "fc4bcc3e27e6e2368d0f1df346cb4cc888961d3ca0ca797396c3ceb4affbf6f7",
-      "claim_id": "claim:b8b80a9fc8b14aa1b81a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b44b10e27b5f61d577850026bdc9202568938bfe89e439fcd5c3daaae713f55",
-      "source_record_ids": [
-        "rock_podcast_rss:8babd99aff812f66"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people",
-          "title": "The Science of Finding Greatness in People",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub presentation gives public-safe operational guidance for Rock data quality programs: use built-in automation where possible, prioritize a small number of high-value data defects, move actionable cleanup reports into Rock, train a bounded volunteer team, and connect data quality work to ministry outcomes such as check-in, communication, and leadership reporting.",
-      "claim_hash": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-      "claim_id": "claim:b9e56d68768b84160b2d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session is a strong public-safe source for family preregistration and check-in readiness. It describes using Rock preregistration to capture family information before arrival, prepare for check-in, and design follow-up around new families, while making clear that preregistration should be tested as part of the real family and check-in data flow.",
-      "claim_hash": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
-      "claim_id": "claim:ba15698ecadd55ce215a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
-      "source_record_ids": [
-        "rock_community_hubs:7cd07bd6d4ff5479"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, How to Delete a Person should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "f1567e6bb4c015db4bbdca47fbb2d8985495e8a0b060fa02b0e3ce28b6632211",
-      "claim_id": "claim:ba9cefb31c9ae55252fe",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "18689956e917a1c9ae21f03749b116867fc1b56a7b0a6647cc7f5a6dfff9cd48",
-      "source_record_ids": [
-        "rock_rocku:c59b260abd179b4d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person",
-          "timestamp": "00:26",
-          "timestamp_seconds": 26.34,
-          "title": "How to Delete a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually.",
-      "claim_hash": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
+      "claim_hash": "1f2f65a93335b3f545b77ef597d3ec4d7f0a911cdcb656e7fc8d7866c5ac9eb8",
       "claim_id": "claim:bd2faf9d63fc7ecc41c1",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2458,6 +1154,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -2471,43 +1168,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "How to Delete a Person is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "9ad93a7de4ba035ed8a9d871c654b3f5971c260e5238a23fb08b65cc8bc4a993",
-      "claim_id": "claim:bf0dd30833759cfeca26",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "18689956e917a1c9ae21f03749b116867fc1b56a7b0a6647cc7f5a6dfff9cd48",
-      "source_record_ids": [
-        "rock_rocku:c59b260abd179b4d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "How to Delete a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When auditing notes, inspect both note-type configuration and entity context because visibility and workflow meaning can vary by note type and target entity.",
-      "claim_hash": "4f30a481cc5d51b3bda60eee429db83de2dbadceaa312f392ca6ec0e62150bd2",
+      "claim_hash": "f4a53f58ca2ad1a71f96f909b1b7e50ed55d6d466e449aeb706c5c4e983c1bd5",
       "claim_id": "claim:c161a6f06a707e04dbea",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -2541,6 +1208,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ffac4cd818a9d2c78de7f175101a4783939eb46a93bc80fe9ce20b3e13ff39ec",
       "source_record_ids": [
         "rock_rocku:094493cd4f8f0313"
@@ -2554,44 +1222,13 @@
           "title": "Note Types",
           "url": "https://community.rockrms.com/rocku/core-concepts/note-types"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Workflow Person Entry should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "d6c61e4f9360c9d9f8578cccba670061b0d96fcdcc2b7a7644272c032ea9c870",
-      "claim_id": "claim:c32bfbd7f901d3392cc9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "9d03c269814303f9acd3da1274334fb7627824e553f38d5561c25405762f7f53",
-      "source_record_ids": [
-        "rock_rocku:ea6aab44a90c83e0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry",
-          "timestamp": "02:25",
-          "timestamp_seconds": 145.0,
-          "title": "Workflow Person Entry",
-          "url": "https://community.rockrms.com/rocku/workflows/workflow-person-entry"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Data Integrity adds operational guidance for cleanup and reporting quality: define correction rules, test known examples, and document ownership before data changes.",
-      "claim_hash": "c9ac5e9d74882709c5c52b19c4d9b9b6ecb9337e7b3542e906abbf40e0ecce70",
+      "claim_hash": "c6838df271876233979042d2d6bf83fe62171f564c430a0bacc8c6720a78cfb9",
       "claim_id": "claim:c72b51f135099fcd7f5d",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -2625,6 +1262,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fdeb2c3c7364296a3fab105aa80be32a7fe9fcfc29c62db5615f248e4d683341",
       "source_record_ids": [
         "rock_rocku:c680a16482a4af12"
@@ -2635,70 +1273,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying Rock operations and administration ideas from The Science of Finding Greatness in People, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "90c66ddc291ba6478b1f156f7d589b69f7133b2588585e1a2911b44964b8dcf3",
-      "claim_id": "claim:caa92359943ff751f44e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b44b10e27b5f61d577850026bdc9202568938bfe89e439fcd5c3daaae713f55",
-      "source_record_ids": [
-        "rock_podcast_rss:8babd99aff812f66"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people",
-          "title": "The Science of Finding Greatness in People",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-210-the-science-of-finding-greatness-in-people"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Extending the Add Family Block is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "c52f22926f9adefd267399e23ce4e2403fab19b7d4510b838f3044c38a9c46b5",
-      "claim_id": "claim:ce4c5739df0ab6085a18",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "725a9cc456818017bd8fc7b887c0cf2120c5245864d65cb8567b7b7761cc98ec",
-      "source_record_ids": [
-        "rock_rocku:d48e27874620e147"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Extending the Add Family Block",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When troubleshooting notes, inspect the person profile surface, note type, permissions, author/date metadata, and any workflow or report that consumes note data.",
-      "claim_hash": "94f7adeed6fdf772dd0da51b17a04b62b99379f5f9ab347373c699550e7dd5c5",
+      "claim_hash": "43702485987c167be4e500482132332a7e0023e1be43eef5271da71deb92e0e4",
       "claim_id": "claim:ced0968707b2a7a9d6a1",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2733,6 +1314,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fd17c3ba5ba32ff7925b4f7a14bb3d124cb603ad6814825596756fc4975c9759",
       "source_record_ids": [
         "rock_rocku:a7e02a5142f7bd4b"
@@ -2746,46 +1328,13 @@
           "title": "Person Note",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For reporting, analytics, and measurement, Impersonation should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "e1b4a10eac978d735cd8d0a093c00f03bb6532e7d35c440d5eaaccb69b754207",
-      "claim_id": "claim:cfadf9788c383eccc6aa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "844fb872e3e2d334710146a85eecc25d5cbff862a3c9cd9b6cb85a5d17b2d8ac",
-      "source_record_ids": [
-        "rock_rocku:0d3708c1310b86f4"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation",
-          "timestamp": "01:17",
-          "timestamp_seconds": 77.0,
-          "title": "Impersonation",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Person Note adds people/security guidance: notes are structured staff context, so note type, visibility, lifecycle, and downstream consumers should be reviewed together.",
-      "claim_hash": "cf5f69ffe76bbda5e495f8bc36eb264fc17d54f86ba121d1c4c7829c5fe1d7dd",
+      "claim_hash": "51020a1169b8a645172b5c60275e76fffedae6bf48d61b99cf946e504a04abae",
       "claim_id": "claim:d05b489f19422db6596f",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -2819,6 +1368,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fd17c3ba5ba32ff7925b4f7a14bb3d124cb603ad6814825596756fc4975c9759",
       "source_record_ids": [
         "rock_rocku:a7e02a5142f7bd4b"
@@ -2829,12 +1379,13 @@
           "title": "Person Note",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Connections work should be modeled as a ministry follow-up process: define the person, opportunity, connector, status, and next action before automating or reporting on the flow.",
-      "claim_hash": "3685b861f884714b3934cef0a0c612486031e61bc9d30e4e185c6303a76bbb38",
+      "claim_hash": "2a4a08b038d879d73a0edd3a763698f64080ff0892c97f99b586629a3eab84cd",
       "claim_id": "claim:d270bb647c2f125dcbdd",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2868,6 +1419,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "784e2b127aaf5eaddb25ac74c524f793280e7763122c37a860425e0b5a0f5d87",
       "source_record_ids": [
         "rock_rocku:a7cecea2cefec5f0"
@@ -2881,12 +1433,13 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "For reporting agents, data integrity issues should be surfaced as source-data problems, not hidden by report logic that masks duplicates, missing values, or stale attributes.",
-      "claim_hash": "03e963cd44475114066672223ba357308940a414d9ac5e38537e1637914d49bc",
+      "claim_hash": "fbb604e00f2cf6b898fdaa3e47918b4749517e306a50e3530643e29f33dd2e7a",
       "claim_id": "claim:d40bfdc2c3879d0290a3",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2920,6 +1473,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fdeb2c3c7364296a3fab105aa80be32a7fe9fcfc29c62db5615f248e4d683341",
       "source_record_ids": [
         "rock_rocku:c680a16482a4af12"
@@ -2933,79 +1487,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Impersonation RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "960345891fccb6b750e46775ccce56e0e68e00b77389d555f0b444c39caf1a7d",
-      "claim_id": "claim:e1dcf1fa4615c63f3475",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "844fb872e3e2d334710146a85eecc25d5cbff862a3c9cd9b6cb85a5d17b2d8ac",
-      "source_record_ids": [
-        "rock_rocku:0d3708c1310b86f4"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation",
-          "timestamp": "00:55",
-          "timestamp_seconds": 55.0,
-          "title": "Impersonation",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/impersonation"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Profile-page redesign work is a core platform surface, so guidance about people records should consider both data-model behavior and the user experience that staff see every day.",
-      "claim_hash": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-      "claim_id": "claim:ea894b6fede30d2ad628",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "00:55",
-          "timestamp_seconds": 55.76,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Data Integrity adds guidance for people and reporting work: prove the source of truth, understand cleanup ownership, and verify downstream reporting impact before changing records.",
-      "claim_hash": "bc4e4de91c762909005ac7f9e1cb3db72d6d72d521bf9781df2470800d1d945d",
+      "claim_hash": "3badb3f7373bd7d586d8e779db33daf2c6f426419a8bb6ce7a579f6e253e772b",
       "claim_id": "claim:eaf5339dcaba6881e50d",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -3038,6 +1526,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "defa838ee717a3c90564a987a5b26caf4bc0ef964ea1ed7e25d3c4bbc6550e01",
       "source_record_ids": [
         "rock_rocku:8d8c28f726e09218"
@@ -3048,45 +1537,13 @@
           "title": "Data Integrity",
           "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Nameless People RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "1a42f86d5ab0b9b894ad04b99c8d9f9abe3c46efb1940cb151cb8e32b5cb0f10",
-      "claim_id": "claim:eec8ad7bdec855d0bfe5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "905c846b4365f973d7ffd4a011194f54385b87746fd5de206541a325a26ddfd1",
-      "source_record_ids": [
-        "rock_rocku:37a5719afb8ff6dc"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/nameless-people",
-          "timestamp": "01:20",
-          "timestamp_seconds": 80.0,
-          "title": "Nameless People",
-          "url": "https://community.rockrms.com/rocku/communication/nameless-people"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The v19 merge-person interface surfaces last-modified time and actor information so reviewers can compare record recency without separately reconstructing history. Treat recency as one merge signal, not proof that one record is correct.",
-      "claim_hash": "c2cc1099e2707d0f2298baa13f2e9a05c7fc1a8891f281ff29ea5e9d74b67e60",
+      "claim_hash": "b0b31917565ba4657badcd6e8f777cb1a4b26780b8611e0ce6caa27adda782da",
       "claim_id": "claim:f39e0cab003d876835c1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -3100,6 +1557,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -3113,148 +1573,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions.",
-      "claim_hash": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-      "claim_id": "claim:f3f4f67796a8e9204d0b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "11:37",
-          "timestamp_seconds": 697.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data.",
-      "claim_hash": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
-      "claim_id": "claim:f52a2e57057018037f30",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "30:53",
-          "timestamp_seconds": 1853.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The How to Delete a Person RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "73ce8cd0b5ebbdeb2ed9f7f5e3f0552c2ddadee7769a5db354880dbea05f7179",
-      "claim_id": "claim:fa541bf79671c9fe6bc5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "people-families",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "18689956e917a1c9ae21f03749b116867fc1b56a7b0a6647cc7f5a6dfff9cd48",
-      "source_record_ids": [
-        "rock_rocku:c59b260abd179b4d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person",
-          "timestamp": "00:11",
-          "timestamp_seconds": 11.22,
-          "title": "How to Delete a Person",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/how-to-delete-a-person"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Extending the Add Family Block RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "6e0ab8ea8cacd54f08b2b86cdd6eefae1fdf21bfdb3d1fb46b1db0bbdb1c107b",
-      "claim_id": "claim:fb836b0246af451e25b9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "725a9cc456818017bd8fc7b887c0cf2120c5245864d65cb8567b7b7761cc98ec",
-      "source_record_ids": [
-        "rock_rocku:d48e27874620e147"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block",
-          "title": "Extending the Add Family Block",
-          "url": "https://community.rockrms.com/rocku/individuals-in-rock/extending-the-add-family-block"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Connections Overview should frame connection requests as person-centered ministry workflows with defined types, opportunities, statuses, activities, and staff follow-up responsibilities.",
-      "claim_hash": "545908aa56322e9d6ba18b20e9a4fac458e72a7c3227946035fbe82cfa14e195",
+      "claim_hash": "e382dfdb7c9f60c1fd09dedfe166554eda74b22e4111993a8aaed0d1ebad54fe",
       "claim_id": "claim:ffa69d01f0fb1999048c",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3289,6 +1614,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ac34d22febf1751c2cf4a5a64e4c38f7e5c84cf07e762461ce7d95e1a1c3e626",
       "source_record_ids": [
         "rock_rocku:028b35260711018b"
@@ -3302,98 +1628,45 @@
           "title": "Connections Overview",
           "url": "https://community.rockrms.com/rocku/engagement/connections-overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:00300ae5ab574ad7c48b": "fd5e81cc9715e37783e2dcbc04ac766f2a0ba4c4b4879a53396cfc2222580da4",
-    "claim:02385390c0f4337809d5": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-    "claim:0908427b3d9b47d8b69e": "744ba77f8757fa4ec0f49842ff0dfa8459757a8fb83c90e08b0a81898c801d26",
-    "claim:09c6a4834867ba6879d7": "edb3898f19f4f00207bab521cbae41152049de6f7cf562d6e3e0bac44652f03a",
-    "claim:0ddb889a54d8094652dd": "c73aac9ced663a97023764275c22e740dc777757555a7ae73672de6b412d3f66",
-    "claim:10270a60fc64380cd39d": "a849da76cf161d71b9ec9682af6bffc1ddd1198194159d88c0a6727ac542a7e5",
-    "claim:1c9c3c9397fda34d3851": "1c34278a35b0c97451038780bea8b6a7a20a2c012320ee8b8fd83a362a8bfcb8",
-    "claim:22176cf38ff41cb388f6": "6fae11ea06f5a28bea618b1ac21e27fe0b1a9a709bdeb5a7f9b13248fe788a4c",
-    "claim:23c173130e89f0eba735": "0877c91852fbbf53266f17654ccb482a4cec3dd5bba97c16963f079ed94a27e2",
-    "claim:273569623174af9b2460": "b5077df86660eaeb49faa0357150a8a85f9cfa0b5ea25f755e3a9d4f8c772e39",
-    "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-    "claim:2a687dbd43ece0d98a0b": "709dee955d7915c1f57eb3c2b87c2947e99c2e50fe842903d86bb04768d1c8c8",
-    "claim:2fed0aac2c5693503a5d": "c3432e0de2c355ff749ab5388d100c0e98bc569f9a4117acaa3a75136881bdef",
-    "claim:2fedca54c255f13d1e3d": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-    "claim:34144e7226c4a430a307": "bd09afc19dfda0624bdac389ca98ea4aa9bd1a48f82ab85eaf048e523411714d",
-    "claim:3f738c05a64d9c6dad01": "eff76d88728e02c8950e1ceba13efc3cb52ee67b918fb18bdaacf047450b5b8f",
-    "claim:3fc56ad5fc19cdfd4440": "1ff676cc28571dd661441be4a5fa6a8464752c714e59eecf4047295d26820cd3",
-    "claim:42a75a1b8fa81b064517": "798e0876b54a915284ccc8063e7cd2d3cf50c3b0de2e3fbe12316946f6dd087b",
-    "claim:44be8d2c614db1eb61cf": "9a4ce8717b5accdfb6b04ea1902f295f9fed272c4f033b2405fd12998e46a5bd",
-    "claim:492590a6f2c5663ddb8d": "f2a4559b86cc412e1007094e3c24bf00a04654fb1eb70b7be6d812f7dc170b6c",
-    "claim:49c7e201c622845cdc6d": "939bf6415f9bcf3fca94634aeedc20d30b5f104f83607f7fa65b9a3a00ef6553",
-    "claim:4ccbececc1c30ce62894": "a008c43fdf23bccfbd9a8e04f7acb87716e63cd830ab807e9588131c630b17c9",
-    "claim:4e652fba430b78fbed99": "0a6a08a10e47ef2b03f0a07c2f44027629c0fdaea5b7a772bf87dcf1ffc8877f",
-    "claim:4f68b83980d6f8b3883e": "d0579b1436c6556d4e31adeaddf3b97b96f6b9b3b842cdcd84bccb477da829a7",
-    "claim:500a7b4f982a05581d2e": "f4e31a94b34f5260f3500c2488d22d8653993b0119c19bf03c2603b3b8b24693",
-    "claim:501653152b1f906ccfcd": "be450b631c04fa8ff2a691efce1dd2834ede24a11eb513b619f62386c206809e",
-    "claim:540a7f1cff7d052229d5": "e27dd6401314310c3d087e694295dac4de8a781770d7ffd9ef1db253b7d13ed6",
-    "claim:57298eb943d1acbad3ee": "b64ae86dbda892f96ac6c3967238995a0da1d55bbd5a161ae89d5202ee619e91",
-    "claim:57b56ebf5bb293682e3d": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
-    "claim:5aa2748e70047b547cb0": "e70bd166c14df13c853fd8e42dc5cb0e8a4cc7478c67eafc7465c230698e7fd9",
-    "claim:5c53977793c7673b19e9": "a981e2adfcd030763a98fdf5795df2fcc8a877003cb8922ab40f354f68cbea33",
-    "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-    "claim:5d80cd1847429a0181d0": "6fac8a2dfdc46fb4612fd1a21f29a28899b4d56812a50b7e6c63f35cc32d36ca",
-    "claim:64100db2b5d60396b9fd": "1321b57ae11d8c65743803bf0809a35915d373a0ffc15bdc6189e705618f4334",
-    "claim:6c582edbd5e893707de9": "4a9e9c41abd95b63c142cf7eb66549b49360ddd7f8cf9dff5266650751b4d785",
-    "claim:6ea0912f1e9a77889f5f": "5eac60a0f814af58054b346132a46244f6eb5730127b8a107f9e47b2bcea6f62",
-    "claim:6f98a09c6c7d3a9a4665": "28a47193a88b438f695d320b6555296f2e9b3111ef23295d741bda544558de52",
-    "claim:7294ceea1bdeccdf7ea0": "97b398628db5a0a8e777f470e933ba1ee2cd4a478c0c2ed77e001f618fe3dbd7",
-    "claim:791458dc76400b3da8da": "d52df06742b25e880e1daef7aaf72eb825954f653dcde6d775a8a6a1065247ad",
-    "claim:7e9a4bdea4ebdb5d77a4": "3402a0bab5b18062be80c6cb7a6076b18ebb3f34db5623e03778d1674e46d4e5",
-    "claim:82a64d99bfa7fdab38bc": "45723a40d67b6481835a902391d0f6b18d462d54a8f546efee6b94f459515882",
-    "claim:8ffba8d5adf492765f21": "fe3dd70c1fdfcfa8ca43ae9e7e0d73dd1e2b15e562a8dd6e90f2b70a73b352e9",
-    "claim:90c918310ef30a92a729": "07e30a0a7b2ec45702c69a65b961e28794ca5f6e4f4433fd79dd5c2a402a0ba6",
-    "claim:90fecb6ea51cf994ff92": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
-    "claim:913ffb3303c6dcb2e26c": "eab3a126e7e8c231d50f31e0d985d6fc31c60df8bfc0dde7dfb55eeebcd6e1e8",
-    "claim:91ee6520b15a13ead962": "cb23434dd4e23b6f478755e8f6606346254bd9c89d19c7abd8aea4b59bf0d156",
-    "claim:9260ce1aea17941a5a86": "3fa39191b7c1c42b4b6b0b06bc5133a457a4fdbe02c4c99f57489475ad9daea1",
-    "claim:95e015e3407ed10e9e7c": "4170d26f990ea8c93ecd844887403d95362ddbfd5002e0c1d4cf0715617c178e",
-    "claim:970086a35aa016eccb8d": "1c5f232765de7a52ca786f3a6ecb9ea97c64eb6c3b9cbc924f26016eeb44fefa",
-    "claim:97ae57b97266caea8f75": "80dbf19abc4366255657a2c099a332321d7b5ab5361022a0c3df1452f4e05838",
-    "claim:9a034b921673b77040a0": "ebf9d05e602429c64af8aa38069e7d3ffdaf7f5894cc46b8e964ba4683682f49",
-    "claim:9a75fb2b9c38be765e70": "53363baf4947b29c41b3b1b6e201644bc282f5edea6a8fe3b94935f4b96ca827",
-    "claim:9c621a0a1da89f842a39": "476b04d7134e5e868cfe33e3f9dec47e1396b71b67fdecf4b98ad2925c193736",
-    "claim:a597e840492b8dafcc0f": "f4187bd256ffac251504e97c344c73dfd11a6a65fad2b3f090efd29054bc5300",
-    "claim:a5c497a69f1a8269eb53": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-    "claim:a8588d83f55b13b80b22": "8f6a09363489fdae6f51e7e0bb084dc2eb8682655b3ad38fd034a63581f041e2",
-    "claim:aa9bc11f94de611f2ce6": "7570ff3462df353103c0c5b8b7d904653b4d3bcd54b9bcb185ba81ff96a9ce42",
-    "claim:b6025804c011523e291d": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
-    "claim:b70ff909b2c3eb102800": "168748c6a4033d04eb60fa00138838d28169ebb664230af1ee6c4e1a25fd1a54",
-    "claim:b81391274ac89ca6c69f": "9abac694eb92505d72cb40ed5f541614abaf80ef99c69b3b8f727df738c1cd78",
-    "claim:b8b80a9fc8b14aa1b81a": "fc4bcc3e27e6e2368d0f1df346cb4cc888961d3ca0ca797396c3ceb4affbf6f7",
-    "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-    "claim:ba15698ecadd55ce215a": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
-    "claim:ba9cefb31c9ae55252fe": "f1567e6bb4c015db4bbdca47fbb2d8985495e8a0b060fa02b0e3ce28b6632211",
-    "claim:bd2faf9d63fc7ecc41c1": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
-    "claim:bf0dd30833759cfeca26": "9ad93a7de4ba035ed8a9d871c654b3f5971c260e5238a23fb08b65cc8bc4a993",
-    "claim:c161a6f06a707e04dbea": "4f30a481cc5d51b3bda60eee429db83de2dbadceaa312f392ca6ec0e62150bd2",
-    "claim:c32bfbd7f901d3392cc9": "d6c61e4f9360c9d9f8578cccba670061b0d96fcdcc2b7a7644272c032ea9c870",
-    "claim:c72b51f135099fcd7f5d": "c9ac5e9d74882709c5c52b19c4d9b9b6ecb9337e7b3542e906abbf40e0ecce70",
-    "claim:caa92359943ff751f44e": "90c66ddc291ba6478b1f156f7d589b69f7133b2588585e1a2911b44964b8dcf3",
-    "claim:ce4c5739df0ab6085a18": "c52f22926f9adefd267399e23ce4e2403fab19b7d4510b838f3044c38a9c46b5",
-    "claim:ced0968707b2a7a9d6a1": "94f7adeed6fdf772dd0da51b17a04b62b99379f5f9ab347373c699550e7dd5c5",
-    "claim:cfadf9788c383eccc6aa": "e1b4a10eac978d735cd8d0a093c00f03bb6532e7d35c440d5eaaccb69b754207",
-    "claim:d05b489f19422db6596f": "cf5f69ffe76bbda5e495f8bc36eb264fc17d54f86ba121d1c4c7829c5fe1d7dd",
-    "claim:d270bb647c2f125dcbdd": "3685b861f884714b3934cef0a0c612486031e61bc9d30e4e185c6303a76bbb38",
-    "claim:d40bfdc2c3879d0290a3": "03e963cd44475114066672223ba357308940a414d9ac5e38537e1637914d49bc",
-    "claim:e1dcf1fa4615c63f3475": "960345891fccb6b750e46775ccce56e0e68e00b77389d555f0b444c39caf1a7d",
-    "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-    "claim:eaf5339dcaba6881e50d": "bc4e4de91c762909005ac7f9e1cb3db72d6d72d521bf9781df2470800d1d945d",
-    "claim:eec8ad7bdec855d0bfe5": "1a42f86d5ab0b9b894ad04b99c8d9f9abe3c46efb1940cb151cb8e32b5cb0f10",
-    "claim:f39e0cab003d876835c1": "c2cc1099e2707d0f2298baa13f2e9a05c7fc1a8891f281ff29ea5e9d74b67e60",
-    "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-    "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
-    "claim:fa541bf79671c9fe6bc5": "73ce8cd0b5ebbdeb2ed9f7f5e3f0552c2ddadee7769a5db354880dbea05f7179",
-    "claim:fb836b0246af451e25b9": "6e0ab8ea8cacd54f08b2b86cdd6eefae1fdf21bfdb3d1fb46b1db0bbdb1c107b",
-    "claim:ffa69d01f0fb1999048c": "545908aa56322e9d6ba18b20e9a4fac458e72a7c3227946035fbe82cfa14e195"
+    "claim:00300ae5ab574ad7c48b": "6702bda9204c30dd5ff98279b09ceba645c8d6f9a75498ddcde1755f76a57197",
+    "claim:09c6a4834867ba6879d7": "d18c80cef07192f4cf0c2ee41f707b14b3b45f34a4132fec0d7f3b464fceff7b",
+    "claim:23c173130e89f0eba735": "b225573ceac0a841db4ad3fecd5b36581f1113367e3d19d46ebbdc2eac86162f",
+    "claim:34144e7226c4a430a307": "32e76c9421e03c1e10fece13b0ddbc19fba2850caf1a95f386cf30305bd71b50",
+    "claim:4ccbececc1c30ce62894": "7bc3d88e4c1e7620d2baf5ef65ec63090a31e536adf83521b4498013bd63bfc1",
+    "claim:57b56ebf5bb293682e3d": "15885df0d3612cc6c4e48e7a0ab19226f4146a3f7a98b63622535ccfdef56547",
+    "claim:5c53977793c7673b19e9": "63ee2ee2770ee6081caa95cee079d0b6b89fa6c5b5e558137c5a5bbd56b9fb9b",
+    "claim:5d80cd1847429a0181d0": "456550ceabe1684968591dda0b8935b58a11c5a638debcd30481357d8d7c50fa",
+    "claim:64100db2b5d60396b9fd": "ae63faa268d61153f6bcdd63a541e4df7222b918aea292545c512fba664fe1c0",
+    "claim:7e9a4bdea4ebdb5d77a4": "0ca9ea97dfe7443f3179bb06e603552ff11ecc7acf98c6a415148b7099905bc5",
+    "claim:82a64d99bfa7fdab38bc": "bc89eda10ee02f19483b41be7c410e2d2908191233fbce50e8fa175e63c93d15",
+    "claim:8ffba8d5adf492765f21": "d9596173dc88b1d1477e5ef273d76282d04b5773f396faca72866075fcf78243",
+    "claim:90c918310ef30a92a729": "74dd412c474f9d293a2a6efc5964ddde273dabb80bc4ab2d27763d39fcbdf0d6",
+    "claim:90fecb6ea51cf994ff92": "703c36edbfac623b571e7d95b6fdd399c3b93f6715dc494e616981ff621cfb7a",
+    "claim:95e015e3407ed10e9e7c": "4241c9768edba83e7bea7119ac7e11f5589850094bceb2221faf89016d00ebc3",
+    "claim:970086a35aa016eccb8d": "d86875d152f3b91875783ef274f8819c205d653fb1ad1745c8059514a0d70fe7",
+    "claim:97ae57b97266caea8f75": "b7921a4ce7b749ec7bb2dfcb88f8d67f5d81b9867e509cecf44f1fce491cae67",
+    "claim:9a75fb2b9c38be765e70": "dd34909fe1e8291a5d97567b4c28cb73b234029161c1f38ac1e0cfaa030da1b7",
+    "claim:9c621a0a1da89f842a39": "d0d27bfc907f3594bca7ed5460f25e10bec9cf44e6e3476f53e9f487fd0e4a55",
+    "claim:b6025804c011523e291d": "0740ed2aa3851d01c7f9629557d61fd505526d96e3e5b62d480868ecb0744da9",
+    "claim:b70ff909b2c3eb102800": "2aee8765d47419d247a71ad1a92c8881f00b1d7e539c59e57e0bf1df98b16344",
+    "claim:b81391274ac89ca6c69f": "a3e83e28f037c3b89f73487ae13faa6694baabd6443d0e689a0d4a0fb92a477e",
+    "claim:bd2faf9d63fc7ecc41c1": "1f2f65a93335b3f545b77ef597d3ec4d7f0a911cdcb656e7fc8d7866c5ac9eb8",
+    "claim:c161a6f06a707e04dbea": "f4a53f58ca2ad1a71f96f909b1b7e50ed55d6d466e449aeb706c5c4e983c1bd5",
+    "claim:c72b51f135099fcd7f5d": "c6838df271876233979042d2d6bf83fe62171f564c430a0bacc8c6720a78cfb9",
+    "claim:ced0968707b2a7a9d6a1": "43702485987c167be4e500482132332a7e0023e1be43eef5271da71deb92e0e4",
+    "claim:d05b489f19422db6596f": "51020a1169b8a645172b5c60275e76fffedae6bf48d61b99cf946e504a04abae",
+    "claim:d270bb647c2f125dcbdd": "2a4a08b038d879d73a0edd3a763698f64080ff0892c97f99b586629a3eab84cd",
+    "claim:d40bfdc2c3879d0290a3": "fbb604e00f2cf6b898fdaa3e47918b4749517e306a50e3530643e29f33dd2e7a",
+    "claim:eaf5339dcaba6881e50d": "3badb3f7373bd7d586d8e779db33daf2c6f426419a8bb6ce7a579f6e253e772b",
+    "claim:f39e0cab003d876835c1": "b0b31917565ba4657badcd6e8f777cb1a4b26780b8611e0ce6caa27adda782da",
+    "claim:ffa69d01f0fb1999048c": "e382dfdb7c9f60c1fd09dedfe166554eda74b22e4111993a8aaed0d1ebad54fe"
   },
-  "approved_claims_hash": "1b17f1d34a410e6ff790996447c14c95737c12576145722812a54ca2758c7f22",
+  "approved_claims_hash": "b1af50f4413323f5d425a7eb6e38647eec1f38f2db208ff0f774ecf35a3a850e",
   "approved_claims_path": "knowledge/concepts/people-families/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3831,9 +2104,9 @@
   },
   "approved_media_hash": "20b69eadcc9511a5a54f8b14d28c7bb5347375a58c10492e985f420aadd8713c",
   "approved_media_path": "knowledge/concepts/people-families/approved-media.md",
-  "built_at": "2026-07-26T00:30:09+00:00",
+  "built_at": "2026-07-30T02:08:17+00:00",
   "concept_id": "people-families",
-  "guide_hash": "b9447046124bcb05315a7b9e8369d6042ad534cfcf7757323d9e7c9c149caee7",
+  "guide_hash": "b3887990eee3981145f3ee0740d335c3f4c6188c0f8c58e69f102e59d5446b28",
   "guide_line_count": 1832,
   "guide_path": "knowledge/concepts/people-families/guide.md",
   "guide_word_count": 18962,
@@ -4433,6 +2706,7 @@
       "url": "https://community.rockrms.com/recipes/159"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -7937,5 +6211,6 @@
       "version": null
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

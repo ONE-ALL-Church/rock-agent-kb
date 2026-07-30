@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Add A Translation Shortcode
 
-Follow the guide section for Recipe: Add A Translation Shortcode.
+Complete Add A Translation Shortcode with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,25 +24,20 @@ Follow the guide section for Recipe: Add A Translation Shortcode.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Decide static translation table versus external translation API.
+2. Store language preference on the right entity.
+3. Avoid translating sensitive content externally unless approved.
+4. Cache API translations.
+5. Escape JavaScript output.
+6. Handle dynamic DOM updates only if needed.
+7. Verify accessibility and staff maintenance path.
+8. Review command enablement and API keys.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Avoid translating sensitive content externally unless approved.
 
 ## Source Links
 
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/fluid/differences
-- https://community.rockrms.com/lava/commands/taglist-commands
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs
-- https://community.rockrms.com/developer/helix/lava-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs
+- https://community.rockrms.com/recipes/536
+- https://community.rockrms.com/recipes/368

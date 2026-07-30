@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Permission Change Request
 
-Follow the guide section for Recipe: Review A Permission Change Request.
+Then implement the smallest change and test.
 
 ## When To Use
 
@@ -16,17 +16,20 @@ Follow the guide section for Recipe: Review A Permission Change Request.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Is this access temporary or durable?
+2. Does an existing role match?
+3. Does the requested action require View, Edit, Administrate, Approve, Delete, Refund, or ManageMembers?
+4. Is the data sensitive?
+5. Is there a lower-scope object?
+6. Does this require workflow/report/API changes too?
 
 ## Do Not Assume
 
@@ -35,14 +38,14 @@ Follow the guide section for Recipe: Review A Permission Change Request.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
-- https://community.rockrms.com/developer/303---blast-off/rock-security
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs
 - https://community.rockrms.com/lava/remote-lava
 - https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
-- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://community.rockrms.com/recipes/441
+- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
+- https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
+- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn
+- https://community.rockrms.com/rocku/groups/group-security

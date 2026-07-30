@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Identify Why A Group Is Not Visible
 
-Follow the guide section for Recipe: Identify Why A Group Is Not Visible.
+Complete Identify Why A Group Is Not Visible with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,28 @@ Follow the guide section for Recipe: Identify Why A Group Is Not Visible.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Group`
+- `GroupType`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Group`
+- `GroupType`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Group row: active, archived, parent, Group Type.
+2. Security: page, block, group type, group.
+3. Group Type: allowed hierarchy and finder settings.
+4. Finder/viewer block settings.
+5. Template logic and rights filters.
+6. Query string/page parameters.
 
 ## Do Not Assume
 
@@ -36,13 +47,13 @@ Follow the guide section for Recipe: Identify Why A Group Is Not Visible.
 
 - https://community.rockrms.com/documentation/bookcontent/7
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://community.rockrms.com/rocku/groups/group-administrator
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PersonGetGroupTypeAttendance.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
+- https://community.rockrms.com/ask/developing/2801
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
+- https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs
+- https://community.rockrms.com/recipes/220
+- https://community.rockrms.com/recipes/329
+- https://community.rockrms.com/recipes/519
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view

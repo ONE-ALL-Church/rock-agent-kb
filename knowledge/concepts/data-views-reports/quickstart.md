@@ -17,14 +17,14 @@ Data views, reports, SQL, BI, metrics, analytics, and model/data discovery.
 
 ## Primary Tasks
 
-- [Recipe: Answer "What Does This Report Actually Show?"](tasks/recipe-answer-what-does-this-report-actually-show.md): Follow the guide section for Recipe: Answer "What Does This Report Actually Show?".
-- [Recipe: Answer "Can I Change This Data View?"](tasks/recipe-answer-can-i-change-this-data-view.md): Follow the guide section for Recipe: Answer "Can I Change This Data View?".
-- [Recipe: Build "People Who Attended X But Not Y"](tasks/recipe-build-people-who-attended-x-but-not-y.md): Follow the guide section for Recipe: Build "People Who Attended X But Not Y".
-- [Recipe: Build "Lapsed Givers"](tasks/recipe-build-lapsed-givers.md): Follow the guide section for Recipe: Build "Lapsed Givers".
-- [Recipe: Build "Where Are Our Reporting Tools?"](tasks/recipe-build-where-are-our-reporting-tools.md): Follow the guide section for Recipe: Build "Where Are Our Reporting Tools?".
-- [Recipe: Validate A BI Finance Dashboard](tasks/recipe-validate-a-bi-finance-dashboard.md): Follow the guide section for Recipe: Validate A BI Finance Dashboard.
-- [Recipe: Audit Reporting Security](tasks/recipe-audit-reporting-security.md): Follow the guide section for Recipe: Audit Reporting Security.
-- [Recipe: Diagnose Slow Reporting](tasks/recipe-diagnose-slow-reporting.md): Follow the guide section for Recipe: Diagnose Slow Reporting.
+- [Recipe: Answer "What Does This Report Actually Show?"](tasks/recipe-answer-what-does-this-report-actually-show.md): Complete Answer "What Does This Report Actually Show?" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Answer "Can I Change This Data View?"](tasks/recipe-answer-can-i-change-this-data-view.md): Complete Answer "Can I Change This Data View?" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build "People Who Attended X But Not Y"](tasks/recipe-build-people-who-attended-x-but-not-y.md): Complete Build "People Who Attended X But Not Y" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build "Lapsed Givers"](tasks/recipe-build-lapsed-givers.md): Complete Build "Lapsed Givers" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build "Where Are Our Reporting Tools?"](tasks/recipe-build-where-are-our-reporting-tools.md): Complete Build "Where Are Our Reporting Tools?" with evidence-backed checks and a verifiable outcome.
+- [Recipe: Validate A BI Finance Dashboard](tasks/recipe-validate-a-bi-finance-dashboard.md): Complete Validate A BI Finance Dashboard with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit Reporting Security](tasks/recipe-audit-reporting-security.md): Complete Audit Reporting Security with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose Slow Reporting](tasks/recipe-diagnose-slow-reporting.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

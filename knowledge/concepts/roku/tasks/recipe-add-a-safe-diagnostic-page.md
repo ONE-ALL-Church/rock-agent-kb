@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Add A Safe Diagnostic Page
 
-Follow the guide section for Recipe: Add A Safe Diagnostic Page.
+Do not show API keys, tokens, person IDs, email addresses, or sensitive attributes. Remove or lock down the page before production launch.
 
 ## When To Use
 
@@ -16,33 +16,42 @@ Follow the guide section for Recipe: Add A Safe Diagnostic Page.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Label`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Label`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. App/environment label.
+2. Whether `CurrentPerson` is present.
+3. Selected context keys.
+4. Current time.
+5. A button to test navigation.
+6. A button to clear context.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not show API keys, tokens, person IDs, email addresses, or sensitive attributes.
 
 ## Source Links
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/remote-lava
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://www.triumph.tech/resources/ai-in-digital-ministry
-- https://www.triumph.tech/resources/github-spotlight-1042024
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/lava/commands/personalize-commands
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/PersonalizationSegmentDetail/pageViewSegmentFilterBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs

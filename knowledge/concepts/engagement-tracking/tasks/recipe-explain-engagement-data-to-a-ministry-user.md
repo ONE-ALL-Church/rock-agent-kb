@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Explain Engagement Data To A Ministry User
 
-Follow the guide section for Recipe: Explain Engagement Data To A Ministry User.
+Then ask for the operational decision they need to make. That determines the correct data source.
 
 ## When To Use
 
@@ -16,17 +16,21 @@ Follow the guide section for Recipe: Explain Engagement Data To A Ministry User.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Step`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Step`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Steps show where someone is in a configured ministry path.
+2. Streaks show consistency over eligible attendance periods.
+3. Assessments show self-assessment results and history.
+4. Achievements show whether a configured goal has been attempted or met.
+5. Reports depend on which of those definitions the ministry means by “engaged.”
 
 ## Do Not Assume
 
@@ -35,14 +39,14 @@ Follow the guide section for Recipe: Explain Engagement Data To A Ministry User.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
-- https://community.rockrms.com/documentation/engagement/assessments
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
 - https://community.rockrms.com/documentation/engagement/steps
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
+- https://community.rockrms.com/documentation/engagement/streaks
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
 - https://community.rockrms.com/recipes/233
-- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-programs
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type

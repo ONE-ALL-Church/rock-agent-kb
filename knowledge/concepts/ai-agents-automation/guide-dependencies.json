@@ -1,40 +1,11 @@
 {
+  "answer_bearing_claim_count": 18,
+  "approved_claim_count": 18,
   "approved_claim_dependencies": [
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session is useful as public-safe context for community practice around emerging technology, mobile launches, and finance/workflow requests. It does not provide a single product tutorial, but it reinforces that Rock teams should bring concrete use cases to peer review, document what was tried, and separate experimentation from production changes.",
-      "claim_hash": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
-      "claim_id": "claim:019724f21243d61181e2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
     {
       "authority_tier": "official",
       "claim": "Connection-request AI summaries and insights require a configured prompt on the connection type and a configured AI provider. Their output should be treated as generated assistance, not authoritative person data.",
-      "claim_hash": "2d242111b18fc3c14ed5f6348198b4920677daee13645200d56861f6ca3104f8",
+      "claim_hash": "60fc7bd81c054fa03b8607e6a55120012da29a30b76e035b8e5672ab1ca86ccd",
       "claim_id": "claim:069aa7a39db4563841a2",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -48,6 +19,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "914743ce888dda0e9e6671ba6a8745dcf2f85a1a81846cbe2dc816cf7f06a854",
       "source_record_ids": [
         "rock_youtube:62320adf4b451da8"
@@ -61,305 +33,13 @@
           "title": "Connections Helps Prevent Your People from Falling Through the Cracks",
           "url": "https://www.youtube.com/watch?v=7rxTGLLhlrU"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Short-form video should be treated as ministry content with a clear next step, not only as entertainment or social promotion.",
-      "claim_hash": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
-      "claim_id": "claim:07423eadba1a22784cc4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "04:46",
-          "timestamp_seconds": 286.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe guidance for evaluating AI search and advanced digital experiences in Rock-backed websites and apps. It highlights the value of intent-based search, mobile and web integration, and careful plugin review before exposing AI-generated responses or search behavior to users.",
-      "claim_hash": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
-      "claim_id": "claim:080d393b5f32031d1eaa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it.",
-      "claim_hash": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
-      "claim_id": "claim:0ed16cad9954cfbf26ed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1989s",
-          "timestamp": "33:09",
-          "timestamp_seconds": 1989.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This official podcast edition carries the same RockIQ Q&A covered by the reviewed video edition. Use it as an alternate source route, while treating rollout, pricing and pre-release behavior as directional until current documentation and release notes confirm them.",
-      "claim_hash": "9e0d8aabff1a6de57ccf5a6ad42de0942cc134ca1dbb146cc95bc5e351c0501b",
-      "claim_id": "claim:112fa95d4dce5441ec91",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "32b78a65020b0be6993e25b2fe679ee3abf03ee818882c51604f1a6b52ad03d5",
-      "source_record_ids": [
-        "rock_podcast_rss:b122378049fdae19"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This official podcast edition supports the same managed-data-access guidance as the reviewed video edition. Product rollout, external model news and event statements are context only.",
-      "claim_hash": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
-      "claim_id": "claim:17bb0634cc6ebe52d71b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
-      "source_record_ids": [
-        "rock_podcast_rss:9ace837daaae3cd2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
-          "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Use this short only as a route to the completed Rock AI Summit recording and its reviewed distillations; event timing and preview statements do not establish current product availability.",
-      "claim_hash": "45807e78cb49a06ccf1782b811afaeef53a925ee4508d266cf89c0b27d65cde2",
-      "claim_id": "claim:1a721dbf2c4cc03cada3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "93d6d43578cbe812c2dfb29186a887f02d58be57fccef759b9cf9c553c4e49d2",
-      "source_record_ids": [
-        "rock_youtube:3272c841f31e0d28"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/shorts/tW4104R1N_o",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Last Chance to Register for the AI Summit",
-          "url": "https://www.youtube.com/shorts/tW4104R1N_o"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Emerging technology pilots should stay clearly labeled as experiments until output quality, data boundaries, and ministry usefulness are verified.",
-      "claim_hash": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
-      "claim_id": "claim:1d2211c90cee65515cac",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
-      "source_record_ids": [
-        "rock_community_hubs:f325315718b03eb6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
-          "timestamp": "02:27",
-          "timestamp_seconds": 147.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Manual curation still matters for sermon and video libraries because view counts alone do not capture pastoral impact, ministry priority, or whether a message should be highlighted again.",
-      "claim_hash": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
-      "claim_id": "claim:1ead6da71f9e978d17a2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
-      "source_record_ids": [
-        "rock_community_hubs:87de570d7b164f63"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
-          "timestamp": "03:12",
-          "timestamp_seconds": 192.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Mobile launch and finance work should be tracked as real operational projects with explicit owners, requirements, and verification steps.",
-      "claim_hash": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
-      "claim_id": "claim:269534d094015b5c51b4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "06:10",
-          "timestamp_seconds": 370.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation.",
-      "claim_hash": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
+      "claim_hash": "bd385211a6a44172d6835d029b4cfda62dfe24b80db5addb537ea20fb15b0076",
       "claim_id": "claim:2a2a9fc94666d58b0e4f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -374,6 +54,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -387,12 +68,13 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use.",
-      "claim_hash": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
+      "claim_hash": "10c4e528501bd19523ce5e9df0e2380f248722bc2c6042636f8ddc1c1356e13e",
       "claim_id": "claim:2a7ef23854b5dd315c7d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -407,6 +89,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -420,246 +103,13 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight.",
-      "claim_hash": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-      "claim_id": "claim:32a99dc42dcf7a1796f3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "07:13",
-          "timestamp_seconds": 433.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Digital content libraries work best when they connect messages, topics, and practical next steps instead of leaving users to browse isolated videos.",
-      "claim_hash": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
-      "claim_id": "claim:346913bd1856267cc39d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "09:27",
-          "timestamp_seconds": 567.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance.",
-      "claim_hash": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
-      "claim_id": "claim:3840e502df599a6bf7a2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=451s",
-          "timestamp": "07:31",
-          "timestamp_seconds": 451.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The episode describes Rock 19.4 as the team's target for initial Rock IQ availability, not as a committed release, and advises churches to complete their Rock 19 upgrade work first. Confirm the final version and timing in current release notes before planning a rollout.",
-      "claim_hash": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
-      "claim_id": "claim:41757e63aea1a926ff6d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=43s",
-          "timestamp": "00:43",
-          "timestamp_seconds": 43.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The discussed implementation stores chat sessions in each Rock instance and records token usage that administrators can analyze. It describes an organization-wide monthly spending cap but no preventive per-user rate limit, so per-user oversight would require reporting and staff governance unless newer controls are added.",
-      "claim_hash": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
-      "claim_id": "claim:4560f75344e40a127605",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=771s",
-          "timestamp": "12:51",
-          "timestamp_seconds": 771.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions.",
-      "claim_hash": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
-      "claim_id": "claim:47b657cb5b577d54ad54",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "mobile",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1294s",
-          "timestamp": "21:34",
-          "timestamp_seconds": 1294.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Voice AI services may use provider-specific usage pricing rather than a fixed monthly fee. Churches should estimate realistic usage, compare cost with ministry value and verify current provider pricing before rollout.",
-      "claim_hash": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
-      "claim_id": "claim:49224f61275c9a1f8e96",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
-      "source_record_ids": [
-        "rock_youtube:1ea957f46e0460f1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=bu5nPeAVCAo&t=372s",
-          "timestamp": "06:12",
-          "timestamp_seconds": 372.36,
-          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
-          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Training staff to use Rock correctly reduces the likelihood that teams adopt disconnected tools whose data and workflows fragment the church's system of record.",
-      "claim_hash": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
+      "claim_hash": "028703347fc1a24be182fe6f594f534cefbf86a11922205ae9dd2a198f6f6c75",
       "claim_id": "claim:4b083dda9f0d9ccc4aff",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -674,6 +124,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -687,12 +138,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
-      "claim_hash": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
+      "claim_hash": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
       "claim_id": "claim:4b7b8d0b0379ceb7587f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -709,6 +161,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -722,12 +175,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock skills and tools provide Rock-side capabilities, while skills in an external harness can hold organization-specific business rules that guide how those capabilities are used. Churches should govern and version both layers instead of assuming the MCP tools alone contain local process policy.",
-      "claim_hash": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
+      "claim_hash": "efc180a1a3919021838717a92850019bb6ffba5aa5cf90171d20d2a9b15a80e7",
       "claim_id": "claim:538f1a4e0ad7c90f7c5a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -742,6 +196,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -755,47 +210,13 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When AI summaries are generated from person-profile data, the review should include data minimization, avoidance of direct identifiers, privacy-policy alignment, and vendor assurances about model training.",
-      "claim_hash": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
-      "claim_id": "claim:5775a4b44b920db2b74a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "connections",
-        "data-views-reports",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
-      "source_record_ids": [
-        "rock_community_hubs:94226d7c1f62174e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
-          "timestamp": "52:13",
-          "timestamp_seconds": 3133.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers.",
-      "claim_hash": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
+      "claim_hash": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
       "claim_id": "claim:57e32b4d554a759231a1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -812,6 +233,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -825,46 +247,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Online next-step pathways can combine dashboards, content, and LMS when the church defines the discipleship path being supported.",
-      "claim_hash": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-      "claim_id": "claim:5b83b8bc3538dc3e23d8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "02:17",
-          "timestamp_seconds": 137.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data.",
-      "claim_hash": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
+      "claim_hash": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
       "claim_id": "claim:60c2bcd25e1cce4efef4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -881,6 +270,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -894,43 +284,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session frames AI-assisted coaching and online learning as tools that still need ministry ownership. It connects LMS, dashboards, content, and mobile engagement to a discipleship path, while warning that AI should support reviewed coaching and resource routing rather than make ungoverned ministry decisions.",
-      "claim_hash": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-      "claim_id": "claim:679a11bb5e644db4bfaa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "When work must survive a conversation, prefer an agent workflow that creates a durable file or handoff artifact instead of leaving the result only inside a transient chat thread.",
-      "claim_hash": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
+      "claim_hash": "7bc8df66376549a50a03f768048c404547fd0e9b54a8427d501cd0f423f0d061",
       "claim_id": "claim:679a38216f2b07097624",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -945,6 +305,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -958,174 +319,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Peer learning works best when Rock teams bring action-oriented examples, not only abstract tool discussions.",
-      "claim_hash": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
-      "claim_id": "claim:6a9cad93b4b24bb5caa7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "02:56",
-          "timestamp_seconds": 176.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe guidance for turning sermon and ministry video libraries into searchable, reusable digital content. It discusses selecting messages by pastoral value and audience response, using platform analytics without over-trusting them, and using AI as a planning aid for titles, categories, and follow-up content rather than as an unreviewed publisher.",
-      "claim_hash": "e3441e23783f0cf75670d837ecaac346bbe7c525430d6838699ca61334046121",
-      "claim_id": "claim:6b5701fd90c4e3e812d6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
-      "source_record_ids": [
-        "rock_community_hubs:87de570d7b164f63"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before adopting AI or search plugins, teams should verify data sources, answer boundaries, security behavior, and whether generated results can be reviewed or tuned.",
-      "claim_hash": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
-      "claim_id": "claim:6cc8c3bca74b02773140",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "02:35",
-          "timestamp_seconds": 155.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub presentation provides public-safe guidance for churches evaluating AI. It frames AI as a fast-moving tool category that can assist ministry work, but requires clear use cases, privacy boundaries, staff training, review expectations, and model/vendor awareness before it is connected to Rock data or public-facing experiences.",
-      "claim_hash": "2f03112bf7b15655bbc4d5c3302e7035664ce5410e58de7c269454c8d70af883",
-      "claim_id": "claim:6e7bf075edacd7a79fa4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
-      "source_record_ids": [
-        "rock_community_hubs:d593e234279cb690"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI should be introduced around concrete ministry workflows and reviewable outputs, not as a broad replacement for staff judgment.",
-      "claim_hash": "4360a374d7feb7464711d9c31fe2839b4e66a6d586e3d492b3078c4c76a8bd26",
-      "claim_id": "claim:6e906a393a56e78661aa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
-      "source_record_ids": [
-        "rock_community_hubs:d593e234279cb690"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
-          "timestamp": "01:30",
-          "timestamp_seconds": 90.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL.",
-      "claim_hash": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+      "claim_hash": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
       "claim_id": "claim:725a3342f3dc657cc546",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1141,6 +341,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -1154,342 +355,13 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 202 adds public-safe operational context for Rock release awareness, community-shaped priorities, AI-assisted group matching, and documentation currency; concrete implementation guidance remains tied to official docs, release notes, source code, or live-instance verification.",
-      "claim_hash": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
-      "claim_id": "claim:72fde031881e443f8976",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "connections",
-        "groups",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
-      "source_record_ids": [
-        "rock_podcast_rss:1cb0de155ffacb15"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Rock's Future Anchored in Vision | Ep 202",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Urgent or culturally timely topics can become good candidates for curated content paths when they are connected to trusted ministry resources and follow-up actions.",
-      "claim_hash": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
-      "claim_id": "claim:777a543a16ec2b02c0c3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "08:07",
-          "timestamp_seconds": 487.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This is the official podcast edition of the reviewed RockIQ rapid-fire Q&A. It is retained as an alternate canonical route to the same release-sensitive discussion; use the existing detailed Episode 218 distillation and current release evidence for operational answers.",
-      "claim_hash": "ce0d2ae30073b62960f5e89b3ec8a254d2e0877b88d32822116c2f5f1e34f690",
-      "claim_id": "claim:77871e1a7bb3793b3de1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "32b78a65020b0be6993e25b2fe679ee3abf03ee818882c51604f1a6b52ad03d5",
-      "source_record_ids": [
-        "rock_podcast_rss:b122378049fdae19"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://shows.acast.com/rock-cast/episodes/rockiqai-summit-ep-218"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI plugin ideas should be evaluated against real church tasks, content sources, and security expectations rather than adopted because the model capability is new.",
-      "claim_hash": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
-      "claim_id": "claim:78c58644cb6bf965fb20",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
-      "source_record_ids": [
-        "rock_community_hubs:f325315718b03eb6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
-          "timestamp": "02:30",
-          "timestamp_seconds": 150.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Engagement goals should be tied to the path the church wants people to take, not simply to whether a digital tool was launched.",
-      "claim_hash": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-      "claim_id": "claim:79a3f931150e2af8fdf7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "03:39",
-          "timestamp_seconds": 219.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Data analytics meetups can help churches compare dashboards, process designs, and BI-tool choices against real ministry use cases instead of treating reporting as an isolated technical task.",
-      "claim_hash": "9de369fdec1e9ab700e6b28f0bd4d715a52d4fd848a4413e710dce5d92235259",
-      "claim_id": "claim:7fc20f1b607270dd550b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "connections",
-        "data-views-reports",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
-      "source_record_ids": [
-        "rock_community_hubs:94226d7c1f62174e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
-          "timestamp": "00:30",
-          "timestamp_seconds": 27.06,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session focuses on short-form and on-demand video as part of a broader church digital strategy. It frames video as a way to extend message content, answer timely questions, route people into deeper next steps, and support mobile or web experiences that help people continue engaging after the weekend.",
-      "claim_hash": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
-      "claim_id": "claim:8313b7143d1f2de7f9e0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Video analytics are useful for prioritization, but teams should compare them with qualitative feedback and ministry goals before changing content strategy.",
-      "claim_hash": "d14ceaf63698b983e45dd7198bccfe046ad158ed0d7fa113f64476d6dcd781a4",
-      "claim_id": "claim:88a7d1c389832a0630dc",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
-      "source_record_ids": [
-        "rock_community_hubs:87de570d7b164f63"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
-          "timestamp": "04:39",
-          "timestamp_seconds": 279.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "For AI-assisted group finding, implementation work needs church-specific matching rules: which group types are findable, which attributes describe affinity, and what boundaries keep the assistant away from inappropriate targets such as security roles.",
-      "claim_hash": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
-      "claim_id": "claim:8a5b060de0516dbe344a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "connections",
-        "groups",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
-      "source_record_ids": [
-        "rock_podcast_rss:1cb0de155ffacb15"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-          "timestamp": "13:31",
-          "timestamp_seconds": 811.0,
-          "title": "Rock's Future Anchored in Vision | Ep 202",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "New website and app experiences should be evaluated together because users may move between public pages, logged-in mobile surfaces, search, profile, and next-step actions.",
-      "claim_hash": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
-      "claim_id": "claim:8f8ca172069290ee944d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "01:01",
-          "timestamp_seconds": 61.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls.",
-      "claim_hash": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
+      "claim_hash": "e630aeb9c95efeba507ddbcd1ad9446a0bf4eb6fc8b9a7e8e4588d6d1c9cc5ba",
       "claim_id": "claim:903c8ff9b5d2590fd616",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1504,6 +376,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -1517,12 +390,13 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's LMS can assign curricula by staff role and track completion, allowing churches to make required Rock training specific and accountable. Verify the current LMS configuration and permissions in the installed version.",
-      "claim_hash": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
+      "claim_hash": "652300b34467a8d689502f1bdcafc9220972617627778399802e05dc01dff474",
       "claim_id": "claim:91be2ad338eb6b1cdaed",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1538,6 +412,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -1551,12 +426,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
-      "claim_hash": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
+      "claim_hash": "4c7eeeb0486b93e111ea3e289b11e3aea93b3dc67694b5bfedec738660de462c",
       "claim_id": "claim:9cd70d19320375c27cb3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1571,6 +447,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "35da668ad76e06ec3bca966c4b19b0ceee8d59e7ac53adc903f3984dbe537019",
       "source_record_ids": [
         "rock_podcast_rss:9ace837daaae3cd2"
@@ -1584,44 +461,13 @@
           "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
           "url": "https://shows.acast.com/rock-cast/episodes/ladies-and-gentlemen-your-rx26-keynote-speaker-ep-216"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Configured agents are described as shared within one Rock instance according to permissions, while conversation sessions and their context remain isolated per person. Verify session visibility and retention in the released version and local security configuration.",
-      "claim_hash": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
-      "claim_id": "claim:9e515c0c6af9c698b614",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1593s",
-          "timestamp": "26:33",
-          "timestamp_seconds": 1593.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "AI integrations should not receive unrestricted direct database access. Route data operations through managed Rock code that enforces authorization and business rules, and treat model-generated SQL as unsafe for general-purpose operational access.",
-      "claim_hash": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
+      "claim_hash": "02bb404eb8bc4fd1779103c0b1b1d7d9fb91b5043248d58eef251176f7b4a34b",
       "claim_id": "claim:a181b9ddd5b0e689895b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1636,6 +482,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
       "source_record_ids": [
         "rock_youtube:353743c048255f25"
@@ -1649,144 +496,13 @@
           "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
           "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official short promoted the July 2026 Rock AI Summit and points viewers to its recording. It is useful only for routing to the completed summit material; it does not establish current Rock IQ availability or configuration behavior.",
-      "claim_hash": "b1e5b639c142b29c27998ffa2820ac83d4ac125683eaa7b7e090898cc11d01a2",
-      "claim_id": "claim:a31ddeebe51e4e001067",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "93d6d43578cbe812c2dfb29186a887f02d58be57fccef759b9cf9c553c4e49d2",
-      "source_record_ids": [
-        "rock_youtube:3272c841f31e0d28"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Last Chance to Register for the AI Summit",
-          "url": "https://www.youtube.com/shorts/tW4104R1N_o"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI can help draft sermon titles, category ideas, and reuse plans, but churches should keep human review over doctrinal wording, audience fit, and final publication.",
-      "claim_hash": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
-      "claim_id": "claim:a3f69cd82ee97a4febbf",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4774ecfc42b4e38e75503a3b683a4ae57e4b85639b0e3b7ba2d7681648ef2975",
-      "source_record_ids": [
-        "rock_community_hubs:87de570d7b164f63"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W",
-          "timestamp": "08:07",
-          "timestamp_seconds": 487.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB98xJP8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article.",
-      "claim_hash": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
-      "claim_id": "claim:aaa109fc541fff897e3f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=2328s",
-          "timestamp": "38:48",
-          "timestamp_seconds": 2328.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent.",
-      "claim_hash": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
-      "claim_id": "claim:ab59d559b804403dc4a0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=600s",
-          "timestamp": "10:00",
-          "timestamp_seconds": 600.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.",
-      "claim_hash": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
+      "claim_hash": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
       "claim_id": "claim:b4fb38224ff8452078f3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1803,6 +519,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -1816,247 +533,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Emerging technology and AI experiments should be bounded, documented, and reviewed before they affect Rock data or public ministry workflows.",
-      "claim_hash": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
-      "claim_id": "claim:b98a76d45b1860593427",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "04:26",
-          "timestamp_seconds": 266.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Use the episode as release-awareness context: podcast release discussion can flag security updates, alpha/beta status, and future model-changing work, but upgrade guidance must still be verified against official release notes and the local Rock version.",
-      "claim_hash": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
-      "claim_id": "claim:bf4911c43f46def1cef1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "connections",
-        "groups",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
-      "source_record_ids": [
-        "rock_podcast_rss:1cb0de155ffacb15"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-          "timestamp": "00:48",
-          "timestamp_seconds": 48.4,
-          "title": "Rock's Future Anchored in Vision | Ep 202",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Attendance-flow analysis can move beyond aggregate weekend counts by classifying engagement patterns, prioritizing follow-up lists, and creating Rock connection requests for campus teams.",
-      "claim_hash": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
-      "claim_id": "claim:c0587c98a544740f9673",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "connections",
-        "data-views-reports",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
-      "source_record_ids": [
-        "rock_community_hubs:94226d7c1f62174e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV",
-          "timestamp": "36:49",
-          "timestamp_seconds": 2209.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The planned built-in experience offers recommended standard and lower-cost economy choices while Rock manages the underlying model based on quality, speed, context, privacy and cost; MCP clients use and pay for their own selected model provider. Treat exact models, pricing and privacy terms as changeable service details.",
-      "claim_hash": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
-      "claim_id": "claim:c087efdb352a9b4d8c8c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1769s",
-          "timestamp": "29:29",
-          "timestamp_seconds": 1769.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode includes pre-release Rock IQ architecture, AI-vendor evaluation guidance and ministry systems discussion. Its most durable technical guidance is to keep AI behind managed Rock authorization and business logic rather than exposing direct database access. Product rollout and event statements remain release-sensitive.",
-      "claim_hash": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
-      "claim_id": "claim:c161e57517e27fcc47e3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "feefff1ae32ad16d3535b2fee3067ecb4105b5f760154090e3b3f465eb2900e0",
-      "source_record_ids": [
-        "rock_youtube:353743c048255f25"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Ladies and Gentlemen, Your RX26 Keynote Speaker | Ep 216",
-          "url": "https://www.youtube.com/watch?v=mYTaGxYMyyQ"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The Data Analytics Hub launch frames community analytics as a shared practice space where churches compare dashboards, ministry processes, BI tooling, and Rock-based reporting patterns. The session also includes a Life.Church attendance-flow case study that uses Rock attendance and connection data to prioritize pastoral follow-up while treating AI profile summaries and privacy controls as governance concerns.",
-      "claim_hash": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
-      "claim_id": "claim:c20015286a10a3cc8202",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "connections",
-        "data-views-reports",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c5282ea5e41ee17b77c39160c45425ed5934a551da0b91657580465c08bb80d4",
-      "source_record_ids": [
-        "rock_community_hubs:94226d7c1f62174e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/2Kmgx1xlRV"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Documentation changes should be planned as part of UI and release work; major UI changes can create downstream screenshot and article-refresh work that must be tracked before public guidance is treated as current.",
-      "claim_hash": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
-      "claim_id": "claim:c37961bab650b138a2d2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "connections",
-        "groups",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
-      "source_record_ids": [
-        "rock_podcast_rss:1cb0de155ffacb15"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-          "timestamp": "15:00",
-          "timestamp_seconds": 900.1,
-          "title": "Rock's Future Anchored in Vision | Ep 202",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.",
-      "claim_hash": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
+      "claim_hash": "f55db3f15d81a1daf2030b0a010200b7d3261233e31832b90ed1c4d138d42aad",
       "claim_id": "claim:c3921cb1d8b61e06c713",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2073,6 +556,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -2086,42 +570,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode connects AI adoption with practical staff-training governance. It covers usage-based AI costs, durable agent artifacts, short change-training videos, role-based Rock LMS assignments, shadow-tool risk and staff-first training. Treat external AI pricing and preview product statements as release-sensitive, and verify current Rock behavior before implementation.",
-      "claim_hash": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
-      "claim_id": "claim:c803dbe27136969cf6e5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "learning-lms-engagement",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
-      "source_record_ids": [
-        "rock_youtube:1ea957f46e0460f1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
-          "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality.",
-      "claim_hash": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+      "claim_hash": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
       "claim_id": "claim:c8c3a60f71790dd3616d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2137,6 +592,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -2150,45 +606,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI governance should include staff training, data-minimization rules, and a review path before AI-generated content or data summaries influence public communication or pastoral action.",
-      "claim_hash": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
-      "claim_id": "claim:c983667edefd47bee832",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
-      "source_record_ids": [
-        "rock_community_hubs:d593e234279cb690"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
-          "timestamp": "02:13",
-          "timestamp_seconds": 133.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Before staff encounter a changed Rock interface, a short targeted video can prevent avoidable support tickets and reduce surprise. The training should be prepared and distributed as part of the upgrade plan.",
-      "claim_hash": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
+      "claim_hash": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b",
       "claim_id": "claim:c9c1fa08cb0434d501e6",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2203,6 +627,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -2216,383 +641,31 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Because AI model capabilities and vendor terms change quickly, churches should document which tools are approved and what data classes may be used with each one.",
-      "claim_hash": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
-      "claim_id": "claim:cd85431e0e3f1bb82125",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ff20366ee8ab504ffb19c65878d69f5f36e6937692b0c41320856181f3d7a326",
-      "source_record_ids": [
-        "rock_community_hubs:d593e234279cb690"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd",
-          "timestamp": "02:43",
-          "timestamp_seconds": 163.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/XaBRra9Brd"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Community feedback channels such as Rocket Chat, calls, church visits, and conferences can explain why areas like Connections rise in priority, but agents should treat that as roadmap context rather than proof that a feature is present in a given instance.",
-      "claim_hash": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
-      "claim_id": "claim:d24890227d54fd22a155",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "connections",
-        "groups",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c8530cc9a2c1f2b4b8a483d39bf3eb9084d8d4739f6253e89820c7e203b24ee4",
-      "source_record_ids": [
-        "rock_podcast_rss:1cb0de155ffacb15"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision",
-          "timestamp": "01:54",
-          "timestamp_seconds": 114.3,
-          "title": "Rock's Future Anchored in Vision | Ep 202",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-202-rocks-future-anchored-in-vision"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast follow-up answers implementation and governance questions raised by the Rock AI Summit. It adds release-sensitive detail about the planned Rock IQ rollout, authenticated-user permissions, MCP security, per-tool controls, chat and token governance, skill placement, platform support, caching, custom-tool data access, agent scope and model selection. Treat roadmap and pre-release statements as directional until confirmed in current release notes, documentation and a live Rock instance.",
-      "claim_hash": "ec084ccb12a4bf89eef95ad7ed6c8d8c23ee5897e1dcf37f0bc83fe99f87fa5e",
-      "claim_id": "claim:e338ee37078dec6a80d4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe context for evaluating AI plugin ideas and workflow-backed digital strategy experiments. It reinforces that new AI capabilities should be tested against concrete church scenarios, documented in a backlog, and routed through review before being promoted into public tools or automated workflows.",
-      "claim_hash": "181d1fcdc674b83dd949f86aee45428d61ae6210fbe66620ec01a05c2a464afe",
-      "claim_id": "claim:e4edc56bcd9681f01c98",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
-      "source_record_ids": [
-        "rock_community_hubs:f325315718b03eb6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Intent-based AI search can improve discovery when it is grounded in approved church content and clearly tested against real user questions.",
-      "claim_hash": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
-      "claim_id": "claim:e54943b3e738c396727f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "02:47",
-          "timestamp_seconds": 167.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability.",
-      "claim_hash": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
-      "claim_id": "claim:eb03c3644ee4b1ae217b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence.",
-      "claim_hash": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
-      "claim_id": "claim:ed0bfda39f5c0b664ef3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3550s",
-          "timestamp": "59:10",
-          "timestamp_seconds": 3550.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Community-hub follow-up emails and discussion prompts can serve as a backlog for future Rock workflows, content experiments, and review priorities.",
-      "claim_hash": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
-      "claim_id": "claim:f7b5a801b7e2d0fa6b39",
-      "claim_tier": "routing_context_only",
-      "claim_type": "implementation_pattern",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed8b15b2c84f7497071178b5fe6aba5dcea35123c14f5aec9ac9e82a5a13918f",
-      "source_record_ids": [
-        "rock_community_hubs:f325315718b03eb6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6",
-          "timestamp": "00:42",
-          "timestamp_seconds": 42.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/vzm1D4MBX6"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified.",
-      "claim_hash": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
-      "claim_id": "claim:fec91855b52cecd12b40",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3211s",
-          "timestamp": "53:31",
-          "timestamp_seconds": 3211.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:019724f21243d61181e2": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
-    "claim:069aa7a39db4563841a2": "2d242111b18fc3c14ed5f6348198b4920677daee13645200d56861f6ca3104f8",
-    "claim:07423eadba1a22784cc4": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
-    "claim:080d393b5f32031d1eaa": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
-    "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
-    "claim:112fa95d4dce5441ec91": "9e0d8aabff1a6de57ccf5a6ad42de0942cc134ca1dbb146cc95bc5e351c0501b",
-    "claim:17bb0634cc6ebe52d71b": "e1f84495e7162a49207c136e987877e1a71975e92aaf0dd756188ea4867d6992",
-    "claim:1a721dbf2c4cc03cada3": "45807e78cb49a06ccf1782b811afaeef53a925ee4508d266cf89c0b27d65cde2",
-    "claim:1d2211c90cee65515cac": "5db9a518f171204421a6842e55ea1766cda5c6183a798623cbe1ad9fc792f753",
-    "claim:1ead6da71f9e978d17a2": "48028ed47be731d2accf055182ef3715fd70938d89d950520c7751d06a3f17b0",
-    "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
-    "claim:2a2a9fc94666d58b0e4f": "dfae8e5189b199d4725376bf7b4cf91f54cb0ecd136c061f523cb95895e0ef9a",
-    "claim:2a7ef23854b5dd315c7d": "3458d6aa1e995a92805dba514ab6cf86efd9763453c226f6e80779b84de76298",
-    "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-    "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
-    "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
-    "claim:41757e63aea1a926ff6d": "cdbf622263660e08536e5be0bf5a5de4298931d4dc49c905c5cf974d954b3773",
-    "claim:4560f75344e40a127605": "25d58164c437f65112bd388d89b9ae3cc3935997c55097ebc808abaeb80795e3",
-    "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
-    "claim:49224f61275c9a1f8e96": "cf0546e919d9eb52de3eec1cd4047af9ed7dd9524614d5d0393f2ac1b33e216d",
-    "claim:4b083dda9f0d9ccc4aff": "a210612e6d954b9990c1a0885a1d1b12de5496d6da64fdc50fc98c0a4ceb9f3c",
-    "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
-    "claim:538f1a4e0ad7c90f7c5a": "a4c8483fc63b6c38fd4d55427737323aac28b95a50bb2730e0d755ecbe0a8984",
-    "claim:5775a4b44b920db2b74a": "6bf97360af651abdd1eb91c28ab18f1b13b6b379703a23c0f14fc37680047523",
-    "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
-    "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-    "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
-    "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-    "claim:679a38216f2b07097624": "1ed3505b2622887dcee0cc7d1cbc640d001b63dc3f4a3de276808c0f2ae6d6f2",
-    "claim:6a9cad93b4b24bb5caa7": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
-    "claim:6b5701fd90c4e3e812d6": "e3441e23783f0cf75670d837ecaac346bbe7c525430d6838699ca61334046121",
-    "claim:6cc8c3bca74b02773140": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
-    "claim:6e7bf075edacd7a79fa4": "2f03112bf7b15655bbc4d5c3302e7035664ce5410e58de7c269454c8d70af883",
-    "claim:6e906a393a56e78661aa": "4360a374d7feb7464711d9c31fe2839b4e66a6d586e3d492b3078c4c76a8bd26",
-    "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
-    "claim:72fde031881e443f8976": "6e979ea5f101326d358427f30b32a0543052b228c74371f96797dc3cf45a99f9",
-    "claim:777a543a16ec2b02c0c3": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
-    "claim:77871e1a7bb3793b3de1": "ce0d2ae30073b62960f5e89b3ec8a254d2e0877b88d32822116c2f5f1e34f690",
-    "claim:78c58644cb6bf965fb20": "a763b0729fe7a6772c2d071394bf90a8d0f05100aa9c3d13395239cca2fa0e52",
-    "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-    "claim:7fc20f1b607270dd550b": "9de369fdec1e9ab700e6b28f0bd4d715a52d4fd848a4413e710dce5d92235259",
-    "claim:8313b7143d1f2de7f9e0": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
-    "claim:88a7d1c389832a0630dc": "d14ceaf63698b983e45dd7198bccfe046ad158ed0d7fa113f64476d6dcd781a4",
-    "claim:8a5b060de0516dbe344a": "ad014b77526a4f6d2d87caed6a51cf00bf7d406478455a65ba581479dae44d7a",
-    "claim:8f8ca172069290ee944d": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
-    "claim:903c8ff9b5d2590fd616": "b53a027fa9f227880a1e55b423285a2c1dc0ff31ec4d5997ad469520d639c8ca",
-    "claim:91be2ad338eb6b1cdaed": "5b7347bfdf2aefd038806cc0a1546a05bfc7a9926d72dfbab468ddab48a0164e",
-    "claim:9cd70d19320375c27cb3": "34bf40ed483d4c2304278bcc3cd50343565f8b36056f1aa7b70db3b7bedd5e75",
-    "claim:9e515c0c6af9c698b614": "7c12a0993da5a99d79b230341db14ec986eb715b88393ea4d641a9c4f074f47f",
-    "claim:a181b9ddd5b0e689895b": "618c39bbb1d62c839a56a8f5a629d393aadbe53e48ad3a2c6a42cc9e671b2ac2",
-    "claim:a31ddeebe51e4e001067": "b1e5b639c142b29c27998ffa2820ac83d4ac125683eaa7b7e090898cc11d01a2",
-    "claim:a3f69cd82ee97a4febbf": "851bc1f778d77f93f831f8faeebedc74dcfa95ff0f1a3763f48317c4d3e62042",
-    "claim:aaa109fc541fff897e3f": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
-    "claim:ab59d559b804403dc4a0": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
-    "claim:b4fb38224ff8452078f3": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
-    "claim:b98a76d45b1860593427": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
-    "claim:bf4911c43f46def1cef1": "e630780fc5f60bb2dbaadd4274585b31260eb1dcf8ff61b61c203349bfdf0292",
-    "claim:c0587c98a544740f9673": "4502126e37b3e6c3ca6b243f2f60e7f823927a2deb0830c02788b211481f0e24",
-    "claim:c087efdb352a9b4d8c8c": "0e6cfd0399f96ca1625d058775d5c5f74720e9cc718b1575cec33bbc4142c2c6",
-    "claim:c161e57517e27fcc47e3": "5b3fccb736167d706571d391a24ce14bccace8225a9a943d29c14c0e253a4766",
-    "claim:c20015286a10a3cc8202": "de4de8b94afb54a55d69cef9fd50671f9cf18d052b071c44a544c89217d75713",
-    "claim:c37961bab650b138a2d2": "eb5f51e77107df15132785aadbca12c04310b6cd9c7cf38be458b91212496c5f",
-    "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
-    "claim:c803dbe27136969cf6e5": "0768758199cc3613a6f7f80967a0366e73d950cddae672182db5e41a96a046cc",
-    "claim:c8c3a60f71790dd3616d": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
-    "claim:c983667edefd47bee832": "350ed0dfc8362c82a65384b34331db257677993febf5c2747405161f5f21981b",
-    "claim:c9c1fa08cb0434d501e6": "2449a410a1a6718d71370687e880ce5112215821d8dc92652365243f20feb7cd",
-    "claim:cd85431e0e3f1bb82125": "441937dd202b20cd45e8ec20ec335947df6cc1dbfde57d98b5bfcd3878fd87c0",
-    "claim:d24890227d54fd22a155": "861265ddf53201f3a5da505ada43247368bb484d19701d0df43678cd527548a1",
-    "claim:e338ee37078dec6a80d4": "ec084ccb12a4bf89eef95ad7ed6c8d8c23ee5897e1dcf37f0bc83fe99f87fa5e",
-    "claim:e4edc56bcd9681f01c98": "181d1fcdc674b83dd949f86aee45428d61ae6210fbe66620ec01a05c2a464afe",
-    "claim:e54943b3e738c396727f": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
-    "claim:eb03c3644ee4b1ae217b": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
-    "claim:ed0bfda39f5c0b664ef3": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
-    "claim:f7b5a801b7e2d0fa6b39": "a292a2058db14e1b9b0030f7d6960ee1e3ecde7d1d59890e093f7f5141ffbc3c",
-    "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6"
+    "claim:069aa7a39db4563841a2": "60fc7bd81c054fa03b8607e6a55120012da29a30b76e035b8e5672ab1ca86ccd",
+    "claim:2a2a9fc94666d58b0e4f": "bd385211a6a44172d6835d029b4cfda62dfe24b80db5addb537ea20fb15b0076",
+    "claim:2a7ef23854b5dd315c7d": "10c4e528501bd19523ce5e9df0e2380f248722bc2c6042636f8ddc1c1356e13e",
+    "claim:4b083dda9f0d9ccc4aff": "028703347fc1a24be182fe6f594f534cefbf86a11922205ae9dd2a198f6f6c75",
+    "claim:4b7b8d0b0379ceb7587f": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
+    "claim:538f1a4e0ad7c90f7c5a": "efc180a1a3919021838717a92850019bb6ffba5aa5cf90171d20d2a9b15a80e7",
+    "claim:57e32b4d554a759231a1": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
+    "claim:60c2bcd25e1cce4efef4": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
+    "claim:679a38216f2b07097624": "7bc8df66376549a50a03f768048c404547fd0e9b54a8427d501cd0f423f0d061",
+    "claim:725a3342f3dc657cc546": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
+    "claim:903c8ff9b5d2590fd616": "e630aeb9c95efeba507ddbcd1ad9446a0bf4eb6fc8b9a7e8e4588d6d1c9cc5ba",
+    "claim:91be2ad338eb6b1cdaed": "652300b34467a8d689502f1bdcafc9220972617627778399802e05dc01dff474",
+    "claim:9cd70d19320375c27cb3": "4c7eeeb0486b93e111ea3e289b11e3aea93b3dc67694b5bfedec738660de462c",
+    "claim:a181b9ddd5b0e689895b": "02bb404eb8bc4fd1779103c0b1b1d7d9fb91b5043248d58eef251176f7b4a34b",
+    "claim:b4fb38224ff8452078f3": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
+    "claim:c3921cb1d8b61e06c713": "f55db3f15d81a1daf2030b0a010200b7d3261233e31832b90ed1c4d138d42aad",
+    "claim:c8c3a60f71790dd3616d": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
+    "claim:c9c1fa08cb0434d501e6": "6e79f697e5d5db5ee5c8415b3b2aa5b2616d76e49fdf1cc69096e89ad33e569b"
   },
-  "approved_claims_hash": "c538179b6b95da35141effce0e2b36d0bb20690b94de588e051355332ff5ab34",
+  "approved_claims_hash": "ac18c1d652444c698a0dc734346d432cdcc5c3dbede44e944f37539b01ad1aad",
   "approved_claims_path": "knowledge/concepts/ai-agents-automation/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2893,12 +966,12 @@
   },
   "approved_media_hash": "5e1a8687aaf082a9b98152336963f462727a387de0bf0a74469e47cd2d6b7c20",
   "approved_media_path": "knowledge/concepts/ai-agents-automation/approved-media.md",
-  "built_at": "2026-07-26T00:29:37+00:00",
+  "built_at": "2026-07-30T02:07:49+00:00",
   "concept_id": "ai-agents-automation",
-  "guide_hash": "47b9b22f267a5355da569bbee3bf989042e8d28a154ebfb001a0955bc9617157",
+  "guide_hash": "00df9cfbcecc28947324a52e9d97bd4187f7bfa654395bf22552d8f82912f0a9",
   "guide_line_count": 1283,
   "guide_path": "knowledge/concepts/ai-agents-automation/guide.md",
-  "guide_word_count": 11699,
+  "guide_word_count": 11663,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3022,18 +1095,18 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
+      "source_key": "bd359c503b146774",
       "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
     },
     {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "bd359c503b146774",
+      "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
       "authority": "unknown",
@@ -3099,6 +1172,7 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -4116,8 +2190,6 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
         "bd359c503b146774",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -4127,7 +2199,9 @@
         "bd359c503b146774",
         "874c48c7aa36826b",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75"
+        "fe0b6d3b462f6c75",
+        "bd359c503b146774",
+        "bd359c503b146774"
       ],
       "start_line": 1190
     },
@@ -4446,20 +2520,20 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
-      "source_key": "fe0b6d3b462f6c75",
+      "source_key": "bd359c503b146774",
       "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
-      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
+      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
     },
     {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
-      "source_key": "bd359c503b146774",
+      "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
+      "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
+      "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
     },
     {
       "authority": "unknown",
@@ -4532,5 +2606,6 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

@@ -122,6 +122,17 @@ const CLAIM_TIER_RANK: Record<string, number> = {
   answer_pack_approved: 2,
   live_verified: 3
 };
+const CLAIM_TIER_VALUES = Object.keys(CLAIM_TIER_RANK);
+const AUTHORITY_TIER_RANK: Record<string, number> = {
+  "community-unreviewed": 0,
+  "community-reviewed": 1,
+  official: 2,
+  "rocku-confirmed": 2,
+  "release-note-confirmed": 3,
+  "source-code-confirmed": 3,
+  "live-verified": 4,
+};
+const AUTHORITY_TIER_VALUES = Object.keys(AUTHORITY_TIER_RANK);
 
 const CONTRIBUTION_TYPES = new Set([
   "task_card",
@@ -252,7 +263,7 @@ const MCP_LIST_CACHE_TTL_MS = 60 * 60 * 1000;
 const MCP_MODERN_PROTOCOL_VERSION = "2026-07-28";
 const MCP_RESPONSE_ENVELOPE_ESTIMATE_BYTES = 512;
 const MCP_ERROR_INSPECTION_LIMIT_BYTES = 64 * 1024;
-const MCP_INSTRUCTIONS = "Start with kb_search, then expand only the exact result you need. Use exact model, recipe, issue, and idea tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.";
+const MCP_INSTRUCTIONS = "Start with kb_search, which defaults to source-backed or stronger results and routes symptom queries to task cards and troubleshooting nodes. Then expand only the exact result you need. Use exact model, recipe, issue, idea, and Lava-context tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.";
 const MCP_CORS_HEADERS = [
   "Content-Type",
   "Accept",
@@ -320,7 +331,7 @@ export default {
         return json(await skillManifest(env));
       }
       if (url.pathname === "/manifest.json") {
-        return artifactJson(env, "agent/rock-kb-manifest.json");
+        return json(await manifestResponse(env, url.searchParams.get("brief") === "true"));
       }
       if (url.pathname === "/llms.txt") {
         return artifactText(env, "agent/llms.txt", "text/plain; charset=utf-8");
@@ -348,12 +359,29 @@ export default {
       if (url.pathname === "/search") {
         const query = url.searchParams.get("q") || "";
         const limit = boundedInt(url.searchParams.get("limit"), 10, 1, 50);
-        const minTier = url.searchParams.get("min_tier") || "routing_context_only";
+        const minTier = validatedClaimTier(
+          url.searchParams.get("min_claim_tier") || url.searchParams.get("min_tier"),
+          "source_backed",
+          "min_claim_tier",
+        );
         const detail = url.searchParams.get("detail") === "full" ? "full" : "compact";
         const kind = url.searchParams.get("kind") || "";
-        const rows = await search(env, query, limit, minTier, detail === "full", kind);
+        const debug = url.searchParams.get("debug") === "true";
+        const rockVersion = url.searchParams.get("rock_version") || "";
+        const intent = inferSearchIntent(query);
+        const rows = await search(env, query, limit, minTier, detail === "full", kind, debug, rockVersion);
         ctx.waitUntil(recordUsage(env, "search", query, rows, request));
-        return json({ schema: "rock-kb-search-result-v2", query, min_tier: minTier, kind: kind || null, detail, results: rows });
+        return json({
+          schema: "rock-kb-search-result-v3",
+          query,
+          intent,
+          min_claim_tier: minTier,
+          kind: kind || null,
+          rock_version: rockVersion || null,
+          detail,
+          debug,
+          results: rows,
+        });
       }
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
@@ -507,11 +535,18 @@ export default {
       }
       if (url.pathname.startsWith("/claims/")) {
         const conceptId = decodeURIComponent(url.pathname.slice("/claims/".length));
-        const minTier = url.searchParams.get("min_tier") || "routing_context_only";
-        const tier = url.searchParams.get("tier");
-        const claimRows = await claims(env, conceptId, minTier, tier);
-        ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", claimRows.length, request));
-        return json({ schema: "rock-kb-claims-result-v1", concept_id: conceptId, claims: claimRows });
+        const result = await claims(env, conceptId, claimListOptions({
+          tier: url.searchParams.get("tier"),
+          claimTier: url.searchParams.get("claim_tier"),
+          minClaimTier: url.searchParams.get("min_claim_tier") || url.searchParams.get("min_tier"),
+          authorityTier: url.searchParams.get("authority_tier"),
+          minAuthorityTier: url.searchParams.get("min_authority_tier"),
+          rockVersion: url.searchParams.get("rock_version"),
+          limit: boundedInt(url.searchParams.get("limit"), 25, 1, 100),
+          offset: boundedInt(url.searchParams.get("offset"), 0, 0, 100000),
+        }));
+        ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", Number(result.count || 0), request));
+        return json(result);
       }
       if (url.pathname === "/telemetry/summary") {
         return json(await telemetrySummary(env));
@@ -579,19 +614,32 @@ export default {
       }
       return json({ error: "not_found" }, 404);
     } catch (error) {
+      if (error instanceof PublicRequestError) {
+        return json(publicErrorResult(error), error.status);
+      }
       console.log(JSON.stringify({ level: "error", message: String(error) }));
       return json({ error: "internal_error", message: String(error) }, 500);
     }
   }
 };
 
-async function search(env: ServiceEnv, query: string, limit: number, minTier: string, full = false, kind = ""): Promise<JsonRecord[]> {
+async function search(
+  env: ServiceEnv,
+  query: string,
+  limit: number,
+  minTier: string,
+  full = false,
+  kind = "",
+  debug = false,
+  rockVersion = "",
+): Promise<JsonRecord[]> {
   const fts = buildFtsQuery(query);
   if (!fts) {
     return [];
   }
-  const minRank = CLAIM_TIER_RANK[minTier] ?? 0;
+  const minRank = CLAIM_TIER_RANK[validatedClaimTier(minTier, "source_backed", "min_claim_tier")];
   const terms = searchTerms(query);
+  const intent = inferSearchIntent(query);
   const includeRockIssues = kind === "rock_issue" || hasRockIssueQueryIntent(terms, query) ? 1 : 0;
   const includeRockIdeas = kind === "rock_idea" || hasRockIdeaQueryIntent(terms, query) ? 1 : 0;
   const candidateLimit = Math.max(limit * 25, 200);
@@ -600,13 +648,28 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
             snippet(search_rows_fts, 2, '', '', '...', 28) AS snippet
      FROM search_rows_fts f
      JOIN search_rows r ON r.id = f.id
-     WHERE search_rows_fts MATCH ? AND r.claim_tier_rank >= ?
+     WHERE search_rows_fts MATCH ?
+       AND (
+         r.claim_tier_rank >= ?
+         OR (? = 1 AND r.kind = 'rock_issue')
+         OR (? = 1 AND r.kind = 'rock_idea')
+       )
        AND (? = '' OR r.kind = ?)
        AND (? = 1 OR r.kind != 'rock_issue')
        AND (? = 1 OR r.kind != 'rock_idea')
      ORDER BY rank
      LIMIT ?`
-  ).bind(fts, minRank, kind, kind, includeRockIssues, includeRockIdeas, candidateLimit).all<SearchRow & { rank?: number }>();
+  ).bind(
+    fts,
+    minRank,
+    includeRockIssues,
+    includeRockIdeas,
+    kind,
+    kind,
+    includeRockIssues,
+    includeRockIdeas,
+    candidateLimit,
+  ).all<SearchRow & { rank?: number }>();
   const rowsById = new Map<string, SearchRow & { rank?: number }>();
   for (const row of result.results || []) {
     rowsById.set(row.id, row);
@@ -620,17 +683,18 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
     }
   }
   if (kind === "rock_issue" || includeRockIssues === 1) {
-    for (const row of await exactRockIssueRows(env, query, minRank)) {
+    for (const row of await exactRockIssueRows(env, query, 0)) {
       rowsById.set(row.id, row);
     }
   }
   if (kind === "rock_idea" || includeRockIdeas === 1) {
-    for (const row of await exactRockIdeaRows(env, query, minRank)) {
+    for (const row of await exactRockIdeaRows(env, query, 0)) {
       rowsById.set(row.id, row);
     }
   }
   const ranked = Array.from(rowsById.values())
-    .map((row) => ({ row, signals: searchSignals(row, terms, query) }))
+    .filter((row) => versionMatchStatus(row, rockVersion) !== "not_applicable")
+    .map((row) => ({ row, signals: searchSignals(row, terms, query, intent) }))
     .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)));
   const seenResultGroups = new Set<string>();
   const collapsed = ranked.filter(({ row }) => {
@@ -646,7 +710,10 @@ async function search(env: ServiceEnv, query: string, limit: number, minTier: st
   });
   return collapsed
     .slice(0, limit)
-    .map((item) => full ? publicResultRow(item.row, item.signals) : publicSearchRow(item.row, item.signals));
+    .map((item) => {
+      const options = { debug, intent, rockVersion };
+      return full ? publicResultRow(item.row, item.signals, options) : publicSearchRow(item.row, item.signals, options);
+    });
 }
 
 function searchResultGroup(row: SearchRow): string {
@@ -667,6 +734,11 @@ function searchResultGroup(row: SearchRow): string {
   if (row.kind === "rock_idea") {
     const ideaId = String(payload.idea_id || row.id || "");
     return ideaId ? `rock_idea:${ideaId}` : "";
+  }
+  if (row.kind === "task_card" || row.kind === "troubleshooting_node") {
+    const nodeId = String(payload.task_id || payload.id || "");
+    const conceptId = String(payload.concept_id || row.concept || "");
+    return nodeId && conceptId ? `operational_guidance:${conceptId}:${nodeId}` : "";
   }
   return "";
 }
@@ -787,17 +859,165 @@ async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number
     .map((row) => ({ ...row, rank: 0 }));
 }
 
-async function claims(env: ServiceEnv, conceptId: string, minTier: string, tier: string | null): Promise<JsonRecord[]> {
-  const minRank = CLAIM_TIER_RANK[minTier] ?? 0;
+type ClaimListOptions = {
+  claimTier: string | null;
+  minClaimTier: string;
+  authorityTier: string | null;
+  minAuthorityTier: string | null;
+  rockVersion: string;
+  limit: number;
+  offset: number;
+};
+
+async function claims(env: ServiceEnv, conceptId: string, options: ClaimListOptions): Promise<JsonRecord> {
   const result = await env.KB_DB.prepare(
     `SELECT r.* FROM search_rows r
      JOIN search_row_concepts c ON c.row_id = r.id
-     WHERE r.kind IN ('claim', 'community_contribution') AND c.concept = ? AND r.claim_tier_rank >= ?
+     WHERE r.kind IN ('claim', 'community_contribution') AND c.concept = ?
      ORDER BY r.id`
-  ).bind(conceptId, minRank).all<SearchRow>();
-  return (result.results || [])
-    .filter((row: SearchRow) => !tier || row.claim_tier === tier)
-    .map((row: SearchRow) => parsePayload(row));
+  ).bind(conceptId).all<SearchRow>();
+  const minClaimRank = CLAIM_TIER_RANK[options.minClaimTier];
+  const minAuthorityRank = options.minAuthorityTier === null ? null : AUTHORITY_TIER_RANK[options.minAuthorityTier];
+  const filtered = (result.results || [])
+    .filter((row) => (row.claim_tier_rank || 0) >= minClaimRank)
+    .filter((row) => !options.claimTier || row.claim_tier === options.claimTier)
+    .filter((row) => !options.authorityTier || row.authority_tier === options.authorityTier)
+    .filter((row) => minAuthorityRank === null || (AUTHORITY_TIER_RANK[row.authority_tier || ""] ?? -1) >= minAuthorityRank)
+    .filter((row) => versionMatchStatus(row, options.rockVersion) !== "not_applicable");
+  const selected = filtered
+    .slice(options.offset, options.offset + options.limit)
+    .map((row) => ({
+      ...parsePayload(row),
+      version_scope_status: rowVersionScopeStatus(row),
+      ...(options.rockVersion ? { version_match: versionMatchStatus(row, options.rockVersion) } : {}),
+    }));
+  const hasMore = options.offset + selected.length < filtered.length;
+  return {
+    schema: "rock-kb-claims-result-v2",
+    concept_id: conceptId,
+    count: selected.length,
+    total_count: filtered.length,
+    limit: options.limit,
+    offset: options.offset,
+    has_more: hasMore,
+    next_offset: hasMore ? options.offset + selected.length : null,
+    filters: {
+      claim_tier: options.claimTier,
+      min_claim_tier: options.minClaimTier,
+      authority_tier: options.authorityTier,
+      min_authority_tier: options.minAuthorityTier,
+      rock_version: options.rockVersion || null,
+    },
+    claims: selected,
+  };
+}
+
+function claimListOptions(input: {
+  tier?: string | null;
+  claimTier?: string | null;
+  minClaimTier?: string | null;
+  authorityTier?: string | null;
+  minAuthorityTier?: string | null;
+  rockVersion?: string | null;
+  limit?: number;
+  offset?: number;
+}): ClaimListOptions {
+  let claimTier = input.claimTier || null;
+  let authorityTier = input.authorityTier || null;
+  if (input.tier) {
+    if (claimTier || authorityTier) {
+      throw new PublicRequestError(
+        400,
+        "ambiguous_tier_filter",
+        "Use tier only as a compatibility alias, or use claim_tier and authority_tier explicitly.",
+      );
+    }
+    if (CLAIM_TIER_VALUES.includes(input.tier)) {
+      claimTier = input.tier;
+    } else if (AUTHORITY_TIER_VALUES.includes(input.tier)) {
+      authorityTier = input.tier;
+    } else {
+      throw invalidTierError("tier", input.tier, [...CLAIM_TIER_VALUES, ...AUTHORITY_TIER_VALUES]);
+    }
+  }
+  if (claimTier && !CLAIM_TIER_VALUES.includes(claimTier)) {
+    throw invalidTierError("claim_tier", claimTier, CLAIM_TIER_VALUES);
+  }
+  if (authorityTier && !AUTHORITY_TIER_VALUES.includes(authorityTier)) {
+    throw invalidTierError("authority_tier", authorityTier, AUTHORITY_TIER_VALUES);
+  }
+  const minClaimTier = validatedClaimTier(input.minClaimTier, "source_backed", "min_claim_tier");
+  const minAuthorityTier = input.minAuthorityTier || null;
+  if (minAuthorityTier && !AUTHORITY_TIER_VALUES.includes(minAuthorityTier)) {
+    throw invalidTierError("min_authority_tier", minAuthorityTier, AUTHORITY_TIER_VALUES);
+  }
+  return {
+    claimTier,
+    minClaimTier,
+    authorityTier,
+    minAuthorityTier,
+    rockVersion: String(input.rockVersion || ""),
+    limit: boundedInt(input.limit, 25, 1, 100),
+    offset: boundedInt(input.offset, 0, 0, 100000),
+  };
+}
+
+function validatedClaimTier(value: string | null | undefined, fallback: string, field: string): string {
+  const resolved = String(value || fallback);
+  if (!CLAIM_TIER_VALUES.includes(resolved)) {
+    throw invalidTierError(field, resolved, CLAIM_TIER_VALUES);
+  }
+  return resolved;
+}
+
+function invalidTierError(field: string, value: string, validValues: string[]): PublicRequestError {
+  return new PublicRequestError(
+    400,
+    `invalid_${field}`,
+    `${field} ${JSON.stringify(value)} is invalid. Valid values: ${validValues.join(", ")}.`,
+  );
+}
+
+function publicErrorResult(error: PublicRequestError): JsonRecord {
+  const validValues = error.message.includes("Valid values:")
+    ? error.message.split("Valid values:", 2)[1].replace(/\.$/, "").trim().split(/,\s*/)
+    : [];
+  return {
+    schema: "rock-kb-error-v1",
+    status: "rejected",
+    error_code: error.code,
+    message: error.message,
+    ...(validValues.length ? { valid_values: validValues } : {}),
+  };
+}
+
+async function manifestResponse(env: ServiceEnv, brief: boolean): Promise<JsonRecord> {
+  const manifest = await artifactJsonValue(env, "agent/rock-kb-manifest.json");
+  if (!brief) return manifest;
+  const concepts = Array.isArray(manifest.concepts) ? manifest.concepts.map(asRecord) : [];
+  return {
+    schema: "rock-kb-agent-manifest-brief-v1",
+    generated_at: manifest.generated_at,
+    concept_count: concepts.length,
+    task_count: manifest.task_count,
+    recipe_count: manifest.recipe_count,
+    rock_issue_count: manifest.rock_issue_count,
+    rock_idea_count: manifest.rock_idea_count,
+    approved_claims: manifest.approved_claims,
+    concepts: concepts.map((concept) => ({
+      concept_id: concept.concept_id,
+      title: concept.title,
+      description: concept.description,
+      quality_status: concept.quality_status,
+      quality_score: concept.quality_score,
+      completeness_status: concept.completeness_status,
+      completeness_score: concept.completeness_score,
+      primary_claim_count: concept.primary_claim_count,
+      routed_claim_count: concept.routed_claim_count,
+      answer_bearing_count: concept.answer_bearing_count,
+      task_card_count: concept.task_card_count,
+    })),
+  };
 }
 
 async function handleDirectMcp(request: Request, env: ServiceEnv, ctx: ExecutionContext): Promise<Response> {
@@ -1138,8 +1358,21 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
   if (name === "kb_search") {
     const query = String(args.query || "");
     const limit = boundedInt(args.limit, 10, 1, 50);
-    const minTier = String(args.min_tier || "routing_context_only");
-    const rows = await search(env, query, limit, minTier, args.full === true, String(args.kind || ""));
+    const minTier = validatedClaimTier(
+      stringOrNull(args.min_claim_tier) || stringOrNull(args.min_tier),
+      "source_backed",
+      "min_claim_tier",
+    );
+    const rows = await search(
+      env,
+      query,
+      limit,
+      minTier,
+      args.full === true,
+      String(args.kind || ""),
+      args.debug === true,
+      String(args.rock_version || ""),
+    );
     ctx.waitUntil(recordUsage(env, "search", query, rows, request, "mcp"));
     return rows;
   }
@@ -1294,7 +1527,7 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     return rockIssueInvestigationPlan(asRecord(result.issue), args.include_private_instance === true);
   }
   if (name === "kb_manifest") {
-    return artifactJsonValue(env, "agent/rock-kb-manifest.json");
+    return manifestResponse(env, args.brief === true);
   }
   if (name === "kb_skill_manifest") {
     return skillManifest(env);
@@ -1309,9 +1542,23 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
     return result || { schema: "rock-kb-concept-result-v1", status: "not_found", concept_id: conceptId };
   }
   if (name === "kb_get_claims") {
-    const result = await claims(env, String(args.concept_id || ""), String(args.min_tier || "routing_context_only"), stringOrNull(args.tier));
-    ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", result.length, request, "mcp"));
-    return result;
+    try {
+      const result = await claims(env, String(args.concept_id || ""), claimListOptions({
+        tier: stringOrNull(args.tier),
+        claimTier: stringOrNull(args.claim_tier),
+        minClaimTier: stringOrNull(args.min_claim_tier) || stringOrNull(args.min_tier),
+        authorityTier: stringOrNull(args.authority_tier),
+        minAuthorityTier: stringOrNull(args.min_authority_tier),
+        rockVersion: stringOrNull(args.rock_version),
+        limit: boundedInt(args.limit, 25, 1, 100),
+        offset: boundedInt(args.offset, 0, 0, 100000),
+      }));
+      ctx.waitUntil(recordAccessUsage(env, "claim_list", "claim", Number(result.count || 0), request, "mcp"));
+      return result;
+    } catch (error) {
+      if (error instanceof PublicRequestError) return publicErrorResult(error);
+      throw error;
+    }
   }
   if (name === "kb_review_dashboard") {
     return operationsDashboard(env);
@@ -1369,14 +1616,18 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
   const index = await artifactJsonlValue(env, "agent/concept-index.jsonl");
   const concept = index.find((row) => row.concept_id === conceptId) || null;
   if (!concept) return null;
-  const [quickstart, guide, answers, tasks, caveats, recipeRows, claimRows, rockIdeas] = await Promise.all([
+  const [quickstart, guide, answers, tasks, caveats, recipeRows, claimResult, rockIdeas] = await Promise.all([
     artifactTextValue(env, `knowledge/concepts/${conceptId}/quickstart.md`),
     artifactTextValue(env, `knowledge/concepts/${conceptId}/index.md`),
     artifactJsonlValue(env, "agent/answer-pack.jsonl"),
     artifactJsonlValue(env, "agent/concept-task-cards.jsonl"),
     artifactJsonlValue(env, "agent/concept-release-caveats.jsonl"),
     artifactJsonlValue(env, "agent/recipes.jsonl"),
-    claims(env, conceptId, "routing_context_only", null),
+    claims(env, conceptId, claimListOptions({
+      minClaimTier: "routing_context_only",
+      limit: 25,
+      offset: 0,
+    })),
     conceptRockIdeas(env, conceptId),
   ]);
   return {
@@ -1388,7 +1639,13 @@ async function conceptPackage(env: ServiceEnv, conceptId: string): Promise<JsonR
     task_cards: tasks.filter((row) => row.concept_id === conceptId),
     release_caveats: caveats.filter((row) => row.concept_id === conceptId),
     recipes: recipeRows.filter((row) => Array.isArray(row.concept_ids) && row.concept_ids.includes(conceptId)),
-    claims: claimRows,
+    claims: claimResult.claims,
+    claims_page: {
+      count: claimResult.count,
+      total_count: claimResult.total_count,
+      has_more: claimResult.has_more,
+      next_offset: claimResult.next_offset,
+    },
     rock_ideas: rockIdeas,
   };
 }
@@ -5465,8 +5722,19 @@ function countValues(values: string[]): JsonRecord {
   return Object.fromEntries(Object.entries(counts).sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])));
 }
 
-function publicSearchRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
-  return {
+type SearchResponseOptions = {
+  debug?: boolean;
+  intent?: string;
+  rockVersion?: string;
+};
+
+function publicSearchRow(
+  row: SearchRow,
+  signals: JsonRecord = {},
+  options: SearchResponseOptions = {},
+): JsonRecord {
+  const payload = parsePayload(row);
+  const result: JsonRecord = {
     id: row.id,
     kind: row.kind,
     title: row.title,
@@ -5479,17 +5747,43 @@ function publicSearchRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
     authority_tier: row.authority_tier || "",
     claim_tier: row.claim_tier || "",
     source_id: row.source_id || "",
-    score: signals.score || 0,
-    signals,
+    score: roundSearchNumber(Number(signals.score || 0)),
+    intent: options.intent || null,
+    rock_versions: rowRockVersions(row),
+    version_scope_status: rowVersionScopeStatus(row),
+  };
+  if (options.rockVersion) {
+    result.version_match = versionMatchStatus(row, options.rockVersion);
+  }
+  if (options.debug) {
+    result.signals = roundedSearchSignals(signals);
+  }
+  return result;
+}
+
+function publicResultRow(
+  row: SearchRow,
+  signals: JsonRecord = {},
+  options: SearchResponseOptions = {},
+): JsonRecord {
+  return {
+    ...publicSearchRow(row, signals, options),
+    body: row.body || "",
+    payload: parsePayload(row),
   };
 }
 
-function publicResultRow(row: SearchRow, signals: JsonRecord = {}): JsonRecord {
-  return {
-    ...publicSearchRow(row, signals),
-    body: row.kind === "concept" ? "" : row.body || "",
-    payload: parsePayload(row),
-  };
+function roundSearchNumber(value: number): number {
+  return Number.isFinite(value) ? Number(value.toFixed(2)) : 0;
+}
+
+function roundedSearchSignals(signals: JsonRecord): JsonRecord {
+  return Object.fromEntries(
+    Object.entries(signals).map(([key, value]) => [
+      key,
+      typeof value === "number" ? roundSearchNumber(value) : value,
+    ]),
+  );
 }
 
 function compactSnippet(value: string): string {
@@ -5614,6 +5908,99 @@ function searchTerms(query: string): string[] {
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
 }
 
+function inferSearchIntent(query: string): "symptom" | "how_to" | "reference" | "roadmap" {
+  const normalized = normalizeSearchText(query);
+  if (/\b(idea|roadmap|planned|planning|feature request|upcoming)\b/.test(normalized)) {
+    return "roadmap";
+  }
+  if (
+    /\b(not|wont|won't|doesnt|doesn't|cant|can't|failed|failing|fails|failure|broken|error|missing|stuck|slow|timeout|wrong|unavailable|stopped)\b/.test(normalized)
+    || /\b\d{3,5}\b/.test(normalized) && /\b(error|exception|status)\b/.test(normalized)
+  ) {
+    return "symptom";
+  }
+  if (/\b(how|add|build|configure|create|implement|install|migrate|set up|setup|update)\b/.test(normalized)) {
+    return "how_to";
+  }
+  return "reference";
+}
+
+function rowRockVersions(row: SearchRow): string[] {
+  const payload = parsePayload(row);
+  const values: unknown[] = [];
+  for (const key of ["rock_versions", "versions", "tested_rock_versions"]) {
+    const value = payload[key];
+    values.push(...(Array.isArray(value) ? value : value ? [value] : []));
+  }
+  for (const key of ["rock_version", "version"]) {
+    if (payload[key]) values.push(payload[key]);
+  }
+  const compatibility = asRecord(payload.compatibility);
+  const tested = compatibility.tested_rock_versions;
+  values.push(...(Array.isArray(tested) ? tested : tested ? [tested] : []));
+  return Array.from(new Set(values.map((value) => String(value || "").trim()).filter(Boolean))).sort();
+}
+
+function rowVersionScopeStatus(row: SearchRow): string {
+  const versions = rowRockVersions(row);
+  if (versions.length) return "scoped";
+  const status = String(parsePayload(row).version_scope_status || "unprocessed");
+  return status === "version_independent" ? status : "unprocessed";
+}
+
+function versionMatchStatus(
+  row: SearchRow,
+  requestedVersion: string,
+): "matched" | "version_independent" | "unprocessed" | "not_applicable" {
+  if (!requestedVersion) return "unprocessed";
+  const versions = rowRockVersions(row);
+  if (versions.length) {
+    return versions.some((value) => versionSpecMatches(value, requestedVersion))
+      ? "matched"
+      : "not_applicable";
+  }
+  return rowVersionScopeStatus(row) === "version_independent"
+    ? "version_independent"
+    : "unprocessed";
+}
+
+function versionSpecMatches(specValue: string, requestedValue: string): boolean {
+  const spec = specValue.trim().toLowerCase().replace(/^v/, "");
+  const requested = requestedValue.trim().toLowerCase().replace(/^v/, "");
+  const requestedParts = parseVersionParts(requested);
+  if (!requestedParts.length) return false;
+  if (spec.endsWith("+")) {
+    return compareVersionParts(requestedParts, parseVersionParts(spec.slice(0, -1))) >= 0;
+  }
+  const range = spec.match(/^([0-9]+(?:\.[0-9]+)*)-([0-9]+)(?:\.(x|[0-9]+))?$/);
+  if (range) {
+    const lower = parseVersionParts(range[1]);
+    const upper = [Number(range[2]), range[3] === "x" || range[3] === undefined ? 999 : Number(range[3])];
+    return compareVersionParts(requestedParts, lower) >= 0 && compareVersionParts(requestedParts, upper) <= 0;
+  }
+  const specParts = parseVersionParts(spec.replace(/\.x$/, ""));
+  if (!specParts.length) return false;
+  if (spec.endsWith(".x")) {
+    return requestedParts.slice(0, specParts.length).every((part, index) => part === specParts[index]);
+  }
+  if (specParts.length === 2 && specParts[1] === 0) {
+    return requestedParts[0] === specParts[0];
+  }
+  return requestedParts.slice(0, specParts.length).every((part, index) => part === specParts[index]);
+}
+
+function parseVersionParts(value: string): number[] {
+  return value.split(".").map(Number).filter((part) => Number.isInteger(part) && part >= 0);
+}
+
+function compareVersionParts(left: number[], right: number[]): number {
+  for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
+    const difference = (left[index] || 0) - (right[index] || 0);
+    if (difference) return difference;
+  }
+  return 0;
+}
+
 function normalizeSearchTerm(value: string): string {
   const term = value.toLowerCase();
   const aliases: Record<string, string> = {
@@ -5636,7 +6023,12 @@ function normalizeSearchTerm(value: string): string {
   return term;
 }
 
-function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[], query: string): JsonRecord {
+function searchSignals(
+  row: SearchRow & { rank?: number },
+  queryTerms: string[],
+  query: string,
+  intent: string,
+): JsonRecord {
   const concepts = rowConcepts(row);
   const topics = rowTopics(row);
   const conceptTerms = new Set(searchTerms(`${concepts.join(" ")} ${row.title || ""}`));
@@ -5650,7 +6042,7 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   const conceptPhraseBoost = Math.max(0, ...concepts.map((concept) => phraseMatchBoost(query, concept, 48)));
   const titlePhraseBoost = phraseMatchBoost(query, row.title || "", 24);
   const bodyExactPhraseBoost = bodyPhraseBoost(row, queryTerms);
-  const kindBoost = kindIntentBoost(row, queryTerms);
+  const kindBoost = kindIntentBoost(row, queryTerms, intent);
   const modelMapExactBoost = exactModelMapBoost(row, query);
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
   const rockIssueLookupBoost = rockIssueRetrievalBoost(row, queryTerms, query);
@@ -5679,11 +6071,22 @@ function searchSignals(row: SearchRow & { rank?: number }, queryTerms: string[],
   };
 }
 
-function kindIntentBoost(row: SearchRow, queryTerms: string[]): number {
+function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): number {
+  if (row.kind === "task_card") {
+    if (intent === "symptom") return 180;
+    if (intent === "how_to") return 80;
+    return 12;
+  }
+  if (row.kind === "troubleshooting_node") {
+    if (intent === "symptom") return 160;
+    if (intent === "how_to") return 60;
+    return 10;
+  }
   if (row.kind === "recipe") {
     return queryTerms.some((term) => RECIPE_QUERY_INTENT_TERMS.has(term)) ? 30 : 4;
   }
   if (row.kind === "lava_context") {
+    if (intent === "symptom") return -60;
     return queryTerms.some((term) => LAVA_CONTEXT_QUERY_INTENT_TERMS.has(term)) ? 20 : 4;
   }
   if (row.kind === "rock_issue") {
@@ -6028,7 +6431,7 @@ function cors(response: Response): Response {
 
 function toolDefinitions(): JsonRecord[] {
   const definitions: JsonRecord[] = [
-    { name: "kb_search", description: "Start here for any Rock question. Returns compact ranked results; use kb_get_result or kb_get_claim for full detail.", inputSchema: { type: "object", properties: { query: { type: "string" }, limit: { type: "number" }, min_tier: { type: "string" }, kind: { type: "string", description: "Optional exact result-kind filter, such as recipe." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
+    { name: "kb_search", description: "Start here for any Rock question. Defaults to source-backed or stronger results, routes symptoms to task cards and troubleshooting nodes, and returns compact rows; use kb_get_result or an exact tool for full detail.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Minimum claim trust tier. Defaults to source_backed; use routing_context_only only for explicit source-discovery work." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." }, rock_version: { type: "string", description: "Optional Rock version. Conflicting scoped rows are excluded; unprocessed rows remain labeled as such." }, kind: { type: "string", description: "Optional exact result-kind filter, such as task_card, troubleshooting_node, recipe, claim, or lava_context." }, debug: { type: "boolean", description: "Include detailed ranking signals. Off by default." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
     { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID.", inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] } },
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
@@ -6048,11 +6451,11 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_rock_issue", description: "Get one exact Rock issue record plus bounded inbound Idea relationships by GitHub URL, canonical ID, core number, or mobile:number.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" } }, required: ["issue"] } },
     { name: "kb_assess_rock_issues", description: "Conservatively assess an explicit open, historical-unresolved, or all-relevant Rock issue population against bounded versions, platforms, concepts, capabilities, and configurations. Returns evidence, prerequisite, risk, freshness, and live-verification explanations. Never send logs, identifiers, or person data.", inputSchema: { type: "object", additionalProperties: false, properties: { profile: { type: "object", additionalProperties: false, properties: { core_version: { type: "string" }, mobile_shell_version: { type: "string" }, platforms: { type: "array", maxItems: 50, items: { type: "string" } }, concepts: { type: "array", maxItems: 50, items: { type: "string" } }, capabilities: { type: "array", maxItems: 50, items: { type: "string" } }, configurations: { type: "array", maxItems: 50, items: { type: "string" } } } }, scope: { type: "string", enum: ["open", "historical-unresolved", "all-relevant"], default: "open" }, limit: { type: "integer", minimum: 1, maximum: 500 }, offset: { type: "integer", minimum: 0, maximum: 100000 } }, required: ["profile"] } },
     { name: "kb_plan_rock_issue_investigation", description: "Return a typed read-only orchestrator-worker plan for investigating one issue. It never posts to GitHub; private instance work remains a separate overlay.", inputSchema: { type: "object", additionalProperties: false, properties: { issue: { type: "string" }, include_private_instance: { type: "boolean" } }, required: ["issue"] } },
-    { name: "kb_manifest", description: "Return the public Rock KB manifest.", inputSchema: { type: "object", properties: {} } },
+    { name: "kb_manifest", description: "Return the public Rock KB manifest. Use brief=true for compact counts and concept quality metrics.", inputSchema: { type: "object", additionalProperties: false, properties: { brief: { type: "boolean" } } } },
     { name: "kb_skill_manifest", description: "Return the current Rock KB agent skill version, source URL, SHA-256, minimum client version, restart behavior, and update policy defaults.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_list_concepts", description: "List public Rock KB concepts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_concept", description: "Return one concept package, including bounded Rock Ideas lifecycle counts and highlights for roadmap context.", inputSchema: { type: "object", properties: { concept_id: { type: "string" } }, required: ["concept_id"] } },
-    { name: "kb_get_claims", description: "Return claims for a concept, optionally filtered by tier.", inputSchema: { type: "object", properties: { concept_id: { type: "string" }, tier: { type: "string" }, min_tier: { type: "string" } }, required: ["concept_id"] } },
+    { name: "kb_get_claims", description: "Return one bounded page of claims for a concept with explicit claim-tier, authority-tier, and Rock-version filters. Defaults to 25 source-backed-or-stronger rows.", inputSchema: { type: "object", additionalProperties: false, properties: { concept_id: { type: "string" }, claim_tier: { type: "string", enum: CLAIM_TIER_VALUES }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES }, authority_tier: { type: "string", enum: AUTHORITY_TIER_VALUES }, min_authority_tier: { type: "string", enum: AUTHORITY_TIER_VALUES }, rock_version: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 }, offset: { type: "integer", minimum: 0, maximum: 100000 }, tier: { type: "string", enum: [...CLAIM_TIER_VALUES, ...AUTHORITY_TIER_VALUES], description: "Deprecated compatibility alias. Prefer claim_tier or authority_tier." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." } }, required: ["concept_id"] } },
     { name: "kb_review_dashboard", description: "Return public operations counts for review queues, conflicts, community intake, issue reports, evaluation, field validation, and privacy-bounded MCP transport telemetry.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_freshness", description: "Return authoritative public source and refresh-workflow health, with last check, content change, result count, content hash, and status stored separately.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Read-Only Finance Record Inspection
 
-Follow the guide section for Recipe: Read-Only Finance Record Inspection.
+Complete Read-Only Finance Record Inspection with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,36 @@ Follow the guide section for Recipe: Read-Only Finance Record Inspection.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Location`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Location`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Transaction header.
+2. Transaction details.
+3. Payment detail.
+4. Batch.
+5. Authorized person alias and person/business.
+6. Account(s).
+7. Gateway transaction code.
+8. Receipt communication.
+9. Statement eligibility.
+10. Audit history.
+11. Exceptions.
+12. Transaction ID/GUID.
+13. Donor identity.
+14. Date/time.
+15. Total amount and detail allocations.
+16. Payment method.
 
 ## Do Not Assume
 
@@ -34,15 +53,8 @@ Follow the guide section for Recipe: Read-Only Finance Record Inspection.
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/finance
 - https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/15
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail
-- https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
-- https://community.rockrms.com/recipes/122
-- https://community.rockrms.com/recipes/254
-- https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs
+- https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes

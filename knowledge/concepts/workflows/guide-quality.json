@@ -2,23 +2,26 @@
   "authority_coverage": [
     "community-example",
     "official",
-    "official-developer",
     "official-model-map",
-    "official-release",
     "official-training",
-    "official-triumph",
+    "org-contribution",
     "source-code",
     "unknown"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 14317 words; expected at least 7000.",
+      "message": "Guide has 7575 words; expected at least 1200.",
+      "passed": true
+    },
+    {
+      "id": "bounded_length",
+      "message": "Guide has 7575 words; expected no more than 9000.",
       "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 101 sections; expected at least 35.",
+      "message": "Guide has 52 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -27,23 +30,18 @@
       "passed": true
     },
     {
-      "id": "release_sources",
-      "message": "Guide should cite release notes.",
-      "passed": true
-    },
-    {
-      "id": "source_code",
-      "message": "Guide should cite source code.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
-      "message": "Guide has 7 task cards; expected at least 5.",
+      "message": "Guide has 7 task cards; expected at least 3.",
+      "passed": true
+    },
+    {
+      "id": "actionable_task_cards",
+      "message": "Task cards must contain concrete steps.",
       "passed": true
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 16 entity rows; expected at least 8.",
+      "message": "Guide has 14 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -52,21 +50,62 @@
       "passed": true
     },
     {
+      "id": "troubleshooting_structure",
+      "message": "Guide should include evidence-backed troubleshooting branches.",
+      "passed": true
+    },
+    {
+      "id": "source_code",
+      "message": "Available source code should be cited.",
+      "passed": true
+    },
+    {
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
+      "passed": true
+    },
+    {
       "id": "community_marked",
       "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_traceability",
+      "message": "Reviewed public contribution records must include source URLs or source record IDs.",
+      "passed": true
+    },
+    {
+      "id": "contribution_not_official",
+      "message": "Guides using org/community contributions must label them as examples, patterns, or non-official guidance.",
+      "passed": true
+    },
+    {
+      "id": "contribution_live_verification",
+      "message": "Contribution-influenced guides that need live verification must tell agents what to verify.",
       "passed": true
     }
   ],
   "concept_id": "workflows",
-  "contribution_record_count": 0,
-  "entity_count": 16,
-  "generated_at": "2026-07-26T00:29:26+00:00",
-  "guide_line_count": 1656,
-  "guide_word_count": 14317,
+  "contribution_record_count": 67,
+  "entity_count": 14,
+  "generated_at": "2026-07-30T02:07:40+00:00",
+  "guide_line_count": 635,
+  "guide_word_count": 7575,
+  "metrics": {
+    "actionable_task_card_ratio": 1.0,
+    "answer_claim_count_in_pack": 53,
+    "answer_claim_reference_count": 50,
+    "entity_count": 14,
+    "section_count": 52,
+    "source_count": 30,
+    "substantive_uncited_section_ratio": 0.0682,
+    "task_card_count": 7,
+    "word_count": 7575
+  },
   "private_draft_contribution_record_count": 0,
   "score": 100,
-  "section_count": 101,
-  "source_count": 63,
+  "section_count": 52,
+  "source_count": 30,
   "status": "pass",
   "task_card_count": 7
 }

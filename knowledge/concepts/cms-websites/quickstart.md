@@ -17,13 +17,13 @@ Pages, blocks, themes, content channels, personalization, media, and website ope
 
 ## Primary Tasks
 
-- [Recipe: “Find The Block That Controls This Text”](tasks/recipe-find-the-block-that-controls-this-text.md): Follow the guide section for Recipe: “Find The Block That Controls This Text”.
-- [Recipe: “Why Is This Content Item Not Public?”](tasks/recipe-why-is-this-content-item-not-public.md): Follow the guide section for Recipe: “Why Is This Content Item Not Public?”.
-- [Recipe: “Can I Enable SQL In This HTML Block?”](tasks/recipe-can-i-enable-sql-in-this-html-block.md): Follow the guide section for Recipe: “Can I Enable SQL In This HTML Block?”.
-- [Recipe: “Add A Detail Page For Channel Items”](tasks/recipe-add-a-detail-page-for-channel-items.md): Follow the guide section for Recipe: “Add A Detail Page For Channel Items”.
-- [Recipe: “Review A Community Recipe Before Installing”](tasks/recipe-review-a-community-recipe-before-installing.md): Follow the guide section for Recipe: “Review A Community Recipe Before Installing”.
-- [Recipe: “Build A Page View Report”](tasks/recipe-build-a-page-view-report.md): Follow the guide section for Recipe: “Build A Page View Report”.
-- [Recipe: “Troubleshoot Required Watching”](tasks/recipe-troubleshoot-required-watching.md): Follow the guide section for Recipe: “Troubleshoot Required Watching”.
+- [Recipe: “Find The Block That Controls This Text”](tasks/recipe-find-the-block-that-controls-this-text.md): Complete “Find The Block That Controls This Text” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Why Is This Content Item Not Public?”](tasks/recipe-why-is-this-content-item-not-public.md): Complete “Why Is This Content Item Not Public?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Can I Enable SQL In This HTML Block?”](tasks/recipe-can-i-enable-sql-in-this-html-block.md): Default answer: only after review.
+- [Recipe: “Add A Detail Page For Channel Items”](tasks/recipe-add-a-detail-page-for-channel-items.md): Complete “Add A Detail Page For Channel Items” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Review A Community Recipe Before Installing”](tasks/recipe-review-a-community-recipe-before-installing.md): Complete “Review A Community Recipe Before Installing” with evidence-backed checks and a verifiable outcome.
+- [Recipe: “Build A Page View Report”](tasks/recipe-build-a-page-view-report.md): The community page-view recipe provides the basic pattern but should be hardened for security and performance (Easy Page Views Reporting).
+- [Recipe: “Troubleshoot Required Watching”](tasks/recipe-troubleshoot-required-watching.md): RockU identifies Required Watching as part of the CMS/media learning path (Rock Media Required Watching).
 
 ## High-Signal Sections
 

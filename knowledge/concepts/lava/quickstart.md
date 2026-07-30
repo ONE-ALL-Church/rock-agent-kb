@@ -17,14 +17,14 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 
 ## Primary Tasks
 
-- [Recipe: Inventory Lava Risk On A Page](tasks/recipe-inventory-lava-risk-on-a-page.md): Follow the guide section for Recipe: Inventory Lava Risk On A Page.
-- [Recipe: Review A Shortcode For Production](tasks/recipe-review-a-shortcode-for-production.md): Follow the guide section for Recipe: Review A Shortcode For Production.
-- [Recipe: Find Legacy Attribute Lava](tasks/recipe-find-legacy-attribute-lava.md): Follow the guide section for Recipe: Find Legacy Attribute Lava.
-- [Recipe: Safely Use `securityenabled:'false'`](tasks/recipe-safely-use-securityenabled-false.md): Follow the guide section for Recipe: Safely Use `securityenabled:'false'`.
-- [Recipe: Create A Staff-Friendly Link Copy Shortcode](tasks/recipe-create-a-staff-friendly-link-copy-shortcode.md): Follow the guide section for Recipe: Create A Staff-Friendly Link Copy Shortcode.
-- [Recipe: Add A Translation Shortcode](tasks/recipe-add-a-translation-shortcode.md): Follow the guide section for Recipe: Add A Translation Shortcode.
-- [Recipe: Generate Labels With Lava](tasks/recipe-generate-labels-with-lava.md): Follow the guide section for Recipe: Generate Labels With Lava.
-- [Recipe: Build An Agent Lava Tool](tasks/recipe-build-an-agent-lava-tool.md): Follow the guide section for Recipe: Build An Agent Lava Tool.
+- [Recipe: Inventory Lava Risk On A Page](tasks/recipe-inventory-lava-risk-on-a-page.md): Complete Inventory Lava Risk On A Page with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review A Shortcode For Production](tasks/recipe-review-a-shortcode-for-production.md): Complete Review A Shortcode For Production with evidence-backed checks and a verifiable outcome.
+- [Recipe: Find Legacy Attribute Lava](tasks/recipe-find-legacy-attribute-lava.md): Source pattern: Finding and Fixing Legacy Lava.
+- [Recipe: Safely Use `securityenabled:'false'`](tasks/recipe-safely-use-securityenabled-false.md): Source: Entity, Attributes.
+- [Recipe: Create A Staff-Friendly Link Copy Shortcode](tasks/recipe-create-a-staff-friendly-link-copy-shortcode.md): Pattern from community recipe: a shortcode can generate a copyable public URL for staff workflows, such as registration or forms (Easy Copy Url Shortcode).
+- [Recipe: Add A Translation Shortcode](tasks/recipe-add-a-translation-shortcode.md): Complete Add A Translation Shortcode with evidence-backed checks and a verifiable outcome.
+- [Recipe: Generate Labels With Lava](tasks/recipe-generate-labels-with-lava.md): Source: Print ZPL.
+- [Recipe: Build An Agent Lava Tool](tasks/recipe-build-an-agent-lava-tool.md): ```json
 
 ## High-Signal Sections
 
@@ -48,7 +48,7 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the lava guide.
 - `Person`: Rock concept/entity referenced by the lava guide.
-- `Workflow`: Rock concept/entity referenced by the lava guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 
 ## Version Caveats
 

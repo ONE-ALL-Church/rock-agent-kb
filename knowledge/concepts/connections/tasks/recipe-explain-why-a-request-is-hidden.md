@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Explain Why A Request Is Hidden
 
-Follow the guide section for Recipe: Explain Why A Request Is Hidden.
+Cite mobile connected-state exclusion if relevant (Connection Request List mobile docs).
 
 ## When To Use
 
@@ -16,17 +16,29 @@ Follow the guide section for Recipe: Explain Why A Request Is Hidden.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Campus`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Campus`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Request id/guid/idkey.
+2. Person.
+3. Type/opportunity.
+4. Current state/status.
+5. Campus.
+6. Connector.
+7. Board/list filters checked.
+8. Security checked.
+9. Whether request is connected/completed.
+10. Whether mobile block excludes it.
+11. Final reason.
 
 ## Do Not Assume
 
@@ -34,15 +46,15 @@ Follow the guide section for Recipe: Explain Why A Request Is Hidden.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/ask/developing/2645
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/rocku/engagement/connection-opportunities
-- https://community.rockrms.com/recipes/446
-- https://community.rockrms.com/rocku/engagement/connections-board
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm

@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inventory A Mobile App](tasks/recipe-inventory-a-mobile-app.md) |  |  |
-| [Recipe: Determine Whether A Feature Can Be Used](tasks/recipe-determine-whether-a-feature-can-be-used.md) |  |  |
+| [Recipe: Inventory A Mobile App](tasks/recipe-inventory-a-mobile-app.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Determine Whether A Feature Can Be Used](tasks/recipe-determine-whether-a-feature-can-be-used.md) | `Page` | `Page` |
 | [Recipe: Add Analytics To A Tap](tasks/recipe-add-analytics-to-a-tap.md) |  |  |
-| [Recipe: Modernize Legacy Platform XAML](tasks/recipe-modernize-legacy-platform-xaml.md) |  |  |
-| [Recipe: Review App Store Readiness](tasks/recipe-review-app-store-readiness.md) |  |  |
+| [Recipe: Modernize Legacy Platform XAML](tasks/recipe-modernize-legacy-platform-xaml.md) | `Device` | `Device` |
+| [Recipe: Review App Store Readiness](tasks/recipe-review-app-store-readiness.md) | `Page` | `Page` |
 
 ## Entities
 

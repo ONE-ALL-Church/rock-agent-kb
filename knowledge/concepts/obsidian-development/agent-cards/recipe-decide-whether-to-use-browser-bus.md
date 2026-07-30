@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Decide Whether To Use Browser Bus
 
-Follow the guide section for Recipe: Decide Whether To Use Browser Bus.
+The browser bus is page-local only (Browser Bus).
 
 ## When To Use
 
@@ -16,33 +16,29 @@ Follow the guide section for Recipe: Decide Whether To Use Browser Bus.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Two independent components on the same page must communicate.
+2. Parent/child props are not a natural fit.
+3. The message is page-local.
+4. The interaction is not security enforcement.
+5. A server action should own the state.
+6. Components have a clear parent/child relationship.
+7. The message must cross browser tabs.
+8. The message must persist.
+9. The message controls authorization.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not use browser bus when:
 
 ## Source Links
 
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/obsidian/null-vs-undefined
 - https://community.rockrms.com/developer/obsidian/browser-bus
-- https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions
-- https://community.rockrms.com/developer/obsidian
-- https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/obsidian/form-validation
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/obsidian/creating-ui-controls
-- https://community.rockrms.com/developer/obsidian/grids

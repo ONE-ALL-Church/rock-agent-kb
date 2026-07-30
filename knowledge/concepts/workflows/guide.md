@@ -6,6 +6,11 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "e45856216ee8b8edeba9d461f8a1889a55b05744e0d09efaaf7e5d3626ef5997"
 ---
 
 # Workflows
@@ -26,1564 +31,584 @@ Agents starting from this long-form guide should inspect the stable generated mo
 
 <!-- END GENERATED MODEL MAP POINTERS -->
 
-## 1. Executive Summary For Agents
+## Agent Summary
 
-Rock workflows are configurable process engines. They collect data, evaluate conditions, call actions, show forms, create or update Rock records, send communications, wait for later processing, and connect ministry processes to pages, triggers, Lava, jobs, integrations, and reporting. They are one of Rock's most powerful extension points because they let administrators automate work without writing compiled plugins, while still giving developers and agents hooks through Lava, REST, webhooks, attributes, and source-level model behavior.
+Rock workflows coordinate structured processes: collect attributes, activate activities, execute ordered actions, assign responsibility, branch on conditions, communicate, and retain an inspectable workflow instance when persistence is needed. Treat the workflow type as the blueprint and each workflow instance as one process moving through that blueprint. [Official workflow overview](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types)
 
-Treat every workflow as two related things:
+For operational work, begin with the process rather than the requested screen or automation:
 
-1. A **Workflow Type** is the definition: attributes, activities, actions, forms, templates, status labels, persistence behavior, and security.
-2. A **Workflow** is a running or completed instance of that definition, with concrete attribute values, activities, actions, status, errors, and history.
+1. Restate the ministry problem and required outcome.
+2. Identify the person or entity in context.
+3. Define the process state, owner, next action, and completion condition.
+4. Define attributes according to their stored formats and downstream consumers.
+5. Select the least complex supported activation path.
+6. Test permissions, branching, persistence, communications, retries, and final side effects.
 
-The official workflow manual, [Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12), is the primary authority for concepts, configuration, entity triggers, form behavior, version notes, and administrative screens. RockU provides short training modules for practical learning paths such as [What is a Workflow](https://community.rockrms.com/rocku/workflows/what-is-a-workflow), [Components of a Workflow](https://community.rockrms.com/rocku/workflows/components-of-a-workflow), [Workflow Entry](https://community.rockrms.com/rocku/workflows/workflow-entry), [Persisted Workflows](https://community.rockrms.com/rocku/workflows/persisted-workflows), [Workflow Performance Tips](https://community.rockrms.com/rocku/workflows/workflow-performance-tips), [Workflow Person Entry](https://community.rockrms.com/rocku/workflows/workflow-person-entry), [Electronic Signatures](https://community.rockrms.com/rocku/workflows/electronic-signatures-1), and [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder). Use source code and migrations for exact field behavior when the docs are thin; for example, Person Entry options are represented by `Hide`, `Optional`, and `Required` in the `WorkflowActionFormPersonEntryOption` enum in Rock's source ([C# enum](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Workflow/WorkflowActionFormPersonEntryOption.cs), [Obsidian enum](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Workflow/workflowActionFormPersonEntryOption.ts)).
+A stakeholder’s proposed implementation is useful requirements evidence, but it should be compared with genuinely different approaches before construction. [Approved operational guidance](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s)
 
-For operational work, start from these questions:
+Use workflow forms for structured input, activities for stages or responsibility boundaries, actions for individual units of work, and workflow instances for operational state. Use Connections when the owning concept is a person-centered ministry follow-up process; use jobs when work must start on a schedule; and use webhooks or pipelines when an external event must initiate processing. [Official introduction](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/intro-to-workflows)
 
-1. **How is the workflow launched?** Check Workflow Entry blocks, entity triggers, connection or step triggers, grid actions, Lava `workflowactivate`, webhooks, jobs, and any external integration. Community examples show common "where used" audits across blocks, triggers, and Lava references ([Workflow Finder](https://community.rockrms.com/recipes/457)).
-2. **Is it persisted?** If a workflow waits, delays, suspends, or needs later processing, inspect active instances and the Process Workflows job. Community health recipes emphasize that stuck active workflows can keep reprocessing and should be monitored ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-3. **Which attributes carry state?** Workflow attributes are the input and state contract. Before changing a workflow, list attribute names, keys, field types, default values, and whether they are set by forms, query string parameters, Lava, triggers, webhooks, or helper workflows.
-4. **Which person is involved?** Person Entry can create or update people without manually creating workflow attributes for every person field, but it still stores selected people through configured person-related attributes and processor logic. Verify how your version maps the form's Person, Spouse, campus, address, email, phone, and SMS opt-in settings.
-5. **What completes the workflow?** A workflow that never reaches a completion action can remain active indefinitely unless controlled by maximum age, completion logic, manual intervention, or operational cleanup.
-6. **What security boundary is involved?** Workflow launch permissions, block security, Lava command enablement, SQL-enabled HTML blocks, external forms, webhooks, and administrative screens must be checked separately.
+## Scope And Boundaries
 
-Do not assume that a workflow definition explains every launch path. In real Rock instances, a Workflow Type can be used by a visible Workflow Entry page, a hidden modal page, a grid action, a workflow trigger, a connection process, a step process, a webhook endpoint, a Lava command in an HTML block, a helper workflow, or a third-party integration. When a workflow is being retired or changed, perform a "where used" review before editing production behavior.
+This guide covers:
 
-## 2. Scope And Terminology
+- Workflow types, attributes, activities, actions, instances, persistence, and assignment.
+- Workflow activation from entry pages, URLs, person or entity contexts, grids, jobs, Lava, webhooks, SMS Pipeline, and adjacent Rock surfaces.
+- Entry Forms, Form Builder, Person Entry, commands, conditional fields, and chained forms.
+- Operational monitoring through workflow lists, details, logs, notes, and My Workflows.
+- Connections as person-centered follow-up workflows.
+- Evidence-supported examples involving attendance, preregistration, LMS completion, provider events, communications, and slow background work.
 
-This guide covers Rock RMS workflows as a concept area: Workflow Types, workflow instances, activities, actions, forms, Person Entry, triggers, activation paths, integrations, jobs, operational monitoring, reporting, and developer landmarks. It also covers related dependencies: Lava, jobs, communications, security, attributes, model-map concepts, source-code behavior, and community implementation patterns.
+This guide does not define the full behavior of Lava, jobs, communications, security, attributes, Connections, registrations, check-in, or LMS. Those concepts own their detailed configuration. Here they are covered only where they initiate, supply data to, or receive work from a workflow.
 
-This guide does not replace a live-instance audit. Rock is highly configurable, and many production workflows depend on local IDs, GUIDs, custom attributes, custom pages, plugins, SQL, Lava snippets, custom REST endpoints, external webhooks, or ministry-specific conventions. When a detail depends on local configuration, this guide says what to inspect.
+Do not infer that an action, trigger, provider, plugin, schema element, or v19 feature is installed merely because it appears in documentation or source. Treat community contributions and recipes as reviewed implementation patterns, not official Rock behavior. Installation-specific conclusions belong under `Known Gaps And Live Verification`.
 
-Key terms:
+## Mental Model
 
-**Workflow Type**
-The reusable process definition. It contains attributes, activity types, action types, form configuration, status options, templates, completion behavior, and security. In the official docs, the distinction between Workflow Types and Workflows is foundational ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
+A workflow type is a reusable process definition. Its attributes hold the data needed by the process; its activities represent stages of work; and its actions perform individual operations. Actions execute in configured order, so a write, assignment, communication, activation, or completion action placed earlier can affect everything that follows. [Workflow Types](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types) and [Workflow Actions](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions)
 
-**Workflow**
-A specific running or completed instance of a Workflow Type. It has a name, status, state, attributes, activities, actions, and audit metadata. Agents should treat a workflow instance as evidence, not merely a definition.
+A workflow instance is one execution of that definition. It has an initiator, status, attributes, activated activities, assignments, action completion state, and—when configured—logs and notes. An agent diagnosing an instance should inspect those layers separately rather than reducing the issue to “the workflow failed.” [Workflow instance management](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details)
 
-**Activity Type**
-A configured phase or branch in the workflow definition. It groups action types. Activities can be activated by workflow processing, Lava, actions, or triggers depending on configuration.
+Use these modeling boundaries:
 
-**Activity**
-A concrete instance of an Activity Type inside a workflow instance.
+- **Attribute:** data the process must collect, derive, retain, compare, or pass onward.
+- **Activity:** a stage, responsibility boundary, waiting point, or branch target.
+- **Action:** one ordered operation within an activity.
+- **Form command:** a submission choice that can activate a particular workflow path.
+- **Assignment:** the person or group responsible for an active activity.
+- **Status:** human-readable workflow state; it does not replace action and activity state.
+- **Persistence:** whether an instance should be retained and receive a stable database identity.
+- **Trigger:** the event or interface that initiates or reprocesses a workflow.
+- **Completion:** an explicit terminal state after required work and side effects have finished.
 
-**Action Type**
-A configured step within an Activity Type. Examples include showing a form, setting attributes, running Lava, sending communications, activating activities, completing workflows, delaying, logging errors, requesting background checks, and many other action components documented across the workflow manual and version notes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
+A single workflow can transfer responsibility without duplicating the entire process. For example, one activity can collect input, persist the instance, assign another activity, show a second form, and let approval or denial commands activate different terminal activities. [Define Workflow Activities](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities)
 
-**Action**
-A concrete execution record for an Action Type in a workflow instance.
+## Process Design Before Configuration
 
-**Workflow Attribute**
-A typed data field defined for the Workflow Type. Attributes hold submitted form values, intermediate state, entity references, integration payloads, routing decisions, comments, selected people, and external IDs. Attributes are central to both no-code workflows and developer-driven workflows.
+Define the process in operational language before opening Workflow Configuration:
 
-**Workflow Form**
-A workflow action that displays fields to a user. The form can expose workflow attributes, organize fields into sections, apply conditional logic in newer Rock versions, and optionally include Person Entry. The Model Map lists workflow form-related models such as [Workflow Action Form](https://community.rockrms.com/ModelMap), [Workflow Action Form Attribute](https://community.rockrms.com/ModelMap), and [Workflow Action Form Section](https://community.rockrms.com/ModelMap).
+- What real-world problem begins the process?
+- What person or entity is the subject?
+- What information is required at initiation, and what is derived later?
+- Who owns each stage?
+- Which outcomes are materially different branches?
+- Which actions are reversible?
+- Which actions can be retried safely?
+- What constitutes completion?
+- What must remain visible for audit or staff follow-up?
+- Which sensitive values should not be retained or broadly exposed?
 
-**Person Entry**
-A workflow form feature that gathers individual and spouse information without requiring separate workflow attributes for every person field. Rock source and migrations show it stores many configuration options on `WorkflowActionForm`, including campus, spouse, email, mobile phone, birthdate, address, marital status, gender, record status, connection status, and related person attributes ([Person Entry migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs), [gender option migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011171742444_WorkflowActionFormPersonEntryGenderOption.cs)).
+Then map the process to Rock components. Avoid using statuses for every checklist signal or duplicating whole workflows for every branch. Activities, assignments, action filters, commands, attributes, notes, and related Rock records may express the distinction more accurately. [Official activity pattern](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities)
 
-**Persisted Workflow**
-A workflow that is saved to the database for later processing, review, waiting, delay, or completion. RockU calls out persisted workflows as a distinct training topic ([Persisted Workflows](https://community.rockrms.com/rocku/workflows/persisted-workflows)). Operationally, persisted workflows are where agents most often find stuck processes, repeated errors, and job-related delays.
+Rock includes built-in workflows that can serve as patterns, and an existing workflow type can be copied. The built-in unattended check-in workflow carries an explicit warning against alteration unless the operator understands it. A clone is a starting point, not proof that its security, attributes, communications, or assumptions fit another process. [Built-In Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/built-in-workflows)
 
-**Trigger**
-A configuration that launches or activates a workflow when some event happens, such as an entity change. The official documentation locates entity trigger configuration under Admin Tools > General Settings > Workflow Triggers ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
+## Triggers And Activation
 
-**Workflow Entry Block**
-A page block that lets users start or continue workflow entry. Source code indicates the older `Activate Workflow` block is deprecated because the Workflow Entry block now supports the relevant activation and query-string attribute behavior ([ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)).
+### Entry pages and direct links
 
-**Form Builder**
-A user-facing form-building experience backed by workflows. Community examples emphasize that Form Builder forms are workflows and often need clear entry URLs, preview links, and submission reporting for staff adoption ([Form Builder - Helpful Links](https://community.rockrms.com/recipes/347)).
+`Tools > Workflows` can display configured workflow categories and launch a workflow’s first entry screen. Category and workflow security affect what the current person can see. A page containing the Workflow Entry block can launch a specific workflow type directly, allowing a public or internal page to present the process without exposing workflow terminology. [Launch a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow)
 
-## 3. Workflows Mental Model
+The Workflow Entry block can load an existing instance when a valid `WorkflowId` or `WorkflowGuid` is supplied. Otherwise it can create a new instance when the required workflow-type context is supplied, process it, and locate the first active form assigned to the current person. A command parameter can cause immediate form-command processing, so agents should treat command-bearing URLs as behavior-bearing inputs, not merely navigation. [Link to Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/link-to-workflows)
 
-Think of a workflow as a stateful process graph backed by Rock entities and attributes.
+Query-string values can be passed into matching workflow attributes by supported workflow launch surfaces. Verify every parameter name, field type, stored-value format, and authorization boundary before using URL inputs as workflow data. [Launch from grids and routes](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow)
 
-A simple workflow might do this:
+### Person, entity, and grid launches
 
-1. Show an external form.
-2. Store submitted values in workflow attributes.
-3. Attach a person using Person Entry.
-4. Route the request based on a selected topic.
-5. Send a communication.
-6. Create a connection request.
-7. Mark itself complete.
+A workflow can be exposed as an action from a person profile or launched for selected entities from a supported grid. The workflow must preserve the passed entity in an appropriate attribute if later actions need it. Workflow security still controls which workflow types a person can launch. [Launch a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow)
 
-A more complex workflow might:
+Entity triggers can launch workflows around saved or deleted records. Do not create a pre-save or immediate post-save loop in which the triggered workflow updates the same entity that is actively being saved. Confirm the trigger event, the entity passed to the workflow, and whether the workflow needs the entity to be saved before downstream processing. [Entity-trigger guidance](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow)
 
-1. Start from a webhook.
-2. Store raw JSON in a text attribute.
-3. Run Lava to parse fields.
-4. Activate a loop activity once per item.
-5. Call helper workflows for reusable operations.
-6. Persist and wait for staff review.
-7. Resume when a person submits an electronic signature.
-8. Complete after all required downstream objects are created.
+### Scheduled activation and background work
 
-The mental model has five layers.
+Rock jobs can initiate workflows on a schedule, making workflows suitable for background tasks. When the work is slow—such as rendering media or waiting for an external result—the workflow can own explicit states, retries, and completion checks instead of blocking the user interface. This orchestration pattern is community-reviewed rather than a guarantee about any particular renderer or provider. [Official background-task overview](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/intro-to-workflows) and [community-reviewed orchestration example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr)
 
-**Definition Layer**
-The Workflow Type defines allowed attributes, activity types, action types, forms, statuses, templates, and rules. It is the blueprint.
-
-**Instance Layer**
-Each Workflow instance carries real state. It may be active, complete, canceled, errored, waiting, or otherwise labeled according to configuration and Rock behavior. Agents should inspect actual workflow rows when troubleshooting because definition settings alone do not prove current state.
-
-**Execution Layer**
-Activities and actions execute in order and may activate other activities. Some actions are immediate. Others persist state, delay, show forms, wait on user input, or rely on jobs. A workflow can run synchronously from a page request or asynchronously through later processing depending on how it was launched and configured.
-
-**Data Layer**
-Workflow attributes are the process memory. They also form the integration contract between forms, Lava, actions, helper workflows, and external systems. Attribute values may store raw text, person aliases, group IDs, GUIDs, files, JSON, selected defined values, connection opportunities, comments, or other typed data.
-
-**Activation Layer**
-Workflows can be launched from many surfaces. Official and community sources show at least these patterns:
-
-- Workflow Entry pages and Form Builder entry pages ([Workflow Entry](https://community.rockrms.com/rocku/workflows/workflow-entry), [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder)).
-- Entity triggers configured under Workflow Triggers ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-- Lava `workflowactivate`, available when the command is enabled ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)).
-- Grid launches and custom grid actions ([Launch Workflow From Grid](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid), [Launching a workflow from a Grid](https://community.rockrms.com/recipes/300)).
-- Webhook-to-workflow patterns ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473), [Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211)).
-- Connection, group requirement, and step-related triggers in local configuration, as shown by community "where used" audit patterns ([Workflow Finder](https://community.rockrms.com/recipes/457)).
-- Helper workflows activated by a parent workflow ([Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258)).
-
-Agents should never ask "where is the workflow page?" as the only launch-path question. Ask "what can create or reactivate this Workflow Type?"
-
-## 4. Source Authority And How To Use This Guide
-
-Use sources in this order.
-
-**1. Official Rock documentation**
-The workflow manual, [Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12), is the first place to verify supported concepts, UI paths, action documentation, version notes, triggers, Workflow Entry, forms, and configuration screens.
-
-**2. Rock source code and migrations**
-Use source code when exact behavior matters, especially for fields introduced by migrations, Lava command behavior, deprecation warnings, internal APIs, and tests. Examples:
-
-- `workflowactivate` behavior and security are documented in source and integration tests ([WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs), [WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs)).
-- Person Entry fields and options are visible in migrations and view models ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs), [FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs), [FormPersonEntryViewModel.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs)).
-- Obsidian TypeScript definitions describe client-facing bags for Person Entry configuration and values ([personEntryConfigurationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts), [personEntryValuesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryValuesBag.d.ts)).
-
-**3. RockU training**
-RockU is useful for onboarding and for understanding how Rock's authors frame workflows operationally. The [Workflows RockU section](https://community.rockrms.com/rocku/workflows) includes modules on components, entry, persistence, performance, styling, sample workflows, grid launching, Person Entry, electronic signatures, and Form Builder.
-
-**4. Model Map**
-The [Model Map](https://community.rockrms.com/ModelMap) is useful for identifying relevant model families, but it is not a complete operational manual. In the source pack it confirms workflow-form models in the Workflow category: Workflow Action Form, Workflow Action Form Attribute, and Workflow Action Form Section.
-
-**5. Release notes and spotlight records**
-Use release notes to detect version caveats. The official manual has version update notes through Rock 18.1 for workflow changes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)), and official Rock release notes should be checked for later workflow, form, security, and automation changes before production decisions ([Release Notes](https://www.rockrms.com/releasenotes)). The Triumph GitHub spotlight notes a v16.7 change: workflow form Person Entry campus selection gained an option to filter inactive campuses, aligning workflow form action behavior with Form Builder behavior ([GitHub Spotlight: 10/18/2024](https://www.triumph.tech/resources/github-spotlight-10182024)). For production decisions, verify the exact Rock version and confirm behavior in the installed codebase.
-
-**6. Community recipes**
-Recipes are useful examples, not primary authority. The Rock community recipe pages themselves warn that recipes are contributed and not necessarily reviewed or endorsed. Use them as implementation patterns and prompts for verification, especially around reports, modals, helper workflows, webhooks, and where-used utilities.
-
-## 5. Core Configuration And Data Model
-
-### Workflow Type Configuration
-
-A Workflow Type is configured under the workflow administration area. The official documentation references General Settings > Workflow Configuration and describes sections such as workflow attributes, activities, actions, status, and templates ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). In practice, agents should capture the following for any Workflow Type audit:
-
-- Name.
-- Id and Guid.
-- Category or organizational grouping.
-- Description and purpose.
-- Active/inactive state, if visible.
-- Security permissions.
-- Workflow attributes: name, key, field type, default value, visibility, required state, and any configured values.
-- Activity types: order, name, activation/completion behavior, and conditions.
-- Action types: component/action type, order, configuration, conditional criteria, persistence behavior, and error handling.
-- Form actions: fields, sections, Person Entry, pre/post HTML, submit button text, completion text, and conditional display rules.
-- Status values used by the workflow.
-- Templates: entry, detail, summary, or any display templates available in the installed version.
-- Maximum age or auto-completion settings if available in the installed version.
-- Change log or notes if present.
-
-The official docs note that workflow summary templates can be customized per workflow type and generally do not need changes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). If an agent sees unexpected workflow detail rendering, inspect the Workflow Type templates before assuming a block issue.
-
-### Workflow Attributes
-
-Workflow attributes are the main contract between users, actions, integrations, and reporting. They are configured at the Workflow Type level and populated on workflow instances. Attributes can represent:
-
-- Submitted form fields.
-- Person or Person Alias references.
-- Group, campus, connection opportunity, or defined value choices.
-- Raw integration payloads.
-- Derived values created by Lava.
-- Counters and loop state.
-- Routing values such as topic, department, or assigned worker.
-- Files or signature-related artifacts.
-- Status flags.
-- External system IDs.
-- Error or response messages.
-
-Operationally, attribute keys matter more than display names. Lava, actions, integrations, imported workflows, helper workflows, and reports often reference keys. Community examples show administrators adding helper HTML or reports to display workflow attribute keys without editing each attribute ([View Workflow Attributes Without Editing Workflow](https://community.rockrms.com/recipes/203), [Finding People from Workflows](https://community.rockrms.com/recipes/437)).
-
-Agent checklist for workflow attributes:
-
-1. Export or list all attributes with keys and field types.
-2. Identify which attributes are filled by the first form.
-3. Identify which are set by query string, webhook body, Lava, trigger context, helper workflow parameters, or staff action.
-4. Identify which attributes are used only for internal state.
-5. Identify Person-related attributes and whether they store a Person Alias Guid, Person Id, text, or another format.
-6. Identify stale or unused attributes before cleanup.
-7. Before renaming keys, search every action, Lava snippet, communication template, block configuration, SQL report, and integration that could reference them.
-
-### Activities And Actions
-
-A workflow's activity types organize action types into process phases. A common pattern is:
-
-- Start activity: collect input and initialize values.
-- Routing activity: evaluate selections and assign staff.
-- Worker activity: show staff form or send notifications.
-- Integration activity: create/update external or Rock records.
-- Completion activity: send final communication and mark complete.
-- Error activity: log or notify on failure.
-
-Actions are where work happens. Depending on installed components, actions may show forms, set attributes, activate activities, run Lava, send communications, persist workflow state, complete/cancel workflows, delay processing, create entities, request background checks, log errors, and call integrations. The official manual's version notes mention additions such as Delay, Background Check Request, Log Error, and Persist Workflow behavior across earlier versions ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-Agents should document action order. A workflow bug often comes from an action executing before an attribute is set, an activity being reactivated unexpectedly, a condition allowing both branches, or a completion action ending the workflow before later actions can run.
-
-### Workflow Forms
-
-Workflow forms are configured as action forms. The Model Map identifies workflow form models in the Workflow category, including [Workflow Action Form](https://community.rockrms.com/ModelMap), [Workflow Action Form Attribute](https://community.rockrms.com/ModelMap), and [Workflow Action Form Section](https://community.rockrms.com/ModelMap). A form action generally includes:
-
-- Form title and instructions.
-- Attribute fields exposed to the user.
-- Field order.
-- Sections.
-- Required fields.
-- Visibility or conditional logic, depending on version.
-- Person Entry settings.
-- HTML before and after fields.
-- CSS classes or styling hooks.
-- Submit behavior.
-- Success or completion messaging.
-
-For exact fields available in your instance, inspect the Workflow Type form action configuration and the `WorkflowActionForm` schema in the database or source version. Source migrations show that Person Entry configuration is stored on `WorkflowActionForm` and evolved over versions ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs), [WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.0/202308242352371_WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs)).
-
-### Persistence And Processing
-
-A workflow that completes immediately may not need long-term active state. A workflow that waits on users, delays, or background processing must persist. RockU separates [Persisted Workflows](https://community.rockrms.com/rocku/workflows/persisted-workflows) and [Workflow Performance Tips](https://community.rockrms.com/rocku/workflows/workflow-performance-tips), which reflects a real operational distinction: persisted active workflows become ongoing workload.
-
-Inspect:
-
-- Whether the workflow uses a Persist Workflow action.
-- Whether actions delay, wait, suspend, or require external response.
-- Whether the Process Workflows job is running and healthy.
-- Number of active workflow instances by type and status.
-- Oldest active workflow instance.
-- Error counts.
-- Last processed timestamps if available.
-- Whether maximum workflow age is configured in your version. The official docs note Rock 13 added a Maximum Workflow Age setting to automatically complete old workflows ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-### Status
-
-Status is both a user-facing label and an operational signal. The official docs include Status as a core workflow component ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). In live systems, agents should not assume status strings are standardized. Many churches define local statuses like New, Pending Staff Review, Waiting for Signature, Follow Up Complete, Canceled, Duplicate, Error, or Imported.
-
-For reporting, normalize status by asking:
-
-- Which statuses mean "active and expected"?
-- Which mean "waiting on someone"?
-- Which mean "complete"?
-- Which mean "failed"?
-- Which are legacy?
-- Are there workflows marked complete but still carrying error states?
-- Are there active workflows with terminal status labels?
-
-## 6. Primary Entities And Relationships
-
-This section describes the common conceptual relationships. Verify exact table and column names in the installed Rock version before writing SQL or API code.
-
-**WorkflowType -> Workflow**
-One Workflow Type can have many Workflow instances. The type defines the process. Instances store execution state.
-
-**WorkflowType -> Attribute -> AttributeValue**
-Workflow Types define attributes. Workflow instances carry values for those attributes. Attribute values are often the most important troubleshooting evidence.
-
-**WorkflowType -> WorkflowActivityType -> WorkflowActionType**
-Activity Types belong to a Workflow Type. Action Types belong to Activity Types. They define the executable process graph.
-
-**Workflow -> WorkflowActivity -> WorkflowAction**
-Workflow instances create concrete activities and actions as processing occurs. These records represent what actually happened.
-
-**WorkflowActionType -> WorkflowActionForm**
-A form action has form-specific configuration. The Model Map lists Workflow Action Form as a workflow model ([Model Map](https://community.rockrms.com/ModelMap)). Source migrations show `WorkflowActionForm` contains Person Entry configuration fields ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs)).
-
-**WorkflowActionForm -> WorkflowActionFormSection -> WorkflowActionFormAttribute**
-Forms can have sections and attribute field configurations. The Model Map identifies both Workflow Action Form Section and Workflow Action Form Attribute as workflow models ([Model Map](https://community.rockrms.com/ModelMap)).
-
-**WorkflowActionForm -> Person Entry settings**
-Person Entry is stored as configuration associated with the form. Source files show settings for autofill, hide-if-current-person-known behavior, campus, campus status, connection status, record status, person attributes, spouse label, and visibility options for person fields ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs), [FormPersonEntryViewModel.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs)).
-
-**Person Entry values -> Person and PersonAlias**
-Person Entry processing may use or create person records and store person alias values into workflow attributes. Integration tests demonstrate processor behavior around logged-in person and spouse matching, and then reading person alias GUIDs from workflow attributes ([WorkflowPersonEntryProcessorTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Workflow/WorkflowPersonEntryProcessorTests.cs)). In a live instance, inspect the configured Person and Spouse attributes and their stored raw values.
-
-**WorkflowTrigger -> EntityType/WorkflowType**
-Entity triggers connect database events to workflow activation. The official manual describes entity triggers under Admin Tools > General Settings > Workflow Triggers ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). Inspect the trigger type, entity type, workflow type, conditions, and any attributes populated from the triggering entity.
-
-**Page/Block -> WorkflowType**
-Workflow Entry blocks, Form Builder pages, modal pages, and custom pages may reference Workflow Types directly. Community "where used" patterns include page blocks with Workflow Entry configuration and HTML/Lava references ([Workflow Finder](https://community.rockrms.com/recipes/457)).
-
-**Lava -> WorkflowType/Workflow/ActivityType**
-The `workflowactivate` Lava command can create workflows, activate activities, set workflow names, pass attributes, and re-activate existing waiting workflows when enabled ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands), [WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)).
-
-**External system -> Webhook -> Workflow**
-Webhook integrations can launch workflows and pass payloads into attributes. Community examples show raw body attributes and response attributes used in webhook-to-workflow patterns ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)).
-
-## 7. Common Workflows Workflows
-
-### Request Intake Workflow
-
-Use for contact forms, facility requests, benevolence requests, IT support, pastoral care, prayer, or ministry operations.
-
-Core pattern:
-
-1. User submits a Workflow Entry or Form Builder form.
-2. Form stores submitted fields as workflow attributes.
-3. Person Entry identifies or creates the person if needed.
-4. Workflow routes based on campus, ministry, topic, or urgency.
-5. Staff receive communication or assignment.
-6. Staff complete a worker form.
-7. Workflow creates follow-up records or marks complete.
-
-Operational checks:
-
-- Confirm external form page and Workflow Entry block settings.
-- Confirm unauthenticated users can access only the intended page and form.
-- Confirm required fields match ministry requirements.
-- Confirm routing attribute values match current departments or staff.
-- Confirm completion happens after staff response.
-- Confirm old requests are not active forever.
-
-Community examples include topic-based assignment using groups and member attributes to avoid editing workflow logic when staff assignments change ([Workflow Assignment by Topic](https://community.rockrms.com/recipes/164)).
-
-### Event Call-To-Action Workflow
-
-Use for events where attendees receive a text link and choose next steps, groups, or follow-up actions.
-
-Core pattern:
-
-1. Event participation or check-in identifies attendees.
-2. Communication sends a workflow form link.
-3. Attendee chooses a call-to-action response.
-4. Workflow adds them to a group, creates a connection request, sends a communication, or tags them for follow-up.
-5. Staff report on response groups or connection queues.
-
-A community implementation describes event attendees receiving a text link to a workflow form, selecting next steps, and being placed into follow-up groups or connection mechanisms ([Event Participant Call-To-Action Using a Workflow Form](https://community.rockrms.com/recipes/445)). Use this as a pattern, not as a drop-in production design.
-
-Verify live:
-
-- SMS phone number configuration.
-- Consent and SMS compliance posture.
-- Event attendance source.
-- Group IDs and connection opportunity IDs.
-- Duplicate handling if the same person submits multiple times.
-- Whether the form should require login, use Person Entry, or accept anonymous submission.
-
-### Staff Approval Workflow
-
-Use for reimbursements, communication requests, facility approvals, purchase requests, content review, or ministry sign-offs.
-
-Core pattern:
-
-1. Requester submits a form.
-2. Workflow determines approver.
-3. Approver receives email or dashboard task.
-4. Approver submits a staff-only workflow form.
-5. Workflow branches on approve, reject, need more information, or cancel.
-6. Final communication is sent.
-7. Workflow completes or persists for follow-up.
-
-Design considerations:
-
-- Put approver assignment in data when possible. A group-member-attribute model can let ministry leaders update assignments without changing workflow action conditions ([Workflow Assignment by Topic](https://community.rockrms.com/recipes/164)).
-- Store approval decision, approver, timestamp, and comments in workflow attributes.
-- Use security to protect staff-only forms.
-- If approval creates financial, HR, or access records, log enough context for audit.
-
-### Helper Workflow
-
-A helper workflow performs one reusable task and is called by parent workflows. Community examples compare helper workflows to functions or subroutines and show use cases like setting SMS enabled, creating connection requests, creating people, adding steps, adding group members with attributes, and sending SMS ([Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258)).
-
-Good helper workflow traits:
-
-- Single responsibility.
-- Clear attribute contract.
-- No direct user entry page unless needed for testing.
-- Predictable completion.
-- Error attribute or status.
-- Idempotency when possible.
-- Versioned name if behavior changes.
-
-Use helper workflows when:
-
-- Multiple workflows need the same operation.
-- Looping is easier in Lava than in action configuration.
-- You need one tested process for creating a specific Rock object.
-- You want parent workflows to stay readable.
-
-Avoid helper workflows when:
-
-- A built-in action is simpler and used only once.
-- The helper hides important side effects.
-- Debugging would require jumping through too many nested workflows.
-- It creates large volumes of persisted child workflows without cleanup.
-
-### Grid-Launched Workflow
-
-Grid-launched workflows let staff select rows in Rock grids and run a workflow against those records. RockU includes [Custom Grid Actions](https://community.rockrms.com/rocku/workflows/custom-grid-actions) and [Launch Workflow From Grid](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid). A community recipe notes that different grids pass different entity contexts, so template workflows may need Lava that understands whether the row represents a person, group member, or another entity ([Launching a workflow from a Grid](https://community.rockrms.com/recipes/300)).
-
-Agent checks:
-
-- Which page and grid defines the custom action?
-- What entity type does the grid pass?
-- What identifier is passed to the workflow?
-- Does the workflow expect PersonAlias Guid, Person Id, GroupMember Id, or another value?
-- Can staff accidentally launch it for too many rows?
-- Is the workflow idempotent?
-- Does security restrict who can launch it?
-
-### Webhook-To-Workflow Integration
-
-Use when external systems need to send payloads into Rock and launch a workflow.
-
-Patterns:
-
-- Zapier catches or sends webhooks and a workflow sends data outward ([Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211)).
-- Clearstream or another external tool pushes to Rock and launches a workflow immediately rather than waiting on a scheduled job ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)).
-- Workflow attributes store raw request body, parsed fields, and response content.
-
-Agent checks:
-
-- Endpoint path and authentication.
-- Workflow Type configured for webhook launch.
-- Attribute that stores raw body.
-- Attribute used for response body if applicable. The Clearstream recipe references `WebhookResponse` as a key used in the webhook handler path ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)).
-- JSON parsing logic.
-- Error response behavior.
-- Duplicate prevention.
-- Rate limits and replay behavior.
-- Logs and exception handling.
-
-### Form Builder Workflow
-
-Form Builder gives staff a form-building experience backed by workflow infrastructure. RockU has a dedicated [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder) module, and the official docs note recent improvements such as Rock 18.1 support for easier link sharing with a link icon, block setting, and slug field ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-Agent checks:
-
-- Where Form Builder appears in the page tree.
-- Which Workflow Type each form creates.
-- Entry URL pattern.
-- Submission reporting page.
-- Security model for form editors versus form submitters.
-- Whether staff know how to preview and share the form.
-- Whether Person Entry is enabled and configured appropriately.
-- Whether submissions can be communicated with or exported.
-
-A community helper-links recipe argues that staff may not understand that Form Builder forms are workflows and may need obvious preview, URL, and submission links ([Form Builder - Helpful Links](https://community.rockrms.com/recipes/347)).
-
-### Electronic Signature Workflow
-
-Electronic signature workflows commonly combine forms, group requirements, signature documents, communications, and follow-up. RockU includes [Electronic Signatures](https://community.rockrms.com/rocku/workflows/electronic-signatures-1). A community group requirement helper workflow describes a pattern where requirement workflows are tied to signature documents and may need resend or remediation behavior when a person does not complete the signature flow ([Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482)).
-
-Agent checks:
-
-- Signature document template.
-- Requirement SQL or criteria.
-- "Does Not Meet Requirement" workflow.
-- Auto-initiate setting.
-- Trigger that sends the workflow.
-- Whether incomplete requirement workflows can be resent through UI.
-- Email deliverability and spam issues.
-- Whether old requirement workflows block new ones.
-- Completion conditions for the requirement.
-
-### Bulk Creation Workflow
-
-Workflows can generate multiple Rock records from a schedule or list. A community recipe uses a workflow to create multiple sign-up opportunities from schedule parameters, with a form for inputs, Lava to generate date lists, loop counters, activity activation, duplicate checks, and per-date creation ([Create Multiple Sign-Up Opportunities From Schedule](https://community.rockrms.com/recipes/479)).
-
-Agent checks:
-
-- Loop counter attributes.
-- Maximum expected iterations.
-- Duplicate detection.
-- Performance impact.
-- Whether the workflow persists between iterations.
-- What happens if the workflow fails halfway.
-- Whether created records can be rolled back or safely rerun.
-
-### Finance Or Contribution Workflow
-
-Workflows can support finance-adjacent processes such as non-cash gifts or handoff to accounting systems. A community non-cash contribution recipe combines workflow and connection types and stores item information and pictures as connection request attributes ([Non-Cash Contribution Workflow](https://community.rockrms.com/recipes/253)). A Zapier recipe describes sending workflow information to external services such as QuickBooks through Zapier ([Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211)).
-
-For finance workflows, verify:
-
-- Permissions.
-- Audit trail.
-- Data retention.
-- PII and donor privacy.
-- Approval requirements.
-- External accounting integration behavior.
-- Error handling and reconciliation.
-- Whether workflow data should become a formal financial transaction, connection request, note, document, or attachment.
-
-## 8. Triggers And Activation Deep Dive
-
-### Workflow Entry Activation
-
-The Workflow Entry block is the standard page-based entry path. It can start a workflow and show configured forms. Source code for the deprecated Activate Workflow block states that the Workflow Entry block now supports setting attribute values from query string parameters and makes the older Activate Workflow block unnecessary ([ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)).
-
-Inspect:
-
-- Page route.
-- Block type and block settings.
-- Workflow Type selection or parameter binding.
-- Whether workflow type is static or supplied by route/query string.
-- Attribute values accepted from query string.
-- Security on page, block, and workflow type.
-- Whether the entry page is internal or external.
-- Whether anonymous users can submit.
-- Whether the page is embedded in a modal or iframe.
-
-### Entity Triggers
-
-Entity triggers can launch workflows when Rock entities change. The official manual places them under Admin Tools > General Settings > Workflow Triggers and describes selecting a trigger type ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-Agent trigger audit:
-
-1. Open Workflow Triggers.
-2. Filter by Workflow Type if possible.
-3. Record trigger type.
-4. Record entity type.
-5. Record qualifiers or conditions.
-6. Record whether the trigger fires on add, update, delete, pre-save, post-save, or another local option.
-7. Record which workflow attributes are populated from the entity.
-8. Confirm whether the trigger is active.
-9. Test on a non-production entity when possible.
-
-Do not assume a trigger fires just because it is configured. Verify by checking recent workflow instances after a known entity change.
+A delayed or scheduled action must revalidate mutable prerequisites immediately before an irreversible effect. A reviewed community pattern for delayed payments, for example, calls for rechecking authorization, revocation, saved-account eligibility, cancellation state, and idempotency after the delay. This requires local validation before use. [Community workflow reference](https://community.rockrms.com/rocku/workflows)
 
 ### Lava `workflowactivate`
 
-The `workflowactivate` Lava command can launch a new workflow or activate an activity on an existing workflow. Official Lava docs list parameters for workflow type, workflow id, workflow name, and activity type ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)). Source code confirms important behavior:
+The Lava `workflowactivate` command can create a workflow, activate an activity in an existing workflow, or reprocess an existing suspended or waiting workflow. Its use depends on the Lava command being enabled for the template. The supplied immutable source shows that unrecognized command parameters are treated as potential workflow or activity attributes. [Official Lava command documentation](https://community.rockrms.com/lava/commands/workflow-activate-commands) and [immutable implementation excerpt](https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs)
 
-- The command is a secured Lava block and must be enabled in the Lava render context ([WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)).
-- Workflow Type can be supplied as an integer, string integer, or GUID in source examples ([WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)).
-- Workflow Id can refer to an existing workflow.
-- Activity Type is required when activating an activity in an existing workflow.
-- Unrecognized parameters can be treated as workflow or activity attributes.
-- The command exposes `Workflow`, `Activity`, and `Error` variables inside the block.
-- Integration tests verify that the command returns a configuration error when not enabled and creates workflows when enabled ([WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs)).
+For `workflowactivate`, treat additional parameter names as an attribute-key contract:
 
-Operational implications:
+- Match each parameter to the intended workflow or activity attribute key.
+- Supply the value in that field type’s stored-value format.
+- Remove parameters that no longer have a receiving attribute.
+- Inspect the created instance before trusting downstream processing.
 
-- Search HTML Content blocks, block pre/post HTML, communication templates, Lava files, and theme assets for `workflowactivate`.
-- Confirm the Lava command is enabled only where needed.
-- Prefer GUIDs over integer IDs for portable snippets.
-- Validate attribute keys exactly.
-- Handle `Error` output in user-facing or integration-facing Lava.
-- Avoid launching unbounded workflows inside loops unless volume is controlled.
+The approved command behavior is version-scoped from Rock v7.0, but the target installation and enabled-command configuration still require verification. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
 
-Minimal pattern:
+## Workflow Forms
 
-```liquid
-{% workflowactivate workflowtype:'WORKFLOW-TYPE-GUID' workflowname:'Readable Name' Person:'PERSON-ALIAS-GUID' %}
-  {{ Workflow.Id }}
-{% endworkflowactivate %}
-```
+### Entry Forms and Form actions
 
-This example is intentionally generic. In production, verify the expected raw value format for each attribute.
+A Form action presents selected workflow or activity attributes to a person. Each field can independently be visible, editable, and required. Conditional logic can show or hide a field based on other field values. Each configured command submits the form and can activate a different workflow path, supporting choices such as approval and denial. [Understand Form Actions](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions)
 
-### Webhook Activation
+Treat every field as structured process input. Before adding or changing it, document:
 
-Webhook-to-workflow patterns let external systems initiate workflows. A community Clearstream example distinguishes scheduled "Push to Rock RMS > Launch Workflow" behavior from an immediate webhook approach and describes RawBody and WebhookResponse attributes ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)).
+- Its downstream purpose.
+- Its field type and stored-value format.
+- Its validation and requiredness.
+- Who can see or edit it.
+- Whether it contains sensitive information.
+- Which actions, filters, reports, or communications consume it.
+- What happens when conditional logic omits it.
 
-Agent checks:
+Do not judge downstream values by the field’s visible label. Action filters compare the attribute’s stored text representation, which can differ for Boolean, Person, single-select, Defined Value, and other field types. [Workflow action filters](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions)
 
-- Is the endpoint native Rock webhook-to-workflow, a custom handler, or a plugin endpoint?
-- Does it launch instantly or depend on Process Workflows?
-- Which Workflow Type is configured?
-- What authentication/signature validation exists?
-- Is raw payload stored?
-- Is the response body controlled by a workflow attribute?
-- Does the workflow complete immediately?
-- What happens on errors?
-- Is sensitive payload data retained longer than needed?
+### Chained forms and branching
 
-### Grid Activation
+A form command activates and processes the workflow. If processing assigns another active Form action to the current person, Rock can show that next form. Action filters can select the appropriate next form based on prior input. Persist the workflow once meaningful input should survive beyond the current interaction. [Chain Entry Forms](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms)
 
-Grid activation is powerful because it lets staff run workflows against selected records. RockU includes grid-related training modules ([Custom Grid Actions](https://community.rockrms.com/rocku/workflows/custom-grid-actions), [Launch Workflow From Grid](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid)). Community guidance notes that the Lava or setup needed to extract a person can vary by grid because different grids pass different row entities ([Launching a workflow from a Grid](https://community.rockrms.com/recipes/300)).
+A Form action can notify the person assigned to the activity when it becomes active. It can also include commands in email, allowing a recipient to submit an approval or denial from the message. Verify recipient resolution, command security, and the resulting branch before using email actions operationally. [Define Workflow Activities](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities)
 
-Agent checks:
+### Form Builder
 
-- Which block/grid has the action.
-- Whether single-row or bulk selection is allowed.
-- What object is passed.
-- Whether the workflow action can be run twice.
-- Whether the action respects security.
-- Whether staff have confirmation before mass changes.
-- Whether logs show who launched it.
+Form Builder creates a workflow type. Its fields become workflow attributes, and each submission launches an instance of that type. The generated type begins with a Form Builder activity and action and can later be extended with additional workflow activities and actions. [Intro to the Form Builder](https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder)
 
-### Connection, Step, Group, And Requirement Activation
+Person Entry can match submitted information to an existing person or create a person when needed, storing the result in a Person attribute. Its configuration includes autofill behavior, whether to hide known-person fields, record and connection status for newly created people, campus behavior, and selected person fields. Required data can cause Person Entry to remain visible even when the current person is known. [Create a Form](https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/create-a-form)
 
-Workflow triggers can also be embedded in other Rock areas. The Workflow Finder recipe lists connection type/opportunity triggers and step type/program triggers as usage locations it checks, and community examples show group requirement workflows tied to signature documents ([Workflow Finder](https://community.rockrms.com/recipes/457), [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482)).
+A Form Builder form also has submission review, communications, access dates, login requirements, completion behavior, analytics, and shareable-link settings. Analytics depend on the hosting Workflow Entry block logging form views and completions. Confirmation and notification communications depend on configured System Communications and their category. [Navigate the Form Builder](https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/navigate-the-form-builder)
 
-When a workflow appears to launch "from nowhere," inspect:
+Before editing a live form, inspect which actions consume its values and whether staff, public users, or workflow logic can see sensitive fields. This inspection path was structurally confirmed in a bounded read-only review, but no particular organization’s form configuration is implied. [Form Builder training](https://community.rockrms.com/rocku/workflows/form-builder)
 
-- Connection Types and Opportunities.
-- Step Programs and Step Types.
-- Group Types.
-- Group Requirements.
-- Registration templates and events.
-- Communication responses.
-- Check-in or attendance workflows.
-- Plugins and custom jobs.
+### Person and family entry patterns
 
-## 9. Workflow Forms Deep Dive
+Requiredness must match the applicant context. A reviewed community pattern warns that self-applicants and family-member applicants may not have the same email or mobile data. Branch requiredness and communication-target validation instead of writing placeholder contact information. This is not official universal behavior and requires local testing. [Community workflow reference](https://community.rockrms.com/rocku/workflows)
 
-### Form Design Principles
+For public family preregistration, community-reviewed guidance recommends testing the full path from public form through person and family record creation, check-in eligibility, and staff follow-up. The page should explain its value and avoid producing duplicate or partial records that staff must repair. Connect captured data to a defined Connection or workflow outcome. [Community-reviewed preregistration example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-A workflow form should be designed around the process, not merely the data fields. For each form, define:
+## Activities, Actions, State, And Persistence
 
-- Who fills it out?
-- Are they authenticated?
-- What decision or handoff happens after submission?
-- Which fields are required for the next action?
-- Which fields are for reporting only?
-- Which fields should be hidden because they can be inferred?
-- What should happen on duplicate submission?
-- How will staff find and act on submissions?
+Actions are processed in order. Configure completion deliberately:
 
-Use the official workflow manual and Form Builder training as the baseline for form behavior, then inspect the live Workflow Action/Form Builder configuration for version-specific fields and validation ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12), [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder)).
+- An action normally completes when it succeeds.
+- An action can complete its entire activity, preventing later actions in that activity from running.
+- An action filter can limit execution based on attribute criteria.
+- An activity can activate another activity or workflow.
+- Explicit completion actions can end an activity or the entire workflow.
 
-Use forms for human input. Use actions for derived values. Do not ask users to provide values Rock can already infer, such as current person, campus from context, event from route, or group from the launch path, unless there is a real operational reason.
+These behaviors make action order part of the process contract. [Workflow Actions](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions) and [Workflow Control](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control)
 
-### Form Fields And Sections
+Entry-form workflows are often initially non-persisted so merely opening and abandoning a form does not create a saved instance. A Persist action can retain the workflow after meaningful input. The `Persist Immediately` option is needed when a later action in the same processing sequence requires a saved workflow with a valid ID. [Configure Workflow Details](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details) and [Workflow Control](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control)
 
-The Model Map identifies `Workflow Action Form Attribute` and `Workflow Action Form Section`, which reflects the distinction between a workflow attribute and its presentation on a specific form ([Model Map](https://community.rockrms.com/ModelMap)). The same workflow attribute can be internal-only, shown on one form, hidden on another, or set by an action.
+Logging level determines the detail available on the instance log. Notes can be entered from workflow details, collected on forms, or created automatically by workflow actions. Use notes for human context and process history; use attributes for structured values that actions must reliably consume. [Workflow Notes](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/workflow-notes)
 
-Agent checks:
+## Workflow Integrations
 
-- Is every displayed field backed by the expected workflow attribute?
-- Are required flags on the form aligned with downstream action requirements?
-- Are field types appropriate?
-- Are section headings useful?
-- Are internal state attributes hidden?
-- Are sensitive fields protected from public display?
-- Are field keys stable?
+### Webhooks
 
-### Conditional Logic
+Workflow webhooks are configured through Defined Values under the Workflow Webhook Defined Type. For each incoming request, Rock evaluates every configured Process Request Lava expression and launches every workflow whose expression evaluates to true. Matching rules must therefore be selective and mutually intentional. If no workflow matches, the documented endpoint returns a 404 as a security behavior. [Configure a Webhook to a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow)
 
-The official workflow manual notes that workflow form fields can have conditional logic in version update notes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). Because conditional UI behavior can vary by version and block implementation, inspect the specific form action in the live Rock instance.
+Request information can be mapped into workflow attributes from values such as the URL, method, query string, raw body, headers, and cookies. Store the raw body when complex parsing is required and perform that parsing inside the workflow; the Defined Value template has practical Lava limitations. These webhook claims are official and source-backed but require live verification of the installed configuration. [Webhook documentation](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow)
 
-Operational cautions:
+Do not expose secrets in workflow names, attributes, logs, or troubleshooting output. Confirm authentication or request-validation requirements separately; the supplied evidence establishes routing and data mapping, not a universal webhook authentication design.
 
-- Hidden required fields can block submission if configured incorrectly.
-- Conditional fields may not be populated when hidden.
-- Downstream actions should not assume optional conditional values exist.
-- Reports should distinguish "not asked" from "asked but blank" when the distinction matters.
+### SMS Pipeline
 
-### Person Entry
+The SMS Pipeline can launch a workflow and map message context into workflow attributes by key. Workflow and pipeline attribute mappings must remain synchronized. Documentation notes that `FromPhone` is supplied automatically unless intentionally overridden and describes an Attribute Set to Initiator approach as a more flexible alternative in some workflows. [SMS Pipeline Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows)
 
-Person Entry lets a workflow form gather person and spouse information without making administrators define every person field as a workflow attribute. The official docs describe Person Entry as a way to gather individual and spouse information from a workflow form without manually creating workflow attributes for those questions ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). Source files show the configuration is extensive.
+The older Text to Workflow configuration can continue to work, but the v19 documentation recommends SMS Pipeline for new work. In v19, an SMS Pipeline send action can optionally retain its response so the automated message appears in Communication History, person history, and SMS Conversations. Enable retention deliberately when auditability is needed and account for the extra retained history. [SMS Pipeline documentation](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows) and [v19 release presentation](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s)
 
-Important fields and concepts from source:
+### Communications and provider events
 
-- Enable/allow Person Entry is stored on `WorkflowActionForm` ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs)).
-- Pre and post HTML can be configured for the Person Entry section.
-- Campus visibility and autofill behavior are configurable.
-- Person Entry can hide if the current person is known.
-- Spouse, email, mobile phone, birthdate, address, marital status, and gender use hide/optional/required-style options across versioned fields ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs), [WorkflowActionFormPersonEntryGenderOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011171742444_WorkflowActionFormPersonEntryGenderOption.cs)).
-- SMS opt-in was added as a Person Entry form option in a Rock 16 migration ([WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.0/202308242352371_WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs)).
-- Form Builder source settings include campus visibility, inactive campus inclusion, campus status, connection status, record status, gender, email, mobile phone, SMS opt-in, birthdate, and address-related settings ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs), [FormPersonEntryViewModel.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs)).
-- Obsidian client configuration includes options for address, birthdate, campus list, email, ethnicity, gender, campus visibility, SMS opt-in visibility, marital status, mobile phone, race, spouse, pre/post HTML, and section CSS class ([personEntryConfigurationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts)).
+Community-reviewed guidance recommends tying provider delivery and engagement events back to the Rock communication or person context that generated the message. Summarize events into operational reports that show delivery health without unnecessarily exposing raw provider data. This is an integration pattern, not proof that a given provider mapping is configured. [Community-reviewed provider-event example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5)
 
-Person Entry audit:
+Rock v19 adds workflow actions for Rock Chat channel and direct messages. Confirm Rock Chat configuration, recipient resolution, workflow security, and actual delivery behavior before operational use. [v19 feature presentation](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s)
 
-1. Confirm Person Entry is enabled.
-2. Identify whether current person autofill is enabled.
-3. Identify whether the section hides when current person is known.
-4. Confirm which fields are hidden, optional, or required.
-5. Confirm campus visibility and inactive campus behavior.
-6. Confirm record status and connection status applied to new people.
-7. Confirm address type and location behavior.
-8. Confirm which workflow attributes receive Person and Spouse references.
-9. Submit a test as anonymous, logged-in known person, and logged-in person with spouse if the workflow supports those cases.
-10. Verify the stored raw values and created/updated person records.
+### Lava entity operations
 
-### Campus Selection And Inactive Campuses
+In a Lava Entity command, values such as `where` must be enclosed in single quotes. If `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. [Entity command documentation](https://community.rockrms.com/lava/commands/entity-commands)
 
-Source-level and release-note records indicate campus selection behavior has changed over time. The Form Person Entry settings default inactive campus inclusion to true as existing behavior before the option was introduced ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs)). A release spotlight notes that v16.7 added an option to filter inactive campuses in workflow form Person Entry, aligning workflow form action behavior with Form Builder ([GitHub Spotlight: 10/18/2024](https://www.triumph.tech/resources/github-spotlight-10182024)).
+Reviewed community patterns add several cautions that require reproduction in the target environment:
 
-In a live instance, inspect:
+- Inspect the fully rendered Dynamic LINQ expression when a dynamic `where` clause fails.
+- Check `ModifyResult.Success` after each write and stop dependent operations after failure.
+- Capture the saved object’s canonical ID immediately and re-query before creating children.
+- Isolate risky experiments because a failed tracked entity may affect later writes in the same render.
+- Make configuration deploys idempotent and verify workflow attribute scope and action-setting IDs.
 
-- Rock version.
-- Whether the form action exposes "include inactive campuses" or equivalent.
-- Whether inactive campuses appear on public forms.
-- Whether campus status filters are configured.
-- Whether campus is required when shown.
+These are community observations, not official guarantees. [Lava Entity commands](https://community.rockrms.com/lava/commands/entity-commands)
 
-### Form Styling
+## Managing Workflow Instances And Staff Work
 
-RockU includes [Form Styling](https://community.rockrms.com/rocku/workflows/form-styling). Styling can be done through form settings, CSS classes, theme CSS, pre/post HTML, or page layout. Avoid embedding brittle styling directly into workflow actions unless there is no better site-level or block-level mechanism.
+The workflow-type management grid can filter instances by name, initiator, status, activation date, completion date, and active or completed state. Workflow details expose summary information, attributes, activities, assignments, action completion, notes, and—according to configured logging level—the log. [Viewing a Workflow Instance](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/viewing-a-workflow-instance)
 
-Agent checks:
+`Tools > My Workflows` separates workflows initiated by the current person from active workflows assigned to that person. Assignment through a group counts when the person belongs to the assigned group. The Mini My Workflows block can filter categories and initiation or assignment relationships, and its markup can be customized with HTML and Lava. [My Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows)
 
-- Does the form render correctly on mobile?
-- Does the external site theme style workflow controls consistently?
-- Are required markers visible?
-- Are validation messages clear?
-- Is custom HTML accessible?
-- Is any embedded CSS tied to old Bootstrap or theme classes?
-- Does a modal iframe inherit the correct styling?
+When intervening in a stuck instance, inspect before editing:
 
-### Modal Workflow Entry
+- Workflow state and status.
+- Attribute values and stored formats.
+- Activated and completed activities.
+- Current person or group assignment.
+- Action completion and last processing times.
+- Action criteria.
+- Workflow log and notes.
+- Side effects that may already have succeeded.
 
-A community recipe demonstrates embedding a Workflow Entry page in a modal using an iframe and notes the need to configure allowed frame domains ([Modal Dialog for Workflow Entry](https://community.rockrms.com/recipes/141)). Treat this as a pattern requiring security review.
+Uncompleting an action can cause it to run again while its activity remains active. Before doing so, determine whether communications, group membership, connection changes, financial effects, or other writes are idempotent. [Edit Workflow Details](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details)
 
-Verify:
+## Connections As Operational Workflows
 
-- Allowed frame domains.
-- Clickjacking protections.
-- Same-site cookies and authentication behavior.
-- Public/private page boundaries.
-- Mobile behavior.
-- Whether the modal traps focus and is accessible.
-- Whether form completion closes the modal or leaves a blank embedded page.
+Connections should be modeled as person-centered ministry follow-up. Define the person, Connection Type, Connection Opportunity, status, connector or assignee, next action, and completion outcome before adding automation or reports. Agents should inspect the person context and process state together. [Connections Overview](https://community.rockrms.com/rocku/engagement/connections-overview)
 
-## 10. Workflow Integrations Deep Dive
+Connection Types are high-level containers for related opportunities and should represent ministry process boundaries rather than arbitrary reporting groupings. Opportunities define the specific follow-up paths inside a type. Before restructuring a type or adding, changing, or retiring an opportunity, inspect existing opportunities, active and historical requests, workflows, security, connector assignments, staff roles, ownership, and reporting dependencies. [Connection Types](https://community.rockrms.com/rocku/engagement/connections-types) and [Connection Opportunities](https://community.rockrms.com/rocku/engagement/connections-opportunities)
 
-### Outbound Webhooks And Zapier
+Use the Connections Board as a staff work queue whose visible cards depend on request status, opportunity, assignment or follow-up ownership, filters, campus, and security. Use Connections List when staff need tabular filtering and scanning across multiple requests instead of board-style movement. [Connections Board](https://community.rockrms.com/rocku/engagement/connections-board) and [Connections List](https://community.rockrms.com/rocku/engagement/connections-list-1)
 
-Workflows can send data outward to tools such as Zapier. A community recipe shows using a workflow action to send attributes to a Zapier catch hook and mentions use cases such as sending financial workflow data onward to accounting tools ([Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211)).
+Selected Rock v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Templates, snippets, phone eligibility, and permissions still constrain these actions. [v19 Connections presentation](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s)
 
-Design checklist:
+## Adjacent Operational Patterns
 
-- Define the outbound payload schema.
-- Use stable attribute keys.
-- Include a Rock workflow ID and workflow type GUID.
-- Avoid sending unnecessary PII.
-- Store external response or failure details.
-- Decide retry behavior.
-- Add test and production endpoint separation.
-- Document who owns the external Zap.
+These patterns are evidence-supported examples, not universal configurations:
 
-### Inbound Webhooks
+- **Rapid Attendance Entry:** Begins with a group and attendance date, with location and schedule available when supported by the group and attendance context. Configured page variants can combine attendance with family editing, new family members, notes, prayer requests, and workflow launches. Use focused variants for distinct ministry workflows rather than assuming one catch-all page. [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)
+- **Event call-to-action:** A community recipe uses a workflow form reached through SMS, then routes selected responses into groups or Connection Opportunities. Evaluate its security, performance, imported references, and version assumptions before adaptation. [Community recipe](https://community.rockrms.com/recipes/445)
+- **Registration-to-follow-up:** A reviewed public recipe resolves registrant and campus context, creates a native Connection Request, preserves source registration context, and verifies results without SQL writes. Its exact entities and references require target-instance validation. [Immutable community recipe](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request)
+- **LMS follow-up:** Community-reviewed evidence shows LMS activities and completions can participate in group and workflow patterns for volunteer training. Training design must define learner actions and facilitator review responsibilities. [Community-reviewed LMS example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
+- **Anonymous SMS verification:** A reviewed recipe uses strict person matching, a bounded persisted challenge, server-side verification state, and final-session revalidation without exposing the matched alias to the browser. Treat this as a security-sensitive recipe requiring expert and live review. [Immutable community recipe](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
 
-Inbound webhook workflows should be designed like API endpoints, not just forms without UI.
+## Security And Governance
 
-Minimum contract:
+Workflow Types inherit security from their parent Category. Editing a workflow type requires appropriate access to Workflow Configuration and its detail block; category-level Edit access can permit management, cloning, or deletion of workflows within that category. Form Builder uses the same category structure, so category permissions also affect forms. [Secure Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows)
 
-- Endpoint URL.
-- Authentication method.
-- Expected HTTP method.
-- Payload format.
-- Required fields.
-- Idempotency key or duplicate detection.
-- Workflow Type.
-- Raw payload attribute.
-- Parsed attributes.
-- Response attribute if supported.
-- Error response behavior.
-- Monitoring location.
+Different surfaces enforce different rights. Workflow navigation, Workflow Entry, Workflow List, Workflow Detail, and My Workflows have separate view, edit, assignment, active-form, and activity visibility conditions. Diagnose “missing workflow” reports against the specific surface instead of assuming a single permission controls all workflow access. [Secure Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows)
 
-The Clearstream recipe uses a RawBody attribute to preserve incoming body and a WebhookResponse attribute to send a response back in its pattern ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)). Verify the exact handler behavior in the installed Rock version or custom plugin before relying on that key.
+Triggered or job-run workflow Lava has no current person for authorization. The v19 Lava workflow documentation states that attribute access in that context requires `All Users - Allow View`. Do not respond by broadly exposing sensitive attributes without reviewing whether the design can use a safer value, different execution context, or narrower process. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
 
-### Lava As Integration Glue
+Before importing or sharing a workflow, inspect the exported package. Official documentation warns that complex workflows may not export correctly and provides a Test Only import mode. Confirm categories, security, attributes, action components, communications, entity references, and plugin dependencies after import. [Workflow Import/Export](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/use-workflow-importexport)
 
-Lava is often the glue between workflows and Rock data. It can:
+## Version And Authority Caveats
 
-- Read workflow attributes.
-- Parse strings or JSON-like payloads.
-- Build communication content.
-- Call workflowactivate.
-- Loop through collections.
-- Render dynamic HTML.
-- Build comments for connection requests.
-- Transform registration, group, or person data before activating helper workflows.
+The supplied official workflow documentation was hydrated against Rock v19.0. Confirm the installed Rock version before applying navigation paths, block settings, action options, or release-specific behavior.
 
-The `workflowactivate` command is especially important for integration-style workflows because it can pass attribute values into child workflows ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)). Source code confirms unrecognized parameters are treated as possible workflow or activity attributes ([WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)).
+Version-scoped items include:
 
-Security notes:
+- `workflowactivate` attribute parameters are documented from v7.0, but command enablement and target attributes require local verification. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
+- Selected connection-request bulk operations, Rock Chat workflow actions, and SMS Pipeline response retention are v19 features in the supplied release evidence. [Connections v19](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s) and [v19 enhancements](https://www.youtube.com/watch?v=c-wycR9HEuQ)
+- The immutable `develop` source excerpt marks the legacy Activate Workflow block as deprecated in favor of Workflow Entry functionality. Source code describes that commit, not the installed block inventory. [Immutable source](https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)
+- Self-hosted operators own their patch cadence. Supported dot releases may contain security fixes; confirm currently supported branches and current release notes before an upgrade. [Approved release guidance](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s)
 
-- Lava commands must be enabled explicitly in many contexts.
-- SQL-enabled Lava in HTML blocks is powerful and risky.
-- Workflow activation from public pages can create spam or database load if not protected.
-- Never expose sensitive attributes in rendered Lava output.
-- Validate assumptions about raw attribute values.
+Official documentation and approved official claims carry the most authority in this guide. RockU claims cited here were additionally supported by bounded, read-only structural reviews, but those reviews do not establish another installation’s configuration. Community-reviewed media, recipes, and contribution patterns are examples and must not be presented as core Rock guarantees.
 
-### Communications
+## Troubleshooting Decision Tree
 
-Workflows commonly send emails and SMS. They may also create communication records, group communications, or connection requests that later generate communications. Event CTA and helper workflow recipes use communications as follow-up mechanisms ([Event Participant Call-To-Action Using a Workflow Form](https://community.rockrms.com/recipes/445), [Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258)).
+### A workflow or form is not visible
 
-Agent checks:
+1. Identify the exact surface: Workflow navigation, direct Workflow Entry page, Workflow List, Workflow Detail, My Workflows, or Form Builder.
+2. Confirm the workflow type is active and the expected category is selected in the block settings.
+3. Check category and workflow-type View permissions.
+4. For Workflow Entry, confirm there is an active Form action assigned to the current person and that the person can view the activity.
+5. For My Workflows, confirm the activity is active, has an active form, is assigned appropriately, and the person can view it.
+6. Verify login, form start/end dates, and share-link settings when using Form Builder.
+7. Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list. [Secure Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows)
 
-- Which action sends the communication?
-- Which template or Lava content is used?
-- Who is recipient: submitter, assigned worker, group members, connection connector, requester?
-- Does the recipient field use Person, PersonAlias, email text, phone text, or group?
-- Are unsubscribe/SMS compliance rules respected?
-- Are failures logged?
-- Does the workflow continue if send fails?
-- Are communications duplicated on reprocessing?
+### A form field is missing, unexpectedly required, or exposing data
 
-### Connections
+1. Inspect the Form action or Form Builder field’s visible, editable, required, and conditional settings.
+2. Check the applicant or current-person context, including Person Entry autofill and hide-if-known behavior.
+3. Evaluate every conditional branch, including the case where a prior field is blank.
+4. Inspect who can view the workflow, activity, form, and resulting attribute.
+5. Trace downstream actions and communications that consume the field.
+6. Compare the submitted stored value with the visible label.
+7. Stop before changing requiredness if the communication or identity target remains ambiguous. [Understand Form Actions](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions)
 
-Connection requests pair well with workflows because they create staff-owned follow-up queues. Community examples include call-to-action forms creating connection requests and non-cash contribution workflows using connection types as part of the process ([Event Participant Call-To-Action Using a Workflow Form](https://community.rockrms.com/recipes/445), [Non-Cash Contribution Workflow](https://community.rockrms.com/recipes/253)).
+### A workflow action was skipped
 
-Use connections when:
+1. Inspect the action’s Run If criteria.
+2. Read the actual submitted attribute value and its stored format.
+3. Compare it with the criterion, including capitalization and Boolean text.
+4. Confirm earlier actions ran in the expected order and did not change the value.
+5. Determine whether `Complete Action If Criteria Unmet` marked it completed.
+6. Inspect the workflow log.
+7. If the form recently changed, compare current payload values with every downstream criterion. This final check is a community-reviewed troubleshooting pattern requiring local confirmation. [Workflow Actions](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions)
 
-- A person needs follow-up by a connector.
-- Status and activity history matter.
-- Staff need queues and dashboards.
-- The process may outlive the initial workflow.
-- Multiple staff roles are involved.
+### A workflow is stuck or repeatedly processing
 
-Do not keep all follow-up solely in workflow instances if Rock's connection system is the better operational home.
+1. Inspect active activities, assignments, and action completion.
+2. Find the first incomplete action in configured order.
+3. Read its criteria, last processing time, and log entries.
+4. Confirm whether it is intentionally configured to remain incomplete and rerun.
+5. Check whether a completion action is missing after filtered branches.
+6. Before uncompleting or retrying anything, inspect communications and data changes that may already have succeeded.
+7. Stop if retrying could duplicate an irreversible effect. [Edit Workflow Details](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details)
 
-### Groups And Group Member Attributes
+### A webhook returns 404 or launches the wrong number of workflows
 
-Workflows can add people to groups, set group member attributes, or use group data for assignment. A topic-assignment recipe recommends using a group with group member attributes to map topics to responsible workers so staff assignments can change without workflow edits ([Workflow Assignment by Topic](https://community.rockrms.com/recipes/164)). Helper workflow examples include adding people to groups with member attributes ([Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258)).
+1. Confirm the request reached the documented webhook endpoint.
+2. Enumerate every Workflow Webhook Defined Value.
+3. Evaluate each Process Request Lava rule against the same request data.
+4. Confirm exactly the intended rules return true.
+5. Treat a no-match 404 as expected documented security behavior.
+6. Store a bounded raw body in a test workflow when payload inspection is necessary.
+7. Move complex parsing into the workflow rather than the Defined Value template.
+8. Verify installed configuration before enabling the external sender. [Configure a Webhook to a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow)
 
-Agent checks:
+### `workflowactivate` starts a workflow but values are blank
 
-- Group type.
-- Group role.
-- Group member status.
-- Duplicate group member behavior.
-- Group member attributes.
-- Whether inactive group members should be reactivated or duplicated.
-- Security on group membership.
-- Whether group membership is the correct long-term record.
+1. Confirm the Lava command is enabled.
+2. Compare every extra parameter name with the target workflow or activity attribute key.
+3. Confirm each value uses the field type’s stored-value format.
+4. Inspect the created workflow and its attribute values.
+5. Remove dead or misspelled parameters.
+6. Verify Person-related values use the expected Person or PersonAlias representation for the receiving field.
+7. Stop when the stored instance proves the contract; do not trust rendered success text alone. [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)
 
-## 11. Related Rock Areas: Lava, Jobs, Communications, Security, Attributes
+### A connection request is missing from a board or list
 
-### Lava
+1. Confirm the expected Connection Type and Opportunity.
+2. Check current request status.
+3. Check board or list filters.
+4. Check connector or assignee ownership.
+5. Check campus restrictions.
+6. Check the current user’s security.
+7. Compare the board with the tabular Connections List.
+8. Inspect automation only after the request’s current person and process state are understood.
+9. Do not change the request merely to make it visible. [Connections Board](https://community.rockrms.com/rocku/engagement/connections-board) and [Connections List](https://community.rockrms.com/rocku/engagement/connections-list-1)
 
-Lava appears in workflows as content, logic, activation, and integration glue. The dedicated workflow activation Lava command is documented separately from the workflow manual ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands)). Source tests confirm it must be enabled and has explicit output when not configured ([WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs)).
+### SQL or reporting cannot see a value just submitted by a form
 
-Agent Lava search targets:
+1. Confirm the workflow has been persisted.
+2. If the next action requires a valid workflow ID immediately, inspect the Persist action’s immediate-persistence setting.
+3. Verify the attribute’s entity type, qualifier, workflow-type scope, and key.
+4. Compare formatted and raw values.
+5. Confirm the report or query reads the canonical attribute used by downstream actions.
+6. Reproduce with a disposable test instance before modifying production logic.
+7. Treat “persist before SQL reads submitted attributes” as a community pattern until reproduced locally. [Workflow Control](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control)
 
-- Workflow action settings.
-- Form pre/post HTML.
-- Workflow templates.
-- Communication templates.
-- HTML Content blocks.
-- Block pre/post HTML.
-- Theme Lava files.
-- Webhook handler templates.
-- Dynamic Data blocks.
-- Shortcodes.
+### Lava output is blank or a parser error points at the wrong line
 
-### Jobs
+1. Inspect the workflow attribute’s field type and whether the template requested formatted, raw, or object output.
+2. Verify the returned object shape before chaining properties.
+3. Check preceding filters for an unclosed quote, missing delimiter, or incomplete argument.
+4. Reduce nested conditional and assignment blocks into smaller independently previewable sections.
+5. Test against a representative workflow instance.
+6. Treat object-shape and downstream-error-line behavior as community troubleshooting observations requiring reproduction. [Lava Tips for Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows)
 
-Workflows that persist, wait, delay, or are launched by some integrations may depend on background jobs. The community Clearstream recipe specifically calls out that one launch path depends on the Rock Process Workflows job and therefore may not be immediate ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)). Health recipes also focus on active workflows that reprocess over time ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
+## Agent Task Recipes
 
-Agent job checks:
+### Recipe: Design a bounded workflow type
 
-- Is Process Workflows enabled?
-- When did it last run?
-- Did it complete successfully?
-- What is its schedule?
-- Does the workflow type have many active instances?
-- Are there error messages in job history or exception logs?
-- Did a recent deployment disable jobs?
-- Are long-running workflows causing repeated work?
+**Outcome:** A reviewable process model before configuration begins.
 
-### Communications
+1. Restate the underlying ministry problem without naming the proposed screen or automation.
+2. Generate at least three materially different approaches, including a non-workflow option when credible.
+3. Select the workflow approach only if it adds useful state, assignment, branching, automation, or auditability.
+4. Define the subject person or entity.
+5. List initiation data, derived data, and retained data as attributes.
+6. Define activities by responsibility or stage.
+7. Define actions in execution order.
+8. Define commands, branch criteria, completion, retries, and failure handling.
+9. Define security and sensitive-data retention.
+10. Define the launch surface and acceptance evidence.
 
-Workflow communications often look like email bugs when they are actually workflow state bugs. Verify:
+**Do not assume:**
 
-- Communication action executed.
-- Recipient attribute was populated before send.
-- Person has email/SMS data.
-- Communication medium is configured.
-- Message was not suppressed by communication preferences.
-- Workflow did not reprocess and send duplicates.
-- Errors were not swallowed.
+- A status is sufficient to represent every state.
+- A visible label is the stored value.
+- A successful final message proves every side effect.
+- A documented action is installed.
 
-### Security
+**Stop when:** Each stage has an owner, entry condition, exit condition, and verified completion outcome. [Build a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow)
 
-Security exists at multiple levels:
+### Recipe: Review a workflow form change
 
-- Workflow Type security controls who can view, edit, launch, or manage workflows.
-- Page security controls who can access Workflow Entry forms.
-- Block security controls who can use configured blocks.
-- Lava command enablement controls dangerous command execution.
-- SQL-enabled blocks can expose data.
-- Webhook endpoints must be protected.
-- Person Entry can create or update person data.
-- Form Builder may empower staff to create public forms.
+**Outcome:** A field change that preserves validation, visibility, and downstream behavior.
 
-The official docs note that workflow security is considered when building workflow lists in relevant settings ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). In practice, agents should verify the actual page, block, and workflow permissions because a secure workflow type can still be exposed through a misconfigured page, and a secure page can still launch a workflow from server-side triggers.
+1. Identify the workflow type, Form action, and attribute key.
+2. Record the current field type and stored-value format.
+3. Inspect visible, editable, required, and conditional settings.
+4. Inspect Person Entry implications.
+5. Find every action filter, Set Attribute action, communication, report, and integration that consumes the value.
+6. Test every conditional branch, including omitted-field behavior.
+7. Submit a disposable instance.
+8. Inspect stored values and downstream outcomes.
+9. Verify access as public user, staff user, assignee, and unauthorized user where applicable.
 
-### Attributes
+**Stop when:** The submitted value and every downstream consumer agree on the same contract. [Understand Form Actions](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions)
 
-Attributes are both configuration and data. Workflow attributes are part of a larger Rock attribute system. When troubleshooting, distinguish:
+### Recipe: Configure a selective workflow webhook
 
-- Workflow Type attributes.
-- Workflow instance attribute values.
-- Person attributes.
-- Group attributes.
-- Group member attributes.
-- Connection request attributes.
-- Registration attributes.
-- Block attributes.
-- System settings.
+**Outcome:** One intended request starts only the intended workflow with inspectable input.
 
-Community recipes often use attributes as local contracts: RawBody and WebhookResponse for webhooks, topic attributes for assignment, item fields for non-cash gifts, or person attributes for reporting ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473), [Workflow Assignment by Topic](https://community.rockrms.com/recipes/164), [Non-Cash Contribution Workflow](https://community.rockrms.com/recipes/253), [Finding People from Workflows](https://community.rockrms.com/recipes/437)).
+1. Define a stable request discriminator.
+2. Create or inspect the Workflow Webhook Defined Value.
+3. Make Process Request Lava return true only for the intended request.
+4. Compare the rule against every other webhook Defined Value.
+5. Map only bounded request data into workflow attributes.
+6. Store the raw body when structured parsing is needed.
+7. Parse and validate inside the workflow.
+8. Test no-match, one-match, and accidental-multiple-match cases.
+9. Verify authentication and secret handling separately.
+10. Inspect the resulting workflow instance.
 
-## 12. Administration And Operational Guardrails
+**Do not assume:** Defined Values are evaluated as an exclusive first-match list.
 
-### Naming Standards
+**Stop when:** Exactly one intended workflow launches and its stored attributes match the expected request. [Configure a Webhook to a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow)
 
-Use names that communicate owner, purpose, and lifecycle.
+### Recipe: Diagnose an active workflow instance
 
-Recommended pattern:
+**Outcome:** The first incorrect state or action is identified without unsafe replay.
 
-- `Ministry - Process - Purpose`
-- `Finance - Non-Cash Gift Intake`
-- `Groups - Requirement Signature Request`
-- `Care - Contact Us Routing`
-- `System Helper - Create Connection Request`
-- `Events - CTA Response - Spring Retreat 2026`
+1. Open Workflow Detail.
+2. Record workflow state, status, initiator, and activation time.
+3. Inspect attributes and raw formats where relevant.
+4. Inspect activated activities and assignments.
+5. Locate the first incomplete or unexpected action.
+6. Inspect its criteria and prior actions.
+7. Read logs and notes.
+8. Verify side effects in their owning Rock records.
+9. Decide whether retry is idempotent.
+10. Re-run only after duplicate and irreversible effects are ruled out.
 
-Avoid:
+**Stop when:** The failure boundary and existing side effects are known. [Edit Workflow Details](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details)
 
-- `New Workflow`
-- `Test`
-- `Form`
-- `Copy of Copy`
-- Names tied to a staff person rather than a process.
+### Recipe: Audit a connection follow-up process
 
-For helper workflows, prefix clearly so they are not launched directly by staff.
+**Outcome:** A Connection process is understood as both person context and operational state.
 
-### Change Management
+1. Identify the person and request.
+2. Record Connection Type, Opportunity, status, campus, connector, assignee, and next action.
+3. Inspect activity and workflow relationships.
+4. Compare Board and List visibility.
+5. Check filters and current-user security.
+6. Identify staff ownership and completion criteria.
+7. Inspect active requests before changing Type or Opportunity configuration.
+8. Reconcile reporting dependencies.
+9. Verify the final staff work queue after any approved change.
 
-Before editing a workflow:
+**Do not assume:** A missing card means the request itself is wrong.
 
-1. Record Workflow Type Id and Guid.
-2. Export or copy configuration if your instance supports it.
-3. Screenshot or document attributes, activities, and actions.
-4. Check active instances.
-5. Check where the Workflow Type is used.
-6. Identify external links and integrations.
-7. Test changes in a sandbox.
-8. Communicate expected behavior change.
-9. Monitor active and new instances after deployment.
+**Stop when:** The request’s owner, state, visibility, and next action are explicit. [Connections Overview](https://community.rockrms.com/rocku/engagement/connections-overview)
 
-The official docs note a Change Log/Notes block was added to the Workflow Configuration page in version notes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). Use it if available. If not, maintain a local change log elsewhere.
+### Recipe: Import or adapt a workflow safely
 
-### Where-Used Audits
+**Outcome:** An imported or cloned workflow is validated before activation.
 
-A where-used audit should check:
+1. Identify source version, required plugins, action components, and external references.
+2. Use Test Only mode for import.
+3. Inspect import warnings and the exported package.
+4. Place the workflow in an intentional security category.
+5. Verify attributes, field types, forms, activities, action order, and component settings.
+6. Replace organization-specific communications, groups, campuses, pages, Defined Values, and Connection Opportunities.
+7. Test with disposable instances.
+8. Verify logs, assignments, communications, and side effects.
+9. Connect the live trigger only after validation.
 
-- Workflow Entry blocks.
-- Form Builder links.
-- HTML Content blocks.
-- Block pre/post HTML.
-- Lava files.
-- Workflow triggers.
-- Connection type and opportunity triggers.
-- Step type and program triggers.
-- Group requirements.
-- Grid actions.
-- Webhook configuration.
-- External tools.
-- Communications linking to form pages.
-- QR codes and printed materials.
+**Stop when:** No unresolved reference or unverified side effect remains. [Workflow Import/Export](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/use-workflow-importexport)
 
-The community Workflow Finder recipe provides a useful pattern by checking page blocks, `workflowactivate` Lava, general workflow triggers, connection triggers, and step triggers ([Workflow Finder](https://community.rockrms.com/recipes/457)). Treat its list as a starting point, not an exhaustive guarantee.
+### Recipe: Design background orchestration
 
-### Active Workflow Hygiene
+**Outcome:** Slow work proceeds asynchronously with explicit operational state.
 
-Monitor:
+1. Define queued, processing, completed, retryable-failure, and terminal-failure states.
+2. Store only the identifiers needed to inspect the external work.
+3. Define retry limits and duplicate suppression.
+4. Define a completion check.
+5. Keep the user-facing request path non-blocking.
+6. Link output into public pages or apps only after completion is verified.
+7. Surface concise staff status without unnecessary raw provider payloads.
+8. Test timeout, duplicate callback, partial success, and final failure.
 
-- Count of active workflows by type.
-- Count of completed workflows by type.
-- Count by status.
-- Oldest active instance.
-- Active instances modified by former staff.
-- Error counts.
-- Workflows reprocessing for weeks or months.
-- Process Workflows job health.
+**Stop when:** Every retry is safe and publication cannot occur before verified completion. [Community-reviewed background-work pattern](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr)
 
-The Track Workflow Statistics and Health recipe describes adding statistics to the Workflow Configuration page and creating a broader active workflow health page ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)). Even if you do not implement that recipe, use the same operational questions.
+## Known Gaps And Live Verification
 
-### Maximum Age And Auto-Completion
+The supplied pack does not establish the following for any target installation. Verify them with bounded, read-only inspection before implementation:
 
-Rock 13 version notes mention a Maximum Workflow Age setting that can automatically complete workflows older than a configured number of days ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). Use cautiously.
+- Installed Rock version, supported branch, and current dot release.
+- Available workflow action components and plugin-provided actions.
+- Enabled Lava commands, including `workflowactivate` and entity commands.
+- Existing workflow categories and inherited security.
+- Workflow Entry, My Workflows, Form Builder, Connections Board, Connections List, and Rapid Attendance Entry block settings.
+- Entity-trigger timing and configured entity mappings.
+- Job schedules, Workflow Launcher behavior, retry policy, and job history.
+- Workflow persistence, logging, retention, and automatic completion settings.
+- Form field types, attribute qualifiers, stored values, conditional logic, and sensitive-field visibility.
+- Person Entry matching and record-creation behavior for the specific form.
+- Webhook Defined Values, request discriminators, authentication, and overlapping match rules.
+- SMS Pipeline mappings, phone eligibility, communication templates, retained history, and sender behavior.
+- Rock Chat configuration and recipient resolution.
+- Connection Types, Opportunities, statuses, staff ownership, active requests, security, and reporting dependencies.
+- Registration-to-person, check-in, Connection, or workflow handoffs.
+- LMS configuration and any group-sync or workflow actions tied to completion.
+- External media, PDF, email-provider, payment, or signature integrations.
+- Community-reported Lava parser, entity-tracking, persistence, attribute-scope, and deployment behaviors.
+- Whether imported workflows preserve every complex action and reference correctly.
+- Whether a failed scheduled workflow launch left successful earlier side effects.
+- Whether delayed or retried actions remain authorized and idempotent.
+- Whether v19-only capabilities apply to the installed version.
 
-Before setting maximum age:
+Use live evidence only to answer the bounded installation question. Do not publish raw records, organization-specific identifiers, secrets, payloads, or one organization’s configuration as universal Rock behavior.
 
-- Confirm old active workflows are safe to complete.
-- Determine whether completion should send communications or merely mark complete.
-- Exclude workflows that represent long-term cases if needed.
-- Report counts before and after.
-- Verify no active integrations depend on those workflow instances.
+## Source Map
 
-### Error Handling
+### Official Rock documentation and Lava references
 
-Every production workflow should have an error posture:
+- [Workflows](https://community.rockrms.com/documentation/core-concepts/workflows) — documentation index and concept ownership.
+- [Workflow Types](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types) — blueprint, attributes, configuration, persistence, and retention.
+- [Workflow Actions](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions) — ordered actions, completion, filters, and stored-value criteria.
+- [Define Workflow Activities](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities) — assignment, forms, branching, email commands, and completion.
+- [Understand Form Actions](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions) — field visibility, editing, requiredness, conditional logic, and commands.
+- [Form Builder](https://community.rockrms.com/documentation/core-concepts/workflows/form-builder) — form-based workflow construction.
+- [Launch a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow) — entry pages, direct launches, people, entities, grids, and parameters.
+- [Secure Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows) — category inheritance and surface-specific authorization.
+- [Manage Workflow Instances](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances) — operational instance review.
+- [Configure a Webhook to a Workflow](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow) — webhook matching and request mapping.
+- [SMS Pipeline Workflows](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows) — SMS context and attribute mapping.
+- [Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands) — Lava activation and attribute parameters.
+- [Entity Commands](https://community.rockrms.com/lava/commands/entity-commands) — entity-query parameter behavior.
 
-- What happens if a required attribute is blank?
-- What happens if a person cannot be found?
-- What happens if a webhook payload is malformed?
-- What happens if a communication fails?
-- What happens if a duplicate record exists?
-- What happens if an external system is down?
-- Who is notified?
-- Is the workflow completed, suspended, or left active?
-- Is the error visible on a dashboard?
+### RockU operational sources
 
-Use explicit Log Error or error notification actions when available in your version. The workflow manual's version notes mention Log Error as an action added in earlier Rock versions ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
+- [Connections Overview](https://community.rockrms.com/rocku/engagement/connections-overview)
+- [Connection Types](https://community.rockrms.com/rocku/engagement/connections-types)
+- [Connection Opportunities](https://community.rockrms.com/rocku/engagement/connections-opportunities)
+- [Connections Board](https://community.rockrms.com/rocku/engagement/connections-board)
+- [Connections List](https://community.rockrms.com/rocku/engagement/connections-list-1)
+- [Rapid Attendance Entry](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)
+- [Form Builder training](https://community.rockrms.com/rocku/workflows/form-builder)
 
-### Public Form Guardrails
+### Version and implementation evidence
 
-For external workflow forms:
+- [v19 Connections presentation](https://www.youtube.com/watch?v=7rxTGLLhlrU)
+- [v19 features and enhancements](https://www.youtube.com/watch?v=c-wycR9HEuQ)
+- [Immutable WorkflowActivate implementation](https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs)
+- [Immutable deprecated Activate Workflow block](https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)
 
-- Use only necessary fields.
-- Protect against spam.
-- Avoid exposing internal IDs.
-- Use GUIDs or slugs in URLs where available.
-- Confirm page security.
-- Confirm CAPTCHA or equivalent if appropriate.
-- Confirm Person Entry does not create bad duplicate data.
-- Confirm completion text does not reveal private information.
-- Confirm uploaded files are restricted by type and size.
-- Confirm form URLs in communications point to the correct site.
+### Community examples and reviewed patterns
 
-Rock 18.1 version notes mention Form Builder link sharing with a link icon, block setting, and slug field ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)). In versions with slugs, prefer stable friendly URLs over exposing implementation details, but still verify routing and security.
-
-## 13. Developer, API, Lava, And Source-Code Landmarks
-
-### Lava Command Source
-
-`WorkflowActivateBlock.cs` is the main source landmark for the `workflowactivate` Lava command ([WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)). It describes use cases:
-
-- Start a new workflow.
-- Activate an activity in an existing workflow.
-- Pass workflow or activity attribute values.
-- Reactivate an existing waiting workflow.
-
-The integration test file validates important behavior, including command enablement and workflow creation ([WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs)).
-
-### Deprecated Activate Workflow Block
-
-The WebForms `Activate Workflow` block is marked deprecated in source. Its description says the Workflow Entry block now supports the same functionality, and source notification text says administrators should update links to point directly to Workflow Entry pages ([ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)). If a live instance still uses this block, plan migration.
-
-### Person Entry Source
-
-Key source landmarks:
-
-- `WorkflowActionFormPersonEntryOption` enum: Hide, Optional, Required ([C#](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Workflow/WorkflowActionFormPersonEntryOption.cs), [TypeScript](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Workflow/workflowActionFormPersonEntryOption.ts)).
-- `WorkflowActionFormAllowPersonEntry` migration: adds many Person Entry fields to `WorkflowActionForm` ([migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs)).
-- Gender option migration: adds gender option field ([migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011171742444_WorkflowActionFormPersonEntryGenderOption.cs)).
-- SMS opt-in migration: adds `PersonEntrySmsOptInEntryOption` ([migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.0/202308242352371_WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs)).
-- `FormPersonEntrySettings`: server-side settings class with an internal API warning ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs)).
-- `FormPersonEntryViewModel`: Form Builder view model for Person Entry settings ([FormPersonEntryViewModel.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs)).
-- Obsidian bags: client-facing configuration and submitted values ([personEntryConfigurationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts), [personEntryValuesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryValuesBag.d.ts)).
-- Processor tests: verify matching and attribute outcomes for logged-in person and spouse scenarios ([WorkflowPersonEntryProcessorTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Workflow/WorkflowPersonEntryProcessorTests.cs)).
-
-### API And Data Access
-
-For API work, verify the installed Rock REST endpoints and security. The source pack does not include complete endpoint documentation for workflow REST APIs, so do not invent endpoint behavior. Inspect in a live instance:
-
-- `/api/WorkflowTypes` availability and permissions.
-- `/api/Workflows` availability and permissions.
-- Attribute value endpoints or entity attribute loading behavior.
-- Whether Obsidian block APIs are used for Form Builder or Workflow Entry in your version.
-- Whether custom plugins expose workflow endpoints.
-- API user permissions.
-
-Use Rock's REST/API documentation and v2 API patterns for authentication/authorization expectations, but treat workflow-specific endpoint shape as live-instance evidence until verified ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)).
-
-When in doubt, use read-only API calls first and compare returned fields to the live UI.
-
-### Internal API Warning
-
-`FormPersonEntrySettings` is marked as an internal API not subject to public compatibility guarantees ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs)). Plugin developers should avoid depending on internal classes unless they accept upgrade risk. Prefer public APIs, documented configuration, or stable entity models where available.
-
-## 14. Reporting, Analytics, And Model Map
-
-### What To Report
-
-Workflow reporting should answer operational questions:
-
-- How many workflows were started by type?
-- How many are active?
-- How many completed?
-- How many errored?
-- How old are active workflows?
-- Which statuses are most common?
-- Which staff member owns or last modified active work?
-- Which form submissions include people who need communication?
-- Which launch path created the workflow?
-- Which external payloads failed parsing?
-- Which workflows are stuck waiting on signatures or approvals?
-
-Community recipes illustrate three reporting needs:
-
-- Workflow health and statistics by status and active/completed counts ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-- Finding people attached to workflow attributes so staff can view profiles or communicate with submitters ([Finding People from Workflows](https://community.rockrms.com/recipes/437)).
-- Displaying workflow attribute keys for administrators without editing every attribute ([View Workflow Attributes Without Editing Workflow](https://community.rockrms.com/recipes/203)).
-
-### Model Map Use
-
-The Model Map confirms workflow form-related models in the Workflow category:
-
-- [Workflow Action Form](https://community.rockrms.com/ModelMap)
-- [Workflow Action Form Attribute](https://community.rockrms.com/ModelMap)
-- [Workflow Action Form Section](https://community.rockrms.com/ModelMap)
-
-Use these model names to orient schema exploration. For exact fields, inspect your installed database schema or Rock source for your version.
-
-### Reporting Caveats
-
-Workflow reporting is often hard because important values are stored as attributes. Field types can store raw values differently:
-
-- Person fields may store Person Alias GUIDs.
-- Multi-select fields may store delimited values.
-- Entity fields may store GUIDs or IDs depending on field type.
-- File fields may store binary file GUIDs or IDs.
-- Defined value fields may store GUIDs.
-- Text fields may contain JSON, HTML, or comments.
-
-Community reporting examples for workflows reinforce this risk: useful reports often need workflow attributes, person links, active/completed state, and health status, not just the Workflow row itself ([Finding People from Workflows](https://community.rockrms.com/recipes/437), [Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-
-Before writing a report, inspect a sample of actual `AttributeValue` raw values for the Workflow Type. Do not assume the formatted value in the UI matches the raw value needed for joins.
-
-### Health Metrics
-
-Recommended metrics:
-
-- Active workflow count by Workflow Type and status.
-- Completed workflow count by Workflow Type and status.
-- Active workflows older than 7, 30, 90, and 365 days.
-- Active workflows with last processed or modified date older than threshold.
-- Workflows with error status or exception text.
-- Workflow Types with no starts in the last year.
-- Workflow Types with active instances but no current launch path.
-- Workflow Types launched by public pages.
-- Workflow Types using SQL-enabled Lava or webhook endpoints.
-- Workflow Types with deprecated Activate Workflow block usage.
-
-The workflow health recipe is a community implementation pattern for active/completed counts and dashboard-style monitoring; use it as a checklist idea, then verify against live workflow types, statuses, launch paths, and Process Workflows job behavior ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257), [Persisted Workflows](https://community.rockrms.com/rocku/workflows/persisted-workflows)).
-
-## 15. Version And Release Caveats
-
-Version matters. The official workflow manual includes update notes across Rock versions and should be checked for the installed version before making assumptions ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-Known caveats from source pack:
-
-- Rock 2.0 docs added workflow actions such as Delay, Add/Remove Person to/from Organization Tag, Background Check Request, and Log Error in the manual's version notes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-- Rock 3.0 docs added a Persist Immediately option on Persist Workflow in the manual's version notes ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-- Rock 12-related source migrations added Person Entry fields to `WorkflowActionForm`, including spouse, email, mobile phone, birthdate, address, marital status, and related person-entry settings ([WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs)).
-- A later Rock 12 migration added gender option support for Person Entry ([WorkflowActionFormPersonEntryGenderOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011171742444_WorkflowActionFormPersonEntryGenderOption.cs)).
-- Rock 13 documentation notes a Maximum Workflow Age setting and bulk delete ability from Workflow List ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-- Rock 16 source migration added SMS opt-in entry option to workflow entry form Person Entry ([WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.0/202308242352371_WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs)).
-- A v16.7 spotlight notes inactive campus filtering for workflow form Person Entry ([GitHub Spotlight: 10/18/2024](https://www.triumph.tech/resources/github-spotlight-10182024)).
-- RockU marks Text to Workflow modules as legacy and says Text to Workflow functionality has been replaced by SMS Pipeline features ([Text to Workflow](https://community.rockrms.com/rocku/workflows/text-to-workflow), [Text to Workflow Performance](https://community.rockrms.com/rocku/workflows/text-to-workflow-performance)).
-- Rock 18.1 documentation notes Form Builder link sharing improvements with a link icon, block setting, and slug field ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-- The Activate Workflow block is deprecated in source and should be replaced by direct Workflow Entry block usage ([ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)).
-
-For any version-sensitive task, inspect:
-
-- Rock version.
-- Installed migrations.
-- Block type in use: WebForms vs Obsidian where applicable.
-- Form Builder feature availability.
-- Person Entry field availability.
-- Workflow action component availability.
-- Release notes between source version and production version.
-
-## 16. Implementation Playbooks
-
-### Playbook: Build A Public Intake Workflow
-
-1. Define the outcome: request, connection, group add, communication, or record update.
-2. Create a Workflow Type with a clear name and owner.
-3. Add workflow attributes for submitted values and internal state.
-4. Add a Start activity.
-5. Add a form action.
-6. Enable Person Entry if the submitter must be matched or created.
-7. Configure required fields.
-8. Add routing action or Lava if needed.
-9. Add follow-up action: communication, connection request, group add, or staff assignment.
-10. Add completion action.
-11. Create external Workflow Entry page.
-12. Configure page route and block settings.
-13. Set page and workflow security.
-14. Submit test as anonymous user and logged-in user.
-15. Verify workflow attributes, person matching, communication, and completion.
-16. Add monitoring report or saved filter for active submissions.
-
-Base this playbook on Workflow Entry, Form Builder, and Person Entry training, then verify public page security and duplicate-handling behavior in the target version ([Workflow Entry](https://community.rockrms.com/rocku/workflows/workflow-entry), [Form Builder](https://community.rockrms.com/rocku/workflows/form-builder), [Workflow Person Entry](https://community.rockrms.com/rocku/workflows/workflow-person-entry)).
-
-### Playbook: Add A Workflow To A Grid
-
-1. Identify the grid and entity type.
-2. Confirm selected rows pass the expected identifier.
-3. Create or copy a workflow template that accepts the row context.
-4. Add an attribute for the incoming entity or Person Alias.
-5. Use Lava or actions to resolve the actual person or record.
-6. Add guardrails for missing or unsupported row types.
-7. Add the grid action.
-8. Restrict security.
-9. Test one row.
-10. Test multiple rows if bulk launch is enabled.
-11. Verify duplicate behavior.
-12. Monitor active workflows after launch.
-
-Use RockU grid modules and community grid-launch patterns as reference points ([Custom Grid Actions](https://community.rockrms.com/rocku/workflows/custom-grid-actions), [Launch Workflow From Grid](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid), [Launching a workflow from a Grid](https://community.rockrms.com/recipes/300)).
-
-### Playbook: Create A Helper Workflow
-
-1. Name it with a helper prefix.
-2. Define one responsibility.
-3. Add only input attributes required for that task.
-4. Add an output status or result attribute if parent workflows need it.
-5. Make it complete deterministically.
-6. Add error logging.
-7. Test it directly with known values.
-8. Call it from parent workflows using `workflowactivate` or an appropriate action.
-9. Pass attributes using stable keys.
-10. Monitor volume if called inside loops.
-
-Reference helper workflow patterns from the community starter pack ([Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258)).
-
-### Playbook: Replace Deprecated Activate Workflow Block
-
-1. Search pages for Activate Workflow block usage.
-2. Record linked Workflow Entry page.
-3. Confirm query string parameters currently passed.
-4. Configure Workflow Entry block to accept the same workflow and attributes.
-5. Update links to point directly to the Workflow Entry page.
-6. Test all old link patterns.
-7. Remove deprecated block after verification.
-8. Monitor administrator notifications.
-
-Source confirms this block is deprecated and that Workflow Entry now supports the key behavior ([ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs)).
-
-### Playbook: Build Webhook-To-Workflow
-
-1. Define external payload schema.
-2. Create Workflow Type.
-3. Add RawBody text attribute.
-4. Add parsed field attributes.
-5. Add response attribute if handler supports it.
-6. Configure webhook endpoint.
-7. Add authentication or shared secret validation if available.
-8. Add Lava parsing and validation.
-9. Add duplicate detection.
-10. Add success and failure response behavior.
-11. Test with a known payload.
-12. Test malformed payload.
-13. Test duplicate payload.
-14. Monitor exceptions and active workflows.
-
-Use webhook examples as patterns, but verify exact handler behavior in the live Rock version ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473), [Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211)).
-
-### Playbook: Audit A Workflow Before Editing
-
-1. Record Workflow Type Id and Guid.
-2. List active workflows by status and age.
-3. List attributes and keys.
-4. List activities and actions.
-5. List forms and Person Entry settings.
-6. Search where used.
-7. Check triggers.
-8. Check pages and blocks.
-9. Check Lava `workflowactivate`.
-10. Check webhooks.
-11. Check connection, step, group, and requirement references.
-12. Check communications and QR/printed links.
-13. Check job dependency.
-14. Make change in test first.
-15. Verify new and existing instances.
-
-Use the Workflow Finder recipe as the audit-category prompt for where-used review, and pair it with persisted-workflow health checks before changing active production processes ([Workflow Finder](https://community.rockrms.com/recipes/457), [Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-
-## 17. Troubleshooting Decision Tree
-
-### Workflow Did Not Start
-
-Check launch path.
-
-- If page form: inspect Workflow Entry block settings, page security, Workflow Type security, route, required parameters, and validation.
-- If entity trigger: inspect Workflow Triggers, entity type, trigger type, active state, and whether the entity change actually occurred.
-- If Lava: confirm `workflowactivate` command is enabled and the Workflow Type ID/GUID is valid. Source tests show disabled command returns a configuration error ([WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs)).
-- If webhook: inspect endpoint, authentication, payload, raw body attribute, and exception logs.
-- If grid: confirm the grid action is configured and passes expected entity data.
-- If connection/step/group requirement: inspect that subsystem's trigger configuration.
-
-### Workflow Started But Form Did Not Show
-
-Check:
-
-- Workflow Entry block points to correct Workflow Type.
-- Start activity includes a form action.
-- The form action is active.
-- Action conditions allow it to execute.
-- Workflow did not immediately complete before rendering.
-- Required query string values are present.
-- Page security allows access.
-- Person Entry configuration is not hiding everything unexpectedly.
-- Form fields have valid attributes.
-
-### Form Submission Fails
-
-Check:
-
-- Required fields.
-- Hidden conditional required fields.
-- Person Entry required fields.
-- Invalid campus or inactive campus selection.
-- File type and size limits.
-- Validation messages.
-- Exception log.
-- Whether the workflow action has already completed and cannot accept another submission.
-- Whether the user is authenticated if required.
-
-### Person Entry Creates Duplicates
-
-Check:
-
-- Autofill current person setting.
-- Hide-if-current-person-known setting.
-- Matching fields available: name, email, phone, birthdate.
-- Whether anonymous submissions lack enough identifiers.
-- Record status and connection status for new people.
-- Person and spouse attribute configuration.
-- Test behavior with logged-in and anonymous users.
-- Processor behavior in your version. Source tests show Person Entry has explicit logic for logged-in person and spouse scenarios ([WorkflowPersonEntryProcessorTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Workflow/WorkflowPersonEntryProcessorTests.cs)).
-
-### Workflow Is Stuck Active
-
-Check:
-
-- Current status.
-- Active activities.
-- Last action executed.
-- Waiting or delay actions.
-- Persist Workflow usage.
-- Process Workflows job.
-- Old errors.
-- Missing completion action.
-- Branch conditions that never match.
-- External signature or approval dependency.
-- Maximum age setting.
-
-Community health patterns focus specifically on active workflows that never complete and continue reprocessing ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-
-### Workflow Sends Duplicate Communications
-
-Check:
-
-- Workflow reprocessing.
-- Communication action inside a repeatedly activated activity.
-- Missing completion after send.
-- Retry behavior.
-- Multiple triggers.
-- Multiple form submissions.
-- Helper workflow launched in loop.
-- Attribute flag that should mark "sent" but is not set.
-- Parent workflow and child workflow both sending.
-
-### Workflow Does Not Send Communication
-
-Check:
-
-- Recipient attribute populated before send action.
-- Recipient is correct raw value type.
-- Communication medium configured.
-- Person has valid email or phone.
-- SMS opt-in where required.
-- Send action condition.
-- Exception log.
-- Communication history.
-- Whether workflow completed before send action.
-
-### Webhook Workflow Is Slow
-
-Check:
-
-- Whether launch path depends on Process Workflows job.
-- Job schedule.
-- Payload parsing cost.
-- External calls inside workflow.
-- Workflow persistence.
-- Volume and rate.
-- Whether an immediate webhook path is available and safe. Community Clearstream guidance was motivated by job-dependent launch delay ([Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473)).
-
-### Workflow Attribute Value Looks Wrong
-
-Check:
-
-- Attribute field type.
-- Raw value versus formatted value.
-- Whether form stores GUID, ID, text, or delimited list.
-- Whether a Lava action overwrote it.
-- Whether query string set initial value.
-- Whether helper workflow parameter key matches.
-- Whether attribute key was renamed.
-- Whether multiple attributes have similar names.
-
-### Form Builder Staff Cannot Find The Form Link
-
-Check:
-
-- Rock version and Form Builder link-sharing features.
-- Page route for form entry.
-- Workflow Entry page.
-- Form Builder page helper links.
-- Slug configuration if available.
-- Security.
-- Whether the form is active.
-
-Community examples show staff may need explicit preview and copy-link helpers because Form Builder forms are backed by workflows ([Form Builder - Helpful Links](https://community.rockrms.com/recipes/347)). Rock 18.1 adds official link-sharing improvements ([Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12)).
-
-## 18. Agent Task Recipes
-
-### Recipe: Find Every Launch Path For A Workflow Type
-
-Inputs:
-
-- Workflow Type Id.
-- Workflow Type Guid.
-- Workflow Type name.
-
-Inspect:
-
-1. Workflow Entry blocks.
-2. Form Builder references.
-3. HTML Content blocks.
-4. Block pre/post HTML.
-5. Lava files and shortcodes.
-6. `workflowactivate` usage.
-7. Workflow Triggers.
-8. Connection Type and Opportunity triggers.
-9. Step Type and Program triggers.
-10. Group Requirements.
-11. Grid actions.
-12. Webhook configuration.
-13. External tools and documented URLs.
-14. Communications containing entry links.
-
-Use the Workflow Finder recipe as a pattern for categories to search ([Workflow Finder](https://community.rockrms.com/recipes/457)).
-
-### Recipe: Explain A Workflow To A Staff Owner
-
-Deliver:
-
-- Purpose.
-- Who can start it.
-- Where it starts.
-- What information it collects.
-- Who it assigns.
-- What records it creates or changes.
-- What communications it sends.
-- How it completes.
-- What can go wrong.
-- Where staff can report on it.
-
-Avoid describing internal actions unless they affect staff behavior.
-
-### Recipe: Diagnose A Missing Submission
-
-1. Ask for submitter, time, form URL, and expected workflow.
-2. Check whether a Workflow instance exists near that time.
-3. If none, check page access, trigger, webhook, or Lava launch path.
-4. If instance exists, inspect attributes.
-5. Check Person Entry match/create behavior.
-6. Check active activities and errors.
-7. Check communications or downstream records.
-8. Determine whether the issue is launch, form submit, processing, integration, or reporting.
-
-### Recipe: Safely Retire A Workflow
-
-1. Confirm no current launch paths.
-2. Remove public links or redirect pages.
-3. Disable triggers.
-4. Remove grid actions.
-5. Disable webhooks.
-6. Stop external tools from posting.
-7. Let active workflows complete or bulk-complete according to policy.
-8. Preserve historical data as needed.
-9. Mark Workflow Type inactive or move to archive category.
-10. Document replacement.
-
-### Recipe: Build A Workflow Health Dashboard
-
-Include:
-
-- Active by Workflow Type.
-- Active by status.
-- Completed by status.
-- Old active instances.
-- Error counts.
-- Last Process Workflows job result.
-- Workflow Types with high active counts.
-- Workflow Types with no recent activity.
-- Public workflow forms.
-
-The Track Workflow Statistics and Health recipe shows one community approach using Dynamic Data blocks and a broader health page ([Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257)).
-
-### Recipe: Validate Person Entry Configuration
-
-1. Open the workflow form action.
-2. Confirm Person Entry enabled.
-3. Record field visibility for spouse, gender, email, phone, SMS opt-in, birthdate, address, marital status, race, ethnicity, and campus where available.
-4. Confirm campus inactive filtering.
-5. Confirm new person record and connection statuses.
-6. Confirm Person and Spouse workflow attributes.
-7. Test anonymous submission.
-8. Test logged-in person submission.
-9. Test logged-in spouse/family scenario if relevant.
-10. Inspect resulting Person, PersonAlias, and workflow attribute values.
-
-Use source fields as a checklist, but verify installed UI because fields vary by version ([FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs), [personEntryConfigurationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts)).
-
-### Recipe: Audit `workflowactivate` Lava
-
-Search for:
-
-- `workflowactivate`
-- Workflow Type Id.
-- Workflow Type Guid.
-- Attribute keys passed as parameters.
-- Activity Type Id or Guid.
-
-For each usage:
-
-- Confirm the command is enabled in that context.
-- Confirm IDs or GUIDs still refer to the intended workflow.
-- Confirm passed attributes still exist.
-- Confirm loops are bounded.
-- Confirm error output is handled.
-- Confirm user input is sanitized.
-
-Official Lava docs and source both describe the command's parameters and exposed variables ([Workflow Activate](https://community.rockrms.com/lava/commands/workflow-activate-commands), [WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs)).
+- [Event Participant Call-To-Action recipe](https://community.rockrms.com/recipes/445)
+- [Registration-to-Connection Request recipe](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request)
+- [Workflow-Backed SMS Verification recipe](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
+- [Background media orchestration example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr)
+- [Family preregistration example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
+- [LMS workflow example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
+- [Provider event reporting example](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5)
 
 <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 ## Approved Claim Coverage
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `1351`
+- Approved claims routed to this concept: `53`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
+| official | behavior | Each command configured on a workflow Form submits the form and can activate a different workflow path, allowing command choices such as approval and denial to drive separate activities. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions) |
 | official | behavior | In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`. | [source](https://community.rockrms.com/lava/commands/entity-commands) |
-| official | behavior | In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format. | [source](https://community.rockrms.com/lava/commands/workflow-activate-commands) |
+| official | behavior | My Workflows can separate workflows initiated by the current person from active workflows assigned to that person, and group assignments count when the person belongs to the assigned group. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows) |
+| official | configuration | The Mini My Workflows block can filter by workflow categories and initiation or assignment relationship, and its display can be customized with HTML and Lava. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows) |
+| official | configuration | A workflow Form action independently controls whether each workflow or activity attribute is visible, editable, and required, and conditional logic can show or hide a field based on other field values. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions) |
+| official | configuration | A workflow Form action can notify the assigned person when it becomes active and can include form commands in email so the recipient can submit an approval or denial from the message. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities) |
+| official | implementation_pattern | Workflow activities can combine assignment, entry forms, conditional action filters, activity activation, and completion commands so one workflow branches and transfers responsibility without duplicating the whole process. | [source](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities) |
 | official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Self-hosted Rock operators own their patch cadence, and supported dot releases can carry security fixes that should not be treated as optional. Confirm currently supported branches and review current release notes before upgrading. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | source_summary | This official Rock Cast episode mixes broad AI and leadership discussion with two durable Rock operating practices: treat supported dot releases as security maintenance, and separate a ministry problem's requirements from the first proposed technical solution. External AI commentary and conference material are context only. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
-| rocku-confirmed | configuration | Connection Types are high-level containers for related connection opportunities; they should match ministry process boundaries rather than arbitrary reporting groupings. | [source](https://community.rockrms.com/rocku/engagement/connections-types) |
-| rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | configuration | Connection Opportunities define the specific follow-up paths available inside a connection type; changing an opportunity can affect request routing, staff ownership, and reporting. | [source](https://community.rockrms.com/rocku/engagement/connections-opportunities) |
-| rocku-confirmed | implementation_pattern | For list discrepancies, compare the list filters, connection type/opportunity, status, assignee, campus, and current user security against the expected request set. | [source](https://community.rockrms.com/rocku/engagement/connections-list-1) |
-| More |  | 1339 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 41 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1592,65 +617,19 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `78`
+- Approved media records routed to this concept: `19`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Assign Statement Transcript Insight](https://community.rockrms.com/rocku/lava/assign-statement) | approved_for_public_distillation | 1 | media-insight:446c751591a992b1 |
-| [Attendance Analytics Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-analytics) | approved_for_public_distillation | 3 | media-insight:e066ef3153b2cc3d |
-| [Automations Transcript Insight](https://community.rockrms.com/rocku/core-concepts/automations) | approved_for_public_distillation | 3 | media-insight:7f62014ede8ae0e5 |
-| [BI Financial Transaction Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) | approved_for_public_distillation | 3 | media-insight:a815728575995f92 |
 | [BI Job Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-job) | approved_for_public_distillation | 2 | media-insight:1783ed2aacc57cc3 |
-| [BI Template Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-template) | approved_for_public_distillation | 3 | media-insight:22fb0ca5319b94a9 |
-| [Businesses Transcript Insight](https://community.rockrms.com/rocku/finance/businesses) | approved_for_public_distillation | 3 | media-insight:f84cdc67d1626107 |
-| [Calendar Overview Transcript Insight](https://community.rockrms.com/rocku/event-registration/calendar-overview) | approved_for_public_distillation | 1 | media-insight:b7cb6e0f0354451c |
-| More |  | 70 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Components of a Workflow Transcript Insight](https://community.rockrms.com/rocku/workflows/components-of-a-workflow) | approved_for_public_distillation | 1 | media-insight:bc984ec6248f28f0 |
+| [Connection Request Status Automation Transcript Insight](https://community.rockrms.com/rocku/engagement/connection-request-status-automation) | approved_for_public_distillation | 3 | media-insight:e6af71f0b72106fc |
+| [Connections Overview Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-overview) | approved_for_public_distillation | 2 | media-insight:f689579d363f61a6 |
+| [Connections Types Transcript Insight](https://community.rockrms.com/rocku/engagement/connections-types) | approved_for_public_distillation | 2 | media-insight:fb53d5a069768847 |
+| [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) | approved_for_public_distillation | 3 | media-insight:e7c8cb97245bec8d |
+| [Deconstructing a Sample Workflow Transcript Insight](https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow) | approved_for_public_distillation | 3 | media-insight:1db2ecf2b71445df |
+| [Form Builder Transcript Insight](https://community.rockrms.com/rocku/workflows/form-builder) | approved_for_public_distillation | 2 | media-insight:4d696c083d2ec15d |
+| More |  | 11 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 19. Source Map And Dependency Notes
-
-Primary sources:
-
-- [Blasting Off With Workflows](https://community.rockrms.com/documentation/BookContent/12): official workflow manual, configuration concepts, version notes, triggers, forms, Person Entry, and administrative guidance.
-- [RockU Workflows](https://community.rockrms.com/rocku/workflows): training map covering workflow concepts, components, entry, persistence, performance, styling, sample workflows, legacy text-to-workflow, grid actions, Person Entry, electronic signatures, and Form Builder.
-- [Workflow Activate Lava command](https://community.rockrms.com/lava/commands/workflow-activate-commands): official Lava command documentation for launching workflows and activities.
-- [WorkflowActivateBlock.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs): source behavior for the Lava command.
-- [WorkflowActivateTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs): integration tests for command enablement and activation behavior.
-- [ActivateWorkflow.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs): source evidence that the Activate Workflow block is deprecated.
-- [WorkflowActionFormAllowPersonEntry.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs): migration evidence for Person Entry configuration fields.
-- [WorkflowActionFormPersonEntryOption.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Workflow/WorkflowActionFormPersonEntryOption.cs): enum values for Person Entry visibility requirements.
-- [FormPersonEntrySettings.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs): Form Builder Person Entry settings and internal API warning.
-- [FormPersonEntryViewModel.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs): view model for Form Builder Person Entry settings.
-- [personEntryConfigurationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts): Obsidian client configuration shape for Person Entry.
-- [personEntryValuesBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryValuesBag.d.ts): submitted values shape for Person Entry.
-- [WorkflowPersonEntryProcessorTests.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Workflow/WorkflowPersonEntryProcessorTests.cs): processor behavior tests for logged-in person and spouse scenarios.
-- [Model Map](https://community.rockrms.com/ModelMap): model-category confirmation for workflow form models.
-
-Community examples used as patterns:
-
-- [Workflow Finder](https://community.rockrms.com/recipes/457): where-used audit categories.
-- [Track Workflow Statistics and Health](https://community.rockrms.com/recipes/257): operational health dashboard pattern.
-- [Event Participant Call-To-Action Using a Workflow Form](https://community.rockrms.com/recipes/445): event CTA workflow pattern.
-- [Modal Dialog for Workflow Entry](https://community.rockrms.com/recipes/141): iframe/modal entry pattern and allowed frame domain caveat.
-- [Workflow Assignment by Topic](https://community.rockrms.com/recipes/164): group/member-attribute assignment pattern.
-- [Clearstream - Launch Rock Workflows Instantly With Webhooks](https://community.rockrms.com/recipes/473): immediate webhook launch pattern.
-- [Finding People from Workflows](https://community.rockrms.com/recipes/437): reporting on person attributes in workflow submissions.
-- [Create Multiple Sign-Up Opportunities From Schedule](https://community.rockrms.com/recipes/479): loop and bulk creation pattern.
-- [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482): group requirement and signature document helper pattern.
-- [View Workflow Attributes Without Editing Workflow](https://community.rockrms.com/recipes/203): administrator attribute-key visibility pattern.
-- [Launching a workflow from a Grid](https://community.rockrms.com/recipes/300): grid launch context pattern.
-- [Form Builder - Helpful Links](https://community.rockrms.com/recipes/347): staff usability pattern for Form Builder links.
-- [Send Workflow Info To Zapier](https://community.rockrms.com/recipes/211): outbound integration pattern.
-- [Helper Workflow Starter Pack](https://community.rockrms.com/recipes/258): helper workflow pattern.
-- [Non-Cash Contribution Workflow](https://community.rockrms.com/recipes/253): workflow plus connection process pattern.
-
-Dependencies:
-
-- **Lava** is required for dynamic workflow activation, template rendering, logic, loops, payload transformation, and many community patterns.
-- **Jobs** are required for delayed, persisted, or scheduled workflow processing. Always inspect Process Workflows job health when active workflows are stuck or delayed.
-- **Communications** are often downstream effects of workflow actions and should be audited separately for deliverability, duplication, and recipient correctness.
-- **Security** must be checked at workflow, page, block, Lava command, webhook, and SQL-enabled block levels.
-- **Attributes** are the workflow data contract. Every agent workflow audit should start by listing attribute keys and raw values.
-- **Live Rock verification** is required for exact installed action components, schema columns, REST endpoints, block settings, trigger conditions, plugin behavior, and local launch paths.

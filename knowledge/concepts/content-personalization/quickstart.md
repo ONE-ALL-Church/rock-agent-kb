@@ -17,12 +17,11 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 ## Primary Tasks
 
-- [Recipe: Audit a content channel before editing](tasks/recipe-audit-a-content-channel-before-editing.md): Follow the guide section for Recipe: Audit a content channel before editing.
-- [Recipe: Diagnose “editor cannot see channel in Tools > Content”](tasks/recipe-diagnose-editor-cannot-see-channel-in-tools-content.md): Follow the guide section for Recipe: Diagnose “editor cannot see channel in Tools > Content”.
-- [Recipe: Diagnose “segment should include this person”](tasks/recipe-diagnose-segment-should-include-this-person.md): Follow the guide section for Recipe: Diagnose “segment should include this person”.
-- [Recipe: Create safe Lava for channel display](tasks/recipe-create-safe-lava-for-channel-display.md): Follow the guide section for Recipe: Create safe Lava for channel display.
-- [Recipe: Verify content interactions](tasks/recipe-verify-content-interactions.md): Follow the guide section for Recipe: Verify content interactions.
-- [Recipe: Public launch review for content personalization](tasks/recipe-public-launch-review-for-content-personalization.md): Follow the guide section for Recipe: Public launch review for content personalization.
+- [Recipe: Audit a content channel before editing](tasks/recipe-audit-a-content-channel-before-editing.md): Do not change anything until you know which pages and workflows depend on the channel.
+- [Recipe: Diagnose “editor cannot see channel in Tools > Content”](tasks/recipe-diagnose-editor-cannot-see-channel-in-tools-content.md): The `Tools > Content` page lists channels the current user has View access to, according to official docs (Manage Content Items).
+- [Recipe: Diagnose “segment should include this person”](tasks/recipe-diagnose-segment-should-include-this-person.md): Complete Diagnose “segment should include this person” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Verify content interactions](tasks/recipe-verify-content-interactions.md): Complete Verify content interactions with evidence-backed checks and a verifiable outcome.
+- [Recipe: Public launch review for content personalization](tasks/recipe-public-launch-review-for-content-personalization.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 
@@ -43,6 +42,7 @@ Content channels, assets, structured content, adaptive messages, personalization
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the content-personalization guide.
 - `Person`: Rock concept/entity referenced by the content-personalization guide.
+- `PersonAlias`: Rock concept/entity referenced by the content-personalization guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the content-personalization guide.

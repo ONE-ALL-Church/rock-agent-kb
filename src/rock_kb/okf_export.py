@@ -61,6 +61,7 @@ KIND_CONFIG = {
     "source_summary": ("Source Summary", "source-summaries"),
     "rock_issue": ("Rock Issue", "rock-issues"),
     "rock_idea": ("Rock Idea", "rock-ideas"),
+    "troubleshooting_node": ("Troubleshooting Node", "troubleshooting-nodes"),
 }
 
 
@@ -116,8 +117,7 @@ def build_okf_export(
         elif row.get("kind") == "lava_context" and str(row.get("id") or "") in full_lava_contexts:
             row["payload"] = full_lava_contexts[str(row["id"])]
     contribution_rows = contribution_okf_rows(public_contribution_records()) if profile == "full" else []
-    task_rows = task_card_okf_rows(read_jsonl(REPO_ROOT / "agent" / "concept-task-cards.jsonl"))
-    rows = sorted([*search_rows, *contribution_rows, *task_rows], key=lambda row: str(row.get("id") or ""))
+    rows = sorted([*search_rows, *contribution_rows], key=lambda row: str(row.get("id") or ""))
     duplicate_ids = sorted(row_id for row_id, count in Counter(str(row.get("id") or "") for row in rows).items() if row_id and count > 1)
     if duplicate_ids:
         raise ValueError(f"Duplicate canonical OKF record ids: {', '.join(duplicate_ids[:10])}")
@@ -528,8 +528,13 @@ def row_path(row: dict[str, Any]) -> PurePosixPath:
     if kind == "source_summary":
         source_id = safe_slug(str(payload.get("source_id") or "unknown"))
         return PurePosixPath("source-summaries") / source_id / digest[:1] / filename
-    if kind in {"answer", "task_card"}:
-        return PurePosixPath("answers" if kind == "answer" else "task-cards") / safe_slug(first_concept_id(row) or "unrouted") / filename
+    if kind in {"answer", "task_card", "troubleshooting_node"}:
+        folder = {
+            "answer": "answers",
+            "task_card": "task-cards",
+            "troubleshooting_node": "troubleshooting-nodes",
+        }[kind]
+        return PurePosixPath(folder) / safe_slug(first_concept_id(row) or "unrouted") / filename
     if kind == "lava_context":
         return PurePosixPath("lava-contexts") / safe_slug(str(payload.get("context_family") or "other")) / filename
     if kind == "rock_issue":
@@ -563,6 +568,7 @@ def row_kind_count_key(row: dict[str, Any]) -> str:
         "lava_context": "lava_contexts",
         "source_summary": "source_summaries",
         "task_card": "task_cards",
+        "troubleshooting_node": "troubleshooting_nodes",
         "rock_issue": "rock_issues",
         "rock_idea": "rock_ideas",
     }.get(str(row.get("kind") or ""), f"{row.get('kind')}s")

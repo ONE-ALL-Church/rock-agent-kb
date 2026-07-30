@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Validate A BI Finance Dashboard
 
-Follow the guide section for Recipe: Validate A BI Finance Dashboard.
+Complete Validate A BI Finance Dashboard with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Validate A BI Finance Dashboard.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Campus`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Campus`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify dashboard filters.
+2. Identify source model/table.
+3. Check BI job last success.
+4. Check Power BI dataset refresh.
+5. Run Rock UI finance report for same dates/accounts.
+6. Run direct read-only SQL if needed.
+7. Compare totals.
+8. Investigate differences by transaction type, account, campus, refunds, registration payments, and giving group.
+9. Document reconciliation.
+10. Get finance owner signoff.
 
 ## Do Not Assume
 
@@ -34,15 +43,11 @@ Follow the guide section for Recipe: Validate A BI Finance Dashboard.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/bookcontent/6/331
-- https://community.rockrms.com/rocku/reporting
-- https://community.rockrms.com/lava/commands/sql-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
-- https://community.rockrms.com/recipes/397
-- https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report
-- https://community.rockrms.com/recipes/264
-- https://community.rockrms.com/recipes/349
+- https://www.triumph.tech/resources/grouping-sets
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.SaveHook.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilterOverrides.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Reporting/DataFilter/Group/LocationDataViewDataFilterTests.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Group/LocationDataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Group/GroupTypeDataViewFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/GroupMemberDataViewFilter.cs
+- https://community.rockrms.com/recipes/264
+- https://community.rockrms.com/recipes/397

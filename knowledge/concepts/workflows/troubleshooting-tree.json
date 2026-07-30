@@ -2,223 +2,287 @@
   "branches": [
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list."
       ],
-      "entities": [],
-      "id": "recipe-find-every-launch-path-for-a-workflow-type",
-      "inspect": [],
+      "entities": [
+        "Person",
+        "Workflow",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-or-form-is-not-visible",
+      "id": "a-workflow-or-form-is-not-visible",
+      "inspect": [
+        "Person",
+        "Workflow",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://community.rockrms.com/recipes/473",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://community.rockrms.com/recipes/257",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts"
+        "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify the exact surface: Workflow navigation, direct Workflow Entry page, Workflow List, Workflow Detail, My Workflows, or Form Builder.",
+        "Confirm the workflow type is active and the expected category is selected in the block settings.",
+        "Check category and workflow-type View permissions.",
+        "For Workflow Entry, confirm there is an active Form action assigned to the current person and that the person can view the activity.",
+        "For My Workflows, confirm the activity is active, has an active form, is assigned appropriately, and the person can view it.",
+        "Verify login, form start/end dates, and share-link settings when using Form Builder.",
+        "Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list."
       ],
-      "title": "Recipe: Find Every Launch Path For A Workflow Type",
-      "when": "Follow the guide section for Recipe: Find Every Launch Path For A Workflow Type."
+      "title": "A workflow or form is not visible",
+      "when": "A workflow or form is not visible"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Label",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-form-field-is-missing-unexpectedly-required-or-exposing-data",
+      "id": "a-form-field-is-missing-unexpectedly-required-or-exposing-data",
+      "inspect": [
+        "Person",
+        "Label",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions"
+      ],
+      "start_with": [
+        "Inspect the Form action or Form Builder field’s visible, editable, required, and conditional settings.",
+        "Check the applicant or current-person context, including Person Entry autofill and hide-if-known behavior.",
+        "Evaluate every conditional branch, including the case where a prior field is blank.",
+        "Inspect who can view the workflow, activity, form, and resulting attribute.",
+        "Trace downstream actions and communications that consume the field.",
+        "Compare the submitted stored value with the visible label.",
+        "Stop before changing requiredness if the communication or identity target remains ambiguous."
+      ],
+      "title": "A form field is missing, unexpectedly required, or exposing data",
+      "when": "A form field is missing, unexpectedly required, or exposing data"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-action-was-skipped",
+      "id": "a-workflow-action-was-skipped",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions"
+      ],
+      "start_with": [
+        "Inspect the action’s Run If criteria.",
+        "Read the actual submitted attribute value and its stored format.",
+        "Compare it with the criterion, including capitalization and Boolean text.",
+        "Confirm earlier actions ran in the expected order and did not change the value.",
+        "Determine whether `Complete Action If Criteria Unmet` marked it completed.",
+        "Inspect the workflow log.",
+        "If the form recently changed, compare current payload values with every downstream criterion. This final check is a community-reviewed troubleshooting pattern requiring local confirmation."
+      ],
+      "title": "A workflow action was skipped",
+      "when": "A workflow action was skipped"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-is-stuck-or-repeatedly-processing",
+      "id": "a-workflow-is-stuck-or-repeatedly-processing",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details"
+      ],
+      "start_with": [
+        "Inspect active activities, assignments, and action completion.",
+        "Find the first incomplete action in configured order.",
+        "Read its criteria, last processing time, and log entries.",
+        "Confirm whether it is intentionally configured to remain incomplete and rerun.",
+        "Check whether a completion action is missing after filtered branches.",
+        "Before uncompleting or retrying anything, inspect communications and data changes that may already have succeeded.",
+        "Stop if retrying could duplicate an irreversible effect."
+      ],
+      "title": "A workflow is stuck or repeatedly processing",
+      "when": "A workflow is stuck or repeatedly processing"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-webhook-returns-404-or-launches-the-wrong-number-of-workflows",
+      "id": "a-webhook-returns-404-or-launches-the-wrong-number-of-workflows",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
+      ],
+      "start_with": [
+        "Confirm the request reached the documented webhook endpoint.",
+        "Enumerate every Workflow Webhook Defined Value.",
+        "Evaluate each Process Request Lava rule against the same request data.",
+        "Confirm exactly the intended rules return true.",
+        "Treat a no-match 404 as expected documented security behavior.",
+        "Store a bounded raw body in a test workflow when payload inspection is necessary.",
+        "Move complex parsing into the workflow rather than the Defined Value template.",
+        "Verify installed configuration before enabling the external sender."
+      ],
+      "title": "A webhook returns 404 or launches the wrong number of workflows",
+      "when": "A webhook returns 404 or launches the wrong number of workflows"
     },
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Stop when the stored instance proves the contract; do not trust rendered success text alone."
       ],
-      "entities": [],
-      "id": "recipe-explain-a-workflow-to-a-staff-owner",
-      "inspect": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank",
+      "id": "workflowactivate-starts-a-workflow-but-values-are-blank",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/473",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://community.rockrms.com/recipes/257",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts"
+        "https://community.rockrms.com/lava/commands/workflow-activate-commands"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the Lava command is enabled.",
+        "Compare every extra parameter name with the target workflow or activity attribute key.",
+        "Confirm each value uses the field type’s stored-value format.",
+        "Inspect the created workflow and its attribute values.",
+        "Remove dead or misspelled parameters.",
+        "Verify Person-related values use the expected Person or PersonAlias representation for the receiving field.",
+        "Stop when the stored instance proves the contract; do not trust rendered success text alone."
       ],
-      "title": "Recipe: Explain A Workflow To A Staff Owner",
-      "when": "Follow the guide section for Recipe: Explain A Workflow To A Staff Owner."
+      "title": "`workflowactivate` starts a workflow but values are blank",
+      "when": "`workflowactivate` starts a workflow but values are blank"
     },
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Do not change the request merely to make it visible."
       ],
-      "entities": [],
-      "id": "recipe-diagnose-a-missing-submission",
-      "inspect": [],
+      "entities": [
+        "Person",
+        "Campus"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-connection-request-is-missing-from-a-board-or-list",
+      "id": "a-connection-request-is-missing-from-a-board-or-list",
+      "inspect": [
+        "Person",
+        "Campus"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://community.rockrms.com/recipes/257",
-        "https://community.rockrms.com/recipes/473",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts"
+        "https://community.rockrms.com/rocku/engagement/connections-board",
+        "https://community.rockrms.com/rocku/engagement/connections-list-1"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the expected Connection Type and Opportunity.",
+        "Check current request status.",
+        "Check board or list filters.",
+        "Check connector or assignee ownership.",
+        "Check campus restrictions.",
+        "Check the current user’s security.",
+        "Compare the board with the tabular Connections List.",
+        "Inspect automation only after the request’s current person and process state are understood."
       ],
-      "title": "Recipe: Diagnose A Missing Submission",
-      "when": "Follow the guide section for Recipe: Diagnose A Missing Submission."
+      "title": "A connection request is missing from a board or list",
+      "when": "A connection request is missing from a board or list"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-safely-retire-a-workflow",
-      "inspect": [],
+      "guide_section_id": "troubleshooting-decision-tree-sql-or-reporting-cannot-see-a-value-just-submitted-by-a-form",
+      "id": "sql-or-reporting-cannot-see-a-value-just-submitted-by-a-form",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://community.rockrms.com/recipes/473",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://community.rockrms.com/recipes/257",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts"
+        "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the workflow has been persisted.",
+        "If the next action requires a valid workflow ID immediately, inspect the Persist action’s immediate-persistence setting.",
+        "Verify the attribute’s entity type, qualifier, workflow-type scope, and key.",
+        "Compare formatted and raw values.",
+        "Confirm the report or query reads the canonical attribute used by downstream actions.",
+        "Reproduce with a disposable test instance before modifying production logic.",
+        "Treat “persist before SQL reads submitted attributes” as a community pattern until reproduced locally."
       ],
-      "title": "Recipe: Safely Retire A Workflow",
-      "when": "Follow the guide section for Recipe: Safely Retire A Workflow."
+      "title": "SQL or reporting cannot see a value just submitted by a form",
+      "when": "SQL or reporting cannot see a value just submitted by a form"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-build-a-workflow-health-dashboard",
-      "inspect": [],
+      "guide_section_id": "troubleshooting-decision-tree-lava-output-is-blank-or-a-parser-error-points-at-the-wrong-line",
+      "id": "lava-output-is-blank-or-a-parser-error-points-at-the-wrong-line",
+      "inspect": [
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://community.rockrms.com/recipes/473",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://community.rockrms.com/recipes/257",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts"
+        "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Inspect the workflow attribute’s field type and whether the template requested formatted, raw, or object output.",
+        "Verify the returned object shape before chaining properties.",
+        "Check preceding filters for an unclosed quote, missing delimiter, or incomplete argument.",
+        "Reduce nested conditional and assignment blocks into smaller independently previewable sections.",
+        "Test against a representative workflow instance.",
+        "Treat object-shape and downstream-error-line behavior as community troubleshooting observations requiring reproduction."
       ],
-      "title": "Recipe: Build A Workflow Health Dashboard",
-      "when": "Follow the guide section for Recipe: Build A Workflow Health Dashboard."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-validate-person-entry-configuration",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011052358368_WorkflowActionFormAllowPersonEntry.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.0/202308242352371_WorkflowEntryForm-PersonEntrySmsOptInEntryOption.cs",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Workflow/WorkflowPersonEntryProcessorTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.0/202011171742444_WorkflowActionFormPersonEntryGenderOption.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryValuesBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Workflow/WorkflowActionFormPersonEntryOption.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Validate Person Entry Configuration",
-      "when": "Follow the guide section for Recipe: Validate Person Entry Configuration."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-audit-workflowactivate-lava",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Core/Lava/Commands/WorkflowActivateTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/FormBuilder/FormPersonEntrySettings.cs",
-        "https://community.rockrms.com/recipes/457",
-        "https://community.rockrms.com/recipes/257",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryConfigurationBag.d.ts",
-        "https://community.rockrms.com/recipes/473",
-        "https://community.rockrms.com/documentation/BookContent/12",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Workflow/personEntryValuesBag.d.ts"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Audit `workflowactivate` Lava",
-      "when": "Follow the guide section for Recipe: Audit `workflowactivate` Lava."
+      "title": "Lava output is blank or a parser error points at the wrong line",
+      "when": "Lava output is blank or a parser error points at the wrong line"
     }
   ],
   "concept_id": "workflows",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:26+00:00",
+  "generated_at": "2026-07-30T02:07:40+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-workflow-did-not-start",
-    "17-troubleshooting-decision-tree-workflow-started-but-form-did-not-show",
-    "17-troubleshooting-decision-tree-form-submission-fails",
-    "17-troubleshooting-decision-tree-person-entry-creates-duplicates",
-    "17-troubleshooting-decision-tree-workflow-is-stuck-active",
-    "17-troubleshooting-decision-tree-workflow-sends-duplicate-communications",
-    "17-troubleshooting-decision-tree-workflow-does-not-send-communication",
-    "17-troubleshooting-decision-tree-webhook-workflow-is-slow",
-    "17-troubleshooting-decision-tree-workflow-attribute-value-looks-wrong",
-    "17-troubleshooting-decision-tree-form-builder-staff-cannot-find-the-form-link",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-find-every-launch-path-for-a-workflow-type",
-    "18-agent-task-recipes-recipe-explain-a-workflow-to-a-staff-owner",
-    "18-agent-task-recipes-recipe-diagnose-a-missing-submission",
-    "18-agent-task-recipes-recipe-safely-retire-a-workflow",
-    "18-agent-task-recipes-recipe-build-a-workflow-health-dashboard",
-    "18-agent-task-recipes-recipe-validate-person-entry-configuration",
-    "18-agent-task-recipes-recipe-audit-workflowactivate-lava"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-workflow-or-form-is-not-visible",
+    "troubleshooting-decision-tree-a-form-field-is-missing-unexpectedly-required-or-exposing-data",
+    "troubleshooting-decision-tree-a-workflow-action-was-skipped",
+    "troubleshooting-decision-tree-a-workflow-is-stuck-or-repeatedly-processing",
+    "troubleshooting-decision-tree-a-webhook-returns-404-or-launches-the-wrong-number-of-workflows",
+    "troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank",
+    "troubleshooting-decision-tree-a-connection-request-is-missing-from-a-board-or-list",
+    "troubleshooting-decision-tree-sql-or-reporting-cannot-see-a-value-just-submitted-by-a-form",
+    "troubleshooting-decision-tree-lava-output-is-blank-or-a-parser-error-points-at-the-wrong-line",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-design-a-bounded-workflow-type",
+    "agent-task-recipes-recipe-review-a-workflow-form-change",
+    "agent-task-recipes-recipe-configure-a-selective-workflow-webhook",
+    "agent-task-recipes-recipe-diagnose-an-active-workflow-instance",
+    "agent-task-recipes-recipe-audit-a-connection-follow-up-process",
+    "agent-task-recipes-recipe-import-or-adapt-a-workflow-safely",
+    "agent-task-recipes-recipe-design-background-orchestration"
   ]
 }

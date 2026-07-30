@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Investigate API Registration URL Issues
 
-Follow the guide section for Recipe: Investigate API Registration URL Issues.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,33 +16,41 @@ Follow the guide section for Recipe: Investigate API Registration URL Issues.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. EventItemOccurrence.
+2. Linkage record.
+3. RegistrationInstanceId.
+4. Slug/public name fields.
+5. Page route.
+6. Registration Entry block.
+7. Mobile Registration URL setting.
+8. Custom Lava.
+9. Current API response shape.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not assume expanded Linkages contain a complete public URL.
 
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/29
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
-- https://community.rockrms.com/rocku/event-registration
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://community.rockrms.com/ask/developing/2547
-- https://community.rockrms.com/rocku/event-registration/registration-fees
-- https://community.rockrms.com/rocku/event-registration/registration-discounts
-- https://community.rockrms.com/rocku/event-registration/event-registration-attributes
-- https://community.rockrms.com/recipes/361
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs

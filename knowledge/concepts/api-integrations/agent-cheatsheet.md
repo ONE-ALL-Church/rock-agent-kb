@@ -11,10 +11,10 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Find The Right API Route](tasks/recipe-find-the-right-api-route.md) |  |  |
-| [Recipe: Audit A REST Key](tasks/recipe-audit-a-rest-key.md) |  |  |
+| [Recipe: Audit A REST Key](tasks/recipe-audit-a-rest-key.md) | `Person` | `Person` |
 | [Recipe: Diagnose External Website API Failure](tasks/recipe-diagnose-external-website-api-failure.md) |  |  |
 | [Recipe: Review A Lava Webhook Before Launch](tasks/recipe-review-a-lava-webhook-before-launch.md) |  |  |
-| [Recipe: Build A Safe Agent Tool](tasks/recipe-build-a-safe-agent-tool.md) |  |  |
+| [Recipe: Build A Safe Agent Tool](tasks/recipe-build-a-safe-agent-tool.md) | `Person`, `Attribute` | `Person`, `Attribute` |
 
 ## Entities
 

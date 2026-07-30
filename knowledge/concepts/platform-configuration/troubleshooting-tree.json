@@ -1,198 +1,224 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-find-available-attributes-for-an-add-or-update-operation",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-attribute-does-not-appear",
+      "id": "attribute-does-not-appear",
+      "inspect": [
+        "Person",
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Find Available Attributes For An Add Or Update Operation",
-      "when": "Follow the guide section for Recipe: Find Available Attributes For An Add Or Update Operation."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-explain-a-platform-configuration-object-to-a-user",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Explain A Platform Configuration Object To A User",
-      "when": "Follow the guide section for Recipe: Explain A Platform Configuration Object To A User."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-safely-answer-can-we-delete-this",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Safely Answer “Can We Delete This?”",
-      "when": "Follow the guide section for Recipe: Safely Answer “Can We Delete This?”."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-source-backed-explanation",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build A Source-Backed Explanation",
-      "when": "Follow the guide section for Recipe: Build A Source-Backed Explanation."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-triage-attribute-security",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/lava/workflows",
         "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/rocku/individuals-in-rock/family-attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/bookmarked-attributes"
+        "https://community.rockrms.com/developer/303---blast-off/attributes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the attribute active and saved?",
+        "Is the entity type correct?",
+        "Is the qualifier correct?",
+        "Is the attribute assigned to a category excluded by the block?",
+        "Is it uncategorized when the block only shows selected categories?",
+        "Is the public flag required?",
+        "Does the current user have permission?",
+        "Does the block support the field type?"
       ],
-      "title": "Recipe: Triage Attribute Security",
-      "when": "Follow the guide section for Recipe: Triage Attribute Security."
+      "title": "Attribute Does Not Appear",
+      "when": "Attribute Does Not Appear"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-convert-a-free-text-attribute-to-a-defined-value",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-attribute-appears-with-wrong-category",
+      "id": "attribute-appears-with-wrong-category",
+      "inspect": [
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/ModelMap"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Category entity type.",
+        "Attribute category assignments.",
+        "Whether the editor block has a known version bug.",
+        "Rock v17.2 for Content Channel Item category picker behavior.",
+        "Rock v19.1 for Global Attribute categories appearing in unrelated attribute editing blocks (Rock Core Release Notes).",
+        "Browser/cache/admin UI refresh."
       ],
-      "title": "Recipe: Convert A Free-Text Attribute To A Defined Value",
-      "when": "Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined Value."
+      "title": "Attribute Appears With Wrong Category",
+      "when": "Attribute Appears With Wrong Category"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-diagnose-attribute-field-type-mismatch",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-lava-attribute-returns-blank",
+      "id": "lava-attribute-returns-blank",
+      "inspect": [
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Attribute key spelling.",
+        "Object availability.",
+        "Attribute loaded on object.",
+        "Attribute value exists.",
+        "Default value behavior.",
+        "Attribute security.",
+        "v17+ attribute security enforcement.",
+        "Whether raw value is needed."
+      ],
+      "title": "Lava Attribute Returns Blank",
+      "when": "Lava Attribute Returns Blank"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-defined-value-picker-is-hard-to-use",
+      "id": "defined-value-picker-is-hard-to-use",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/documentation/bookcontent/39",
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-attributes"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Field type configuration.",
+        "Whether enhanced long-list behavior is enabled.",
+        "Whether the block is Obsidian.",
+        "Rock v19.1 release notes for defined value picker enhanced long-list fix (Rock Core Release Notes).",
+        "Whether categories can narrow the list.",
+        "Whether the defined type has too many values for the chosen UI."
       ],
-      "title": "Recipe: Diagnose Attribute Field Type Mismatch",
-      "when": "Follow the guide section for Recipe: Diagnose Attribute Field Type Mismatch."
+      "title": "Defined Value Picker Is Hard To Use",
+      "when": "Defined Value Picker Is Hard To Use"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-defined-value-cannot-be-deleted",
+      "id": "defined-value-cannot-be-deleted",
+      "inspect": [
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs"
+      ],
+      "start_with": [
+        "Generated service deletion blockers.",
+        "Direct model references.",
+        "Attribute values storing the value.",
+        "Historical records.",
+        "Workflows and Lava.",
+        "Whether value is system-defined.",
+        "Whether disabling is safer than deletion."
+      ],
+      "title": "Defined Value Cannot Be Deleted",
+      "when": "Defined Value Cannot Be Deleted"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-entity-type-cannot-be-deleted-or-edited-safely",
+      "id": "entity-type-cannot-be-deleted-or-edited-safely",
+      "inspect": [
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs"
+      ],
+      "start_with": [
+        "Attributes referencing it.",
+        "Audit records.",
+        "Authorization/security records.",
+        "AI agent or provider references.",
+        "Component registrations.",
+        "REST/model usage.",
+        "Notes and categories.",
+        "Whether it is system-generated."
+      ],
+      "title": "Entity Type Cannot Be Deleted Or Edited Safely",
+      "when": "Entity Type Cannot Be Deleted Or Edited Safely"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Campus"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-campus-filter-shows-wrong-data",
+      "id": "campus-filter-shows-wrong-data",
+      "inspect": [
+        "Person",
+        "Campus"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Which campus field is being filtered.",
+        "Whether “all campuses” is represented by null, zero, blank, or omitted parameter.",
+        "Whether current person campus is used as default.",
+        "Whether selected mobile campus context overrides home campus.",
+        "Campus type/status filters.",
+        "User security.",
+        "SQL/Lava parameter safety.",
+        "Inactive or online campuses."
+      ],
+      "title": "Campus Filter Shows Wrong Data",
+      "when": "Campus Filter Shows Wrong Data"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-mobile-attribute-editing-fails",
+      "id": "mobile-attribute-editing-fails",
+      "inspect": [
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor"
+      ],
+      "start_with": [
+        "Attribute entity type.",
+        "Category compatibility.",
+        "Mobile field type support.",
+        "Mobile shell version.",
+        "Attribute Values block settings.",
+        "Attribute Value Editor usage.",
+        "User security.",
+        "Whether the attribute is display-only in that surface."
+      ],
+      "title": "Mobile Attribute Editing Fails",
+      "when": "Mobile Attribute Editing Fails"
     }
   ],
   "concept_id": "platform-configuration",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:34+00:00",
+  "generated_at": "2026-07-30T02:07:46+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-attribute-does-not-appear",

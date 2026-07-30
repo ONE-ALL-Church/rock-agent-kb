@@ -2,7 +2,7 @@
 
 Prompt ID: `rock-kb-source-claim-distillation`
 
-Prompt version: `1.0.0`
+Prompt version: `1.1.0`
 
 Use this prompt for one official Rockumentation article candidate at a time. The candidate contains private working context hydrated from the public Rockumentation API. Return public-safe paraphrases only; do not copy article sentences, private paths, raw API payloads, or local review context.
 
@@ -28,6 +28,12 @@ For each retained claim:
 7. Compare against `existing_claims`; reject duplicates unless this article supplies materially stronger authority or a missing caveat.
 8. Use only concept IDs present in the candidate or the current concept registry.
 9. Prefer the single strongest durable claim. Return a second claim only when it is independently useful and materially distinct; never return more than two claims from one article.
+10. Declare version scope explicitly. Use `scoped` with one or more supported
+    `rock_versions`, `version_independent` only when the article supports that
+    conclusion, and `unprocessed` when the evidence cannot establish either.
+    The documentation API's `documentation_current_version` identifies the
+    edition reviewed; it does not prove that a claim applies only to that Rock
+    release and must not be copied into `rock_versions` automatically.
 
 Before returning output, check:
 
@@ -57,6 +63,7 @@ Return one JSON object with this shape:
       "evidence_class": "current_behavior|demonstration|partner_or_custom|historical|operational_recommendation|exploratory_roadmap",
       "temporal_status": "current|release_sensitive|exploratory|unknown",
       "rock_versions": ["19.0"],
+      "version_scope_status": "scoped|version_independent|unprocessed",
       "confidence": "high",
       "needs_live_verification": false
     }

@@ -17,11 +17,11 @@ Mobile shell, XAML, commands, blocks, controls, app configuration, and mobile re
 
 ## Primary Tasks
 
-- [Recipe: Inventory A Mobile App](tasks/recipe-inventory-a-mobile-app.md): Follow the guide section for Recipe: Inventory A Mobile App.
-- [Recipe: Determine Whether A Feature Can Be Used](tasks/recipe-determine-whether-a-feature-can-be-used.md): Follow the guide section for Recipe: Determine Whether A Feature Can Be Used.
-- [Recipe: Add Analytics To A Tap](tasks/recipe-add-analytics-to-a-tap.md): Follow the guide section for Recipe: Add Analytics To A Tap.
-- [Recipe: Modernize Legacy Platform XAML](tasks/recipe-modernize-legacy-platform-xaml.md): Follow the guide section for Recipe: Modernize Legacy Platform XAML.
-- [Recipe: Review App Store Readiness](tasks/recipe-review-app-store-readiness.md): Follow the guide section for Recipe: Review App Store Readiness.
+- [Recipe: Inventory A Mobile App](tasks/recipe-inventory-a-mobile-app.md): Complete Inventory A Mobile App with evidence-backed checks and a verifiable outcome.
+- [Recipe: Determine Whether A Feature Can Be Used](tasks/recipe-determine-whether-a-feature-can-be-used.md): Complete Determine Whether A Feature Can Be Used with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add Analytics To A Tap](tasks/recipe-add-analytics-to-a-tap.md): Complete Add Analytics To A Tap with evidence-backed checks and a verifiable outcome.
+- [Recipe: Modernize Legacy Platform XAML](tasks/recipe-modernize-legacy-platform-xaml.md): The deprecation basis is the On Device Platform doc (On Device Platform).
+- [Recipe: Review App Store Readiness](tasks/recipe-review-app-store-readiness.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

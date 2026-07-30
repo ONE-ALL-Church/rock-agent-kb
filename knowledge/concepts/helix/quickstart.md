@@ -17,11 +17,11 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 
 ## Primary Tasks
 
-- [Recipe: Find The Endpoint Behind A Button](tasks/recipe-find-the-endpoint-behind-a-button.md): Follow the guide section for Recipe: Find The Endpoint Behind A Button.
-- [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md): Follow the guide section for Recipe: Determine Whether A Helix App Is Public-Safe.
-- [Recipe: Upgrade A Plugin-Era Helix App](tasks/recipe-upgrade-a-plugin-era-helix-app.md): Follow the guide section for Recipe: Upgrade A Plugin-Era Helix App.
-- [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md): Follow the guide section for Recipe: Review A Community Recipe Before Use.
-- [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md): Follow the guide section for Recipe: Add Observability To A Complex Endpoint.
+- [Recipe: Find The Endpoint Behind A Button](tasks/recipe-find-the-endpoint-behind-a-button.md): Complete Find The Endpoint Behind A Button with evidence-backed checks and a verifiable outcome.
+- [Recipe: Determine Whether A Helix App Is Public-Safe](tasks/recipe-determine-whether-a-helix-app-is-public-safe.md): Complete Determine Whether A Helix App Is Public-Safe with evidence-backed checks and a verifiable outcome.
+- [Recipe: Upgrade A Plugin-Era Helix App](tasks/recipe-upgrade-a-plugin-era-helix-app.md): Complete Upgrade A Plugin-Era Helix App with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review A Community Recipe Before Use](tasks/recipe-review-a-community-recipe-before-use.md): Complete Review A Community Recipe Before Use with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add Observability To A Complex Endpoint](tasks/recipe-add-observability-to-a-complex-endpoint.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

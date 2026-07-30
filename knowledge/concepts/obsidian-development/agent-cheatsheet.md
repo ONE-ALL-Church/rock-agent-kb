@@ -10,12 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Identify The Source Files Behind A Visible Obsidian Block](tasks/recipe-identify-the-source-files-behind-a-visible-obsidian-block.md) |  |  |
-| [Recipe: Determine Whether A Bug Is Version-Related](tasks/recipe-determine-whether-a-bug-is-version-related.md) |  |  |
-| [Recipe: Review An Obsidian Pull Request](tasks/recipe-review-an-obsidian-pull-request.md) |  |  |
-| [Recipe: Audit A Block For Security](tasks/recipe-audit-a-block-for-security.md) |  |  |
-| [Recipe: Audit A Grid For Operational Readiness](tasks/recipe-audit-a-grid-for-operational-readiness.md) |  |  |
-| [Recipe: Decide Whether To Use Browser Bus](tasks/recipe-decide-whether-to-use-browser-bus.md) |  |  |
+| [Recipe: Identify The Source Files Behind A Visible Obsidian Block](tasks/recipe-identify-the-source-files-behind-a-visible-obsidian-block.md) | `Page`, `Block`, `Attribute` | `Page`, `Block`, `Attribute` |
+| [Recipe: Determine Whether A Bug Is Version-Related](tasks/recipe-determine-whether-a-bug-is-version-related.md) | `Block` | `Block` |
+| [Recipe: Review An Obsidian Pull Request](tasks/recipe-review-an-obsidian-pull-request.md) | `Block` | `Block` |
+| [Recipe: Audit A Block For Security](tasks/recipe-audit-a-block-for-security.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Audit A Grid For Operational Readiness](tasks/recipe-audit-a-grid-for-operational-readiness.md) | `Person`, `Attribute` | `Person`, `Attribute` |
+| [Recipe: Decide Whether To Use Browser Bus](tasks/recipe-decide-whether-to-use-browser-bus.md) | `Page` | `Page` |
 
 ## Entities
 

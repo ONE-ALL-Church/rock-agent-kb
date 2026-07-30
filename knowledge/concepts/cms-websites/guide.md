@@ -1471,24 +1471,24 @@ RockU identifies Required Watching as part of the CMS/media learning path ([Rock
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `171`
+- Approved claims routed to this concept: `33`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
-| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
-| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
+| official | behavior | The Page Parameter Filter block publishes each selected value under its configured key so redirects, listening Obsidian blocks, and Lava PageParameter lookups can consume the same filter state. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
+| official | configuration | With legacy reload disabled, Page Parameter Filter selections can be sent as virtual parameters to listening Obsidian blocks; enabling legacy reload puts the parameters in the query string and performs a full page reload for legacy consumers. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
+| official | configuration | Saving a theme in Rock's Theme Styler compiles its Less into CSS, and CSS Overrides are appended after the compiled styles so they can take precedence; some themes expose no editable variables. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes) |
+| official | configuration | Rock's Media Player Lava shortcode can render a video from a supplied source URL, including a URL copied from one of a Rock Media Element's available media files such as HLS, HD, or SD. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode) |
+| official | configuration | A block placed at layout scope appears on every page using that layout, while a site-scoped block appears on every page in the site; administrators should confirm the intended scope before moving or adding a block. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
 | official | implementation_pattern | An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file. | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
 | official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
+| official | operational_guidance | Copying a Rock page also copies its blocks and child-page hierarchy and rewires references among the copies, but the resulting block settings should still be reviewed before publishing. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | risk | Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured. | [source](https://community.rockrms.com/lava/commands) |
-| rocku-confirmed | operational_guidance | Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
-| rocku-confirmed | operational_guidance | Content Channel View pages should be reviewed as both CMS presentation and data exposure surfaces because channel item lists can reveal titles, dates, attributes, or detail links. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
-| rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
-| rocku-confirmed | operational_guidance | When diagnosing personalization, inspect the audience rule, person data used by the rule, fallback content, cache behavior, and the exact logged-in or anonymous state being tested. | [source](https://community.rockrms.com/rocku/cms/personalization) |
-| More |  | 159 additional approved claims are tracked in `approved-claims.md`. |  |
+| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/filters/other-filters) |
+| More |  | 21 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1497,7 +1497,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `49`
+- Approved media records routed to this concept: `35`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1510,7 +1510,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Cache Tags Transcript Insight](https://community.rockrms.com/rocku/cms/cache-tags) | approved_for_public_distillation | 1 | media-insight:5c0dae456ef72854 |
 | [Content Channel Types and Content Channels Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels) | approved_for_public_distillation | 2 | media-insight:6d0e9b93da800c18 |
 | [Content Channel View Transcript Insight](https://community.rockrms.com/rocku/content-channels/content-channel-view) | approved_for_public_distillation | 2 | media-insight:7b84e33ae0a6eee9 |
-| More |  | 41 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

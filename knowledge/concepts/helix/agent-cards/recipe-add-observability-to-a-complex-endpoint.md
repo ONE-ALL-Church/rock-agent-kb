@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Add Observability To A Complex Endpoint
 
-Follow the guide section for Recipe: Add Observability To A Complex Endpoint.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,21 @@ Follow the guide section for Recipe: Add Observability To A Complex Endpoint.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Find the slow logical block.
+2. Wrap only that block with `{% observe %}`.
+3. Use a stable name.
+4. Add organization-prefixed tags.
+5. Escape tag values if dynamic.
+6. Compare traces before/after.
+7. Remove noisy instrumentation if it does not help.
 
 ## Do Not Assume
 
@@ -34,15 +38,10 @@ Follow the guide section for Recipe: Add Observability To A Complex Endpoint.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/helix/lava-applications/observability
 - https://community.rockrms.com/developer/helix/lava-applications
-- https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/helix/forms-controls
-- https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/lava/tags/observe
-- https://community.rockrms.com/developer/helix/htmx
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/helix/strategies
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/developer/helix/lava-applications/observability
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts

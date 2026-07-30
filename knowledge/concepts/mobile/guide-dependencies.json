@@ -1,233 +1,11 @@
 {
+  "answer_bearing_claim_count": 21,
+  "approved_claim_count": 21,
   "approved_claim_dependencies": [
     {
       "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Episode 166: Wrapping Up 2023, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "d466d96f800751e4122cae207e401597eb183b7b73bfe956372ed0ef8c20c826",
-      "claim_id": "claim:01926e2553adc9c06c70",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5e78c59058d971a2f009e6ba6182920acd790ae55c0f789ae01ecd43ac1bfa63",
-      "source_record_ids": [
-        "rock_podcast_rss:8fb108b95d067589"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-166",
-          "timestamp": "00:05",
-          "timestamp_seconds": 5.18,
-          "title": "Episode 166: Wrapping Up 2023",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session is useful as public-safe context for community practice around emerging technology, mobile launches, and finance/workflow requests. It does not provide a single product tutorial, but it reinforces that Rock teams should bring concrete use cases to peer review, document what was tried, and separate experimentation from production changes.",
-      "claim_hash": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
-      "claim_id": "claim:019724f21243d61181e2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile development is part of the same product ecosystem as the core web platform, so mobile guidance should be routed alongside core profile, UX, and app-development context.",
-      "claim_hash": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-      "claim_id": "claim:02385390c0f4337809d5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "01:07",
-          "timestamp_seconds": 67.96,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Short-form video should be treated as ministry content with a clear next step, not only as entertainment or social promotion.",
-      "claim_hash": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
-      "claim_id": "claim:07423eadba1a22784cc4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "04:46",
-          "timestamp_seconds": 286.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session provides public-safe guidance for redesigning a Rock Mobile app homepage around engagement rather than navigation alone. The discussion highlights using the mobile app as a logged-in, ministry-owned surface, aligning homepage modules with current priorities, and measuring app content in ways that connect back to Rock data and ministry outcomes.",
-      "claim_hash": "344aa24800ad1c70a7a84aeaa6467a8a38acba3f07bc2b9e01f5f7660c4a88c8",
-      "claim_id": "claim:075de55818ac29a7f2d5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f7e88fbac9f521d75c273fe90adac53a2b6012ef5b4f2aa38b1c29ce5b021693",
-      "source_record_ids": [
-        "rock_community_hubs:45babaf3ce911131"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe guidance for evaluating AI search and advanced digital experiences in Rock-backed websites and apps. It highlights the value of intent-based search, mobile and web integration, and careful plugin review before exposing AI-generated responses or search behavior to users.",
-      "claim_hash": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
-      "claim_id": "claim:080d393b5f32031d1eaa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Phone Number Lookup Configuration RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "77c391c937a5ab88d28a77887f783d09197219639a1da5960b95b68cf84fb4d3",
-      "claim_id": "claim:0879f9a774909d0d07b6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "1a0dbef60ddf27352485c52dc848bb9519db149e33d81e77e56d6047a64a9cb3",
-      "source_record_ids": [
-        "rock_rocku:2029a4e6583189c0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration",
-          "timestamp": "00:15",
-          "timestamp_seconds": 15.0,
-          "title": "Phone Number Lookup Configuration",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
       "claim": "When a content process depends on slow background work, a Rock workflow can own the orchestration and communicate status instead of blocking the user interface.",
-      "claim_hash": "6cd4944ac840fab79bd316d239f98d368b53c54d8737e2c21e1b8dc4f614d5f3",
+      "claim_hash": "faa12f36261fdcf5454002037fa3a8793866fa7707a43c63dace38567f761156",
       "claim_id": "claim:0af9f556ecfaad976a8c",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -261,6 +39,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "13fb9081a1290d5d0662de979531f39916aa8c55d5ce0202f43c2a323a10117e",
       "source_record_ids": [
         "rock_community_hubs:4e3a8aa1d3a4e953"
@@ -274,12 +53,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized.",
-      "claim_hash": "cc0b7932d397fbc2f2c8b0147722deba3fbc6bed9bca5b843ead1614d04b6b3f",
+      "claim_hash": "fcdf043c633850c0f528cab7fe5d1d593ee773c61417bf146b39ecd0f85a798c",
       "claim_id": "claim:0b388b0e4afdabbc9903",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -311,6 +91,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -324,12 +105,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in configuration depends on creating virtual check-in kiosk devices, assigning geofenced campus boundaries, and pointing the Mobile Check-in Launcher block at the correct devices, check-in configuration, theme, and areas.",
-      "claim_hash": "7716e649ca88f258f5dbfb96f8e94759ffaaa9089ba305ddeb74222de4ecd5f2",
+      "claim_hash": "bb908a2cfdf87a9d31006a679bbbe6f5cfad6204a08083775530dd77a91862c0",
       "claim_id": "claim:0b6f8c45033ed0228a3b",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -365,6 +147,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -375,172 +158,15 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 166: Wrapping Up 2023 is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, staff training and operational readiness, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "fab6d3ab2629b78e521a43e26324bf50727f27c5dbaa4b8ab02a61187acad623",
-      "claim_id": "claim:10548c89ed80bea75c0d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5e78c59058d971a2f009e6ba6182920acd790ae55c0f789ae01ecd43ac1bfa63",
-      "source_record_ids": [
-        "rock_podcast_rss:8fb108b95d067589"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 166: Wrapping Up 2023",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Phone Number Lookup Overview is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "eb7914587d4d4b0a925950728b73c68334747ada2f2baafb6a189cff40031790",
-      "claim_id": "claim:1c93373f30b452bc3cb3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "84631dca3c21984522257af451dbbfa241f53af3cab5f75a68393672939b6284",
-      "source_record_ids": [
-        "rock_rocku:932b1bf87aa7a61e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Phone Number Lookup Overview",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Using Phone Number Lookup should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "e384667dcc094e551ad2123f8e779752d81017b3bd6a3a33b6cb77f2ae2cd154",
-      "claim_id": "claim:220205397e725863e32b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ce259bef5a3fc7041d4db6518bd89344ba2fc5155629d13ebd4df4994c0cf46b",
-      "source_record_ids": [
-        "rock_rocku:864fc2592801efed"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup",
-          "timestamp": "00:35",
-          "timestamp_seconds": 35.0,
-          "title": "Using Phone Number Lookup",
-          "url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Mobile launch and finance work should be tracked as real operational projects with explicit owners, requirements, and verification steps.",
-      "claim_hash": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
-      "claim_id": "claim:269534d094015b5c51b4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "06:10",
-          "timestamp_seconds": 370.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Using Phone Number Lookup is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
-      "claim_id": "claim:2bf0abb68edd34bd41b5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ce259bef5a3fc7041d4db6518bd89344ba2fc5155629d13ebd4df4994c0cf46b",
-      "source_record_ids": [
-        "rock_rocku:864fc2592801efed"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Using Phone Number Lookup",
-          "url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
-      "claim_hash": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
+      "claim_hash": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
       "claim_id": "claim:2d534c63c723204ad8c9",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -551,8 +177,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
       "source_record_ids": [
         "rock_mobile_docs:article:456"
@@ -563,172 +190,13 @@
           "title": "Content",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Episode 102: Rock Mobile, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "056999e55a079053c65f94b2f663d58afd3ae43fee1b6a9d550e4ce42f0a0ea9",
-      "claim_id": "claim:2f63d6d7dbb4d8378696",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3e1be1cd04961b6f16df4fcc44a31bf81090bbffff6852d3ee827a8bd3b5ccb8",
-      "source_record_ids": [
-        "rock_podcast_rss:7a53f79615ffd0a3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile",
-          "timestamp": "02:27",
-          "timestamp_seconds": 147.42,
-          "title": "Episode 102: Rock Mobile",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "AI coaching should be framed as an assisted resource-routing layer with reviewable prompts, ministry-approved categories, and clear human oversight.",
-      "claim_hash": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-      "claim_id": "claim:32a99dc42dcf7a1796f3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "07:13",
-          "timestamp_seconds": 433.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Digital content libraries work best when they connect messages, topics, and practical next steps instead of leaving users to browse isolated videos.",
-      "claim_hash": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
-      "claim_id": "claim:346913bd1856267cc39d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "09:27",
-          "timestamp_seconds": 567.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout.",
-      "claim_hash": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-      "claim_id": "claim:35d327f4909c62921563",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
-      "source_record_ids": [
-        "rock_youtube:2b3b848223d53224"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Outreach Toolbox is Here in v19",
-          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying version, roadmap, and release-caveat awareness ideas from Episode 102: Rock Mobile, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "d20dda0dc3abc829614918aca0f6059419931a1c9d11c643a164b5d6438c645c",
-      "claim_id": "claim:3a149ac551e256b71820",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3e1be1cd04961b6f16df4fcc44a31bf81090bbffff6852d3ee827a8bd3b5ccb8",
-      "source_record_ids": [
-        "rock_podcast_rss:7a53f79615ffd0a3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile",
-          "timestamp": "00:45",
-          "timestamp_seconds": 45.96,
-          "title": "Episode 102: Rock Mobile",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`.",
-      "claim_hash": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
+      "claim_hash": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
       "claim_id": "claim:3b4b8ec335aa0a17968c",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -743,6 +211,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e187026ceb1839351d74bdad01833d2159a9ebe533bc16a49cf0308e46ff0df0",
       "source_record_ids": [
         "rock_mobile_docs:article:422"
@@ -753,45 +222,13 @@
           "title": "Lava",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Modular daily content lets churches rotate scripture, prayer, articles, media, or next steps without rebuilding the whole mobile app experience.",
-      "claim_hash": "3cf790e851304220d708732e0225de2b5001c4ff149bf7e6b57e2b4755bfa0a3",
-      "claim_id": "claim:3c8760faa5fa7063cd79",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c0858d5bfd18b40b51bad1747fd995b37afbcf424ff204eb237eb3e0ffd7a226",
-      "source_record_ids": [
-        "rock_community_hubs:2a33ac459613cb71"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz",
-          "timestamp": "03:05",
-          "timestamp_seconds": 185.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in.",
-      "claim_hash": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
+      "claim_hash": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
       "claim_id": "claim:3d32a2c3e36e71683eb0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -805,6 +242,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -818,113 +256,13 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Churches launching mobile experiences should identify which parts are standard Rock Mobile configuration, which are custom design, and which require partner or developer implementation.",
-      "claim_hash": "16c372b01ebbb6f6efc60221a326d3344f66416702bcdfc2b5a8f8c0bfac2ba7",
-      "claim_id": "claim:3f435889ccd4aaee353c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "data-views-reports",
-        "groups",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d4999a86d0b9df8bdd54fc8791fee1c2f2ac8553edb7552278000db7bc58fd84",
-      "source_record_ids": [
-        "rock_community_hubs:91fbe41c8a983bf2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0",
-          "timestamp": "01:32",
-          "timestamp_seconds": 92.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Mobile app strategy often overlaps with website content, group participation, communication, and analytics, so app work should not be planned in isolation.",
-      "claim_hash": "63d8778b8757c92cf1e3e3976b1159ea28683c26d9841a738f29c56ffd27db76",
-      "claim_id": "claim:3f6d76486d42c908559d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "data-views-reports",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d4999a86d0b9df8bdd54fc8791fee1c2f2ac8553edb7552278000db7bc58fd84",
-      "source_record_ids": [
-        "rock_community_hubs:91fbe41c8a983bf2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0",
-          "timestamp": "01:13",
-          "timestamp_seconds": 73.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "At the time of the episode, the built-in Rock agent experience is described as web-only, with mobile voice using a separate harness, and general agent prompt caching is not yet implemented. These are release-sensitive limitations that should be rechecked before architecture or cost decisions.",
-      "claim_hash": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
-      "claim_id": "claim:47b657cb5b577d54ad54",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "mobile",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
-      "source_record_ids": [
-        "rock_youtube:5702760f57d03696"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1294s",
-          "timestamp": "21:34",
-          "timestamp_seconds": 1294.0,
-          "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
-          "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout.",
-      "claim_hash": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
+      "claim_hash": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
       "claim_id": "claim:483a11b884e0e69ffd4d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -939,6 +277,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -952,12 +293,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized.",
-      "claim_hash": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
+      "claim_hash": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
       "claim_id": "claim:520ba5f389698ad4894c",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -988,6 +330,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -998,43 +341,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 102: Rock Mobile episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "53a2e9c4b4b8fd273afdf4b20b682ebfa727e55db55019c0567d18066fa49839",
-      "claim_id": "claim:545217d0d8afa0fd8b18",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3e1be1cd04961b6f16df4fcc44a31bf81090bbffff6852d3ee827a8bd3b5ccb8",
-      "source_record_ids": [
-        "rock_podcast_rss:7a53f79615ffd0a3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Episode 102: Rock Mobile",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally.",
-      "claim_hash": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
+      "claim_hash": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
       "claim_id": "claim:54aeb223a9029e9f7707",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1049,6 +362,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
       "source_record_ids": [
         "rock_youtube:6e6bececa520aca2"
@@ -1062,405 +376,13 @@
           "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
           "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying Rock operations and administration ideas from Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "7c2b421885cc10404e88ec7a67930aaf25c60982c2828e4ec8654eddaa2d3422",
-      "claim_id": "claim:58c7cf5b06ab88de06ac",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4e5892f84a9e47aa16bc2319ef2ace326eddb686eab3a54c64783e37a1e751fd",
-      "source_record_ids": [
-        "rock_podcast_rss:2065910ba327c2b2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to",
-          "timestamp": "00:05",
-          "timestamp_seconds": 5.42,
-          "title": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The mobile app is valuable because it can be a logged-in, identity-aware channel where content, profile links, and engagement measures stay closer to Rock records.",
-      "claim_hash": "ec112d9df5b475b4e5a204f2de52bd6134f62bd910aea62e135c55463f9a74cc",
-      "claim_id": "claim:5b41ac5624ffd2e446f8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f7e88fbac9f521d75c273fe90adac53a2b6012ef5b4f2aa38b1c29ce5b021693",
-      "source_record_ids": [
-        "rock_community_hubs:45babaf3ce911131"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo",
-          "timestamp": "03:27",
-          "timestamp_seconds": 207.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Online next-step pathways can combine dashboards, content, and LMS when the church defines the discipleship path being supported.",
-      "claim_hash": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-      "claim_id": "claim:5b83b8bc3538dc3e23d8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "02:17",
-          "timestamp_seconds": 137.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session provides a strategy frame for using web, mobile, and communication channels to build digital connections that move people toward real ministry engagement. It is useful context for KB guidance where Rock CMS, Rock Mobile, content channels, and communications support the same connection path rather than isolated digital projects.",
-      "claim_hash": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
-      "claim_id": "claim:5fe4532717d20ddfd3a1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "connections",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b5681b5fb0e359f2706309a382617c063e55ec85e9530629e4563f61b182806",
-      "source_record_ids": [
-        "rock_community_hubs:c1a4dad8a0932665"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Lessons from youth digital ministry can inform adult services and broader church mobile strategy when they are translated into repeatable Rock-backed workflows.",
-      "claim_hash": "25de1dcb705dc63a410bc9d17dba21e9cc1f50b26197198ec4e67fa59dfacc7b",
-      "claim_id": "claim:602bd14f9969a59e9fb0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "04:38",
-          "timestamp_seconds": 278.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe guidance for a daily mobile-app experience centered on scripture, prayer, and missions engagement. It is useful for Rock Mobile planning because it shows how a recurring app-open experience can connect daily content, serving or missions stories, push behavior, and engagement goals in a simple repeatable pattern.",
-      "claim_hash": "ffa86aeb48f933e9075e80c708f29c26ab527dbb496d4091b4da54fbf47e7dd2",
-      "claim_id": "claim:63c7f0a5c92e461f082d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When mobile or engagement ideas from podcast discussion affect workflows, agents should identify the exact feature, audience, security context, notification path, and current-version support before implementation.",
-      "claim_hash": "bed3bccd8663ca726ff51aeecd300405e93b5175d64793af70600f14ecfc7782",
-      "claim_id": "claim:66b7c1102e99cd987af4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "implementation_pattern",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a60765b67a47e311db958de1b91f4aa263445416d50c55eb61238194d27b2eb1",
-      "source_record_ids": [
-        "rock_podcast_rss:ba2e90a7f0b64fa2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Episode 186: LMS, Mobile Chat, and Engagement Tools",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session frames AI-assisted coaching and online learning as tools that still need ministry ownership. It connects LMS, dashboards, content, and mobile engagement to a discipleship path, while warning that AI should support reviewed coaching and resource routing rather than make ungoverned ministry decisions.",
-      "claim_hash": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-      "claim_id": "claim:679a11bb5e644db4bfaa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Peer learning works best when Rock teams bring action-oriented examples, not only abstract tool discussions.",
-      "claim_hash": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
-      "claim_id": "claim:6a9cad93b4b24bb5caa7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "02:56",
-          "timestamp_seconds": 176.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Staff may need a web-facing companion experience even when the primary community surface is mobile, especially for moderation, support, and repeated communication work.",
-      "claim_hash": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
-      "claim_id": "claim:6bf761df7cecd90ce621",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "api-integrations",
-        "communications",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
-      "source_record_ids": [
-        "rock_community_hubs:61505a876029525c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
-          "timestamp": "02:27",
-          "timestamp_seconds": 147.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before adopting AI or search plugins, teams should verify data sources, answer boundaries, security behavior, and whether generated results can be reviewed or tuned.",
-      "claim_hash": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
-      "claim_id": "claim:6cc8c3bca74b02773140",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "02:35",
-          "timestamp_seconds": 155.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Online groups should be treated as real group ministry with ownership, communication expectations, and connection follow-up, not only as a digital convenience.",
-      "claim_hash": "56d47ce27b56b220e36cd75b2d6cee9537471fa3ecad3f8cf3a867974637ad39",
-      "claim_id": "claim:7088e86e5ccf565760e6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "connections",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6cd2c24a8a561b218565353bed461cfc4ec27291e5ad00eb039d27a2e38d1ea5",
-      "source_record_ids": [
-        "rock_community_hubs:de087d3bb047fce6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8",
-          "timestamp": "03:24",
-          "timestamp_seconds": 204.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page.",
-      "claim_hash": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
+      "claim_hash": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
       "claim_id": "claim:72dd1841cd10ed6d5a30",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -1496,6 +418,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -1509,208 +432,15 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A Rock Mobile homepage redesign should start from the actions and content the church wants people to engage with most, not from a static list of links.",
-      "claim_hash": "9b9af358d5a79362702091e3f45500a10d2ac597fc02bb8337c85a3e9c16f088",
-      "claim_id": "claim:76a93bba0bb0ec31720a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f7e88fbac9f521d75c273fe90adac53a2b6012ef5b4f2aa38b1c29ce5b021693",
-      "source_record_ids": [
-        "rock_community_hubs:45babaf3ce911131"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo",
-          "timestamp": "03:21",
-          "timestamp_seconds": 201.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Urgent or culturally timely topics can become good candidates for curated content paths when they are connected to trusted ministry resources and follow-up actions.",
-      "claim_hash": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
-      "claim_id": "claim:777a543a16ec2b02c0c3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-          "timestamp": "08:07",
-          "timestamp_seconds": 487.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Digital group strategy is stronger when it remains tied to Rock data instead of creating disconnected community records outside the ministry system.",
-      "claim_hash": "1b2dff9c9954c1b672e1a7fc9c04a6ef9d5bdadb5cd8d4ca415f2778b138e134",
-      "claim_id": "claim:7842797914c29f238d3f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "connections",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6cd2c24a8a561b218565353bed461cfc4ec27291e5ad00eb039d27a2e38d1ea5",
-      "source_record_ids": [
-        "rock_community_hubs:de087d3bb047fce6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8",
-          "timestamp": "01:56",
-          "timestamp_seconds": 116.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 102: Rock Mobile is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "de04115e032fb9dae1e9e6f45036874e77af39c777f20ce499d53eb533094234",
-      "claim_id": "claim:78c8c801fd4c70c1cae6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3e1be1cd04961b6f16df4fcc44a31bf81090bbffff6852d3ee827a8bd3b5ccb8",
-      "source_record_ids": [
-        "rock_podcast_rss:7a53f79615ffd0a3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 102: Rock Mobile",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Engagement goals should be tied to the path the church wants people to take, not simply to whether a digital tool was launched.",
-      "claim_hash": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-      "claim_id": "claim:79a3f931150e2af8fdf7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d25387b776b453b98b05e40c7696c9bd638149e2acbaebed8cc3e9383c2002db",
-      "source_record_ids": [
-        "rock_community_hubs:8540c4be8f5de2d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo",
-          "timestamp": "03:39",
-          "timestamp_seconds": 219.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session focuses on short-form and on-demand video as part of a broader church digital strategy. It frames video as a way to extend message content, answer timely questions, route people into deeper next steps, and support mobile or web experiences that help people continue engaging after the weekend.",
-      "claim_hash": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
-      "claim_id": "claim:8313b7143d1f2de7f9e0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8c173ca5f1861b76201d5d169dd45151378174fa29522c0f904ef6d9f1e74217",
-      "source_record_ids": [
-        "rock_community_hubs:d2890df9787aa1ae"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both.",
-      "claim_hash": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
+      "claim_hash": "f7914c48c6e7f08998dd082bef774911c9036f3c34c527c03a935663347153f5",
       "claim_id": "claim:896d78fdcfa734dde54e",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "release_caveat",
       "community_derived": false,
       "concept_ids": [
@@ -1720,8 +450,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a970009afa448b517a7e45fb136daa968f9e2ab7c5e3a95fd3d567145b9c652d",
       "source_record_ids": [
         "rock_mobile_docs:article:431"
@@ -1732,249 +463,13 @@
           "title": "Core & Shell Dependencies",
           "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A daily mobile experience can make the app valuable beyond weekend utility by giving people a simple reason to return for scripture, prayer, or ministry stories.",
-      "claim_hash": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
-      "claim_id": "claim:8a605c2aa9ae467efd8d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "02:23",
-          "timestamp_seconds": 143.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Informal peer review is valuable for youth digital work because teams can compare what is actually creating connection rather than relying on assumptions about student behavior.",
-      "claim_hash": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
-      "claim_id": "claim:8c58e84d80e30386bcd6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "03:12",
-          "timestamp_seconds": 192.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns.",
-      "claim_hash": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-      "claim_id": "claim:8ea35a7125998a66db92",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:03",
-          "timestamp_seconds": 183.66,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "New website and app experiences should be evaluated together because users may move between public pages, logged-in mobile surfaces, search, profile, and next-step actions.",
-      "claim_hash": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
-      "claim_id": "claim:8f8ca172069290ee944d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "01:01",
-          "timestamp_seconds": 61.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The first screen after app open should be intentionally chosen because it can shape whether users treat the app as a ministry companion or only a transactional tool.",
-      "claim_hash": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
-      "claim_id": "claim:9590957a9e57d03c3b07",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "01:41",
-          "timestamp_seconds": 101.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior.",
-      "claim_hash": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-      "claim_id": "claim:98aeedbbadb50affa418",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:33",
-          "timestamp_seconds": 213.54,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Mobile engagement should be measured around repeated use and action completion, not just whether the app was downloaded.",
-      "claim_hash": "c0e2f3b7b1fd287d99e30dc5760a6a40ad4ff2a049c55d8c28a3935e7544ee61",
-      "claim_id": "claim:9bd26962a822608836a4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c0858d5bfd18b40b51bad1747fd995b37afbcf424ff204eb237eb3e0ffd7a226",
-      "source_record_ids": [
-        "rock_community_hubs:2a33ac459613cb71"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz",
-          "timestamp": "01:29",
-          "timestamp_seconds": 89.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
-      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_hash": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
       "claim_id": "claim:9c8ce297c9c4a4cda982",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1990,6 +485,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -2003,45 +499,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A daily app experience should be designed as a recurring engagement habit, not merely a home screen decoration.",
-      "claim_hash": "3e88e4fb3f96f046eecd83411b35af87e3396b050473bb40f430aa79a9f0647c",
-      "claim_id": "claim:9d02b0c2b2eae36ab103",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c0858d5bfd18b40b51bad1747fd995b37afbcf424ff204eb237eb3e0ffd7a226",
-      "source_record_ids": [
-        "rock_community_hubs:2a33ac459613cb71"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz",
-          "timestamp": "02:16",
-          "timestamp_seconds": 136.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time.",
-      "claim_hash": "e83847cdbac01bf39bc15bb09c76b151624c90cb9848ad83b821257d6eb5d06d",
+      "claim_hash": "d765801ba0f2bbbf8a4f26c18d1df71387370608bff0b4d18406b6cbc9c419e4",
       "claim_id": "claim:9f505350705f22d88caf",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2055,6 +519,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -2068,42 +533,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile gives public-safe context that the Spark team was investing in core profile-page user experience work and Rock Mobile development at the same time. For the KB, the useful takeaway is that profile/person-facing UI, mobile app work, and developer onboarding are connected product surfaces rather than isolated documentation topics.",
-      "claim_hash": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-      "claim_id": "claim:a5c497a69f1a8269eb53",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile flow still follows the familiar check-in pattern: identify the person, choose who is checking in, complete the check-in, then use the generated QR code only for label-printing handoff when labels are needed.",
-      "claim_hash": "476f2fd5f2049f0a3b7916ab8fa6f995c56ad0b901994bdf5a076a499b789340",
+      "claim_hash": "8c70ab39c5a2813c20c7796b4605495b6a1ea6700555476a14ba92d0c07bc019",
       "claim_id": "claim:aa549ff122698db9c8a1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2117,6 +553,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -2130,111 +567,13 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A church mobile chat experience should define expected features such as threaded messages, reactions, notifications, moderation, and staff access before implementation.",
-      "claim_hash": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
-      "claim_id": "claim:aaf7c661e43acba39fe9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "api-integrations",
-        "communications",
-        "groups",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
-      "source_record_ids": [
-        "rock_community_hubs:61505a876029525c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
-          "timestamp": "03:04",
-          "timestamp_seconds": 184.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying staff training and operational readiness ideas from Episode 166: Wrapping Up 2023, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "2ae4dce099ddd9c83d07df3e2efcf5aef7cb945f005fd9f283844efe207fce05",
-      "claim_id": "claim:ab7309af46d63c297421",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5e78c59058d971a2f009e6ba6182920acd790ae55c0f789ae01ecd43ac1bfa63",
-      "source_record_ids": [
-        "rock_podcast_rss:8fb108b95d067589"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-166",
-          "timestamp": "03:09",
-          "timestamp_seconds": 189.46,
-          "title": "Episode 166: Wrapping Up 2023",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Communication planning should be part of the digital-group design from the start so members know what action to take next and leaders can follow engagement.",
-      "claim_hash": "17805f83ea9419b139a5ef0220fa0b7bd41b9e41134371fc51f07dc486e30c0e",
-      "claim_id": "claim:abaf88afe31698fb68c6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "connections",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6cd2c24a8a561b218565353bed461cfc4ec27291e5ad00eb039d27a2e38d1ea5",
-      "source_record_ids": [
-        "rock_community_hubs:de087d3bb047fce6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8",
-          "timestamp": "02:00",
-          "timestamp_seconds": 120.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Video rendering or similar background tasks should be modeled with explicit workflow states, retries, and completion checks before linking the output into public pages or apps.",
-      "claim_hash": "8d67e621e88c2523c70e93f8a859d717b8caad760bbb455e9ad81d1c8e874bdc",
+      "claim_hash": "985eacc8dfc4cd775ec8034de8d0e7e5a4f3eaaa6b7ed460c36a84ddd5f7ddd8",
       "claim_id": "claim:b7fce9e2838433343824",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2268,6 +607,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "13fb9081a1290d5d0662de979531f39916aa8c55d5ce0202f43c2a323a10117e",
       "source_record_ids": [
         "rock_community_hubs:4e3a8aa1d3a4e953"
@@ -2281,238 +621,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 186 adds public-safe roadmap and operations context for mobile, LMS, chat, and engagement features, with implementation dependent on current-version and local-configuration checks.",
-      "claim_hash": "5d5dfdc4057f2b0984cd5e50c8ebee87ae4bdfe700f8b425496f7bd04f7cbf1a",
-      "claim_id": "claim:b8139ca849d7adfe0e95",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a60765b67a47e311db958de1b91f4aa263445416d50c55eb61238194d27b2eb1",
-      "source_record_ids": [
-        "rock_podcast_rss:ba2e90a7f0b64fa2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 186: LMS, Mobile Chat, and Engagement Tools",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform.",
-      "claim_hash": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-      "claim_id": "claim:b83b4c10285c00974e57",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "01:26",
-          "timestamp_seconds": 86.92,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Emerging technology and AI experiments should be bounded, documented, and reviewed before they affect Rock data or public ministry workflows.",
-      "claim_hash": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
-      "claim_id": "claim:b98a76d45b1860593427",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3b6159385037f67cac9e9ace0ea5043c6bce88c50c7f1efa85e6302fdf058b21",
-      "source_record_ids": [
-        "rock_community_hubs:6ca31915e98eb031"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz",
-          "timestamp": "04:26",
-          "timestamp_seconds": 266.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Phone Number Lookup Overview RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "e732b6488802e4d6ce4b3e1e46fe0bcd897251f324862ef4ff0f0820db48228f",
-      "claim_id": "claim:bc7c7b9c76631c975d0d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "84631dca3c21984522257af451dbbfa241f53af3cab5f75a68393672939b6284",
-      "source_record_ids": [
-        "rock_rocku:932b1bf87aa7a61e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Phone Number Lookup Overview",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe guidance for workflow-backed media or content generation. It describes using a workflow to render video behind the scenes and using wait-state style orchestration for asynchronous work, which is useful context for Rock teams designing automation that creates or prepares content before a user sees the final result.",
-      "claim_hash": "78711a83777345a39b8ec66a5a3bc2f6912e814debcbdfe7d20ff6c4a709ab9e",
-      "claim_id": "claim:bd9c9e76e2bfc6ffd53b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "13fb9081a1290d5d0662de979531f39916aa8c55d5ce0202f43c2a323a10117e",
-      "source_record_ids": [
-        "rock_community_hubs:4e3a8aa1d3a4e953"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Phone Number Lookup Configuration should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "6962b344044bbc6eea0e98c1663688083b1c273cdb741c93bbb3b434720e8594",
-      "claim_id": "claim:bf6e28d3d71818ffe248",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "1a0dbef60ddf27352485c52dc848bb9519db149e33d81e77e56d6047a64a9cb3",
-      "source_record_ids": [
-        "rock_rocku:2029a4e6583189c0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration",
-          "timestamp": "00:24",
-          "timestamp_seconds": 24.0,
-          "title": "Phone Number Lookup Configuration",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session discusses a mobile-centered chat/community experience that connects staff and congregational communication patterns. It is useful as public-safe context for Rock Mobile planning because it surfaces expected chat features, push-notification behavior, group synchronization, and the need to keep staff web use and mobile user experience aligned.",
-      "claim_hash": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
-      "claim_id": "claim:bfd413a4fae23e864553",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "api-integrations",
-        "communications",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
-      "source_record_ids": [
-        "rock_community_hubs:61505a876029525c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens.",
-      "claim_hash": "e1f01c3c7a7c2afc3806d0d0e05766b5cf6490a94b91cd8ee4cf5beb7af832a9",
+      "claim_hash": "158828963aaf7ff774d281e8ef641280ee95bdc3e5ca76cf831b8382a757ecd9",
       "claim_id": "claim:c04a3055801d1b1a9fa4",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2544,6 +659,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -2557,46 +673,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Youth digital strategy should be designed around relational ministry outcomes, not only channel choice or content volume.",
-      "claim_hash": "466fab0ae7905b5fa52e0508787e576527d86a4fb0efabfa3619e7996b453b25",
-      "claim_id": "claim:c749f105511201e4dbee",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "03:24",
-          "timestamp_seconds": 204.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Treat each mobile check-in device record like a virtual kiosk: use the check-in kiosk device type, configure the campus geofence, associate the relevant campus locations, and create separate devices when campuses need distinct boundaries.",
-      "claim_hash": "7463efeef683892fded95d9e878e5cdc305123ba06eacdf9adbcbf704326dc50",
+      "claim_hash": "dfb19a1c863e85c601ce5ee4276ef28d275eebec5ad101bd5fe38cc9e1d0e072",
       "claim_id": "claim:c78fd6f074218814ab14",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2632,6 +715,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -2645,108 +729,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Digital strategy should be evaluated by whether it helps people take a real next step, not only whether the church published more content.",
-      "claim_hash": "8245ea94ea8e8d4081fb947bc2a84c0c133b34fb6d8a4dd54567df305d29ea80",
-      "claim_id": "claim:c8a8e73a4eece0d8a764",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "connections",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b5681b5fb0e359f2706309a382617c063e55ec85e9530629e4563f61b182806",
-      "source_record_ids": [
-        "rock_community_hubs:c1a4dad8a0932665"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp",
-          "timestamp": "03:24",
-          "timestamp_seconds": 204.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Prayer or missions content can be designed as a lightweight daily action that connects app users to people and ministry work they may not otherwise see.",
-      "claim_hash": "03ab7d6236b373004d25b5989b20957e5d1e8652afd2405d59db810d284e91db",
-      "claim_id": "claim:c947c2718609f01e1369",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "02:14",
-          "timestamp_seconds": 134.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries is approved as a public-safe Rock Cast episode distillation for ministry process design, Rock operations and administration, staff training and operational readiness. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "a6950f3c4c9ff1f4e4fc3cd517fc777782fe9cfb0ada7749b6502520b66ffd4f",
-      "claim_id": "claim:ccefd122f2c41e065650",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4e5892f84a9e47aa16bc2319ef2ace326eddb686eab3a54c64783e37a1e751fd",
-      "source_record_ids": [
-        "rock_podcast_rss:2065910ba327c2b2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk.",
-      "claim_hash": "4be9f03a86cdad911f79a6ad097b41d4994a84376163c5135ba91dfdbc10efa8",
+      "claim_hash": "33bb573585630462be8252aa57fe85f0c57f8c2ba6b086f57ad820148681ba23",
       "claim_id": "claim:ce1480ce2324122b7616",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -2779,6 +768,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -2789,137 +779,15 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries episode gives public operational perspective on ministry process design; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "da58ace95cb2365570e25cec3259b7b669b715c49ee9d79035b8011a6573b541",
-      "claim_id": "claim:d06ecefa33c4a8190537",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4e5892f84a9e47aa16bc2319ef2ace326eddb686eab3a54c64783e37a1e751fd",
-      "source_record_ids": [
-        "rock_podcast_rss:2065910ba327c2b2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to",
-          "timestamp": "06:01",
-          "timestamp_seconds": 361.08000000000004,
-          "title": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds public-safe guidance for building a modular daily experience in a church mobile app. It describes using Rock Mobile as a recurring engagement surface for devotion, content, and practical next steps, with emphasis on flexible modules and analytics that show whether people return and engage over time.",
-      "claim_hash": "1da1aa174d5d4ad4d638ffe4a0adbb35a67cc9f6d392459a5971b05a50f1ae29",
-      "claim_id": "claim:d0d6fcefd5dc5d320dac",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "c0858d5bfd18b40b51bad1747fd995b37afbcf424ff204eb237eb3e0ffd7a226",
-      "source_record_ids": [
-        "rock_community_hubs:2a33ac459613cb71"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe guidance for online groups and digital community workflows. It emphasizes that Rock-backed digital ministry can connect group participation, communication, data, and follow-up when teams intentionally design the path from online engagement to pastoral care or in-person connection.",
-      "claim_hash": "69bfd8cd570076f7d83d6f7afb2211d61c9d99833969c0ad84a60185c8bee834",
-      "claim_id": "claim:d12a6d1f402fe1f8d917",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "connections",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6cd2c24a8a561b218565353bed461cfc4ec27291e5ad00eb039d27a2e38d1ea5",
-      "source_record_ids": [
-        "rock_community_hubs:de087d3bb047fce6"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session provides public-safe guidance for mobile app experiences that overlap with Rock groups, dynamic content, and engagement tracking. It frames the mobile app as a ministry surface where groups, content modules, profile-aware data, and communications can support a more personalized path for insiders.",
-      "claim_hash": "e5111e9f2ac9f611fc502a42b6a50d9375ecfa5a8ea27c56ab8b0480c5a305fa",
-      "claim_id": "claim:da3afc2639eeec0e7e07",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "data-views-reports",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d4999a86d0b9df8bdd54fc8791fee1c2f2ac8553edb7552278000db7bc58fd84",
-      "source_record_ids": [
-        "rock_community_hubs:91fbe41c8a983bf2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted.",
-      "claim_hash": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
+      "claim_hash": "3a94819fbc76d32f2c48144aa763768dbf80f29d124ddcc63912d30e157b52ae",
       "claim_id": "claim:dc73468ceef82ee62d45",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "release_caveat",
       "community_derived": false,
       "concept_ids": [
@@ -2929,8 +797,12 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "5.0",
+        "6.0"
+      ],
       "safe_evidence_hash": "8b4d302b5957182d43b53d0fbf8bf2bf414180b41af00ccee37cc302df13a944",
       "source_record_ids": [
         "rock_mobile_docs:article:654"
@@ -2941,307 +813,13 @@
           "title": "Migrating to .NET MAUI (V6)",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Digital ministry should be integrated into ministry culture and team workflows instead of living as a separate channel owned only by a few specialists.",
-      "claim_hash": "76173e88a96f792f6f643ace1d0636509adaee0db7d0c3f8cc05ae183226ebe6",
-      "claim_id": "claim:dc9d6e7427276bf9d593",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "connections",
-        "mobile"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b5681b5fb0e359f2706309a382617c063e55ec85e9530629e4563f61b182806",
-      "source_record_ids": [
-        "rock_community_hubs:c1a4dad8a0932665"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp",
-          "timestamp": "02:04",
-          "timestamp_seconds": 124.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Phone Number Lookup Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "9cefc50f0fb30f71bf45f59af3a68467ffa33272ad99b302d0fba5a900de7b8e",
-      "claim_id": "claim:dcbc36bfd8810b21c907",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "84631dca3c21984522257af451dbbfa241f53af3cab5f75a68393672939b6284",
-      "source_record_ids": [
-        "rock_rocku:932b1bf87aa7a61e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview",
-          "timestamp": "00:48",
-          "timestamp_seconds": 48.0,
-          "title": "Phone Number Lookup Overview",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 166: Wrapping Up 2023 episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "261a982bea6ab354fcd04c8ac8d486ebe52f807b59a4f01dbb3ad772a0e4bb4d",
-      "claim_id": "claim:dcf9dfb394262851a32b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5e78c59058d971a2f009e6ba6182920acd790ae55c0f789ae01ecd43ac1bfa63",
-      "source_record_ids": [
-        "rock_podcast_rss:8fb108b95d067589"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-166",
-          "timestamp": "00:05",
-          "timestamp_seconds": 5.18,
-          "title": "Episode 166: Wrapping Up 2023",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe context for youth digital strategy and mobile engagement. It discusses how youth ministry digital work should connect app, group, volunteer, and communication practices instead of treating mobile or social channels as separate from discipleship and relational ministry.",
-      "claim_hash": "af674427b16130ca2278608e7ea0280335f5eacce7968d639252292e0dcf8a91",
-      "claim_id": "claim:dd2ddb0de1c03b401d3f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Wait-state design is useful when the system needs to pause while an external or long-running process finishes, but the workflow should still surface failure and timeout conditions.",
-      "claim_hash": "b1c8661376824006799f2e17aee749648d0521df4932f49b250daf008a230b4e",
-      "claim_id": "claim:dd54d7be4d324a5aea5c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "13fb9081a1290d5d0662de979531f39916aa8c55d5ce0202f43c2a323a10117e",
-      "source_record_ids": [
-        "rock_community_hubs:4e3a8aa1d3a4e953"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr",
-          "timestamp": "03:20",
-          "timestamp_seconds": 200.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Phone Number Lookup Configuration is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "5eb5ec155f7e2b2e2ab43ecefa0f53df8e30eb5c312cb7037420e5523dd9c7fe",
-      "claim_id": "claim:de53d0ca69d98646f227",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "1a0dbef60ddf27352485c52dc848bb9519db149e33d81e77e56d6047a64a9cb3",
-      "source_record_ids": [
-        "rock_rocku:2029a4e6583189c0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Phone Number Lookup Configuration",
-          "url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Recurring mobile design conversations are useful because app strategy affects content, analytics, check-in, profile access, and next-step pathways across the church.",
-      "claim_hash": "731aadae1f1ac685d4c87a07e707ab57251a28942fc67148710b63af39c65aa0",
-      "claim_id": "claim:e1c74d25df35a0613cd3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f7e88fbac9f521d75c273fe90adac53a2b6012ef5b4f2aa38b1c29ce5b021693",
-      "source_record_ids": [
-        "rock_community_hubs:45babaf3ce911131"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo",
-          "timestamp": "00:35",
-          "timestamp_seconds": 35.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Intent-based AI search can improve discovery when it is grounded in approved church content and clearly tested against real user questions.",
-      "claim_hash": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
-      "claim_id": "claim:e54943b3e738c396727f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "db068428e0ae17ba4c9d78b47d1f9346a20d95a7f04ece7e5ae78e815108ffd5",
-      "source_record_ids": [
-        "rock_community_hubs:1fae67b5dc09e2b0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz",
-          "timestamp": "02:47",
-          "timestamp_seconds": 167.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Using Phone Number Lookup RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "78bc71731f87a7a9620cbdc464704ee27ff79067401ab11d00e81c9998cd72d6",
-      "claim_id": "claim:e6fb0c87376c2008b601",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ce259bef5a3fc7041d4db6518bd89344ba2fc5155629d13ebd4df4994c0cf46b",
-      "source_record_ids": [
-        "rock_rocku:864fc2592801efed"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup",
-          "timestamp": "00:18",
-          "timestamp_seconds": 18.0,
-          "title": "Using Phone Number Lookup",
-          "url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use.",
-      "claim_hash": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
+      "claim_hash": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
       "claim_id": "claim:e704f98991439e3e1576",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -3258,6 +836,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -3271,271 +850,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Profile-page redesign work is a core platform surface, so guidance about people records should consider both data-model behavior and the user experience that staff see every day.",
-      "claim_hash": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-      "claim_id": "claim:ea894b6fede30d2ad628",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "00:55",
-          "timestamp_seconds": 55.76,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "If chat membership is based on Rock groups or teams, synchronization rules and permission boundaries need to be explicit so conversations match the ministry structure.",
-      "claim_hash": "ec16270e6dba4d5b6d685a3d2aa711fba360a7a00b5c45387993a1f77d0054ca",
-      "claim_id": "claim:ef0c80dba866bcba20a8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "api-integrations",
-        "communications",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b2df310ad4f72b9eb1d615a3173ffcb904489d26f9f74b4ac01b60dc466cc0fa",
-      "source_record_ids": [
-        "rock_community_hubs:61505a876029525c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0",
-          "timestamp": "03:11",
-          "timestamp_seconds": 191.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Content still matters, but Rock-backed web and mobile experiences should connect content to identity, forms, groups, communication, and follow-up when possible.",
-      "claim_hash": "00be3d0caa39198dbd5f296cf83ecc7af5ee2ed37d448647e9270d433383a16b",
-      "claim_id": "claim:ef6e6da192c7155bf0bb",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "connections",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6b5681b5fb0e359f2706309a382617c063e55ec85e9530629e4563f61b182806",
-      "source_record_ids": [
-        "rock_community_hubs:c1a4dad8a0932665"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp",
-          "timestamp": "04:33",
-          "timestamp_seconds": 273.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying staff training and operational readiness ideas from Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "f5eff0f80232063e76d04528294df8d2f4413533bf8d1c5fcc9f9da0bcec2f2a",
-      "claim_id": "claim:efa08a96509f0c9f3b81",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4e5892f84a9e47aa16bc2319ef2ace326eddb686eab3a54c64783e37a1e751fd",
-      "source_record_ids": [
-        "rock_podcast_rss:2065910ba327c2b2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to",
-          "timestamp": "04:33",
-          "timestamp_seconds": 273.32,
-          "title": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Dynamic or purpose-built groups can power personalized mobile experiences when group membership reflects real ministry eligibility or interest.",
-      "claim_hash": "45d5dcd6c8f219ee824ddb1444684857fe69c5007af7e6b3e87840f2ca81af03",
-      "claim_id": "claim:f31c3f2729a8b9852c0d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "data-views-reports",
-        "groups",
-        "mobile"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "d4999a86d0b9df8bdd54fc8791fee1c2f2ac8553edb7552278000db7bc58fd84",
-      "source_record_ids": [
-        "rock_community_hubs:91fbe41c8a983bf2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0",
-          "timestamp": "02:14",
-          "timestamp_seconds": 134.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior.",
-      "claim_hash": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
-      "claim_id": "claim:f52accde86e6d6617963",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details.",
-      "claim_hash": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
-      "claim_id": "claim:fce0fb74a46963faeb59",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
-      "source_record_ids": [
-        "rock_youtube:6e6bececa520aca2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
-          "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The LMS, mobile chat, and engagement-tools episode is useful as roadmap and operations context for cross-channel engagement, but feature availability must be checked against current Rock release notes and local configuration.",
-      "claim_hash": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
-      "claim_id": "claim:fea1198e8836e37c0e4a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "mobile",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a60765b67a47e311db958de1b91f4aa263445416d50c55eb61238194d27b2eb1",
-      "source_record_ids": [
-        "rock_podcast_rss:ba2e90a7f0b64fa2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Episode 186: LMS, Mobile Chat, and Engagement Tools",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available.",
-      "claim_hash": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381",
+      "claim_hash": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c",
       "claim_id": "claim:ff136cde6aa716bfc87c",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3569,6 +890,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -3582,621 +904,45 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:01926e2553adc9c06c70": "d466d96f800751e4122cae207e401597eb183b7b73bfe956372ed0ef8c20c826",
-    "claim:019724f21243d61181e2": "7ab7e3690da19c19a6319d4537dbf5fb1cc13905e1f940b86abe79fbb4d070de",
-    "claim:02385390c0f4337809d5": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-    "claim:07423eadba1a22784cc4": "7bb79e311920138d8a962caa210c0027d2255a2e3c1e1832ac06c8d3c3cc3595",
-    "claim:075de55818ac29a7f2d5": "344aa24800ad1c70a7a84aeaa6467a8a38acba3f07bc2b9e01f5f7660c4a88c8",
-    "claim:080d393b5f32031d1eaa": "a81991c8664983ace5ce2fd4aea20a8f1029063076673c609304dba6f18f9e40",
-    "claim:0879f9a774909d0d07b6": "77c391c937a5ab88d28a77887f783d09197219639a1da5960b95b68cf84fb4d3",
-    "claim:0af9f556ecfaad976a8c": "6cd4944ac840fab79bd316d239f98d368b53c54d8737e2c21e1b8dc4f614d5f3",
-    "claim:0b388b0e4afdabbc9903": "cc0b7932d397fbc2f2c8b0147722deba3fbc6bed9bca5b843ead1614d04b6b3f",
-    "claim:0b6f8c45033ed0228a3b": "7716e649ca88f258f5dbfb96f8e94759ffaaa9089ba305ddeb74222de4ecd5f2",
-    "claim:10548c89ed80bea75c0d": "fab6d3ab2629b78e521a43e26324bf50727f27c5dbaa4b8ab02a61187acad623",
-    "claim:1c93373f30b452bc3cb3": "eb7914587d4d4b0a925950728b73c68334747ada2f2baafb6a189cff40031790",
-    "claim:220205397e725863e32b": "e384667dcc094e551ad2123f8e779752d81017b3bd6a3a33b6cb77f2ae2cd154",
-    "claim:269534d094015b5c51b4": "c9491a5c1f7a83b09ed9783ede4242ffbb00cec08315413c0e897918e806472a",
-    "claim:2bf0abb68edd34bd41b5": "343f729f3739b84074156823377c2e3374e140acc6fda0d73efff71fda890231",
-    "claim:2d534c63c723204ad8c9": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
-    "claim:2f63d6d7dbb4d8378696": "056999e55a079053c65f94b2f663d58afd3ae43fee1b6a9d550e4ce42f0a0ea9",
-    "claim:32a99dc42dcf7a1796f3": "5867c6404191ca5dcf773d367d4cf27829f752b2feaec387523efd910e65ef55",
-    "claim:346913bd1856267cc39d": "d2efdb326a5548a373aaef882e879e8f5baead30bf9fbbfb46d7ea16ae05275e",
-    "claim:35d327f4909c62921563": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-    "claim:3a149ac551e256b71820": "d20dda0dc3abc829614918aca0f6059419931a1c9d11c643a164b5d6438c645c",
-    "claim:3b4b8ec335aa0a17968c": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
-    "claim:3c8760faa5fa7063cd79": "3cf790e851304220d708732e0225de2b5001c4ff149bf7e6b57e2b4755bfa0a3",
-    "claim:3d32a2c3e36e71683eb0": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
-    "claim:3f435889ccd4aaee353c": "16c372b01ebbb6f6efc60221a326d3344f66416702bcdfc2b5a8f8c0bfac2ba7",
-    "claim:3f6d76486d42c908559d": "63d8778b8757c92cf1e3e3976b1159ea28683c26d9841a738f29c56ffd27db76",
-    "claim:47b657cb5b577d54ad54": "1e5ee6d0117843e000e0261eb02319184d909c37ef5e4645bae044e014f86fc4",
-    "claim:483a11b884e0e69ffd4d": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
-    "claim:520ba5f389698ad4894c": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
-    "claim:545217d0d8afa0fd8b18": "53a2e9c4b4b8fd273afdf4b20b682ebfa727e55db55019c0567d18066fa49839",
-    "claim:54aeb223a9029e9f7707": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
-    "claim:58c7cf5b06ab88de06ac": "7c2b421885cc10404e88ec7a67930aaf25c60982c2828e4ec8654eddaa2d3422",
-    "claim:5b41ac5624ffd2e446f8": "ec112d9df5b475b4e5a204f2de52bd6134f62bd910aea62e135c55463f9a74cc",
-    "claim:5b83b8bc3538dc3e23d8": "ef413b3ff267222dbb8bd43c140f83fd2d2a2481feb823b21955e3dddf7baacf",
-    "claim:5fe4532717d20ddfd3a1": "3aab508df7790fe2d2c418ebaea6128f6820474c5fc4080539dfdf502794b604",
-    "claim:602bd14f9969a59e9fb0": "25de1dcb705dc63a410bc9d17dba21e9cc1f50b26197198ec4e67fa59dfacc7b",
-    "claim:63c7f0a5c92e461f082d": "ffa86aeb48f933e9075e80c708f29c26ab527dbb496d4091b4da54fbf47e7dd2",
-    "claim:66b7c1102e99cd987af4": "bed3bccd8663ca726ff51aeecd300405e93b5175d64793af70600f14ecfc7782",
-    "claim:679a11bb5e644db4bfaa": "14c0090d5b1d3673dbe4d7be58f9b6c7677189880abebfe78cc043770bcabac6",
-    "claim:6a9cad93b4b24bb5caa7": "171c310c0865c8420fe8bdd21e528168f375468632191478fe53bc52c04fe002",
-    "claim:6bf761df7cecd90ce621": "829b3a7c2684367937e6f91799a03fdef54381488d45f5d883471c8edc43acdb",
-    "claim:6cc8c3bca74b02773140": "5f95f3048eeed891d4fb2012a6faeb6188b14149aae5495dea13686ebe137b28",
-    "claim:7088e86e5ccf565760e6": "56d47ce27b56b220e36cd75b2d6cee9537471fa3ecad3f8cf3a867974637ad39",
-    "claim:72dd1841cd10ed6d5a30": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
-    "claim:76a93bba0bb0ec31720a": "9b9af358d5a79362702091e3f45500a10d2ac597fc02bb8337c85a3e9c16f088",
-    "claim:777a543a16ec2b02c0c3": "a1b239aa4efcf7bd56f2d6537553bc2133f74802e32bba1118650db01246e663",
-    "claim:7842797914c29f238d3f": "1b2dff9c9954c1b672e1a7fc9c04a6ef9d5bdadb5cd8d4ca415f2778b138e134",
-    "claim:78c8c801fd4c70c1cae6": "de04115e032fb9dae1e9e6f45036874e77af39c777f20ce499d53eb533094234",
-    "claim:79a3f931150e2af8fdf7": "0ce68ea68af325e01b98627c3fe76b331d7d162971b71772c28eaf73891b8e49",
-    "claim:8313b7143d1f2de7f9e0": "fc9f31a378efab746b12b6ee3795b01c084e2b20b80fdf6e952f53a59b56f2cb",
-    "claim:896d78fdcfa734dde54e": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
-    "claim:8a605c2aa9ae467efd8d": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
-    "claim:8c58e84d80e30386bcd6": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
-    "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-    "claim:8f8ca172069290ee944d": "37f31788facfa535abae6a652a55573454809bb01ab38c8b019f0fee801ceac3",
-    "claim:9590957a9e57d03c3b07": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
-    "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-    "claim:9bd26962a822608836a4": "c0e2f3b7b1fd287d99e30dc5760a6a40ad4ff2a049c55d8c28a3935e7544ee61",
-    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
-    "claim:9d02b0c2b2eae36ab103": "3e88e4fb3f96f046eecd83411b35af87e3396b050473bb40f430aa79a9f0647c",
-    "claim:9f505350705f22d88caf": "e83847cdbac01bf39bc15bb09c76b151624c90cb9848ad83b821257d6eb5d06d",
-    "claim:a5c497a69f1a8269eb53": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-    "claim:aa549ff122698db9c8a1": "476f2fd5f2049f0a3b7916ab8fa6f995c56ad0b901994bdf5a076a499b789340",
-    "claim:aaf7c661e43acba39fe9": "29c57627f6d82fe4d3c21609c5711fc206f215bcc6d41b29dd70bdb1dcec202a",
-    "claim:ab7309af46d63c297421": "2ae4dce099ddd9c83d07df3e2efcf5aef7cb945f005fd9f283844efe207fce05",
-    "claim:abaf88afe31698fb68c6": "17805f83ea9419b139a5ef0220fa0b7bd41b9e41134371fc51f07dc486e30c0e",
-    "claim:b7fce9e2838433343824": "8d67e621e88c2523c70e93f8a859d717b8caad760bbb455e9ad81d1c8e874bdc",
-    "claim:b8139ca849d7adfe0e95": "5d5dfdc4057f2b0984cd5e50c8ebee87ae4bdfe700f8b425496f7bd04f7cbf1a",
-    "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-    "claim:b98a76d45b1860593427": "a6881d28424f862e6a7c74f59fe8d711a567aafee97a0757a178ec1b658fc08c",
-    "claim:bc7c7b9c76631c975d0d": "e732b6488802e4d6ce4b3e1e46fe0bcd897251f324862ef4ff0f0820db48228f",
-    "claim:bd9c9e76e2bfc6ffd53b": "78711a83777345a39b8ec66a5a3bc2f6912e814debcbdfe7d20ff6c4a709ab9e",
-    "claim:bf6e28d3d71818ffe248": "6962b344044bbc6eea0e98c1663688083b1c273cdb741c93bbb3b434720e8594",
-    "claim:bfd413a4fae23e864553": "1db2d8ea9861d7f9e029b60a2368695265030eceb6f42a4cae86d3478a87114d",
-    "claim:c04a3055801d1b1a9fa4": "e1f01c3c7a7c2afc3806d0d0e05766b5cf6490a94b91cd8ee4cf5beb7af832a9",
-    "claim:c749f105511201e4dbee": "466fab0ae7905b5fa52e0508787e576527d86a4fb0efabfa3619e7996b453b25",
-    "claim:c78fd6f074218814ab14": "7463efeef683892fded95d9e878e5cdc305123ba06eacdf9adbcbf704326dc50",
-    "claim:c8a8e73a4eece0d8a764": "8245ea94ea8e8d4081fb947bc2a84c0c133b34fb6d8a4dd54567df305d29ea80",
-    "claim:c947c2718609f01e1369": "03ab7d6236b373004d25b5989b20957e5d1e8652afd2405d59db810d284e91db",
-    "claim:ccefd122f2c41e065650": "a6950f3c4c9ff1f4e4fc3cd517fc777782fe9cfb0ada7749b6502520b66ffd4f",
-    "claim:ce1480ce2324122b7616": "4be9f03a86cdad911f79a6ad097b41d4994a84376163c5135ba91dfdbc10efa8",
-    "claim:d06ecefa33c4a8190537": "da58ace95cb2365570e25cec3259b7b669b715c49ee9d79035b8011a6573b541",
-    "claim:d0d6fcefd5dc5d320dac": "1da1aa174d5d4ad4d638ffe4a0adbb35a67cc9f6d392459a5971b05a50f1ae29",
-    "claim:d12a6d1f402fe1f8d917": "69bfd8cd570076f7d83d6f7afb2211d61c9d99833969c0ad84a60185c8bee834",
-    "claim:da3afc2639eeec0e7e07": "e5111e9f2ac9f611fc502a42b6a50d9375ecfa5a8ea27c56ab8b0480c5a305fa",
-    "claim:dc73468ceef82ee62d45": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
-    "claim:dc9d6e7427276bf9d593": "76173e88a96f792f6f643ace1d0636509adaee0db7d0c3f8cc05ae183226ebe6",
-    "claim:dcbc36bfd8810b21c907": "9cefc50f0fb30f71bf45f59af3a68467ffa33272ad99b302d0fba5a900de7b8e",
-    "claim:dcf9dfb394262851a32b": "261a982bea6ab354fcd04c8ac8d486ebe52f807b59a4f01dbb3ad772a0e4bb4d",
-    "claim:dd2ddb0de1c03b401d3f": "af674427b16130ca2278608e7ea0280335f5eacce7968d639252292e0dcf8a91",
-    "claim:dd54d7be4d324a5aea5c": "b1c8661376824006799f2e17aee749648d0521df4932f49b250daf008a230b4e",
-    "claim:de53d0ca69d98646f227": "5eb5ec155f7e2b2e2ab43ecefa0f53df8e30eb5c312cb7037420e5523dd9c7fe",
-    "claim:e1c74d25df35a0613cd3": "731aadae1f1ac685d4c87a07e707ab57251a28942fc67148710b63af39c65aa0",
-    "claim:e54943b3e738c396727f": "90c8f752e7a4da6d20c02e828a2f86af9ff80da151bc789a4d1a295f651fdd67",
-    "claim:e6fb0c87376c2008b601": "78bc71731f87a7a9620cbdc464704ee27ff79067401ab11d00e81c9998cd72d6",
-    "claim:e704f98991439e3e1576": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
-    "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-    "claim:ef0c80dba866bcba20a8": "ec16270e6dba4d5b6d685a3d2aa711fba360a7a00b5c45387993a1f77d0054ca",
-    "claim:ef6e6da192c7155bf0bb": "00be3d0caa39198dbd5f296cf83ecc7af5ee2ed37d448647e9270d433383a16b",
-    "claim:efa08a96509f0c9f3b81": "f5eff0f80232063e76d04528294df8d2f4413533bf8d1c5fcc9f9da0bcec2f2a",
-    "claim:f31c3f2729a8b9852c0d": "45d5dcd6c8f219ee824ddb1444684857fe69c5007af7e6b3e87840f2ca81af03",
-    "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
-    "claim:fce0fb74a46963faeb59": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
-    "claim:fea1198e8836e37c0e4a": "763b5e3585dc05f6b37bab91fc3d8f7b3167cdab755e716fab59fbb0b723ed91",
-    "claim:ff136cde6aa716bfc87c": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381"
+    "claim:0af9f556ecfaad976a8c": "faa12f36261fdcf5454002037fa3a8793866fa7707a43c63dace38567f761156",
+    "claim:0b388b0e4afdabbc9903": "fcdf043c633850c0f528cab7fe5d1d593ee773c61417bf146b39ecd0f85a798c",
+    "claim:0b6f8c45033ed0228a3b": "bb908a2cfdf87a9d31006a679bbbe6f5cfad6204a08083775530dd77a91862c0",
+    "claim:2d534c63c723204ad8c9": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+    "claim:3b4b8ec335aa0a17968c": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
+    "claim:3d32a2c3e36e71683eb0": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
+    "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
+    "claim:520ba5f389698ad4894c": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
+    "claim:54aeb223a9029e9f7707": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
+    "claim:72dd1841cd10ed6d5a30": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
+    "claim:896d78fdcfa734dde54e": "f7914c48c6e7f08998dd082bef774911c9036f3c34c527c03a935663347153f5",
+    "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
+    "claim:9f505350705f22d88caf": "d765801ba0f2bbbf8a4f26c18d1df71387370608bff0b4d18406b6cbc9c419e4",
+    "claim:aa549ff122698db9c8a1": "8c70ab39c5a2813c20c7796b4605495b6a1ea6700555476a14ba92d0c07bc019",
+    "claim:b7fce9e2838433343824": "985eacc8dfc4cd775ec8034de8d0e7e5a4f3eaaa6b7ed460c36a84ddd5f7ddd8",
+    "claim:c04a3055801d1b1a9fa4": "158828963aaf7ff774d281e8ef641280ee95bdc3e5ca76cf831b8382a757ecd9",
+    "claim:c78fd6f074218814ab14": "dfb19a1c863e85c601ce5ee4276ef28d275eebec5ad101bd5fe38cc9e1d0e072",
+    "claim:ce1480ce2324122b7616": "33bb573585630462be8252aa57fe85f0c57f8c2ba6b086f57ad820148681ba23",
+    "claim:dc73468ceef82ee62d45": "3a94819fbc76d32f2c48144aa763768dbf80f29d124ddcc63912d30e157b52ae",
+    "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
+    "claim:ff136cde6aa716bfc87c": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c"
   },
-  "approved_claims_hash": "4b060c23a8bd9c9faa332df5922db95f940edcad1e94ce4cdb4a382e553f23d4",
+  "approved_claims_hash": "234105c6767cc3d2062cba0b8eec5a519d6e4fd9293a3c4a3a809c21309997f4",
   "approved_claims_path": "knowledge/concepts/mobile/approved-claims.md",
-  "approved_media_dependencies": [
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "content_hash": "b393d724428e120b65204cbc5a5f9b8086d1689abeafbedd1ad2121bdf6d5442",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:0d561355ebc38d5b",
-      "public_promotion_id": "media-public-promotion:b393d724428e120b",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:0d561355ebc38d5b",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "mobile"
-      ],
-      "content_hash": "18d2f687acb769d172666f8a671837f0b85c422fc57f839d5f05be394007aa62",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:0176383f60385125",
-      "public_promotion_id": "media-public-promotion:18d2f687acb769d1",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:0176383f60385125",
-      "source_title": "Mobile Check-in Overview Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "mobile",
-        "security-permissions"
-      ],
-      "content_hash": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:c44e84f71993048e",
-      "public_promotion_id": "media-public-promotion:9d45b1e89b0aad26",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:c44e84f71993048e",
-      "source_title": "Mobile Check-in Configuration Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "data-views-reports",
-        "groups",
-        "mobile"
-      ],
-      "content_hash": "a331ee5bd0f9098de9e364a6181634d4b092a2b21486b5f135290c97b51adda9",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a1b939c228c68d27",
-      "public_promotion_id": "media-public-promotion:a331ee5bd0f9098d",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:a1b939c228c68d27",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0"
-    },
-    {
-      "approved_concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "content_hash": "9e35e221842326efc33fea82912797c311684a7ce295ca6a3cb6b42f1080c7bd",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:241f05754042fbc9",
-      "public_promotion_id": "media-public-promotion:9e35e221842326ef",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:241f05754042fbc9",
-      "source_title": "Episode 143: Special Edition- Braden Cohen Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "0e650c28997f503ffd3f75c3ef76d0e53774bcadede36ac65495358482847696",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:c664b64e781d5fbb",
-      "public_promotion_id": "media-public-promotion:0e650c28997f503f",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:c664b64e781d5fbb",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "1f20fbf0a5aa002046203e40e6f2dea319195a49c87be36c75cb376c61eda718",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:de21ecd38cde9a0c",
-      "public_promotion_id": "media-public-promotion:1f20fbf0a5aa0020",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_youtube",
-      "source_record_id": "media-insight:de21ecd38cde9a0c",
-      "source_title": "Outreach Toolbox is Here in v19 Transcript Insight",
-      "source_url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "mobile"
-      ],
-      "content_hash": "cefa2e335758b4854eec51956540166e09122e35573c98a0c1f43ac1c65bb84c",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:42dce3602ea3f7ef",
-      "public_promotion_id": "media-public-promotion:cefa2e335758b485",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:42dce3602ea3f7ef",
-      "source_title": "Using Mobile Check-in Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "data-views-reports",
-        "mobile"
-      ],
-      "content_hash": "743ed81746759df1351c7fe0030435109158578d89d73af4a01f7f5a3ccfedfc",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:2291e8656b34ff85",
-      "public_promotion_id": "media-public-promotion:743ed81746759df1",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:2291e8656b34ff85",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvnkBpz"
-    },
-    {
-      "approved_concept_ids": [
-        "api-integrations",
-        "communications",
-        "groups",
-        "mobile"
-      ],
-      "content_hash": "cea4c3918bc64be96b57c5c21484741fd6bea4d3c5e493c7216a644e83ab6c0a",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:72c3c82fab79c57b",
-      "public_promotion_id": "media-public-promotion:cea4c3918bc64be9",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:72c3c82fab79c57b",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vpGBo0"
-    },
-    {
-      "approved_concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "content_hash": "ed15235ce274e8fe3c3ef62184b49706b2d9bbb72b8a05931ea7f7146c2f427a",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:b5920a1a51b4ec4f",
-      "public_promotion_id": "media-public-promotion:ed15235ce274e8fe",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:b5920a1a51b4ec4f",
-      "source_title": "Episode 94: Special Edition with Jay Nestle Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "41e39ebfa0de125af27a962979fabe9a90ef292d4e9a295bd46fb57a3f1e3950",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:0a89bf5f60ad43fb",
-      "public_promotion_id": "media-public-promotion:41e39ebfa0de125a",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:0a89bf5f60ad43fb",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile"
-      ],
-      "content_hash": "7089fbe2cc9729fa45e3edd515be4a1166bc59c0782b94d4694b3d3c6aae2582",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:39eceac3f8fbe5f8",
-      "public_promotion_id": "media-public-promotion:7089fbe2cc9729fa",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:39eceac3f8fbe5f8",
-      "source_title": "Episode 102: Rock Mobile Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile",
-        "workflows"
-      ],
-      "content_hash": "cd09985f8a27afc73ae100d1ae6203ea9050e94e38a7b5a046f90a9a24705733",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:673bab29cee6e6ec",
-      "public_promotion_id": "media-public-promotion:cd09985f8a27afc7",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:673bab29cee6e6ec",
-      "source_title": "Episode 186: LMS, Mobile Chat, and Engagement Tools Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "communications",
-        "connections",
-        "mobile"
-      ],
-      "content_hash": "dea5e0adaecdab638b939daaa082c0bc6bc10ff206fea4e72d4defb3d8291b23",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:4b01eb5056bab0e5",
-      "public_promotion_id": "media-public-promotion:dea5e0adaecdab63",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:4b01eb5056bab0e5",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "mobile",
-        "security-permissions"
-      ],
-      "content_hash": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:5c9737a6d00c5149",
-      "public_promotion_id": "media-public-promotion:8f19651535ebc29a",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:5c9737a6d00c5149",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/a0BJvYDBpz"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "giving-finance",
-        "mobile",
-        "workflows"
-      ],
-      "content_hash": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:b4cdf69722ad5d13",
-      "public_promotion_id": "media-public-promotion:8bb0a57aef832a72",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:b4cdf69722ad5d13",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdxwPqz"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "content_hash": "bbcf795eb113b486aa4f64216b1f41f799c617c73c80518d6086f4f889cd9d7b",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:694645f85060752a",
-      "public_promotion_id": "media-public-promotion:bbcf795eb113b486",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:694645f85060752a",
-      "source_title": "Phone Number Lookup Overview Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-overview"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "content_hash": "ca28ed5787cc7a907b55073b50d846fe553573a5f1f4f075a71203cbebc07a16",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:ef7ab51588dcb077",
-      "public_promotion_id": "media-public-promotion:ca28ed5787cc7a90",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:ef7ab51588dcb077",
-      "source_title": "Phone Number Lookup Configuration Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/cms/phone-number-lookup-configuration"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "mobile",
-        "security-permissions",
-        "workflows"
-      ],
-      "content_hash": "6c7180b97a20ad50240d7c9b18aaca45e2cd228c5b6c15be49292718dc834e86",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a935187d244806c3",
-      "public_promotion_id": "media-public-promotion:6c7180b97a20ad50",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:a935187d244806c3",
-      "source_title": "Using Phone Number Lookup Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/cms/using-phone-number-lookup"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "data-views-reports",
-        "learning-lms-engagement",
-        "mobile"
-      ],
-      "content_hash": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:927b060aba73b666",
-      "public_promotion_id": "media-public-promotion:3eb05b8c47127f5c",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:927b060aba73b666",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQdX8BQo"
-    },
-    {
-      "approved_concept_ids": [
-        "ai-agents-automation",
-        "cms-websites",
-        "communications",
-        "mobile"
-      ],
-      "content_hash": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:1b335b58b0acc8b1",
-      "public_promotion_id": "media-public-promotion:e676b9383d553546",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:1b335b58b0acc8b1",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "content_hash": "c30b786a73658c0455c7ed7b672d5153f4b4d8168ce6a3c33ba8012a9d13e26f",
-      "key_insight_count": 1,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:4eb69bc5dde5cacb",
-      "public_promotion_id": "media-public-promotion:c30b786a73658c04",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_youtube",
-      "source_record_id": "media-insight:4eb69bc5dde5cacb",
-      "source_title": "Your People are Ministers on the Ground with the Outreach Toolbox Transcript Insight",
-      "source_url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-    },
-    {
-      "approved_concept_ids": [
-        "cms-websites",
-        "mobile",
-        "workflows"
-      ],
-      "content_hash": "bf4686d6f8384e9d94a62455ff0ac88d7a48a749cc0647680a4675595bca2c6e",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:d19aff0e845956ae",
-      "public_promotion_id": "media-public-promotion:bf4686d6f8384e9d",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:d19aff0e845956ae",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "connections",
-        "groups",
-        "mobile"
-      ],
-      "content_hash": "ad73a7ae6bb075f6c2a73a41cf3a5c451a8943acca86edf80ac65d39e969100d",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a0960ff639b6ffaf",
-      "public_promotion_id": "media-public-promotion:ad73a7ae6bb075f6",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:a0960ff639b6ffaf",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile"
-      ],
-      "content_hash": "5fb7a63f3f6665c667a11aa73349cf120d721974e5fa6e5c84233bf67b47ad93",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:0f70ac3531032ba8",
-      "public_promotion_id": "media-public-promotion:5fb7a63f3f6665c6",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:0f70ac3531032ba8",
-      "source_title": "Podcast Episode 108: Perils of Applying Secular Digital Strategies to Ministries Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-108-perils-of-applying-secular-digital-strategies-to"
-    },
-    {
-      "approved_concept_ids": [
-        "mobile"
-      ],
-      "content_hash": "d7724773f54677ea74e604ca87826d59a7af33d4f1c461054c48c273a02b6b33",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:ae10457722b867c9",
-      "public_promotion_id": "media-public-promotion:d7724773f54677ea",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:ae10457722b867c9",
-      "source_title": "Episode 166: Wrapping Up 2023 Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-    }
-  ],
-  "approved_media_dependency_hashes": {
-    "media-insight:0176383f60385125": "18d2f687acb769d172666f8a671837f0b85c422fc57f839d5f05be394007aa62",
-    "media-insight:0a89bf5f60ad43fb": "41e39ebfa0de125af27a962979fabe9a90ef292d4e9a295bd46fb57a3f1e3950",
-    "media-insight:0d561355ebc38d5b": "b393d724428e120b65204cbc5a5f9b8086d1689abeafbedd1ad2121bdf6d5442",
-    "media-insight:0f70ac3531032ba8": "5fb7a63f3f6665c667a11aa73349cf120d721974e5fa6e5c84233bf67b47ad93",
-    "media-insight:1b335b58b0acc8b1": "e676b9383d55354664ab86195b862c817d79df40950c71aefc4b8a5e28ef4276",
-    "media-insight:2291e8656b34ff85": "743ed81746759df1351c7fe0030435109158578d89d73af4a01f7f5a3ccfedfc",
-    "media-insight:241f05754042fbc9": "9e35e221842326efc33fea82912797c311684a7ce295ca6a3cb6b42f1080c7bd",
-    "media-insight:39eceac3f8fbe5f8": "7089fbe2cc9729fa45e3edd515be4a1166bc59c0782b94d4694b3d3c6aae2582",
-    "media-insight:42dce3602ea3f7ef": "cefa2e335758b4854eec51956540166e09122e35573c98a0c1f43ac1c65bb84c",
-    "media-insight:4b01eb5056bab0e5": "dea5e0adaecdab638b939daaa082c0bc6bc10ff206fea4e72d4defb3d8291b23",
-    "media-insight:4eb69bc5dde5cacb": "c30b786a73658c0455c7ed7b672d5153f4b4d8168ce6a3c33ba8012a9d13e26f",
-    "media-insight:5c9737a6d00c5149": "8f19651535ebc29aeef845ff003e20235335902718c040f702a36fe1b9911cd9",
-    "media-insight:673bab29cee6e6ec": "cd09985f8a27afc73ae100d1ae6203ea9050e94e38a7b5a046f90a9a24705733",
-    "media-insight:694645f85060752a": "bbcf795eb113b486aa4f64216b1f41f799c617c73c80518d6086f4f889cd9d7b",
-    "media-insight:72c3c82fab79c57b": "cea4c3918bc64be96b57c5c21484741fd6bea4d3c5e493c7216a644e83ab6c0a",
-    "media-insight:927b060aba73b666": "3eb05b8c47127f5c9e32507189d62644cd7be7cd2aef7f5c0e71db711a97b6b8",
-    "media-insight:a0960ff639b6ffaf": "ad73a7ae6bb075f6c2a73a41cf3a5c451a8943acca86edf80ac65d39e969100d",
-    "media-insight:a1b939c228c68d27": "a331ee5bd0f9098de9e364a6181634d4b092a2b21486b5f135290c97b51adda9",
-    "media-insight:a935187d244806c3": "6c7180b97a20ad50240d7c9b18aaca45e2cd228c5b6c15be49292718dc834e86",
-    "media-insight:ae10457722b867c9": "d7724773f54677ea74e604ca87826d59a7af33d4f1c461054c48c273a02b6b33",
-    "media-insight:b4cdf69722ad5d13": "8bb0a57aef832a721396dff7d200b149eca3789918b7b6d67522f3e82cf02240",
-    "media-insight:b5920a1a51b4ec4f": "ed15235ce274e8fe3c3ef62184b49706b2d9bbb72b8a05931ea7f7146c2f427a",
-    "media-insight:c44e84f71993048e": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
-    "media-insight:c664b64e781d5fbb": "0e650c28997f503ffd3f75c3ef76d0e53774bcadede36ac65495358482847696",
-    "media-insight:d19aff0e845956ae": "bf4686d6f8384e9d94a62455ff0ac88d7a48a749cc0647680a4675595bca2c6e",
-    "media-insight:de21ecd38cde9a0c": "1f20fbf0a5aa002046203e40e6f2dea319195a49c87be36c75cb376c61eda718",
-    "media-insight:ef7ab51588dcb077": "ca28ed5787cc7a907b55073b50d846fe553573a5f1f4f075a71203cbebc07a16"
-  },
-  "approved_media_hash": "ba766c03874beab8dd851924e4f492cefcb5432af5d57b84225418735587d50c",
+  "approved_media_dependencies": [],
+  "approved_media_dependency_hashes": {},
+  "approved_media_hash": "c30805988027af70524bdf4a04caa952875350055c6b882e8b0943f1f85981b3",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-26T00:29:58+00:00",
+  "built_at": "2026-07-30T02:08:07+00:00",
   "concept_id": "mobile",
-  "guide_hash": "aa94ba06410e3bafd76f39549d165535dbbd29741f28ebabf8a88c3f76e22062",
-  "guide_line_count": 1511,
+  "guide_hash": "2fdd1d5f45d0b50b56485c383d4c98ad1550967374db0d7aefa250961303d731",
+  "guide_line_count": 1497,
   "guide_path": "knowledge/concepts/mobile/guide.md",
-  "guide_word_count": 13064,
+  "guide_word_count": 12899,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4500,15 +1246,6 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
       "source_key": "a56a73c5681795bd",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
@@ -4532,78 +1269,16 @@
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
     },
     {
-      "authority": "unknown",
+      "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "c71f51a1aa248290",
+      "source_id": "rock_rocku",
+      "source_key": "d7a4121f91c3b42b",
       "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "9535038138783604",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "586c4060a1eb7db0",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "47290b8c4150f42f",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "e070b113cf226721",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "45babaf3ce911131",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "d2890df9787aa1ae",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -5925,41 +2600,45 @@
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "dcc9c3b1df657d9f",
         "a56a73c5681795bd",
         "1c59cd336e8baae0",
-        "7151c6037ac8c7a3",
         "a56a73c5681795bd",
+        "a56a73c5681795bd",
+        "7151c6037ac8c7a3",
+        "7151c6037ac8c7a3",
         "9201fe8635986015",
-        "a56a73c5681795bd",
-        "a56a73c5681795bd",
-        "1c59cd336e8baae0",
+        "6c0184b4e7ec7558",
+        "d7a4121f91c3b42b",
+        "6c0184b4e7ec7558",
         "6c0184b4e7ec7558"
       ],
       "start_line": 1383
     },
     {
-      "confidence": "citation-only",
-      "end_line": 1429,
+      "confidence": "structural",
+      "end_line": 1415,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "c71f51a1aa248290",
-        "7cf9c01c97ba95d5",
-        "9535038138783604",
-        "586c4060a1eb7db0",
-        "47290b8c4150f42f",
-        "e070b113cf226721",
-        "45babaf3ce911131",
-        "d2890df9787aa1ae"
+        "7151c6037ac8c7a3",
+        "a56a73c5681795bd",
+        "1c59cd336e8baae0",
+        "a56a73c5681795bd",
+        "a56a73c5681795bd",
+        "7151c6037ac8c7a3",
+        "7151c6037ac8c7a3",
+        "9201fe8635986015",
+        "6c0184b4e7ec7558",
+        "d7a4121f91c3b42b",
+        "6c0184b4e7ec7558",
+        "6c0184b4e7ec7558"
       ],
       "start_line": 1409
     },
     {
       "confidence": "structural",
-      "end_line": 1431,
+      "end_line": 1417,
       "heading": "19. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
@@ -5996,11 +2675,11 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1430
+      "start_line": 1416
     },
     {
       "confidence": "normal",
-      "end_line": 1442,
+      "end_line": 1428,
       "heading": "Primary Official Mobile Docs",
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-primary-official-mobile-docs",
@@ -6014,11 +2693,11 @@
         "7151c6037ac8c7a3",
         "9201fe8635986015"
       ],
-      "start_line": 1432
+      "start_line": 1418
     },
     {
       "confidence": "normal",
-      "end_line": 1456,
+      "end_line": 1442,
       "heading": "Commands And Controls",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-commands-and-controls",
@@ -6034,11 +2713,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1443
+      "start_line": 1429
     },
     {
       "confidence": "normal",
-      "end_line": 1472,
+      "end_line": 1458,
       "heading": "Blocks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-blocks",
@@ -6057,11 +2736,11 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1457
+      "start_line": 1443
     },
     {
       "confidence": "normal",
-      "end_line": 1484,
+      "end_line": 1470,
       "heading": "App Factory And Store Operations",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-app-factory-and-store-operations",
@@ -6076,22 +2755,22 @@
         "7151c6037ac8c7a3",
         "7151c6037ac8c7a3"
       ],
-      "start_line": 1473
+      "start_line": 1459
     },
     {
       "confidence": "normal",
-      "end_line": 1488,
+      "end_line": 1474,
       "heading": "Release Notes",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-release-notes",
       "source_keys": [
         "18a10aca58c2b1f1"
       ],
-      "start_line": 1485
+      "start_line": 1471
     },
     {
       "confidence": "normal",
-      "end_line": 1505,
+      "end_line": 1491,
       "heading": "Source-Code Landmarks",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks",
@@ -6111,11 +2790,11 @@
         "f5ba65fbdf6d9fea",
         "043ee0dda2027021"
       ],
-      "start_line": 1489
+      "start_line": 1475
     },
     {
       "confidence": "community-supported",
-      "end_line": 1511,
+      "end_line": 1497,
       "heading": "Community Examples",
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-community-examples",
@@ -6123,7 +2802,7 @@
         "362ccb41c9d64b1f",
         "459b95df0ea8e5ee"
       ],
-      "start_line": 1506
+      "start_line": 1492
     }
   ],
   "source_pack_hydrated_at": "2026-06-02T19:13:12+00:00",
@@ -6882,16 +3561,6 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
-      "source_key": "dcc9c3b1df657d9f",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
-      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
       "source_key": "a56a73c5681795bd",
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=LNcx8t0mlQ4",
@@ -6918,85 +3587,16 @@
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
     },
     {
-      "authority": "unknown",
-      "authority_score": 0,
+      "authority": "official-training",
+      "authority_score": 75,
       "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "c71f51a1aa248290",
+      "source_id": "rock_rocku",
+      "source_key": "d7a4121f91c3b42b",
       "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-102-rock-mobile"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "7cf9c01c97ba95d5",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "9535038138783604",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-166",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-166"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "586c4060a1eb7db0",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-186-lms-mobile-chat-and-engagement-tools"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "47290b8c4150f42f",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-      "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "e070b113cf226721",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "45babaf3ce911131",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X9mQEGbmQo"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "d2890df9787aa1ae",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN"
+      "title": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
+      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

@@ -7,7 +7,7 @@ generated: true
 
 # Safely Extend Prayer Intake
 
-Follow the guide section for Safely Extend Prayer Intake.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,33 +16,49 @@ Follow the guide section for Safely Extend Prayer Intake.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Group`
+- `Campus`
+- `Workflow`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Group`
+- `Campus`
+- `Workflow`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Prefer workflow action `Prayer Request Add`.
+2. Avoid direct SQL unless there is no supported alternative.
+3. Set approval false by default.
+4. Set public false by default.
+5. Assign category deliberately.
+6. Attach campus if known.
+7. Attach person alias only after confident matching.
+8. Log source through a custom public-safe attribute if useful.
+9. Test public, private, urgent, and group cases.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Avoid direct SQL unless there is no supported alternative.
 
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/prayer
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs
 - https://community.rockrms.com/recipes/135
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/recipes/338
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
+- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
+- https://community.rockrms.com/recipes/121
+- https://community.rockrms.com/recipes/389
+- https://community.rockrms.com/recipes/350
+- https://community.rockrms.com/recipes/157

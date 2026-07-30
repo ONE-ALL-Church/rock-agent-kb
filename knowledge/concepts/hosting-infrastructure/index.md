@@ -2,7 +2,7 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-07-26T00:28:32+00:00
+last_built: 2026-07-30T02:06:13+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -70,9 +70,9 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | For a Rock 19.0 internal-hosting installation, use SQL Server's default instance unless the administrator is experienced with named instances, because the default instance simplifies subsequent Rock configuration. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server) |
 | official | operational_guidance | Before implementing a requested screen, workflow or automation, restate the underlying problem and generate several genuinely distinct approaches. A stakeholder's proposed solution may be valuable requirements evidence without being the best implementation. | [source](https://www.youtube.com/watch?v=pvgZLvcfmFQ) |
 | official | operational_guidance | Azure capacity planning should treat attendance-based tiers as starting points; organizations that also host their public website in Rock should select the next larger tier, while accounting for feature usage and workload intensity. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options) |
-| official | operational_guidance | An organization that already has an Azure account should ask Microsoft Support to merge it with the nonprofit account so the nonprofit credit can be applied to the existing Azure setup. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit) |
 | official | recipe | Before launching a SaaS-hosted Rock instance publicly, an organization should select a hosting partner, inventory its current system, arrange a kickoff, prepare a migration plan, and reserve a test period. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting) |
-| More |  | 14 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
+| official | recipe | For Azure SQL Database, create Rock's SQL-authenticated login and master-database user with the dbmanager and loginmanager roles; after Rock creates its database, add the corresponding user in that database to the db_owner role. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server) |
+| More |  | 11 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage
 
@@ -209,7 +209,7 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Rebuild Dependencies
 
 - Source records: `72`
-- Approved claims: `32`
+- Approved claims: `29`
 - Dependency file: `agent/concept-dependencies.jsonl`
 
 When any listed source record or approved claim hash changes, rebuild this guide and review the diff before treating it as current.

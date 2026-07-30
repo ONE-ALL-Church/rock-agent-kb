@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose “editor cannot see channel in Tools > Content”
 
-Follow the guide section for Recipe: Diagnose “editor cannot see channel in Tools > Content”.
+The `Tools > Content` page lists channels the current user has View access to, according to official docs (Manage Content Items).
 
 ## When To Use
 
@@ -16,17 +16,23 @@ Follow the guide section for Recipe: Diagnose “editor cannot see channel in To
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Does the channel exist?
+2. Does the editor have View access to the channel?
+3. Is the channel hidden by any filter/toggle in `Tools > Content`?
+4. Is the editor expecting pending-only view?
+5. Does the editor need Edit or Approval rights for the action?
+6. Is there a security inheritance issue?
+7. Is the instance on a version affected by content channel block permission bugs?
 
 ## Do Not Assume
 
@@ -34,15 +40,15 @@ Follow the guide section for Recipe: Diagnose “editor cannot see channel in To
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/digital-publishing/content-management
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
-- https://community.rockrms.com/documentation/digital-publishing/personalization
-- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
-- https://www.triumph.tech/resources/structured-content-rock-upgrade
-- https://github.com/SparkDevNetwork/Rock
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://community.rockrms.com/recipes/128
+- https://community.rockrms.com/documentation/digital-publishing/content-management
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels/content-channel-view-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Cms/StructuredContent/BlockTypes/ImageRenderer.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Cms/StructuredContent/BlockTypes/ImageDataFile.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/getLinkedMediaElementsResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Cms/StructuredContent/BlockTypes/AttachmentDataFile.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/linkedMediaElementBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs

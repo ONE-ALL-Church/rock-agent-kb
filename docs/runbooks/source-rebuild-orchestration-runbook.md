@@ -129,7 +129,26 @@ Use targeted `uv run kb build --stage <stage>` only when you intentionally want 
 - New media or pending transcription: transcribe, optionally run Gemma enrichment, write public-safe rewrites, and promote only explicitly reviewed media claims.
 - Claim promotion: review candidates manually; never auto-promote unreviewed claims from source-scan output.
 - Live verification: run read-only probes before treating affected operational claims as answer-ready.
-- Authored guide synthesis: run `uv run kb concepts synthesize --concept <concept> --hydrate-sources --profile comprehensive --model gpt-5.5` locally with Codex/reviewer oversight, then run `uv run kb build --stage guide-intel`.
+- Taxonomy review: run `uv run kb concepts audit`. Documentation branches are
+  structured routing signals; they do not automatically become concepts.
+- Authored guide synthesis: first hydrate and inspect one bounded concept pack.
+  Then run `uv run kb concepts synthesize --concept <concept> --hydrate-sources
+  --profile comprehensive --model gpt-5.6-sol --reasoning-effort xhigh`
+  locally with Codex/reviewer oversight, followed by `uv run kb build --stage
+  guide-intel`.
+- The versioned synthesis prompt under `docs/prompts/` makes approved
+  answer-bearing claims the factual spine. Routing-only claims may locate
+  evidence but may not become guide facts.
+- Hydrated public GitHub snippets must carry immutable commit references.
+  Source code can clarify implementation, but it does not prove an
+  installation's configuration.
+- Run live-instance verification only when installed schema, configuration,
+  version/plugin applicability, existence/count checks, or issue reproduction
+  materially affects the answer. Keep it as a separate bounded read-only
+  review. Promote only a reviewed public-safe conclusion, never raw SQL output
+  or private Rock data.
+- Pilot a changed model, prompt, or evidence shape on one high-value concept and
+  compare guide quality and retrieval before regenerating every guide.
 - Source conflicts: review `agent/source-conflicts.jsonl` and related claim-review queues before changing public answer prose.
 - Open-question backlog: after every meaningful source scrape, transcript batch, media promotion, claim promotion, or guide synthesis run, rebuild guide intel for affected concepts and compare `knowledge/concepts/<concept>/open-questions.md` before and after the change. Treat this as a recurring quality gate, not a full manual re-review of every row.
 

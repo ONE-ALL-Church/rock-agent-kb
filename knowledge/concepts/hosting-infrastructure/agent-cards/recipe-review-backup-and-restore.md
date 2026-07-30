@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review Backup And Restore
 
-Follow the guide section for Recipe: Review Backup And Restore.
+Complete Review Backup And Restore with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: Review Backup And Restore.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Step`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Step`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Database backup method.
+2. File backup method.
+3. Web root/config backup method.
+4. Retention.
+5. Restore test date.
+6. Restore duration.
+7. Missing secrets or dependencies.
+8. Disaster recovery steps.
+9. Person/team responsible.
 
 ## Do Not Assume
 
@@ -34,15 +42,9 @@ Follow the guide section for Recipe: Review Backup And Restore.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
+- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://community.rockrms.com/recipes/355
-- https://www.triumph.tech/resources/separating-development-and-production
-- https://community.rockrms.com/recipes/296
-- https://community.rockrms.com/recipes/259
-- https://community.rockrms.com/rocku/workflows/workflow-performance-tips
-- https://community.rockrms.com/rocku/workflows/text-to-workflow-performance
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/AccountEntry/AccountEntryStep.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialPersonSavedAccountService/Options/FinancialPersonSavedAccountQueryOptions.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration.Performance/BenchmarkRunners/PersonSearchBenchmarks.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/Login/PasswordlessLoginStep.cs

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Add A Bookmarked Groups-Like Profile Panel
 
-Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,22 @@ Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Group`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Group`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Verify group following entity type ids in live Rock.
+2. Respect group security.
+3. Filter by current person.
+4. Filter by context person.
+5. Limit output.
+6. Test as users with different group access.
 
 ## Do Not Assume
 
@@ -37,12 +42,12 @@ Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel.
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
-- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
-- https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/filters/person-filters
+- https://community.rockrms.com/lava/workflows
+- https://community.rockrms.com/documentation/bookcontent/7/296
+- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/rocku/individuals-in-rock
-- https://community.rockrms.com/lava/commands/entity-commands
-- https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members

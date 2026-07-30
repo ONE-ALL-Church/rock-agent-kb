@@ -78,8 +78,9 @@ uv run kb build --stage index
 uv run kb build --stage mobile-selector-audit
 uv run kb build --stage export
 uv run kb concepts list
-uv run kb concepts synthesize --concept check-in --model gpt-5.5
-uv run kb concepts synthesize --concept workflows --hydrate-sources --include-contributions --model gpt-5.5
+uv run kb concepts audit
+uv run kb concepts synthesize --concept check-in --model gpt-5.6-sol --reasoning-effort xhigh
+uv run kb concepts synthesize --concept workflows --hydrate-sources --include-contributions --model gpt-5.6-sol --reasoning-effort xhigh
 uv run kb concepts hydrate --concept workflows --include-private-drafts --private-draft-path data/review/private-distill/rockproduction_docs_private_candidates-workflows.jsonl
 uv run kb modelmap build
 uv run kb modelmap fetch
