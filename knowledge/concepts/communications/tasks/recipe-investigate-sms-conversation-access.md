@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Investigate SMS conversation access
 
-Follow the guide section for Recipe: Investigate SMS conversation access.
+Complete Investigate SMS conversation access with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,29 @@ Follow the guide section for Recipe: Investigate SMS conversation access.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. system phone number
+2. assigned person
+3. block allowed numbers
+4. "show only personal" setting
+5. "hide personal" setting
+6. page security
+7. block security
+8. conversation age setting
+9. database timeout
+10. pipeline action
+11. inbound provider logs
 
 ## Do Not Assume
 
@@ -34,15 +46,15 @@ Follow the guide section for Recipe: Investigate SMS conversation access.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/communication
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://community.rockrms.com/recipes/438
-- https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/recipes/507
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateDetailBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateListItemBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryGetRecipientsRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts

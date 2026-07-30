@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Validate Signup Flow
 
-Follow the guide section for Recipe: Validate Signup Flow.
+Cite Add Request mobile docs for parameter behavior and v17.2/v18.1 release notes for attributes/record source if applicable (Add Connection Request mobile docs, release notes).
 
 ## When To Use
 
@@ -16,17 +16,29 @@ Follow the guide section for Recipe: Validate Signup Flow.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Entry page/block.
+2. Allowed Connection Types.
+3. Locked Connection Type/Opportunity parameters.
+4. Requester identity behavior.
+5. Attributes shown.
+6. Post-save/post-cancel actions.
+7. Created request fields.
+8. New person record source behavior.
+9. Version caveats.
 
 ## Do Not Assume
 
@@ -34,13 +46,15 @@ Follow the guide section for Recipe: Validate Signup Flow.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
-- https://www.triumph.tech/resources/github-spotlight-422025
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/recipes/446
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
-- https://community.rockrms.com/ask/developing/2645
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm

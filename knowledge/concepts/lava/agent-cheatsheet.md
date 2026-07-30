@@ -10,13 +10,13 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inventory Lava Risk On A Page](tasks/recipe-inventory-lava-risk-on-a-page.md) |  |  |
-| [Recipe: Review A Shortcode For Production](tasks/recipe-review-a-shortcode-for-production.md) |  |  |
-| [Recipe: Find Legacy Attribute Lava](tasks/recipe-find-legacy-attribute-lava.md) |  |  |
-| [Recipe: Safely Use `securityenabled:'false'`](tasks/recipe-safely-use-securityenabled-false.md) |  |  |
-| [Recipe: Create A Staff-Friendly Link Copy Shortcode](tasks/recipe-create-a-staff-friendly-link-copy-shortcode.md) |  |  |
+| [Recipe: Inventory Lava Risk On A Page](tasks/recipe-inventory-lava-risk-on-a-page.md) | `Workflow`, `Page`, `Block` | `Workflow`, `Page`, `Block` |
+| [Recipe: Review A Shortcode For Production](tasks/recipe-review-a-shortcode-for-production.md) | `Block`, `Attribute` | `Block`, `Attribute` |
+| [Recipe: Find Legacy Attribute Lava](tasks/recipe-find-legacy-attribute-lava.md) | `Workflow`, `Page`, `Block`, `Attribute` | `Workflow`, `Page`, `Block`, `Attribute` |
+| [Recipe: Safely Use `securityenabled:'false'`](tasks/recipe-safely-use-securityenabled-false.md) | `Page`, `Block`, `Attribute` | `Page`, `Block`, `Attribute` |
+| [Recipe: Create A Staff-Friendly Link Copy Shortcode](tasks/recipe-create-a-staff-friendly-link-copy-shortcode.md) | `Label`, `Workflow`, `Page`, `Attribute` | `Label`, `Workflow`, `Page`, `Attribute` |
 | [Recipe: Add A Translation Shortcode](tasks/recipe-add-a-translation-shortcode.md) |  |  |
-| [Recipe: Generate Labels With Lava](tasks/recipe-generate-labels-with-lava.md) |  |  |
+| [Recipe: Generate Labels With Lava](tasks/recipe-generate-labels-with-lava.md) | `Group`, `Device`, `Label` | `Group`, `Device`, `Label` |
 | [Recipe: Build An Agent Lava Tool](tasks/recipe-build-an-agent-lava-tool.md) |  |  |
 
 ## Entities
@@ -34,6 +34,7 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats

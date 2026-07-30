@@ -2,7 +2,7 @@
 concept_id: communications
 generated: true
 artifact_level: media_distillation
-approved_media_count: 39
+approved_media_count: 35
 ---
 
 # Communications Approved Media
@@ -27,7 +27,6 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:569cc1cb913aac77` | Episode 168: Rocking Security: Navigating New Features and Email Safeguards Transcript Insight | approved_for_public_distillation | 2 | [source](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) |
 | `media-insight:779f415239e58630` | Group Scheduling Roster and Communications Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications) |
 | `media-insight:0a89bf5f60ad43fb` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) |
-| `media-insight:1b335b58b0acc8b1` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3GWBEN) |
 | `media-insight:1e948c0e5934abe5` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/AZB88wEBng) |
 | `media-insight:284b6d5445c1b357` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7) |
 | `media-insight:4b01eb5056bab0e5` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/OLmW03olAp) |
@@ -36,11 +35,8 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:7e8c9d47198de3f9` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/x9l4WxRmaE) |
 | `media-insight:a0960ff639b6ffaf` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/GKBqYVpBW8) |
 | `media-insight:a1b939c228c68d27` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/9NB6vQ0Bo0) |
-| `media-insight:a714eca346de16e9` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkwbymJW) |
-| `media-insight:c664b64e781d5fbb` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) |
 | `media-insight:d1eb1a265dd0762b` | Media Watch Transcript Insight | approved_for_public_distillation | 5 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
 | `media-insight:e57ad3db15510f24` | Media Watch Transcript Insight | approved_for_public_distillation | 4 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| `media-insight:ee02b5c27faeaa28` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4) |
 | `media-insight:efa1de0c74bcd9f0` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) |
 | `media-insight:e97878919a9ac019` | Nameless People Transcript Insight | approved_for_public_distillation | 1 | [source](https://community.rockrms.com/rocku/communication/nameless-people) |
 | `media-insight:4ddd6b5f72053dc6` | Rock Communication Transcript Insight | approved_for_public_distillation | 2 | [source](https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5fa) |

@@ -1,177 +1,217 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Schedule"
       ],
-      "entities": [],
-      "id": "recipe-answer-is-the-system-healthy",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/other-essentials/system-configuration",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-        "https://community.rockrms.com/documentation/core-concepts/search/universal-search",
-        "https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/jobs",
-        "https://community.rockrms.com/developer/303---blast-off/exception-handling",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools",
-        "https://community.rockrms.com/ask/developing/2578"
+      "guide_section_id": "18-troubleshooting-decision-tree-a-job-did-not-run",
+      "id": "a-job-did-not-run",
+      "inspect": [
+        "Schedule"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the job active?",
+        "Is the schedule valid?",
+        "Is next run in the future?",
+        "Is server time correct?",
+        "Is the Rock job runner running?",
+        "Is another server responsible?",
+        "Is there any history record?",
+        "Is history retention hiding old records?"
       ],
-      "title": "Recipe: Answer “Is The System Healthy?”",
-      "when": "Follow the guide section for Recipe: Answer “Is The System Healthy?”."
+      "title": "A Job Did Not Run",
+      "when": "A Job Did Not Run"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Workflow"
       ],
-      "entities": [],
-      "id": "recipe-answer-why-is-this-data-wrong",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/recipes/522",
-        "https://community.rockrms.com/rocku/cms/cache-tags",
-        "https://community.rockrms.com/rocku/core-concepts",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+      "guide_section_id": "18-troubleshooting-decision-tree-a-job-failed",
+      "id": "a-job-failed",
+      "inspect": [
+        "DataView",
+        "Workflow"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "What is the exact status message?",
+        "Is there a matching ExceptionLog row?",
+        "Did it fail once or repeatedly?",
+        "Did duration change?",
+        "Did input data change?",
+        "Did credentials expire?",
+        "Did a Data View/report/workflow dependency fail?",
+        "Did a release note mention this behavior?"
       ],
-      "title": "Recipe: Answer “Why Is This Data Wrong?”",
-      "when": "Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”."
+      "title": "A Job Failed",
+      "when": "A Job Failed"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-answer-can-i-clear-cache",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-search-is-missing-results",
+      "id": "search-is-missing-results",
+      "inspect": [
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/rocku/core-concepts",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards",
-        "https://community.rockrms.com/recipes/522",
-        "https://community.rockrms.com/rocku/cms/cache-tags",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools"
+        "https://community.rockrms.com/documentation/bookcontent/32"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Provider enabled?",
+        "Entity enabled?",
+        "Attribute selected?",
+        "Bulk load run?",
+        "Re-index job successful?",
+        "Site entity special setup needed?",
+        "Site crawl job exists?",
+        "Security/filtering expected?"
       ],
-      "title": "Recipe: Answer “Can I Clear Cache?”",
-      "when": "Follow the guide section for Recipe: Answer “Can I Clear Cache?”."
+      "title": "Search Is Missing Results",
+      "when": "Search Is Missing Results"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-answer-why-did-this-workflow-not-start",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-search-shows-sensitive-results",
+      "id": "search-shows-sensitive-results",
+      "inspect": [
+        "Person",
+        "Page",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-        "https://community.rockrms.com/developer/303---blast-off/exception-handling",
-        "https://community.rockrms.com/recipes/522",
-        "https://community.rockrms.com/rocku/cms/cache-tags",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/recipes/503"
+        "https://community.rockrms.com/documentation/bookcontent/32"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the result from Person attributes?",
+        "Was a sensitive attribute indexed?",
+        "Is the content from site crawling?",
+        "Is the page public?",
+        "Is attribute security expected but unavailable in search?",
+        "Should the entity/attribute be removed from index?",
+        "Should index be rebuilt after removal?"
       ],
-      "title": "Recipe: Answer “Why Did This Workflow Not Start?”",
-      "when": "Follow the guide section for Recipe: Answer “Why Did This Workflow Not Start?”."
+      "title": "Search Shows Sensitive Results",
+      "when": "Search Shows Sensitive Results"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-answer-why-is-this-data-view-slow",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/recipes/522",
-        "https://community.rockrms.com/rocku/cms/cache-tags",
-        "https://community.rockrms.com/rocku/core-concepts",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list",
-        "https://community.rockrms.com/rocku/core-concepts/automations",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity",
-        "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+      "guide_section_id": "18-troubleshooting-decision-tree-report-results-are-stale",
+      "id": "report-results-are-stale",
+      "inspect": [
+        "DataView",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does the report use a Data View?",
+        "Is the Data View persisted?",
+        "When did it last refresh?",
+        "Did `Update Persisted DataViews` run?",
+        "Did the Data View fail?",
+        "Is cache involved?",
+        "Is the report itself cached?",
+        "Are permissions filtering rows?"
       ],
-      "title": "Recipe: Answer “Why Is This Data View Slow?”",
-      "when": "Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”."
+      "title": "Report Results Are Stale",
+      "when": "Report Results Are Stale"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-answer-what-changed-in-this-version-that-matters-operationally",
+      "guide_section_id": "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
+      "id": "clear-cache-throws-an-error",
       "inspect": [],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/32",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/commands/cache-commands",
-        "https://community.rockrms.com/rocku/core-concepts",
-        "https://community.rockrms.com/recipes/522",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/rocku/cms/cache-tags",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards",
-        "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags",
-        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Rock version.",
+        "Exact exception.",
+        "Does `App_Data/Cache` exist?",
+        "Did Rock Cleanup delete it?",
+        "Are file types configured to cache to server?",
+        "Is the v19.1 fix present?",
+        "Is there a file permission issue?"
       ],
-      "title": "Recipe: Answer “What Changed In This Version That Matters Operationally?”",
-      "when": "Follow the guide section for Recipe: Answer “What Changed In This Version That Matters Operationally?”."
+      "title": "Clear Cache Throws An Error",
+      "when": "Clear Cache Throws An Error"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
+      "id": "a-data-view-api-call-fails",
+      "inspect": [
+        "Person",
+        "DataView"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs"
+      ],
+      "start_with": [
+        "Is the caller authenticated?",
+        "Does the Data View exist?",
+        "Is ID/GUID/IdKey correct?",
+        "Does current person have View authorization?",
+        "Does caller have unrestricted read authorization?",
+        "Is entity ID valid?",
+        "Does the Data View execute?",
+        "Is a persisted stale result involved?"
+      ],
+      "title": "A Data View API Call Fails",
+      "when": "A Data View API Call Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Workflow"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
+      "id": "a-lava-endpoint-exposes-too-much",
+      "inspect": [
+        "Person",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/lava-api"
+      ],
+      "start_with": [
+        "Is it a Lava webhook?",
+        "Which Defined Value route matches?",
+        "Which HTTP verbs match?",
+        "Which Lava commands are enabled?",
+        "Does the template check authorization?",
+        "Does it expose person, finance, workflow, or security data?",
+        "Is it cached?",
+        "Can route be disabled or restricted?"
+      ],
+      "title": "A Lava Endpoint Exposes Too Much",
+      "when": "A Lava Endpoint Exposes Too Much"
     }
   ],
   "concept_id": "system-admin-ops",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:32+00:00",
+  "generated_at": "2026-07-30T02:07:45+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-a-job-did-not-run",

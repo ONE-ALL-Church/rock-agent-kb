@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review Apple TV Markup
 
-Follow the guide section for Recipe: Review Apple TV Markup.
+Sources: Apple TV Tips, Apple TV Templates.
 
 ## When To Use
 
@@ -24,9 +24,16 @@ Follow the guide section for Recipe: Review Apple TV Markup.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Document root is valid TVML.
+2. Template matches content type.
+3. Dynamic text is escaped.
+4. Images are supported formats, not SVG.
+5. No WebView assumptions.
+6. Theme styles are valid.
+7. Text overflow is handled.
+8. Large images are compressed/resized.
+9. Commands are valid for the shell.
+10. Media URLs are not YouTube links.
 
 ## Do Not Assume
 
@@ -35,14 +42,3 @@ Follow the guide section for Recipe: Review Apple TV Markup.
 ## Source Links
 
 - https://community.rockrms.com/developer/apple-tv-docs
-- https://community.rockrms.com/developer/roku-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/licensing
-- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template

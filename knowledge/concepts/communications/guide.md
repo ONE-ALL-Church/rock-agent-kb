@@ -1110,24 +1110,24 @@ Do not promise analytics for workflow emails unless confirmed in the live instan
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `153`
+- Approved claims routed to this concept: `15`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
 | official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| rocku-confirmed | operational_guidance | For staff training and operational readiness, Communication Lists & Segments should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-lists--segments) |
-| rocku-confirmed | operational_guidance | The Communication Preferences RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-preferences) |
-| rocku-confirmed | operational_guidance | For ministry process design, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates) |
-| rocku-confirmed | operational_guidance | The Communication Templates [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/communication-templates-legacy) |
-| rocku-confirmed | operational_guidance | The SMS Pipeline RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/communication/sms-pipeline) |
-| More |  | 141 additional approved claims are tracked in `approved-claims.md`. |  |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
+| community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
+| community-reviewed | operational_guidance | For communications work, email safeguards should be reviewed as a governance and deliverability topic, including sender policy, access, templates, and current Rock version behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) |
+| community-reviewed | operational_guidance | Communications guidance should verify audience, sender, template, channel, consent, and reporting behavior in Rock before acting on broad podcast-level advice. | [source](https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5fa) |
+| community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
+| community-reviewed | operational_guidance | Provider event data should be summarized into operational reports that help staff understand delivery health without exposing unnecessary raw event detail. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) |
+| More |  | 3 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1136,7 +1136,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `39`
+- Approved media records routed to this concept: `35`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -1149,7 +1149,7 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Communication Preferences Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences) | approved_for_public_distillation | 3 | media-insight:d0e322520f4ef2bc |
 | [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
 | [Communication Saturation Report Transcript Insight](https://community.rockrms.com/rocku/communication/communication-saturation-report) | approved_for_public_distillation | 3 | media-insight:5548c23004402975 |
-| More |  | 31 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

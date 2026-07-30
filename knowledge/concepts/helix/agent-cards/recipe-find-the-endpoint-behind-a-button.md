@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Find The Endpoint Behind A Button
 
-Follow the guide section for Recipe: Find The Endpoint Behind A Button.
+Complete Find The Endpoint Behind A Button with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,15 @@ Follow the guide section for Recipe: Find The Endpoint Behind A Button.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Inspect the rendered element.
+2. Read `hx-get`, `hx-post`, `hx-put`, or `hx-delete`.
+3. Note the application slug and endpoint slug.
+4. Note the HTTP method.
+5. Find the Lava Application by slug.
+6. Find the Lava Endpoint by slug and method.
+7. Check active state, security mode, enabled commands, and code template.
+8. Test the request in browser dev tools.
+9. Review observability using endpoint/application names.
 
 ## Do Not Assume
 
@@ -34,15 +40,4 @@ Follow the guide section for Recipe: Find The Endpoint Behind A Button.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://community.rockrms.com/developer/helix/lava-applications
-- https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/helix/forms-controls
-- https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/lava/tags/observe
-- https://community.rockrms.com/developer/helix/htmx
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/helix/strategies
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/ModelMap

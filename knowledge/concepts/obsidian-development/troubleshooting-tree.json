@@ -1,177 +1,296 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-identify-the-source-files-behind-a-visible-obsidian-block",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",
+      "id": "symptom-block-does-not-appear-in-page-zone-editor",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/grid-reference",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian",
-        "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Block Type registration.",
+        "C# class and assembly.",
+        "Component file path.",
+        "Category.",
+        "Cache state.",
+        "Server restart.",
+        "Build/deploy output.",
+        "Plugin package import."
       ],
-      "title": "Recipe: Identify The Source Files Behind A Visible Obsidian Block",
-      "when": "Follow the guide section for Recipe: Identify The Source Files Behind A Visible Obsidian Block."
+      "title": "Symptom: Block Does Not Appear In Page Zone Editor",
+      "when": "Symptom: Block Does Not Appear In Page Zone Editor"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-determine-whether-a-bug-is-version-related",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-block-renders-blank",
+      "id": "symptom-block-renders-blank",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/grid-reference",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/developer/obsidian",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/browser-bus"
+        "https://community.rockrms.com/developer/obsidian/null-vs-undefined"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Browser console errors.",
+        "Network requests for JS bundles and component files.",
+        "Server logs.",
+        "Block action initialization response.",
+        "Missing required props.",
+        "Null vs undefined data shape (Null vs Undefined).",
+        "Component import paths.",
+        "TypeScript build output."
       ],
-      "title": "Recipe: Determine Whether A Bug Is Version-Related",
-      "when": "Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related."
+      "title": "Symptom: Block Renders Blank",
+      "when": "Symptom: Block Renders Blank"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-review-an-obsidian-pull-request",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-save-button-does-nothing",
+      "id": "symptom-save-button-does-nothing",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/grid-reference",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/universal-field-types"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Review An Obsidian Pull Request",
-      "when": "Follow the guide section for Recipe: Review An Obsidian Pull Request."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-audit-a-block-for-security",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/grid-reference",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian",
-        "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Audit A Block For Security",
-      "when": "Follow the guide section for Recipe: Audit A Block For Security."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-audit-a-grid-for-operational-readiness",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/grid-reference",
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian/grids",
-        "https://community.rockrms.com/developer/obsidian",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/browser-bus",
         "https://community.rockrms.com/developer/obsidian/form-validation"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Browser click handler.",
+        "Form validation state.",
+        "`RockForm` and field validation errors (Form Validation).",
+        "Disabled/loading state.",
+        "Network request.",
+        "Block action registration.",
+        "Server authorization.",
+        "Server validation response."
       ],
-      "title": "Recipe: Audit A Grid For Operational Readiness",
-      "when": "Follow the guide section for Recipe: Audit A Grid For Operational Readiness."
+      "title": "Symptom: Save Button Does Nothing",
+      "when": "Symptom: Save Button Does Nothing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-decide-whether-to-use-browser-bus",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-save-succeeds-but-data-does-not-change",
+      "id": "symptom-save-succeeds-but-data-does-not-change",
+      "inspect": [
+        "Page",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Server action result.",
+        "Database/entity value.",
+        "Attribute value storage.",
+        "Cache.",
+        "Component state update.",
+        "Whether save response returns new data.",
+        "Whether page reload shows updated data.",
+        "Configuration key mismatch."
+      ],
+      "title": "Symptom: Save Succeeds But Data Does Not Change",
+      "when": "Symptom: Save Succeeds But Data Does Not Change"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Attribute"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-is-slow",
+      "id": "symptom-grid-is-slow",
+      "inspect": [
+        "Person",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined",
-        "https://community.rockrms.com/developer/obsidian/browser-bus",
-        "https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions",
-        "https://community.rockrms.com/developer/obsidian",
-        "https://community.rockrms.com/lava/obsidian",
-        "https://community.rockrms.com/developer/obsidian/form-validation",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/obsidian/creating-ui-controls",
         "https://community.rockrms.com/developer/obsidian/grids"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Row count.",
+        "Payload size.",
+        "Dynamic attributes.",
+        "Person fields.",
+        "Custom columns.",
+        "Client-side filtering/sorting assumption (Grids).",
+        "Server query.",
+        "Browser render time."
       ],
-      "title": "Recipe: Decide Whether To Use Browser Bus",
-      "when": "Follow the guide section for Recipe: Decide Whether To Use Browser Bus."
+      "title": "Symptom: Grid Is Slow",
+      "when": "Symptom: Grid Is Slow"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-sort-duplicates-or-moves-wrong-rows",
+      "id": "symptom-grid-sort-duplicates-or-moves-wrong-rows",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "`keyField`.",
+        "Unique row keys.",
+        "Row object identity.",
+        "Sort value.",
+        "Grid state.",
+        "Release notes for Dynamic Data unique key fix (Rock Core Release Notes)."
+      ],
+      "title": "Symptom: Grid Sort Duplicates Or Moves Wrong Rows",
+      "when": "Symptom: Grid Sort Duplicates Or Moves Wrong Rows"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-export-fails",
+      "id": "symptom-grid-export-fails",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Export title and Excel worksheet restrictions.",
+        "Rock version; release notes include a fix for invalid Excel worksheet names in Obsidian grid exports (Rock Core Release Notes).",
+        "Column export values.",
+        "Dynamic columns.",
+        "Field type values.",
+        "Browser download errors.",
+        "Server logs."
+      ],
+      "title": "Symptom: Grid Export Fails",
+      "when": "Symptom: Grid Export Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-field-type-displays-raw-json",
+      "id": "symptom-field-type-displays-raw-json",
+      "inspect": [],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Field type display conversion.",
+        "Universal Field Type configuration.",
+        "Whether the stored value is expected JSON.",
+        "v18.1 Universal field type configuration fix (Rock Core Release Notes).",
+        "TypeScript `getTextValue`.",
+        "Configuration component emits."
+      ],
+      "title": "Symptom: Field Type Displays Raw JSON",
+      "when": "Symptom: Field Type Displays Raw JSON"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
+      "id": "symptom-picker-cannot-be-cleared",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/misc-notes"
+      ],
+      "start_with": [
+        "Required rule.",
+        "`showBlankItem`.",
+        "Misc Notes guidance on picker requiredness and deselection (Misc Notes).",
+        "Field type configuration.",
+        "Component props.",
+        "Server validation."
+      ],
+      "title": "Symptom: Picker Cannot Be Cleared",
+      "when": "Symptom: Picker Cannot Be Cleared"
+    },
+    {
+      "do_not_assume": [
+        "The Lava docs say response-mutating filters such as redirects and meta tags are often unsupported in Obsidian blocks because actions do not reload the whole page (Lava With Obsidian)."
+      ],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work",
+      "id": "symptom-lava-redirect-or-meta-tag-does-not-work",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/obsidian"
+      ],
+      "start_with": [],
+      "title": "Symptom: Lava Redirect Or Meta Tag Does Not Work",
+      "when": "Symptom: Lava Redirect Or Meta Tag Does Not Work"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
+      "id": "symptom-security-modal-opens-but-user-cannot-save",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn"
+      ],
+      "start_with": [
+        "Current user's Administrate/Edit permission.",
+        "Entity security.",
+        "Block security.",
+        "`SecurityColumn` disabled field.",
+        "Security grants.",
+        "Server logs.",
+        "Whether the row maps to the correct entity (SecurityColumn)."
+      ],
+      "title": "Symptom: Security Modal Opens But User Cannot Save",
+      "when": "Symptom: Security Modal Opens But User Cannot Save"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
+      "id": "symptom-works-for-admin-but-not-staff",
+      "inspect": [
+        "Workflow",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Page View permission.",
+        "Block View/Edit/Administrate.",
+        "Entity authorization.",
+        "Field-level security.",
+        "Security grants.",
+        "API/block action permission.",
+        "Workflow type permissions if workflow-related.",
+        "Whether the UI hides actions or server rejects them."
+      ],
+      "title": "Symptom: Works For Admin But Not Staff",
+      "when": "Symptom: Works For Admin But Not Staff"
     }
   ],
   "concept_id": "obsidian-development",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:48+00:00",
+  "generated_at": "2026-07-30T02:07:59+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",

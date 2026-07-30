@@ -11,12 +11,12 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: “Find The Right Person”](tasks/recipe-find-the-right-person.md) |  |  |
-| [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md) |  |  |
-| [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md) |  |  |
-| [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md) |  |  |
-| [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md) |  |  |
+| [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md) | `Person` | `Person` |
+| [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md) | `DataView`, `Group` | `DataView`, `Group` |
+| [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md) | `Person` | `Person` |
+| [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md) | `Workflow` | `Workflow` |
 | [Recipe: “Audit Agent Security”](tasks/recipe-audit-agent-security.md) |  |  |
-| [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md) |  |  |
+| [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md) | `Person`, `Workflow` | `Person`, `Workflow` |
 | [Recipe: “Review An Agent Answer”](tasks/recipe-review-an-agent-answer.md) |  |  |
 
 ## Entities

@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 23,
+  "approved_claim_count": 23,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "Prayer-category AI settings can pass from a parent category to its direct children, but the inherited settings do not cascade from those children to grandchildren.",
-      "claim_hash": "25f240179c5b4a92f6615755f79960ba7adc2440afda62f75043e4fb77f63c41",
+      "claim_hash": "c9faed1644c94369f850bb871659ec5cb94a5a41a5c8b934da125de725395ff1",
       "claim_id": "claim:11b4208495672f2bd061",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -16,6 +18,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a4f4855c305769a11a9f28094885d18de150c7cd907ed50d31626c314e862842",
       "source_record_ids": [
         "rock_documentation:article:2017"
@@ -26,12 +29,13 @@
           "title": "Prayer AI Automations",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock can require administrator approval before prayer requests enter team sessions, and it prioritizes urgent requests ahead of requests ordered from least prayed-for to most prayed-for.",
-      "claim_hash": "cb00f93811c5c6dce5b0667204e38b9db0c54d978b5d3ce8753e45c1a63f1ab0",
+      "claim_hash": "bb603a0f371965e5a25c6218ad854695b26a1297ab25bd60b289b36459d0c548",
       "claim_id": "claim:12090dba1003e35ce573",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -44,6 +48,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ec9889a233f3bfdef7d7af5cb8d7d650d33593df4eae2da670d28f896595449d",
       "source_record_ids": [
         "rock_documentation:article:2012"
@@ -54,12 +59,13 @@
           "title": "Intro to Prayer",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/intro-to-prayer"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Request Entry block's expiration period controls how long an approved request stays active, but this setting applies only when automatic approval is enabled.",
-      "claim_hash": "6f1632d7cfe71ae3af6c431e2b4a242622de58ea6744874c33719f6a8e2af31d",
+      "claim_hash": "3148ac192ee2b8782b63cc3aefcaa18f00ce682bbee02cccde95ffa06acdd57a",
       "claim_id": "claim:1a49c1b78677a9eaf1fe",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -72,6 +78,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1c31e3fb5c79d126ba62d539039e30c087290ff43ee5d1b41723ba994f946a86",
       "source_record_ids": [
         "rock_documentation:article:1657"
@@ -82,12 +89,13 @@
           "title": "Enter Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Request Entry block can expose child categories beneath a configured parent; when category selection is hidden, submitted requests receive the block's configured default category.",
-      "claim_hash": "97b51a314afbe7750320e2f065e295b1514c6bd3d620ab8c4dd3669b0dfab6ad",
+      "claim_hash": "6121695d6f7f63a29895295945cf867b6570e4de7e5bfb03680604c0580c5829",
       "claim_id": "claim:319f6b7116cb9178948c",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -100,6 +108,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d451ba425b88a19cadf25ed67a8e89221391b0f0c32899d045395c72a542c3ed",
       "source_record_ids": [
         "rock_documentation:article:2014"
@@ -110,12 +119,13 @@
           "title": "Prayer Categories",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-categories"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "When a prayer category uses an active AI provider and public-appropriateness checking is enabled, a request judged unsuitable for public display is made non-public and its flag count is increased by one.",
-      "claim_hash": "05d861ba0f6d357074eebcc74f2c8b2f48655c6d57dd9bb4e53739b68eb1b601",
+      "claim_hash": "dfd187a19d4c81e2eb3aefbe4ce332680a6c48882c19273ee7469371f4f2ddee",
       "claim_id": "claim:35a5cf85665911aebf96",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -128,6 +138,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a4f4855c305769a11a9f28094885d18de150c7cd907ed50d31626c314e862842",
       "source_record_ids": [
         "rock_documentation:article:2017"
@@ -138,42 +149,13 @@
           "title": "Prayer AI Automations",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-ai-automations"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout.",
-      "claim_hash": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-      "claim_id": "claim:35d327f4909c62921563",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
-      "source_record_ids": [
-        "rock_youtube:2b3b848223d53224"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Outreach Toolbox is Here in v19",
-          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Prayer requests configured for automatic approval become available to the prayer team immediately; otherwise an administrator must approve them before they appear in prayer sessions.",
-      "claim_hash": "9e427fc1df492c010ca7b3a1f32f8713d9fabb938797fc344c9b9a538c09be52",
+      "claim_hash": "e3c90b18a774892f4dc71f66acd6ba519447279ac1f2db4ad6c1e4990c8a5470",
       "claim_id": "claim:3938564907eb4fab37f7",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -186,6 +168,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "9c631a1a56142347ed661b8918af0bb60d010c5a95e84abb4a83efe2cb61e4a2",
       "source_record_ids": [
         "rock_documentation:article:1658"
@@ -196,12 +179,13 @@
           "title": "Administer Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/administer-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A typical prayer workflow assigns administrators to enter card-submitted requests and review flagged or unapproved requests, while prayer team members pray for requests and flag content that should not be publicly visible.",
-      "claim_hash": "f2ed9c0e8375f8ba5c57e9c44bec4f7478570e735de960269529b91e4f808863",
+      "claim_hash": "0c6e6dfc8836adc8dc573488541e80ced04dc37816125d86d896200a8273ea0f",
       "claim_id": "claim:3ad8495d7893123893fb",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -214,6 +198,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c19ee55c0e4205520ca03c13c4b0a24943441d6b0fefc469e06096a9636de535",
       "source_record_ids": [
         "rock_documentation:article:2013"
@@ -224,12 +209,13 @@
           "title": "Prayer Team Roles",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/prayer-team-roles"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Card View block is included with Rock but must be manually placed on an external-site page; it presents requests as cards and records a prayer when a team member selects the prayer action.",
-      "claim_hash": "30feb8f2d79d0a740cc79e6cb56cb1795542ad964e660e85895ff69d0d360744",
+      "claim_hash": "b45e6270ccc581eb9856367293f583780d9f3c28c4e4c8338f357063ddde957b",
       "claim_id": "claim:3adb0c2e259a8595879b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -242,6 +228,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "f8849a8f1a0bd700d83fc8e36d901a81c9136825b920e962d9c8e3d9499adc05",
       "source_record_ids": [
         "rock_documentation:article:1663"
@@ -252,12 +239,13 @@
           "title": "Prayer Card View Block",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout.",
-      "claim_hash": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
+      "claim_hash": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
       "claim_id": "claim:483a11b884e0e69ffd4d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -272,6 +260,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -285,12 +276,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Request Comments Digest communication includes the original request and comments added since the job last ran; on its first run, it includes all existing comments.",
-      "claim_hash": "e91e9bc156cdd712111f08e7322a97b916258a9620da64f814fe9ba2d337c678",
+      "claim_hash": "ec4d05ee472c3726620a6826d0fdb5e78f3678ff2ff8b94cc99f736a2381c88b",
       "claim_id": "claim:496a8a34d83b9fdeab49",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -303,6 +295,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b9789d2c65b1a255611d9b51e6b32beff1d6ddba9c4f20580697f2c22ee087c6",
       "source_record_ids": [
         "rock_documentation:article:2016"
@@ -313,12 +306,13 @@
           "title": "Prayer Request Comments Communication",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "To send prayer-comment digests regardless of category, leave the job's Prayer Categories setting blank and enable Include Child Categories; otherwise, category selection and the child-category option can restrict which requests generate communications.",
-      "claim_hash": "77d7153b453db72c71ee009124ae1284e8cfb0cd1e41b13072d35020d3862234",
+      "claim_hash": "9c092ac87f6965c62a53d58aa0c0b4be99899194d07acae5f298777b8d3f6391",
       "claim_id": "claim:4d2b649a30e612899c26",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -331,6 +325,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "00d0407d1c98baee6da43c9cc22e476df7fa289dabd16283a3713cf774440b01",
       "source_record_ids": [
         "rock_documentation:article:1664"
@@ -341,12 +336,13 @@
           "title": "Prayer Request Comment Digest",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally.",
-      "claim_hash": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
+      "claim_hash": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
       "claim_id": "claim:54aeb223a9029e9f7707",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -361,6 +357,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
       "source_record_ids": [
         "rock_youtube:6e6bececa520aca2"
@@ -374,12 +371,13 @@
           "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
           "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Supplying a group's GUID as the GroupGuid URL parameter to the Prayer Request Entry block associates the submitted prayer request with that group and limits the request to that group's members.",
-      "claim_hash": "333dea45748417684a0f52101f8511d2d84fe6d33eadf4a118f815d2ad2d5d1c",
+      "claim_hash": "969ee6b1b4acc9b8d0adf208c4a3070cfdd51cd268c105d8dd9897dae3aee7e9",
       "claim_id": "claim:55fa3b618e6ed07e28b8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -392,6 +390,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "90594f82ad9bb09731fe993cef8f609b8e1afd152fc172908881ba29cadddc2d",
       "source_record_ids": [
         "rock_documentation:article:1659"
@@ -402,12 +401,13 @@
           "title": "Create Group Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Request Comments Digest job sends to the email address recorded on the prayer request, which can differ from the requestor's current profile email address.",
-      "claim_hash": "bd006729ce11c57ab798ef545f715bf885e2d1acd91071b766e2572c242065bb",
+      "claim_hash": "7ece3d98b1ebdbcdf305194f62d20eaef3b674d1e8d0a4882740adf734e6bee8",
       "claim_id": "claim:5d8cf058b42faaa9b067",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -420,6 +420,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b9789d2c65b1a255611d9b51e6b32beff1d6ddba9c4f20580697f2c22ee087c6",
       "source_record_ids": [
         "rock_documentation:article:2016"
@@ -430,12 +431,13 @@
           "title": "Prayer Request Comments Communication",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Session and Prayer Card View blocks restrict results to prayer requests associated with the group identified by the URL's GroupGuid parameter; without that parameter, they exclude group-associated requests.",
-      "claim_hash": "4afcb2d326d59af2060d439eb17fbaf762e51a1612bfce206fed3d60cae6a614",
+      "claim_hash": "fb18f04bb0ad9cfd62d93668ebff7d9157d9be39e3de07b830d20875399d2e68",
       "claim_id": "claim:7080188cd027da0894fb",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -448,6 +450,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "39cf438314c481d3d1f6283ae4962d40b52e955e5b482ea48ab2b102bc2a7b1f",
       "source_record_ids": [
         "rock_documentation:article:1660"
@@ -458,12 +461,13 @@
           "title": "Pray for Group Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "After a prayer request has been associated with a group, the association cannot be changed or removed; administrators can view it in the prayer request details.",
-      "claim_hash": "4cac383842689ea9ac81c7dc9595e5c1866e0de8c84ac3b8b9e72934b47825db",
+      "claim_hash": "db78a2f505873ba21a225bef2657d1ebdebde4a92317eef7b6216c1ffdffcfa2",
       "claim_id": "claim:730dc8002a49af1f97f8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -476,6 +480,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "90594f82ad9bb09731fe993cef8f609b8e1afd152fc172908881ba29cadddc2d",
       "source_record_ids": [
         "rock_documentation:article:1659"
@@ -486,12 +491,13 @@
           "title": "Create Group Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Send Prayer Comments job sends prayer-team comments to the person who submitted a prayer request, but it ignores requests for which Allow Comments is disabled.",
-      "claim_hash": "b8dd40217fc8bd009132e4e2d547c0f433d49aad987e8e26a0270824480cabfe",
+      "claim_hash": "6d4042f8d76808eebc67d3215e87d65551c0f2c87b9b7a23bea594c84c968949",
       "claim_id": "claim:86749b850c84898312d8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -504,6 +510,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "00d0407d1c98baee6da43c9cc22e476df7fa289dabd16283a3713cf774440b01",
       "source_record_ids": [
         "rock_documentation:article:1664"
@@ -514,12 +521,13 @@
           "title": "Prayer Request Comment Digest",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comment-digest"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Prayer Card View block can launch a workflow after a request is prayed for or flagged; the workflow receives the prayer request as an entity and identifies the acting person through the PrayerOfferedByPersonId or FlaggedByPersonId workflow attribute, respectively.",
-      "claim_hash": "c5308225ba748d65c6c5f8c80b49ed65b4dc6897f37276370c3d9b80e09cf918",
+      "claim_hash": "da58f8144d5d5a9254304a95bc039f5fe9bff7603117ec94424f79fd61f11911",
       "claim_id": "claim:91425a8f1fedfc67184b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -532,6 +540,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "f8849a8f1a0bd700d83fc8e36d901a81c9136825b920e962d9c8e3d9499adc05",
       "source_record_ids": [
         "rock_documentation:article:1663"
@@ -542,12 +551,13 @@
           "title": "Prayer Card View Block",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-card-view-block"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
-      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_hash": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
       "claim_id": "claim:9c8ce297c9c4a4cda982",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -563,6 +573,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -576,12 +587,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Administrators can locate prayer requests by filtering for flagged or unapproved requests, then edit, delete, or re-approve them.",
-      "claim_hash": "ad0524a839c6df10d4fe2986d866ed1572d058628e1007a450de76889d95fc6d",
+      "claim_hash": "c1397b65dbd12ae394b6d4a77b839da59542520c0dee1ddbbb202e9ba70e666c",
       "claim_id": "claim:af86fbd3c6e261b719b0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -594,6 +606,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "6940ab1237d0204cc179d1813bb0d67347365de858ae0118ec933d6c6820ea0f",
       "source_record_ids": [
         "rock_documentation:article:2015"
@@ -604,12 +617,13 @@
           "title": "Work With Flagged Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-overview/work-with-flagged-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Prayer Request Entry block can launch a configured workflow after submission, and that workflow can access information from the submitted prayer request.",
-      "claim_hash": "e4f1dbc5a99b4f3650a3dfa5df1660013b09cb0823dd8ca3a45097aea2f466a3",
+      "claim_hash": "2fdf8bfbe34f814cb3ebfd5d9f45cbb915eb5bca7a69db7e04396e80a5708df0",
       "claim_id": "claim:b8239b164ebf31857a31",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -622,6 +636,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1c31e3fb5c79d126ba62d539039e30c087290ff43ee5d1b41723ba994f946a86",
       "source_record_ids": [
         "rock_documentation:article:1657"
@@ -632,12 +647,13 @@
           "title": "Enter Prayer Requests",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A prayer session records another prayer count when a team member views a request, and enabled team flagging can unapprove a request once the block's configured flag threshold is reached.",
-      "claim_hash": "c4cd18918f7348b195a6da448f220fa66bb26b54f44199c2d2d8e6976cf0f48a",
+      "claim_hash": "6f725cf7391e28c098610bd91fb1b794ffb287c3c1ee10ffde13a213c4fed07b",
       "claim_id": "claim:d50afbd009bd242e4ca9",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -650,6 +666,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "591f2eb82f6492ef891bc3b492b442a2536bf72ffa7725e361c393d12f66f67f",
       "source_record_ids": [
         "rock_documentation:article:1661"
@@ -660,12 +677,13 @@
           "title": "Start a Prayer Session",
           "url": "https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/start-a-prayer-session"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use.",
-      "claim_hash": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
+      "claim_hash": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
       "claim_id": "claim:e704f98991439e3e1576",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -682,6 +700,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -695,67 +714,36 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details.",
-      "claim_hash": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
-      "claim_id": "claim:fce0fb74a46963faeb59",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
-      "source_record_ids": [
-        "rock_youtube:6e6bececa520aca2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
-          "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:11b4208495672f2bd061": "25f240179c5b4a92f6615755f79960ba7adc2440afda62f75043e4fb77f63c41",
-    "claim:12090dba1003e35ce573": "cb00f93811c5c6dce5b0667204e38b9db0c54d978b5d3ce8753e45c1a63f1ab0",
-    "claim:1a49c1b78677a9eaf1fe": "6f1632d7cfe71ae3af6c431e2b4a242622de58ea6744874c33719f6a8e2af31d",
-    "claim:319f6b7116cb9178948c": "97b51a314afbe7750320e2f065e295b1514c6bd3d620ab8c4dd3669b0dfab6ad",
-    "claim:35a5cf85665911aebf96": "05d861ba0f6d357074eebcc74f2c8b2f48655c6d57dd9bb4e53739b68eb1b601",
-    "claim:35d327f4909c62921563": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-    "claim:3938564907eb4fab37f7": "9e427fc1df492c010ca7b3a1f32f8713d9fabb938797fc344c9b9a538c09be52",
-    "claim:3ad8495d7893123893fb": "f2ed9c0e8375f8ba5c57e9c44bec4f7478570e735de960269529b91e4f808863",
-    "claim:3adb0c2e259a8595879b": "30feb8f2d79d0a740cc79e6cb56cb1795542ad964e660e85895ff69d0d360744",
-    "claim:483a11b884e0e69ffd4d": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
-    "claim:496a8a34d83b9fdeab49": "e91e9bc156cdd712111f08e7322a97b916258a9620da64f814fe9ba2d337c678",
-    "claim:4d2b649a30e612899c26": "77d7153b453db72c71ee009124ae1284e8cfb0cd1e41b13072d35020d3862234",
-    "claim:54aeb223a9029e9f7707": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
-    "claim:55fa3b618e6ed07e28b8": "333dea45748417684a0f52101f8511d2d84fe6d33eadf4a118f815d2ad2d5d1c",
-    "claim:5d8cf058b42faaa9b067": "bd006729ce11c57ab798ef545f715bf885e2d1acd91071b766e2572c242065bb",
-    "claim:7080188cd027da0894fb": "4afcb2d326d59af2060d439eb17fbaf762e51a1612bfce206fed3d60cae6a614",
-    "claim:730dc8002a49af1f97f8": "4cac383842689ea9ac81c7dc9595e5c1866e0de8c84ac3b8b9e72934b47825db",
-    "claim:86749b850c84898312d8": "b8dd40217fc8bd009132e4e2d547c0f433d49aad987e8e26a0270824480cabfe",
-    "claim:91425a8f1fedfc67184b": "c5308225ba748d65c6c5f8c80b49ed65b4dc6897f37276370c3d9b80e09cf918",
-    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
-    "claim:af86fbd3c6e261b719b0": "ad0524a839c6df10d4fe2986d866ed1572d058628e1007a450de76889d95fc6d",
-    "claim:b8239b164ebf31857a31": "e4f1dbc5a99b4f3650a3dfa5df1660013b09cb0823dd8ca3a45097aea2f466a3",
-    "claim:d50afbd009bd242e4ca9": "c4cd18918f7348b195a6da448f220fa66bb26b54f44199c2d2d8e6976cf0f48a",
-    "claim:e704f98991439e3e1576": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
-    "claim:fce0fb74a46963faeb59": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb"
+    "claim:11b4208495672f2bd061": "c9faed1644c94369f850bb871659ec5cb94a5a41a5c8b934da125de725395ff1",
+    "claim:12090dba1003e35ce573": "bb603a0f371965e5a25c6218ad854695b26a1297ab25bd60b289b36459d0c548",
+    "claim:1a49c1b78677a9eaf1fe": "3148ac192ee2b8782b63cc3aefcaa18f00ce682bbee02cccde95ffa06acdd57a",
+    "claim:319f6b7116cb9178948c": "6121695d6f7f63a29895295945cf867b6570e4de7e5bfb03680604c0580c5829",
+    "claim:35a5cf85665911aebf96": "dfd187a19d4c81e2eb3aefbe4ce332680a6c48882c19273ee7469371f4f2ddee",
+    "claim:3938564907eb4fab37f7": "e3c90b18a774892f4dc71f66acd6ba519447279ac1f2db4ad6c1e4990c8a5470",
+    "claim:3ad8495d7893123893fb": "0c6e6dfc8836adc8dc573488541e80ced04dc37816125d86d896200a8273ea0f",
+    "claim:3adb0c2e259a8595879b": "b45e6270ccc581eb9856367293f583780d9f3c28c4e4c8338f357063ddde957b",
+    "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
+    "claim:496a8a34d83b9fdeab49": "ec4d05ee472c3726620a6826d0fdb5e78f3678ff2ff8b94cc99f736a2381c88b",
+    "claim:4d2b649a30e612899c26": "9c092ac87f6965c62a53d58aa0c0b4be99899194d07acae5f298777b8d3f6391",
+    "claim:54aeb223a9029e9f7707": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
+    "claim:55fa3b618e6ed07e28b8": "969ee6b1b4acc9b8d0adf208c4a3070cfdd51cd268c105d8dd9897dae3aee7e9",
+    "claim:5d8cf058b42faaa9b067": "7ece3d98b1ebdbcdf305194f62d20eaef3b674d1e8d0a4882740adf734e6bee8",
+    "claim:7080188cd027da0894fb": "fb18f04bb0ad9cfd62d93668ebff7d9157d9be39e3de07b830d20875399d2e68",
+    "claim:730dc8002a49af1f97f8": "db78a2f505873ba21a225bef2657d1ebdebde4a92317eef7b6216c1ffdffcfa2",
+    "claim:86749b850c84898312d8": "6d4042f8d76808eebc67d3215e87d65551c0f2c87b9b7a23bea594c84c968949",
+    "claim:91425a8f1fedfc67184b": "da58f8144d5d5a9254304a95bc039f5fe9bff7603117ec94424f79fd61f11911",
+    "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
+    "claim:af86fbd3c6e261b719b0": "c1397b65dbd12ae394b6d4a77b839da59542520c0dee1ddbbb202e9ba70e666c",
+    "claim:b8239b164ebf31857a31": "2fdf8bfbe34f814cb3ebfd5d9f45cbb915eb5bca7a69db7e04396e80a5708df0",
+    "claim:d50afbd009bd242e4ca9": "6f725cf7391e28c098610bd91fb1b794ffb287c3c1ee10ffde13a213c4fed07b",
+    "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2"
   },
-  "approved_claims_hash": "b3d135a4b2da59df080c8e0b747f4d8b36cfe234d3781c3d837523930ea07ffc",
+  "approved_claims_hash": "226f695ec2eae6e3ead343837f763965fb4b7eefd906f51584850b2a5d72788c",
   "approved_claims_path": "knowledge/concepts/prayer-care/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -852,9 +840,9 @@
   },
   "approved_media_hash": "8f2dca2725f194742fc54d8fede3d3fd61cf7d8bfe07e99b7528149ea72d3e9e",
   "approved_media_path": "knowledge/concepts/prayer-care/approved-media.md",
-  "built_at": "2026-07-26T00:29:44+00:00",
+  "built_at": "2026-07-30T02:07:55+00:00",
   "concept_id": "prayer-care",
-  "guide_hash": "e89c4a5cd7e6565de39dc408fb065e7d2332d6ba3a04558e22854fc99513ff63",
+  "guide_hash": "a43af5b64e0d5bd668c0e40cac3c7e09ebbb1d524019ec0d828430d4f7717e70",
   "guide_line_count": 1313,
   "guide_path": "knowledge/concepts/prayer-care/guide.md",
   "guide_word_count": 12998,
@@ -1148,6 +1136,7 @@
       "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -3095,5 +3084,6 @@
       "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

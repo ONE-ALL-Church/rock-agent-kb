@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Determine Whether A Bug Is Version-Related
 
-Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related.
+Complete Determine Whether A Bug Is Version-Related with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,20 @@ Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Record exact Rock version.
+2. Search release notes for block name, field type, grid, module, and symptom.
+3. If a later release fixes it, inspect whether the fix applies exactly.
+4. If the instance is below the fix, recommend upgrade or targeted workaround.
+5. If the instance includes the fix, inspect custom overrides, plugin code, cache, data, and configuration.
+6. If the release note is vague, inspect linked GitHub issue or source diff when available.
 
 ## Do Not Assume
 
@@ -34,15 +37,15 @@ Follow the guide section for Recipe: Determine Whether A Bug Is Version-Related.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns
 - https://community.rockrms.com/developer/obsidian/grid-reference
-- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
-- https://community.rockrms.com/developer/obsidian/null-vs-undefined
+- https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions
+- https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks
+- https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks
 - https://community.rockrms.com/developer/obsidian/grids
-- https://community.rockrms.com/developer/obsidian
-- https://community.rockrms.com/lava/obsidian
+- https://community.rockrms.com/developer/obsidian/null-vs-undefined
 - https://community.rockrms.com/developer/obsidian/form-validation
-- https://community.rockrms.com/developer/obsidian/browser-bus
+- https://community.rockrms.com/developer/obsidian/blocks
+- https://community.rockrms.com/developer/obsidian/obsidian-component-structure

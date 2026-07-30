@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Add Analytics To A Tap
 
-Follow the guide section for Recipe: Add Analytics To A Tap.
+Complete Add Analytics To A Tap with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,13 @@ Follow the guide section for Recipe: Add Analytics To A Tap.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Verify `WriteInteraction` is available in shell v2.0+ (Rock Mobile Release Notes).
+2. Define interaction naming.
+3. Attach command to tap target.
+4. Prevent duplicate triggers.
+5. Deploy.
+6. Test as anonymous and authenticated user.
+7. Verify interaction record/report.
 
 ## Do Not Assume
 
@@ -34,15 +38,4 @@ Follow the guide section for Recipe: Add Analytics To A Tap.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
-- https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
-- https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
-- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
-- https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
-- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs

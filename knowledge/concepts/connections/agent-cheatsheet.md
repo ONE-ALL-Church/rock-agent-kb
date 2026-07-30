@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md) |  |  |
-| [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md) |  |  |
-| [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md) |  |  |
-| [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md) |  |  |
-| [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md) |  |  |
+| [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md) | `Group`, `Campus`, `Workflow`, `Block` | `Group`, `Campus`, `Workflow`, `Block` |
+| [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md) | `Person`, `Campus`, `Block` | `Person`, `Campus`, `Block` |
+| [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md) | `Person`, `Page`, `Block`, `Attribute` | `Person`, `Page`, `Block`, `Attribute` |
+| [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md) | `Block` | `Block` |
+| [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md) | `Group` | `Group` |
 
 ## Entities
 

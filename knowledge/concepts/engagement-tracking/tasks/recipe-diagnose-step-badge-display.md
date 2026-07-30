@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose Step Badge Display
 
-Follow the guide section for Recipe: Diagnose Step Badge Display.
+Source: Steps Badges.
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Diagnose Step Badge Display.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `StepProgram`
+- `StepType`
+- `Step`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `StepProgram`
+- `StepType`
+- `Step`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Badge list under `Admin Tools > Settings > General > Badges`.
+2. Entity Type is Person.
+3. Badge Type is Steps.
+4. Step Program selected.
+5. Step Type Show Count on Badge settings.
+6. Person has expected Step records.
+7. Security.
+8. Person Profile block/zone where badges render.
 
 ## Do Not Assume
 
@@ -38,11 +51,11 @@ Follow the guide section for Recipe: Diagnose Step Badge Display.
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals
 - https://community.rockrms.com/documentation/engagement/steps
 - https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
+- https://community.rockrms.com/documentation/engagement/assessments
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/233
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges
+- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-programs

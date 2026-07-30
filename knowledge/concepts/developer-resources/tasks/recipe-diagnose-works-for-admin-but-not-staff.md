@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose "Works for admin but not staff"
 
-Follow the guide section for Recipe: Diagnose "Works for admin but not staff".
+References: 303 security, Helix security, release notes (Rock Security, Helix Security, Release Notes).
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Diagnose "Works for admin but not staff".
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Check page security.
+2. Check block security.
+3. Check block action security.
+4. Check entity security.
+5. Check endpoint security mode.
+6. Check workflow type view/execute permissions.
+7. Check API key/user permissions.
+8. Check parent authority inheritance.
+9. Check release-note security hardening.
+10. Verify with the affected user/person.
 
 ## Do Not Assume
 
@@ -35,14 +48,14 @@ Follow the guide section for Recipe: Diagnose "Works for admin but not staff".
 ## Source Links
 
 - https://community.rockrms.com/developer
-- https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/api-docs
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/ask/developing
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
 - https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/developer/developer-codex/coding-standards/maintaining-compatibility/tips-for-maintaining-compatibility
-- https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/for-the-reviewer
-- https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components/form-fields
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events

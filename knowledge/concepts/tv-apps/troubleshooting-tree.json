@@ -1,169 +1,205 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-audit-a-tv-app-configuration",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
+      "id": "app-does-not-launch-or-shows-wrong-content",
+      "inspect": [
+        "Person",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the installed shell pointed at the expected Rock instance?",
+        "Is demo mode active when production settings were expected, or vice versa? For Apple TV, review demo key/testing setup (Testing Your App, Demo Commands).",
+        "Is the API key valid and assigned to the app?",
+        "Does the root/start page exist?",
+        "Is the root/start page valid TVML or SceneGraph?",
+        "Does the page render anonymous, or does Lava assume `CurrentPerson` exists?",
+        "Are cache settings returning stale content?"
       ],
-      "title": "Recipe: Audit A TV App Configuration",
-      "when": "Follow the guide section for Recipe: Audit A TV App Configuration."
+      "title": "App Does Not Launch Or Shows Wrong Content",
+      "when": "App Does Not Launch Or Shows Wrong Content"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-trace-a-page-guid",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-page-is-blank",
+      "id": "page-is-blank",
+      "inspect": [
+        "Device",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Render the saved Lava output and inspect the final XML.",
+        "Confirm platform dialect: TVML for Apple TV, SceneGraph for Roku.",
+        "Check for unescaped characters in dynamic text.",
+        "Check for missing required root element. Roku should use `Rock:Page` as outer page content (Roku Pages).",
+        "Check for invalid image/media URLs.",
+        "Check device logs for parse errors.",
+        "Temporarily replace page content with a minimal valid page. If that works, reintroduce sections incrementally."
       ],
-      "title": "Recipe: Trace A Page GUID",
-      "when": "Follow the guide section for Recipe: Trace A Page GUID."
+      "title": "Page Is Blank",
+      "when": "Page Is Blank"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-validate-remote-auth-in-data",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-roku-focus-does-not-move",
+      "id": "roku-focus-does-not-move",
+      "inspect": [
+        "Group",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs"
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does the page have `Rock:Page initialFocus` pointing at an existing ID?",
+        "Are controls focusable?",
+        "Are horizontal/vertical controls wrapped in `Rock:FocusGroup`?",
+        "Is `layoutDirection` correct for the desired movement?",
+        "Are there nested groups causing focus traps?",
+        "Test with a real Roku remote."
       ],
-      "title": "Recipe: Validate Remote Auth In Data",
-      "when": "Follow the guide section for Recipe: Validate Remote Auth In Data."
+      "title": "Roku Focus Does Not Move",
+      "when": "Roku Focus Does Not Move"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-review-a-roku-page-for-focus",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-navigation-button-does-nothing",
+      "id": "navigation-button-does-nothing",
+      "inspect": [
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs"
+        "https://community.rockrms.com/developer/roku-docs/commands",
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the selectable control a Rock command-capable control such as `Rock:Button` or `Rock:ContentNode` on Roku?",
+        "Is `rockCommand` spelled correctly?",
+        "Is the command supported by that platform?",
+        "Is `rockPageGuid` a real page GUID?",
+        "If multiple commands are comma-separated, does either command fail alone?",
+        "Is the page target valid and accessible?",
+        "Is loading suppressed or hidden by a cached previous page?"
       ],
-      "title": "Recipe: Review A Roku Page For Focus",
-      "when": "Follow the guide section for Recipe: Review A Roku Page For Focus."
+      "title": "Navigation Button Does Nothing",
+      "when": "Navigation Button Does Nothing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-review-apple-tv-markup",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-media-does-not-play",
+      "id": "media-does-not-play",
+      "inspect": [
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/licensing",
-        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/one-up-template",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template"
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands",
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the URL a direct platform-playable media URL?",
+        "Is it a YouTube URL? If so, replace it; both Apple TV and Roku docs say YouTube playback is not supported (Apple TV Media Commands, Roku Media).",
+        "Is HTTPS required by the platform or deployment?",
+        "Does the media server support range requests and correct content type?",
+        "Are captions or alternate streams supported by the target platform?",
+        "Are command attributes complete?",
+        "Are interaction/watch-map fields malformed?"
       ],
-      "title": "Recipe: Review Apple TV Markup",
-      "when": "Follow the guide section for Recipe: Review Apple TV Markup."
+      "title": "Media Does Not Play",
+      "when": "Media Does Not Play"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Device",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-decide-cache-policy",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-remote-login-fails",
+      "id": "remote-login-fails",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Device",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
+        "https://community.rockrms.com/developer/roku-docs/commands/personal",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does the TV app have a login/authentication page configured?",
+        "Does the login command include valid login, timeout, and success page GUIDs?",
+        "Does the website authentication page exist and load publicly?",
+        "Is the Remote Authentication block on that page?",
+        "Does the block point to the correct TV app site?",
+        "Is the code expired?",
+        "Does `RemoteAuthenticationSession` show a session for the device unique identifier and code?",
+        "Does `AuthorizedPersonAliasId` get populated after the user submits the code?"
       ],
-      "title": "Recipe: Decide Cache Policy",
-      "when": "Follow the guide section for Recipe: Decide Cache Policy."
+      "title": "Remote Login Fails",
+      "when": "Remote Login Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-analytics-missing",
+      "id": "analytics-missing",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
+      ],
+      "start_with": [
+        "Is page-view tracking enabled on the app?",
+        "Is retention set long enough?",
+        "Does navigation command suppress interactions?",
+        "Are media commands writing or appending to interactions?",
+        "Is the user anonymous or authenticated?",
+        "Are reports looking at the right interaction channel/component/entity?",
+        "Has cleanup removed old interactions?"
+      ],
+      "title": "Analytics Missing",
+      "when": "Analytics Missing"
     }
   ],
   "concept_id": "tv-apps",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:05+00:00",
+  "generated_at": "2026-07-30T02:08:13+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",

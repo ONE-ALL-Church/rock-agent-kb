@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Explain why a person did not get SMS
 
-Follow the guide section for Recipe: Explain why a person did not get SMS.
+Complete Explain why a person did not get SMS with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: Explain why a person did not get SMS.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. mobile phone exists
+2. SMS enabled
+3. opt-out state
+4. phone type
+5. cleaned number
+6. shared number
+7. recipient row
+8. status note
+9. From system phone number
+10. provider send log
+11. pipeline only if inbound/reply issue
 
 ## Do Not Assume
 
@@ -34,15 +42,15 @@ Follow the guide section for Recipe: Explain why a person did not get SMS.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/communication
-- https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
-- https://community.rockrms.com/recipes/138
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateDetailBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateListItemBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryGetRecipientsRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts

@@ -7,7 +7,7 @@ generated: true
 
 # Investigate Person Prayer History
 
-Follow the guide section for Investigate Person Prayer History.
+Complete Investigate Person Prayer History with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,22 @@ Follow the guide section for Investigate Person Prayer History.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Group`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Group`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Use person profile and aliases.
+2. Use reporting filter for Prayer Requests containing selected people where available (ContainsPeopleFilter.cs).
+3. Check manually entered name/email requests that may not link to the person.
+4. Check duplicate person records.
+5. Check group-scoped requests if relevant.
+6. Respect privacy and security policy before exposing history.
 
 ## Do Not Assume
 
@@ -35,14 +40,14 @@ Follow the guide section for Investigate Person Prayer History.
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/prayer
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
+- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
+- https://community.rockrms.com/recipes/338
 - https://community.rockrms.com/recipes/135
+- https://community.rockrms.com/recipes/121
+- https://community.rockrms.com/recipes/389
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailAddPersonResponseBag.cs

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Modernize Legacy Platform XAML
 
-Follow the guide section for Recipe: Modernize Legacy Platform XAML.
+The deprecation basis is the On Device Platform doc (On Device Platform).
 
 ## When To Use
 
@@ -16,17 +16,20 @@ Follow the guide section for Recipe: Modernize Legacy Platform XAML.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Device`
 
 ## Entities And Tables
 
-- `See guide`
+- `Device`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Search XAML for legacy Rock OnDevicePlatform usage.
+2. Confirm app is v6+ MAUI.
+3. Replace with MAUI built-in platform extension where appropriate.
+4. Verify CSS alternative if styling-only.
+5. Test iOS and Android.
+6. Deploy.
 
 ## Do Not Assume
 
@@ -34,15 +37,7 @@ Follow the guide section for Recipe: Modernize Legacy Platform XAML.
 
 ## Source Links
 
-- https://www.rockrms.com/mobilereleasenotes
-- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
-- https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
-- https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components
-- https://community.rockrms.com/developer/mobile-docs/styling/legacy/borders
-- https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
+- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
-- https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page

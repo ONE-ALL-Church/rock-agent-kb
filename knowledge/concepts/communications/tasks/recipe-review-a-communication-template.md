@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review a communication template
 
-Follow the guide section for Recipe: Review a communication template.
+Complete Review a communication template with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,22 @@ Follow the guide section for Recipe: Review a communication template.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. name
+2. category
+3. active
+4. starter
+5. version
+6. wizard support
+7. template security
+8. preview image
+9. from/reply/cc/bcc
+10. subject
+11. message
+12. SMS message
+13. push message/options
+14. attachments
+15. CSS inlining
+16. Lava fields
 
 ## Do Not Assume
 
@@ -34,15 +47,4 @@ Follow the guide section for Recipe: Review a communication template.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/communication
-- https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs
-- https://community.rockrms.com/recipes/138
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list

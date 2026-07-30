@@ -13,12 +13,17 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13714 words; expected at least 7000.",
+      "message": "Guide has 13758 words; expected at least 1200.",
       "passed": true
     },
     {
+      "id": "bounded_length",
+      "message": "Guide has 13758 words; expected no more than 9000.",
+      "passed": false
+    },
+    {
       "id": "min_sections",
-      "message": "Guide has 121 sections; expected at least 35.",
+      "message": "Guide has 121 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -27,28 +32,38 @@
       "passed": true
     },
     {
-      "id": "release_sources",
-      "message": "Guide should cite release notes.",
-      "passed": true
-    },
-    {
-      "id": "source_code",
-      "message": "Guide should cite source code.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
-      "message": "Guide has 7 task cards; expected at least 5.",
+      "message": "Guide has 7 task cards; expected at least 3.",
+      "passed": true
+    },
+    {
+      "id": "actionable_task_cards",
+      "message": "Task cards must contain concrete steps.",
       "passed": true
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 11 entity rows; expected at least 8.",
+      "message": "Guide has 11 entity rows; expected at least 3.",
       "passed": true
     },
     {
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
+      "passed": true
+    },
+    {
+      "id": "troubleshooting_structure",
+      "message": "Guide should include evidence-backed troubleshooting branches.",
+      "passed": true
+    },
+    {
+      "id": "release_sources",
+      "message": "Available release notes should be cited.",
+      "passed": true
+    },
+    {
+      "id": "source_code",
+      "message": "Available source code should be cited.",
       "passed": true
     },
     {
@@ -60,13 +75,24 @@
   "concept_id": "cms-websites",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-26T00:29:51+00:00",
+  "generated_at": "2026-07-30T02:08:02+00:00",
   "guide_line_count": 1583,
-  "guide_word_count": 13714,
+  "guide_word_count": 13758,
+  "metrics": {
+    "actionable_task_card_ratio": 1.0,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
+    "entity_count": 11,
+    "section_count": 121,
+    "source_count": 25,
+    "substantive_uncited_section_ratio": 0.0312,
+    "task_card_count": 7,
+    "word_count": 13758
+  },
   "private_draft_contribution_record_count": 0,
-  "score": 100,
+  "score": 91,
   "section_count": 121,
-  "source_count": 22,
-  "status": "pass",
+  "source_count": 25,
+  "status": "fail",
   "task_card_count": 7
 }

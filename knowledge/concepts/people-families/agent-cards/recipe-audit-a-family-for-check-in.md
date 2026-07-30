@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit A Family For Check-In
 
-Follow the guide section for Recipe: Audit A Family For Check-In.
+Source landmarks: Check-In RockU (Check-In), `FindFamilies.cs` (source), `FindRelationships.cs` (source).
 
 ## When To Use
 
@@ -16,17 +16,40 @@ Follow the guide section for Recipe: Audit A Family For Check-In.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Check-in Configuration`
+- `Family`
+- `Workflow`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `GroupType`
+- `Location`
+- `Schedule`
+- `Check-in Configuration`
+- `Family`
+- `Workflow`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Family group.
+2. Members and roles.
+3. Active statuses.
+4. Known relationships.
+5. `CanCheckin` role attributes.
+6. Check-in configuration template.
+7. Relationship settings.
+8. Security code settings.
+9. Family search type.
+10. Schedules and locations.
+11. Age/grade/gender restrictions.
+12. Group type check-in rule.
 
 ## Do Not Assume
 
@@ -36,13 +59,13 @@ Follow the guide section for Recipe: Audit A Family For Check-In.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
 - https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava/workflows
-- https://community.rockrms.com/lava/filters/person-filters
-- https://community.rockrms.com/rocku/individuals-in-rock
-- https://community.rockrms.com/lava/commands/entity-commands
+- https://community.rockrms.com/lava/filters/attribute-filters
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/rocku/individuals-in-rock/person-profile
+- https://community.rockrms.com/rocku/individuals-in-rock/family-attributes
+- https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager
+- https://community.rockrms.com/lava/filters/person-filters
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values

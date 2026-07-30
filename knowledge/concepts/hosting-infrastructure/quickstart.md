@@ -17,12 +17,12 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 ## Primary Tasks
 
-- [Recipe: Inventory Hosting](tasks/recipe-inventory-hosting.md): Follow the guide section for Recipe: Inventory Hosting.
-- [Recipe: Validate Azure Hosting](tasks/recipe-validate-azure-hosting.md): Follow the guide section for Recipe: Validate Azure Hosting.
-- [Recipe: Review SQL Performance](tasks/recipe-review-sql-performance.md): Follow the guide section for Recipe: Review SQL Performance.
-- [Recipe: Review Backup And Restore](tasks/recipe-review-backup-and-restore.md): Follow the guide section for Recipe: Review Backup And Restore.
-- [Recipe: Review Web Farm](tasks/recipe-review-web-farm.md): Follow the guide section for Recipe: Review Web Farm.
-- [Recipe: Public Launch Hosting Gate](tasks/recipe-public-launch-hosting-gate.md): Follow the guide section for Recipe: Public Launch Hosting Gate.
+- [Recipe: Inventory Hosting](tasks/recipe-inventory-hosting.md): Complete Inventory Hosting with evidence-backed checks and a verifiable outcome.
+- [Recipe: Validate Azure Hosting](tasks/recipe-validate-azure-hosting.md): Complete Validate Azure Hosting with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review SQL Performance](tasks/recipe-review-sql-performance.md): Cite release notes before recommending index changes Rock Core Release Notes.
+- [Recipe: Review Backup And Restore](tasks/recipe-review-backup-and-restore.md): Complete Review Backup And Restore with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review Web Farm](tasks/recipe-review-web-farm.md): Complete Review Web Farm with evidence-backed checks and a verifiable outcome.
+- [Recipe: Public Launch Hosting Gate](tasks/recipe-public-launch-hosting-gate.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

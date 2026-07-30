@@ -10,13 +10,13 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Answer “Who Has Access To This?”](tasks/recipe-answer-who-has-access-to-this.md) |  |  |
-| [Recipe: Answer “Why Was I Denied?”](tasks/recipe-answer-why-was-i-denied.md) |  |  |
-| [Recipe: Review A Permission Change Request](tasks/recipe-review-a-permission-change-request.md) |  |  |
+| [Recipe: Answer “Who Has Access To This?”](tasks/recipe-answer-who-has-access-to-this.md) | `Person` | `Person` |
+| [Recipe: Answer “Why Was I Denied?”](tasks/recipe-answer-why-was-i-denied.md) | `Group`, `GroupType`, `Page`, `Block` | `Group`, `GroupType`, `Page`, `Block` |
+| [Recipe: Review A Permission Change Request](tasks/recipe-review-a-permission-change-request.md) | `Workflow` | `Workflow` |
 | [Recipe: Review A Custom Agent Tool](tasks/recipe-review-a-custom-agent-tool.md) |  |  |
-| [Recipe: Review A Public Route](tasks/recipe-review-a-public-route.md) |  |  |
-| [Recipe: Review A Security Role](tasks/recipe-review-a-security-role.md) |  |  |
-| [Recipe: Review After Upgrade](tasks/recipe-review-after-upgrade.md) |  |  |
+| [Recipe: Review A Public Route](tasks/recipe-review-a-public-route.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Review A Security Role](tasks/recipe-review-a-security-role.md) | `Person`, `Workflow` | `Person`, `Workflow` |
+| [Recipe: Review After Upgrade](tasks/recipe-review-after-upgrade.md) | `Workflow` | `Workflow` |
 
 ## Entities
 

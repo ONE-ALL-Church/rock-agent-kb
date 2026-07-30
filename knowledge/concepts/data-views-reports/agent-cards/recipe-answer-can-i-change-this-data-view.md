@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer "Can I Change This Data View?"
 
-Follow the guide section for Recipe: Answer "Can I Change This Data View?".
+Complete Answer "Can I Change This Data View?" with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,33 +16,48 @@ Follow the guide section for Recipe: Answer "Can I Change This Data View?".
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Group`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Group`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Find Data View.
+2. Inspect usage panel.
+3. Query dependent Reports.
+4. Query dependent Data View filters.
+5. Query blocks/pages.
+6. Query group syncs/workflows if relevant.
+7. Check last run/count.
+8. Identify owner.
+9. Recommend edit, copy, or deprecate.
+10. Do not change until owner/risk is clear.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not change until owner/risk is clear.
 
 ## Source Links
 
 - https://community.rockrms.com/rocku/reporting
-- https://community.rockrms.com/documentation/bookcontent/6/331
-- https://community.rockrms.com/lava/commands/sql-commands
-- https://community.rockrms.com/recipes/397
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
-- https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
 - https://community.rockrms.com/recipes/264
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
+- https://community.rockrms.com/documentation/bookcontent/6/331
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
+- https://community.rockrms.com/recipes/397
+- https://community.rockrms.com/rocku/business-intelligence-bi/bi-template
+- https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report
+- https://community.rockrms.com/recipes/262
+- https://community.rockrms.com/recipes/240
 - https://community.rockrms.com/recipes/349
-- https://community.rockrms.com/ModelMap
-- https://www.triumph.tech/resources/what-is-maxdop
-- https://community.rockrms.com/recipes/391
+- https://community.rockrms.com/recipes/109

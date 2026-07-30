@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 30,
+  "approved_claim_count": 30,
   "approved_claim_dependencies": [
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock metrics are a useful capture layer for dashboard history because they can run off-hours, store repeatable values, and support later visualization without repeatedly recalculating expensive operational queries.",
-      "claim_hash": "b4ac881753f8ba11b0888b1f08cf3ca7b8b4d8dc02a3dbedbf937d9148239870",
+      "claim_hash": "133c05317260a943b0a34dc755b3bb3731fa5d5134eca6b3e0d55ae0934d26e3",
       "claim_id": "claim:00ccd91253b6bea7c870",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -36,6 +38,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "15ad5565e48b364241823761f3c9be319d1f03a4c46e4a8bffecfdfb9783a209",
       "source_record_ids": [
         "rock_community_hubs:2dfd53ea01c3ef3f"
@@ -49,12 +52,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "For dashboard speed, expensive journey analytics can be calculated into a persisted dataset on a schedule rather than recalculating all historical engagement data on each page load.",
-      "claim_hash": "202ad783e181d408c46e938a607c2f913ecdd652ea29916720fe9bd82e390e55",
+      "claim_hash": "b3a0523241223753db240dae8f31cc81c1d8323a44f854f91f6976112248d842",
       "claim_id": "claim:01d746f9a6bc23a6d503",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -88,6 +92,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
       "source_record_ids": [
         "rock_community_hubs:95396b5eafd3b56c"
@@ -101,369 +106,15 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 185: Special Edition Lava Class Panel is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, reporting, analytics, and measurement, ministry process design. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "113574113a15e8360c0dfc6764afa9bc94b223bc8c03fa81358318a50aef5dad",
-      "claim_id": "claim:03dec94f32df7bf10631",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "781b4298b67fa730ed54eaab97864c5a719e6c6a75f58b7f7494bbac3a1ca5d7",
-      "source_record_ids": [
-        "rock_podcast_rss:16d1e310fe96ed47"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 185: Special Edition Lava Class Panel",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub walkthrough describes a Rock-based journey engagement dashboard that combines content-channel journey definitions, group/member participation, group member attendance, campus filters, persisted datasets, and Lava chart shortcodes to help ministry teams evaluate engagement and improve content strategy.",
-      "claim_hash": "185a2092fd6f3d4c89cd5a3c2e2e40656f0fa4e2f94a7773e60d22647a36fd63",
-      "claim_id": "claim:03fa1cffb8ed10d2485f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "External BI tools become more useful when questions require complex modeling, multiple source systems, high-level KPI reporting, or visualization patterns that are difficult to keep performant inside Rock alone.",
-      "claim_hash": "8c6994d426e1ff687925147dbf050c500c60ed4654389113674667c1fc6dbf21",
-      "claim_id": "claim:04443e1a0bf6e4d21a98",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "56064e7fc39c7b2287fa126b9c7c68a7e67033c112a057211d39b98e704a2090",
-      "source_record_ids": [
-        "rock_community_hubs:fb5f22127915c464"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz",
-          "timestamp": "04:15",
-          "timestamp_seconds": 255.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying reporting, analytics, and measurement ideas from Episode 185: Special Edition Lava Class Panel, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "aea6adc25f0712996d5861bb678cffc5b4d30d4a45c5c3d07d5b066b6d49888f",
-      "claim_id": "claim:07298f1c99cb51a732e5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "781b4298b67fa730ed54eaab97864c5a719e6c6a75f58b7f7494bbac3a1ca5d7",
-      "source_record_ids": [
-        "rock_podcast_rss:16d1e310fe96ed47"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel",
-          "timestamp": "06:32",
-          "timestamp_seconds": 392.62,
-          "title": "Episode 185: Special Edition Lava Class Panel",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, SQL Command should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "bcbd480f24fcc86c3e1b7a3fbc2a66b69f9ca1e7f8a8e7756590967e0493ddbd",
-      "claim_id": "claim:09e97d0ee734005c61a6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e504b14444845d7d9537e070aa5fac2b7d77b66e48be812ea4050ba47e856ccd",
-      "source_record_ids": [
-        "rock_rocku:fabd5e16d3ed5b89"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/sql-command",
-          "timestamp": "01:50",
-          "timestamp_seconds": 110.34,
-          "title": "SQL Command",
-          "url": "https://community.rockrms.com/rocku/lava/sql-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub panel gives a practical decision frame for Rock-native reporting versus external BI tools. The panel favors starting with Rock metrics, Data Views, Lava, Dynamic Data, and embedded pages for operational or person-actionable workflows, while using BI tools for complex joins, third-party sources, leadership KPIs, and broader analytical exploration.",
-      "claim_hash": "4c15c80d940b2e96a340e4df2985071dc904d89cc6bed8b2ae54e892a68c42af",
-      "claim_id": "claim:0a757095cbd919912a83",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "56064e7fc39c7b2287fa126b9c7c68a7e67033c112a057211d39b98e704a2090",
-      "source_record_ids": [
-        "rock_community_hubs:fb5f22127915c464"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, If Statements should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "71f2d00c62c8b7e77399b89d0e141ac4f057f315136e1c5f09b28e60d3c22d30",
-      "claim_id": "claim:0bba90e7ae799e9f931a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f4b242fb8d7a1b9cef76f578610811a2765e7310d65ca3609660a346fd406b3",
-      "source_record_ids": [
-        "rock_rocku:24e691e0d66ad580"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/if-statements",
-          "timestamp": "03:22",
-          "timestamp_seconds": 202.64,
-          "title": "If Statements",
-          "url": "https://community.rockrms.com/rocku/lava/if-statements"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The proposed Connected Services onboarding for Rock IQ is opt-in and is designed around model selection, an existing Rock Shop payment method and configurable monthly spending caps. The summit also states privacy expectations for model gateways; administrators should verify the final service terms, selected provider and production data-handling policy before enabling it.",
-      "claim_hash": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
-      "claim_id": "claim:0ed16cad9954cfbf26ed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1989s",
-          "timestamp": "33:09",
-          "timestamp_seconds": 1989.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Lava Shortcodes is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "768d4925a7aac90eb279841cf5c456c183760ed674e6e8af2aab44ac49a6f157",
-      "claim_id": "claim:1d09ab3e4da192196030",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a7ea438e6d813a98cbe470196a830449ce7f22cf0609ee9228796ab0b3f77",
-      "source_record_ids": [
-        "rock_rocku:c23feabd7524d3f9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Lava Shortcodes",
-          "url": "https://community.rockrms.com/rocku/lava/lava-shortcodes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "20793f8458ac752b413e74f16e252bac80a1027171d701f356e3c929576a1334",
-      "claim_id": "claim:1e8a4c84ec5bc7717590",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8844cbc5e2abaed3eaeee0bde62813efadbffd7b6d59b6e748f4f73df75cd4a8",
-      "source_record_ids": [
-        "rock_rocku:ef20cb439da472d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates",
-          "timestamp": "00:52",
-          "timestamp_seconds": 52.0,
-          "title": "Communication Templates",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Communication Templates [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "d8003625c2fe80604b537a511b6ef5d235820e9f52fb0fc5358219b366f9718a",
-      "claim_id": "claim:247c7587ce58a8bf28b9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0db6534ce6b8c017c4b2b0e356923ea6eee66d3058459d280f93b3539ee264a8",
-      "source_record_ids": [
-        "rock_rocku:d7c5d81821110702"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Communication Templates [Legacy]",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
-      "claim_hash": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
+      "claim_hash": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
       "claim_id": "claim:2d534c63c723204ad8c9",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -474,8 +125,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
       "source_record_ids": [
         "rock_mobile_docs:article:456"
@@ -486,46 +138,13 @@
           "title": "Content",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock-native tools are a strong first option for simpler dashboards, operational reports, and person-actionable workflows because they keep users close to the ministry record and workflow context.",
-      "claim_hash": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
-      "claim_id": "claim:31a58d58dbab5739b4f5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "56064e7fc39c7b2287fa126b9c7c68a7e67033c112a057211d39b98e704a2090",
-      "source_record_ids": [
-        "rock_community_hubs:fb5f22127915c464"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz",
-          "timestamp": "03:05",
-          "timestamp_seconds": 185.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_hash": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
       "claim_id": "claim:32f0173b23a7d2c356c0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -543,6 +162,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -556,47 +178,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "Rock uses the Rock IQ name for its AI-related tools and presents the agent framework as an extensible core capability rather than a separate paid plugin. Treat availability and packaging as release-sensitive until confirmed in current release notes and a live Rock instance.",
-      "claim_hash": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
-      "claim_id": "claim:3840e502df599a6bf7a2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=451s",
-          "timestamp": "07:31",
-          "timestamp_seconds": 451.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`.",
-      "claim_hash": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
+      "claim_hash": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
       "claim_id": "claim:3b4b8ec335aa0a17968c",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -611,6 +199,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e187026ceb1839351d74bdad01833d2159a9ebe533bc16a49cf0308e46ff0df0",
       "source_record_ids": [
         "rock_mobile_docs:article:422"
@@ -621,80 +210,13 @@
           "title": "Lava",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Publishing a ministry dashboard can change behavior when it exposes underused content or completion gaps; teams can then adjust marketing, launch timing, content length, and follow-up strategy based on observed engagement.",
-      "claim_hash": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
-      "claim_id": "claim:3c7dd4483413d17faf8a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "20:26",
-          "timestamp_seconds": 1226.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Communication Templates RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "4b2441e58f703c12d6d407dc50a804db8c8a55c60c9c862c24d9d85a8dbb04f0",
-      "claim_id": "claim:3c80fa4e2099bb5416de",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8844cbc5e2abaed3eaeee0bde62813efadbffd7b6d59b6e748f4f73df75cd4a8",
-      "source_record_ids": [
-        "rock_rocku:ef20cb439da472d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Communication Templates",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default.",
-      "claim_hash": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+      "claim_hash": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
       "claim_id": "claim:410bf6750e90b7193262",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -731,6 +253,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a0d408d23ccf9b097684d2479ac6cf14bc5d2e76d37db21b10d1c6c2edf630c6",
       "source_record_ids": [
         "rock_lava_docs:53ad1133e1cb2d0a"
@@ -741,146 +264,13 @@
           "title": "Creating APIs Using Lava",
           "url": "https://community.rockrms.com/lava/lava-api"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Communication Templates [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "4956479701e289186653ea862a78aaafa9a94aa5a5525dcc5473e3bd28f7d588",
-      "claim_id": "claim:4147e468b25ef22aa1ba",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0db6534ce6b8c017c4b2b0e356923ea6eee66d3058459d280f93b3539ee264a8",
-      "source_record_ids": [
-        "rock_rocku:d7c5d81821110702"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy",
-          "timestamp": "01:42",
-          "timestamp_seconds": 102.38,
-          "title": "Communication Templates [Legacy]",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Journey reporting may need to join content-channel items, generated groups, group members, notes/comments, and attendance-style completion events because the ministry experience spans both content and group participation models.",
-      "claim_hash": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
-      "claim_id": "claim:42ce1ba2afef374bebeb",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "09:23",
-          "timestamp_seconds": 563.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Communication guidance should include Rock-version caveats because v17 and v18-era features may differ from older communication workflows.",
-      "claim_hash": "8d5d591f42c0b57ec9566fb27bd08dda97a7f45fdd961718445dd639fedbc208",
-      "claim_id": "claim:435af2eba1634b82612e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59a57d27ff01ef955508c89a6d9f89c909be203e8bc483b47ea41e0fe61933e4",
-      "source_record_ids": [
-        "rock_community_hubs:8c731a2892e1a691"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7",
-          "timestamp": "01:18",
-          "timestamp_seconds": 78.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 185: Special Edition Lava Class Panel episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "ed84693cadcddd3331341bc4ff385390ecad320c6d7caef61e5fa7bb281e8257",
-      "claim_id": "claim:47b08e30f6cae81c8691",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "781b4298b67fa730ed54eaab97864c5a719e6c6a75f58b7f7494bbac3a1ca5d7",
-      "source_record_ids": [
-        "rock_podcast_rss:16d1e310fe96ed47"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Episode 185: Special Edition Lava Class Panel",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging.",
-      "claim_hash": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
+      "claim_hash": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
       "claim_id": "claim:4b7b8d0b0379ceb7587f",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -897,6 +287,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -910,12 +301,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up.",
-      "claim_hash": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
+      "claim_hash": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
       "claim_id": "claim:4bc0aee305fa6b1bd524",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -954,6 +346,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -967,12 +360,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In a Lava Entity command, parameter values such as `where` must be wrapped in single quotes; when `id` is also supplied, Rock ignores `where`, `dataview`, and `dynamicparameters`.",
-      "claim_hash": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
+      "claim_hash": "12d02a703e46f4ee4519f071c27cadb37debb1236c321d0e18c0ba3f1ff16041",
       "claim_id": "claim:4bf4025847cf0c78adf0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -987,6 +381,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e680d5207163a987cf992909c65af3ea8a469c48627ff6369a75216bb7bd86a2",
       "source_record_ids": [
         "rock_lava_docs:3d7f0942c946fafb"
@@ -997,12 +392,13 @@
           "title": "Entity",
           "url": "https://community.rockrms.com/lava/commands/entity-commands"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_hash": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
       "claim_id": "claim:4c4098a035a5ca256bfe",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1020,6 +416,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -1033,12 +432,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged.",
-      "claim_hash": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
+      "claim_hash": "e425f39923af17a63128e7eb2b782d7ca7f5acb8c4e44d10dc76e5833e7a83c9",
       "claim_id": "claim:4c6c24811261384a0eb4",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1073,6 +473,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ad16ca8e8af08df0bbbd514db6f7d7b5f17aaa9613bd67f343e8c0c0d6b1612f",
       "source_record_ids": [
         "rock_rocku:9ae5804fa3a0ac7d"
@@ -1086,41 +487,13 @@
           "title": "Advanced HTML Block",
           "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Statement is approved as a public-safe RockU training distillation for source context. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "16da9da08f614c0e36d395816ba95fc25b68c71fea22a9472d0252efd3fab871",
-      "claim_id": "claim:5115289c5053e77e072a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "46dbd8e3a5ea0294da7a78dea309f7c9435733c1ba345583defe3706784eed83",
-      "source_record_ids": [
-        "rock_rocku:aa176eaf9f26180b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "For Statement",
-          "url": "https://community.rockrms.com/rocku/lava/for-statement"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries.",
-      "claim_hash": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
+      "claim_hash": "1b84e619d7a5d4396f771eb550ed164975f0226cd3155574af633b67ea3934f4",
       "claim_id": "claim:524be15ef7a48290a72a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1135,6 +508,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -1148,12 +524,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML.",
-      "claim_hash": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
+      "claim_hash": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
       "claim_id": "claim:563e520ec15928e19628",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -1168,6 +545,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1b1ae6826ce4d38969877ecc638a53231450132279d919c16acd8c11490c9091",
       "source_record_ids": [
         "rock_developer:6449dcd93497b4cd"
@@ -1178,42 +556,13 @@
           "title": "Roku Pages",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "SQL Command is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "5a8ec16d43128b94149cba2dc0611c072796f9965e02eeb1dcb4caa8b7e0bc3b",
-      "claim_id": "claim:57aac8a437e63c44a713",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e504b14444845d7d9537e070aa5fac2b7d77b66e48be812ea4050ba47e856ccd",
-      "source_record_ids": [
-        "rock_rocku:fabd5e16d3ed5b89"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "SQL Command",
-          "url": "https://community.rockrms.com/rocku/lava/sql-command"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers.",
-      "claim_hash": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
+      "claim_hash": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
       "claim_id": "claim:57e32b4d554a759231a1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1230,6 +579,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -1243,79 +593,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Communication Templates [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
-      "claim_id": "claim:5998f57c6b527aee9750",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0db6534ce6b8c017c4b2b0e356923ea6eee66d3058459d280f93b3539ee264a8",
-      "source_record_ids": [
-        "rock_rocku:d7c5d81821110702"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy",
-          "timestamp": "02:03",
-          "timestamp_seconds": 123.82,
-          "title": "Communication Templates [Legacy]",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Lava Shortcodes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "db16410f6d353ddb8b916b35cb7eadb2cb26d4d1b19427cff31d48076bc70ad3",
-      "claim_id": "claim:5b0a62c44ba0db579aed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a7ea438e6d813a98cbe470196a830449ce7f22cf0609ee9228796ab0b3f77",
-      "source_record_ids": [
-        "rock_rocku:c23feabd7524d3f9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/lava-shortcodes",
-          "timestamp": "02:37",
-          "timestamp_seconds": 157.0,
-          "title": "Lava Shortcodes",
-          "url": "https://community.rockrms.com/rocku/lava/lava-shortcodes"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Apple TV pages in Rock must output valid TVML and can use Rock-provided Lava merge fields such as CurrentPerson, Context, Campuses, SiteStyles, and CurrentPage.",
-      "claim_hash": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
+      "claim_hash": "056ac2b913d91d378fb85147ef9722fda1fa94d4b22ac4cac58e2d8a835e64f8",
       "claim_id": "claim:5bd2b6b4cac279be5e13",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -1330,6 +614,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "7ab05312dace90846212edf514275a3af6c3b798841a05a35bcb6f2a590c7592",
       "source_record_ids": [
         "rock_developer:67f84804d07244b3"
@@ -1340,14 +625,15 @@
           "title": "Apple TV Pages",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format.",
-      "claim_hash": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
+      "claim_hash": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
       "claim_id": "claim:5d109547ddfc0fd7b9c2",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -1357,8 +643,11 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "7.0"
+      ],
       "safe_evidence_hash": "b98d79c97451af6fa6cbc710a11de267c27454b0c59855405cc3b00b40bafc51",
       "source_record_ids": [
         "rock_lava_docs:944d44ff4810c8f9"
@@ -1369,14 +658,15 @@
           "title": "Workflow Activate",
           "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "`CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string.",
-      "claim_hash": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
+      "claim_hash": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
       "claim_id": "claim:5d8bddb267bffde3cfe7",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -1386,8 +676,11 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "8.0"
+      ],
       "safe_evidence_hash": "0fa186449d8144e8b3379b1cddee07f6e1235328729b27430eb84b905a6c8f1b",
       "source_record_ids": [
         "rock_lava_docs:f7086ab6ff215e14"
@@ -1398,12 +691,13 @@
           "title": "Other",
           "url": "https://community.rockrms.com/lava/filters/other-filters"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data.",
-      "claim_hash": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
+      "claim_hash": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
       "claim_id": "claim:60c2bcd25e1cce4efef4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1420,6 +714,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -1433,203 +728,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Entity Commands is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "19a3d8f95bbf9a066142d172f08cba3cfe1662dde1890914a9d721794931cd4b",
-      "claim_id": "claim:6579604cba2ab712b182",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "bfbc5b7db2014cb2380c1a557feffe127f3d0081737aac6d90190fff3b62153c",
-      "source_record_ids": [
-        "rock_rocku:2619e681b7108e4e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Entity Commands",
-          "url": "https://community.rockrms.com/rocku/lava/entity-commands"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Lava Shortcodes RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "2d4a46c1bdf7cf028db22fdc6c19056fa1ccee501d065484e3f4c6d2cf831a15",
-      "claim_id": "claim:66b59daa5dab8edd46ff",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a7ea438e6d813a98cbe470196a830449ce7f22cf0609ee9228796ab0b3f77",
-      "source_record_ids": [
-        "rock_rocku:c23feabd7524d3f9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/lava-shortcodes",
-          "timestamp": "01:56",
-          "timestamp_seconds": 116.0,
-          "title": "Lava Shortcodes",
-          "url": "https://community.rockrms.com/rocku/lava/lava-shortcodes"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "95dfb3548f12eaa84df48aca4672b88461dd45e2424aa80fc4f1c0f7a50eea4b",
-      "claim_id": "claim:6a8231cbe1fe6883db37",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "event-registration",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
-      "source_record_ids": [
-        "rock_rocku:7b16cf34fbbaa021"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
-          "timestamp": "02:34",
-          "timestamp_seconds": 154.04,
-          "title": "Registration Templates",
-          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For AI, automation, and responsible tool use, BI Template should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "9b3f7e422b2d7cfef53625b56f4089a7fc8b69bffb377b9d4ee20322be5a2cb0",
-      "claim_id": "claim:6c40bb89e82cf23d7c6d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e0274fd61bab7b32d1ca84c3dccbde44a6fb1f4f4953483c10c5b441f3b7b2d1",
-      "source_record_ids": [
-        "rock_rocku:2617ec7030df84be"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
-          "timestamp": "03:45",
-          "timestamp_seconds": 225.67999999999998,
-          "title": "BI Template",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Communication Templates is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "42ee5579ea034a942872f08255ba01b925516c788f8e24fc7510598f3d69dae9",
-      "claim_id": "claim:6f4ef4f5e2aa084d67f5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8844cbc5e2abaed3eaeee0bde62813efadbffd7b6d59b6e748f4f73df75cd4a8",
-      "source_record_ids": [
-        "rock_rocku:ef20cb439da472d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Communication Templates",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "What is Lava is approved as a public-safe RockU training distillation for Rock operations and administration, reporting, analytics, and measurement, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "4d306c02231db1db5be41ef3efffcaac2661bba23884a238b6ef1b8bbeb65ed0",
-      "claim_id": "claim:716957e28f4febca02ed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f858457d53abeca7c12f22773bebb8b0ceead2b53d9f3a3db458e80f74b35b7f",
-      "source_record_ids": [
-        "rock_rocku:41c6fec4f4a3cb7b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "What is Lava",
-          "url": "https://community.rockrms.com/rocku/lava/what-is-lava"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL.",
-      "claim_hash": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
+      "claim_hash": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
       "claim_id": "claim:725a3342f3dc657cc546",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1645,6 +750,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e50235d21ec41e4e7c65adc2f514ddfd4ef3beee7d58afd382b5edb17f91ab06",
       "source_record_ids": [
         "rock_youtube:5702760f57d03696"
@@ -1658,181 +764,15 @@
           "title": "RockIQ Rapid Fire Q&A from the AI Summit | Ep 218",
           "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Historical Rock data should be used selectively: event, finance, and reliable attendance history are often safer than demographic or group-member history, which may reflect current-state changes rather than past reality.",
-      "claim_hash": "cc4586e8790dee810f86466f1d53ffe13c0ded25c826f4d2e9e0747a3dd6c106",
-      "claim_id": "claim:73ec340279cac1218fdf",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "15ad5565e48b364241823761f3c9be319d1f03a4c46e4a8bffecfdfb9783a209",
-      "source_record_ids": [
-        "rock_community_hubs:2dfd53ea01c3ef3f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp",
-          "timestamp": "36:39",
-          "timestamp_seconds": 2199.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Entity Commands RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "7efc094151583888c9db25936812c60919860950dfbf79016071cbe33f52056c",
-      "claim_id": "claim:76e9f9f5d841f006cbb5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "bfbc5b7db2014cb2380c1a557feffe127f3d0081737aac6d90190fff3b62153c",
-      "source_record_ids": [
-        "rock_rocku:2619e681b7108e4e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/entity-commands",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Entity Commands",
-          "url": "https://community.rockrms.com/rocku/lava/entity-commands"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, What is Lava should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "3f8ee733ea8b9527c6febab7e8e3b467648d1420ee5bddaa196d34a3dbfc3fe9",
-      "claim_id": "claim:7a169605c60795748120",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f858457d53abeca7c12f22773bebb8b0ceead2b53d9f3a3db458e80f74b35b7f",
-      "source_record_ids": [
-        "rock_rocku:41c6fec4f4a3cb7b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/what-is-lava",
-          "timestamp": "01:33",
-          "timestamp_seconds": 93.96,
-          "title": "What is Lava",
-          "url": "https://community.rockrms.com/rocku/lava/what-is-lava"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, SQL Command should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "eef639b30373ff76e42df525181237f8bf88a29c631741a919e7880c49586ffd",
-      "claim_id": "claim:7a2e62ecd35effb86f0a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e504b14444845d7d9537e070aa5fac2b7d77b66e48be812ea4050ba47e856ccd",
-      "source_record_ids": [
-        "rock_rocku:fabd5e16d3ed5b89"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/sql-command",
-          "timestamp": "00:57",
-          "timestamp_seconds": 57.94,
-          "title": "SQL Command",
-          "url": "https://community.rockrms.com/rocku/lava/sql-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Registration Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a64534afdad83b7344e0555ad5b700b60856c617cc75652d12b9c47aec0a59e6",
-      "claim_id": "claim:7b89678f588fe3f79a50",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "event-registration",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
-      "source_record_ids": [
-        "rock_rocku:7b16cf34fbbaa021"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
-          "timestamp": "05:51",
-          "timestamp_seconds": 351.54,
-          "title": "Registration Templates",
-          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
-      "claim_hash": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
+      "claim_hash": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
       "claim_id": "claim:7bca2f8db03f8f468586",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -1843,8 +783,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
       "source_record_ids": [
         "rock_lava_docs:30be60a23d3d0317"
@@ -1855,48 +796,13 @@
           "title": "Getting Started",
           "url": "https://community.rockrms.com/lava/commands"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Reusable communication sections and global style controls can reduce template drift when churches standardize common layouts, buttons, text styles, columns, and Lava/code blocks.",
-      "claim_hash": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-      "claim_id": "claim:7d612089a965482f7eed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "51:40",
-          "timestamp_seconds": 3100.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When reviewing an Advanced HTML block, inspect page/block security, enabled Lava commands, query-string or context inputs, and whether the output exposes sensitive entity data.",
-      "claim_hash": "e8c33478a8d9072ace0904fba38dbd0649eaad537463cfafc551e2a7696f0d8a",
+      "claim_hash": "b2235fe89f96ace0673eb54cc0ca2b093d9c4cfb86da558d1ba8d4afb78975ed",
       "claim_id": "claim:7e6e3979faad614f0b42",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -1932,6 +838,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ad16ca8e8af08df0bbbd514db6f7d7b5f17aaa9613bd67f343e8c0c0d6b1612f",
       "source_record_ids": [
         "rock_rocku:9ae5804fa3a0ac7d"
@@ -1945,107 +852,13 @@
           "title": "Advanced HTML Block",
           "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Web Request Command is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "3e2192d125208272623c3573b5c297d9e1fb58df72f079888808a3a2404443d0",
-      "claim_id": "claim:832d63507e071b02a6f5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "01f78d93a88a68796effbf92d4084baef1bd6cf87c0ff02cd2e808e3adc8c9b7",
-      "source_record_ids": [
-        "rock_rocku:9d4d183cc0dcbc29"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Web Request Command",
-          "url": "https://community.rockrms.com/rocku/lava/web-request-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Dashboards should answer specific, decision-oriented questions; vague requests such as broad small-group performance should be split into narrower measures that a ministry leader can act on.",
-      "claim_hash": "67f1a1c9f14836c09553b10a7bd2bc79fa7ac8d367f2e4fe1f97e547ab2efaba",
-      "claim_id": "claim:866f3acd2b3ab20037e3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "15ad5565e48b364241823761f3c9be319d1f03a4c46e4a8bffecfdfb9783a209",
-      "source_record_ids": [
-        "rock_community_hubs:2dfd53ea01c3ef3f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp",
-          "timestamp": "22:07",
-          "timestamp_seconds": 1327.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The What is Lava RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "8d75965d2d59c662deb67be2f8fdbb24ee32c16cc2dc937ef1920d40206a0be2",
-      "claim_id": "claim:86e4fb4a06df61821a6f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f858457d53abeca7c12f22773bebb8b0ceead2b53d9f3a3db458e80f74b35b7f",
-      "source_record_ids": [
-        "rock_rocku:41c6fec4f4a3cb7b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/what-is-lava",
-          "timestamp": "01:38",
-          "timestamp_seconds": 98.82,
-          "title": "What is Lava",
-          "url": "https://community.rockrms.com/rocku/lava/what-is-lava"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities.",
-      "claim_hash": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
+      "claim_hash": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
       "claim_id": "claim:882208fdf2bb82703931",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2082,6 +895,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -2095,108 +909,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Communication Templates [Legacy] is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. Because this training is labeled legacy, confirm whether a newer Rock surface has replaced it before recommending implementation steps.",
-      "claim_hash": "1ffbd68592b69ef25c526b843f03da4dc4ac3bef647f0484554553e1334d9a34",
-      "claim_id": "claim:89f1d7d856994b6aabf2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0db6534ce6b8c017c4b2b0e356923ea6eee66d3058459d280f93b3539ee264a8",
-      "source_record_ids": [
-        "rock_rocku:d7c5d81821110702"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Communication Templates [Legacy]",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates-legacy"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Web Request Command RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "4edced23b17be227cb4df1c14d04c1d6166ab6ed5ca3e617c87873ab3f7df384",
-      "claim_id": "claim:8b10d6d4d38e3acf82b9",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "01f78d93a88a68796effbf92d4084baef1bd6cf87c0ff02cd2e808e3adc8c9b7",
-      "source_record_ids": [
-        "rock_rocku:9d4d183cc0dcbc29"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/web-request-command",
-          "timestamp": "00:53",
-          "timestamp_seconds": 53.0,
-          "title": "Web Request Command",
-          "url": "https://community.rockrms.com/rocku/lava/web-request-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Execute Command RockU lesson provides training context for risk, governance, permissions, and policy review; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "49f00bea438c7cf11397067006332b625d165c97a5a903c5a86d9bc3c943ba1a",
-      "claim_id": "claim:90b6ebc5fd3c96525e0b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4660ef45122208816ae943199bebcbafed942f7d2ae476216ec09274c33bddaf",
-      "source_record_ids": [
-        "rock_rocku:d49b5955fa6bb4c9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/execute-command",
-          "timestamp": "02:22",
-          "timestamp_seconds": 142.28,
-          "title": "Execute Command",
-          "url": "https://community.rockrms.com/rocku/lava/execute-command"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development.",
-      "claim_hash": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
+      "claim_hash": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
       "claim_id": "claim:940f299b268510da61d8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -2211,6 +930,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d95944d125c6f3535b7b847ce368de6ecbd40157c9f3c12f60a65ce92a7f930a",
       "source_record_ids": [
         "rock_developer:802567c280193bd0"
@@ -2221,367 +941,13 @@
           "title": "Helix Overview",
           "url": "https://community.rockrms.com/developer/helix/overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, Filters should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "c7456ba6b41f0579607f9b5baf8b04ff7a91bce0539007263d19cac771e16f8e",
-      "claim_id": "claim:9890bf9e4fd4a7ac1104",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "002c568c07cdcebf069bc430da62601664939c34f7f06ad75242a1f7f273dbd7",
-      "source_record_ids": [
-        "rock_rocku:7d4d28b836fd1ddb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/filters",
-          "timestamp": "01:26",
-          "timestamp_seconds": 86.32000000000001,
-          "title": "Filters",
-          "url": "https://community.rockrms.com/rocku/lava/filters"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This February 2025 Media Watch session is a high-value public-safe source for Rock LMS and the new communications wizard direction. It explains LMS programs, courses, classes, learning plans, participants, on-demand versus academic-calendar modes, activity types, facilitator grading, availability rules, and workflow hooks, then demonstrates communications beta features such as topics, reachable-audience counts, starter templates, global styles, reusable sections, drag-and-drop blocks, image/column controls, and Lava/code blocks.",
-      "claim_hash": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-      "claim_id": "claim:9b6fa66cbcb39e42d811",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "For Rock dashboards, shape complex reporting data in SQL or a prepared query layer and use Lava primarily for display so later maintenance does not require tracing business logic across both SQL and presentation code.",
-      "claim_hash": "ae467148b179945dca067d57519528895f6e9c1cec4e781cef09f7ccea62ee44",
-      "claim_id": "claim:9e9fb9e3e4c471e79399",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "15ad5565e48b364241823761f3c9be319d1f03a4c46e4a8bffecfdfb9783a209",
-      "source_record_ids": [
-        "rock_community_hubs:2dfd53ea01c3ef3f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp",
-          "timestamp": "42:57",
-          "timestamp_seconds": 2577.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Filters is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, AI, automation, and responsible tool use. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "ad836a3ad142bfe56c1c43b71972f1bc73024c90b6bad6f7cc6c07c322fdfbd7",
-      "claim_id": "claim:a15743b4632f9ac56a1c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "002c568c07cdcebf069bc430da62601664939c34f7f06ad75242a1f7f273dbd7",
-      "source_record_ids": [
-        "rock_rocku:7d4d28b836fd1ddb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Filters",
-          "url": "https://community.rockrms.com/rocku/lava/filters"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The BI Template RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "0248efa8cf23f77f8157e791f5f181f3b238ce7e2f1e5a118f16d6bd809e3a85",
-      "claim_id": "claim:a48af098d8780b79a13d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e0274fd61bab7b32d1ca84c3dccbde44a6fb1f4f4953483c10c5b441f3b7b2d1",
-      "source_record_ids": [
-        "rock_rocku:2617ec7030df84be"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
-          "timestamp": "01:42",
-          "timestamp_seconds": 102.08,
-          "title": "BI Template",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe release-awareness guidance for the Rock communications area. It calls out the new communication wizard as a major v17-era feature and notes continued communication investment into v18, while reminding implementers to verify current release behavior before documenting or training staff on new communication flows.",
-      "claim_hash": "e1d8f33980eba2ff0db4a244e854e9ea882584c27e340b0306da7dc4514d0971",
-      "claim_id": "claim:a5feffb0b2446de26159",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59a57d27ff01ef955508c89a6d9f89c909be203e8bc483b47ea41e0fe61933e4",
-      "source_record_ids": [
-        "rock_community_hubs:8c731a2892e1a691"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Assign Statement is approved as a public-safe RockU training distillation for reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "345bae77b353107f11209cf93e5e23dd406b5f0bcbde1e2460aac468743b743a",
-      "claim_id": "claim:a7835e2d9012c026e08b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4d98d197dd1f56f752b57c46eff29a9e28471e45d03d7bc28b8bb9bb14b7ff95",
-      "source_record_ids": [
-        "rock_rocku:64e6134e814940e9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Assign Statement",
-          "url": "https://community.rockrms.com/rocku/lava/assign-statement"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "BI Template is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, version, roadmap, and release-caveat awareness, AI, automation, and responsible tool use. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "50e1496671b1549b62cbc85ea61172cb95dfa529d5d21394e34448e43d280031",
-      "claim_id": "claim:a8b9f3ec9d35a8adbaf7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e0274fd61bab7b32d1ca84c3dccbde44a6fb1f4f4953483c10c5b441f3b7b2d1",
-      "source_record_ids": [
-        "rock_rocku:2617ec7030df84be"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "BI Template",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "LCBC's early-testing account recommends a phased rollout built around staff interviews, systems thinking, security tests and concrete use cases. Their examples include MCP work across Rock and other services plus a Lava-backed documentation search skill that summarizes and links to the governing article.",
-      "claim_hash": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
-      "claim_id": "claim:aaa109fc541fff897e3f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=2328s",
-          "timestamp": "38:48",
-          "timestamp_seconds": 2328.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "The demonstrations show one tool framework serving Rock's docked chat, external MCP clients and voice experiences. Example workflows include person lookup, note creation, approval-gated communications, connection-request insights and giving analysis; these are demonstrations, not guarantees that every tool is enabled for every agent.",
-      "claim_hash": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
-      "claim_id": "claim:ab59d559b804403dc4a0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=600s",
-          "timestamp": "10:00",
-          "timestamp_seconds": 600.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Teams should expect communication tooling to continue evolving, so staff documentation should link to current docs and include a refresh step after upgrades.",
-      "claim_hash": "76b878b0ea053fccf7375298600f84438a3f565c770b2ee9d87bc5f60c072656",
-      "claim_id": "claim:b320063c61fd3e68a7d3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "59a57d27ff01ef955508c89a6d9f89c909be203e8bc483b47ea41e0fe61933e4",
-      "source_record_ids": [
-        "rock_community_hubs:8c731a2892e1a691"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7",
-          "timestamp": "01:38",
-          "timestamp_seconds": 98.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's agent model separates agents, skills and tools, with configuration and security boundaries at each layer. Chat versus MCP and Internal versus Public are separate design choices, and only authorized tools should be exposed to the model for the current person and agent.",
-      "claim_hash": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
+      "claim_hash": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
       "claim_id": "claim:b4fb38224ff8452078f3",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2598,6 +964,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -2611,174 +978,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub session adds public-safe dashboard-design guidance for Rock reporting work: start with actionable questions, keep charts tied to decisions, avoid dashboards when a KPI or existing page element is enough, and treat historical Rock data differently depending on whether the source records are stable enough for comparison.",
-      "claim_hash": "6cc4ad4741afe746867b55390b022d230834f3c376dc0ead512c70d29dc330ed",
-      "claim_id": "claim:ba0aa81d3b0a4d47b530",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "15ad5565e48b364241823761f3c9be319d1f03a4c46e4a8bffecfdfb9783a209",
-      "source_record_ids": [
-        "rock_community_hubs:2dfd53ea01c3ef3f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/OLmWVZzBAp"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Assign Statement RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "2bb1ffbe690f0e4b82aeda9b5cfbad93fe8d3b16e5fdc7b2afa68628027d1dd4",
-      "claim_id": "claim:bace02f5485d1c2903fa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4d98d197dd1f56f752b57c46eff29a9e28471e45d03d7bc28b8bb9bb14b7ff95",
-      "source_record_ids": [
-        "rock_rocku:64e6134e814940e9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/assign-statement",
-          "timestamp": "01:43",
-          "timestamp_seconds": 103.42,
-          "title": "Assign Statement",
-          "url": "https://community.rockrms.com/rocku/lava/assign-statement"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Episode 185: Special Edition Lava Class Panel, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "23b7bcb5cb88cfc8512ae0a44f3097aa62e66efc5577afcff00489ac017275a0",
-      "claim_id": "claim:c0c9887039d1db566468",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "lava"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "781b4298b67fa730ed54eaab97864c5a719e6c6a75f58b7f7494bbac3a1ca5d7",
-      "source_record_ids": [
-        "rock_podcast_rss:16d1e310fe96ed47"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel",
-          "timestamp": "00:47",
-          "timestamp_seconds": 47.34,
-          "title": "Episode 185: Special Edition Lava Class Panel",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-185-special-edition-lava-class-panel"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Entity Commands should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "5337f8e244bd76431dd32a95504f013e1d29291241dd169242828cc9e19e1f4f",
-      "claim_id": "claim:c1a7f7bc32654bb71e0e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "bfbc5b7db2014cb2380c1a557feffe127f3d0081737aac6d90190fff3b62153c",
-      "source_record_ids": [
-        "rock_rocku:2619e681b7108e4e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/entity-commands",
-          "timestamp": "06:20",
-          "timestamp_seconds": 380.84000000000003,
-          "title": "Entity Commands",
-          "url": "https://community.rockrms.com/rocku/lava/entity-commands"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, BI Template should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "bce391175ad1278350ce40ccd519cbf6f741dfc5b689f9e689e1695a7117f0f5",
-      "claim_id": "claim:c3237d0705c297be1c67",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e0274fd61bab7b32d1ca84c3dccbde44a6fb1f4f4953483c10c5b441f3b7b2d1",
-      "source_record_ids": [
-        "rock_rocku:2617ec7030df84be"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template",
-          "timestamp": "02:15",
-          "timestamp_seconds": 135.76,
-          "title": "BI Template",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability.",
-      "claim_hash": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
+      "claim_hash": "f55db3f15d81a1daf2030b0a010200b7d3261233e31832b90ed1c4d138d42aad",
       "claim_id": "claim:c3921cb1d8b61e06c713",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2795,6 +1001,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
       "source_record_ids": [
         "rock_youtube:37e05abc58cbce60"
@@ -2808,305 +1015,13 @@
           "title": "AI Summit: The Community's First Look at Rock's AI Agents",
           "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A journey dashboard can define completion as finishing every day in a journey, then use group member attendance and participation records to compare completion across solo, group, spouse, campus, demographic, and journey-category dimensions.",
-      "claim_hash": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
-      "claim_id": "claim:c7ce2d177c5707d8635a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "989c189a222744785af1fb941a210c4214fc6c35dc805401cc8d711f9de6ff2a",
-      "source_record_ids": [
-        "rock_community_hubs:95396b5eafd3b56c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW",
-          "timestamp": "05:32",
-          "timestamp_seconds": 332.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/X6mkVpZBJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The SQL Command RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "1fe9e84d74c26b5f81e81c223d49e8878412a3251bc5933f2cff29aa89cfc514",
-      "claim_id": "claim:cbc5535480ca415484fc",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e504b14444845d7d9537e070aa5fac2b7d77b66e48be812ea4050ba47e856ccd",
-      "source_record_ids": [
-        "rock_rocku:fabd5e16d3ed5b89"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/sql-command",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "SQL Command",
-          "url": "https://community.rockrms.com/rocku/lava/sql-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The For Statement RockU lesson provides training context for source context; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "443817c7beff01751e8c20e25e88a86db9bd3634086717553046a00ddbef7b41",
-      "claim_id": "claim:d491d339472f2e21b78b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "46dbd8e3a5ea0294da7a78dea309f7c9435733c1ba345583defe3706784eed83",
-      "source_record_ids": [
-        "rock_rocku:aa176eaf9f26180b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/for-statement",
-          "title": "For Statement",
-          "url": "https://community.rockrms.com/rocku/lava/for-statement"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "If Statements is approved as a public-safe RockU training distillation for ministry process design, Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "4fb0370b43b75dc307daca15fe1bb8130231ef1bfe50a9f663d6d456f7c9f073",
-      "claim_id": "claim:d53fa5ce2c6cbeceb68a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f4b242fb8d7a1b9cef76f578610811a2765e7310d65ca3609660a346fd406b3",
-      "source_record_ids": [
-        "rock_rocku:24e691e0d66ad580"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "If Statements",
-          "url": "https://community.rockrms.com/rocku/lava/if-statements"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Communication Templates should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "02e34917cb831a8526354c47f13006fb0fad1853b63c5a6593021db222d84970",
-      "claim_id": "claim:d74b0cf4f127446db219",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "communications",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8844cbc5e2abaed3eaeee0bde62813efadbffd7b6d59b6e748f4f73df75cd4a8",
-      "source_record_ids": [
-        "rock_rocku:ef20cb439da472d1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/communication/communication-templates",
-          "timestamp": "02:42",
-          "timestamp_seconds": 162.0,
-          "title": "Communication Templates",
-          "url": "https://community.rockrms.com/rocku/communication/communication-templates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For AI, automation, and responsible tool use, Filters should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "d8b2cbb34a897868ce616da01ae1405bf59df06a8dd5353eea7d47aec29257d4",
-      "claim_id": "claim:d83232e3413ce2809da5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "002c568c07cdcebf069bc430da62601664939c34f7f06ad75242a1f7f273dbd7",
-      "source_record_ids": [
-        "rock_rocku:7d4d28b836fd1ddb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/filters",
-          "timestamp": "11:19",
-          "timestamp_seconds": 679.54,
-          "title": "Filters",
-          "url": "https://community.rockrms.com/rocku/lava/filters"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Registration Templates is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "6e0e76830eaf8fb7803304ab5fd88a1045841de9ba93724127918207342aa375",
-      "claim_id": "claim:d95dffaa18cdea08240b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "event-registration",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
-      "source_record_ids": [
-        "rock_rocku:7b16cf34fbbaa021"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Registration Templates",
-          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The communications beta wizard introduces topic tagging and reachable-audience counts by medium, helping senders choose email, SMS, or push based on actual contactability rather than only the size of a communication list.",
-      "claim_hash": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-      "claim_id": "claim:da22995bb2d271a00d5b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "42:38",
-          "timestamp_seconds": 2558.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For reporting, analytics, and measurement, What is Lava should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a8d708c9e2850af9371ace0231360425c7fd8582f1426ebf0c31897022ce27ba",
-      "claim_id": "claim:dc57240dfbe431eb4375",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f858457d53abeca7c12f22773bebb8b0ceead2b53d9f3a3db458e80f74b35b7f",
-      "source_record_ids": [
-        "rock_rocku:41c6fec4f4a3cb7b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/what-is-lava",
-          "timestamp": "03:10",
-          "timestamp_seconds": 190.3,
-          "title": "What is Lava",
-          "url": "https://community.rockrms.com/rocku/lava/what-is-lava"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based.",
-      "claim_hash": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
+      "claim_hash": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
       "claim_id": "claim:dd3b03571388d00cc80b",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3145,6 +1060,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -3158,146 +1074,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Filters RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "e8921ff56487a49d31d8d16ed9a3d39ba333ec6fb3874b616f0bbd327c46079c",
-      "claim_id": "claim:e5fa1dfb06c73f67a1c1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "002c568c07cdcebf069bc430da62601664939c34f7f06ad75242a1f7f273dbd7",
-      "source_record_ids": [
-        "rock_rocku:7d4d28b836fd1ddb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/filters",
-          "timestamp": "00:14",
-          "timestamp_seconds": 14.58,
-          "title": "Filters",
-          "url": "https://community.rockrms.com/rocku/lava/filters"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability.",
-      "claim_hash": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
-      "claim_id": "claim:eb03c3644ee4b1ae217b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "MCP UI and a Rock knowledge-base layer for documents, content channels and plugin-provided organizational knowledge are presented as exploratory roadmap work. The summit explicitly says these items are not committed to ship, so agents must not describe them as currently available features without newer evidence.",
-      "claim_hash": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
-      "claim_id": "claim:ed0bfda39f5c0b664ef3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3550s",
-          "timestamp": "59:10",
-          "timestamp_seconds": 3550.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Registration Templates RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "ac1d2ab7708ed6fae65e1caf458d24ed0ed6737364ff45d9f460c25896e38a0d",
-      "claim_id": "claim:ee1d87ec234641f9b461",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "event-registration",
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cbc3b0053c17ceda9d8288279099ba7f5b49ade7a53f9fdb4b01f71fc67fbce0",
-      "source_record_ids": [
-        "rock_rocku:7b16cf34fbbaa021"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/event-registration/registration-templates",
-          "timestamp": "05:51",
-          "timestamp_seconds": 351.54,
-          "title": "Registration Templates",
-          "url": "https://community.rockrms.com/rocku/event-registration/registration-templates"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
-      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_hash": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f",
       "claim_id": "claim:ee2f4e5a371c3b243567",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -3313,6 +1096,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "2.0"
+      ],
       "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
       "source_record_ids": [
         "rock_developer:article:346"
@@ -3323,45 +1109,13 @@
           "title": "Content Block",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For reporting, analytics, and measurement, Lava Shortcodes should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "b6f640442a1eebe300562c1cda4d2506ef5f50502faa257f5167d80a638afd0c",
-      "claim_id": "claim:ef1789df53160e299317",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "data-views-reports",
-        "lava",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "595a7ea438e6d813a98cbe470196a830449ce7f22cf0609ee9228796ab0b3f77",
-      "source_record_ids": [
-        "rock_rocku:c23feabd7524d3f9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/lava-shortcodes",
-          "timestamp": "02:45",
-          "timestamp_seconds": 165.0,
-          "title": "Lava Shortcodes",
-          "url": "https://community.rockrms.com/rocku/lava/lava-shortcodes"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "The new communication wizard should be treated as a major workflow change for senders, template managers, and communication trainers.",
-      "claim_hash": "9ebb5ba62eaa2250489cf37643e4ed0593f82f97c56d2edd0e6137af06a9e604",
+      "claim_hash": "3cc6ce0e91edef036cd8f5dafdd1a435815334ef1f3d175250dad498a6382700",
       "claim_id": "claim:effbedc1751d739bc4d9",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3394,6 +1148,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "59a57d27ff01ef955508c89a6d9f89c909be203e8bc483b47ea41e0fe61933e4",
       "source_record_ids": [
         "rock_community_hubs:8c731a2892e1a691"
@@ -3407,12 +1162,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/EplO7L1lJ7"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Advanced HTML Block adds public-safe guidance for CMS security and Lava review: block authorship is privileged, and agents should inspect enabled commands, context inputs, and page/block authorization.",
-      "claim_hash": "1f22a5eafb8356f77a212cd0bc9e5b46938dc12d4dcfaf0bb5c356d9d011a371",
+      "claim_hash": "109e6d46fa2fd60e1d3993521d26399f2de364f56be1e42e4fe29106e48dcade",
       "claim_id": "claim:f34b7d439fac6c9062f0",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -3447,6 +1203,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ad16ca8e8af08df0bbbd514db6f7d7b5f17aaa9613bd67f343e8c0c0d6b1612f",
       "source_record_ids": [
         "rock_rocku:9ae5804fa3a0ac7d"
@@ -3457,109 +1214,13 @@
           "title": "Advanced HTML Block",
           "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Execute Command is approved as a public-safe RockU training distillation for risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "8fce3ae2534662c7fd7f22c5744adfe4ae399c489e058cccf4e97abd4580e337",
-      "claim_id": "claim:f5d23835d7aa433f8149",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "4660ef45122208816ae943199bebcbafed942f7d2ae476216ec09274c33bddaf",
-      "source_record_ids": [
-        "rock_rocku:d49b5955fa6bb4c9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Execute Command",
-          "url": "https://community.rockrms.com/rocku/lava/execute-command"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The If Statements RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "9c4ca6634e6c220f31e79344a98ed23aded639eb12797f8375e0c2203a25661d",
-      "claim_id": "claim:f7df40feee92b60c2597",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "lava",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f4b242fb8d7a1b9cef76f578610811a2765e7310d65ca3609660a346fd406b3",
-      "source_record_ids": [
-        "rock_rocku:24e691e0d66ad580"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/lava/if-statements",
-          "timestamp": "00:23",
-          "timestamp_seconds": 23.12,
-          "title": "If Statements",
-          "url": "https://community.rockrms.com/rocku/lava/if-statements"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "MyWell's prototypes illustrate how partners can add specialized financial skills for tasks such as batch discrepancy diagnosis, processing-fee analysis and recurring-giving health. These examples demonstrate extension patterns and should not be treated as built-in Rock behavior unless the corresponding skill or product is installed and verified.",
-      "claim_hash": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
-      "claim_id": "claim:fec91855b52cecd12b40",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "ai-agents-automation",
-        "api-integrations",
-        "lava",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a76f2c33ed68e967d9abf7c79726b4a15a83d5c314751a80b5af1420fd791c73",
-      "source_record_ids": [
-        "rock_youtube:37e05abc58cbce60"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "source_timestamp_url": "https://www.youtube.com/watch?v=UvW68dZBcJ8&t=3211s",
-          "timestamp": "53:31",
-          "timestamp_seconds": 3211.0,
-          "title": "AI Summit: The Community's First Look at Rock's AI Agents",
-          "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "When BI reports are embedded back into Rock, teams still need to honor external licensing and put report pages behind appropriate Rock security roles.",
-      "claim_hash": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac",
+      "claim_hash": "f78e26f0c348920d47949a0f7cfcb4d8123e744796c711a603efba1f5d1e40f9",
       "claim_id": "claim:ffba67d8847c47e68ea6",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3594,6 +1255,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "56064e7fc39c7b2287fa126b9c7c68a7e67033c112a057211d39b98e704a2090",
       "source_record_ids": [
         "rock_community_hubs:fb5f22127915c464"
@@ -3607,116 +1269,43 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:00ccd91253b6bea7c870": "b4ac881753f8ba11b0888b1f08cf3ca7b8b4d8dc02a3dbedbf937d9148239870",
-    "claim:01d746f9a6bc23a6d503": "202ad783e181d408c46e938a607c2f913ecdd652ea29916720fe9bd82e390e55",
-    "claim:03dec94f32df7bf10631": "113574113a15e8360c0dfc6764afa9bc94b223bc8c03fa81358318a50aef5dad",
-    "claim:03fa1cffb8ed10d2485f": "185a2092fd6f3d4c89cd5a3c2e2e40656f0fa4e2f94a7773e60d22647a36fd63",
-    "claim:04443e1a0bf6e4d21a98": "8c6994d426e1ff687925147dbf050c500c60ed4654389113674667c1fc6dbf21",
-    "claim:07298f1c99cb51a732e5": "aea6adc25f0712996d5861bb678cffc5b4d30d4a45c5c3d07d5b066b6d49888f",
-    "claim:09e97d0ee734005c61a6": "bcbd480f24fcc86c3e1b7a3fbc2a66b69f9ca1e7f8a8e7756590967e0493ddbd",
-    "claim:0a757095cbd919912a83": "4c15c80d940b2e96a340e4df2985071dc904d89cc6bed8b2ae54e892a68c42af",
-    "claim:0bba90e7ae799e9f931a": "71f2d00c62c8b7e77399b89d0e141ac4f057f315136e1c5f09b28e60d3c22d30",
-    "claim:0ed16cad9954cfbf26ed": "f92a7105a35cadcfdea98ee419e353147e1b51c4aad8032281947b6783845ad8",
-    "claim:1d09ab3e4da192196030": "768d4925a7aac90eb279841cf5c456c183760ed674e6e8af2aab44ac49a6f157",
-    "claim:1e8a4c84ec5bc7717590": "20793f8458ac752b413e74f16e252bac80a1027171d701f356e3c929576a1334",
-    "claim:247c7587ce58a8bf28b9": "d8003625c2fe80604b537a511b6ef5d235820e9f52fb0fc5358219b366f9718a",
-    "claim:2d534c63c723204ad8c9": "d042adf45e8721dc1bb79d1b86f103d117d0a05ad5cc92d79ea3eb22862a19c2",
-    "claim:31a58d58dbab5739b4f5": "125c00b0ea3ee05164393a4b1895414acd252c2856cab9cd1ae507eae9c33844",
-    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
-    "claim:3840e502df599a6bf7a2": "5dc10ed0b5410f0df221c5eb7d91b6fc6bc693c95d9528470e7b15c8c7f21a0b",
-    "claim:3b4b8ec335aa0a17968c": "b793bcd917c330786dac9f3d4aa48270f93f88e4d7e75d213c644e94d7e56e2c",
-    "claim:3c7dd4483413d17faf8a": "e0fc4e481e901f9ef8f02000ccb69e6e3c9a08c8572e64be28338706c652e06c",
-    "claim:3c80fa4e2099bb5416de": "4b2441e58f703c12d6d407dc50a804db8c8a55c60c9c862c24d9d85a8dbb04f0",
-    "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
-    "claim:4147e468b25ef22aa1ba": "4956479701e289186653ea862a78aaafa9a94aa5a5525dcc5473e3bd28f7d588",
-    "claim:42ce1ba2afef374bebeb": "e350331dd9e32c6a9933afa6499590bb397094c3d4d2881ed1246c3afe5fc516",
-    "claim:435af2eba1634b82612e": "8d5d591f42c0b57ec9566fb27bd08dda97a7f45fdd961718445dd639fedbc208",
-    "claim:47b08e30f6cae81c8691": "ed84693cadcddd3331341bc4ff385390ecad320c6d7caef61e5fa7bb281e8257",
-    "claim:4b7b8d0b0379ceb7587f": "39cbf98d395eb3bef65368c3ea53ae671ae9c42a033183e8cb041500b844fe91",
-    "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
-    "claim:4bf4025847cf0c78adf0": "a76cad4c58dddd7d238a36dfb863a35e1ac7ebb9e2845892a22101aa4af423cf",
-    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
-    "claim:4c6c24811261384a0eb4": "47c1b53140e33818e56cd8f53948c40f51921a0cc0ec006f705423c524aa48ca",
-    "claim:5115289c5053e77e072a": "16da9da08f614c0e36d395816ba95fc25b68c71fea22a9472d0252efd3fab871",
-    "claim:524be15ef7a48290a72a": "0efd5c87a9f6e7817ae2fb5cdc49b8db2728260a3473cb957af283ee7238ded8",
-    "claim:563e520ec15928e19628": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
-    "claim:57aac8a437e63c44a713": "5a8ec16d43128b94149cba2dc0611c072796f9965e02eeb1dcb4caa8b7e0bc3b",
-    "claim:57e32b4d554a759231a1": "a19e1be276088f85788ea923c8aa35afcbdd9fce6bcac7e96fd95209b1f3f5c1",
-    "claim:5998f57c6b527aee9750": "3dbdb3b081c97a817e591a417c856927f96595b583076e7edf49fbf6a8bbb76a",
-    "claim:5b0a62c44ba0db579aed": "db16410f6d353ddb8b916b35cb7eadb2cb26d4d1b19427cff31d48076bc70ad3",
-    "claim:5bd2b6b4cac279be5e13": "fe2ff853114a70655b322ed2e5c9f8ce3f92c7cb9619eb800cdd3b1bf465955b",
-    "claim:5d109547ddfc0fd7b9c2": "df23346a27614375d42e05dcf899aae4eeb0975947cb55c2cb2c0d6effac9dec",
-    "claim:5d8bddb267bffde3cfe7": "ea18508804f28f0bd570e9a58965b3051473e1bc1754b691868d4fdd6068a738",
-    "claim:60c2bcd25e1cce4efef4": "ffe409630251b2f3db7a6c97ae997482cddb1681f494731336ac18df57e3f505",
-    "claim:6579604cba2ab712b182": "19a3d8f95bbf9a066142d172f08cba3cfe1662dde1890914a9d721794931cd4b",
-    "claim:66b59daa5dab8edd46ff": "2d4a46c1bdf7cf028db22fdc6c19056fa1ccee501d065484e3f4c6d2cf831a15",
-    "claim:6a8231cbe1fe6883db37": "95dfb3548f12eaa84df48aca4672b88461dd45e2424aa80fc4f1c0f7a50eea4b",
-    "claim:6c40bb89e82cf23d7c6d": "9b3f7e422b2d7cfef53625b56f4089a7fc8b69bffb377b9d4ee20322be5a2cb0",
-    "claim:6f4ef4f5e2aa084d67f5": "42ee5579ea034a942872f08255ba01b925516c788f8e24fc7510598f3d69dae9",
-    "claim:716957e28f4febca02ed": "4d306c02231db1db5be41ef3efffcaac2661bba23884a238b6ef1b8bbeb65ed0",
-    "claim:725a3342f3dc657cc546": "a51383b13e770042a8dfdfbc6a32db0d32071358a6455ca6c0366feb35e4325b",
-    "claim:73ec340279cac1218fdf": "cc4586e8790dee810f86466f1d53ffe13c0ded25c826f4d2e9e0747a3dd6c106",
-    "claim:76e9f9f5d841f006cbb5": "7efc094151583888c9db25936812c60919860950dfbf79016071cbe33f52056c",
-    "claim:7a169605c60795748120": "3f8ee733ea8b9527c6febab7e8e3b467648d1420ee5bddaa196d34a3dbfc3fe9",
-    "claim:7a2e62ecd35effb86f0a": "eef639b30373ff76e42df525181237f8bf88a29c631741a919e7880c49586ffd",
-    "claim:7b89678f588fe3f79a50": "a64534afdad83b7344e0555ad5b700b60856c617cc75652d12b9c47aec0a59e6",
-    "claim:7bca2f8db03f8f468586": "4a029baee50639237bb7c755a09be69e20b45d931ff343a37af6dc682498e919",
-    "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-    "claim:7e6e3979faad614f0b42": "e8c33478a8d9072ace0904fba38dbd0649eaad537463cfafc551e2a7696f0d8a",
-    "claim:832d63507e071b02a6f5": "3e2192d125208272623c3573b5c297d9e1fb58df72f079888808a3a2404443d0",
-    "claim:866f3acd2b3ab20037e3": "67f1a1c9f14836c09553b10a7bd2bc79fa7ac8d367f2e4fe1f97e547ab2efaba",
-    "claim:86e4fb4a06df61821a6f": "8d75965d2d59c662deb67be2f8fdbb24ee32c16cc2dc937ef1920d40206a0be2",
-    "claim:882208fdf2bb82703931": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
-    "claim:89f1d7d856994b6aabf2": "1ffbd68592b69ef25c526b843f03da4dc4ac3bef647f0484554553e1334d9a34",
-    "claim:8b10d6d4d38e3acf82b9": "4edced23b17be227cb4df1c14d04c1d6166ab6ed5ca3e617c87873ab3f7df384",
-    "claim:90b6ebc5fd3c96525e0b": "49f00bea438c7cf11397067006332b625d165c97a5a903c5a86d9bc3c943ba1a",
-    "claim:940f299b268510da61d8": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
-    "claim:9890bf9e4fd4a7ac1104": "c7456ba6b41f0579607f9b5baf8b04ff7a91bce0539007263d19cac771e16f8e",
-    "claim:9b6fa66cbcb39e42d811": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-    "claim:9e9fb9e3e4c471e79399": "ae467148b179945dca067d57519528895f6e9c1cec4e781cef09f7ccea62ee44",
-    "claim:a15743b4632f9ac56a1c": "ad836a3ad142bfe56c1c43b71972f1bc73024c90b6bad6f7cc6c07c322fdfbd7",
-    "claim:a48af098d8780b79a13d": "0248efa8cf23f77f8157e791f5f181f3b238ce7e2f1e5a118f16d6bd809e3a85",
-    "claim:a5feffb0b2446de26159": "e1d8f33980eba2ff0db4a244e854e9ea882584c27e340b0306da7dc4514d0971",
-    "claim:a7835e2d9012c026e08b": "345bae77b353107f11209cf93e5e23dd406b5f0bcbde1e2460aac468743b743a",
-    "claim:a8b9f3ec9d35a8adbaf7": "50e1496671b1549b62cbc85ea61172cb95dfa529d5d21394e34448e43d280031",
-    "claim:aaa109fc541fff897e3f": "216c1995ba509e2c5f2dafa5ac61219d7021330e3399d968f8821bad73abd08b",
-    "claim:ab59d559b804403dc4a0": "f60bf7c9c86994664a09b6ad893209dcc6e5ef1f9180f15c4bb1a5b125340d70",
-    "claim:b320063c61fd3e68a7d3": "76b878b0ea053fccf7375298600f84438a3f565c770b2ee9d87bc5f60c072656",
-    "claim:b4fb38224ff8452078f3": "7948c017143b66789909bf277d63d50810e0a106cbfd6697275b897750a61a24",
-    "claim:ba0aa81d3b0a4d47b530": "6cc4ad4741afe746867b55390b022d230834f3c376dc0ead512c70d29dc330ed",
-    "claim:bace02f5485d1c2903fa": "2bb1ffbe690f0e4b82aeda9b5cfbad93fe8d3b16e5fdc7b2afa68628027d1dd4",
-    "claim:c0c9887039d1db566468": "23b7bcb5cb88cfc8512ae0a44f3097aa62e66efc5577afcff00489ac017275a0",
-    "claim:c1a7f7bc32654bb71e0e": "5337f8e244bd76431dd32a95504f013e1d29291241dd169242828cc9e19e1f4f",
-    "claim:c3237d0705c297be1c67": "bce391175ad1278350ce40ccd519cbf6f741dfc5b689f9e689e1695a7117f0f5",
-    "claim:c3921cb1d8b61e06c713": "2fa4935ae61e752086b82b5ff217a796f09e08200158d23361b0d2489c280952",
-    "claim:c7ce2d177c5707d8635a": "8b7d22c7fb75fd461638028ad99b65fb89732b270a9ab072830eef9012987cfa",
-    "claim:cbc5535480ca415484fc": "1fe9e84d74c26b5f81e81c223d49e8878412a3251bc5933f2cff29aa89cfc514",
-    "claim:d491d339472f2e21b78b": "443817c7beff01751e8c20e25e88a86db9bd3634086717553046a00ddbef7b41",
-    "claim:d53fa5ce2c6cbeceb68a": "4fb0370b43b75dc307daca15fe1bb8130231ef1bfe50a9f663d6d456f7c9f073",
-    "claim:d74b0cf4f127446db219": "02e34917cb831a8526354c47f13006fb0fad1853b63c5a6593021db222d84970",
-    "claim:d83232e3413ce2809da5": "d8b2cbb34a897868ce616da01ae1405bf59df06a8dd5353eea7d47aec29257d4",
-    "claim:d95dffaa18cdea08240b": "6e0e76830eaf8fb7803304ab5fd88a1045841de9ba93724127918207342aa375",
-    "claim:da22995bb2d271a00d5b": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-    "claim:dc57240dfbe431eb4375": "a8d708c9e2850af9371ace0231360425c7fd8582f1426ebf0c31897022ce27ba",
-    "claim:dd3b03571388d00cc80b": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
-    "claim:e5fa1dfb06c73f67a1c1": "e8921ff56487a49d31d8d16ed9a3d39ba333ec6fb3874b616f0bbd327c46079c",
-    "claim:eb03c3644ee4b1ae217b": "eb9795e0d290a374c00200b3c079494054eaa4b5acd7fdcde506f01eda19c45f",
-    "claim:ed0bfda39f5c0b664ef3": "ed2e779b413c37727fca3b23ad9e91da80342d4310336280166bc7ccb4d1104b",
-    "claim:ee1d87ec234641f9b461": "ac1d2ab7708ed6fae65e1caf458d24ed0ed6737364ff45d9f460c25896e38a0d",
-    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
-    "claim:ef1789df53160e299317": "b6f640442a1eebe300562c1cda4d2506ef5f50502faa257f5167d80a638afd0c",
-    "claim:effbedc1751d739bc4d9": "9ebb5ba62eaa2250489cf37643e4ed0593f82f97c56d2edd0e6137af06a9e604",
-    "claim:f34b7d439fac6c9062f0": "1f22a5eafb8356f77a212cd0bc9e5b46938dc12d4dcfaf0bb5c356d9d011a371",
-    "claim:f5d23835d7aa433f8149": "8fce3ae2534662c7fd7f22c5744adfe4ae399c489e058cccf4e97abd4580e337",
-    "claim:f7df40feee92b60c2597": "9c4ca6634e6c220f31e79344a98ed23aded639eb12797f8375e0c2203a25661d",
-    "claim:fec91855b52cecd12b40": "9f48084351adc971df2622fa7acbbdf7bb11e999d5889d8439ecfb99a4ae87c6",
-    "claim:ffba67d8847c47e68ea6": "4bac0aa245ee6f47aea1f13864836750bce18719351b2491033e838209bedbac"
+    "claim:00ccd91253b6bea7c870": "133c05317260a943b0a34dc755b3bb3731fa5d5134eca6b3e0d55ae0934d26e3",
+    "claim:01d746f9a6bc23a6d503": "b3a0523241223753db240dae8f31cc81c1d8323a44f854f91f6976112248d842",
+    "claim:2d534c63c723204ad8c9": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+    "claim:32f0173b23a7d2c356c0": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
+    "claim:3b4b8ec335aa0a17968c": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
+    "claim:410bf6750e90b7193262": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
+    "claim:4b7b8d0b0379ceb7587f": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
+    "claim:4bc0aee305fa6b1bd524": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
+    "claim:4bf4025847cf0c78adf0": "12d02a703e46f4ee4519f071c27cadb37debb1236c321d0e18c0ba3f1ff16041",
+    "claim:4c4098a035a5ca256bfe": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
+    "claim:4c6c24811261384a0eb4": "e425f39923af17a63128e7eb2b782d7ca7f5acb8c4e44d10dc76e5833e7a83c9",
+    "claim:524be15ef7a48290a72a": "1b84e619d7a5d4396f771eb550ed164975f0226cd3155574af633b67ea3934f4",
+    "claim:563e520ec15928e19628": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
+    "claim:57e32b4d554a759231a1": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
+    "claim:5bd2b6b4cac279be5e13": "056ac2b913d91d378fb85147ef9722fda1fa94d4b22ac4cac58e2d8a835e64f8",
+    "claim:5d109547ddfc0fd7b9c2": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
+    "claim:5d8bddb267bffde3cfe7": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
+    "claim:60c2bcd25e1cce4efef4": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
+    "claim:725a3342f3dc657cc546": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
+    "claim:7bca2f8db03f8f468586": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+    "claim:7e6e3979faad614f0b42": "b2235fe89f96ace0673eb54cc0ca2b093d9c4cfb86da558d1ba8d4afb78975ed",
+    "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
+    "claim:940f299b268510da61d8": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
+    "claim:b4fb38224ff8452078f3": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
+    "claim:c3921cb1d8b61e06c713": "f55db3f15d81a1daf2030b0a010200b7d3261233e31832b90ed1c4d138d42aad",
+    "claim:dd3b03571388d00cc80b": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
+    "claim:ee2f4e5a371c3b243567": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f",
+    "claim:effbedc1751d739bc4d9": "3cc6ce0e91edef036cd8f5dafdd1a435815334ef1f3d175250dad498a6382700",
+    "claim:f34b7d439fac6c9062f0": "109e6d46fa2fd60e1d3993521d26399f2de364f56be1e42e4fe29106e48dcade",
+    "claim:ffba67d8847c47e68ea6": "f78e26f0c348920d47949a0f7cfcb4d8123e744796c711a603efba1f5d1e40f9"
   },
-  "approved_claims_hash": "82647d91ac8659e2bbad620db3d8ae4c89d003250b64f318f9f09ab9e34a87eb",
+  "approved_claims_hash": "c4cbb97105ad6d66c090d8e8b42d2f0fcf776ab71d053aad1b0a1d53fdb176a2",
   "approved_claims_path": "knowledge/concepts/lava/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -4127,12 +1716,12 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-07-26T00:29:29+00:00",
+  "built_at": "2026-07-30T02:07:42+00:00",
   "concept_id": "lava",
-  "guide_hash": "a0ca89915c42b085dd789702907b2c1fe1476ac3e8e43a0e910ba8bc08a7a3f7",
+  "guide_hash": "04804402b49280cd056aba44387ac93b7015f7466ab1a569f5296b343d7a92c6",
   "guide_line_count": 2027,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 15011,
+  "guide_word_count": 15008,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -4541,15 +2130,6 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_developer",
-      "source_key": "127269e4afa33de4",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
-    },
-    {
-      "authority": "official-developer",
       "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
       "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
       "source_id": "rock_developer",
@@ -4565,6 +2145,24 @@
       "source_key": "fe0b6d3b462f6c75",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "official-training",
@@ -4612,6 +2210,7 @@
       "url": "https://community.rockrms.com/recipes/480"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -6291,15 +3890,15 @@
         "044170dca04e8bbb",
         "6449dcd93497b4cd",
         "67f84804d07244b3",
-        "044170dca04e8bbb",
-        "044170dca04e8bbb",
-        "127269e4afa33de4",
         "ae672f3d3d6f8730",
         "48cabcef2f22cabd",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75"
+        "dcc9c3b1df657d9f",
+        "fe0b6d3b462f6c75",
+        "fe0b6d3b462f6c75",
+        "5fa353d6f0648800"
       ],
       "start_line": 1901
     },
@@ -7435,16 +5034,6 @@
     {
       "authority": "official-developer",
       "authority_score": 90,
-      "kind": "citation_only",
-      "source_id": "rock_developer",
-      "source_key": "127269e4afa33de4",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
       "change_type": null,
       "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
       "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
@@ -7475,6 +5064,26 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=UvW68dZBcJ8",
       "url": "https://www.youtube.com/watch?v=UvW68dZBcJ8"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "dcc9c3b1df657d9f",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
+      "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "5fa353d6f0648800",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
+      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "official-training",
@@ -7556,5 +5165,6 @@
       "version": null
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

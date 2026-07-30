@@ -1,5 +1,10 @@
 # Agent Knowledge Network Goal
 
+> Historical implementation plan. The retrieval defaults and API examples in
+> this document are superseded by
+> [`mcp-retrieval-quality-v3.md`](mcp-retrieval-quality-v3.md); routing-only
+> rows are no longer returned by default.
+
 > **Historical status:** This goal records the architecture sequence used to
 > build the current network. The Milestone 0 refactor checklist is retired and
 > no longer an active task tracker. Use current audits, evaluations, freshness,

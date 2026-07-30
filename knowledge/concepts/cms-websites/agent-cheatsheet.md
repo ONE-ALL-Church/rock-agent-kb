@@ -10,13 +10,13 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: “Find The Block That Controls This Text”](tasks/recipe-find-the-block-that-controls-this-text.md) |  |  |
-| [Recipe: “Why Is This Content Item Not Public?”](tasks/recipe-why-is-this-content-item-not-public.md) |  |  |
-| [Recipe: “Can I Enable SQL In This HTML Block?”](tasks/recipe-can-i-enable-sql-in-this-html-block.md) |  |  |
-| [Recipe: “Add A Detail Page For Channel Items”](tasks/recipe-add-a-detail-page-for-channel-items.md) |  |  |
-| [Recipe: “Review A Community Recipe Before Installing”](tasks/recipe-review-a-community-recipe-before-installing.md) |  |  |
-| [Recipe: “Build A Page View Report”](tasks/recipe-build-a-page-view-report.md) |  |  |
-| [Recipe: “Troubleshoot Required Watching”](tasks/recipe-troubleshoot-required-watching.md) |  |  |
+| [Recipe: “Find The Block That Controls This Text”](tasks/recipe-find-the-block-that-controls-this-text.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: “Why Is This Content Item Not Public?”](tasks/recipe-why-is-this-content-item-not-public.md) | `Person`, `Block` | `Person`, `Block` |
+| [Recipe: “Can I Enable SQL In This HTML Block?”](tasks/recipe-can-i-enable-sql-in-this-html-block.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: “Add A Detail Page For Channel Items”](tasks/recipe-add-a-detail-page-for-channel-items.md) | `Page` | `Page` |
+| [Recipe: “Review A Community Recipe Before Installing”](tasks/recipe-review-a-community-recipe-before-installing.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: “Build A Page View Report”](tasks/recipe-build-a-page-view-report.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: “Troubleshoot Required Watching”](tasks/recipe-troubleshoot-required-watching.md) | `Person`, `Block` | `Person`, `Block` |
 
 ## Entities
 

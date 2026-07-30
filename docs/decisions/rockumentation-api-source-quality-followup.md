@@ -42,8 +42,9 @@ tests.
 - `rock_lava_docs`: deduped from 54 to 53 public source records.
 - `rock_community_site`: deduped from 30 to 26 public source records.
 - Claim review queue after the pass: 0 actionable rows. Existing
-  `routing_context_only` claims remain available as source-routing context but
-  no longer keep `kb status` open as pending review work.
+  `routing_context_only` claims remain available through explicit source-routing
+  retrieval, but ordinary search excludes them and they no longer keep
+  `kb status` open as pending review work.
 
 ## Follow-up
 

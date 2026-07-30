@@ -17,12 +17,12 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 
 ## Primary Tasks
 
-- [Recipe: Answer “Is The System Healthy?”](tasks/recipe-answer-is-the-system-healthy.md): Follow the guide section for Recipe: Answer “Is The System Healthy?”.
-- [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md): Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”.
-- [Recipe: Answer “Can I Clear Cache?”](tasks/recipe-answer-can-i-clear-cache.md): Follow the guide section for Recipe: Answer “Can I Clear Cache?”.
-- [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md): Follow the guide section for Recipe: Answer “Why Did This Workflow Not Start?”.
-- [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md): Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”.
-- [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md): Follow the guide section for Recipe: Answer “What Changed In This Version That Matters Operationally?”.
+- [Recipe: Answer “Is The System Healthy?”](tasks/recipe-answer-is-the-system-healthy.md): Do not say “healthy” unless job history, exceptions, and key derived-state jobs have been checked.
+- [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md): Complete Answer “Why Is This Data Wrong?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Answer “Can I Clear Cache?”](tasks/recipe-answer-can-i-clear-cache.md): Complete Answer “Can I Clear Cache?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md): Complete Answer “Why Did This Workflow Not Start?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md): Complete Answer “Why Is This Data View Slow?” with evidence-backed checks and a verifiable outcome.
+- [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 
@@ -39,7 +39,6 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 - `Block`: Rock concept/entity referenced by the system-admin-ops guide.
 - `Campus`: Rock concept/entity referenced by the system-admin-ops guide.
 - `DataView`: Rock concept/entity referenced by the system-admin-ops guide.
-- `Family`: Rock concept/entity referenced by the system-admin-ops guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the system-admin-ops guide.

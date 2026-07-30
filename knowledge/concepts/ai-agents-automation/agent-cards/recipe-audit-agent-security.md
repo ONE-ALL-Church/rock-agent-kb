@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Audit Agent Security”
 
-Follow the guide section for Recipe: “Audit Agent Security”.
+Complete “Audit Agent Security” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,14 @@ Follow the guide section for Recipe: “Audit Agent Security”.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Inventory agents.
+2. Inventory skills per agent.
+3. Inventory tools per skill.
+4. Mark write-capable tools.
+5. Mark sensitive-read tools.
+6. Verify security roles.
+7. Test representative users.
+8. Document findings and remediation.
 
 ## Do Not Assume
 
@@ -34,15 +39,4 @@ Follow the guide section for Recipe: “Audit Agent Security”.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/ask/developing/2708
-- https://community.rockrms.com/documentation/BookContent/9
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper
-- https://community.rockrms.com/developer/ai-agents/skills/creating-skills

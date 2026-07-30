@@ -17,11 +17,11 @@ Giving, transactions, batches, statements, pledges, gateways, and finance admini
 
 ## Primary Tasks
 
-- [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md): Follow the guide section for Recipe: Read-Only Finance Record Inspection.
-- [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md): Follow the guide section for Recipe: Statement Eligibility Explanation.
-- [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md): Follow the guide section for Recipe: Safe Account Cleanup Assessment.
-- [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md): Follow the guide section for Recipe: Giving Automation Review.
-- [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md): Follow the guide section for Recipe: Pledge Progress Analysis.
+- [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md): Complete Read-Only Finance Record Inspection with evidence-backed checks and a verifiable outcome.
+- [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md): Complete Statement Eligibility Explanation with evidence-backed checks and a verifiable outcome.
+- [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md): Complete Safe Account Cleanup Assessment with evidence-backed checks and a verifiable outcome.
+- [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md): The recurring-giving prompt recipe is a useful pattern but includes a clear warning about external recurring profiles not synced into Rock (Automate asking Regular Givers to Set up Recurring Giving).
+- [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 
@@ -37,6 +37,7 @@ Giving, transactions, batches, statements, pledges, gateways, and finance admini
 - `Attribute`: Rock concept/entity referenced by the giving-finance guide.
 - `Block`: Rock concept/entity referenced by the giving-finance guide.
 - `Campus`: Rock concept/entity referenced by the giving-finance guide.
+- `DataView`: Rock concept/entity referenced by the giving-finance guide.
 - `Family`: Rock concept/entity referenced by the giving-finance guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.

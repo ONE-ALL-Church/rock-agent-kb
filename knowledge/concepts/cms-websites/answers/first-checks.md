@@ -14,11 +14,11 @@ Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block c
 - `claim:7e6e3979faad614f0b42`
 - `claim:95e015e3407ed10e9e7c`
 - `claim:09bc1e14a8ad2c40145e`
-- `claim:2d534c63c723204ad8c9`
 - `claim:d5d56ebc6176db44cbc7`
 - `claim:39735f6a8684f32d8191`
 - `claim:4c6c24811261384a0eb4`
 - `claim:7ddbde1cd7e23aec0e70`
+- `claim:f34b7d439fac6c9062f0`
 
 ## Distilled Claims
 
@@ -32,5 +32,4 @@ Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block c
 - [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (`00:00`)
 - [Personalization](https://community.rockrms.com/rocku/cms/personalization) (`00:00`)
 - [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) (`00:00`)
-- [Content](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content)
 - [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view) (`00:00`)

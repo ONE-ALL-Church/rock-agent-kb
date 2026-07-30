@@ -17,11 +17,11 @@ REST APIs, API v1/v2, OData, webhooks, external integrations, and GitHub/source-
 
 ## Primary Tasks
 
-- [Recipe: Find The Right API Route](tasks/recipe-find-the-right-api-route.md): Follow the guide section for Recipe: Find The Right API Route.
-- [Recipe: Audit A REST Key](tasks/recipe-audit-a-rest-key.md): Follow the guide section for Recipe: Audit A REST Key.
-- [Recipe: Diagnose External Website API Failure](tasks/recipe-diagnose-external-website-api-failure.md): Follow the guide section for Recipe: Diagnose External Website API Failure.
-- [Recipe: Review A Lava Webhook Before Launch](tasks/recipe-review-a-lava-webhook-before-launch.md): Follow the guide section for Recipe: Review A Lava Webhook Before Launch.
-- [Recipe: Build A Safe Agent Tool](tasks/recipe-build-a-safe-agent-tool.md): Follow the guide section for Recipe: Build A Safe Agent Tool.
+- [Recipe: Find The Right API Route](tasks/recipe-find-the-right-api-route.md): Complete Find The Right API Route with evidence-backed checks and a verifiable outcome.
+- [Recipe: Audit A REST Key](tasks/recipe-audit-a-rest-key.md): Complete Audit A REST Key with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose External Website API Failure](tasks/recipe-diagnose-external-website-api-failure.md): Complete Diagnose External Website API Failure with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review A Lava Webhook Before Launch](tasks/recipe-review-a-lava-webhook-before-launch.md): Complete Review A Lava Webhook Before Launch with evidence-backed checks and a verifiable outcome.
+- [Recipe: Build A Safe Agent Tool](tasks/recipe-build-a-safe-agent-tool.md): See Writing Custom Tools, Get Tools, and List Tools.
 
 ## High-Signal Sections
 

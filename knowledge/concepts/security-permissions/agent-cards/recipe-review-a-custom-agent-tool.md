@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Custom Agent Tool
 
-Follow the guide section for Recipe: Review A Custom Agent Tool.
+Source: Writing Custom Tools.
 
 ## When To Use
 
@@ -24,25 +24,19 @@ Follow the guide section for Recipe: Review A Custom Agent Tool.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Confirm who can run the tool.
+2. Confirm tool security before attaching to an agent.
+3. For public agents, include only stranger-safe tools.
+4. Do not return raw integer IDs to the model; use IdKey and convert internally.
+5. Validate input.
+6. Avoid exposing sensitive fields.
+7. Re-check permissions server-side before mutation.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not return raw integer IDs to the model; use IdKey and convert internally.
+- Avoid exposing sensitive fields.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
-- https://community.rockrms.com/developer/303---blast-off/rock-security
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs
-- https://community.rockrms.com/lava/remote-lava
-- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools
-- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
-- https://community.rockrms.com/recipes/441

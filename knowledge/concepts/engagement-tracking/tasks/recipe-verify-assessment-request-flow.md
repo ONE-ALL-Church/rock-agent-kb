@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Verify Assessment Request Flow
 
-Follow the guide section for Recipe: Verify Assessment Request Flow.
+Sources: Send Requests, Retake Assessments, View Assessment History.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: Verify Assessment Request Flow.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `DataView`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `DataView`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Assessment Type settings.
+2. Retake interval.
+3. Requires request setting.
+4. Person Profile Actions menu.
+5. Request message.
+6. Person Profile History.
+7. Completion status.
+8. Result attributes.
+9. Data View search.
 
 ## Do Not Assume
 
@@ -34,15 +44,10 @@ Follow the guide section for Recipe: Verify Assessment Request Flow.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/assessments
 - https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
+- https://community.rockrms.com/documentation/engagement/assessments
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
-- https://community.rockrms.com/documentation/engagement/steps
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://www.rockrms.com/releasenotes
 - https://www.triumph.tech/resources/sparks-top-8-personality-assessments
-- https://community.rockrms.com/ask/using/2824
-- https://community.rockrms.com/recipes/233
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs

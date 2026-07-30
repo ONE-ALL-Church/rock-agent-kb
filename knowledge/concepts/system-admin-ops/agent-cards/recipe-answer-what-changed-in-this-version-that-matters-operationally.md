@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer “What Changed In This Version That Matters Operationally?”
 
-Follow the guide section for Recipe: Answer “What Changed In This Version That Matters Operationally?”.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,20 @@ Follow the guide section for Recipe: Answer “What Changed In This Version That
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify current version and target version.
+2. Read official release notes.
+3. Extract Core, Workflow, Reporting, CMS, Security, Lava, API, and Mobile items if relevant.
+4. Map each change to local features in use.
+5. Produce test checklist.
+6. Include source links.
 
 ## Do Not Assume
 
@@ -37,12 +40,9 @@ Follow the guide section for Recipe: Answer “What Changed In This Version That
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/32
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/rocku/core-concepts
-- https://community.rockrms.com/recipes/522
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/developer/developer-codex/coding-standards
-- https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags
 - https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
+- https://community.rockrms.com/developer/303---blast-off/exception-handling
+- https://community.rockrms.com/rocku/cms/cache-tags
+- https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/recipes/503

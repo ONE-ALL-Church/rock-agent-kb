@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Summarize This Person”
 
-Follow the guide section for Recipe: “Summarize This Person”.
+Complete “Summarize This Person” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,19 @@ Follow the guide section for Recipe: “Summarize This Person”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Confirm person anchor or selected IdKey.
+2. Get authorized person summary.
+3. Include only fields relevant to the request.
+4. Separate verified facts from missing data.
+5. Offer next safe actions.
 
 ## Do Not Assume
 
@@ -34,10 +36,5 @@ Follow the guide section for Recipe: “Summarize This Person”.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
 - https://community.rockrms.com/ask/developing/2708
-- https://community.rockrms.com/documentation/BookContent/9
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
+- https://community.rockrms.com/developer/ai-agents

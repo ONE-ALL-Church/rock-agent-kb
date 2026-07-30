@@ -10,12 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md) |  |  |
-| [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md) |  |  |
-| [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md) |  |  |
-| [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md) |  |  |
-| [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md) |  |  |
-| [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md) |  |  |
+| [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md) | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute` | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute` |
+| [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md) | `Person`, `StepProgram`, `StepType`, `Step`, `Block` | `Person`, `StepProgram`, `StepType`, `Step`, `Block` |
+| [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md) | `Attendance`, `Person`, `Location` | `Attendance`, `Person`, `Location` |
+| [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md) | `Person`, `DataView`, `Attribute` | `Person`, `DataView`, `Attribute` |
+| [Recipe: Audit Achievement Type](tasks/recipe-audit-achievement-type.md) | `Step`, `Workflow` | `Step`, `Workflow` |
+| [Recipe: Explain Engagement Data To A Ministry User](tasks/recipe-explain-engagement-data-to-a-ministry-user.md) | `Attendance`, `Step` | `Attendance`, `Step` |
 
 ## Entities
 
@@ -25,6 +25,7 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |

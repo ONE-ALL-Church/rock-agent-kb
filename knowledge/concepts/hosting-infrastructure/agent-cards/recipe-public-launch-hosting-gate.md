@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Public Launch Hosting Gate
 
-Follow the guide section for Recipe: Public Launch Hosting Gate.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -24,9 +24,20 @@ Follow the guide section for Recipe: Public Launch Hosting Gate.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. DNS.
+2. SSL.
+3. Redirects.
+4. Public site routes.
+5. Login and security.
+6. Giving/payment gateway.
+7. Email/SMS.
+8. File access.
+9. Backup/restore.
+10. Monitoring.
+11. Load test or peak readiness.
+12. Rollback plan.
+13. Admin access.
+14. Incident contacts.
 
 ## Do Not Assume
 
@@ -34,15 +45,4 @@ Follow the guide section for Recipe: Public Launch Hosting Gate.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/recipes/259
-- https://community.rockrms.com/recipes/355
-- https://community.rockrms.com/recipes/202
-- https://community.rockrms.com/recipes/176
-- https://community.rockrms.com/recipes/352
-- https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms

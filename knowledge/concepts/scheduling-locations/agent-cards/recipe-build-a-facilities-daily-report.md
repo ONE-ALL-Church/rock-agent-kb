@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build A Facilities Daily Report
 
-Follow the guide section for Recipe: Build A Facilities Daily Report.
+Complete Build A Facilities Daily Report with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,25 +24,17 @@ Follow the guide section for Recipe: Build A Facilities Daily Report.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Query approved and pending reservations for today and tomorrow.
+2. Include room, time, setup notes, setup diagram indicator, approval state, requester/contact, and resources.
+3. Highlight unapproved rows.
+4. Keep report internal.
+5. Avoid unbounded queries.
+6. Confirm plugin schema and file permissions.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Avoid unbounded queries.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/documentation/bookcontent/42
-- https://community.rockrms.com/lava/commands/calendar-events
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs
-- https://community.rockrms.com/rocku/groups/group-location
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs
+- https://community.rockrms.com/recipes/198

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit communication list freshness
 
-Follow the guide section for Recipe: Audit communication list freshness.
+Flag if the list is one of Rock's shipped lists and no sync path exists, because RockU notes shipped lists are not automatically synced (Communication Lists & Segments).
 
 ## When To Use
 
@@ -16,17 +16,29 @@ Follow the guide section for Recipe: Audit communication list freshness.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Group`
+- `GroupType`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Group`
+- `GroupType`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. list group ID/name
+2. group type
+3. member count
+4. active/inactive members
+5. sync job
+6. data view
+7. last sync time
+8. expected source population
+9. segment usage
+10. subscription/preference settings
+11. security
 
 ## Do Not Assume
 
@@ -34,15 +46,7 @@ Follow the guide section for Recipe: Audit communication list freshness.
 
 ## Source Links
 
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
 - https://community.rockrms.com/rocku/communication
-- https://community.rockrms.com/documentation/bookcontent/8
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
+- https://community.rockrms.com/recipes/370
+- https://community.rockrms.com/recipes/132

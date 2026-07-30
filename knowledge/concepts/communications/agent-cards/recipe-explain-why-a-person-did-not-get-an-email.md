@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Explain why a person did not get an email
 
-Follow the guide section for Recipe: Explain why a person did not get an email.
+Answer in evidence form: "Person was in audience but excluded by preference", "Person was not in audience", "Person had pending recipient row but transport failed", or "Rock sent successfully; provider logs must be checked."
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Explain why a person did not get an email.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Person email
+2. email active
+3. email preference
+4. deceased status
+5. list membership
+6. subscription state
+7. recipient row
+8. medium entity type
+9. status/status note
+10. unsubscribe fields
+11. transport/provider logs
+12. bounce/suppression state
 
 ## Do Not Assume
 
@@ -35,14 +44,5 @@ Follow the guide section for Recipe: Explain why a person did not get an email.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/communication
-- https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs
-- https://community.rockrms.com/recipes/138
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts

@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Audit Prayer Configuration](tasks/audit-prayer-configuration.md) |  |  |
-| [Review A Sensitive Request](tasks/review-a-sensitive-request.md) |  |  |
-| [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md) |  |  |
-| [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md) |  |  |
-| [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md) |  |  |
+| [Audit Prayer Configuration](tasks/audit-prayer-configuration.md) | `Group`, `Workflow`, `Page`, `Block` | `Group`, `Workflow`, `Page`, `Block` |
+| [Review A Sensitive Request](tasks/review-a-sensitive-request.md) | `Group`, `Campus`, `Workflow` | `Group`, `Campus`, `Workflow` |
+| [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md) | `Group`, `Campus` | `Group`, `Campus` |
+| [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md) | `Person`, `Group` | `Person`, `Group` |
+| [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md) | `Person`, `PersonAlias`, `Group`, `Campus`, `Workflow`, `Attribute` | `Person`, `PersonAlias`, `Group`, `Campus`, `Workflow`, `Attribute` |
 
 ## Entities
 
@@ -29,6 +29,7 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 

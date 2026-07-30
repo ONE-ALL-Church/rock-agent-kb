@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build a Rock agent tool
 
-Follow the guide section for Recipe: Build a Rock agent tool.
+Reference: AI Agents docs (AI Agents).
 
 ## When To Use
 
@@ -24,9 +24,17 @@ Follow the guide section for Recipe: Build a Rock agent tool.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Define a narrow use case.
+2. Choose Lava tool or native tool.
+3. Identify required data and permissions.
+4. Design parameters.
+5. Validate inputs.
+6. Resolve entities safely.
+7. Check authorization.
+8. Limit output.
+9. Add dry-run if write-capable.
+10. Log writes.
+11. Test with allowed, denied, missing, malformed, and high-volume cases.
 
 ## Do Not Assume
 
@@ -35,14 +43,3 @@ Follow the guide section for Recipe: Build a Rock agent tool.
 ## Source Links
 
 - https://community.rockrms.com/developer
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/obsidian
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://community.rockrms.com/ask/developing
-- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images

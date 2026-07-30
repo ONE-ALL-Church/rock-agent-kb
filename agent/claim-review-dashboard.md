@@ -6,13 +6,23 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 
 | Action | Count |
 | --- | ---: |
-| No actionable claim review rows | 0 |
+| `verify_live_before_operational_answer` | 11 |
 
 ## Concept Queue
 
 | Concept | Actions |
 | --- | --- |
-| No actionable concepts | 0 |
+| `api-integrations` | `verify_live_before_operational_answer`: 2 |
+| `cms-websites` | `verify_live_before_operational_answer`: 3 |
+| `communications` | `verify_live_before_operational_answer`: 1 |
+| `data-views-reports` | `verify_live_before_operational_answer`: 1 |
+| `developer-resources` | `verify_live_before_operational_answer`: 3 |
+| `groups` | `verify_live_before_operational_answer`: 1 |
+| `helix` | `verify_live_before_operational_answer`: 1 |
+| `lava` | `verify_live_before_operational_answer`: 4 |
+| `mobile` | `verify_live_before_operational_answer`: 3 |
+| `security-permissions` | `verify_live_before_operational_answer`: 3 |
+| `workflows` | `verify_live_before_operational_answer`: 3 |
 
 ## Distilled Claim Clusters
 
@@ -25,14 +35,15 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 | `cms-websites` | 5 |
 | `connections` | 5 |
 | `content-personalization` | 13 |
-| `data-views-reports` | 6 |
+| `data-views-reports` | 7 |
 | `documents-signatures` | 6 |
 | `engagement-tracking` | 14 |
-| `helix` | 2 |
+| `groups` | 2 |
+| `helix` | 1 |
 | `hosting-infrastructure` | 4 |
 | `lava` | 6 |
 | `learning-lms-engagement` | 3 |
-| `mobile` | 4 |
+| `mobile` | 3 |
 | `obsidian-development` | 7 |
 | `people-families` | 7 |
 | `platform-configuration` | 7 |
@@ -40,7 +51,7 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 | `roku` | 3 |
 | `scheduling-locations` | 4 |
 | `security-permissions` | 11 |
-| `workflows` | 7 |
+| `workflows` | 9 |
 
 ## Evaluation Failures
 
@@ -48,7 +59,7 @@ No evaluation failures.
 
 ## Hosted Retrieval Evaluations
 
-34 curated retrieval evaluations are validated by `kb eval-service` after deployment.
+35 curated retrieval evaluations are validated by `kb eval-service` after deployment.
 
 ## Evaluation Term Misses
 

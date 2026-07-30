@@ -10,11 +10,11 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md) |  |  |
-| [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md) |  |  |
-| [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md) |  |  |
-| [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md) |  |  |
-| [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md) |  |  |
+| [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md) | `Person`, `PersonAlias`, `Location`, `Block` | `Person`, `PersonAlias`, `Location`, `Block` |
+| [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md) | `Person`, `DataView` | `Person`, `DataView` |
+| [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md) | `DataView`, `Location`, `Schedule`, `Block`, `Attribute` | `DataView`, `Location`, `Schedule`, `Block`, `Attribute` |
+| [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md) | `DataView`, `Schedule` | `DataView`, `Schedule` |
+| [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md) | `Person`, `Page` | `Person`, `Page` |
 
 ## Entities
 
@@ -23,6 +23,7 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |

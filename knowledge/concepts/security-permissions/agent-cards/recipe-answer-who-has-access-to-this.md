@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer “Who Has Access To This?”
 
-Follow the guide section for Recipe: Answer “Who Has Access To This?”.
+Do not answer from direct `Auth` rows alone unless the question is explicitly “what rules are configured?” The role inspector recipe warns direct rows do not account for inheritance (Security Role Permissions Inspector).
 
 ## When To Use
 
@@ -16,33 +16,39 @@ Follow the guide section for Recipe: Answer “Who Has Access To This?”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Secured object.
+2. Action verb.
+3. Direct allows.
+4. Direct denies.
+5. Inherited source.
+6. Effective roles.
+7. Effective people, if needed.
+8. Person-specific exceptions.
+9. Public/all-user access.
+10. Unknowns requiring live test.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not answer from direct `Auth` rows alone unless the question is explicitly “what rules are configured?” The role inspector recipe warns direct rows do not account for inheritance (Security Role Permissions Inspector).
 
 ## Source Links
 
-- https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/303---blast-off/rock-security
-- https://community.rockrms.com/recipes/243
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/developer/helix/overview/security
-- https://community.rockrms.com/recipes/441
-- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
-- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
+- https://community.rockrms.com/recipes/337
+- https://community.rockrms.com/documentation/bookcontent/10/266
 - https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins
+- https://community.rockrms.com/developer/303---blast-off/rock-security
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.1/202504091716317_AddPersonalDeviceLocationPermissionStatus.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.1/202504091716317_AddPersonalDeviceLocationPermissionStatus.Designer.cs
+- https://community.rockrms.com/rocku/groups/group-security
+- https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol
+- https://community.rockrms.com/recipes/243
+- https://community.rockrms.com/recipes/344

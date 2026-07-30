@@ -1,149 +1,215 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Workflow"
       ],
-      "entities": [],
-      "id": "recipe-find-the-right-api-route",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
+      "id": "api-call-returns-401-unauthorized",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Workflow"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs",
-        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the caller authenticated?",
+        "Is the token present and correctly named/formatted?",
+        "Is the REST key active and mapped to the expected person/API user?",
+        "Does the person/API user have execute permission on the REST action?",
+        "For v2, is the required action `EXECUTE_READ`, `EXECUTE_WRITE`, unrestricted read, or unrestricted write?",
+        "Does entity-level security also deny access?",
+        "For workflow launch, does the caller have View on the Workflow Type unless unrestricted write is granted? See WorkflowsActionsController.cs.",
+        "For DataView endpoints on older versions, is the instance affected by the v17.5 permission bug? See Rock Core Release Notes."
       ],
-      "title": "Recipe: Find The Right API Route",
-      "when": "Follow the guide section for Recipe: Find The Right API Route."
+      "title": "API Call Returns 401/Unauthorized",
+      "when": "API Call Returns 401/Unauthorized"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-audit-a-rest-key",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
+      "id": "browser-shows-cors-failed-to-fetch",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
+        "https://community.rockrms.com/ask/developing/2842"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does the URL use `http` or `https`?",
+        "Is the API host reachable from the browser?",
+        "Is TLS valid?",
+        "Is the page origin configured under REST CORS Domains?",
+        "Is the exact scheme/host/port allowed?",
+        "Does preflight request succeed?",
+        "Are credentials/cookies needed, and are browser cookie policies blocking them?",
+        "Is the call from Swagger using the correct base URL?"
       ],
-      "title": "Recipe: Audit A REST Key",
-      "when": "Follow the guide section for Recipe: Audit A REST Key."
+      "title": "Browser Shows CORS / Failed To Fetch",
+      "when": "Browser Shows CORS / Failed To Fetch"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-diagnose-external-website-api-failure",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-        "https://community.rockrms.com/api-docs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
-        "https://community.rockrms.com/lava/lava-api"
+      "guide_section_id": "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
+      "id": "works-in-postman-but-not-browser",
+      "inspect": [
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Browser CORS.",
+        "Missing cookie/session in browser.",
+        "Different headers.",
+        "Preflight failure.",
+        "JavaScript token exposure blocked by design.",
+        "Serialization issue triggered by browser/SWAGGER route shape.",
+        "Mixed content or invalid scheme."
       ],
-      "title": "Recipe: Diagnose External Website API Failure",
-      "when": "Follow the guide section for Recipe: Diagnose External Website API Failure."
+      "title": "Works In Postman But Not Browser",
+      "when": "Works In Postman But Not Browser"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-review-a-lava-webhook-before-launch",
+      "guide_section_id": "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
+      "id": "lava-webhook-returns-wrong-template-or-404",
       "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Defined Type is `Lava Webhook`.",
+        "Defined Value value matches path after `/Webhooks/Lava.ashx/`.",
+        "Method/verb matches.",
+        "Regex/path variables are correct.",
+        "The site route/casing/rewrite is not altering path.",
+        "Template compiles.",
+        "Required Lava commands are enabled.",
+        "Errors are not swallowed by production error settings."
       ],
-      "title": "Recipe: Review A Lava Webhook Before Launch",
-      "when": "Follow the guide section for Recipe: Review A Lava Webhook Before Launch."
+      "title": "Lava Webhook Returns Wrong Template Or 404",
+      "when": "Lava Webhook Returns Wrong Template Or 404"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-build-a-safe-agent-tool",
+      "guide_section_id": "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
+      "id": "lava-web-request-fails-silently-or-returns-empty-result",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
-        "https://community.rockrms.com/developer/helix/lava-applications/observability",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/developer/helix/overview",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Example/ModelMap.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Data/IncludeForModelMapAttribute.cs"
+        "https://community.rockrms.com/lava/commands/web-request-commands",
+        "https://community.rockrms.com/ask/developing/2708"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is `webrequest` command enabled in that Lava context?",
+        "Is syntax valid for installed Rock/Lava version?",
+        "Are command parameters on a parser-compatible line/format?",
+        "Is URL absolute and reachable from the Rock server?",
+        "Is TLS/certificate valid from the server?",
+        "Are headers formatted correctly?",
+        "Is auth token valid?",
+        "Is request method correct?"
       ],
-      "title": "Recipe: Build A Safe Agent Tool",
-      "when": "Follow the guide section for Recipe: Build A Safe Agent Tool."
+      "title": "Lava Web Request Fails Silently Or Returns Empty Result",
+      "when": "Lava Web Request Fails Silently Or Returns Empty Result"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
+      "id": "workflow-webhook-does-not-start-workflow",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Defined Value is active.",
+        "Request filter/process Lava returns true.",
+        "URL includes expected route/filter values.",
+        "HTTP method matches provider.",
+        "Workflow Type is active.",
+        "Workflow Type security permits launch.",
+        "Required workflow attributes exist.",
+        "Attribute keys match exactly."
+      ],
+      "title": "Workflow Webhook Does Not Start Workflow",
+      "when": "Workflow Webhook Does Not Start Workflow"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
+      "id": "rest-v2-workflow-launch-fails",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
+      ],
+      "start_with": [
+        "Installed version includes v18.2 fix if applicable.",
+        "Route is `/api/v2/models/workflows/actions/launch/{workflowTypeId}`.",
+        "`workflowTypeId` is valid Id, Guid, or IdKey.",
+        "Workflow Type exists.",
+        "Workflow Type is active.",
+        "Caller has execute write on action.",
+        "Caller has View on Workflow Type unless unrestricted write.",
+        "Related entity exists and View security passes unless unrestricted write."
+      ],
+      "title": "REST v2 Workflow Launch Fails",
+      "when": "REST v2 Workflow Launch Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
+      "id": "mailgun-webhook-tracking-fails",
+      "inspect": [
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Installed Rock version.",
+        "API key attribute.",
+        "HTTP webhook signing key attribute.",
+        "Mailgun route configuration.",
+        "Mailgun signing key from provider.",
+        "ExceptionLog for missing key message.",
+        "Whether fallback behavior applies to installed version.",
+        "Inbound requests reach Rock."
+      ],
+      "title": "Mailgun Webhook Tracking Fails",
+      "when": "Mailgun Webhook Tracking Fails"
     }
   ],
   "concept_id": "api-integrations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:00+00:00",
+  "generated_at": "2026-07-30T02:08:08+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",

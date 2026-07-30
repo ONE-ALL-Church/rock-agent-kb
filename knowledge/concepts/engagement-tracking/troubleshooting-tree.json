@@ -1,177 +1,278 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Campus"
       ],
-      "entities": [],
-      "id": "recipe-audit-a-step-program",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",
+      "id": "a-step-is-missing-from-a-person",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Campus"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://community.rockrms.com/documentation/engagement/assessments",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/233",
-        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry",
+        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Was the Step entered for the correct person alias?",
+        "Is the Step Type active?",
+        "Is the Step Program active?",
+        "Is the user looking at the correct campus filter?",
+        "Is the date outside the selected chart/list timeframe?",
+        "Was the Step entered with a non-completion status?",
+        "Does security hide the Step or badge?",
+        "Was the Step Type moved to another program?"
       ],
-      "title": "Recipe: Audit A Step Program",
-      "when": "Follow the guide section for Recipe: Audit A Step Program."
+      "title": "A Step Is Missing From A Person",
+      "when": "A Step Is Missing From A Person"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Campus"
       ],
-      "entities": [],
-      "id": "recipe-diagnose-step-badge-display",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-step-program-completion-looks-wrong",
+      "id": "step-program-completion-looks-wrong",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Campus"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/233",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm each required Step Type has a completed Step.",
+        "Confirm statuses are marked as completion statuses.",
+        "Confirm inactive Step Types should or should not count.",
+        "Confirm person alias identity.",
+        "Confirm campus expectations.",
+        "Inspect the Step Program Completion model in the live instance.",
+        "Compare source-code rule in `StepProgramCompletion.cs`."
       ],
-      "title": "Recipe: Diagnose Step Badge Display",
-      "when": "Follow the guide section for Recipe: Diagnose Step Badge Display."
+      "title": "Step Program Completion Looks Wrong",
+      "when": "Step Program Completion Looks Wrong"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Person",
+        "Location"
       ],
-      "entities": [],
-      "id": "recipe-review-a-streak-type-before-rebuild",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-streak-count-looks-wrong",
+      "id": "streak-count-looks-wrong",
+      "inspect": [
+        "Attendance",
+        "Person",
+        "Location"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://community.rockrms.com/documentation/engagement/assessments",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/233",
-        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+        "https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps",
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/intro-to-streak-enrollment",
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/individually-rebuilding-streaks",
+        "https://community.rockrms.com/documentation/engagement/streaks/streak-enrollment/exclude-a-date"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the person is enrolled.",
+        "Confirm enrollment date.",
+        "Confirm occurrence map includes the relevant dates.",
+        "Confirm attendance source records exist.",
+        "Confirm engagement map.",
+        "Confirm exclusion map.",
+        "Check whether manual edits were overwritten by rebuild.",
+        "Check whether location exclusions apply."
       ],
-      "title": "Recipe: Review A Streak Type Before Rebuild",
-      "when": "Follow the guide section for Recipe: Review A Streak Type Before Rebuild."
+      "title": "Streak Count Looks Wrong",
+      "when": "Streak Count Looks Wrong"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-verify-assessment-request-flow",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-assessment-cannot-be-retaken",
+      "id": "assessment-cannot-be-retaken",
+      "inspect": [
+        "Person",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/assessments",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments",
-        "https://community.rockrms.com/ask/using/2824",
-        "https://community.rockrms.com/recipes/233"
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Inspect Assessment Type configuration.",
+        "Check retake interval.",
+        "Check last completion date.",
+        "Check whether formal request is required.",
+        "Check whether a pending request exists.",
+        "Confirm the person is using the right account.",
+        "Confirm the assessment page is accessible."
       ],
-      "title": "Recipe: Verify Assessment Request Flow",
-      "when": "Follow the guide section for Recipe: Verify Assessment Request Flow."
+      "title": "Assessment Cannot Be Retaken",
+      "when": "Assessment Cannot Be Retaken"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-audit-achievement-type",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-assessment-results-are-not-reportable",
+      "id": "assessment-results-are-not-reportable",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-types",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/add-achievement-types",
-        "https://community.rockrms.com/documentation/engagement/streaks/streak-types"
+        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history",
+        "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts",
+        "https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm the assessment is complete.",
+        "Check Person Profile History.",
+        "Inspect person attributes created by the assessment.",
+        "Confirm attribute security.",
+        "Confirm Data View filter is using the right attribute and value.",
+        "Confirm whether result values are high/medium/low, list values, text, or structured output.",
+        "Test with a known person."
       ],
-      "title": "Recipe: Audit Achievement Type",
-      "when": "Follow the guide section for Recipe: Audit Achievement Type."
+      "title": "Assessment Results Are Not Reportable",
+      "when": "Assessment Results Are Not Reportable"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-explain-engagement-data-to-a-ministry-user",
+      "guide_section_id": "18-troubleshooting-decision-tree-achievement-does-not-create-attempts",
+      "id": "achievement-does-not-create-attempts",
       "inspect": [],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/documentation/engagement/streaks",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements",
-        "https://community.rockrms.com/documentation/engagement/steps/fundamentals",
-        "https://community.rockrms.com/documentation/engagement/assessments/administer-assessments",
-        "https://community.rockrms.com/documentation/engagement/assessments",
-        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools",
-        "https://community.rockrms.com/documentation/engagement/steps",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/233",
-        "https://www.triumph.tech/resources/sparks-top-8-personality-assessments"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/AchievementType/AchievementTypeService.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm Achievement Type is active.",
+        "Confirm component entity type is configured.",
+        "Confirm source entity type.",
+        "Confirm target count.",
+        "Confirm source entities query returns records.",
+        "Check processing job/logs.",
+        "Check version caveats.",
+        "Inspect `AchievementTypeService.Process`."
       ],
-      "title": "Recipe: Explain Engagement Data To A Ministry User",
-      "when": "Follow the guide section for Recipe: Explain Engagement Data To A Ministry User."
+      "title": "Achievement Does Not Create Attempts",
+      "when": "Achievement Does Not Create Attempts"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Step",
+        "Workflow"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-achievement-saves-but-behaves-incorrectly",
+      "id": "achievement-saves-but-behaves-incorrectly",
+      "inspect": [
+        "Step",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Check whether it was created during a version affected by the v18.3 repaired Achievement Type Detail bug.",
+        "Inspect component configuration JSON.",
+        "Confirm prerequisites.",
+        "Confirm max accomplishments and over-achievement validation.",
+        "Confirm workflows.",
+        "Confirm Step creation fields.",
+        "Confirm badge Lava.",
+        "Review Release Notes."
+      ],
+      "title": "Achievement Saves But Behaves Incorrectly",
+      "when": "Achievement Saves But Behaves Incorrectly"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-achievement-success-workflow-does-not-run",
+      "id": "achievement-success-workflow-does-not-run",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm success attempt exists.",
+        "Confirm success workflow type is set.",
+        "Confirm workflow security and activation.",
+        "Check logs.",
+        "Check whether many attempts were created rapidly.",
+        "Verify instance includes the v18.3 timing fix from Release Notes."
+      ],
+      "title": "Achievement Success Workflow Does Not Run",
+      "when": "Achievement Success Workflow Does Not Run"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Workflow"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-step-is-not-added-when-achievement-succeeds",
+      "id": "step-is-not-added-when-achievement-succeeds",
+      "inspect": [
+        "StepProgram",
+        "StepType",
+        "Step",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types"
+      ],
+      "start_with": [
+        "Confirm Add Step on Success is enabled.",
+        "Confirm Step Program is selected.",
+        "Confirm Step Type is selected.",
+        "Confirm Step Status is selected.",
+        "Confirm Step Status is valid for the Step Program.",
+        "Confirm duplicate rules allow the Step.",
+        "Confirm Achievement Attempt is successful.",
+        "Confirm workflow or processing logs."
+      ],
+      "title": "Step Is Not Added When Achievement Succeeds",
+      "when": "Step Is Not Added When Achievement Succeeds"
     }
   ],
   "concept_id": "engagement-tracking",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:45+00:00",
+  "generated_at": "2026-07-30T02:07:56+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-a-step-is-missing-from-a-person",

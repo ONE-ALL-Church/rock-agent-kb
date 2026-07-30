@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
@@ -65,7 +66,7 @@ def approved_claims_path() -> Path:
 
 
 def build_approved_claims(output_path: Optional[Path] = None) -> dict[str, Any]:
-    raw_claims = sorted(
+    normalized_claims = normalize_claim_retrieval_metadata(
         apply_live_claim_verifications(
             apply_claim_review_dispositions(
                 [
@@ -73,6 +74,16 @@ def build_approved_claims(output_path: Optional[Path] = None) -> dict[str, Any]:
                     *claims_from_source_claim_reviews(),
                 ]
             )
+        )
+    )
+    routing_context = [
+        row for row in normalized_claims if row.get("claim_tier") == "routing_context_only"
+    ]
+    raw_claims = sorted(
+        (
+            row
+            for row in normalized_claims
+            if row.get("claim_tier") != "routing_context_only"
         ),
         key=lambda row: row["claim_id"],
     )
@@ -82,13 +93,18 @@ def build_approved_claims(output_path: Optional[Path] = None) -> dict[str, Any]:
     if errors:
         raise ValueError("\n".join(errors))
     count = write_jsonl(output, claims)
-    report = claim_export_report(claims, output)
+    report = claim_export_report(
+        claims,
+        output,
+        excluded_routing_context=routing_context,
+    )
     CLAIM_EXPORT_REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     CLAIM_EXPORT_REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return {
         "schema": "rock-kb-claim-build-result-v1",
         "status": "ok",
         "claim_count": count,
+        "excluded_routing_context_count": len(routing_context),
         "output": repo_relative_path(output),
         "report": repo_relative_path(CLAIM_EXPORT_REPORT_PATH),
     }
@@ -195,6 +211,9 @@ def approved_claim_dependencies_for_concept(
                 "authority_tier": row.get("authority_tier"),
                 "claim_tier": row.get("claim_tier"),
                 "confidence": row.get("confidence"),
+                "rock_versions": row.get("rock_versions") or [],
+                "version_scope_status": row.get("version_scope_status")
+                or ("scoped" if row.get("rock_versions") else "unprocessed"),
                 "review_status": row.get("review_status"),
                 "concept_ids": row.get("concept_ids") or [],
                 "source_record_ids": row.get("source_record_ids") or [],
@@ -223,6 +242,8 @@ def approved_claim_hash(row: dict[str, Any]) -> str:
         "license_status": row.get("license_status"),
         "public_publish_mode": row.get("public_publish_mode"),
         "rock_versions": row.get("rock_versions") or [],
+        "version_scope_status": row.get("version_scope_status")
+        or ("scoped" if row.get("rock_versions") else "unprocessed"),
         "safe_evidence_hash": row.get("safe_evidence_hash"),
         "needs_live_verification": row.get("needs_live_verification"),
         "claim_tier": row.get("claim_tier"),
@@ -305,6 +326,7 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
                 }
             ]
     reviewed_at = row.get("reviewed_at") or now_iso()
+    rock_versions = normalized_source_review_versions(row)
     claim = {
         "schema": CLAIM_SCHEMA,
         "claim_type": row.get("claim_type") or claim_type_from_topic(str(row.get("topic") or "")),
@@ -316,7 +338,12 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         "review_status": row.get("review_status"),
         "license_status": row.get("license_status") or "cite_and_summarize_only",
         "public_publish_mode": row.get("public_publish_mode") or "public_cite_and_summarize_only",
-        "rock_versions": row.get("rock_versions") or [],
+        "rock_versions": rock_versions,
+        "version_scope_status": (
+            row.get("version_scope_status")
+            if rock_versions or row.get("version_scope_status") == "version_independent"
+            else "unprocessed"
+        ),
         "safe_evidence_hash": row.get("safe_evidence_hash") or sha256_text(
             json.dumps(
                 {
@@ -352,6 +379,24 @@ def source_claim_review_to_claim(row: dict[str, Any]) -> dict[str, Any]:
         if row.get(key):
             claim[key] = row[key]
     return claim_with_id(claim)
+
+
+def normalized_source_review_versions(row: dict[str, Any]) -> list[str]:
+    versions = sorted({str(value).lstrip("v") for value in row.get("rock_versions") or [] if value})
+    provenance = row.get("generation_provenance") or {}
+    legacy_document_pin = (
+        str(row.get("source_id") or "") == "rock_documentation"
+        and versions == ["19.0"]
+        and str(provenance.get("prompt_id") or "") == "rock-kb-source-claim-distillation"
+        and str(provenance.get("prompt_version") or "") == "1.0.0"
+        and str(provenance.get("method") or "") == "agent_reviewed_full_article"
+    )
+    if legacy_document_pin and not re.search(
+        r"(?i)(?<![a-z0-9])(?:rock\s+|v)19(?:\.0)?(?![a-z0-9])",
+        str(row.get("claim") or ""),
+    ):
+        return []
+    return versions
 
 
 def safe_source_refs(values: list[Any]) -> list[dict[str, Any]]:
@@ -494,6 +539,7 @@ def media_promotion_to_claims(row: dict[str, Any]) -> list[dict[str, Any]]:
         "license_status": "cite_and_summarize_only",
         "public_publish_mode": "public_cite_and_summarize_only",
         "rock_versions": [],
+        "version_scope_status": "unprocessed",
         "timestamp": None,
         "timestamp_seconds": None,
         "source_timestamp_url": None,
@@ -540,6 +586,11 @@ def media_promotion_to_claims(row: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def claim_with_id(row: dict[str, Any]) -> dict[str, Any]:
+    if not row.get("rock_versions"):
+        row["rock_versions"] = explicit_rock_versions(str(row.get("claim") or ""))
+    row["version_scope_status"] = row.get("version_scope_status") or (
+        "scoped" if row.get("rock_versions") else "unprocessed"
+    )
     stable_payload = {
         "claim": row.get("claim"),
         "source_refs": row.get("source_refs") or [],
@@ -552,6 +603,28 @@ def claim_with_id(row: dict[str, Any]) -> dict[str, Any]:
     row.update(claim_usefulness_metadata(row))
     row["claim_tier"] = claim_tier_for_claim(row)
     return row
+
+
+def explicit_rock_versions(value: str) -> list[str]:
+    versions = set()
+    for major, minor in re.findall(r"(?i)(?<![a-z0-9])v(\d{1,2})(?:\.(\d{1,2}))?(?![a-z0-9])", value):
+        versions.add(f"{int(major)}.{int(minor or 0)}")
+    return sorted(versions, key=lambda version: tuple(int(part) for part in version.split(".")))
+
+
+def normalize_claim_retrieval_metadata(claims: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows = []
+    for claim in claims:
+        updated = dict(claim)
+        updated["answer_candidate"] = updated.get("claim_tier") in {
+            "answer_pack_approved",
+            "live_verified",
+        }
+        updated["version_scope_status"] = updated.get("version_scope_status") or (
+            "scoped" if updated.get("rock_versions") else "unprocessed"
+        )
+        rows.append(updated)
+    return rows
 
 
 def claim_tier_for_claim(row: dict[str, Any]) -> str:
@@ -785,13 +858,38 @@ def private_corpus_pointer_for_promotion(row: dict[str, Any]) -> Optional[dict[s
     return {"kind": "media_transcript", "source_id": source_id, "media_id": media_id}
 
 
-def claim_export_report(rows: list[dict[str, Any]], output: Path) -> dict[str, Any]:
+def claim_export_report(
+    rows: list[dict[str, Any]],
+    output: Path,
+    *,
+    excluded_routing_context: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    excluded_routing_context = excluded_routing_context or []
     provenance_rows = [row.get("generation_provenance") for row in rows if row.get("generation_provenance")]
+    answer_bearing = [
+        row for row in rows if row.get("claim_tier") in {"answer_pack_approved", "live_verified"}
+    ]
+    retrieval_eligible = [row for row in rows if row.get("claim_tier") != "routing_context_only"]
+    version_scoped = [row for row in rows if row.get("rock_versions")]
+    version_independent = [
+        row for row in rows if row.get("version_scope_status") == "version_independent"
+    ]
     return {
         "schema": "rock-kb-claim-export-report-v1",
         "generated_at": generated_at_iso(),
         "output": repo_relative_path(output),
         "claim_count": len(rows),
+        "answer_bearing_count": len(answer_bearing),
+        "retrieval_eligible_count": len(retrieval_eligible),
+        "routing_context_count": len(rows) - len(retrieval_eligible),
+        "excluded_routing_context_count": len(excluded_routing_context),
+        "excluded_routing_context_claim_types": count_values(
+            row.get("claim_type") for row in excluded_routing_context
+        ),
+        "routing_context_destination": "agent/source-summaries.jsonl",
+        "version_scoped_count": len(version_scoped),
+        "version_independent_count": len(version_independent),
+        "version_unprocessed_count": len(rows) - len(version_scoped) - len(version_independent),
         "authority_tiers": count_values(row.get("authority_tier") for row in rows),
         "claim_tiers": count_values(row.get("claim_tier") for row in rows),
         "claim_types": count_values(row.get("claim_type") for row in rows),

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Debug Group Attendance Reminder Failures
 
-Follow the guide section for Recipe: Debug Group Attendance Reminder Failures.
+Complete Debug Group Attendance Reminder Failures with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,29 @@ Follow the guide section for Recipe: Debug Group Attendance Reminder Failures.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Group`
+- `GroupType`
+- `Schedule`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Group`
+- `GroupType`
+- `Schedule`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Group Type takes attendance.
+2. Send attendance reminder enabled.
+3. Group schedule exists.
+4. Schedule date applies and is not excluded.
+5. Group has active members/leaders.
+6. Reminder job is enabled and ran.
+7. Communication/system email settings.
+8. Member communication preferences.
+9. Attendance already entered or occurrence marked did-not-occur.
 
 ## Do Not Assume
 
@@ -38,11 +50,11 @@ Follow the guide section for Recipe: Debug Group Attendance Reminder Failures.
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
 - https://community.rockrms.com/ask/developing/2801
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
 - https://community.rockrms.com/recipes/220
 - https://community.rockrms.com/recipes/519
 - https://community.rockrms.com/recipes/329
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql

@@ -6,6 +6,8 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-07-29
+
 ### Added
 
 - Stateless MCP `2026-07-28` discovery, per-request capability negotiation,
@@ -18,6 +20,11 @@ tags and follow semantic versioning for public client and service contracts.
   operation category, endpoint, fixed cohort, status/error, latency,
   response-size, projection, and count, exposed through the operations
   dashboard and `GET /telemetry/mcp-transport`.
+- Intent-aware retrieval for tasks and troubleshooting, explicit Rock-version
+  filtering, paginated claim tiers, debug-only ranking signals, compact
+  manifests, and nonempty concept summaries.
+- A versioned concept-taxonomy audit, focused guide-synthesis prompts, and a
+  reviewed Workflows pilot generated with `gpt-5.6-sol` at `xhigh` reasoning.
 
 ### Changed
 
@@ -29,7 +36,14 @@ tags and follow semantic versioning for public client and service contracts.
 - The MCP transport table is emitted by the deployment projection. Runtime
   writes use one aggregate upsert and create the table only as a missing-schema
   fallback during a deployment transition.
-- The Rock KB agent skill is version `1.7.0` and requires client `0.18.0`.
+- Routing-only source commentary is no longer published as approved claims.
+  It remains discoverable through source summaries, while the public claim
+  graph contains 609 concrete, tiered claims with explicit version-scope
+  status.
+- Concept quality now measures answer-bearing evidence separately from artifact
+  completeness, and legacy guide regeneration is tracked as review debt rather
+  than a false missing-artifact failure.
+- The Rock KB agent skill is version `1.8.0` and requires client `0.19.0`.
 
 ## [0.18.0] - 2026-07-26
 

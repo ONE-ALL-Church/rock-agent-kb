@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose Schedule API Issues
 
-Follow the guide section for Recipe: Diagnose Schedule API Issues.
+The provided Q&A mentions a v12.8 browser exception involving `FriendlyScheduleText` lacking a setter, but it has no answer in the source pack, so do not treat it as a solved known issue (REST API for Schedules).
 
 ## When To Use
 
@@ -16,33 +16,37 @@ Follow the guide section for Recipe: Diagnose Schedule API Issues.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Schedule`
 
 ## Entities And Tables
 
-- `See guide`
+- `Schedule`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. HTTP method.
+2. Authentication and authorization.
+3. CORS/browser constraints.
+4. Whether the payload attempts to set computed/read-only properties.
+5. Rock version.
+6. API endpoint shape.
+7. Browser console and server exception logs.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- The provided Q&A mentions a v12.8 browser exception involving `FriendlyScheduleText` lacking a setter, but it has no answer in the source pack, so do not treat it as a solved known issue (REST API for Schedules).
 
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
+- https://community.rockrms.com/recipes/280
+- https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots
+- https://www.triumph.tech/resources/github-spotlight-262025
+- https://community.rockrms.com/documentation/bookcontent/7/296
+- https://community.rockrms.com/documentation/bookcontent/42
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx
-- https://community.rockrms.com/lava/commands/calendar-events
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs

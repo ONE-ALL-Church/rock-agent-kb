@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Inventory A Mobile App
 
-Follow the guide section for Recipe: Inventory A Mobile App.
+Complete Inventory A Mobile App with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,32 @@ Follow the guide section for Recipe: Inventory A Mobile App.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Mobile application name and identifier.
+2. Application type.
+3. Orientation setting.
+4. API URL.
+5. API key identity.
+6. Pages.
+7. Homepage routing.
+8. Flyout/tab XAML.
+9. Blocks by page.
+10. Security by page/block.
+11. Deployment status.
+12. Shell version.
+13. Rock Core version.
+14. Push configuration.
+15. Giving configuration.
+16. App Factory account ownership.
 
 ## Do Not Assume
 
@@ -36,13 +51,13 @@ Follow the guide section for Recipe: Inventory A Mobile App.
 
 - https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
-- https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
-- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
-- https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
-- https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
-- https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
+- https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security

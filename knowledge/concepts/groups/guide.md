@@ -1179,24 +1179,24 @@ Community examples show custom pages using Dynamic Data and communications for s
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `174`
+- Approved claims routed to this concept: `19`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
+| official | behavior | Archiving a group removes it from normal group-viewer surfaces without deleting it and allows restoration later from the Archived Groups administration page. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
+| official | behavior | Each person in an intermediate region group whose role is marked as a leader receives that region's child-group attendance digest, while the attendance group's own leader is the target of the digest's Email Leader action. | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) |
+| official | configuration | The Group Attendance Digest expects a three-level hierarchy: one top parent, leader-bearing region or area groups beneath it, and attendance-recording groups below those regions. | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) |
+| official | configuration | Group History becomes available after the Group Type enables history and the Process Group History job has run; its timeline can show group edits and member additions or removals by date. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
+| official | configuration | Rock can add a group at the root of the group tree or as a child of the selected group, but child creation is unavailable when that Group Type does not permit child groups. | [source](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group) |
+| official | configuration | A member requirement attached to a Group Type applies across that type's groups and can be limited by group role, age classification, or a Data View-defined population. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
+| official | configuration | Group Type requirements can allow leader overrides or prevent a person from being added until the requirement is met, enabling enforceable eligibility rules such as completed background checks. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | source_summary | Rapid Attendance Entry can be used as a fast attendance-entry surface and can also collect related ministry information, such as family updates, notes, prayer requests, and workflow launches, when the block settings enable those actions. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
-| rocku-confirmed | operational_guidance | For staff training and operational readiness, Group Attendance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
-| rocku-confirmed | operational_guidance | The Extending Groups RockU lesson provides training context for ministry process design; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/extending-groups) |
-| rocku-confirmed | operational_guidance | The Group Viewer RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-viewer) |
-| rocku-confirmed | operational_guidance | For ministry process design, Group Type Inheritance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-type-inheritance) |
-| rocku-confirmed | operational_guidance | For ministry process design, Person Preferences and Auto Schedule should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule) |
-| rocku-confirmed | operational_guidance | The Group Placements [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration) |
-| rocku-confirmed | operational_guidance | For Rock operations and administration, Group Administrator should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/groups/group-administrator) |
-| More |  | 162 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 7 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1205,20 +1205,12 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `47`
+- Approved media records routed to this concept: `1`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Alternate Placements Transcript Insight](https://community.rockrms.com/rocku/groups/alternate-placements) | approved_for_public_distillation | 2 | media-insight:8cf70b8a9a49fe25 |
-| [Data View Filter Groups Transcript Insight](https://community.rockrms.com/rocku/reporting/data-view-filter-groups) | approved_for_public_distillation | 2 | media-insight:94180d5ad9c59fef |
-| [Episode 111: Special Edition with Tim Dear Transcript Insight](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) | approved_for_public_distillation | 3 | media-insight:05f4fce834300a65 |
-| [Episode 24: Announcing RX2017 and Sparkability Group Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-24-announcing-rx2017-and-sparkability-group) | approved_for_public_distillation | 3 | media-insight:4e10e7d0e066fd89 |
-| [Episode 40: v8 and more team updates Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) | approved_for_public_distillation | 3 | media-insight:6e8d02135da566a7 |
-| [Episode 84: Special Edition with Red Rocks Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-84-special-edition-with-red-rocks) | approved_for_public_distillation | 3 | media-insight:40920b5275ce640a |
-| [Extending Groups Transcript Insight](https://community.rockrms.com/rocku/groups/extending-groups) | approved_for_public_distillation | 3 | media-insight:0f8803186922d5aa |
-| [Fundraising Group Transcript Insight](https://community.rockrms.com/rocku/finance/fundraising-group) | approved_for_public_distillation | 2 | media-insight:b4c0860821d5f9c1 |
-| More |  | 39 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Group Type Inheritance Transcript Insight](https://community.rockrms.com/rocku/groups/group-type-inheritance) | approved_for_public_distillation | 3 | media-insight:b9e4c6fc0514f0e1 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

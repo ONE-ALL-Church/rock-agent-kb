@@ -10,12 +10,17 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12679 words; expected at least 7000.",
+      "message": "Guide has 12679 words; expected at least 1200.",
       "passed": true
     },
     {
+      "id": "bounded_length",
+      "message": "Guide has 12679 words; expected no more than 9000.",
+      "passed": false
+    },
+    {
       "id": "min_sections",
-      "message": "Guide has 89 sections; expected at least 35.",
+      "message": "Guide has 89 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -24,28 +29,33 @@
       "passed": true
     },
     {
-      "id": "release_sources",
-      "message": "Guide should cite release notes.",
-      "passed": true
-    },
-    {
-      "id": "source_code",
-      "message": "Guide should cite source code.",
-      "passed": true
-    },
-    {
       "id": "task_cards",
-      "message": "Guide has 6 task cards; expected at least 5.",
+      "message": "Guide has 6 task cards; expected at least 3.",
+      "passed": true
+    },
+    {
+      "id": "actionable_task_cards",
+      "message": "Task cards must contain concrete steps.",
       "passed": true
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 12 entity rows; expected at least 8.",
+      "message": "Guide has 12 entity rows; expected at least 3.",
       "passed": true
     },
     {
       "id": "low_uncited_sections",
       "message": "Too many substantive sections have no citations.",
+      "passed": true
+    },
+    {
+      "id": "troubleshooting_structure",
+      "message": "Guide should include evidence-backed troubleshooting branches.",
+      "passed": true
+    },
+    {
+      "id": "source_code",
+      "message": "Available source code should be cited.",
       "passed": true
     },
     {
@@ -57,13 +67,24 @@
   "concept_id": "roku",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-26T00:30:08+00:00",
+  "generated_at": "2026-07-30T02:08:15+00:00",
   "guide_line_count": 1258,
   "guide_word_count": 12679,
+  "metrics": {
+    "actionable_task_card_ratio": 1.0,
+    "answer_claim_count_in_pack": 0,
+    "answer_claim_reference_count": 0,
+    "entity_count": 12,
+    "section_count": 89,
+    "source_count": 17,
+    "substantive_uncited_section_ratio": 0.0182,
+    "task_card_count": 6,
+    "word_count": 12679
+  },
   "private_draft_contribution_record_count": 0,
-  "score": 100,
+  "score": 90,
   "section_count": 89,
   "source_count": 17,
-  "status": "pass",
+  "status": "fail",
   "task_card_count": 6
 }

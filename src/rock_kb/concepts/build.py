@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from ._shared import *  # noqa: F401,F403
+from .audit import write_concept_taxonomy_audit
 
 
 def build_all_concepts() -> dict[str, int]:
@@ -22,7 +23,14 @@ def build_all_concepts() -> dict[str, int]:
     write_jsonl(AGENT_DIR / "concept-dependencies.jsonl", dependencies)
     write_jsonl(AGENT_DIR / "concept-index.jsonl", concept_index_rows(dependencies))
     write_agent_manifest()
-    return {"concept_guides": built, "concept_dependencies": len(dependencies), "baseline_agent_artifacts": baseline_artifacts}
+    taxonomy = write_concept_taxonomy_audit()
+    return {
+        "concept_guides": built,
+        "concept_dependencies": len(dependencies),
+        "baseline_agent_artifacts": baseline_artifacts,
+        "concept_taxonomy_errors": len(taxonomy["errors"]),
+        "concept_taxonomy_warnings": len(taxonomy["warnings"]),
+    }
 
 def build_single_concept(concept_id: str) -> dict[str, Any]:
     concept = get_concept(concept_id)
@@ -43,11 +51,13 @@ def build_single_concept(concept_id: str) -> dict[str, Any]:
     write_jsonl(AGENT_DIR / "concept-dependencies.jsonl", dependencies)
     write_jsonl(AGENT_DIR / "concept-index.jsonl", concept_index_rows(dependencies))
     write_agent_manifest()
+    taxonomy = write_concept_taxonomy_audit()
     return {
         "concept_id": concept.id,
         "guide_path": repo_relative_path(output),
         "source_records": len(dependency["source_record_ids"]),
         "baseline_agent_artifacts": baseline_artifacts,
+        "concept_taxonomy_status": taxonomy["status"],
     }
 
 def build_concept_guide(
@@ -100,6 +110,9 @@ def build_concept_guide(
         "needs_rebuild": False,
         "stale_reason_before_build": stale_reason,
         "depends_on_topics": concept.depends_on_topics,
+        "routing_role": concept.routing_role,
+        "parent_concept_id": concept.parent_concept_id,
+        "documentation_branches": record_constraint_values(concept.raw, "documentation_branches"),
         "guide_hash": "",
     }
     guide = render_concept_guide(concept, selected, matched, dependency)
@@ -890,6 +903,9 @@ def concept_index_rows(dependencies: list[dict[str, Any]]) -> list[dict[str, Any
                 "last_built": row.get("last_built"),
                 "needs_rebuild": row.get("needs_rebuild"),
                 "depends_on_topics": row.get("depends_on_topics"),
+                "routing_role": row.get("routing_role") or "primary",
+                "parent_concept_id": row.get("parent_concept_id") or "",
+                "documentation_branches": row.get("documentation_branches") or [],
             }
         )
     return rows
@@ -1325,6 +1341,9 @@ def build_agent_manifest() -> dict[str, Any]:
                 "concept_id": concept.id,
                 "title": concept.title,
                 "description": concept.description,
+                "routing_role": concept.routing_role,
+                "parent_concept_id": concept.parent_concept_id,
+                "documentation_branches": record_constraint_values(concept.raw, "documentation_branches"),
                 "artifact_level": "detailed" if quality else ("baseline" if (concept_dir / "quickstart.md").exists() else "missing"),
                 "quickstart": relative_if_exists(concept_dir / "quickstart.md"),
                 "guide": relative_if_exists(synthesis_output_path(concept.id)),
@@ -1360,6 +1379,7 @@ def build_agent_manifest() -> dict[str, Any]:
             "section_status": "agent/section-status.jsonl",
             "source_summaries": "agent/source-summaries.jsonl",
             "source_summary_report": "agent/source-summary-report.json",
+            "concept_taxonomy_report": "agent/concept-taxonomy-report.json",
             "model_map": "knowledge/model-map/index.md",
             "model_map_summary": "agent/model-map-summary.json",
             "model_map_entities": "agent/model-map-entities.jsonl",

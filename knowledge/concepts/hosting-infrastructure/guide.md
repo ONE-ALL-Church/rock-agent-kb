@@ -1218,7 +1218,7 @@ Return pass/fail for:
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `32`
+- Approved claims routed to this concept: `29`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
@@ -1235,7 +1235,7 @@ This generated summary links the long-form guide to the approved public claim gr
 | official | configuration | Rock recommends enabling snapshot isolation on its SQL Server database so that database writes do not block reads; the setting may already be enabled depending on the SQL Server edition and version. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock) |
 | official | configuration | Enable IIS dynamic-content compression when the option is available; if it is disabled because the required compression module is not installed, the step may be skipped. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis) |
 | official | implementation_pattern | Rock's Azure hosting layout places the web virtual machine, Azure SQL server, and Azure SQL database in a shared resource group, with IIS running on the web VM. | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
-| More |  | 20 additional approved claims are tracked in `approved-claims.md`. |  |
+| More |  | 17 additional approved claims are tracked in `approved-claims.md`. |  |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 

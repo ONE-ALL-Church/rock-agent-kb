@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer “Can I Clear Cache?”
 
-Follow the guide section for Recipe: Answer “Can I Clear Cache?”.
+Complete Answer “Can I Clear Cache?” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,12 @@ Follow the guide section for Recipe: Answer “Can I Clear Cache?”.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. What cache is suspected.
+2. Whether source data is correct.
+3. Whether broad clear is necessary.
+4. Impact risk.
+5. Version caveat if `App_Data/Cache` issue may apply.
+6. Preferred narrow action.
 
 ## Do Not Assume
 
@@ -34,15 +37,4 @@ Follow the guide section for Recipe: Answer “Can I Clear Cache?”.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/rocku/core-concepts
-- https://community.rockrms.com/developer/developer-codex/coding-standards
-- https://community.rockrms.com/recipes/522
-- https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools

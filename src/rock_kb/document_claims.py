@@ -15,6 +15,7 @@ from .claims import (
 )
 from .community import fetch_rockumentation_payload, rockumentation_readable_text
 from .concepts import (
+    concept_has_path_constraints,
     concept_source_records,
     get_concept,
     load_concepts,
@@ -30,6 +31,23 @@ from .paths import REVIEW_DIR
 DOCUMENT_CLAIM_CANDIDATE_SCHEMA = "rock-kb-document-claim-candidate-v1"
 DOCUMENT_CLAIM_REWRITE_SCHEMA = "rock-kb-document-claim-rewrite-v1"
 DEFAULT_DOCUMENT_CLAIM_CONCEPTS = [
+    "workflows",
+    "data-views-reports",
+    "security-permissions",
+    "groups",
+    "cms-websites",
+    "check-in",
+    "communications",
+    "event-registration",
+    "giving-finance",
+    "mobile",
+    "api-integrations",
+    "people-families",
+    "connections",
+    "scheduling-locations",
+    "system-admin-ops",
+    "serving-volunteer-ops",
+    "learning-lms-engagement",
     "documents-signatures",
     "hosting-infrastructure",
     "prayer-care",
@@ -73,7 +91,7 @@ def build_document_claim_candidates(
         for rank, record in enumerate(ranked):
             if str(record.get("source_id") or "") not in DEFAULT_DOCUMENT_SOURCE_IDS:
                 continue
-            if not record_matches_path_constraints(record, concept.raw):
+            if concept_has_path_constraints(concept) and not record_matches_path_constraints(record, concept.raw):
                 continue
             if not record.get("id") or not str(record.get("source_url") or "").startswith("http"):
                 continue
@@ -174,7 +192,7 @@ def hydrate_document_candidates(
                 "selection_score": quality,
                 "review_status": "needs_agent_distillation",
                 "recommended_prompt_id": "rock-kb-source-claim-distillation",
-                "recommended_prompt_version": "1.0.0",
+                "recommended_prompt_version": "1.1.0",
             }
         )
     return rows, skipped
@@ -288,7 +306,7 @@ def promote_document_claim_rewrites(
     reviewer: str = "local-review",
     model: str = "gpt-5.6-sol",
     prompt_id: str = "rock-kb-source-claim-distillation",
-    prompt_version: str = "1.0.0",
+    prompt_version: str = "1.1.0",
     method: str = "agent_reviewed_full_article",
 ) -> dict[str, Any]:
     candidates = {str(row.get("id") or ""): row for row in read_jsonl(candidate_path) if row.get("id")}
@@ -352,6 +370,8 @@ def promote_document_claim_rewrites(
                     f"{rewrite_path}:{line_number} claim {item_index} has unknown concept IDs: {', '.join(unknown_concepts)}"
                 )
             source_input_hash = str(candidate["source_input_hash"])
+            rock_versions = normalized_rock_versions(candidate, item)
+            version_scope_status = normalized_version_scope_status(item, rock_versions)
             review_id = "source-claim:" + sha256_text(f"{candidate_id}:{claim_text}")[:20]
             review = {
                 "schema": SOURCE_CLAIM_REVIEW_SCHEMA,
@@ -378,7 +398,8 @@ def promote_document_claim_rewrites(
                 "reviewer": reviewer,
                 "license_status": "cite_and_summarize_only",
                 "public_publish_mode": "public_cite_and_summarize_only",
-                "rock_versions": normalized_rock_versions(candidate, item),
+                "rock_versions": rock_versions,
+                "version_scope_status": version_scope_status,
                 "safe_evidence_hash": source_input_hash,
                 "source_input_hash": source_input_hash,
                 "normalized_content_hash": candidate.get("normalized_content_hash"),
@@ -433,9 +454,15 @@ def normalize_claim_text(value: str) -> str:
 
 def normalized_rock_versions(candidate: dict[str, Any], item: dict[str, Any]) -> list[str]:
     explicit = [str(value).lstrip("v") for value in item.get("rock_versions") or [] if value]
-    if explicit:
-        return sorted(set(explicit))
-    if candidate.get("source_id") != "rock_documentation":
-        return []
-    current = str(candidate.get("documentation_current_version") or "").strip().lstrip("v")
-    return [current] if current else []
+    return sorted(set(explicit))
+
+
+def normalized_version_scope_status(item: dict[str, Any], rock_versions: list[str]) -> str:
+    if rock_versions:
+        return "scoped"
+    status = str(item.get("version_scope_status") or "unprocessed")
+    if status not in {"version_independent", "unprocessed"}:
+        raise ValueError(
+            "version_scope_status must be version_independent or unprocessed when rock_versions is empty"
+        )
+    return status

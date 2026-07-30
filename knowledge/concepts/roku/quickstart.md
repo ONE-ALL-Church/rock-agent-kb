@@ -17,12 +17,12 @@ Roku developer documentation for Rock-powered SceneGraph applications, pages, co
 
 ## Primary Tasks
 
-- [Recipe: Inventory Existing Roku App](tasks/recipe-inventory-existing-roku-app.md): Follow the guide section for Recipe: Inventory Existing Roku App.
-- [Recipe: Review A Roku Page For Safety](tasks/recipe-review-a-roku-page-for-safety.md): Follow the guide section for Recipe: Review A Roku Page For Safety.
-- [Recipe: Convert A Static Media List To Dynamic RowList](tasks/recipe-convert-a-static-media-list-to-dynamic-rowlist.md): Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowList.
-- [Recipe: Diagnose A Cache Leak](tasks/recipe-diagnose-a-cache-leak.md): Follow the guide section for Recipe: Diagnose A Cache Leak.
-- [Recipe: Add A Safe Diagnostic Page](tasks/recipe-add-a-safe-diagnostic-page.md): Follow the guide section for Recipe: Add A Safe Diagnostic Page.
-- [Recipe: Validate Post-Upgrade Roku Behavior](tasks/recipe-validate-post-upgrade-roku-behavior.md): Follow the guide section for Recipe: Validate Post-Upgrade Roku Behavior.
+- [Recipe: Inventory Existing Roku App](tasks/recipe-inventory-existing-roku-app.md): Complete Inventory Existing Roku App with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review A Roku Page For Safety](tasks/recipe-review-a-roku-page-for-safety.md): Report findings by severity: security/cache leaks first, broken rendering second, analytics inaccuracies third, maintainability last.
+- [Recipe: Convert A Static Media List To Dynamic RowList](tasks/recipe-convert-a-static-media-list-to-dynamic-rowlist.md): Complete Convert A Static Media List To Dynamic RowList with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose A Cache Leak](tasks/recipe-diagnose-a-cache-leak.md): Complete Diagnose A Cache Leak with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add A Safe Diagnostic Page](tasks/recipe-add-a-safe-diagnostic-page.md): Do not show API keys, tokens, person IDs, email addresses, or sensitive attributes. Remove or lock down the page before production launch.
+- [Recipe: Validate Post-Upgrade Roku Behavior](tasks/recipe-validate-post-upgrade-roku-behavior.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

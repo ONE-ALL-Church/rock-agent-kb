@@ -1,289 +1,277 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Family",
+        "Workflow",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-identify-a-person-safely",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-person-does-not-appear-in-search",
+      "id": "person-does-not-appear-in-search",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Family",
+        "Workflow",
+        "Block"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindFamilies.cs",
+        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the search surface staff UI, mobile Smart Search, check-in, Lava, or custom SQL?",
+        "Is the search type supported by that surface?",
+        "Is the person active?",
+        "Is the record type a person?",
+        "Does the search include inactive records?",
+        "Is the name stored in `NickName`, `FirstName`, or another field?",
+        "Is phone normalized correctly?",
+        "Is email on the correct person record?"
       ],
-      "title": "Recipe: Identify A Person Safely",
-      "when": "Follow the guide section for Recipe: Identify A Person Safely."
+      "title": "Person Does Not Appear In Search",
+      "when": "Person Does Not Appear In Search"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-explain-why-personalias-matters",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-family-members-are-wrong",
+      "id": "family-members-are-wrong",
+      "inspect": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow",
+        "Block"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInConfigurationSettings/CheckInChildRelationshipSettingsBag.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindRelationships.cs"
+      ],
+      "start_with": [
+        "Is the displayed \"family\" actually a family group?",
+        "Is the person in more than one family group?",
+        "Which group is primary?",
+        "Are inactive members hidden?",
+        "Are group member roles correct?",
+        "Are known relationships being displayed as family members?",
+        "Did check-in registration add a child to a new family with relationship instead of the parent's family?",
+        "Was there a bad merge?"
+      ],
+      "title": "Family Members Are Wrong",
+      "when": "Family Members Are Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-person-attribute-does-not-display",
+      "id": "person-attribute-does-not-display",
+      "inspect": [
+        "Person",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
         "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values"
+      ],
+      "start_with": [
+        "Does the attribute definition exist?",
+        "Is the entity type `Rock.Model.Person`?",
+        "Is the category displayed by the block?",
+        "Does the current user have view access?",
+        "Does an `AttributeValue` row exist for the person?",
+        "Is the field type supported by the display surface?",
+        "Is the value cached?",
+        "Is the Lava key correct?"
+      ],
+      "title": "Person Attribute Does Not Display",
+      "when": "Person Attribute Does Not Display"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-workflow-person-attribute-resolves-wrong-person",
+      "id": "workflow-person-attribute-resolves-wrong-person",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/workflows",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/SetPersonAttribute.cs",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Inspect the workflow attribute field type.",
+        "Inspect raw value.",
+        "Is it a person alias GUID?",
+        "Resolve through `PersonAlias`, not `Person.Id`.",
+        "Was the person merged?",
+        "Does the workflow hide/autofill current person?",
+        "Is spouse blank behavior affected by v18.1 bug fixes?",
+        "Does the workflow action use a value from another attribute?"
+      ],
+      "title": "Workflow Person Attribute Resolves Wrong Person",
+      "when": "Workflow Person Attribute Resolves Wrong Person"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule",
+        "Family",
+        "Workflow"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-child-cannot-check-in-with-adult",
+      "id": "child-cannot-check-in-with-adult",
+      "inspect": [
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule",
+        "Family",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindRelationships.cs",
+        "https://community.rockrms.com/documentation/bookcontent/7/296",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Are they in the same family group?",
+        "Is the child active?",
+        "Is the adult active?",
+        "Does the selected family include the child?",
+        "Is a known relationship needed?",
+        "Does the relationship role have `CanCheckin`?",
+        "Does check-in prevent inactive related people?",
+        "Does group type/role allow check-in?"
+      ],
+      "title": "Child Cannot Check In With Adult",
+      "when": "Child Cannot Check In With Adult"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-registration-shows-wrong-family-member",
+      "id": "registration-shows-wrong-family-member",
+      "inspect": [
+        "Person",
+        "Group",
+        "Family",
+        "Workflow"
+      ],
+      "source_urls": [
         "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
+        "https://community.rockrms.com/recipes/488"
+      ],
+      "start_with": [
+        "Check Registration Template settings for same-family registrants.",
+        "Check v19.1 registrant eligibility settings if available.",
+        "Check age, grade, gender, and age classification.",
+        "Check whether Family Member to Register defaults blank in target version.",
+        "Check family group membership and active status.",
+        "Check whether the current person is registrar or family member.",
+        "Check custom Lava or workflow that changes registrar."
+      ],
+      "title": "Registration Shows Wrong Family Member",
+      "when": "Registration Shows Wrong Family Member"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Family"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-giving-history-looks-wrong",
+      "id": "giving-history-looks-wrong",
+      "inspect": [
+        "DataView",
+        "Family"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Is the request for individual or family giving?",
+        "Is \"Combine Giving With\" blank or configured?",
+        "Does the API include family giving?",
+        "Are there multiple aliases or merged records?",
+        "Is Rock v18.3+ with Giving History API fixes?",
+        "Are statement generator filters stale from a Data View in v18.1 or earlier?"
+      ],
+      "title": "Giving History Looks Wrong",
+      "when": "Giving History Looks Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-profile-custom-tab-exposes-too-much",
+      "id": "profile-custom-tab-exposes-too-much",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
         "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/lava/workflows",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/CheckIn/v2/Labels/Formatters/SecurityCodeAndNameDataFormatter.cs",
-        "https://community.rockrms.com/recipes/341",
-        "https://community.rockrms.com/recipes/474/unmerge-accidentally-merged-person-with-alias-detection",
-        "https://community.rockrms.com/recipes/184/recovering-a-merged-person"
+        "https://community.rockrms.com/recipes/344",
+        "https://community.rockrms.com/lava/filters/attribute-filters"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check page security.",
+        "Check block security.",
+        "Check SQL/Lava command permissions.",
+        "Check whether the query filters to context person.",
+        "Check whether records have their own security, such as registration templates.",
+        "Check whether attributes bypass security.",
+        "Test as non-admin.",
+        "Remove or restrict until reviewed."
       ],
-      "title": "Recipe: Explain Why `PersonAlias` Matters",
-      "when": "Follow the guide section for Recipe: Explain Why `PersonAlias` Matters."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-inspect-a-person-attribute",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Inspect A Person Attribute",
-      "when": "Follow the guide section for Recipe: Inspect A Person Attribute."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-determine-if-a-value-is-person-id-or-alias-guid",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/attributes"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Determine If A Value Is Person Id Or Alias Guid",
-      "when": "Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias Guid."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-audit-a-family-for-check-in",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Audit A Family For Check-In",
-      "when": "Follow the guide section for Recipe: Audit A Family For Check-In."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-review-a-person-profile-customization",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Review A Person Profile Customization",
-      "when": "Follow the guide section for Recipe: Review A Person Profile Customization."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-triage-an-accidental-merge",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile",
-        "https://community.rockrms.com/rocku/individuals-in-rock/blended-families"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Triage An Accidental Merge",
-      "when": "Follow the guide section for Recipe: Triage An Accidental Merge."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-track-new-record-source",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/documentation/bookcontent/7/296"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Track New Record Source",
-      "when": "Follow the guide section for Recipe: Track New Record Source."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-staff-directory-from-person-attributes",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/rocku/individuals-in-rock/person-profile"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build A Staff Directory From Person Attributes",
-      "when": "Follow the guide section for Recipe: Build A Staff Directory From Person Attributes."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-add-a-bookmarked-groups-like-profile-panel",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person",
-        "https://community.rockrms.com/developer/202---ignition/advanced-entity-guide",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/filters/person-filters",
-        "https://community.rockrms.com/rocku/individuals-in-rock",
-        "https://community.rockrms.com/lava/commands/entity-commands",
-        "https://community.rockrms.com/developer/303---blast-off/attributes",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Add A Bookmarked Groups-Like Profile Panel",
-      "when": "Follow the guide section for Recipe: Add A Bookmarked Groups-Like Profile Panel."
+      "title": "Profile Custom Tab Exposes Too Much",
+      "when": "Profile Custom Tab Exposes Too Much"
     }
   ],
   "concept_id": "people-families",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:09+00:00",
+  "generated_at": "2026-07-30T02:08:17+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-person-does-not-appear-in-search",

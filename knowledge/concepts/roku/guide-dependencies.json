@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 16,
+  "approved_claim_count": 16,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "Beginning Roku development with Rock requires contacting the Rock Core team to obtain a development application setup.",
-      "claim_hash": "8cdf47674ebbc7f1365ec37dd68683cfb1004db24f5c0c832ab6a9400149d87c",
+      "claim_hash": "a7d1f0cdcbad55a6a29e6902fa7ff464035517da9608f8a29bb72e2588224b4b",
       "claim_id": "claim:003a9c4612c20c61b9f4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -16,6 +18,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "028fdad62a0f0458800ff11e265540a411b30d142dd71722d01e8151b5d38d69",
       "source_record_ids": [
         "rock_developer:article:186"
@@ -26,12 +29,13 @@
           "title": "👋 Roku Docs",
           "url": "https://community.rockrms.com/developer/roku-docs"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Lava API guidance identifies Apple TV and Roku channels as examples of custom APIs that can be built with Lava, but warns that Lava webhooks do not include security by default.",
-      "claim_hash": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
+      "claim_hash": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
       "claim_id": "claim:410bf6750e90b7193262",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -68,6 +72,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a0d408d23ccf9b097684d2479ac6cf14bc5d2e76d37db21b10d1c6c2edf630c6",
       "source_record_ids": [
         "rock_lava_docs:53ad1133e1cb2d0a"
@@ -78,12 +83,13 @@
           "title": "Creating APIs Using Lava",
           "url": "https://community.rockrms.com/lava/lava-api"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Roku TV application cannot play YouTube content; its video command expects a directly playable MP4 or HLS resource instead.",
-      "claim_hash": "ebb618003db977767594e6bc9304d00c8a7d45bd69c8c594776a2f3739025e61",
+      "claim_hash": "48a36aa0a261d6a2c493a06b87e5de59fdbf3b30785689bceacd157b0814da97",
       "claim_id": "claim:48551097f44d6d7860ae",
       "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
@@ -96,6 +102,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b241713894bb51a799ec6885e37784665882bfa3610b19779af2e99b1f23ca98",
       "source_record_ids": [
         "rock_developer:article:318"
@@ -106,12 +113,13 @@
           "title": "Media",
           "url": "https://community.rockrms.com/developer/roku-docs/commands/media"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "When selecting SceneGraph layout elements for a Rock Roku application, account for the fact that most Roku layouts lack default item templates and prefer built-in elements where possible to avoid custom BrightScript components.",
-      "claim_hash": "17816323afdee3c102f94481f5abd2396238e56902db0c9429f4c1dedf522604",
+      "claim_hash": "0435942ddfb064d858f14d18756bf3ee45aad52db3791fcd31b474ebe511bd28",
       "claim_id": "claim:49c04d8f25f6c5546bb4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -124,6 +132,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0f1bfc4958b2c12989d55e48682b88be85e664cb0db2496dacae4961f30e7f7a",
       "source_record_ids": [
         "rock_developer:article:326"
@@ -134,12 +143,13 @@
           "title": "Layout Nodes",
           "url": "https://community.rockrms.com/developer/roku-docs/resources/layout-nodes"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "release-note-confirmed",
       "claim": "Triumph's GitHub Spotlight for the v17.0.29 pre-alpha notes that the Roku TV app feature was added for Rock v16.7, making Roku coverage version-sensitive.",
-      "claim_hash": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
+      "claim_hash": "1f6152b22ed9d2acbafe0e4638494a542fd1b8825105622bec1e441300564dde",
       "claim_id": "claim:52b50da71870c1d611da",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -153,6 +163,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "16.7+"
+      ],
       "safe_evidence_hash": "125ffbfa19b202adfa2f0563f817e353bf4e0d38c93c5d2e2dd1a5559eb159ae",
       "source_record_ids": [
         "triumph_resources:9d0ccce785ef64bb"
@@ -163,12 +176,13 @@
           "title": "GitHub Spotlight: 10/4/2024",
           "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku pages display custom Lava-driven content as part of the application and render SceneGraph-oriented output rather than normal Rock CMS HTML.",
-      "claim_hash": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
+      "claim_hash": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
       "claim_id": "claim:563e520ec15928e19628",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -183,6 +197,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "1b1ae6826ce4d38969877ecc638a53231450132279d919c16acd8c11490c9091",
       "source_record_ids": [
         "rock_developer:6449dcd93497b4cd"
@@ -193,12 +208,13 @@
           "title": "Roku Pages",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku documentation describes Roku support as a way to extend Rock-powered digital ministry to Roku TV through Rock-managed Roku integration.",
-      "claim_hash": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
+      "claim_hash": "b4b312f02973d359166634ea2792733d6180a05f98e5015065fafa26e9ce5839",
       "claim_id": "claim:669456b72f0978dc418a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -212,6 +228,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "12a74febd6a6099c457b42bd0853d4dbac432a3b895f4e1bc2003a37190a185f",
       "source_record_ids": [
         "rock_developer:35d2e6eb8d06e01f"
@@ -222,12 +239,13 @@
           "title": "Roku Docs",
           "url": "https://community.rockrms.com/developer/roku-docs"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock Roku page's SceneGraph content should use `Rock:Page` as its outermost component so the page can define which content receives initial focus.",
-      "claim_hash": "df586812ae0861bd0536ee242e753fcac6e2a83b893baba5feb0c5e571f0dc8c",
+      "claim_hash": "b773bd23f5e6a7fe57d065eab80ea6f7a7b4d67bda76439ab05d985622dd9b0d",
       "claim_id": "claim:6ff04ce9f309e8163832",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -240,6 +258,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "6879fbdb20cf273e753f38fb411e328190f2eb476a0c43fc9efae93c26c4cdf8",
       "source_record_ids": [
         "rock_developer:article:316"
@@ -250,12 +269,13 @@
           "title": "Pages",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "In Rock Roku layouts, a FocusGroup arranges its child views horizontally or vertically and automatically moves focus left/right for horizontal groups or up/down for vertical groups.",
-      "claim_hash": "7e0091a0bbfe6c6c7e8732da62ebb7bc063d17ee55ca244c3f4640cd64775471",
+      "claim_hash": "de20e591bb4a16afadb574237342c1c11127b7030b2e93bd3ea7f52607055509",
       "claim_id": "claim:84305ad4d42aafc22e6d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -268,6 +288,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "78171ce98374f5139fad50be5284ccfbf10e8b753e610d5b5d6a213f3e5e39c1",
       "source_record_ids": [
         "rock_developer:article:323"
@@ -278,12 +299,13 @@
           "title": "Focus Group",
           "url": "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas.",
-      "claim_hash": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
+      "claim_hash": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
       "claim_id": "claim:9398f3fb18e8a79c0e4d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -315,6 +337,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e53898e072789bf664b39fa2355b590fd831746f748c3ad035482b6e4af207bf",
       "source_record_ids": [
         "rock_developer:8f58264f88176697"
@@ -325,12 +348,13 @@
           "title": "Roku Commands",
           "url": "https://community.rockrms.com/developer/roku-docs/commands"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock Roku application includes configuration such as page-view tracking, page-view retention duration, and API key settings, so Roku troubleshooting should start with the application record before page Lava.",
-      "claim_hash": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
+      "claim_hash": "34921d8cc1483c435d161d95be73a29ff406efe3a292682e41d69d2cb879663c",
       "claim_id": "claim:a43c6281e5328e7cac68",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -365,6 +389,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b08952928c1b67f52df55bafb7f274dd698de3323a0cd4b9b6de6d9d1a6d2cf6",
       "source_record_ids": [
         "rock_developer:9cff0c87fd8eab29"
@@ -375,12 +400,13 @@
           "title": "Roku Applications",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Starting Roku development with Rock requires requesting a development application from the Rock Core team through the designated request form; the team then provides setup instructions.",
-      "claim_hash": "47340fdbf8328015d53a840105ece8f66e3a4d1cbe53cb1e9a7e15e1729d143c",
+      "claim_hash": "93e90cb221636401b1554e41a4ca4f9daadee5432922238eb8efa2494260cfe3",
       "claim_id": "claim:ac1a7656566fe397bb04",
       "claim_tier": "answer_pack_approved",
       "claim_type": "recipe",
@@ -393,6 +419,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "2e86dd5a86a54bd67b2dcab7a3352a3549ce2e6ece67eed510e9d288d93996b4",
       "source_record_ids": [
         "rock_developer:article:311"
@@ -403,12 +430,13 @@
           "title": "💻 Getting Started",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Roku applications use Roku's SceneGraph XML language and are composed primarily from built-in SceneGraph components, supplemented by Rock-provided custom components.",
-      "claim_hash": "dd6c732858a00ab44c92c5084f683fca6c640b2d0d98037b30e09af0ac87d40e",
+      "claim_hash": "26a8b469e9c0dae4af8a4f12c8ef4f4f119b5192720462a76c9c23a9ebaddd7e",
       "claim_id": "claim:b850114f9e68b1d54b0c",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -421,6 +449,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b94884c02ee85fb04eebb3278e918cf1205ca5cb57e18fa9364b53e03f2554af",
       "source_record_ids": [
         "rock_developer:article:325"
@@ -431,12 +460,13 @@
           "title": "Controls",
           "url": "https://community.rockrms.com/developer/roku-docs/resources/controls"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "For Roku media playback, supplying a prior watch map sets the resume position; including its interaction GUID also appends progress to that interaction, while omitting the GUID creates a new interaction with a new watch map beginning from the resumed position.",
-      "claim_hash": "7678d51b53a298754a14a95c20b4422b31f081c626dbfb2899e1f2107af50572",
+      "claim_hash": "3daa5ca1c81160920e6e1201ce0c7a3f4d0915f2d27f272b9be9d67e128d5108",
       "claim_id": "claim:c1b03d50f87ed2b41b40",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -449,6 +479,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b241713894bb51a799ec6885e37784665882bfa3610b19779af2e99b1f23ca98",
       "source_record_ids": [
         "rock_developer:article:318"
@@ -459,12 +490,13 @@
           "title": "Media",
           "url": "https://community.rockrms.com/developer/roku-docs/commands/media"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "A Rock Roku application can reference a website authentication page that supports remote authentication within the TV application.",
-      "claim_hash": "8a2d7d5bec9b4858b8e45c20086b0d819d653b172809e81441543d7e4cbb47ee",
+      "claim_hash": "9a78ad66dd4d7e57880036809fddcbba12b1d4116da050324570583f5aa25011",
       "claim_id": "claim:d67d29d2e4b62513a89b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -477,6 +509,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ae4c95d79864a60cd697bc23e66e6ac78cb0615d0056c82b32da11e0af6eec60",
       "source_record_ids": [
         "rock_developer:article:315"
@@ -487,12 +520,13 @@
           "title": "Applications",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/applications"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Roku page caching can be configured as public, application-private, revalidated on every load, or disabled; separate maximum-age settings control application and shared-cache retention.",
-      "claim_hash": "d66236a7e9ee29b3aa9c377b385a89052b941965741d20dd93f46e26e1d742a4",
+      "claim_hash": "5ffb879db0e3e74f906c15eaf5d8ff49d212f50dd262e21f327a0e67e8387f3a",
       "claim_id": "claim:f1a329c4eb4099f7fa88",
       "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
@@ -505,6 +539,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "6879fbdb20cf273e753f38fb411e328190f2eb476a0c43fc9efae93c26c4cdf8",
       "source_record_ids": [
         "rock_developer:article:316"
@@ -515,26 +550,27 @@
           "title": "Pages",
           "url": "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:003a9c4612c20c61b9f4": "8cdf47674ebbc7f1365ec37dd68683cfb1004db24f5c0c832ab6a9400149d87c",
-    "claim:410bf6750e90b7193262": "75488d0f8c983fabfbbc7832a2250720555567573ebb3fbdd0c180838a6cff3f",
-    "claim:48551097f44d6d7860ae": "ebb618003db977767594e6bc9304d00c8a7d45bd69c8c594776a2f3739025e61",
-    "claim:49c04d8f25f6c5546bb4": "17816323afdee3c102f94481f5abd2396238e56902db0c9429f4c1dedf522604",
-    "claim:52b50da71870c1d611da": "62ebc8c94b6a596f4a6a0d74da889d8f62bbc9d1bc51e0c47f8574bc9b99c174",
-    "claim:563e520ec15928e19628": "3fe57c7624503c758371b7fa46d1344e9d495331d2abb05c1fc848bafe35a7f1",
-    "claim:669456b72f0978dc418a": "9f5317867058d6f644169a16abe60cae6e606597cadcd1ae68b4bd2cc6799555",
-    "claim:6ff04ce9f309e8163832": "df586812ae0861bd0536ee242e753fcac6e2a83b893baba5feb0c5e571f0dc8c",
-    "claim:84305ad4d42aafc22e6d": "7e0091a0bbfe6c6c7e8732da62ebb7bc063d17ee55ca244c3f4640cd64775471",
-    "claim:9398f3fb18e8a79c0e4d": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
-    "claim:a43c6281e5328e7cac68": "df50c71c1c40bd70b999d5ede521df2e33eacad7d3e73c86c31357705d98eb7e",
-    "claim:ac1a7656566fe397bb04": "47340fdbf8328015d53a840105ece8f66e3a4d1cbe53cb1e9a7e15e1729d143c",
-    "claim:b850114f9e68b1d54b0c": "dd6c732858a00ab44c92c5084f683fca6c640b2d0d98037b30e09af0ac87d40e",
-    "claim:c1b03d50f87ed2b41b40": "7678d51b53a298754a14a95c20b4422b31f081c626dbfb2899e1f2107af50572",
-    "claim:d67d29d2e4b62513a89b": "8a2d7d5bec9b4858b8e45c20086b0d819d653b172809e81441543d7e4cbb47ee",
-    "claim:f1a329c4eb4099f7fa88": "d66236a7e9ee29b3aa9c377b385a89052b941965741d20dd93f46e26e1d742a4"
+    "claim:003a9c4612c20c61b9f4": "a7d1f0cdcbad55a6a29e6902fa7ff464035517da9608f8a29bb72e2588224b4b",
+    "claim:410bf6750e90b7193262": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
+    "claim:48551097f44d6d7860ae": "48a36aa0a261d6a2c493a06b87e5de59fdbf3b30785689bceacd157b0814da97",
+    "claim:49c04d8f25f6c5546bb4": "0435942ddfb064d858f14d18756bf3ee45aad52db3791fcd31b474ebe511bd28",
+    "claim:52b50da71870c1d611da": "1f6152b22ed9d2acbafe0e4638494a542fd1b8825105622bec1e441300564dde",
+    "claim:563e520ec15928e19628": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
+    "claim:669456b72f0978dc418a": "b4b312f02973d359166634ea2792733d6180a05f98e5015065fafa26e9ce5839",
+    "claim:6ff04ce9f309e8163832": "b773bd23f5e6a7fe57d065eab80ea6f7a7b4d67bda76439ab05d985622dd9b0d",
+    "claim:84305ad4d42aafc22e6d": "de20e591bb4a16afadb574237342c1c11127b7030b2e93bd3ea7f52607055509",
+    "claim:9398f3fb18e8a79c0e4d": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
+    "claim:a43c6281e5328e7cac68": "34921d8cc1483c435d161d95be73a29ff406efe3a292682e41d69d2cb879663c",
+    "claim:ac1a7656566fe397bb04": "93e90cb221636401b1554e41a4ca4f9daadee5432922238eb8efa2494260cfe3",
+    "claim:b850114f9e68b1d54b0c": "26a8b469e9c0dae4af8a4f12c8ef4f4f119b5192720462a76c9c23a9ebaddd7e",
+    "claim:c1b03d50f87ed2b41b40": "3daa5ca1c81160920e6e1201ce0c7a3f4d0915f2d27f272b9be9d67e128d5108",
+    "claim:d67d29d2e4b62513a89b": "9a78ad66dd4d7e57880036809fddcbba12b1d4116da050324570583f5aa25011",
+    "claim:f1a329c4eb4099f7fa88": "5ffb879db0e3e74f906c15eaf5d8ff49d212f50dd262e21f327a0e67e8387f3a"
   },
   "approved_claims_hash": "10a34b0544872c0579c4ec69dd846bb79bae026ea8db8f905d56a98057cd73b6",
   "approved_claims_path": "knowledge/concepts/roku/approved-claims.md",
@@ -628,7 +664,7 @@
   },
   "approved_media_hash": "9cac3e4b9584f69646ec8c66adb8bbe2ee4cf068fd3b5aacb8eeb5451e541f23",
   "approved_media_path": "knowledge/concepts/roku/approved-media.md",
-  "built_at": "2026-07-26T00:30:08+00:00",
+  "built_at": "2026-07-30T02:08:15+00:00",
   "concept_id": "roku",
   "guide_hash": "626bb6656dd4a3aa217de666fd20dab3de09fe71c58a7ecd3784f245b4c46ecb",
   "guide_line_count": 1258,
@@ -789,6 +825,7 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -2310,5 +2347,6 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

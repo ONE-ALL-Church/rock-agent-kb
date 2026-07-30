@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Validate Remote Auth In Data
 
-Follow the guide section for Recipe: Validate Remote Auth In Data.
+Complete Validate Remote Auth In Data with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,35 @@ Follow the guide section for Recipe: Validate Remote Auth In Data.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Device`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Device`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. `RemoteAuthenticationSession` rows created during a test.
+2. `Code`.
+3. `DeviceUniqueIdentifier`.
+4. `ClientIpAddress`.
+5. `AuthenticationIpAddress`.
+6. `SessionStartDateTime`.
+7. `SessionEndDateTime`.
+8. `SiteId`.
+9. `AuthorizedPersonAliasId`.
+10. New session row appears when TV login starts.
+11. Code matches displayed code.
+12. Authorized alias is empty before web authorization.
+13. Authorized alias is populated after successful web authorization.
+14. Session remains active within lifetime.
+15. Shell detects success and navigates to success page.
 
 ## Do Not Assume
 
@@ -34,15 +52,15 @@ Follow the guide section for Recipe: Validate Remote Auth In Data.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs
 - https://community.rockrms.com/developer/roku-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
+- https://community.rockrms.com/developer/apple-tv-docs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
 - https://community.rockrms.com/lava/lava-api
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Tv/RemoteAuthentication.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionExtensions.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Field/Types/RemoteAuthsFieldType.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/AppleTvApplicationSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Tv/Classes/RokuTvApplicationSettings.cs
-- https://community.rockrms.com/api-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2013.0/Version%201.13.1/202201111342049_AddRemoteAuthenticationSession.cs
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs

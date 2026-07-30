@@ -17,13 +17,13 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 ## Primary Tasks
 
-- [Recipe: Find The Real Object Behind A Serving Issue](tasks/recipe-find-the-real-object-behind-a-serving-issue.md): Follow the guide section for Recipe: Find The Real Object Behind A Serving Issue.
-- [Recipe: Confirm A Volunteer Is Eligible To Serve](tasks/recipe-confirm-a-volunteer-is-eligible-to-serve.md): Follow the guide section for Recipe: Confirm A Volunteer Is Eligible To Serve.
-- [Recipe: Explain Why A Volunteer Was Not Scheduled](tasks/recipe-explain-why-a-volunteer-was-not-scheduled.md): Follow the guide section for Recipe: Explain Why A Volunteer Was Not Scheduled.
-- [Recipe: Verify Schedule Confirmation Send Health](tasks/recipe-verify-schedule-confirmation-send-health.md): Follow the guide section for Recipe: Verify Schedule Confirmation Send Health.
-- [Recipe: Safely Customize A Volunteer-Facing Page](tasks/recipe-safely-customize-a-volunteer-facing-page.md): Follow the guide section for Recipe: Safely Customize A Volunteer-Facing Page.
-- [Recipe: Investigate Family Serving Response Request](tasks/recipe-investigate-family-serving-response-request.md): Follow the guide section for Recipe: Investigate Family Serving Response Request.
-- [Recipe: Build A Serving Health Dashboard](tasks/recipe-build-a-serving-health-dashboard.md): Follow the guide section for Recipe: Build A Serving Health Dashboard.
+- [Recipe: Find The Real Object Behind A Serving Issue](tasks/recipe-find-the-real-object-behind-a-serving-issue.md): Complete Find The Real Object Behind A Serving Issue with evidence-backed checks and a verifiable outcome.
+- [Recipe: Confirm A Volunteer Is Eligible To Serve](tasks/recipe-confirm-a-volunteer-is-eligible-to-serve.md): If requirement source is unclear, say: "Inspect the group requirement definition and its backing data source in the live Rock instance."
+- [Recipe: Explain Why A Volunteer Was Not Scheduled](tasks/recipe-explain-why-a-volunteer-was-not-scheduled.md): Complete Explain Why A Volunteer Was Not Scheduled with evidence-backed checks and a verifiable outcome.
+- [Recipe: Verify Schedule Confirmation Send Health](tasks/recipe-verify-schedule-confirmation-send-health.md): Complete Verify Schedule Confirmation Send Health with evidence-backed checks and a verifiable outcome.
+- [Recipe: Safely Customize A Volunteer-Facing Page](tasks/recipe-safely-customize-a-volunteer-facing-page.md): The external schedule recipe demonstrates why copied pages may be necessary when serving teams share a toolbox with other group categories (View Serving Schedule on External Page).
+- [Recipe: Investigate Family Serving Response Request](tasks/recipe-investigate-family-serving-response-request.md): Source pattern: Manage Family Members' Serving Requests on MyAccount.
+- [Recipe: Build A Serving Health Dashboard](tasks/recipe-build-a-serving-health-dashboard.md): Cite reporting model landmarks where appropriate: Model Map, vCheckin_GroupTypeAttendance.sql.
 
 ## High-Signal Sections
 

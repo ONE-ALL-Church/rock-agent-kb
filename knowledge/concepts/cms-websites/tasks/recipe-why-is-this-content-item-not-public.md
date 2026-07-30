@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Why Is This Content Item Not Public?”
 
-Follow the guide section for Recipe: “Why Is This Content Item Not Public?”.
+Complete “Why Is This Content Item Not Public?” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: “Why Is This Content Item Not Public?”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Content channel ID/GUID.
+2. Item status.
+3. Start and expire dates.
+4. Block allowed statuses.
+5. Item and channel security.
+6. Category filters.
+7. Query parameter.
+8. Cache.
+9. Personalization.
+10. Direct link behavior.
+11. Version caveats around Content Channel Item View.
 
 ## Do Not Assume
 
@@ -34,15 +44,15 @@ Follow the guide section for Recipe: “Why Is This Content Item Not Public?”.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/cms
-- https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/lava/commands
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
 - https://community.rockrms.com/documentation/bookcontent/6
 - https://community.rockrms.com/recipes/261
 - https://community.rockrms.com/recipes/432
-- https://community.rockrms.com/rocku/content-channels/content-channel-view
-- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/recipes/535
-- https://www.triumph.tech/resources/github-spotlight-1242025
+- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
+- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
+- https://community.rockrms.com/developer/helix/lava-applications/content-block

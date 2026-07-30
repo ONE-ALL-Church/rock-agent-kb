@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit A Block For Security
 
-Follow the guide section for Recipe: Audit A Block For Security.
+Complete Audit A Block For Security with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Audit A Block For Security.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify all block actions.
+2. For each action, identify data read/write scope.
+3. Confirm server-side authorization.
+4. Confirm entity-level authorization.
+5. Confirm page/block permissions.
+6. Inspect security grants.
+7. Inspect whether private configuration values are sent to browser.
+8. Inspect route parameters and entity identifiers.
+9. Test as admin, staff, view-only, and unauthorized user.
+10. Confirm hidden buttons are not the only protection.
 
 ## Do Not Assume
 
@@ -34,15 +43,15 @@ Follow the guide section for Recipe: Audit A Block For Security.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns
 - https://community.rockrms.com/developer/obsidian/grid-reference
-- https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns
+- https://community.rockrms.com/developer/obsidian/blocks/implementing-ihascustomactions
+- https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks
+- https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks
 - https://community.rockrms.com/developer/obsidian/null-vs-undefined
-- https://community.rockrms.com/developer/obsidian
 - https://community.rockrms.com/developer/obsidian/grids
-- https://community.rockrms.com/lava/obsidian
-- https://community.rockrms.com/developer/obsidian/browser-bus
-- https://community.rockrms.com/developer/obsidian/creating-ui-controls
+- https://community.rockrms.com/developer/obsidian/form-validation
+- https://community.rockrms.com/developer/obsidian/blocks
+- https://community.rockrms.com/developer/obsidian/obsidian-component-structure

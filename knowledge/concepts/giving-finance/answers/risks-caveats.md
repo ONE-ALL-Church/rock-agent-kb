@@ -7,7 +7,7 @@ artifact_level: answer
 
 # What risks, caveats, or source-authority limits matter for Giving And Finance?
 
-No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 38, official: 1, rocku-confirmed: 70.
+No explicit risk claim leads this concept; check source authority before acting. Use community material as examples only, and verify local behavior in the live Rock instance. Current approved claim authority mix: community-reviewed: 4, official: 1, rocku-confirmed: 3.
 
 ## Top Claims
 

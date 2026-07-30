@@ -2,203 +2,257 @@
   "branches": [
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "If the page loads for admins only, do not immediately add the user to Rock Administration."
       ],
-      "entities": [],
-      "id": "recipe-answer-who-has-access-to-this",
-      "inspect": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "16-troubleshooting-decision-tree-user-cannot-see-a-page",
+      "id": "user-cannot-see-a-page",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
         "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://community.rockrms.com/recipes/243",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/helix/overview/security",
         "https://community.rockrms.com/recipes/441",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the user logged in as the expected person?",
+        "Does the person have an active login?",
+        "Is the page route correct?",
+        "Does the page have direct `View` security?",
+        "Does a parent page deny or allow?",
+        "Is the user in the allowed role?",
+        "Is there a deny rule for the user or role?",
+        "Does the page load but block is hidden?"
       ],
-      "title": "Recipe: Answer “Who Has Access To This?”",
-      "when": "Follow the guide section for Recipe: Answer “Who Has Access To This?”."
+      "title": "User Cannot See A Page",
+      "when": "User Cannot See A Page"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-answer-why-was-i-denied",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-user-can-see-page-but-not-button",
+      "id": "user-can-see-page-but-not-button",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/recipes/441",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks"
+        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify the button action.",
+        "Inspect block action security.",
+        "Inspect custom security verbs.",
+        "Inspect entity-specific permission for the row/object.",
+        "Inspect server-side permission bag if Obsidian.",
+        "Test direct submit/post if possible.",
+        "Confirm the block code checks `IsUserAuthorized` or entity `IsAuthorized`."
       ],
-      "title": "Recipe: Answer “Why Was I Denied?”",
-      "when": "Follow the guide section for Recipe: Answer “Why Was I Denied?”."
+      "title": "User Can See Page But Not Button",
+      "when": "User Can See Page But Not Button"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-review-a-permission-change-request",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-user-can-see-too-much-data",
+      "id": "user-can-see-too-much-data",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/recipes/441"
+        "https://community.rockrms.com/recipes/344"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Identify where data comes from.",
+        "Is it a standard block, SQL, Lava, report, or API?",
+        "Does the data source enforce security?",
+        "Does the custom template use `HasRightsTo`?",
+        "Are route/query parameters changeable?",
+        "Are raw IDs exposed?",
+        "Does the user have broad role access?",
+        "Is a person-specific allow present?"
       ],
-      "title": "Recipe: Review A Permission Change Request",
-      "when": "Follow the guide section for Recipe: Review A Permission Change Request."
+      "title": "User Can See Too Much Data",
+      "when": "User Can See Too Much Data"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "DataView"
       ],
-      "entities": [],
-      "id": "recipe-review-a-custom-agent-tool",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-api-key-gets-permission-denied",
+      "id": "api-key-gets-permission-denied",
+      "inspect": [
+        "DataView"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/recipes/441"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Review A Custom Agent Tool",
-      "when": "Follow the guide section for Recipe: Review A Custom Agent Tool."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-review-a-public-route",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
-        "https://community.rockrms.com/lava/remote-lava",
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
         "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/recipes/441"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Confirm key is active.",
+        "Confirm correct header.",
+        "Confirm endpoint URL/version.",
+        "Identify linked actor.",
+        "Test actor’s UI permission.",
+        "Inspect endpoint security.",
+        "Inspect entity/data view/report security.",
+        "If v2 endpoint, confirm explicit authorization exists."
       ],
-      "title": "Recipe: Review A Public Route",
-      "when": "Follow the guide section for Recipe: Review A Public Route."
+      "title": "API Key Gets Permission Denied",
+      "when": "API Key Gets Permission Denied"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-review-a-security-role",
+      "guide_section_id": "16-troubleshooting-decision-tree-api-key-works-but-should-not",
+      "id": "api-key-works-but-should-not",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder",
-        "https://community.rockrms.com/recipes/441"
+        "https://community.rockrms.com/lava/remote-lava"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Disable key if exposure is active.",
+        "Identify linked actor and roles.",
+        "Inspect endpoint security.",
+        "Inspect broad role permissions.",
+        "Inspect `ViewAll`, admin, or entity type security.",
+        "Inspect remote Lava or custom endpoint bypass.",
+        "Rotate key.",
+        "Recreate with least privilege."
       ],
-      "title": "Recipe: Review A Security Role",
-      "when": "Follow the guide section for Recipe: Review A Security Role."
+      "title": "API Key Works But Should Not",
+      "when": "API Key Works But Should Not"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-review-after-upgrade",
-      "inspect": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-workflow-visible-to-wrong-users",
+      "id": "workflow-visible-to-wrong-users",
+      "inspect": [
+        "Workflow",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/303---blast-off/rock-security",
-        "https://community.rockrms.com/recipes/243",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/github-spotlight-962024-2",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-5212026",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
-        "https://community.rockrms.com/developer/helix/overview/security",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Inspect Workflow Type View.",
+        "Inspect workflow list/detail page security.",
+        "Inspect block security.",
+        "Inspect role memberships.",
+        "Check upgrade version and hardening migrations.",
+        "Confirm no public/all-user rule.",
+        "Inspect workflow data sensitivity.",
+        "Restrict View to staff/admin roles as appropriate."
       ],
-      "title": "Recipe: Review After Upgrade",
-      "when": "Follow the guide section for Recipe: Review After Upgrade."
+      "title": "Workflow Visible To Wrong Users",
+      "when": "Workflow Visible To Wrong Users"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "16-troubleshooting-decision-tree-document-or-file-visible-to-wrong-users",
+      "id": "document-or-file-visible-to-wrong-users",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Identify file/document URL.",
+        "Determine whether it is linked to a Document.",
+        "Inspect Document Type security.",
+        "Inspect Binary File Type security.",
+        "Check whether workflow uploaded it.",
+        "Confirm Rock version relative to v17.8 fix.",
+        "Test as anonymous and low-privilege user.",
+        "Fix document type permissions if document type is intended authority."
+      ],
+      "title": "Document Or File Visible To Wrong Users",
+      "when": "Document Or File Visible To Wrong Users"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "GroupType",
+        "Block",
+        "Attribute"
+      ],
+      "guide_section_id": "16-troubleshooting-decision-tree-group-finder-shows-private-groups",
+      "id": "group-finder-shows-private-groups",
+      "inspect": [
+        "Group",
+        "GroupType",
+        "Block",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder"
+      ],
+      "start_with": [
+        "Identify group finder block and platform.",
+        "Inspect group selection/filter settings.",
+        "Inspect group/group type security.",
+        "Inspect template.",
+        "Add `HasRightsTo` check if returned groups are not security-filtered.",
+        "Remove sensitive attributes from output.",
+        "Test anonymous and low-privilege users.",
+        "Test direct detail links."
+      ],
+      "title": "Group Finder Shows Private Groups",
+      "when": "Group Finder Shows Private Groups"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "16-troubleshooting-decision-tree-permission-change-did-not-apply",
+      "id": "permission-change-did-not-apply",
+      "inspect": [],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs"
+      ],
+      "start_with": [
+        "Confirm the rule was saved.",
+        "Confirm it was saved on the correct entity.",
+        "Confirm action verb.",
+        "Confirm role membership.",
+        "Confirm user logged out/in if membership/session is stale.",
+        "Check direct deny rules.",
+        "Check inheritance.",
+        "Check cache/message-bus state in multi-node environments."
+      ],
+      "title": "Permission Change Did Not Apply",
+      "when": "Permission Change Did Not Apply"
     }
   ],
   "concept_id": "security-permissions",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:55+00:00",
+  "generated_at": "2026-07-30T02:08:04+00:00",
   "guide_sections": [
     "9-api-auth-deep-dive-api-auth-troubleshooting",
     "16-troubleshooting-decision-tree",

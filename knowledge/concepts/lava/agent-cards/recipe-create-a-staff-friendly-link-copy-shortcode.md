@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Create A Staff-Friendly Link Copy Shortcode
 
-Follow the guide section for Recipe: Create A Staff-Friendly Link Copy Shortcode.
+Pattern from community recipe: a shortcode can generate a copyable public URL for staff workflows, such as registration or forms (Easy Copy Url Shortcode).
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Create A Staff-Friendly Link Copy Shortcode
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Label`
+- `Workflow`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Label`
+- `Workflow`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Use inline shortcode.
+2. Parameters: `input`, `label`, `buttontext`, `class`.
+3. No enabled commands unless the shortcode itself looks up records.
+4. Escape input into HTML attributes.
+5. If generating URLs from registration or form entities, verify page routes and public access.
+6. Test internal and public contexts.
 
 ## Do Not Assume
 
@@ -35,14 +44,14 @@ Follow the guide section for Recipe: Create A Staff-Friendly Link Copy Shortcode
 ## Source Links
 
 - https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/fluid/differences
-- https://community.rockrms.com/lava/commands/taglist-commands
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs
-- https://community.rockrms.com/developer/helix/lava-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs
+- https://community.rockrms.com/lava/fluid/differences
+- https://community.rockrms.com/lava/commands/taglist-commands
 - https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs
+- https://community.rockrms.com/recipes/408
+- https://community.rockrms.com/recipes/386
+- https://community.rockrms.com/rocku/cms/advanced-html-block
+- https://community.rockrms.com/recipes/393
+- https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file

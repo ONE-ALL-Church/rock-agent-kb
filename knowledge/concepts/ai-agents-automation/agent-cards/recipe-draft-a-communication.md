@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Draft A Communication”
 
-Follow the guide section for Recipe: “Draft A Communication”.
+Complete “Draft A Communication” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,24 @@ Follow the guide section for Recipe: “Draft A Communication”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Group`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Group`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify audience through Data View, group, registration, or list tool.
+2. Count recipients.
+3. Inspect communication channel constraints.
+4. Draft message.
+5. Present preview.
+6. Require explicit approval.
+7. Send through a guarded tool.
+8. Verify communication record.
 
 ## Do Not Assume
 
@@ -35,14 +42,4 @@ Follow the guide section for Recipe: “Draft A Communication”.
 ## Source Links
 
 - https://community.rockrms.com/developer/ai-agents
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/BookContent/9
-- https://community.rockrms.com/rocku/core-concepts/automations
 - https://community.rockrms.com/ask/developing/2708
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
-- https://community.rockrms.com/ModelMap
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude

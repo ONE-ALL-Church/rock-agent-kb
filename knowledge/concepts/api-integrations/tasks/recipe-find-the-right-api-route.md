@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Find The Right API Route
 
-Follow the guide section for Recipe: Find The Right API Route.
+Complete Find The Right API Route with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,13 @@ Follow the guide section for Recipe: Find The Right API Route.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify the model/action from the user request.
+2. Search instance API docs.
+3. Check `Home > Security > REST Controllers`.
+4. Use Model Map for model/property names.
+5. For v2, inspect `Rock.Rest/v2/Models/CodeGenerated` or `Actions`.
+6. Confirm route, method, auth, security actions, and response shape.
+7. Report exact route and required permissions.
 
 ## Do Not Assume
 
@@ -35,14 +39,3 @@ Follow the guide section for Recipe: Find The Right API Route.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
-- https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs
-- https://community.rockrms.com/api-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/Utility/ApiModelMapper.cs
-- https://community.rockrms.com/developer/roku-docs/getting-started/applications
-- https://community.rockrms.com/lava/lava-api
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Security/OidcClientTests.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts

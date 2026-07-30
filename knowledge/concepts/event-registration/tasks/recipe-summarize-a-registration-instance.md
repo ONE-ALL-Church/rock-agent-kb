@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Summarize A Registration Instance
 
-Follow the guide section for Recipe: Summarize A Registration Instance.
+Complete Summarize A Registration Instance with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,19 @@ Follow the guide section for Recipe: Summarize A Registration Instance.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Instance name, Id, Guid.
+2. Template name and Id.
+3. Active/start/end state.
+4. Public URL and linkage.
+5. Capacity, registered count, wait-list count.
+6. Total registrations and registrants.
+7. Total paid, due, discounts.
+8. Fee totals.
+9. Missing signatures.
+10. Unplaced registrants.
+11. Payment plans.
+12. Recent errors or exceptions.
+13. Version caveats.
 
 ## Do Not Assume
 
@@ -35,14 +45,3 @@ Follow the guide section for Recipe: Summarize A Registration Instance.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/29
-- https://community.rockrms.com/rocku/event-registration
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
-- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://www.triumph.tech/resources/github-spotlight-182025
-- https://community.rockrms.com/recipes/313
-- https://community.rockrms.com/developer/ai-agents/skills
-- https://community.rockrms.com/rocku/event-registration/event-registration-attributes
-- https://community.rockrms.com/recipes/245

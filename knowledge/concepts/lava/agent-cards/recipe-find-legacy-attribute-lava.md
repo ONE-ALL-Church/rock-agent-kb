@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Find Legacy Attribute Lava
 
-Follow the guide section for Recipe: Find Legacy Attribute Lava.
+Source pattern: Finding and Fixing Legacy Lava.
 
 ## When To Use
 
@@ -16,17 +16,27 @@ Follow the guide section for Recipe: Find Legacy Attribute Lava.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Search Exception List for legacy Lava warnings.
+2. Record example syntax.
+3. Locate source page/workflow/block.
+4. Search stored templates for the same pattern.
+5. Replace with `| Attribute:'Key'`.
+6. Verify real entity property names are not accidentally changed.
+7. Retest under Fluid.
 
 ## Do Not Assume
 
@@ -35,14 +45,14 @@ Follow the guide section for Recipe: Find Legacy Attribute Lava.
 ## Source Links
 
 - https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/fluid/differences
-- https://community.rockrms.com/developer/mobile-docs/essentials/lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools
-- https://community.rockrms.com/developer/helix/lava-commands
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/commands/taglist-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/lava
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx
+- https://community.rockrms.com/rocku/cms/advanced-html-block
+- https://community.rockrms.com/lava/fluid/differences
+- https://community.rockrms.com/recipes/107
+- https://community.rockrms.com/recipes/393
+- https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file
+- https://community.rockrms.com/recipes/290

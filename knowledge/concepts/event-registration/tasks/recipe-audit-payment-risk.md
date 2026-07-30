@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit Payment Risk
 
-Follow the guide section for Recipe: Audit Payment Risk.
+Return a prioritized collection list.
 
 ## When To Use
 
@@ -16,17 +16,23 @@ Follow the guide section for Recipe: Audit Payment Risk.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Schedule`
 
 ## Entities And Tables
 
-- `See guide`
+- `Schedule`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Registrations with balance due.
+2. Confirmation emails present/missing.
+3. Last reminder date.
+4. Payment plans active.
+5. Gateway schedule state.
+6. Failed transactions.
+7. Discounts applied after plan creation.
+8. Event date proximity.
+9. Staff owner.
 
 ## Do Not Assume
 
@@ -35,14 +41,3 @@ Follow the guide section for Recipe: Audit Payment Risk.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/29
-- https://www.triumph.tech/resources/github-spotlight-182025
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/event-registration/additional-registration-fees
-- https://community.rockrms.com/recipes/245
-- https://community.rockrms.com/recipes/472
-- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts

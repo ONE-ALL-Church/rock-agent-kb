@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer "Where is this configured?"
 
-Follow the guide section for Recipe: Answer "Where is this configured?".
+Complete Answer "Where is this configured?" with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: Answer "Where is this configured?".
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify the named thing: page, block, app, endpoint, workflow, job, data view, mobile block, TV page, plugin.
+2. Use the relevant docs to determine likely admin path.
+3. Inspect live Rock for actual row/setting.
+4. Report exact path, entity, GUID/IdKey if known, and security/cache caveats.
+5. If docs are thin, say what must be inspected.
 
 ## Do Not Assume
 
@@ -35,12 +43,14 @@ Follow the guide section for Recipe: Answer "Where is this configured?".
 ## Source Links
 
 - https://community.rockrms.com/developer
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/obsidian
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/realtime-visualizer
-- https://community.rockrms.com/developer/developer-codex/coding-standards/installation-checklist
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointList/lavaEndpointListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2019.0/Version%2019.0/202603202309228_AddContentChannelItemListBlockSettings.Designer.cs
+- https://community.rockrms.com/ModelMap
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/lava/obsidian
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/developer/quickstart-tutorials/blocks
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events

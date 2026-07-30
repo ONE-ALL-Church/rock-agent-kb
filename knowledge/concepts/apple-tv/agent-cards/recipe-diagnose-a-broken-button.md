@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose A Broken Button
 
-Follow the guide section for Recipe: Diagnose A Broken Button.
+Complete Diagnose A Broken Button with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Diagnose A Broken Button.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Family`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Family`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify the element.
+2. Read its `rockCommand`.
+3. Confirm command family.
+4. Confirm required parameters.
+5. Confirm multiple-command syntax.
+6. Confirm target page/media/context exists.
+7. Test target page directly.
+8. Check shell version.
+9. Check cache.
+10. Check rendered TVML.
 
 ## Do Not Assume
 
@@ -37,12 +46,8 @@ Follow the guide section for Recipe: Diagnose A Broken Button.
 - https://community.rockrms.com/developer/apple-tv-docs
 - https://community.rockrms.com/developer/apple-tv-docs/javascript
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images
-- https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv
-- https://www.triumph.tech/resources/github-spotlight-1042024
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling
-- https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/api-docs
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://community.rockrms.com/developer/apple-tv-docs/developer
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts

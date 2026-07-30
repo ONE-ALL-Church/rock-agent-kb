@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Convert A Free-Text Attribute To A Defined Value
 
-Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined Value.
+Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,24 @@ Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined 
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Inventory existing text values.
+2. Normalize spelling/case.
+3. Create defined type and values.
+4. Create replacement attribute with defined value field type.
+5. Map old values to defined values.
+6. Migrate values in staging.
+7. Update Lava/reports/forms.
+8. Hide old attribute after validation.
+9. Keep old data until retention/review is complete.
+10. Delete only after references are gone and stakeholders approve.
 
 ## Do Not Assume
 
@@ -34,15 +41,15 @@ Follow the guide section for Recipe: Convert A Free-Text Attribute To A Defined 
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/documentation/bookcontent/39
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
-- https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/campus-context-picker
-- https://community.rockrms.com/lava/workflows
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor
+- https://community.rockrms.com/documentation/bookcontent/39
+- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
+- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/rocku/individuals-in-rock/person-attributes

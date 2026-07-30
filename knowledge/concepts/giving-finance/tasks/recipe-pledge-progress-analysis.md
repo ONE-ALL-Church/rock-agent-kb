@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Pledge Progress Analysis
 
-Follow the guide section for Recipe: Pledge Progress Analysis.
+<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## When To Use
 
@@ -16,17 +16,31 @@ Follow the guide section for Recipe: Pledge Progress Analysis.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Pledge account.
+2. Pledge date range.
+3. Gift date range.
+4. Pledge amount.
+5. Transaction details to the pledged account.
+6. Giving unit/person basis.
+7. Refund/correction handling.
+8. Current date vs analysis date.
+9. v19.1 Pledge Analytics filter naming if installed.
+10. Pledged amount.
+11. Given amount.
+12. Percent fulfilled.
+13. Expected percent by elapsed time.
+14. Meets/behind/ahead status.
+15. Date/account assumptions.
 
 ## Do Not Assume
 
@@ -35,7 +49,5 @@ Follow the guide section for Recipe: Pledge Progress Analysis.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/recipes/90
-- https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
-- https://community.rockrms.com/rocku/finance/pledges
-- https://community.rockrms.com/recipes/122

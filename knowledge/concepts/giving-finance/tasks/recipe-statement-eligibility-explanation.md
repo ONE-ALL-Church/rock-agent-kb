@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Statement Eligibility Explanation
 
-Follow the guide section for Recipe: Statement Eligibility Explanation.
+Complete Statement Eligibility Explanation with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,32 @@ Follow the guide section for Recipe: Statement Eligibility Explanation.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `DataView`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `DataView`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Statement settings.
+2. Transaction date.
+3. Transaction type.
+4. Detail accounts.
+5. Currency type.
+6. Refund/correction state.
+7. Person/business linkage.
+8. Combine-giving fields.
+9. Address.
+10. Data View and saved settings.
+11. Rock version.
+12. Included/excluded verdict.
+13. Exact exclusion reason.
+14. What setting or data row controls it.
+15. Whether correction is data cleanup, statement setting, or expected behavior.
+16. Whether finance review is required.
 
 ## Do Not Assume
 
@@ -37,10 +52,3 @@ Follow the guide section for Recipe: Statement Eligibility Explanation.
 - https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
-- https://community.rockrms.com/rocku/finance
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql
-- https://community.rockrms.com/rocku/finance/contribution-statements
-- https://community.rockrms.com/recipes/122
-- https://community.rockrms.com/recipes/90

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Person Profile Customization
 
-Follow the guide section for Recipe: Review A Person Profile Customization.
+Complete Review A Person Profile Customization with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,31 @@ Follow the guide section for Recipe: Review A Person Profile Customization.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify page route and context person parameter.
+2. List all blocks on the page.
+3. Check inherited and explicit security.
+4. Check Lava commands enabled.
+5. Check SQL commands enabled.
+6. Review query filters.
+7. Review whether data is registration, giving, workflow, minors, background check, or attributes.
+8. Test unauthorized access.
+9. Document the customization.
 
 ## Do Not Assume
 
@@ -36,13 +50,13 @@ Follow the guide section for Recipe: Review A Person Profile Customization.
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
-- https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/filters/attribute-filters
+- https://community.rockrms.com/lava/commands/entity-commands
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
 - https://community.rockrms.com/lava/filters/person-filters
 - https://community.rockrms.com/rocku/individuals-in-rock
-- https://community.rockrms.com/lava/commands/entity-commands
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/rocku/individuals-in-rock/person-profile
+- https://community.rockrms.com/rocku/individuals-in-rock/family-attributes

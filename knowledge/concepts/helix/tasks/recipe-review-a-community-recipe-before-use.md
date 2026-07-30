@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review A Community Recipe Before Use
 
-Follow the guide section for Recipe: Review A Community Recipe Before Use.
+Complete Review A Community Recipe Before Use with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,28 @@ Follow the guide section for Recipe: Review A Community Recipe Before Use.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Read the recipe as an example, not an authority.
+2. Verify Rock version compatibility.
+3. Replace all entity type IDs with live instance values.
+4. Replace all group, role, page, block, and defined value IDs with live values.
+5. Review enabled Lava Commands.
+6. Review endpoint Execute permissions.
+7. Run in a non-production environment.
+8. Test with a low-privilege account.
+9. Add observability.
+10. Document rollback.
 
 ## Do Not Assume
 
@@ -34,15 +45,12 @@ Follow the guide section for Recipe: Review A Community Recipe Before Use.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/helix/lava-applications/observability
 - https://community.rockrms.com/developer/helix/lava-applications
-- https://community.rockrms.com/developer/helix/overview
-- https://community.rockrms.com/developer/helix/forms-controls
-- https://community.rockrms.com/developer/helix/forms-controls/loading-indicator
-- https://community.rockrms.com/developer/helix/htmx
-- https://community.rockrms.com/lava/tags/observe
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/developer/helix/strategies
-- https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/developer/helix/lava-applications/observability
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationDetailOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationList/lavaApplicationListOptionsBag.d.ts
+- https://community.rockrms.com/page/3761

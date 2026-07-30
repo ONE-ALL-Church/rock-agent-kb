@@ -1,173 +1,11 @@
 {
+  "answer_bearing_claim_count": 10,
+  "approved_claim_count": 10,
   "approved_claim_dependencies": [
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds practical LMS guidance from churches beginning to build training content in Rock. It treats LMS as a way to deliver volunteer and staff training, reuse existing teaching assets, and pair content with communications that invite people into structured learning rather than leaving training scattered across unrelated pages.",
-      "claim_hash": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
-      "claim_id": "claim:0830c40b568944ecfd1a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock connection work should use retention data to prioritize human follow-up, volunteer assignment, and next-step invitations rather than only reporting historical attendance.",
-      "claim_hash": "2ad996fab3d59b070ac23d2a5254a5d5a6c59762a1e8bdb51435eee1bf87a2b4",
-      "claim_id": "claim:160cef9e90bd67639b34",
-      "claim_tier": "routing_context_only",
-      "claim_type": "implementation_pattern",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5ff4cf26f6870a9648a604704febd1b3ddfd1a58aa3257f3b3dd07547c007e99",
-      "source_record_ids": [
-        "rock_community_hubs:004db224c038a1f0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G",
-          "timestamp": "03:00",
-          "timestamp_seconds": 180.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A leadership-facing Rock dashboard should make metric definitions explicit so teams know which values are current-state snapshots, historical trends, or ministry-specific targets.",
-      "claim_hash": "5a1690cd635b90c04a26de72106e184a5e54905a8fc378c7af142a1f0f4d455a",
-      "claim_id": "claim:1b44592e3702b900be00",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f913102bbc606c2b51949baa909be7f1c24d8ecb5d5b77032ddc5224a669f343",
-      "source_record_ids": [
-        "rock_community_hubs:742acf372f75a8c8"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2",
-          "timestamp": "01:52",
-          "timestamp_seconds": 112.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Mobile v19 preview demonstrates Outreach Toolbox onboarding, contact and cadence setup, scheduled prayer and connection touchpoints, history and pulse updates. Availability depends on the mobile app, sign-in, block settings, jobs and notification configuration; verify the current shell and server release before rollout.",
-      "claim_hash": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-      "claim_id": "claim:35d327f4909c62921563",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
-      "source_record_ids": [
-        "rock_youtube:2b3b848223d53224"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Outreach Toolbox is Here in v19",
-          "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Campus dashboards should help leaders compare current year-to-date values against both goals and prior-year context, while leaving deeper campus-specific measures available without crowding the organization-wide dashboard.",
-      "claim_hash": "97c0e2c666b182b85f2422943baf148d4bcb572c2fa1a03c24207b4ffe7e0a7f",
-      "claim_id": "claim:43581184f63c0a294c58",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz",
-          "timestamp": "14:24",
-          "timestamp_seconds": 864.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
-    },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout.",
-      "claim_hash": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
+      "claim_hash": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
       "claim_id": "claim:483a11b884e0e69ffd4d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -182,6 +20,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -195,48 +36,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A mature reporting suite can separate executive dashboards, campus or ministry dashboards, and functional operational dashboards so each audience sees the level of detail needed for its decisions.",
-      "claim_hash": "6d9cf5296016c957e0548994c96a82079dcf8dea19ef5c0432c5cda2dea2ed82",
-      "claim_id": "claim:4a928b186c3643be8160",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz",
-          "timestamp": "06:04",
-          "timestamp_seconds": 364.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up.",
-      "claim_hash": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
+      "claim_hash": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
       "claim_id": "claim:4bc0aee305fa6b1bd524",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -275,6 +81,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -288,81 +95,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Functional dashboards such as connection-request views may justify live database connections when leaders need up-to-date queues, while slower-changing attendance or giving dashboards can usually use scheduled refreshes.",
-      "claim_hash": "466243bff5a8189d4808802b49ba7e1755ef135f2af478c4263705df1463bde9",
-      "claim_id": "claim:5106f5e9af12a3a83a57",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz",
-          "timestamp": "39:51",
-          "timestamp_seconds": 2391.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When moving from another LMS into Rock, plan for differences in platform logic instead of assuming videos and lessons can be imported without redesign.",
-      "claim_hash": "475b0194aca066403017295f12579b6b951e87945093c86536285e386e26c2be",
-      "claim_id": "claim:5308f526e81645ec0648",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz",
-          "timestamp": "02:29",
-          "timestamp_seconds": 149.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally.",
-      "claim_hash": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
+      "claim_hash": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
       "claim_id": "claim:54aeb223a9029e9f7707",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -377,6 +116,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
       "source_record_ids": [
         "rock_youtube:6e6bececa520aca2"
@@ -390,46 +130,13 @@
           "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
           "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Lessons from youth digital ministry can inform adult services and broader church mobile strategy when they are translated into repeatable Rock-backed workflows.",
-      "claim_hash": "25de1dcb705dc63a410bc9d17dba21e9cc1f50b26197198ec4e67fa59dfacc7b",
-      "claim_id": "claim:602bd14f9969a59e9fb0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "04:38",
-          "timestamp_seconds": 278.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards.",
-      "claim_hash": "253ac52b63b806f536d05719bf140e4ef3a771420be540c54ba5a26c8f15ea1c",
+      "claim_hash": "f71f73babeaea7d64b71e46b12478cd02ff821a0c20be3e4bc4616c4b76774f1",
       "claim_id": "claim:60d40983fd53c0173dd9",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -466,6 +173,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
       "source_record_ids": [
         "rock_community_hubs:e80bc4203561cbcb"
@@ -479,182 +187,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe guidance for a daily mobile-app experience centered on scripture, prayer, and missions engagement. It is useful for Rock Mobile planning because it shows how a recurring app-open experience can connect daily content, serving or missions stories, push behavior, and engagement goals in a simple repeatable pattern.",
-      "claim_hash": "ffa86aeb48f933e9075e80c708f29c26ab527dbb496d4091b4da54fbf47e7dd2",
-      "claim_id": "claim:63c7f0a5c92e461f082d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A binge-style content idea can become a structured learning path when the church defines sequence, purpose, and completion signals rather than only embedding videos.",
-      "claim_hash": "2d7702e293746feaad73194efd82f0d6e61662a299a3db9822204f2ffda3d591",
-      "claim_id": "claim:762d02ec5e1b9532d039",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "02:23",
-          "timestamp_seconds": 143.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Early LMS work should start with a few clear training use cases, such as volunteer or staff onboarding, before attempting a large content migration.",
-      "claim_hash": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
-      "claim_id": "claim:794a1e10cee85f1c6b78",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "00:11",
-          "timestamp_seconds": 11.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Reusable communication sections and global style controls can reduce template drift when churches standardize common layouts, buttons, text styles, columns, and Lava/code blocks.",
-      "claim_hash": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-      "claim_id": "claim:7d612089a965482f7eed",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "51:40",
-          "timestamp_seconds": 3100.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Volunteer scheduling was framed as a major roadmap item, so serving and group-scheduling guides should route scheduling questions through both release history and current model/feature documentation.",
-      "claim_hash": "d66085d5ab749fba775c0e1c7e547dcf4858f40151dbd58a2c3a985d8610dfb5",
-      "claim_id": "claim:855171d565adea1956a8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "platform-configuration",
-        "security-permissions",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b381647616a669c3b3d45b4d898add3d0dd5538834bd757ff26c23e74d71e4f0",
-      "source_record_ids": [
-        "rock_podcast_rss:bcc13d997012280d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates",
-          "timestamp": "01:11",
-          "timestamp_seconds": 71.36,
-          "title": "Episode 40: v8 and more team updates",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities.",
-      "claim_hash": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
+      "claim_hash": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
       "claim_id": "claim:882208fdf2bb82703931",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -691,6 +230,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -704,213 +244,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A daily mobile experience can make the app valuable beyond weekend utility by giving people a simple reason to return for scripture, prayer, or ministry stories.",
-      "claim_hash": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
-      "claim_id": "claim:8a605c2aa9ae467efd8d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "02:23",
-          "timestamp_seconds": 143.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Informal peer review is valuable for youth digital work because teams can compare what is actually creating connection rather than relying on assumptions about student behavior.",
-      "claim_hash": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
-      "claim_id": "claim:8c58e84d80e30386bcd6",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "03:12",
-          "timestamp_seconds": 192.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Group participation, serving involvement, giving patterns, and attendance can be useful dashboard inputs when each is framed as an engagement signal with known limitations.",
-      "claim_hash": "f8456b2ad04554877955044d1091d19b38956c64e1c5687a1e7ff6f6fb1ef0fe",
-      "claim_id": "claim:8ceeba9e7319dce2f238",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f913102bbc606c2b51949baa909be7f1c24d8ecb5d5b77032ddc5224a669f343",
-      "source_record_ids": [
-        "rock_community_hubs:742acf372f75a8c8"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2",
-          "timestamp": "02:47",
-          "timestamp_seconds": 167.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast update is useful public roadmap context: v8 was discussed as moving toward alpha testing, v9 was framed around volunteer scheduling, and Wi-Fi presence was described as an integration that maps campus Wi-Fi signals into Rock attendance-style insight. The episode also highlights privacy and data-ownership concerns when external services participate in presence tracking.",
-      "claim_hash": "6f01ad75c3a0b5e18152e6afeb14ad4a3921efb5fab4093db99a2cf9af655719",
-      "claim_id": "claim:8d5c3dba45546dd0ad9f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "platform-configuration",
-        "security-permissions",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b381647616a669c3b3d45b4d898add3d0dd5538834bd757ff26c23e74d71e4f0",
-      "source_record_ids": [
-        "rock_podcast_rss:bcc13d997012280d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 40: v8 and more team updates",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The first screen after app open should be intentionally chosen because it can shape whether users treat the app as a ministry companion or only a transactional tool.",
-      "claim_hash": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
-      "claim_id": "claim:9590957a9e57d03c3b07",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "01:41",
-          "timestamp_seconds": 101.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This February 2025 Media Watch session is a high-value public-safe source for Rock LMS and the new communications wizard direction. It explains LMS programs, courses, classes, learning plans, participants, on-demand versus academic-calendar modes, activity types, facilitator grading, availability rules, and workflow hooks, then demonstrates communications beta features such as topics, reachable-audience counts, starter templates, global styles, reusable sections, drag-and-drop blocks, image/column controls, and Lava/code blocks.",
-      "claim_hash": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-      "claim_id": "claim:9b6fa66cbcb39e42d811",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment.",
-      "claim_hash": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
+      "claim_hash": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
       "claim_id": "claim:9c8ce297c9c4a4cda982",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -926,6 +266,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -939,116 +280,13 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Release-roadmap podcast material is useful as historical context but should not override current release notes when agents answer version-specific questions.",
-      "claim_hash": "11c01ace8d75c5ad8780bdb208228a354d1390d91907e9c36ae5278b22af6e5f",
-      "claim_id": "claim:a10e230bf6d81595a30a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "platform-configuration",
-        "security-permissions",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b381647616a669c3b3d45b4d898add3d0dd5538834bd757ff26c23e74d71e4f0",
-      "source_record_ids": [
-        "rock_podcast_rss:bcc13d997012280d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates",
-          "timestamp": "00:25",
-          "timestamp_seconds": 25.84,
-          "title": "Episode 40: v8 and more team updates",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Executive dashboards work better when they expose a small set of organization-wide goals with clear current values, goal values, and status indicators instead of hiding many rolled-up metrics behind ambiguous scores.",
-      "claim_hash": "3a832eb6c1df0a45f796562819a0e95480017ce9b721100d90b2293df4abd11a",
-      "claim_id": "claim:a5820b2c9e1499ebe406",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz",
-          "timestamp": "12:09",
-          "timestamp_seconds": 729.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "LMS is most valuable when the church treats it as part of a broader volunteer readiness system, not just a content repository.",
-      "claim_hash": "b59169633e8fe9f679ccde6cf28132463c8deb13b2dcef985f11ffc443172786",
-      "claim_id": "claim:b14b4468388319eb2a34",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz",
-          "timestamp": "03:41",
-          "timestamp_seconds": 221.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Existing training videos can become Rock LMS activities, but completion, sequencing, and facilitator review should be configured intentionally around the desired learner outcome.",
-      "claim_hash": "783c0fca252106154a0afff0d1287eb6003db96bec36931e2cbf7961e14963bd",
+      "claim_hash": "09952a68c034e0650863bd688cc8d438bb5be259f0da290659c5ff5bdab8bcb3",
       "claim_id": "claim:c538cf61594b1114dc41",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1083,6 +321,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
       "source_record_ids": [
         "rock_community_hubs:b68311e84ce45057"
@@ -1096,46 +335,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Youth digital strategy should be designed around relational ministry outcomes, not only channel choice or content volume.",
-      "claim_hash": "466fab0ae7905b5fa52e0508787e576527d86a4fb0efabfa3619e7996b453b25",
-      "claim_id": "claim:c749f105511201e4dbee",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W",
-          "timestamp": "03:24",
-          "timestamp_seconds": 204.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality.",
-      "claim_hash": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
+      "claim_hash": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
       "claim_id": "claim:c8c3a60f71790dd3616d",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -1151,6 +357,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "c201c028f6a8a34f94ff9b4a7e87ba1a5c0a235dc0c142852ed32c3819c8ae36",
       "source_record_ids": [
         "rock_youtube:1ea957f46e0460f1"
@@ -1164,276 +371,13 @@
           "title": "AI Voice Models & the Hidden Costs of Untrained Staff | Ep 214",
           "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Prayer or missions content can be designed as a lightweight daily action that connects app users to people and ministry work they may not otherwise see.",
-      "claim_hash": "03ab7d6236b373004d25b5989b20957e5d1e8652afd2405d59db810d284e91db",
-      "claim_id": "claim:c947c2718609f01e1369",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "mobile",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "cc59b4861f84b4742fb30116cfb959b6f1dde0af1dac8c62a3f4bae89919dfb9",
-      "source_record_ids": [
-        "rock_community_hubs:0d1cb192f0243a5e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4",
-          "timestamp": "02:14",
-          "timestamp_seconds": 134.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub discussion gives public-safe guidance for measuring spiritual growth without reducing discipleship to a single score. The session compares measures such as group involvement, serving, giving, attendance, and engagement trends, and emphasizes dashboards that help leadership ask better ministry questions instead of treating metrics as proof of spiritual maturity.",
-      "claim_hash": "9f3667e4473364cf30536f35e7ab7ce3a86f9123a2978bfc39653f14efac5108",
-      "claim_id": "claim:ca5938e071dc71037442",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f913102bbc606c2b51949baa909be7f1c24d8ecb5d5b77032ddc5224a669f343",
-      "source_record_ids": [
-        "rock_community_hubs:742acf372f75a8c8"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session adds implementation-oriented LMS guidance from a church activating the LMS engine and migrating content from another learning platform. It is useful for planning how existing videos and course material can be restructured into Rock LMS while preserving the ministry logic of training paths, groups, and volunteer readiness.",
-      "claim_hash": "f53ba37ef9d9f599a45a60a40956b65fded536cb98d0554467848b61c7ead3a0",
-      "claim_id": "claim:d65eaa017f0b1ea39b33",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "groups",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2efd77ea460761d9e496ab16fd3f579590a18f0ac4b8147e89e0c4a2b7baba9f",
-      "source_record_ids": [
-        "rock_community_hubs:b68311e84ce45057"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Retention benchmarks can help leadership interpret results, but local context and data definitions should be documented before comparing one church's numbers to another's.",
-      "claim_hash": "d36e3dfa269f4686a00da5e578c068d8c010effc992ffd98e991f212063cb6c3",
-      "claim_id": "claim:d87dba33f9d4998fbbac",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5ff4cf26f6870a9648a604704febd1b3ddfd1a58aa3257f3b3dd07547c007e99",
-      "source_record_ids": [
-        "rock_community_hubs:004db224c038a1f0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G",
-          "timestamp": "02:49",
-          "timestamp_seconds": 169.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "The communications beta wizard introduces topic tagging and reachable-audience counts by medium, helping senders choose email, SMS, or push based on actual contactability rather than only the size of a communication list.",
-      "claim_hash": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-      "claim_id": "claim:da22995bb2d271a00d5b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "lava",
-        "learning-lms-engagement",
-        "serving-volunteer-ops",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
-      "source_record_ids": [
-        "rock_community_hubs:892f43823742ae10"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN",
-          "timestamp": "42:38",
-          "timestamp_seconds": 2558.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Wi-Fi presence connects campus network signals to person attendance-style insight, which makes data ownership, vendor behavior, and privacy review part of the implementation guidance.",
-      "claim_hash": "fb11878dde51fca7c06b834c5d15ba07db997bcb8938a4d87922f96cf8553e5d",
-      "claim_id": "claim:dc0db04945d46116865c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "groups",
-        "platform-configuration",
-        "security-permissions",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b381647616a669c3b3d45b4d898add3d0dd5538834bd757ff26c23e74d71e4f0",
-      "source_record_ids": [
-        "rock_podcast_rss:bcc13d997012280d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates",
-          "timestamp": "02:01",
-          "timestamp_seconds": 121.25,
-          "title": "Episode 40: v8 and more team updates",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Spiritual-growth dashboards should combine several observable practices rather than rely on a single proxy metric that leadership may overinterpret.",
-      "claim_hash": "5642b2ebf89ecdbbaf9d108f37c8e4236f20cb6b4f3576aa3ef5c14774fb2ebf",
-      "claim_id": "claim:dd0c9701db6984b66b83",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "f913102bbc606c2b51949baa909be7f1c24d8ecb5d5b77032ddc5224a669f343",
-      "source_record_ids": [
-        "rock_community_hubs:742acf372f75a8c8"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2",
-          "timestamp": "01:25",
-          "timestamp_seconds": 85.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe context for youth digital strategy and mobile engagement. It discusses how youth ministry digital work should connect app, group, volunteer, and communication practices instead of treating mobile or social channels as separate from discipleship and relational ministry.",
-      "claim_hash": "af674427b16130ca2278608e7ea0280335f5eacce7968d639252292e0dcf8a91",
-      "claim_id": "claim:dd2ddb0de1c03b401d3f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "groups",
-        "mobile",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2bfb61a42037d62ca01e5b434fad64fac69032578b3aabe46f517f0378d0185b",
-      "source_record_ids": [
-        "rock_community_hubs:e070b113cf226721"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based.",
-      "claim_hash": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
+      "claim_hash": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
       "claim_id": "claim:dd3b03571388d00cc80b",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1472,6 +416,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e2a1cf9d2b4be3656da191c88dc4ceaca05cab6f0001b9063f65fa4c0a8125b3",
       "source_record_ids": [
         "rock_community_hubs:892f43823742ae10"
@@ -1485,12 +430,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use.",
-      "claim_hash": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
+      "claim_hash": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2",
       "claim_id": "claim:e704f98991439e3e1576",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1507,6 +453,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "49c6cbbbdd6be7f81ed14f4592f3246159579f090963379a12b4fb499946576b",
       "source_record_ids": [
         "rock_youtube:2b3b848223d53224"
@@ -1520,256 +467,23 @@
           "title": "Outreach Toolbox is Here in v19",
           "url": "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "First-time guest retention is a useful ministry health signal when it is measured consistently and connected to the church's actual follow-up process.",
-      "claim_hash": "47091d361393f21453d994a6d69f99695acc6552aaa17669e35c47b4ad5a62e8",
-      "claim_id": "claim:e9fcba0da5f02c20ba45",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "serving-volunteer-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5ff4cf26f6870a9648a604704febd1b3ddfd1a58aa3257f3b3dd07547c007e99",
-      "source_record_ids": [
-        "rock_community_hubs:004db224c038a1f0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G",
-          "timestamp": "02:33",
-          "timestamp_seconds": 153.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Ministry and program dashboards should avoid standalone numbers when possible; compare measures to goals, historical baselines, or funnels so teams can interpret whether a result needs action.",
-      "claim_hash": "c8f88352c02e901f1eb3eacd72b759f6cbb12b628649e90069f231612537d194",
-      "claim_id": "claim:ec89e47bfc8824abdeff",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz",
-          "timestamp": "21:16",
-          "timestamp_seconds": 1276.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Existing teaching series or training videos can become LMS content, but teams should still design the course path, completion expectations, and follow-up communication around the learner.",
-      "claim_hash": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53",
-      "claim_id": "claim:f52e305b2187f1ab53da",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "communications",
-        "learning-lms-engagement",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a32d3128c4679dc5aecafd9dbd4ad76e3c93e88fbecce35666c582128ffa3a42",
-      "source_record_ids": [
-        "rock_community_hubs:121d4215e1fc4edb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4",
-          "timestamp": "01:42",
-          "timestamp_seconds": 102.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPbvokPR4"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub walkthrough gives public-safe guidance for building a layered Rock reporting suite with Power BI or similar tools. It distinguishes executive, campus/ministry, and functional reporting, emphasizes comparison against goals or history, and shows when scheduled refreshes, live queries, Rock security roles, and embedded report pages each fit.",
-      "claim_hash": "9bc12ce4a856d37411521769bfcdc3fd38062199c870aef734255ee64ad201c6",
-      "claim_id": "claim:f757fd751fb7c1ea8c43",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "giving-finance",
-        "groups",
-        "platform-configuration",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0aef1850ba800b127ee3f7908780eec293891e5ddb86d1a7e171ddf5c891f83b",
-      "source_record_ids": [
-        "rock_community_hubs:e80bc4203561cbcb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives public-safe guidance for using first-time guest and retention measures as a connection strategy input. It emphasizes defining the few metrics that matter, comparing retention patterns over time, and using data to improve follow-up without replacing the relational work of connecting new people to ministry.",
-      "claim_hash": "1c4471c2841e64421233ef99002898f237f4b2c15bde01e2fd5fd271dfe30e63",
-      "claim_id": "claim:f854074cdf45921b34c7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "connections",
-        "data-views-reports",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5ff4cf26f6870a9648a604704febd1b3ddfd1a58aa3257f3b3dd07547c007e99",
-      "source_record_ids": [
-        "rock_community_hubs:004db224c038a1f0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official short demonstrates the Outreach Toolbox dashboard as a reminder surface for due outreach and prayer touchpoints. Use the full v19 walkthrough and current mobile documentation for configuration details.",
-      "claim_hash": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb",
-      "claim_id": "claim:fce0fb74a46963faeb59",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "mobile",
-        "prayer-care",
-        "serving-volunteer-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "deface8a1ca09d7b3ec8508dc934311e25ce8c5ecf2cad783002c499528c8fb2",
-      "source_record_ids": [
-        "rock_youtube:6e6bececa520aca2"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "Your People are Ministers on the Ground with the Outreach Toolbox",
-          "url": "https://www.youtube.com/shorts/c6T9Ha13jKE"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:0830c40b568944ecfd1a": "763c22d285c054bb2246e2a20a7c2a6c989c15fb14dd55fbee4c59fce1c5bb20",
-    "claim:160cef9e90bd67639b34": "2ad996fab3d59b070ac23d2a5254a5d5a6c59762a1e8bdb51435eee1bf87a2b4",
-    "claim:1b44592e3702b900be00": "5a1690cd635b90c04a26de72106e184a5e54905a8fc378c7af142a1f0f4d455a",
-    "claim:35d327f4909c62921563": "3404fd9b07d77655f136953a436036918a73706ed5dcd83e6437002109cec256",
-    "claim:43581184f63c0a294c58": "97c0e2c666b182b85f2422943baf148d4bcb572c2fa1a03c24207b4ffe7e0a7f",
-    "claim:483a11b884e0e69ffd4d": "66a4ac2025c465d192d846ef131b9e5e45bb4286583d39f71b675468bbcbdf3d",
-    "claim:4a928b186c3643be8160": "6d9cf5296016c957e0548994c96a82079dcf8dea19ef5c0432c5cda2dea2ed82",
-    "claim:4bc0aee305fa6b1bd524": "804c14181e65540d694f4d21aed4545464db8ddd309c5f01482798e629ce9051",
-    "claim:5106f5e9af12a3a83a57": "466243bff5a8189d4808802b49ba7e1755ef135f2af478c4263705df1463bde9",
-    "claim:5308f526e81645ec0648": "475b0194aca066403017295f12579b6b951e87945093c86536285e386e26c2be",
-    "claim:54aeb223a9029e9f7707": "564024ff067f70ccba6a4250c8b5ecff56ea7654e10d2f6e1704e80ba34ca425",
-    "claim:602bd14f9969a59e9fb0": "25de1dcb705dc63a410bc9d17dba21e9cc1f50b26197198ec4e67fa59dfacc7b",
-    "claim:60d40983fd53c0173dd9": "253ac52b63b806f536d05719bf140e4ef3a771420be540c54ba5a26c8f15ea1c",
-    "claim:63c7f0a5c92e461f082d": "ffa86aeb48f933e9075e80c708f29c26ab527dbb496d4091b4da54fbf47e7dd2",
-    "claim:762d02ec5e1b9532d039": "2d7702e293746feaad73194efd82f0d6e61662a299a3db9822204f2ffda3d591",
-    "claim:794a1e10cee85f1c6b78": "d6cb5599fad8e64eab6f6cbdb3aab73321dd8b36b7c8a630515034631b736ef5",
-    "claim:7d612089a965482f7eed": "4b0134f4100f261533758534898923fcd9ae7d4ddfcddc7d8d34ad0d38bc50e1",
-    "claim:855171d565adea1956a8": "d66085d5ab749fba775c0e1c7e547dcf4858f40151dbd58a2c3a985d8610dfb5",
-    "claim:882208fdf2bb82703931": "39f39f21e0c494feb2327b1ef12f55eae29f0b6f13d808d8ae88ce42a2516c0d",
-    "claim:8a605c2aa9ae467efd8d": "4e12824cdc6ff6d504d68d76568b999337835cd0c96a15d1f2d162916aa5f2bf",
-    "claim:8c58e84d80e30386bcd6": "a6687b45891aeecdd42cc5297df2d644ed7a87618787ae32cc16c98ddf097fc8",
-    "claim:8ceeba9e7319dce2f238": "f8456b2ad04554877955044d1091d19b38956c64e1c5687a1e7ff6f6fb1ef0fe",
-    "claim:8d5c3dba45546dd0ad9f": "6f01ad75c3a0b5e18152e6afeb14ad4a3921efb5fab4093db99a2cf9af655719",
-    "claim:9590957a9e57d03c3b07": "b9fdd6a0ead37b29754f37bfc5ff46d49e1c17ca2e7085299aae4c76c39aab81",
-    "claim:9b6fa66cbcb39e42d811": "d1f8de67455ce58eab055d20e8ea4bcaa794bac80e794060dae4c1f2fba7b573",
-    "claim:9c8ce297c9c4a4cda982": "cddf040c9a87d80c76b1d803d1ca520cacf3bc07c739c3366c43bd2d1c681a39",
-    "claim:a10e230bf6d81595a30a": "11c01ace8d75c5ad8780bdb208228a354d1390d91907e9c36ae5278b22af6e5f",
-    "claim:a5820b2c9e1499ebe406": "3a832eb6c1df0a45f796562819a0e95480017ce9b721100d90b2293df4abd11a",
-    "claim:b14b4468388319eb2a34": "b59169633e8fe9f679ccde6cf28132463c8deb13b2dcef985f11ffc443172786",
-    "claim:c538cf61594b1114dc41": "783c0fca252106154a0afff0d1287eb6003db96bec36931e2cbf7961e14963bd",
-    "claim:c749f105511201e4dbee": "466fab0ae7905b5fa52e0508787e576527d86a4fb0efabfa3619e7996b453b25",
-    "claim:c8c3a60f71790dd3616d": "bcfd31a479f1bda765a9e3b792d0de45defc7b8fcb8d4ab572a3d038d0042087",
-    "claim:c947c2718609f01e1369": "03ab7d6236b373004d25b5989b20957e5d1e8652afd2405d59db810d284e91db",
-    "claim:ca5938e071dc71037442": "9f3667e4473364cf30536f35e7ab7ce3a86f9123a2978bfc39653f14efac5108",
-    "claim:d65eaa017f0b1ea39b33": "f53ba37ef9d9f599a45a60a40956b65fded536cb98d0554467848b61c7ead3a0",
-    "claim:d87dba33f9d4998fbbac": "d36e3dfa269f4686a00da5e578c068d8c010effc992ffd98e991f212063cb6c3",
-    "claim:da22995bb2d271a00d5b": "4a8247159ba17151663dd98d3c48b5e9eb5b441ec819442f9776973b00667c50",
-    "claim:dc0db04945d46116865c": "fb11878dde51fca7c06b834c5d15ba07db997bcb8938a4d87922f96cf8553e5d",
-    "claim:dd0c9701db6984b66b83": "5642b2ebf89ecdbbaf9d108f37c8e4236f20cb6b4f3576aa3ef5c14774fb2ebf",
-    "claim:dd2ddb0de1c03b401d3f": "af674427b16130ca2278608e7ea0280335f5eacce7968d639252292e0dcf8a91",
-    "claim:dd3b03571388d00cc80b": "51127b7646159ce8702c60736f5cc8500b34df0f83b8fe8204ad15620425b144",
-    "claim:e704f98991439e3e1576": "105d350544a3469e5da40662393e70da7b54e5dee6dda351a5ccefe3cdc141cd",
-    "claim:e9fcba0da5f02c20ba45": "47091d361393f21453d994a6d69f99695acc6552aaa17669e35c47b4ad5a62e8",
-    "claim:ec89e47bfc8824abdeff": "c8f88352c02e901f1eb3eacd72b759f6cbb12b628649e90069f231612537d194",
-    "claim:f52e305b2187f1ab53da": "88a10c355c42478c34d5f4a2c331fb5798714ba819275a3273b3255d37c48f53",
-    "claim:f757fd751fb7c1ea8c43": "9bc12ce4a856d37411521769bfcdc3fd38062199c870aef734255ee64ad201c6",
-    "claim:f854074cdf45921b34c7": "1c4471c2841e64421233ef99002898f237f4b2c15bde01e2fd5fd271dfe30e63",
-    "claim:fce0fb74a46963faeb59": "cda5c0a340b2c699a49d30a8e65c435c8f434b2b4b41499c89864f2468b2cbeb"
+    "claim:483a11b884e0e69ffd4d": "d6d31606f46ec2af394ff12df8df717bb55e445a4000512d96a7c11a9d94e9ba",
+    "claim:4bc0aee305fa6b1bd524": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
+    "claim:54aeb223a9029e9f7707": "ce863915d5fee7e1baaa10938c61ede6b8b5c562e24d06aa869bb8ddbd446583",
+    "claim:60d40983fd53c0173dd9": "f71f73babeaea7d64b71e46b12478cd02ff821a0c20be3e4bc4616c4b76774f1",
+    "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
+    "claim:9c8ce297c9c4a4cda982": "6e39c7d47774d4c809cca00206dce426967b2de6173ae39ff60906f2ffa87662",
+    "claim:c538cf61594b1114dc41": "09952a68c034e0650863bd688cc8d438bb5be259f0da290659c5ff5bdab8bcb3",
+    "claim:c8c3a60f71790dd3616d": "a1f5699452ca14c10ce5c032e90c38698264666f8640334517ee10bb2c4691a6",
+    "claim:dd3b03571388d00cc80b": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
+    "claim:e704f98991439e3e1576": "71d4978b87902f97698cc4bfa1444d5ca45ab6a0a1453968943a3b3c6c205da2"
   },
-  "approved_claims_hash": "c1184ebffecdc601396ef2bf71f24fd3c8299c356f86a221a6b8d50e10e4c474",
+  "approved_claims_hash": "74c71f22b4961fa5dd48784a54688d7c2c1d20b743cca68ae4c4993b8561a405",
   "approved_claims_path": "knowledge/concepts/serving-volunteer-ops/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1987,12 +701,12 @@
   },
   "approved_media_hash": "2cb430aecd8bcf6f9e58efba0e6005e6a3da72dd1f5b01f805f1f2cf010b0253",
   "approved_media_path": "knowledge/concepts/serving-volunteer-ops/approved-media.md",
-  "built_at": "2026-07-26T00:29:36+00:00",
+  "built_at": "2026-07-30T02:07:48+00:00",
   "concept_id": "serving-volunteer-ops",
-  "guide_hash": "41291330a9f3b27c6266a7565d35e7b05f847612da52665e34ac25163faae0ab",
-  "guide_line_count": 2156,
+  "guide_hash": "095ea606b81c2b0a0b8c563a4821e9b5a8cffa6ef3a7b0988a172d2aba47232e",
+  "guide_line_count": 2153,
   "guide_path": "knowledge/concepts/serving-volunteer-ops/guide.md",
-  "guide_word_count": 14506,
+  "guide_word_count": 14402,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2337,6 +1051,7 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -4007,7 +2722,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 2077,
+      "end_line": 2074,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
@@ -4017,8 +2732,6 @@
         "1c59cd336e8baae0",
         "a56a73c5681795bd",
         "a56a73c5681795bd",
-        "a56a73c5681795bd",
-        "1c59cd336e8baae0",
         "892f43823742ae10",
         "e80bc4203561cbcb",
         "892f43823742ae10",
@@ -4029,7 +2742,7 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 2098,
+      "end_line": 2095,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -4043,11 +2756,11 @@
         "0d1cb192f0243a5e",
         "892f43823742ae10"
       ],
-      "start_line": 2078
+      "start_line": 2075
     },
     {
       "confidence": "structural",
-      "end_line": 2100,
+      "end_line": 2097,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -4072,11 +2785,11 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2099
+      "start_line": 2096
     },
     {
       "confidence": "high",
-      "end_line": 2108,
+      "end_line": 2105,
       "heading": "Highest-Authority Source Links In This Pack",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-highest-authority-source-links-in-this-pack",
@@ -4097,11 +2810,11 @@
         "d275b5b94a9da833",
         "d275b5b94a9da833"
       ],
-      "start_line": 2101
+      "start_line": 2098
     },
     {
       "confidence": "community-supported",
-      "end_line": 2121,
+      "end_line": 2118,
       "heading": "Community Example Sources",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-community-example-sources",
@@ -4115,11 +2828,11 @@
         "eaf47d2e51a1810d",
         "5e81d46a81f50c4c"
       ],
-      "start_line": 2109
+      "start_line": 2106
     },
     {
       "confidence": "citation-only",
-      "end_line": 2137,
+      "end_line": 2134,
       "heading": "Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-dependency-notes",
@@ -4128,18 +2841,18 @@
         "10d9f0934e171ebf",
         "9986b460da442f0d"
       ],
-      "start_line": 2122
+      "start_line": 2119
     },
     {
       "confidence": "citation-only",
-      "end_line": 2156,
+      "end_line": 2153,
       "heading": "Live Verification Required",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-live-verification-required",
       "source_keys": [
         "f2052f77aa3b20e2"
       ],
-      "start_line": 2138
+      "start_line": 2135
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:41:06+00:00",
@@ -4874,5 +3587,6 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Troubleshoot Required Watching”
 
-Follow the guide section for Recipe: “Troubleshoot Required Watching”.
+RockU identifies Required Watching as part of the CMS/media learning path (Rock Media Required Watching).
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: “Troubleshoot Required Watching”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Confirm media item plays.
+2. Confirm required watching feature is configured.
+3. Confirm current person is identified.
+4. Confirm media analytics are recorded.
+5. Confirm completion threshold.
+6. Confirm viewer is in required audience.
+7. Confirm no browser restrictions block events.
+8. Confirm reports use correct media interaction data.
+9. Test with a new user.
 
 ## Do Not Assume
 
@@ -35,8 +43,14 @@ Follow the guide section for Recipe: “Troubleshoot Required Watching”.
 ## Source Links
 
 - https://community.rockrms.com/rocku/cms
+- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/rocku/content-channels/content-channel-view
-- https://community.rockrms.com/rocku/cms/rock-media-required-watching
-- https://community.rockrms.com/recipes/432
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://community.rockrms.com/documentation/bookcontent/6
 - https://community.rockrms.com/recipes/261
+- https://community.rockrms.com/recipes/432
+- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
+- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
+- https://community.rockrms.com/developer/helix/lava-applications/content-block

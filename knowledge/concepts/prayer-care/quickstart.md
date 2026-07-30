@@ -17,11 +17,11 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 
 ## Primary Tasks
 
-- [Audit Prayer Configuration](tasks/audit-prayer-configuration.md): Follow the guide section for Audit Prayer Configuration.
-- [Review A Sensitive Request](tasks/review-a-sensitive-request.md): Follow the guide section for Review A Sensitive Request.
-- [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md): Follow the guide section for Build A Prayer-Team Coverage Report.
-- [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md): Follow the guide section for Investigate Person Prayer History.
-- [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md): Follow the guide section for Safely Extend Prayer Intake.
+- [Audit Prayer Configuration](tasks/audit-prayer-configuration.md): Complete Audit Prayer Configuration with evidence-backed checks and a verifiable outcome.
+- [Review A Sensitive Request](tasks/review-a-sensitive-request.md): Complete Review A Sensitive Request with evidence-backed checks and a verifiable outcome.
+- [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md): Complete Build A Prayer-Team Coverage Report with evidence-backed checks and a verifiable outcome.
+- [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md): Complete Investigate Person Prayer History with evidence-backed checks and a verifiable outcome.
+- [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 
@@ -43,6 +43,7 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the prayer-care guide.
 - `Person`: Rock concept/entity referenced by the prayer-care guide.
+- `PersonAlias`: Rock concept/entity referenced by the prayer-care guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Workflow`: Rock concept/entity referenced by the prayer-care guide.
 

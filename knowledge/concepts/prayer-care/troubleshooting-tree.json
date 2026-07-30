@@ -1,149 +1,190 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Campus",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "audit-prayer-configuration",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",
+      "id": "request-was-submitted-but-prayer-team-cannot-see-it",
+      "inspect": [
+        "Group",
+        "Campus",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
         "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the request active?",
+        "Is it expired?",
+        "Is it approved?",
+        "Is it public/private, and does the prayer-team block filter by public?",
+        "Is it assigned to a category selected by the prayer team?",
+        "Is it urgent but hidden by a custom filter?",
+        "Is it group-associated? If yes, is `GroupGuid` present in the prayer-team URL?",
+        "Is the prayer-team user authenticated and in the right role?"
       ],
-      "title": "Audit Prayer Configuration",
-      "when": "Follow the guide section for Audit Prayer Configuration."
+      "title": "Request Was Submitted But Prayer Team Cannot See It",
+      "when": "Request Was Submitted But Prayer Team Cannot See It"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "review-a-sensitive-request",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-        "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs"
+      "guide_section_id": "17-troubleshooting-decision-tree-request-appears-publicly-when-it-should-not",
+      "id": "request-appears-publicly-when-it-should-not",
+      "inspect": [
+        "Group",
+        "Page",
+        "Attribute"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is `IsPublic` true?",
+        "Is the public page filtering by `IsPublic`, approval, active, and expiration?",
+        "Does the Lava template ignore flags?",
+        "Are custom attributes marked Public incorrectly?",
+        "Is the instance on a version before the v17.0 public-attribute visibility fix?",
+        "Is the request group-scoped but displayed by a custom query?",
+        "Is a cached page showing old content?",
+        "Did AI formatting remove or preserve sensitive details?"
       ],
-      "title": "Review A Sensitive Request",
-      "when": "Follow the guide section for Review A Sensitive Request."
+      "title": "Request Appears Publicly When It Should Not",
+      "when": "Request Appears Publicly When It Should Not"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Block"
       ],
-      "entities": [],
-      "id": "build-a-prayer-team-coverage-report",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-        "https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests",
-        "https://community.rockrms.com/ModelMap",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs"
+      "guide_section_id": "17-troubleshooting-decision-tree-approval-does-not-record-approver-or-date",
+      "id": "approval-does-not-record-approver-or-date",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Workflow",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Rock version.",
+        "Whether the block is Obsidian Prayer Request Detail.",
+        "Whether the instance includes the v17.5 fix for `ApprovedOnDateTime` and `ApprovedByPersonAliasId`.",
+        "Whether custom workflow or SQL is bypassing normal approval behavior.",
+        "Whether the user has the block’s Approve security action."
       ],
-      "title": "Build A Prayer-Team Coverage Report",
-      "when": "Follow the guide section for Build A Prayer-Team Coverage Report."
+      "title": "Approval Does Not Record Approver Or Date",
+      "when": "Approval Does Not Record Approver Or Date"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Block"
       ],
-      "entities": [],
-      "id": "investigate-person-prayer-history",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-        "https://community.rockrms.com/recipes/135"
+      "guide_section_id": "17-troubleshooting-decision-tree-urgent-sorting-looks-wrong",
+      "id": "urgent-sorting-looks-wrong",
+      "inspect": [
+        "Group",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is `IsUrgent` true, false, or null?",
+        "Is the instance on a version with the v17.5 null urgent fix?",
+        "Is the Prayer Session block or Prayer Card View using custom sort?",
+        "Is category selection excluding urgent requests?",
+        "Are group-scoped urgent requests being excluded from normal sessions?"
       ],
-      "title": "Investigate Person Prayer History",
-      "when": "Follow the guide section for Investigate Person Prayer History."
+      "title": "Urgent Sorting Looks Wrong",
+      "when": "Urgent Sorting Looks Wrong"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "safely-extend-prayer-intake",
+      "guide_section_id": "17-troubleshooting-decision-tree-comment-digest-sends-too-much",
+      "id": "comment-digest-sends-too-much",
       "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/engagement/prayer",
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs",
-        "https://community.rockrms.com/recipes/135"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Was this the first job run?",
+        "Are all historical comments included?",
+        "Are comments filtered by last-run timestamp?",
+        "Are unapproved comments included?",
+        "Did the template include original request text and all comments?",
+        "Which email address was used?",
+        "Was the job duplicated or run manually?"
       ],
-      "title": "Safely Extend Prayer Intake",
-      "when": "Follow the guide section for Safely Extend Prayer Intake."
+      "title": "Comment Digest Sends Too Much",
+      "when": "Comment Digest Sends Too Much"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-sms-intake-creates-anonymous-requests",
+      "id": "sms-intake-creates-anonymous-requests",
+      "inspect": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Does the inbound phone match a person phone number?",
+        "Is the phone normalized consistently?",
+        "Is the from-person workflow attribute populated?",
+        "Are there duplicate people with the same phone?",
+        "Is the workflow using direct SQL instead of `Prayer Request Add`?",
+        "Is person matching enabled in the workflow action?"
+      ],
+      "title": "SMS Intake Creates Anonymous Requests",
+      "when": "SMS Intake Creates Anonymous Requests"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-group-prayer-request-appears-in-general-queue",
+      "id": "group-prayer-request-appears-in-general-queue",
+      "inspect": [
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Is the request actually associated with the group?",
+        "Did a custom query ignore group filtering?",
+        "Is the normal prayer block configured differently than official group behavior?",
+        "Is the `GroupGuid` parameter present accidentally on a general page?",
+        "Is the mobile block configured to include group requests?"
+      ],
+      "title": "Group Prayer Request Appears In General Queue",
+      "when": "Group Prayer Request Appears In General Queue"
     }
   ],
   "concept_id": "prayer-care",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:44+00:00",
+  "generated_at": "2026-07-30T02:07:55+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",

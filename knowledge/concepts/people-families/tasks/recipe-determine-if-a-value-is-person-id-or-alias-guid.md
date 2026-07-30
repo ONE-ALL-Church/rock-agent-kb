@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Determine If A Value Is Person Id Or Alias Guid
 
-Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias Guid.
+Complete Determine If A Value Is Person Id Or Alias Guid with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias 
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Workflow`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Workflow`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. If it came from a workflow Person attribute `RawValue`, treat it as person alias GUID until proven otherwise (Workflows and Lava).
+2. If it is an integer ending in `PersonAliasId`, resolve through `PersonAlias`.
+3. If it is an integer named `PersonId`, verify whether it is a current person id.
+4. If it is a GUID, compare to `Person.Guid` and `PersonAlias.Guid`.
+5. If the record survived a merge, search aliases.
 
 ## Do Not Assume
 
@@ -36,13 +44,13 @@ Follow the guide section for Recipe: Determine If A Value Is Person Id Or Alias 
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
-- https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava/filters/person-filters
-- https://community.rockrms.com/rocku/individuals-in-rock
 - https://community.rockrms.com/lava/commands/entity-commands
-- https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks
+- https://community.rockrms.com/lava/filters/person-filters
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
+- https://community.rockrms.com/rocku/individuals-in-rock
 - https://community.rockrms.com/developer/303---blast-off/attributes
+- https://community.rockrms.com/rocku/individuals-in-rock/family-attributes

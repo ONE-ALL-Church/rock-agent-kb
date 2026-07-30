@@ -12,7 +12,7 @@ MCP for native typed tools or the CLI for terminal and scripted access:
 ```bash
 uvx rock-kb search "<question or error>"
 uvx rock-kb get <concept-id>
-uvx rock-kb claims <concept-id> --min-tier source_backed
+uvx rock-kb claims <concept-id> --min-claim-tier source_backed
 ```
 
 When your client supports HTTP MCP, add the hosted MCP endpoint:

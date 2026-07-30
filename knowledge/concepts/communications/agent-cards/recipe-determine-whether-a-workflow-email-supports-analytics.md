@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Determine whether a workflow email supports analytics
 
-Follow the guide section for Recipe: Determine whether a workflow email supports analytics.
+Do not promise analytics for workflow emails unless confirmed in the live instance. The source pack includes an unanswered community question showing this can differ by path (Mailgun Tracking Q&A).
 
 ## When To Use
 
@@ -16,33 +16,38 @@ Follow the guide section for Recipe: Determine whether a workflow email supports
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. workflow action type
+2. whether a `Communication` record is created
+3. whether recipients are `CommunicationRecipient` rows
+4. selected medium/transport
+5. tracking setting
+6. provider tracking/webhook state
+7. comparison send through wizard
+8. recipient engagement rows
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not promise analytics for workflow emails unless confirmed in the live instance.
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/rocku/communication
+- https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs
-- https://community.rockrms.com/rocku/communication/sms-pipeline
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs
-- https://community.rockrms.com/recipes/138
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
+- https://community.rockrms.com/recipes/435
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql

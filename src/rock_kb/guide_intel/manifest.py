@@ -4,17 +4,20 @@ from ._shared import *  # noqa: F401,F403
 
 
 def build_rock_kb_manifest() -> dict[str, Any]:
+    claims = list(read_jsonl(CLAIMS_DIR / "approved-claims.jsonl"))
+    evaluation_rows = list(read_jsonl(AGENT_DIR / "evaluation-results.jsonl"))
     concept_rows = []
     for concept in load_concepts():
         concept_dir = KNOWLEDGE_DIR / "concepts" / concept.id
         quality_path = concept_dir / "guide-quality.json"
-        quality = json.loads(quality_path.read_text(encoding="utf-8")) if quality_path.exists() else {}
+        completeness = json.loads(quality_path.read_text(encoding="utf-8")) if quality_path.exists() else {}
+        knowledge_quality = concept_knowledge_quality(concept.id, claims, evaluation_rows)
         concept_rows.append(
             {
                 "concept_id": concept.id,
                 "title": concept.title,
                 "description": concept.description,
-                "artifact_level": "detailed" if quality else ("baseline" if (concept_dir / "quickstart.md").exists() else "missing"),
+                "artifact_level": "detailed" if completeness else ("baseline" if (concept_dir / "quickstart.md").exists() else "missing"),
                 "quickstart": str((concept_dir / "quickstart.md").relative_to(KNOWLEDGE_DIR.parents[0])) if (concept_dir / "quickstart.md").exists() else "",
                 "guide": str(synthesis_output_path(concept.id).relative_to(KNOWLEDGE_DIR.parents[0])) if synthesis_output_path(concept.id).exists() else "",
                 "approved_claims": str((concept_dir / "approved-claims.md").relative_to(KNOWLEDGE_DIR.parents[0])) if (concept_dir / "approved-claims.md").exists() else "",
@@ -29,14 +32,21 @@ def build_rock_kb_manifest() -> dict[str, Any]:
                 "section_status": str((concept_dir / "section-status.jsonl").relative_to(KNOWLEDGE_DIR.parents[0])) if (concept_dir / "section-status.jsonl").exists() else "",
                 "troubleshooting_tree": str((concept_dir / "troubleshooting-tree.json").relative_to(KNOWLEDGE_DIR.parents[0])) if (concept_dir / "troubleshooting-tree.json").exists() else "",
                 "open_questions": str((concept_dir / "open-questions.md").relative_to(KNOWLEDGE_DIR.parents[0])) if (concept_dir / "open-questions.md").exists() else "",
-                "quality_status": quality.get("status"),
-                "quality_score": quality.get("score"),
-                "section_count": quality.get("section_count") or count_jsonl(concept_dir / "section-source-map.jsonl"),
-                "task_card_count": quality.get("task_card_count") or count_jsonl(concept_dir / "task-cards.jsonl"),
+                "quality_status": knowledge_quality["status"],
+                "quality_score": knowledge_quality["score"],
+                "quality_metrics": knowledge_quality["metrics"],
+                "completeness_status": completeness.get("status"),
+                "completeness_score": completeness.get("score"),
+                "primary_claim_count": knowledge_quality["metrics"]["primary_claim_count"],
+                "routed_claim_count": knowledge_quality["metrics"]["routed_claim_count"],
+                "answer_bearing_count": knowledge_quality["metrics"]["answer_bearing_count"],
+                "retrieval_eligible_count": knowledge_quality["metrics"]["retrieval_eligible_count"],
+                "section_count": completeness.get("section_count") or count_jsonl(concept_dir / "section-source-map.jsonl"),
+                "task_card_count": completeness.get("task_card_count") or count_jsonl(concept_dir / "task-cards.jsonl"),
             }
         )
     return {
-        "schema": "rock-kb-agent-manifest-v1",
+        "schema": "rock-kb-agent-manifest-v2",
         "generated_at": generated_at_iso(),
         "agent_entrypoints": {
             "skill_manifest": "skills/rock-kb-agent/manifest.json",
@@ -109,6 +119,74 @@ def build_rock_kb_manifest() -> dict[str, Any]:
         "rock_idea_verification_queue_count": count_jsonl(AGENT_DIR / "rock-idea-verification-queue.jsonl"),
     }
 
+
+ANSWER_BEARING_TIERS = {"answer_pack_approved", "live_verified"}
+RETRIEVAL_ELIGIBLE_TIERS = {"source_backed", *ANSWER_BEARING_TIERS}
+VERSION_SENSITIVE_TYPES = {"behavior", "configuration", "release_caveat"}
+
+
+def concept_knowledge_quality(
+    concept_id: str,
+    claims: list[dict[str, Any]],
+    evaluation_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    routed = [row for row in claims if concept_id in (row.get("concept_ids") or [])]
+    primary = [row for row in routed if row.get("primary_concept_id") == concept_id]
+    answer_bearing = [row for row in routed if row.get("claim_tier") in ANSWER_BEARING_TIERS]
+    retrieval_eligible = [row for row in routed if row.get("claim_tier") in RETRIEVAL_ELIGIBLE_TIERS]
+    version_sensitive = [row for row in retrieval_eligible if row.get("claim_type") in VERSION_SENSITIVE_TYPES]
+    version_scoped = [
+        row
+        for row in version_sensitive
+        if row.get("rock_versions") or row.get("version_scope_status") == "version_independent"
+    ]
+    sourced = [row for row in retrieval_eligible if row.get("source_refs") or row.get("source_record_ids")]
+    answer_rate = len(answer_bearing) / len(routed) if routed else 0.0
+    version_rate = len(version_scoped) / len(version_sensitive) if version_sensitive else 1.0
+    source_rate = len(sourced) / len(retrieval_eligible) if retrieval_eligible else 0.0
+    retrieval_evaluations = [
+        row
+        for row in evaluation_rows
+        if row.get("concept_id") == concept_id and row.get("evaluation_mode") == "retrieval"
+    ]
+    scored_retrieval = [row for row in retrieval_evaluations if row.get("status") in {"pass", "fail"}]
+    retrieval_pass_rate = (
+        sum(row.get("status") == "pass" for row in scored_retrieval) / len(scored_retrieval)
+        if scored_retrieval
+        else None
+    )
+    score = round((answer_rate * 60 + version_rate * 25 + source_rate * 15))
+    if not primary:
+        score = min(score, 49)
+        status = "needs_coverage"
+    elif score >= 70:
+        status = "pass"
+    elif score >= 40:
+        status = "needs_review"
+    else:
+        status = "fail"
+    return {
+        "score": score,
+        "status": status,
+        "metrics": {
+            "primary_claim_count": len(primary),
+            "routed_claim_count": len(routed),
+            "answer_bearing_count": len(answer_bearing),
+            "answer_bearing_rate": round(answer_rate, 4),
+            "retrieval_eligible_count": len(retrieval_eligible),
+            "routing_context_count": len(routed) - len(retrieval_eligible),
+            "version_sensitive_count": len(version_sensitive),
+            "version_scoped_count": len(version_scoped),
+            "version_scope_rate": round(version_rate, 4),
+            "source_evidence_rate": round(source_rate, 4),
+            "retrieval_evaluation_count": len(scored_retrieval),
+            "retrieval_top3_pass_rate": (
+                round(retrieval_pass_rate, 4) if retrieval_pass_rate is not None else None
+            ),
+            "retrieval_evaluation_status": "measured" if scored_retrieval else "pending_service",
+        },
+    }
+
 def approved_claims_manifest_entry() -> dict[str, Any]:
     path = CLAIMS_DIR / "approved-claims.jsonl"
     report_path = CLAIMS_DIR / "claim-export-report.json"
@@ -121,6 +199,12 @@ def approved_claims_manifest_entry() -> dict[str, Any]:
     return {
         "path": relative_path(path) if path.exists() else "",
         "record_count": count_jsonl(path),
+        "answer_bearing_count": report.get("answer_bearing_count", 0),
+        "retrieval_eligible_count": report.get("retrieval_eligible_count", 0),
+        "routing_context_count": report.get("routing_context_count", 0),
+        "version_scoped_count": report.get("version_scoped_count", 0),
+        "version_independent_count": report.get("version_independent_count", 0),
+        "version_unprocessed_count": report.get("version_unprocessed_count", 0),
         "report": relative_path(report_path) if report_path.exists() else "",
         "authority_tiers": report.get("authority_tiers") or {},
         "claim_types": report.get("claim_types") or {},

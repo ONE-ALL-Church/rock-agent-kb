@@ -1,9 +1,11 @@
 {
+  "answer_bearing_claim_count": 1,
+  "approved_claim_count": 1,
   "approved_claim_dependencies": [
     {
       "authority_tier": "official",
       "claim": "The v19 Page Load Time diagnostic can expose page-debug timing traces without separate observability setup, helping administrators identify slow page components. Use it for diagnosis and confirm findings with broader telemetry when the issue is intermittent or infrastructure-wide.",
-      "claim_hash": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
+      "claim_hash": "8f164bab8fd5d57454ec1191f151c3477890eca754ae1db09505be7ec771f617",
       "claim_id": "claim:091606bd3b8b0472392a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -18,6 +20,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -31,399 +36,14 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds.",
-      "claim_hash": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-      "claim_id": "claim:297b44312bdcc4c81dfd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "25:51",
-          "timestamp_seconds": 1551.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment.",
-      "claim_hash": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-      "claim_id": "claim:2fedca54c255f13d1e3d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "28:48",
-          "timestamp_seconds": 1728.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement.",
-      "claim_hash": "eddb26ce52cd198f0ca6b2eb85e2c038546736539d3e01b47090b338f5bb1a14",
-      "claim_id": "claim:44dc45407531eeac6d7c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
-      "source_record_ids": [
-        "rock_community_hubs:65a454a45e1b631f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-          "timestamp": "01:04",
-          "timestamp_seconds": 64.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session gives a practical overview of email logo branding for churches, including BIMI-style logo display, DMARC/SPF/DKIM prerequisites, certificate options, Apple and Gmail behavior, and the distinction between sender trust and actual deliverability. It is useful public guidance for Rock communication administrators evaluating domain authentication and brand-trust work around email sent from Rock or related tools.",
-      "claim_hash": "499f650a66e1a5f41b8e43df6ad6115fea07c8ff5623c360ca7422b7cb4a43ad",
-      "claim_id": "claim:5340d05bb8499aac1578",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
-      "source_record_ids": [
-        "rock_community_hubs:65a454a45e1b631f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A practical cleanup program should separate low-effort automations from medium-effort reports and high-effort duplicate decisions, so staff and volunteers spend human review time on records that require judgment.",
-      "claim_hash": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-      "claim_id": "claim:5c7aec32d916e2cb2902",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "20:00",
-          "timestamp_seconds": 1200.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before pursuing BIMI or logo display, teams should verify SPF, DKIM, DMARC, domain alignment, and the logo-hosting requirements for the target mail clients.",
-      "claim_hash": "ccd775db46faf5acc7be4bd27d037c83672b6360cb14d05a1eafbaf7a92c4ea1",
-      "claim_id": "claim:71931331e432f75046d0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
-      "source_record_ids": [
-        "rock_community_hubs:65a454a45e1b631f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-          "timestamp": "13:18",
-          "timestamp_seconds": 798.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub presentation gives public-safe operational guidance for Rock data quality programs: use built-in automation where possible, prioritize a small number of high-value data defects, move actionable cleanup reports into Rock, train a bounded volunteer team, and connect data quality work to ministry outcomes such as check-in, communication, and leadership reporting.",
-      "claim_hash": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-      "claim_id": "claim:b9e56d68768b84160b2d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Self-asserted, CMC, and VMC-style verification paths differ in cost, trademark requirements, and inbox support, so churches should pick the level that matches their domain risk and communication volume.",
-      "claim_hash": "190d68a7d02c33fe6bfb878f91e168987686bd907bc858ec60515a8f8f8002f5",
-      "claim_id": "claim:c7fad68a55feb48db24c",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
-      "source_record_ids": [
-        "rock_community_hubs:65a454a45e1b631f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-          "timestamp": "12:07",
-          "timestamp_seconds": 727.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Logo display and domain authentication should be documented separately from Mailgun, IP reputation, list quality, and message-content factors that influence deliverability.",
-      "claim_hash": "6145ef390b8a7871c5ea2ef398452a02914cd9d906fc97db38964b3765e8ba5c",
-      "claim_id": "claim:d96de3973633573143e4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "60e8d1f5fdfec1911a01989f5e58049487175be73bf18ba1c576481d776baa6a",
-      "source_record_ids": [
-        "rock_community_hubs:65a454a45e1b631f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-          "timestamp": "30:53",
-          "timestamp_seconds": 1853.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions.",
-      "claim_hash": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-      "claim_id": "claim:f3f4f67796a8e9204d0b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "11:37",
-          "timestamp_seconds": 697.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data.",
-      "claim_hash": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
-      "claim_id": "claim:f52a2e57057018037f30",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "30:53",
-          "timestamp_seconds": 1853.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
+      "version_scope_status": "scoped"
     }
   ],
   "approved_claim_hashes": {
-    "claim:091606bd3b8b0472392a": "7e9b7b829260c49105d457c1c6e68829c45dc55a74a9ccee40a24b4195defebe",
-    "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-    "claim:2fedca54c255f13d1e3d": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-    "claim:44dc45407531eeac6d7c": "eddb26ce52cd198f0ca6b2eb85e2c038546736539d3e01b47090b338f5bb1a14",
-    "claim:5340d05bb8499aac1578": "499f650a66e1a5f41b8e43df6ad6115fea07c8ff5623c360ca7422b7cb4a43ad",
-    "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-    "claim:71931331e432f75046d0": "ccd775db46faf5acc7be4bd27d037c83672b6360cb14d05a1eafbaf7a92c4ea1",
-    "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-    "claim:c7fad68a55feb48db24c": "190d68a7d02c33fe6bfb878f91e168987686bd907bc858ec60515a8f8f8002f5",
-    "claim:d96de3973633573143e4": "6145ef390b8a7871c5ea2ef398452a02914cd9d906fc97db38964b3765e8ba5c",
-    "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-    "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae"
+    "claim:091606bd3b8b0472392a": "8f164bab8fd5d57454ec1191f151c3477890eca754ae1db09505be7ec771f617"
   },
-  "approved_claims_hash": "958410e5e5584a396d6fd81a37622135e89a6335c274b0a4767a7106a911055e",
+  "approved_claims_hash": "cd23eb94de428ec27dfe9127329af6507964cfecbb8f72b0a3f3b39bd5bf3629",
   "approved_claims_path": "knowledge/concepts/system-admin-ops/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -462,54 +82,20 @@
       "source_record_id": "media-insight:e57ad3db15510f24",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "people-families"
-      ],
-      "content_hash": "5009dc673af608a2e0a04db220eba393a41476c3ec69e1cffb041c6d710ad2f9",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:71943d00f00d6d5c",
-      "public_promotion_id": "media-public-promotion:5009dc673af608a2",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:71943d00f00d6d5c",
-      "source_title": "Data Integrity Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "people-families"
-      ],
-      "content_hash": "fcecd229ca1d1fba5f663e15d2faa5edb7d2071efe00016451132df7e32ff212",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:8a7a44d45ee79557",
-      "public_promotion_id": "media-public-promotion:fcecd229ca1d1fba",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_rocku",
-      "source_record_id": "media-insight:8a7a44d45ee79557",
-      "source_title": "Data Integrity Transcript Insight",
-      "source_url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
     }
   ],
   "approved_media_dependency_hashes": {
     "media-insight:574371376cd3e666": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
-    "media-insight:71943d00f00d6d5c": "5009dc673af608a2e0a04db220eba393a41476c3ec69e1cffb041c6d710ad2f9",
-    "media-insight:8a7a44d45ee79557": "fcecd229ca1d1fba5f663e15d2faa5edb7d2071efe00016451132df7e32ff212",
     "media-insight:e57ad3db15510f24": "2ea0ceba3a8e7f553d6ae803a8961057c3c46f2d0edc4e919550a7f3c47d58e2"
   },
-  "approved_media_hash": "5fd933eab172803898a1a75a73c19cc38b9d98089a117a358ec5912c3af06486",
+  "approved_media_hash": "600da2ee7abf72e40a1075d20f946aa600daa2c5c6eb17e6c2f7e6280a4b6e3a",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-07-26T00:29:32+00:00",
+  "built_at": "2026-07-30T02:07:45+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "35e81d000077d71233e6c8eb3ed3b3a5023b07624ff51d76ae579bbf0be9b4d0",
-  "guide_line_count": 1682,
+  "guide_hash": "7f96773219c91faf1f1a2b8d4509bd014f728d197d27ad65eb1363b84b696c1c",
+  "guide_line_count": 1669,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
-  "guide_word_count": 12750,
+  "guide_word_count": 12190,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -764,6 +350,7 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -2317,43 +1904,30 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1637,
+      "end_line": 1626,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "58a92984acbd2344",
-        "2a835fe90be9f475",
-        "2a835fe90be9f475",
-        "65a454a45e1b631f",
-        "2a835fe90be9f475",
-        "65a454a45e1b631f",
-        "65a454a45e1b631f",
-        "65a454a45e1b631f",
-        "2a835fe90be9f475",
-        "2a835fe90be9f475",
-        "65a454a45e1b631f",
-        "2a835fe90be9f475"
+        "58a92984acbd2344"
       ],
       "start_line": 1613
     },
     {
       "confidence": "citation-only",
-      "end_line": 1653,
+      "end_line": 1640,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "8d8c28f726e09218",
-        "8d8c28f726e09218",
         "2a835fe90be9f475",
         "65a454a45e1b631f"
       ],
-      "start_line": 1638
+      "start_line": 1627
     },
     {
       "confidence": "high",
-      "end_line": 1682,
+      "end_line": 1669,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2377,7 +1951,7 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1654
+      "start_line": 1641
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
@@ -2889,5 +2463,6 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

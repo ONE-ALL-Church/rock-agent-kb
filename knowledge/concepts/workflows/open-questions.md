@@ -10,82 +10,49 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (162 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (252 words)
 
 ## Community-Supported Only
 
-- `5-core-configuration-and-data-model-workflow-attributes`: Workflow Attributes
-- `7-common-workflows-workflows-request-intake-workflow`: Request Intake Workflow
-- `7-common-workflows-workflows-event-call-to-action-workflow`: Event Call-To-Action Workflow
-- `7-common-workflows-workflows-staff-approval-workflow`: Staff Approval Workflow
-- `7-common-workflows-workflows-helper-workflow`: Helper Workflow
-- `7-common-workflows-workflows-grid-launched-workflow`: Grid-Launched Workflow
-- `7-common-workflows-workflows-webhook-to-workflow-integration`: Webhook-To-Workflow Integration
-- `7-common-workflows-workflows-electronic-signature-workflow`: Electronic Signature Workflow
-- `7-common-workflows-workflows-bulk-creation-workflow`: Bulk Creation Workflow
-- `7-common-workflows-workflows-finance-or-contribution-workflow`: Finance Or Contribution Workflow
-- `8-triggers-and-activation-deep-dive-webhook-activation`: Webhook Activation
-- `8-triggers-and-activation-deep-dive-grid-activation`: Grid Activation
-- `8-triggers-and-activation-deep-dive-connection-step-group-and-requirement-activation`: Connection, Step, Group, And Requirement Activation
-- `9-workflow-forms-deep-dive-modal-workflow-entry`: Modal Workflow Entry
-- `10-workflow-integrations-deep-dive-outbound-webhooks-and-zapier`: Outbound Webhooks And Zapier
-- `10-workflow-integrations-deep-dive-inbound-webhooks`: Inbound Webhooks
-- `10-workflow-integrations-deep-dive-communications`: Communications
-- `10-workflow-integrations-deep-dive-connections`: Connections
-- `10-workflow-integrations-deep-dive-groups-and-group-member-attributes`: Groups And Group Member Attributes
-- `11-related-rock-areas-lava-jobs-communications-security-attributes-jobs`: Jobs
-- `11-related-rock-areas-lava-jobs-communications-security-attributes-attributes`: Attributes
-- `12-administration-and-operational-guardrails-where-used-audits`: Where-Used Audits
-- `12-administration-and-operational-guardrails-active-workflow-hygiene`: Active Workflow Hygiene
-- `14-reporting-analytics-and-model-map-what-to-report`: What To Report
-- `14-reporting-analytics-and-model-map-reporting-caveats`: Reporting Caveats
-- `14-reporting-analytics-and-model-map-health-metrics`: Health Metrics
-- `16-implementation-playbooks-playbook-add-a-workflow-to-a-grid`: Playbook: Add A Workflow To A Grid
-- `16-implementation-playbooks-playbook-create-a-helper-workflow`: Playbook: Create A Helper Workflow
-- `16-implementation-playbooks-playbook-build-webhook-to-workflow`: Playbook: Build Webhook-To-Workflow
-- `16-implementation-playbooks-playbook-audit-a-workflow-before-editing`: Playbook: Audit A Workflow Before Editing
+- `workflow-integrations-lava-entity-operations`: Lava entity operations
+- `adjacent-operational-patterns`: Adjacent Operational Patterns
+- `troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank`: `workflowactivate` starts a workflow but values are blank
+- `source-map-community-examples-and-reviewed-patterns`: Community examples and reviewed patterns
+- `approved-media-coverage`: Approved Media Coverage
 
 ## Needs Live Verification
 
 - `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-workflows-mental-model`: 3. Workflows Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-workflow-type-configuration`: Workflow Type Configuration
-- `5-core-configuration-and-data-model-workflow-forms`: Workflow Forms
-- `5-core-configuration-and-data-model-persistence-and-processing`: Persistence And Processing
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `7-common-workflows-workflows-event-call-to-action-workflow`: Event Call-To-Action Workflow
-- `7-common-workflows-workflows-helper-workflow`: Helper Workflow
-- `7-common-workflows-workflows-finance-or-contribution-workflow`: Finance Or Contribution Workflow
-- `8-triggers-and-activation-deep-dive-workflow-entry-activation`: Workflow Entry Activation
-- `8-triggers-and-activation-deep-dive-entity-triggers`: Entity Triggers
-- `8-triggers-and-activation-deep-dive-lava-workflowactivate`: Lava `workflowactivate`
-- `8-triggers-and-activation-deep-dive-connection-step-group-and-requirement-activation`: Connection, Step, Group, And Requirement Activation
-- `9-workflow-forms-deep-dive-form-design-principles`: Form Design Principles
-- `9-workflow-forms-deep-dive-conditional-logic`: Conditional Logic
-- `9-workflow-forms-deep-dive-person-entry`: Person Entry
-- `9-workflow-forms-deep-dive-campus-selection-and-inactive-campuses`: Campus Selection And Inactive Campuses
-- `9-workflow-forms-deep-dive-modal-workflow-entry`: Modal Workflow Entry
-- `10-workflow-integrations-deep-dive-outbound-webhooks-and-zapier`: Outbound Webhooks And Zapier
-- `10-workflow-integrations-deep-dive-inbound-webhooks`: Inbound Webhooks
-- `11-related-rock-areas-lava-jobs-communications-security-attributes-lava`: Lava
-- `11-related-rock-areas-lava-jobs-communications-security-attributes-communications`: Communications
-- `11-related-rock-areas-lava-jobs-communications-security-attributes-security`: Security
-- `12-administration-and-operational-guardrails-naming-standards`: Naming Standards
-- `12-administration-and-operational-guardrails-change-management`: Change Management
-- `12-administration-and-operational-guardrails-maximum-age-and-auto-completion`: Maximum Age And Auto-Completion
-- `12-administration-and-operational-guardrails-public-form-guardrails`: Public Form Guardrails
-- `13-developer-api-lava-and-source-code-landmarks-lava-command-source`: Lava Command Source
-- `13-developer-api-lava-and-source-code-landmarks-deprecated-activate-workflow-block`: Deprecated Activate Workflow Block
-- `13-developer-api-lava-and-source-code-landmarks-person-entry-source`: Person Entry Source
-- `13-developer-api-lava-and-source-code-landmarks-api-and-data-access`: API And Data Access
-- `14-reporting-analytics-and-model-map-model-map-use`: Model Map Use
-- `14-reporting-analytics-and-model-map-reporting-caveats`: Reporting Caveats
-- `14-reporting-analytics-and-model-map-health-metrics`: Health Metrics
-- `15-version-and-release-caveats`: 15. Version And Release Caveats
-- `16-implementation-playbooks-playbook-build-a-public-intake-workflow`: Playbook: Build A Public Intake Workflow
-- `16-implementation-playbooks-playbook-add-a-workflow-to-a-grid`: Playbook: Add A Workflow To A Grid
+- `agent-summary`: Agent Summary
+- `mental-model`: Mental Model
+- `triggers-and-activation-entry-pages-and-direct-links`: Entry pages and direct links
+- `triggers-and-activation-lava-workflowactivate`: Lava `workflowactivate`
+- `workflow-forms-chained-forms-and-branching`: Chained forms and branching
+- `workflow-forms-form-builder`: Form Builder
+- `workflow-forms-person-and-family-entry-patterns`: Person and family entry patterns
+- `workflow-integrations-lava-entity-operations`: Lava entity operations
+- `managing-workflow-instances-and-staff-work`: Managing Workflow Instances And Staff Work
+- `connections-as-operational-workflows`: Connections As Operational Workflows
+- `security-and-governance`: Security And Governance
+- `troubleshooting-decision-tree-a-workflow-or-form-is-not-visible`: A workflow or form is not visible
+- `troubleshooting-decision-tree-a-form-field-is-missing-unexpectedly-required-or-exposing-data`: A form field is missing, unexpectedly required, or exposing data
+- `troubleshooting-decision-tree-a-workflow-action-was-skipped`: A workflow action was skipped
+- `troubleshooting-decision-tree-a-workflow-is-stuck-or-repeatedly-processing`: A workflow is stuck or repeatedly processing
+- `troubleshooting-decision-tree-a-webhook-returns-404-or-launches-the-wrong-number-of-workflows`: A webhook returns 404 or launches the wrong number of workflows
+- `troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank`: `workflowactivate` starts a workflow but values are blank
+- `troubleshooting-decision-tree-a-connection-request-is-missing-from-a-board-or-list`: A connection request is missing from a board or list
+- `troubleshooting-decision-tree-sql-or-reporting-cannot-see-a-value-just-submitted-by-a-form`: SQL or reporting cannot see a value just submitted by a form
+- `troubleshooting-decision-tree-lava-output-is-blank-or-a-parser-error-points-at-the-wrong-line`: Lava output is blank or a parser error points at the wrong line
+- `agent-task-recipes-recipe-design-a-bounded-workflow-type`: Recipe: Design a bounded workflow type
+- `agent-task-recipes-recipe-review-a-workflow-form-change`: Recipe: Review a workflow form change
+- `agent-task-recipes-recipe-configure-a-selective-workflow-webhook`: Recipe: Configure a selective workflow webhook
+- `agent-task-recipes-recipe-diagnose-an-active-workflow-instance`: Recipe: Diagnose an active workflow instance
+- `agent-task-recipes-recipe-audit-a-connection-follow-up-process`: Recipe: Audit a connection follow-up process
+- `agent-task-recipes-recipe-import-or-adapt-a-workflow-safely`: Recipe: Import or adapt a workflow safely
+- `agent-task-recipes-recipe-design-background-orchestration`: Recipe: Design background orchestration
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

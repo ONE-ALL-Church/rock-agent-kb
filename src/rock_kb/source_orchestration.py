@@ -823,7 +823,7 @@ def reviewer_work(scan_report: dict[str, Any], guide_plan: dict[str, Any]) -> li
         work.append(
             review_step(
                 "authored_guide_synthesis",
-                f"Run `uv run kb concepts synthesize --concept {concept_id} --hydrate-sources --profile comprehensive --model gpt-5.5` locally with Codex/reviewer oversight, then run `uv run kb build --stage guide-intel`.",
+                f"Run `uv run kb concepts synthesize --concept {concept_id} --hydrate-sources --profile comprehensive --model gpt-5.6-sol --reasoning-effort xhigh` locally with Codex/reviewer oversight, then run `uv run kb build --stage guide-intel`.",
                 1,
                 concept_id=concept_id,
             )

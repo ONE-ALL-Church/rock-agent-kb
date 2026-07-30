@@ -1,42 +1,11 @@
 {
+  "answer_bearing_claim_count": 35,
+  "approved_claim_count": 35,
   "approved_claim_dependencies": [
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Group Attendance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "178c42916e17de06c3cb8baec07c681543489b4acd36ff68db9f1ef34b71e16b",
-      "claim_id": "claim:02d142716dc0bc1c745f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5676a7ec273301df06d6890cbb18c324e42ec05fd83b2fa9b509482309d330a6",
-      "source_record_ids": [
-        "rock_rocku:7e3b55cfb5681227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-attendance",
-          "timestamp": "02:16",
-          "timestamp_seconds": 136.18,
-          "title": "Group Attendance",
-          "url": "https://community.rockrms.com/rocku/groups/group-attendance"
-        }
-      ]
-    },
     {
       "authority_tier": "official",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
+      "claim_hash": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
       "claim_id": "claim:07a75e5ff71510d708de",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -53,6 +22,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -66,106 +38,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Migration plans should identify which system is the trusted source of truth for person, contribution, check-in, and event data before expanding to optional ministry workflows.",
-      "claim_hash": "26f0626281b40e5c077708a18ca7504bed0e680849bfc1891a1e423e564e5900",
-      "claim_id": "claim:08896ebe0d1b90fc0c31",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "event-registration",
-        "giving-finance",
-        "groups",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
-      "source_record_ids": [
-        "rock_podcast_rss:73636340b56a6a03"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
-          "timestamp": "03:49",
-          "timestamp_seconds": 229.0,
-          "title": "Episode 111: Special Edition with Tim Dear",
-          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile adds public-safe context for check-in implementation work: real deployments can require long troubleshooting cycles, church-specific process mapping, and low-level label-printing knowledge such as ZPL. It is useful routing evidence for check-in, implementation, and developer troubleshooting topics.",
-      "claim_hash": "755d9d9e181ea52d6e08daab4f6f75c6c8ed6fcfccf363eeeaf83dbbb4e01d18",
-      "claim_id": "claim:094104f92c7a8daf8281",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Check-in Manager is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "09bc06aa4fd7a251a9fb4bd1bb3911ead5d7e42bd159fb14579a7788e7632661",
-      "claim_id": "claim:09530a00321809f1f23a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3eef13c593c3316818abf820ec480c276097cf06d7f879027e7b7f52d34f69a2",
-      "source_record_ids": [
-        "rock_rocku:dad0e7b67e4bcfb5"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Check-in Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-manager"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in should be designed around an initial identity step, such as login or phone lookup, followed by a returning-user experience that can begin closer to the check-in selection screen when the device is recognized.",
-      "claim_hash": "cc0b7932d397fbc2f2c8b0147722deba3fbc6bed9bca5b843ead1614d04b6b3f",
+      "claim_hash": "fcdf043c633850c0f528cab7fe5d1d593ee773c61417bf146b39ecd0f85a798c",
       "claim_id": "claim:0b388b0e4afdabbc9903",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -197,6 +76,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -210,12 +90,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in configuration depends on creating virtual check-in kiosk devices, assigning geofenced campus boundaries, and pointing the Mobile Check-in Launcher block at the correct devices, check-in configuration, theme, and areas.",
-      "claim_hash": "7716e649ca88f258f5dbfb96f8e94759ffaaa9089ba305ddeb74222de4ecd5f2",
+      "claim_hash": "bb908a2cfdf87a9d31006a679bbbe6f5cfad6204a08083775530dd77a91862c0",
       "claim_id": "claim:0b6f8c45033ed0228a3b",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -251,6 +132,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -261,341 +143,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A phased Rock launch can prioritize write-back or money-moving surfaces first, then add ministry areas after staff have a stable foundation.",
-      "claim_hash": "09d6b05cb7c63733addb3cbb7dccdc879563af372363f7d9431e8534b7c0d3ce",
-      "claim_id": "claim:0da68b1d61b229269520",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "event-registration",
-        "giving-finance",
-        "groups",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
-      "source_record_ids": [
-        "rock_podcast_rss:73636340b56a6a03"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
-          "timestamp": "05:49",
-          "timestamp_seconds": 349.06,
-          "title": "Episode 111: Special Edition with Tim Dear",
-          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast implementation story adds public-safe migration guidance. Pine Lake described moving quickly but deliberately by making Rock the source of truth first for database-updating surfaces such as contributions, check-in, and paid/basic events, then phasing additional ministry areas after the foundation was live.",
-      "claim_hash": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
-      "claim_id": "claim:158c76d4f5305a8d7c9a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "event-registration",
-        "giving-finance",
-        "groups",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
-      "source_record_ids": [
-        "rock_podcast_rss:73636340b56a6a03"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 111: Special Edition with Tim Dear",
-          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Attendance Self-Entry RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "71975990535a639e2f4d12f2720b82071f19faa43a4d0648be086cd70542f2a9",
-      "claim_id": "claim:16651987c3fee7afe191",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "75f299f60b3b8cac5828135abcaae1c1e1390b23cc0605db94e326f7014d5331",
-      "source_record_ids": [
-        "rock_rocku:bef4da01164a18bd"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry",
-          "timestamp": "03:27",
-          "timestamp_seconds": 207.0,
-          "title": "Attendance Self-Entry",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Attendance Self-Entry should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "216f84fc5846304d996e8c80d61b0f67b201f8fd8b8f1898dbac23256a18f0ef",
-      "claim_id": "claim:17655063e700d2fa0b03",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "75f299f60b3b8cac5828135abcaae1c1e1390b23cc0605db94e326f7014d5331",
-      "source_record_ids": [
-        "rock_rocku:bef4da01164a18bd"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry",
-          "timestamp": "06:41",
-          "timestamp_seconds": 401.0,
-          "title": "Attendance Self-Entry",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Caching and distributed-cache discussion should be used as architecture context only; concrete performance guidance needs current Rock documentation, live configuration, and measured behavior.",
-      "claim_hash": "50a01cdb73274267b7b40fe7d511e570b2da0d13651a93b36a42d3e197e2df61",
-      "claim_id": "claim:1d226da49f2e53690ab1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ba7fcc32242b3cba9b0df70aa43ab6f58c25db3c22cc3dcb051e4a86a86d0a83",
-      "source_record_ids": [
-        "rock_podcast_rss:f0a700c5f586d654"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks",
-          "timestamp": "03:46",
-          "timestamp_seconds": 226.4,
-          "title": "Episode 33: Rock 7.3 and New RX2018 Tracks",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Attendance Self-Entry is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "8ccf32faa8a82f8ede5ee4adb4bf5c700428baadd2028f0074ecfc0e5367ace1",
-      "claim_id": "claim:1d247f301821775b4042",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "75f299f60b3b8cac5828135abcaae1c1e1390b23cc0605db94e326f7014d5331",
-      "source_record_ids": [
-        "rock_rocku:bef4da01164a18bd"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Attendance Self-Entry",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Locations RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
-      "claim_id": "claim:20180d84d33561850701",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
-      "source_record_ids": [
-        "rock_rocku:90ed168a3283ccaa"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/locations",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Locations",
-          "url": "https://community.rockrms.com/rocku/check-in/locations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying version, roadmap, and release-caveat awareness ideas from Episode 161 : Building Next Gen Rock: A Look at Check-In, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "29d96f64e34e82ba079c49e14ba18036cae46fefeea6fa95734d910e7efddaaf",
-      "claim_id": "claim:2075028afdb6c472cc6d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "146a436029154ea334defd3816cb86688255e841ef46b5d1664baec9ca6c035f",
-      "source_record_ids": [
-        "rock_podcast_rss:b2e34f6718fb673d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in",
-          "timestamp": "00:17",
-          "timestamp_seconds": 17.34,
-          "title": "Episode 161 : Building Next Gen Rock: A Look at Check-In",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Running Check-in should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "3f5345a53544bbe2e906363df72bf8cd31025356385c726266be1d28c64546cd",
-      "claim_id": "claim:291c17de3c5986a4d705",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed4a798db6d3297aaf7887c01e631c54442093c25178fc0eb2915aef8a7d1d45",
-      "source_record_ids": [
-        "rock_rocku:ffdb983ef31e7bea"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/running-check-in",
-          "timestamp": "00:54",
-          "timestamp_seconds": 54.94,
-          "title": "Running Check-in",
-          "url": "https://community.rockrms.com/rocku/check-in/running-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds.",
-      "claim_hash": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-      "claim_id": "claim:297b44312bdcc4c81dfd",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "25:51",
-          "timestamp_seconds": 1551.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
-      "claim_hash": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
+      "claim_hash": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
       "claim_id": "claim:2a9844acce5ba6150dec",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -613,6 +167,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -626,141 +183,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Devices is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "e3b8ee20780d21c4c3dcf0fb2f99dbd96ff6c2ac362c0fb2245dd3b5e6e39a1c",
-      "claim_id": "claim:2e1903541843b85abab7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7a27f3b12698a32fc8c4d2a8e9f1d1330c745558ab03d4480086fa7e7035ec46",
-      "source_record_ids": [
-        "rock_rocku:c311029355d195cf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Devices",
-          "url": "https://community.rockrms.com/rocku/check-in/devices"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment.",
-      "claim_hash": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-      "claim_id": "claim:2fedca54c255f13d1e3d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "28:48",
-          "timestamp_seconds": 1728.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "official",
-      "claim": "This official Rock Cast episode highlights Rock v19 rollout practices and selected operational features. It supports staff preparation for the redesigned Connections experience, built-in CAPTCHA, real-time Check-In Manager updates and materialized schedule dates. Verify exact behavior against the installed v19 build and current documentation.",
-      "claim_hash": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
-      "claim_id": "claim:3122ff168111783bf1b7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": false,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
-      "source_record_ids": [
-        "rock_youtube:ada1b1391c0864f3"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_youtube",
-          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
-          "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Types and Groups should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "4c0e54ecc86d6f55a0efeb3fb9ce8373fd65fbd3d50cccfe4379b3d79d107a58",
-      "claim_id": "claim:327ab1852ca9b6ae43a8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "371155d7a7e698ab7a2615d16739f962a48bc4fcef1b1eabfdd2ace31978c8a1",
-      "source_record_ids": [
-        "rock_rocku:e728f23e59096203"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/types-and-groups",
-          "timestamp": "00:40",
-          "timestamp_seconds": 40.96,
-          "title": "Types and Groups",
-          "url": "https://community.rockrms.com/rocku/check-in/types-and-groups"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
+      "claim_hash": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
       "claim_id": "claim:32f0173b23a7d2c356c0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -778,6 +207,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -791,12 +223,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen.",
-      "claim_hash": "84830527179136a8031af8c6a296aac790ad23ed228950662c3220902e4ef455",
+      "claim_hash": "8a3ca5251317c5a8cf64ab8ca8a4926a9cfbbd69968df5727d5c02a39144ac43",
       "claim_id": "claim:3b96546de8e62931465b",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -830,6 +263,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "880104fb34d1065c053a35f1378cf9b20748212f7a6196087e9e9db4a1e7afda",
       "source_record_ids": [
         "rock_rocku:78f1e8bbd9d351ff"
@@ -843,12 +277,13 @@
           "title": "Rapid Attendance Entry",
           "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Before enabling mobile check-in, confirm the site is served over HTTPS, a Google API key is configured for geofencing, and the underlying check-in groups, locations, schedules, and check-in configuration already work through normal check-in.",
-      "claim_hash": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
+      "claim_hash": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
       "claim_id": "claim:3d32a2c3e36e71683eb0",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -862,6 +297,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -875,12 +311,13 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form.",
-      "claim_hash": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
+      "claim_hash": "754e7f08fb45e2fdb878564df58b2df2b8603e5aa25c6c90d70d517a0f201270",
       "claim_id": "claim:3e398ac03167b9c52704",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -898,6 +335,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -911,73 +351,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Running Check-in should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "2c0f8f4e4f08c7aad235b0bc6509abab9e15158f4311dd2a831162f673b738a1",
-      "claim_id": "claim:3edbdae68bba764c4d7a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed4a798db6d3297aaf7887c01e631c54442093c25178fc0eb2915aef8a7d1d45",
-      "source_record_ids": [
-        "rock_rocku:ffdb983ef31e7bea"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/running-check-in",
-          "timestamp": "03:59",
-          "timestamp_seconds": 239.68,
-          "title": "Running Check-in",
-          "url": "https://community.rockrms.com/rocku/check-in/running-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Aero Check-in Theme is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "8a3bb5a1453596b9ee06ca3649acff4f042ddfcc649973ea5c3617ff3249d09d",
-      "claim_id": "claim:41acb26590385a18732d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "32bb01efaacecb491d2f53fa8021989cb6c131d0eec9fc315e3830c5102b5f54",
-      "source_record_ids": [
-        "rock_rocku:2c5859d3528bc78b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Aero Check-in Theme",
-          "url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Next-Gen Labels should be reviewed as part of the full check-in print path: label definition, merge data, printer routing, room configuration, and live attendance context all matter.",
-      "claim_hash": "9c224b5b8f1eb1e87a23b3df4b6657d9cd9cfa84f745520a0d7e917fb5727357",
+      "claim_hash": "146a0cb3dc532388d62c6a9503b5a0b84204bc8f977cc6c20a924e81219b3ea1",
       "claim_id": "claim:44c7dd8911e8b6703262",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -1010,6 +390,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0b1f6cef3edecd836827bb41b1bf5cb98c22b03f219f6116901d1ab8d44262d5",
       "source_record_ids": [
         "rock_rocku:5a17eb5fad2389af"
@@ -1023,45 +404,13 @@
           "title": "Next-Gen Labels",
           "url": "https://community.rockrms.com/rocku/check-in/next-gen-labels"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Schedules RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
-      "claim_id": "claim:478537db6c6c72a01a23",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process.",
-      "claim_hash": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
+      "claim_hash": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
       "claim_id": "claim:4c4098a035a5ca256bfe",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1079,6 +428,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -1092,12 +444,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile check-in user experience can support both family and individual check-in, with first-time identity confirmation followed by a shorter repeat flow when the same device is recognized.",
-      "claim_hash": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
+      "claim_hash": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
       "claim_id": "claim:520ba5f389698ad4894c",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1128,6 +481,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -1138,109 +492,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying AI, automation, and responsible tool use ideas from Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "3cb72eac7ec16393b9c65dd64820653136398e8de9d8dbdb0515293ba1867b1b",
-      "claim_id": "claim:55869ae739061924fa89",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8a1b2a13a5116f9f75a4ff18221fc8e2e5269e8f26109ec51fee828d8984c8bd",
-      "source_record_ids": [
-        "rock_podcast_rss:3d8294b9eb0cabf1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock",
-          "timestamp": "00:21",
-          "timestamp_seconds": 21.68,
-          "title": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Check-in Celebrations RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "5785fdc30f2e180093a5c62b74bc50e99719099caf1a7df1a1973b02130b483d",
-      "claim_id": "claim:5592c7e3a3caca6e48e7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a090a5d92b002ae4832b9bf9c7a839cd9da9934d072237aeb8ba4f7f0e2123cd",
-      "source_record_ids": [
-        "rock_rocku:a1d2277fcf136679"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Check-in Celebrations",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Check-in Manager should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "488ac02d6e56efe4a94432c4beff5aa8abe8595de5c3e87afc9d55008efe6272",
-      "claim_id": "claim:5715dfc8211beee76c9b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3eef13c593c3316818abf820ec480c276097cf06d7f879027e7b7f52d34f69a2",
-      "source_record_ids": [
-        "rock_rocku:dad0e7b67e4bcfb5"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/check-in-manager",
-          "timestamp": "05:42",
-          "timestamp_seconds": 342.0,
-          "title": "Check-in Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-manager"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up.",
-      "claim_hash": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
+      "claim_hash": "15885df0d3612cc6c4e48e7a0ab19226f4146a3f7a98b63622535ccfdef56547",
       "claim_id": "claim:57b56ebf5bb293682e3d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -1279,6 +537,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -1292,237 +551,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Check-in, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "76157d3a9d2f3617018b3caa690fb34c8af8d1d2552315fa1b8ea2ef21013268",
-      "claim_id": "claim:5af728c2fa3f1eb62033",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "869b471449bbbc99bfefbc316145d9a89a09decfae6b1ff4145752713528c097",
-      "source_record_ids": [
-        "rock_podcast_rss:2e07d27bc2239770"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff",
-          "timestamp": "02:53",
-          "timestamp_seconds": 173.60000000000002,
-          "title": "Check-in",
-          "url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Aero Check-in Theme RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "cc8220218d6e23e2e8fb88268adb6beae0d32487d500536380f5cb17deebb53f",
-      "claim_id": "claim:5b82a56142ddcce1daac",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "32bb01efaacecb491d2f53fa8021989cb6c131d0eec9fc315e3830c5102b5f54",
-      "source_record_ids": [
-        "rock_rocku:2c5859d3528bc78b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Aero Check-in Theme",
-          "url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Check-in episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "13a03c437e59f72fecb4fda97b8edc92dac63c2558af867770001dcb871156c5",
-      "claim_id": "claim:5bd61f2bea8b95341e92",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "869b471449bbbc99bfefbc316145d9a89a09decfae6b1ff4145752713528c097",
-      "source_record_ids": [
-        "rock_podcast_rss:2e07d27bc2239770"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Check-in",
-          "url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A practical cleanup program should separate low-effort automations from medium-effort reports and high-effort duplicate decisions, so staff and volunteers spend human review time on records that require judgment.",
-      "claim_hash": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-      "claim_id": "claim:5c7aec32d916e2cb2902",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "20:00",
-          "timestamp_seconds": 1200.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This official podcast edition supports the same v19 rollout and operational feature guidance as the reviewed video edition: prepare Connections users, configure built-in CAPTCHA, expect real-time Check-In Manager updates and use materialized schedule dates. Verify exact behavior against the installed v19 build.",
-      "claim_hash": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
-      "claim_id": "claim:5e95f49027f612b41532",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
-      "source_record_ids": [
-        "rock_podcast_rss:c599eeb5406e175c"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
-          "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "BI Attendance Report is approved as a public-safe RockU training distillation for reporting, analytics, and measurement. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "054c612bf15f813f9691bf2bac2a12c1f347d4ca46a3294128a62bc881ed070a",
-      "claim_id": "claim:6555c16bc49f42002e19",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e932d84eb645fc8b1b7f16846790d8c0e70c1228bc799a06ef1aef58074fa760",
-      "source_record_ids": [
-        "rock_rocku:d50e9300409bad92"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "BI Attendance Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Labels [Legacy] RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "36086a6896b4e51bb0d0bcafbd275bdff2e3d82318172ea668e8e6d62f4d51a7",
-      "claim_id": "claim:655e8a2e8af2e0d243b4",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2949351b3e59b02c4e45b42773e3f1538375e1ac7d83026a43666202d5e39cc1",
-      "source_record_ids": [
-        "rock_rocku:7736adb56296311e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/labels-legacy",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Labels [Legacy]",
-          "url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Before deploying the redesigned v19 Connections experience, show staff the new interface and provide brief training instead of surprising active connectors with a major workflow change.",
-      "claim_hash": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
+      "claim_hash": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
       "claim_id": "claim:66eb84b2b9cc466ce78b",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1539,6 +574,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -1552,45 +590,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Check-in support often reaches into label-printer details such as ZPL, so label issues should be routed to both check-in behavior and printer/template implementation context.",
-      "claim_hash": "674f95c22211fea516a3c6adfb5f62c959ef996d266c036b1560915ca1814e6b",
-      "claim_id": "claim:6e476b138ed3e7a5ffe3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-          "timestamp": "01:48",
-          "timestamp_seconds": 108.94,
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The Mobile Check-in Launcher page should enable the virtual kiosk devices and list the check-in configuration and areas that are valid for the campuses served by that page.",
-      "claim_hash": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
+      "claim_hash": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
       "claim_id": "claim:72dd1841cd10ed6d5a30",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -1626,6 +632,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -1639,105 +646,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Getting Started is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "bca4788dd3318ff1a5db77b047b6cf9d445b8a020890142b6b65a71fb4c57fd3",
-      "claim_id": "claim:7685395548df3abf0345",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "1daeaccddb2f8470a1f3d7d285af65701dab5d219613eb07b6a1864e1217ed3f",
-      "source_record_ids": [
-        "rock_rocku:723f2bd9f57fdfb0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Getting Started",
-          "url": "https://community.rockrms.com/rocku/check-in/getting-started-1"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying ministry process design ideas from Episode 129: Check-Ins, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "f1a921b909b96f823bf4c8f000b52631065c943c0230fee39253eed29f3d273a",
-      "claim_id": "claim:77d81610f43ada6245b5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ae22ef31a6c66ddd077c0358d4cecff32b2faa40e82ba140656f38bf57411d43",
-      "source_record_ids": [
-        "rock_podcast_rss:f1db62cd6954515d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins",
-          "timestamp": "04:29",
-          "timestamp_seconds": 269.18,
-          "title": "Episode 129: Check-Ins",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Person Attributes - Check-In Manager RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "d52df06742b25e880e1daef7aaf72eb825954f653dcde6d775a8a6a1065247ad",
-      "claim_id": "claim:791458dc76400b3da8da",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "78f02c0d75e6110200590961e43c83db36545656ef3ad8851234e5dfd2a52900",
-      "source_record_ids": [
-        "rock_rocku:0a3e0444a99bc227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Person Attributes - Check-In Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
-      "claim_hash": "03edaf383cffa0067f678ecfb4a121fe87a30e900e6c6fd5b9a0b5e6335756e2",
+      "claim_hash": "381e959f5b37b536f842e913d16d4ccaf7f2ba0629b4bb88f154d681ad59326c",
       "claim_id": "claim:7df4b8c20f9419a30a5a",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -1751,6 +666,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "f87b29a5c36fbbdf15b0a28c3241ad0d41e4129ad6ef135df87fd4cf0f876145",
       "source_record_ids": [
         "rock_youtube:e4cbfa7d0630af26"
@@ -1764,43 +682,13 @@
           "title": "New Features & Enhancements Coming to v19",
           "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying staff training and operational readiness ideas from Episode 129: Check-Ins, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "91172c4ead52dbbbf401aaa4a7250bf0df0d2d68dfbce341dca0664eff3847ad",
-      "claim_id": "claim:7f8665ce87067b53a8e1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ae22ef31a6c66ddd077c0358d4cecff32b2faa40e82ba140656f38bf57411d43",
-      "source_record_ids": [
-        "rock_podcast_rss:f1db62cd6954515d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins",
-          "timestamp": "01:19",
-          "timestamp_seconds": 79.64,
-          "title": "Episode 129: Check-Ins",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Rapid Attendance Entry can be used as a fast attendance-entry surface and can also collect related ministry information, such as family updates, notes, prayer requests, and workflow launches, when the block settings enable those actions.",
-      "claim_hash": "ea27201f3b778795c6dd95570a4c6e30126ce5645be439e179c68337010e1519",
+      "claim_hash": "56c909ca2a470412addfb9f66e7a0556ae64364b3f5a1e63dac7d8f68ebdf72d",
       "claim_id": "claim:81b7e563732881f9f61e",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1834,6 +722,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "880104fb34d1065c053a35f1378cf9b20748212f7a6196087e9e9db4a1e7afda",
       "source_record_ids": [
         "rock_rocku:78f1e8bbd9d351ff"
@@ -1844,104 +733,13 @@
           "title": "Rapid Attendance Entry",
           "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Types and Groups is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "a271f77e79efa19bf8dcfb02bfa591540751d15202a5f4a6bc63c0aad627a2b5",
-      "claim_id": "claim:83927d3b550fdd065539",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "371155d7a7e698ab7a2615d16739f962a48bc4fcef1b1eabfdd2ace31978c8a1",
-      "source_record_ids": [
-        "rock_rocku:e728f23e59096203"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Types and Groups",
-          "url": "https://community.rockrms.com/rocku/check-in/types-and-groups"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 33 adds public-safe operational context for major-release validation, non-admin test coverage, family pre-registration roadmap awareness, and caching architecture; implementation claims should be checked against current official sources and live configuration.",
-      "claim_hash": "56da467d023fa9ac62a201eb9d4aedd81f257158d6063280a6e691fbd3f96eac",
-      "claim_id": "claim:8413b1413681a6264334",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ba7fcc32242b3cba9b0df70aa43ab6f58c25db3c22cc3dcb051e4a86a86d0a83",
-      "source_record_ids": [
-        "rock_podcast_rss:f0a700c5f586d654"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 33: Rock 7.3 and New RX2018 Tracks",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Labels [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "cdfe1d24d4f28123f4bd59204f623027ed6f686304b070b8a597799c3c9dd7ff",
-      "claim_id": "claim:8c0f60b13add3ab2acd0",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2949351b3e59b02c4e45b42773e3f1538375e1ac7d83026a43666202d5e39cc1",
-      "source_record_ids": [
-        "rock_rocku:7736adb56296311e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/labels-legacy",
-          "timestamp": "01:34",
-          "timestamp_seconds": 94.92,
-          "title": "Labels [Legacy]",
-          "url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Check-In Manager adds check-in guidance for live operations: diagnose active-session behavior from schedule, room, label, and manager-state evidence before changing configuration.",
-      "claim_hash": "700a85ba7b78ba2e8db10f016201461e51f9d668dd44f8dd924a4b146463aaa0",
+      "claim_hash": "8ce408dc5647ab1445434bb7769ad128a0203c6bb3c574e22cae19d802efe128",
       "claim_id": "claim:8c12d5c5828068271f42",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -1974,6 +772,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a4fc7b2cc8c9ca9076728ed4680286c25a3f824e1f9d06e120d2f19919f15c15",
       "source_record_ids": [
         "rock_rocku:27924570b9b51caa"
@@ -1984,73 +783,13 @@
           "title": "Check-In Manager",
           "url": "https://community.rockrms.com/rocku/check-in/check-in-manager-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 129: Check-Ins is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, ministry process design, staff training and operational readiness. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "a18f53615ee98529a9b671e749f4cc765740590c2ffd7f88814609c2e0618d93",
-      "claim_id": "claim:8f487df9b2cad5ad4d67",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ae22ef31a6c66ddd077c0358d4cecff32b2faa40e82ba140656f38bf57411d43",
-      "source_record_ids": [
-        "rock_podcast_rss:f1db62cd6954515d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 129: Check-Ins",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Check-in Settings RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "276a18399abf9b26a097e307614caa8ff583f62d618b41fe8116298eae631949",
-      "claim_id": "claim:8fd1c14a1b2dfd384009",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f373aee36072998bfc67ea6fd4ffda86ccc554b713ff84753c6d06bf44e4107",
-      "source_record_ids": [
-        "rock_rocku:12d9719408f9414f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/settings",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Check-in Settings",
-          "url": "https://community.rockrms.com/rocku/check-in/settings"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Large Rock releases can carry accumulated change and post-release fixes, so upgrade planning should distinguish major-version validation from routine patch-release validation and verify current release notes before action.",
-      "claim_hash": "e4ee91d15f52930c5a01b4fa99fb83e6c4c60c8b1a262f53d6d679737cf9b8ff",
+      "claim_hash": "6c0e5a7c9d61a1846f59a55164afa09451ec3ce7f8fbfa2e41c2e0ed3d29b3a1",
       "claim_id": "claim:900a195ee6880a693f27",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -2065,6 +804,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "ba7fcc32242b3cba9b0df70aa43ab6f58c25db3c22cc3dcb051e4a86a86d0a83",
       "source_record_ids": [
         "rock_podcast_rss:f0a700c5f586d654"
@@ -2078,12 +818,13 @@
           "title": "Episode 33: Rock 7.3 and New RX2018 Tracks",
           "url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action.",
-      "claim_hash": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
+      "claim_hash": "703c36edbfac623b571e7d95b6fdd399c3b93f6715dc494e616981ff621cfb7a",
       "claim_id": "claim:90fecb6ea51cf994ff92",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -2120,6 +861,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -2133,107 +875,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Person Attributes - Check-In Manager is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "cb23434dd4e23b6f478755e8f6606346254bd9c89d19c7abd8aea4b59bf0d156",
-      "claim_id": "claim:91ee6520b15a13ead962",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "people-families",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "78f02c0d75e6110200590961e43c83db36545656ef3ad8851234e5dfd2a52900",
-      "source_record_ids": [
-        "rock_rocku:0a3e0444a99bc227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Person Attributes - Check-In Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Types and Groups RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "071cad72164834ebed6dbef33fdfa41a0973e533df5bd60cdf3d8819834e13cb",
-      "claim_id": "claim:95b6c9942f1cf887704d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "371155d7a7e698ab7a2615d16739f962a48bc4fcef1b1eabfdd2ace31978c8a1",
-      "source_record_ids": [
-        "rock_rocku:e728f23e59096203"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/types-and-groups",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Types and Groups",
-          "url": "https://community.rockrms.com/rocku/check-in/types-and-groups"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Aero Check-in Theme should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "2dd455c1699408b031c3d4365c69ab0505fb1d168901ed1fb614f5d09b2e07f8",
-      "claim_id": "claim:982862044b976afd957e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "32bb01efaacecb491d2f53fa8021989cb6c131d0eec9fc315e3830c5102b5f54",
-      "source_record_ids": [
-        "rock_rocku:2c5859d3528bc78b"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme",
-          "timestamp": "01:47",
-          "timestamp_seconds": 107.0,
-          "title": "Aero Check-in Theme",
-          "url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
-      "claim_hash": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
+      "claim_hash": "14ce250784b870a2f1d890c50e5999a3f4968431e2e9d6257a8c41220b4805f1",
       "claim_id": "claim:9ad17cb08b8955d0d3ec",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -2249,6 +897,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "7800f6736b0fca5bf33ea4055a75cc5c373c6868f2e3572f9a18048ac799501a",
       "source_record_ids": [
         "rock_youtube:ada1b1391c0864f3"
@@ -2262,108 +913,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Labels [Legacy] should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. Because the lesson is legacy-labeled, check for a current replacement before using the guidance operationally.",
-      "claim_hash": "bd0600f02db1a42083fe9fdb28708f347d3a67b779a593daf597a102fbe03eeb",
-      "claim_id": "claim:9aeb212456b9f2dbc0e8",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2949351b3e59b02c4e45b42773e3f1538375e1ac7d83026a43666202d5e39cc1",
-      "source_record_ids": [
-        "rock_rocku:7736adb56296311e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/labels-legacy",
-          "timestamp": "04:20",
-          "timestamp_seconds": 260.52,
-          "title": "Labels [Legacy]",
-          "url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying version, roadmap, and release-caveat awareness ideas from Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "4b35b4d675551750a034b6050e50b7df8bddec83f84ab477edabd03bdc394a74",
-      "claim_id": "claim:9b3828d23bb861248bab",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8a1b2a13a5116f9f75a4ff18221fc8e2e5269e8f26109ec51fee828d8984c8bd",
-      "source_record_ids": [
-        "rock_podcast_rss:3d8294b9eb0cabf1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock",
-          "timestamp": "00:15",
-          "timestamp_seconds": 15.02,
-          "title": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Getting Started RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "fe5be99934e3daf396854344a788a503101e2749c0fa415c6da29ae3538296dc",
-      "claim_id": "claim:9d5a4e6a9a80653a11ab",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "1daeaccddb2f8470a1f3d7d285af65701dab5d219613eb07b6a1864e1217ed3f",
-      "source_record_ids": [
-        "rock_rocku:723f2bd9f57fdfb0"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/getting-started-1",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Getting Started",
-          "url": "https://community.rockrms.com/rocku/check-in/getting-started-1"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "After check-in is complete, the QR code is a label-printing bridge rather than the check-in transaction itself; additional selections can update the QR payload instead of creating a separate label handoff each time.",
-      "claim_hash": "e83847cdbac01bf39bc15bb09c76b151624c90cb9848ad83b821257d6eb5d06d",
+      "claim_hash": "d765801ba0f2bbbf8a4f26c18d1df71387370608bff0b4d18406b6cbc9c419e4",
       "claim_id": "claim:9f505350705f22d88caf",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2377,6 +933,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -2390,108 +947,13 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For version, roadmap, and release-caveat awareness, Attendance Analytics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "ec676c168a7a080b876d83fa786998d513e968fe8f2d072e7ec2467dc1c48b20",
-      "claim_id": "claim:a0d563da5b5ab3c6697f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "release_caveat",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "34a799bf202ec47c51e073cf810509d5095b911b425b77fed7ae1eb2e90bef8b",
-      "source_record_ids": [
-        "rock_rocku:ee9796ce7f9afea9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
-          "timestamp": "00:47",
-          "timestamp_seconds": 47.64,
-          "title": "Attendance Analytics",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Group Attendance RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "f9bc59e559d3573bb8fd4866f7338294b2e505336e4270a1dd82edb78cfa7c99",
-      "claim_id": "claim:a314672aa6a2c8e10ca3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5676a7ec273301df06d6890cbb18c324e42ec05fd83b2fa9b509482309d330a6",
-      "source_record_ids": [
-        "rock_rocku:7e3b55cfb5681227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-attendance",
-          "timestamp": "02:16",
-          "timestamp_seconds": 136.18,
-          "title": "Group Attendance",
-          "url": "https://community.rockrms.com/rocku/groups/group-attendance"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Check-in Settings is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "049a44038f5ddcdbb7ec8a5210b70ffdc32a93a5d29ca585e2607c6d4454c5fc",
-      "claim_id": "claim:a4f62883e5e37c131065",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f373aee36072998bfc67ea6fd4ffda86ccc554b713ff84753c6d06bf44e4107",
-      "source_record_ids": [
-        "rock_rocku:12d9719408f9414f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Check-in Settings",
-          "url": "https://community.rockrms.com/rocku/check-in/settings"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere.",
-      "claim_hash": "301e03f370fc6c58f9532fb077b4fcff8df4f7bee0c4d1f5dcf91b4c22da3f66",
+      "claim_hash": "2728c742c181d7442f510bfda2711c23694632b42a1c50af9e14d019a1cd4dc1",
       "claim_id": "claim:a69d0b49451cf59e5ef8",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -2524,6 +986,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "880104fb34d1065c053a35f1378cf9b20748212f7a6196087e9e9db4a1e7afda",
       "source_record_ids": [
         "rock_rocku:78f1e8bbd9d351ff"
@@ -2537,76 +1000,13 @@
           "title": "Rapid Attendance Entry",
           "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "After go-live, teams should shift from launch pressure to quality requirements, sprint planning, and intentionally redesigned ministry processes.",
-      "claim_hash": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
-      "claim_id": "claim:a6fe41ec449004caa398",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "event-registration",
-        "giving-finance",
-        "groups",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0f209c5dddedfb2047146b3ee75622446d198366f70d11fc280747bdb133ba30",
-      "source_record_ids": [
-        "rock_podcast_rss:73636340b56a6a03"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear",
-          "timestamp": "09:18",
-          "timestamp_seconds": 558.6,
-          "title": "Episode 111: Special Edition with Tim Dear",
-          "url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Labels [Legacy] is approved as a public-safe RockU training distillation for Rock operations and administration, staff training and operational readiness, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration. Because this training is labeled legacy, confirm whether a newer Rock surface has replaced it before recommending implementation steps.",
-      "claim_hash": "e6e2b6fd9d1be2c4af20afbf97b502cdff5b97b3ca7df9669317bb033e83ecc1",
-      "claim_id": "claim:aa106347db09132b9e60",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "2949351b3e59b02c4e45b42773e3f1538375e1ac7d83026a43666202d5e39cc1",
-      "source_record_ids": [
-        "rock_rocku:7736adb56296311e"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Labels [Legacy]",
-          "url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The mobile flow still follows the familiar check-in pattern: identify the person, choose who is checking in, complete the check-in, then use the generated QR code only for label-printing handoff when labels are needed.",
-      "claim_hash": "476f2fd5f2049f0a3b7916ab8fa6f995c56ad0b901994bdf5a076a499b789340",
+      "claim_hash": "8c70ab39c5a2813c20c7796b4605495b6a1ea6700555476a14ba92d0c07bc019",
       "claim_id": "claim:aa549ff122698db9c8a1",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -2620,6 +1020,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -2633,200 +1034,13 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Family pre-registration was discussed as roadmap and consulting context for website or kiosk entry points; treat it as a prompt to verify the current block, check-in, and kiosk capabilities before designing an intake flow.",
-      "claim_hash": "fbcdf0a48c394e59d4a53838381c03e6a590a497657588e23eeb36ec36f585b1",
-      "claim_id": "claim:acd9b4db35293fe83531",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "platform-configuration",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ba7fcc32242b3cba9b0df70aa43ab6f58c25db3c22cc3dcb051e4a86a86d0a83",
-      "source_record_ids": [
-        "rock_podcast_rss:f0a700c5f586d654"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks",
-          "timestamp": "03:22",
-          "timestamp_seconds": 202.4,
-          "title": "Episode 33: Rock 7.3 and New RX2018 Tracks",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For ministry process design, Schedules should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
-      "claim_id": "claim:ae356a9d7df599b21ea2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/schedules",
-          "timestamp": "03:30",
-          "timestamp_seconds": 210.48000000000002,
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Running Check-in is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design, staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "9ee0226f42ea9424b5897974713bd57a68adb0314129fdfe0b0e1e084437c320",
-      "claim_id": "claim:b0dab4bb324e8e03f2aa",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed4a798db6d3297aaf7887c01e631c54442093c25178fc0eb2915aef8a7d1d45",
-      "source_record_ids": [
-        "rock_rocku:ffdb983ef31e7bea"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Running Check-in",
-          "url": "https://community.rockrms.com/rocku/check-in/running-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Check-in is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, ministry process design, reporting, analytics, and measurement. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "f25fe5fc90d6e380d5a76e741ed7b16c6beae4401b5339cdf962b0336da666ad",
-      "claim_id": "claim:b338f561248b74d63dde",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "869b471449bbbc99bfefbc316145d9a89a09decfae6b1ff4145752713528c097",
-      "source_record_ids": [
-        "rock_podcast_rss:2e07d27bc2239770"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Check-in",
-          "url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 129: Check-Ins episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "0398bec8dbb658b735bf508cdbd786ff5a97d2256e900e68343249a354d3668f",
-      "claim_id": "claim:b56be3557c4c9c4e891f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ae22ef31a6c66ddd077c0358d4cecff32b2faa40e82ba140656f38bf57411d43",
-      "source_record_ids": [
-        "rock_podcast_rss:f1db62cd6954515d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Episode 129: Check-Ins",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Check-in Settings should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "848d22c95598342b87da9f48d86267b768cc9fca840ec5a3719d48468db4380d",
-      "claim_id": "claim:b58e5bdfd1a5ac20fe56",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f373aee36072998bfc67ea6fd4ffda86ccc554b713ff84753c6d06bf44e4107",
-      "source_record_ids": [
-        "rock_rocku:12d9719408f9414f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/settings",
-          "timestamp": "04:35",
-          "timestamp_seconds": 275.0,
-          "title": "Check-in Settings",
-          "url": "https://community.rockrms.com/rocku/check-in/settings"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in.",
-      "claim_hash": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
+      "claim_hash": "0740ed2aa3851d01c7f9629557d61fd505526d96e3e5b62d480868ecb0744da9",
       "claim_id": "claim:b6025804c011523e291d",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -2864,6 +1078,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -2877,205 +1092,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Schedules is approved as a public-safe RockU training distillation for Rock operations and administration, ministry process design. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
-      "claim_id": "claim:b626c6ef85b2988091af",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a644bcd635fd8f9c85ba46533069c3f4a96e13fac80f2d9edb17fe6bf7438f24",
-      "source_record_ids": [
-        "rock_rocku:aa94e8b3d8886a7a"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Schedules",
-          "url": "https://community.rockrms.com/rocku/check-in/schedules"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Data Analytics Hub presentation gives public-safe operational guidance for Rock data quality programs: use built-in automation where possible, prioritize a small number of high-value data defects, move actionable cleanup reports into Rock, train a bounded volunteer team, and connect data quality work to ministry outcomes such as check-in, communication, and leadership reporting.",
-      "claim_hash": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-      "claim_id": "claim:b9e56d68768b84160b2d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This Digital Strategy Hub session is a strong public-safe source for family preregistration and check-in readiness. It describes using Rock preregistration to capture family information before arrival, prepare for check-in, and design follow-up around new families, while making clear that preregistration should be tested as part of the real family and check-in data flow.",
-      "claim_hash": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
-      "claim_id": "claim:ba15698ecadd55ce215a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "connections",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
-      "source_record_ids": [
-        "rock_community_hubs:7cd07bd6d4ff5479"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For Rock operations and administration, Attendance Analytics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "935913ce805e092a388113d3c55c7b329ee854f352ac4a03c51908828678c981",
-      "claim_id": "claim:bb63388099aad8e73249",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "34a799bf202ec47c51e073cf810509d5095b911b425b77fed7ae1eb2e90bef8b",
-      "source_record_ids": [
-        "rock_rocku:ee9796ce7f9afea9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
-          "timestamp": "00:07",
-          "timestamp_seconds": 7.8,
-          "title": "Attendance Analytics",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Check-in Manager RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "d6111cea56616ea866b88e342612481bcbfc026170f0250666528fae0f1af285",
-      "claim_id": "claim:bc8c6d853c7f96e0a2e2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "3eef13c593c3316818abf820ec480c276097cf06d7f879027e7b7f52d34f69a2",
-      "source_record_ids": [
-        "rock_rocku:dad0e7b67e4bcfb5"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/check-in-manager",
-          "timestamp": "00:19",
-          "timestamp_seconds": 19.0,
-          "title": "Check-in Manager",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-manager"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Alpha and beta testing should include non-administrator staff personas, because admin-only testing can hide authorization and role-specific defects that normal staff encounter.",
-      "claim_hash": "45f292a22b741080f68e656494a56d4c61279683f4c2cbb85d39e8ef74c6d004",
-      "claim_id": "claim:bcd25b334f61749a0936",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ba7fcc32242b3cba9b0df70aa43ab6f58c25db3c22cc3dcb051e4a86a86d0a83",
-      "source_record_ids": [
-        "rock_podcast_rss:f0a700c5f586d654"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks",
-          "timestamp": "02:27",
-          "timestamp_seconds": 147.2,
-          "title": "Episode 33: Rock 7.3 and New RX2018 Tracks",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually.",
-      "claim_hash": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
+      "claim_hash": "1f2f65a93335b3f545b77ef597d3ec4d7f0a911cdcb656e7fc8d7866c5ac9eb8",
       "claim_id": "claim:bd2faf9d63fc7ecc41c1",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3112,6 +1135,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "b7db4a8459d4d02012d7acef483f9499809ac78f3877d12145daf3d8b9fff9df",
       "source_record_ids": [
         "rock_community_hubs:7cd07bd6d4ff5479"
@@ -3125,12 +1149,13 @@
           "title": "Media Watch",
           "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in block text can be customized and Lava-enabled, but copy should account for where the visitor is in the flow because Rock may not know the person's identity on early screens.",
-      "claim_hash": "e1f01c3c7a7c2afc3806d0d0e05766b5cf6490a94b91cd8ee4cf5beb7af832a9",
+      "claim_hash": "158828963aaf7ff774d281e8ef641280ee95bdc3e5ca76cf831b8382a757ecd9",
       "claim_id": "claim:c04a3055801d1b1a9fa4",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3162,6 +1187,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -3175,44 +1201,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying risk, governance, permissions, and policy review ideas from Episode 161 : Building Next Gen Rock: A Look at Check-In, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "711a9a4ae654b51581f62fd73b2f0c5769d75779aefa9b5f4d0a8294d0edc0ba",
-      "claim_id": "claim:c3895fd632988c791c6b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "security-permissions"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "146a436029154ea334defd3816cb86688255e841ef46b5d1664baec9ca6c035f",
-      "source_record_ids": [
-        "rock_podcast_rss:b2e34f6718fb673d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in",
-          "timestamp": "01:16",
-          "timestamp_seconds": 76.64,
-          "title": "Episode 161 : Building Next Gen Rock: A Look at Check-In",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When labels fail or show unexpected data, agents should inspect label template configuration and the active check-in context before assuming a printer-only problem.",
-      "claim_hash": "707ae701c9d7063db4b154552295ec53265f89712e40f7d0cf47447254934d92",
+      "claim_hash": "0d9166c0e82fd94f26bbc34a0e7a9f010c0d38ecd06adb0d7cbbc9a7194a920b",
       "claim_id": "claim:c51dddb61c2874195577",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3245,6 +1240,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0b1f6cef3edecd836827bb41b1bf5cb98c22b03f219f6116901d1ab8d44262d5",
       "source_record_ids": [
         "rock_rocku:5a17eb5fad2389af"
@@ -3258,12 +1254,13 @@
           "title": "Next-Gen Labels",
           "url": "https://community.rockrms.com/rocku/check-in/next-gen-labels"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Treat each mobile check-in device record like a virtual kiosk: use the check-in kiosk device type, configure the campus geofence, associate the relevant campus locations, and create separate devices when campuses need distinct boundaries.",
-      "claim_hash": "7463efeef683892fded95d9e878e5cdc305123ba06eacdf9adbcbf704326dc50",
+      "claim_hash": "dfb19a1c863e85c601ce5ee4276ef28d275eebec5ad101bd5fe38cc9e1d0e072",
       "claim_id": "claim:c78fd6f074218814ab14",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3299,6 +1296,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "47eb4e9c57b8fc5fced06a76f6e71b8dd54f729ef2c6ad8ad547378dde36fea6",
       "source_record_ids": [
         "rock_rocku:6c0184b4e7ec7558"
@@ -3312,78 +1310,13 @@
           "title": "Mobile Check-in Configuration",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A Rock Check-in implementation can involve process mapping and extended troubleshooting, not only enabling the check-in feature.",
-      "claim_hash": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
-      "claim_id": "claim:c7ad8608083bb51c3061",
-      "claim_tier": "routing_context_only",
-      "claim_type": "implementation_pattern",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-          "timestamp": "01:17",
-          "timestamp_seconds": 77.32,
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Check-in Celebrations should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "7272ee92a65680fe543ae5a6f43613cf10bd4d028496de52c31fd3a83f4f42a7",
-      "claim_id": "claim:ca69b47b8b75c379ab9b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a090a5d92b002ae4832b9bf9c7a839cd9da9934d072237aeb8ba4f7f0e2123cd",
-      "source_record_ids": [
-        "rock_rocku:a1d2277fcf136679"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations",
-          "timestamp": "05:06",
-          "timestamp_seconds": 306.0,
-          "title": "Check-in Celebrations",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Mobile check-in is a contactless check-in flow that runs on a person's mobile device and can hand off completed check-ins to label printing through a QR code scanned by a configured iPad kiosk.",
-      "claim_hash": "4be9f03a86cdad911f79a6ad097b41d4994a84376163c5135ba91dfdbc10efa8",
+      "claim_hash": "33bb573585630462be8252aa57fe85f0c57f8c2ba6b086f57ad820148681ba23",
       "claim_id": "claim:ce1480ce2324122b7616",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -3416,6 +1349,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "dfb6f58be5894fb3b0c9d0a6fba7acbf66135454df6bc9f9ea6bcc9db22618f9",
       "source_record_ids": [
         "rock_rocku:281ea075e1d0d1ab"
@@ -3426,233 +1360,13 @@
           "title": "Mobile Check-in Overview",
           "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Check-in Celebrations is approved as a public-safe RockU training distillation for Rock operations and administration, risk, governance, permissions, and policy review. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "70542998b8401f36a02b1be8a50c9db4bc00641ced2edf87c38723bc41908732",
-      "claim_id": "claim:cf79610fa6ae8b64785a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "a090a5d92b002ae4832b9bf9c7a839cd9da9934d072237aeb8ba4f7f0e2123cd",
-      "source_record_ids": [
-        "rock_rocku:a1d2277fcf136679"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Check-in Celebrations",
-          "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The BI Attendance Report RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "ca7a20aaf9a148652fb49265e86994c0e79654d9ae20d397d894cb29c4402750",
-      "claim_id": "claim:cfe69010c4da6d562714",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e932d84eb645fc8b1b7f16846790d8c0e70c1228bc799a06ef1aef58074fa760",
-      "source_record_ids": [
-        "rock_rocku:d50e9300409bad92"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "BI Attendance Report",
-          "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For risk, governance, permissions, and policy review, Attendance Self-Entry should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "16a446b55842de032118095f9609db7c70558f327163c162903f9731c6031124",
-      "claim_id": "claim:d17a6f9e0323f5006c39",
-      "claim_tier": "routing_context_only",
-      "claim_type": "risk",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "75f299f60b3b8cac5828135abcaae1c1e1390b23cc0605db94e326f7014d5331",
-      "source_record_ids": [
-        "rock_rocku:bef4da01164a18bd"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry",
-          "timestamp": "06:05",
-          "timestamp_seconds": 365.0,
-          "title": "Attendance Self-Entry",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 161 : Building Next Gen Rock: A Look at Check-In is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, version, roadmap, and release-caveat awareness, risk, governance, permissions, and policy review. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "f9d9c9cc339d387a550ea619ad79cd9796dae05bf09027c9cac9c82c64f3a3d2",
-      "claim_id": "claim:d194b4c89fe91bff7295",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "146a436029154ea334defd3816cb86688255e841ef46b5d1664baec9ca6c035f",
-      "source_record_ids": [
-        "rock_podcast_rss:b2e34f6718fb673d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 161 : Building Next Gen Rock: A Look at Check-In",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "53ddf10893ce95752f9bcbc811c44bfb50be73a5c4103c86f60f52db247b9b93",
-      "claim_id": "claim:d4ce419dacead95cc755",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8a1b2a13a5116f9f75a4ff18221fc8e2e5269e8f26109ec51fee828d8984c8bd",
-      "source_record_ids": [
-        "rock_podcast_rss:3d8294b9eb0cabf1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock",
-          "timestamp": "00:06",
-          "timestamp_seconds": 6.22,
-          "title": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "the Episode 161 : Building Next Gen Rock: A Look at Check-In episode gives public operational perspective on Rock operations and administration; use it to frame questions for staff process review rather than as authoritative configuration guidance.",
-      "claim_hash": "f541b899b571329dcbebd88018bb47bc8bbe74bc941c8a9d67ffbd7f9c06c7f4",
-      "claim_id": "claim:d6423428e4be129fbae2",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "security-permissions"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "146a436029154ea334defd3816cb86688255e841ef46b5d1664baec9ca6c035f",
-      "source_record_ids": [
-        "rock_podcast_rss:b2e34f6718fb673d"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in",
-          "timestamp": "00:05",
-          "timestamp_seconds": 5.26,
-          "title": "Episode 161 : Building Next Gen Rock: A Look at Check-In",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Devices RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "a31cb5e8cfa5f69eee6b419d970d4cfd0a5059a5a1d0cdbcc768f9ecbe818683",
-      "claim_id": "claim:d698800e0481b0e80573",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "7a27f3b12698a32fc8c4d2a8e9f1d1330c745558ab03d4480086fa7e7035ec46",
-      "source_record_ids": [
-        "rock_rocku:c311029355d195cf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/devices",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Devices",
-          "url": "https://community.rockrms.com/rocku/check-in/devices"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them.",
-      "claim_hash": "919a20810a8d66d5909b3365276f96c0ec05bd2f934ee758441cf17e2f89f529",
+      "claim_hash": "8713215832a6df78bd26e786f64fc3dbae85c1da649d1eb2237f1629ce598d85",
       "claim_id": "claim:dae53f2715a5838fd9fc",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3688,6 +1402,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "880104fb34d1065c053a35f1378cf9b20748212f7a6196087e9e9db4a1e7afda",
       "source_record_ids": [
         "rock_rocku:78f1e8bbd9d351ff"
@@ -3701,12 +1416,13 @@
           "title": "Rapid Attendance Entry",
           "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "community-reviewed",
       "claim": "The v19 Check-In Manager roster uses real-time updates so attendance state changes can appear without manually refreshing the page. Verify browser connectivity, block version and local check-in configuration when updates lag.",
-      "claim_hash": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
+      "claim_hash": "edca05774cb4620ebe2b98aeea5c73a5edf5f9afd5afa8301c28189948fa13e7",
       "claim_id": "claim:dc7cb132c34cdde8cb4e",
       "claim_tier": "answer_pack_approved",
       "claim_type": "release_caveat",
@@ -3722,6 +1438,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "19.0"
+      ],
       "safe_evidence_hash": "86bd2461a6bbb15c90e64b48b46148d1b97f26c9ab85360b532ff15696f50991",
       "source_record_ids": [
         "rock_podcast_rss:c599eeb5406e175c"
@@ -3735,12 +1454,13 @@
           "title": "3 Underrated Features Churches Are Overlooking | Ep 217",
           "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
         }
-      ]
+      ],
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "When a check-in problem appears only during service, agents should verify current schedule windows, location/group availability, label printer state, and manager-side edits before changing permanent configuration.",
-      "claim_hash": "b1fbe1fdfa72d3c081b692c88c984ed6b179e441420694cecc1e7db6a3b89ab1",
+      "claim_hash": "d6b7a848bd706dae03306e43d609fa97820543b19ff09028fee388fc7cfa4d46",
       "claim_id": "claim:dfbe7795611e3e0a16c3",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -3774,6 +1494,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a4fc7b2cc8c9ca9076728ed4680286c25a3f824e1f9d06e120d2f19919f15c15",
       "source_record_ids": [
         "rock_rocku:27924570b9b51caa"
@@ -3787,231 +1508,13 @@
           "title": "Check-In Manager",
           "url": "https://community.rockrms.com/rocku/check-in/check-in-manager-1"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community is approved as a public-safe Rock Cast episode distillation for Rock operations and administration, AI, automation, and responsible tool use, version, roadmap, and release-caveat awareness. Use it as operational perspective and route implementation work back through official documentation, release notes, source code, or live-instance verification.",
-      "claim_hash": "b3427b24b5f74266a61106040088f77ecd56b0e35a814881ef0e39405ae9aae3",
-      "claim_id": "claim:e455b02e24ad1e09034f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "workflows"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "8a1b2a13a5116f9f75a4ff18221fc8e2e5269e8f26109ec51fee828d8984c8bd",
-      "source_record_ids": [
-        "rock_podcast_rss:3d8294b9eb0cabf1"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For AI, automation, and responsible tool use, Group Attendance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "73c9637dfae3361d27305fe59fc4fe8a79e1afb232ca636d7fa690793e4cb80a",
-      "claim_id": "claim:e714ac3fc850561e6337",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5676a7ec273301df06d6890cbb18c324e42ec05fd83b2fa9b509482309d330a6",
-      "source_record_ids": [
-        "rock_rocku:7e3b55cfb5681227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/groups/group-attendance",
-          "timestamp": "01:51",
-          "timestamp_seconds": 111.62,
-          "title": "Group Attendance",
-          "url": "https://community.rockrms.com/rocku/groups/group-attendance"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Attendance Analytics is approved as a public-safe RockU training distillation for reporting, analytics, and measurement, Rock operations and administration, version, roadmap, and release-caveat awareness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "b9200b16d4f8ef7d363eaa1394fabe6e044468db62676c23634639535ebba9e8",
-      "claim_id": "claim:e7b7144df980503b13a7",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "34a799bf202ec47c51e073cf810509d5095b911b425b77fed7ae1eb2e90bef8b",
-      "source_record_ids": [
-        "rock_rocku:ee9796ce7f9afea9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Attendance Analytics",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Running Check-in RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "fe314b73585f2ead008982a47824d7542b885245adcd8b5d099da3d043a10653",
-      "claim_id": "claim:e7c1e8c985ea86f64d56",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "ed4a798db6d3297aaf7887c01e631c54442093c25178fc0eb2915aef8a7d1d45",
-      "source_record_ids": [
-        "rock_rocku:ffdb983ef31e7bea"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/running-check-in",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Running Check-in",
-          "url": "https://community.rockrms.com/rocku/check-in/running-check-in"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "For staff training and operational readiness, Check-in Settings should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks.",
-      "claim_hash": "48e4791ef0e7d04a01cdeda8a21dd030135f00dd6c1a488232806263832310d4",
-      "claim_id": "claim:e82f6d953b1c58a70658",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "security-permissions",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "6f373aee36072998bfc67ea6fd4ffda86ccc554b713ff84753c6d06bf44e4107",
-      "source_record_ids": [
-        "rock_rocku:12d9719408f9414f"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/settings",
-          "timestamp": "02:04",
-          "timestamp_seconds": 124.0,
-          "title": "Check-in Settings",
-          "url": "https://community.rockrms.com/rocku/check-in/settings"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Locations is approved as a public-safe RockU training distillation for Rock operations and administration. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
-      "claim_id": "claim:e8bfb77009f754c3faa1",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "scheduling-locations",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e4103e545af53591fe13681a3c5f0fabb3d280c1d544366a65c38c045c9b75c4",
-      "source_record_ids": [
-        "rock_rocku:90ed168a3283ccaa"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Locations",
-          "url": "https://community.rockrms.com/rocku/check-in/locations"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "When applying reporting, analytics, and measurement ideas from Check-in, convert the episode context into source-backed Rock guidance and verify current-version behavior before acting.",
-      "claim_hash": "010b96203e1e73d55eeb5e7c6bb9be2e8b3d804b7eb7389d4cf6c7aacb5d9d6e",
-      "claim_id": "claim:e8daa0124ff31d88887e",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "869b471449bbbc99bfefbc316145d9a89a09decfae6b1ff4145752713528c097",
-      "source_record_ids": [
-        "rock_podcast_rss:2e07d27bc2239770"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff",
-          "timestamp": "02:17",
-          "timestamp_seconds": 137.88,
-          "title": "Check-in",
-          "url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Check-In Manager should be treated as an operational control surface for live check-in sessions; troubleshoot rooms, schedules, attendance, labels, and manager actions from the exact active configuration.",
-      "claim_hash": "7c574925160bfe901bfddab4f5837e03308c351af762f5b30683eeb3578e40cd",
+      "claim_hash": "7febbdcef535f8a717af60371b6e87ebfed3090e7326eba902b0f68699f3d35c",
       "claim_id": "claim:ee6db5c07a1abfc6a006",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -4044,6 +1547,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a4fc7b2cc8c9ca9076728ed4680286c25a3f824e1f9d06e120d2f19919f15c15",
       "source_record_ids": [
         "rock_rocku:27924570b9b51caa"
@@ -4057,12 +1561,13 @@
           "title": "Check-In Manager",
           "url": "https://community.rockrms.com/rocku/check-in/check-in-manager-1"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "Next-Gen Labels adds check-in guidance for label troubleshooting: validate template, merge data, routing, and active check-in context before treating failures as printer-only issues.",
-      "claim_hash": "6493fa8b7043ad91536adc5ded26adabead7aef93d5283ea1637a79867a2bc80",
+      "claim_hash": "685eb4ddf0afc8c4f0b0ebb90b3d7e8b2d322a2d3afc208ca5e03d2ade5116d2",
       "claim_id": "claim:f1f6b9b0447d27d298bd",
       "claim_tier": "live_verified",
       "claim_type": "source_summary",
@@ -4095,6 +1600,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "0b1f6cef3edecd836827bb41b1bf5cb98c22b03f219f6116901d1ab8d44262d5",
       "source_record_ids": [
         "rock_rocku:5a17eb5fad2389af"
@@ -4105,147 +1611,13 @@
           "title": "Next-Gen Labels",
           "url": "https://community.rockrms.com/rocku/check-in/next-gen-labels"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock data quality work should be prioritized because dirty people, family, address, and duplicate data affects check-in, communication, reporting credibility, and leadership decisions.",
-      "claim_hash": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-      "claim_id": "claim:f3f4f67796a8e9204d0b",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "11:37",
-          "timestamp_seconds": 697.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "Group Attendance is approved as a public-safe RockU training distillation for Rock operations and administration, AI, automation, and responsible tool use, staff training and operational readiness. Use it as cited training context, while verifying implementation details against the current Rock version and local configuration.",
-      "claim_hash": "57bc38cffe0502f4f75c436c1c217e159e50850ad2742760e19101959919975d",
-      "claim_id": "claim:f50dd490984e0495430f",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "groups",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "5676a7ec273301df06d6890cbb18c324e42ec05fd83b2fa9b509482309d330a6",
-      "source_record_ids": [
-        "rock_rocku:7e3b55cfb5681227"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "title": "Group Attendance",
-          "url": "https://community.rockrms.com/rocku/groups/group-attendance"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data.",
-      "claim_hash": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
-      "claim_id": "claim:f52a2e57057018037f30",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "29790d407483a25add9121c89feec0a8474ccf3aa1d315db62ff305cbc5711df",
-      "source_record_ids": [
-        "rock_community_hubs:2a835fe90be9f475"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_community_hubs",
-          "source_timestamp_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
-          "timestamp": "30:53",
-          "timestamp_seconds": 1853.0,
-          "title": "Media Watch",
-          "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-        }
-      ]
-    },
-    {
-      "authority_tier": "rocku-confirmed",
-      "claim": "The Attendance Analytics RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation.",
-      "claim_hash": "93179637459991f176bb4d7e5681c8a4d53efe90dbc1afebfcb483ef616f7724",
-      "claim_id": "claim:f7364132199fabd7a774",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": false,
-      "concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "workflows"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "34a799bf202ec47c51e073cf810509d5095b911b425b77fed7ae1eb2e90bef8b",
-      "source_record_ids": [
-        "rock_rocku:ee9796ce7f9afea9"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_rocku",
-          "source_timestamp_url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
-          "timestamp": "00:00",
-          "timestamp_seconds": 0.0,
-          "title": "Attendance Analytics",
-          "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "rocku-confirmed",
       "claim": "The participant-facing flow can show fallback screens when a person is outside the configured geofence, outside the valid check-in time window, or has no eligible check-in option available.",
-      "claim_hash": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381",
+      "claim_hash": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c",
       "claim_id": "claim:ff136cde6aa716bfc87c",
       "claim_tier": "live_verified",
       "claim_type": "operational_guidance",
@@ -4279,6 +1651,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "321e7028d71def7de55c5f899f23b8061de2bfd1fb7d8f8abc1fb745aba8c42f",
       "source_record_ids": [
         "rock_rocku:d7a4121f91c3b42b"
@@ -4292,132 +1665,48 @@
           "title": "Using Mobile Check-in",
           "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     }
   ],
   "approved_claim_hashes": {
-    "claim:02d142716dc0bc1c745f": "178c42916e17de06c3cb8baec07c681543489b4acd36ff68db9f1ef34b71e16b",
-    "claim:07a75e5ff71510d708de": "32eb2ab95780a4cf0dbe07f90d1119acc9da1a3aaf35efbbea309816a7ab8588",
-    "claim:08896ebe0d1b90fc0c31": "26f0626281b40e5c077708a18ca7504bed0e680849bfc1891a1e423e564e5900",
-    "claim:094104f92c7a8daf8281": "755d9d9e181ea52d6e08daab4f6f75c6c8ed6fcfccf363eeeaf83dbbb4e01d18",
-    "claim:09530a00321809f1f23a": "09bc06aa4fd7a251a9fb4bd1bb3911ead5d7e42bd159fb14579a7788e7632661",
-    "claim:0b388b0e4afdabbc9903": "cc0b7932d397fbc2f2c8b0147722deba3fbc6bed9bca5b843ead1614d04b6b3f",
-    "claim:0b6f8c45033ed0228a3b": "7716e649ca88f258f5dbfb96f8e94759ffaaa9089ba305ddeb74222de4ecd5f2",
-    "claim:0da68b1d61b229269520": "09d6b05cb7c63733addb3cbb7dccdc879563af372363f7d9431e8534b7c0d3ce",
-    "claim:158c76d4f5305a8d7c9a": "f1f44060570d0184c047d84cd632908aed541a982518d2d46e6ec2deac262200",
-    "claim:16651987c3fee7afe191": "71975990535a639e2f4d12f2720b82071f19faa43a4d0648be086cd70542f2a9",
-    "claim:17655063e700d2fa0b03": "216f84fc5846304d996e8c80d61b0f67b201f8fd8b8f1898dbac23256a18f0ef",
-    "claim:1d226da49f2e53690ab1": "50a01cdb73274267b7b40fe7d511e570b2da0d13651a93b36a42d3e197e2df61",
-    "claim:1d247f301821775b4042": "8ccf32faa8a82f8ede5ee4adb4bf5c700428baadd2028f0074ecfc0e5367ace1",
-    "claim:20180d84d33561850701": "5a5a92af06e1421eec167c4c59a44e511da618642eba06eb3860f3d978e1dea2",
-    "claim:2075028afdb6c472cc6d": "29d96f64e34e82ba079c49e14ba18036cae46fefeea6fa95734d910e7efddaaf",
-    "claim:291c17de3c5986a4d705": "3f5345a53544bbe2e906363df72bf8cd31025356385c726266be1d28c64546cd",
-    "claim:297b44312bdcc4c81dfd": "90f8fe142a5fcc3397146ac63498554b503d46f938ea9fad181914e9d446a77a",
-    "claim:2a9844acce5ba6150dec": "25d68752bf23c3aaa5e4aeec6cd176b0c3c01dde2bfe35bb8caa3f555af67ad0",
-    "claim:2e1903541843b85abab7": "e3b8ee20780d21c4c3dcf0fb2f99dbd96ff6c2ac362c0fb2245dd3b5e6e39a1c",
-    "claim:2fedca54c255f13d1e3d": "fa79e7e1dbeb22fbbf602057fe8f0c3bb556fd6a7ea10e8a9875ee1028a5fdc4",
-    "claim:3122ff168111783bf1b7": "a30ba790b7792da9d25bd65f3703dedeeb2a26e84a03f18303437437314a5951",
-    "claim:327ab1852ca9b6ae43a8": "4c0e54ecc86d6f55a0efeb3fb9ce8373fd65fbd3d50cccfe4379b3d79d107a58",
-    "claim:32f0173b23a7d2c356c0": "0e639ff78468f63a5f4c322318f3d86d548da71ec33da5c1de6492fdbd6ad161",
-    "claim:3b96546de8e62931465b": "84830527179136a8031af8c6a296aac790ad23ed228950662c3220902e4ef455",
-    "claim:3d32a2c3e36e71683eb0": "a59b20b616ae06db80ebf7ce3a34584b6a2332b6083937d11deac2b06712120a",
-    "claim:3e398ac03167b9c52704": "6c82e178d249f55a25220b836786bfe86565ad8d2041cf955cfdae5d52610c26",
-    "claim:3edbdae68bba764c4d7a": "2c0f8f4e4f08c7aad235b0bc6509abab9e15158f4311dd2a831162f673b738a1",
-    "claim:41acb26590385a18732d": "8a3bb5a1453596b9ee06ca3649acff4f042ddfcc649973ea5c3617ff3249d09d",
-    "claim:44c7dd8911e8b6703262": "9c224b5b8f1eb1e87a23b3df4b6657d9cd9cfa84f745520a0d7e917fb5727357",
-    "claim:478537db6c6c72a01a23": "0a6e4f4b2afe029123abbd0fda3582f6fc21291b509a1217b64bcbefb83c30ea",
-    "claim:4c4098a035a5ca256bfe": "ac43e6f00bf2b2ede4e4a213a60f24686eef88a1d8b9b040b456586d23269fad",
-    "claim:520ba5f389698ad4894c": "bb2bccd74a9a34b3e9810724da5d5d0415a70191af37c5f912811e7390e30e6f",
-    "claim:55869ae739061924fa89": "3cb72eac7ec16393b9c65dd64820653136398e8de9d8dbdb0515293ba1867b1b",
-    "claim:5592c7e3a3caca6e48e7": "5785fdc30f2e180093a5c62b74bc50e99719099caf1a7df1a1973b02130b483d",
-    "claim:5715dfc8211beee76c9b": "488ac02d6e56efe4a94432c4beff5aa8abe8595de5c3e87afc9d55008efe6272",
-    "claim:57b56ebf5bb293682e3d": "81843a903c52c01e4acf93c0923d40d5c7672e97a6091cc086fb8bf45cfa3179",
-    "claim:5af728c2fa3f1eb62033": "76157d3a9d2f3617018b3caa690fb34c8af8d1d2552315fa1b8ea2ef21013268",
-    "claim:5b82a56142ddcce1daac": "cc8220218d6e23e2e8fb88268adb6beae0d32487d500536380f5cb17deebb53f",
-    "claim:5bd61f2bea8b95341e92": "13a03c437e59f72fecb4fda97b8edc92dac63c2558af867770001dcb871156c5",
-    "claim:5c7aec32d916e2cb2902": "bcbbc69e2b628115feebc36589fec6d595e772eea910171a7d610948876ca973",
-    "claim:5e95f49027f612b41532": "e5605f992e3a53c0f6ad640386f70b8df00a3d6c165b4e381ad007605462e063",
-    "claim:6555c16bc49f42002e19": "054c612bf15f813f9691bf2bac2a12c1f347d4ca46a3294128a62bc881ed070a",
-    "claim:655e8a2e8af2e0d243b4": "36086a6896b4e51bb0d0bcafbd275bdff2e3d82318172ea668e8e6d62f4d51a7",
-    "claim:66eb84b2b9cc466ce78b": "062282237240390f760fed5485a9ffab309543b55651429c6566c582b2dc4bcf",
-    "claim:6e476b138ed3e7a5ffe3": "674f95c22211fea516a3c6adfb5f62c959ef996d266c036b1560915ca1814e6b",
-    "claim:72dd1841cd10ed6d5a30": "bdb59c6d039836b4819468c65d99161e5c2bfb4fd117e97e22ffca2cb848c30c",
-    "claim:7685395548df3abf0345": "bca4788dd3318ff1a5db77b047b6cf9d445b8a020890142b6b65a71fb4c57fd3",
-    "claim:77d81610f43ada6245b5": "f1a921b909b96f823bf4c8f000b52631065c943c0230fee39253eed29f3d273a",
-    "claim:791458dc76400b3da8da": "d52df06742b25e880e1daef7aaf72eb825954f653dcde6d775a8a6a1065247ad",
-    "claim:7df4b8c20f9419a30a5a": "03edaf383cffa0067f678ecfb4a121fe87a30e900e6c6fd5b9a0b5e6335756e2",
-    "claim:7f8665ce87067b53a8e1": "91172c4ead52dbbbf401aaa4a7250bf0df0d2d68dfbce341dca0664eff3847ad",
-    "claim:81b7e563732881f9f61e": "ea27201f3b778795c6dd95570a4c6e30126ce5645be439e179c68337010e1519",
-    "claim:83927d3b550fdd065539": "a271f77e79efa19bf8dcfb02bfa591540751d15202a5f4a6bc63c0aad627a2b5",
-    "claim:8413b1413681a6264334": "56da467d023fa9ac62a201eb9d4aedd81f257158d6063280a6e691fbd3f96eac",
-    "claim:8c0f60b13add3ab2acd0": "cdfe1d24d4f28123f4bd59204f623027ed6f686304b070b8a597799c3c9dd7ff",
-    "claim:8c12d5c5828068271f42": "700a85ba7b78ba2e8db10f016201461e51f9d668dd44f8dd924a4b146463aaa0",
-    "claim:8f487df9b2cad5ad4d67": "a18f53615ee98529a9b671e749f4cc765740590c2ffd7f88814609c2e0618d93",
-    "claim:8fd1c14a1b2dfd384009": "276a18399abf9b26a097e307614caa8ff583f62d618b41fe8116298eae631949",
-    "claim:900a195ee6880a693f27": "e4ee91d15f52930c5a01b4fa99fb83e6c4c60c8b1a262f53d6d679737cf9b8ff",
-    "claim:90fecb6ea51cf994ff92": "9aacafbf9298767df4c1fbb9229866610014c803f52fb35774b84a6fa225ba49",
-    "claim:91ee6520b15a13ead962": "cb23434dd4e23b6f478755e8f6606346254bd9c89d19c7abd8aea4b59bf0d156",
-    "claim:95b6c9942f1cf887704d": "071cad72164834ebed6dbef33fdfa41a0973e533df5bd60cdf3d8819834e13cb",
-    "claim:982862044b976afd957e": "2dd455c1699408b031c3d4365c69ab0505fb1d168901ed1fb614f5d09b2e07f8",
-    "claim:9ad17cb08b8955d0d3ec": "df06ba58e451cd575a40f967a82668ffc4b9ee0df9d07d7a6aa3ab415d989f27",
-    "claim:9aeb212456b9f2dbc0e8": "bd0600f02db1a42083fe9fdb28708f347d3a67b779a593daf597a102fbe03eeb",
-    "claim:9b3828d23bb861248bab": "4b35b4d675551750a034b6050e50b7df8bddec83f84ab477edabd03bdc394a74",
-    "claim:9d5a4e6a9a80653a11ab": "fe5be99934e3daf396854344a788a503101e2749c0fa415c6da29ae3538296dc",
-    "claim:9f505350705f22d88caf": "e83847cdbac01bf39bc15bb09c76b151624c90cb9848ad83b821257d6eb5d06d",
-    "claim:a0d563da5b5ab3c6697f": "ec676c168a7a080b876d83fa786998d513e968fe8f2d072e7ec2467dc1c48b20",
-    "claim:a314672aa6a2c8e10ca3": "f9bc59e559d3573bb8fd4866f7338294b2e505336e4270a1dd82edb78cfa7c99",
-    "claim:a4f62883e5e37c131065": "049a44038f5ddcdbb7ec8a5210b70ffdc32a93a5d29ca585e2607c6d4454c5fc",
-    "claim:a69d0b49451cf59e5ef8": "301e03f370fc6c58f9532fb077b4fcff8df4f7bee0c4d1f5dcf91b4c22da3f66",
-    "claim:a6fe41ec449004caa398": "54a675c68a2240c6cfe04d84b0748f28bf54838072aba39ce8f7354fec156731",
-    "claim:aa106347db09132b9e60": "e6e2b6fd9d1be2c4af20afbf97b502cdff5b97b3ca7df9669317bb033e83ecc1",
-    "claim:aa549ff122698db9c8a1": "476f2fd5f2049f0a3b7916ab8fa6f995c56ad0b901994bdf5a076a499b789340",
-    "claim:acd9b4db35293fe83531": "fbcdf0a48c394e59d4a53838381c03e6a590a497657588e23eeb36ec36f585b1",
-    "claim:ae356a9d7df599b21ea2": "a4516c3ee1185e1fd9ee9e2c659e384bb0b7154c54c5e37ea5afe9ecc09a606e",
-    "claim:b0dab4bb324e8e03f2aa": "9ee0226f42ea9424b5897974713bd57a68adb0314129fdfe0b0e1e084437c320",
-    "claim:b338f561248b74d63dde": "f25fe5fc90d6e380d5a76e741ed7b16c6beae4401b5339cdf962b0336da666ad",
-    "claim:b56be3557c4c9c4e891f": "0398bec8dbb658b735bf508cdbd786ff5a97d2256e900e68343249a354d3668f",
-    "claim:b58e5bdfd1a5ac20fe56": "848d22c95598342b87da9f48d86267b768cc9fca840ec5a3719d48468db4380d",
-    "claim:b6025804c011523e291d": "fce4729b2e59600fdac20f534b460386bce39b8154ad8e2919e13e0f5d94b539",
-    "claim:b626c6ef85b2988091af": "79b04ce3e883aea55e1e277e4df2c1a7688c9e9d0e45ad990a2c6f62e421bbb3",
-    "claim:b9e56d68768b84160b2d": "84e1593422870545a5c8430cf75efd19353580d72097c944c68b7e23e8ef5b55",
-    "claim:ba15698ecadd55ce215a": "1af4615a9c4d8549c7a9b28dfa3de076e3dc1e86c32e5c203bbd4f8689f1619c",
-    "claim:bb63388099aad8e73249": "935913ce805e092a388113d3c55c7b329ee854f352ac4a03c51908828678c981",
-    "claim:bc8c6d853c7f96e0a2e2": "d6111cea56616ea866b88e342612481bcbfc026170f0250666528fae0f1af285",
-    "claim:bcd25b334f61749a0936": "45f292a22b741080f68e656494a56d4c61279683f4c2cbb85d39e8ef74c6d004",
-    "claim:bd2faf9d63fc7ecc41c1": "47d7f95c476ab23a4a4f11db1c6d8c86621b6b058142355845e372c7907445c3",
-    "claim:c04a3055801d1b1a9fa4": "e1f01c3c7a7c2afc3806d0d0e05766b5cf6490a94b91cd8ee4cf5beb7af832a9",
-    "claim:c3895fd632988c791c6b": "711a9a4ae654b51581f62fd73b2f0c5769d75779aefa9b5f4d0a8294d0edc0ba",
-    "claim:c51dddb61c2874195577": "707ae701c9d7063db4b154552295ec53265f89712e40f7d0cf47447254934d92",
-    "claim:c78fd6f074218814ab14": "7463efeef683892fded95d9e878e5cdc305123ba06eacdf9adbcbf704326dc50",
-    "claim:c7ad8608083bb51c3061": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
-    "claim:ca69b47b8b75c379ab9b": "7272ee92a65680fe543ae5a6f43613cf10bd4d028496de52c31fd3a83f4f42a7",
-    "claim:ce1480ce2324122b7616": "4be9f03a86cdad911f79a6ad097b41d4994a84376163c5135ba91dfdbc10efa8",
-    "claim:cf79610fa6ae8b64785a": "70542998b8401f36a02b1be8a50c9db4bc00641ced2edf87c38723bc41908732",
-    "claim:cfe69010c4da6d562714": "ca7a20aaf9a148652fb49265e86994c0e79654d9ae20d397d894cb29c4402750",
-    "claim:d17a6f9e0323f5006c39": "16a446b55842de032118095f9609db7c70558f327163c162903f9731c6031124",
-    "claim:d194b4c89fe91bff7295": "f9d9c9cc339d387a550ea619ad79cd9796dae05bf09027c9cac9c82c64f3a3d2",
-    "claim:d4ce419dacead95cc755": "53ddf10893ce95752f9bcbc811c44bfb50be73a5c4103c86f60f52db247b9b93",
-    "claim:d6423428e4be129fbae2": "f541b899b571329dcbebd88018bb47bc8bbe74bc941c8a9d67ffbd7f9c06c7f4",
-    "claim:d698800e0481b0e80573": "a31cb5e8cfa5f69eee6b419d970d4cfd0a5059a5a1d0cdbcc768f9ecbe818683",
-    "claim:dae53f2715a5838fd9fc": "919a20810a8d66d5909b3365276f96c0ec05bd2f934ee758441cf17e2f89f529",
-    "claim:dc7cb132c34cdde8cb4e": "be1b10911d83e98e5b0589ad9085800e09a24c3db0775a260a63cb24151e13ee",
-    "claim:dfbe7795611e3e0a16c3": "b1fbe1fdfa72d3c081b692c88c984ed6b179e441420694cecc1e7db6a3b89ab1",
-    "claim:e455b02e24ad1e09034f": "b3427b24b5f74266a61106040088f77ecd56b0e35a814881ef0e39405ae9aae3",
-    "claim:e714ac3fc850561e6337": "73c9637dfae3361d27305fe59fc4fe8a79e1afb232ca636d7fa690793e4cb80a",
-    "claim:e7b7144df980503b13a7": "b9200b16d4f8ef7d363eaa1394fabe6e044468db62676c23634639535ebba9e8",
-    "claim:e7c1e8c985ea86f64d56": "fe314b73585f2ead008982a47824d7542b885245adcd8b5d099da3d043a10653",
-    "claim:e82f6d953b1c58a70658": "48e4791ef0e7d04a01cdeda8a21dd030135f00dd6c1a488232806263832310d4",
-    "claim:e8bfb77009f754c3faa1": "290dd861ca70bca86c3ec8e8985b906d0efa7631dd72542f007d39d604f32538",
-    "claim:e8daa0124ff31d88887e": "010b96203e1e73d55eeb5e7c6bb9be2e8b3d804b7eb7389d4cf6c7aacb5d9d6e",
-    "claim:ee6db5c07a1abfc6a006": "7c574925160bfe901bfddab4f5837e03308c351af762f5b30683eeb3578e40cd",
-    "claim:f1f6b9b0447d27d298bd": "6493fa8b7043ad91536adc5ded26adabead7aef93d5283ea1637a79867a2bc80",
-    "claim:f3f4f67796a8e9204d0b": "2f71941f4ecab3f419675eac0be7584f6bf47a1872c58b20f3012c6d000537aa",
-    "claim:f50dd490984e0495430f": "57bc38cffe0502f4f75c436c1c217e159e50850ad2742760e19101959919975d",
-    "claim:f52a2e57057018037f30": "034a105ca6cb359391f04f7ced000b1b5a2a9fd5efb3bb75cba9d3d207cba5ae",
-    "claim:f7364132199fabd7a774": "93179637459991f176bb4d7e5681c8a4d53efe90dbc1afebfcb483ef616f7724",
-    "claim:ff136cde6aa716bfc87c": "cd0da2eb9b2b9f28456fc2e086da137172e4aaa5a25eae70ff1c2bc1ba183381"
+    "claim:07a75e5ff71510d708de": "08639a0013c659c90d8e1df5a5a4c7b246cd024b27279e84d0abadfb1ae3c9ba",
+    "claim:0b388b0e4afdabbc9903": "fcdf043c633850c0f528cab7fe5d1d593ee773c61417bf146b39ecd0f85a798c",
+    "claim:0b6f8c45033ed0228a3b": "bb908a2cfdf87a9d31006a679bbbe6f5cfad6204a08083775530dd77a91862c0",
+    "claim:2a9844acce5ba6150dec": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
+    "claim:32f0173b23a7d2c356c0": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
+    "claim:3b96546de8e62931465b": "8a3ca5251317c5a8cf64ab8ca8a4926a9cfbbd69968df5727d5c02a39144ac43",
+    "claim:3d32a2c3e36e71683eb0": "0c60528c11fa896bf9bd411e1ff46a1c9f47114aedd224c4977a267b3f61c3af",
+    "claim:3e398ac03167b9c52704": "754e7f08fb45e2fdb878564df58b2df2b8603e5aa25c6c90d70d517a0f201270",
+    "claim:44c7dd8911e8b6703262": "146a0cb3dc532388d62c6a9503b5a0b84204bc8f977cc6c20a924e81219b3ea1",
+    "claim:4c4098a035a5ca256bfe": "5983d44014e83f08a209a4edb1111bf55ad908a99b8e0394888fea4a954fe7e6",
+    "claim:520ba5f389698ad4894c": "d8d15a936979ff887fb7da575b1048dc6f52714f0242cbe54aeda481d0ee0e00",
+    "claim:57b56ebf5bb293682e3d": "15885df0d3612cc6c4e48e7a0ab19226f4146a3f7a98b63622535ccfdef56547",
+    "claim:66eb84b2b9cc466ce78b": "17899e76352b819c70d518475a1a59b116b8d49ecb24aa96fd141d061a2de2cf",
+    "claim:72dd1841cd10ed6d5a30": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
+    "claim:7df4b8c20f9419a30a5a": "381e959f5b37b536f842e913d16d4ccaf7f2ba0629b4bb88f154d681ad59326c",
+    "claim:81b7e563732881f9f61e": "56c909ca2a470412addfb9f66e7a0556ae64364b3f5a1e63dac7d8f68ebdf72d",
+    "claim:8c12d5c5828068271f42": "8ce408dc5647ab1445434bb7769ad128a0203c6bb3c574e22cae19d802efe128",
+    "claim:900a195ee6880a693f27": "6c0e5a7c9d61a1846f59a55164afa09451ec3ce7f8fbfa2e41c2e0ed3d29b3a1",
+    "claim:90fecb6ea51cf994ff92": "703c36edbfac623b571e7d95b6fdd399c3b93f6715dc494e616981ff621cfb7a",
+    "claim:9ad17cb08b8955d0d3ec": "14ce250784b870a2f1d890c50e5999a3f4968431e2e9d6257a8c41220b4805f1",
+    "claim:9f505350705f22d88caf": "d765801ba0f2bbbf8a4f26c18d1df71387370608bff0b4d18406b6cbc9c419e4",
+    "claim:a69d0b49451cf59e5ef8": "2728c742c181d7442f510bfda2711c23694632b42a1c50af9e14d019a1cd4dc1",
+    "claim:aa549ff122698db9c8a1": "8c70ab39c5a2813c20c7796b4605495b6a1ea6700555476a14ba92d0c07bc019",
+    "claim:b6025804c011523e291d": "0740ed2aa3851d01c7f9629557d61fd505526d96e3e5b62d480868ecb0744da9",
+    "claim:bd2faf9d63fc7ecc41c1": "1f2f65a93335b3f545b77ef597d3ec4d7f0a911cdcb656e7fc8d7866c5ac9eb8",
+    "claim:c04a3055801d1b1a9fa4": "158828963aaf7ff774d281e8ef641280ee95bdc3e5ca76cf831b8382a757ecd9",
+    "claim:c51dddb61c2874195577": "0d9166c0e82fd94f26bbc34a0e7a9f010c0d38ecd06adb0d7cbbc9a7194a920b",
+    "claim:c78fd6f074218814ab14": "dfb19a1c863e85c601ce5ee4276ef28d275eebec5ad101bd5fe38cc9e1d0e072",
+    "claim:ce1480ce2324122b7616": "33bb573585630462be8252aa57fe85f0c57f8c2ba6b086f57ad820148681ba23",
+    "claim:dae53f2715a5838fd9fc": "8713215832a6df78bd26e786f64fc3dbae85c1da649d1eb2237f1629ce598d85",
+    "claim:dc7cb132c34cdde8cb4e": "edca05774cb4620ebe2b98aeea5c73a5edf5f9afd5afa8301c28189948fa13e7",
+    "claim:dfbe7795611e3e0a16c3": "d6b7a848bd706dae03306e43d609fa97820543b19ff09028fee388fc7cfa4d46",
+    "claim:ee6db5c07a1abfc6a006": "7febbdcef535f8a717af60371b6e87ebfed3090e7326eba902b0f68699f3d35c",
+    "claim:f1f6b9b0447d27d298bd": "685eb4ddf0afc8c4f0b0ebb90b3d7e8b2d322a2d3afc208ca5e03d2ade5116d2",
+    "claim:ff136cde6aa716bfc87c": "0332e6be0a15d0418505a3483fc2388cad1ee457549dde309c1536218769ff7c"
   },
-  "approved_claims_hash": "cd7a3aa1cf26d7a8d5bcc3c01043689b82bc0ef6eb9b03822aac32630e1af73f",
+  "approved_claims_hash": "bdf9f1f92c6a03ad5a1a18981f7d9bc159a07e5bd51d1e1b4e91bf1eea75e7c8",
   "approved_claims_path": "knowledge/concepts/check-in/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -4781,242 +2070,40 @@
       "source_record_id": "media-insight:b9ebb5bbd2009098",
       "source_title": "Check-in Manager Transcript Insight",
       "source_url": "https://community.rockrms.com/rocku/check-in/check-in-manager"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "content_hash": "c28fedc8f70ee4ede99d6eaf11af5393690da6e2e01c752732a48859d82ed243",
-      "key_insight_count": 2,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:a11e091aa9800728",
-      "public_promotion_id": "media-public-promotion:c28fedc8f70ee4ed",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:a11e091aa9800728",
-      "source_title": "Episode 47: Special Edition Lee Peterson Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "workflows"
-      ],
-      "content_hash": "e733677d14106ac81815cda94723f01ae29e35fa1076de6b5a22f3b5eab4429d",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:dce93b59a77b5d0a",
-      "public_promotion_id": "media-public-promotion:e733677d14106ac8",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:dce93b59a77b5d0a",
-      "source_title": "Episode 188: AI and the Church, Next-Gen Check-In, and the Rock Community Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-188-ai-and-the-church-next-gen-check-in-and-the-rock"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "security-permissions"
-      ],
-      "content_hash": "11b33ce846aca7fe9dd0b40de7599add3c8a7ad147a591809ec343b5817bb431",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:3e188ba1c129022b",
-      "public_promotion_id": "media-public-promotion:11b33ce846aca7fe",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:3e188ba1c129022b",
-      "source_title": "Episode 161 :   Building Next Gen Rock: A Look at Check-In Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-161-the-evolution-of-check-in"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "data-views-reports"
-      ],
-      "content_hash": "5482208a227ca1932d05ac54a6935acfbd00ff4af710bd63fda03d0e29d3a02a",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:56fac00bdec3165f",
-      "public_promotion_id": "media-public-promotion:5482208a227ca193",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:56fac00bdec3165f",
-      "source_title": "Check-in Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5ff"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "data-views-reports",
-        "people-families",
-        "platform-configuration",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "content_hash": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
-      "key_insight_count": 5,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:574371376cd3e666",
-      "public_promotion_id": "media-public-promotion:2abc8a178fef2170",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:574371376cd3e666",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "connections",
-        "event-registration",
-        "people-families",
-        "workflows"
-      ],
-      "content_hash": "e969adc9e714990b931e76f08dcdb5a2769193db4768f4481e598b9369b767d4",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:1f90493258b0b21b",
-      "public_promotion_id": "media-public-promotion:e969adc9e714990b",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:1f90493258b0b21b",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "event-registration",
-        "giving-finance",
-        "groups",
-        "platform-configuration"
-      ],
-      "content_hash": "d52e3f808b96f82aa71bd59fb00aead03852b56ce771a2fed2551cc675125e40",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:05f4fce834300a65",
-      "public_promotion_id": "media-public-promotion:d52e3f808b96f82a",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:05f4fce834300a65",
-      "source_title": "Episode 111: Special Edition with Tim Dear Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in"
-      ],
-      "content_hash": "3fbb63f0a3196edc4c8d2ce4dd5bab568dcc3ac21002aaffa32c230aefbd42cd",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:1076321e3edbe90d",
-      "public_promotion_id": "media-public-promotion:3fbb63f0a3196edc",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:1076321e3edbe90d",
-      "source_title": "Episode 129: Check-Ins Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-129-check-ins"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "content_hash": "5e6d1913a9840f94774201b934775faabc614dd1c7dd248f0a11bdbcbe32c1d0",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:e966cbaf8af14d10",
-      "public_promotion_id": "media-public-promotion:5e6d1913a9840f94",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_youtube",
-      "source_record_id": "media-insight:e966cbaf8af14d10",
-      "source_title": "3 Underrated Features Churches Are Overlooking | Ep 217 Transcript Insight",
-      "source_url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "connections",
-        "platform-configuration",
-        "scheduling-locations"
-      ],
-      "content_hash": "25944046af8d49f29a5628f47bfedf9406488c078fc57d404ca2c74a5ee19959",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:1996763c554953f9",
-      "public_promotion_id": "media-public-promotion:25944046af8d49f2",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:1996763c554953f9",
-      "source_title": "3 Underrated Features Churches Are Overlooking | Ep 217 Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-    },
-    {
-      "approved_concept_ids": [
-        "check-in",
-        "platform-configuration",
-        "security-permissions"
-      ],
-      "content_hash": "36a552d0998990cffffdfff0554acf59aa607acd226e130d35b166843eebf893",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:6b5ce810e2795435",
-      "public_promotion_id": "media-public-promotion:36a552d0998990cf",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_podcast_rss",
-      "source_record_id": "media-insight:6b5ce810e2795435",
-      "source_title": "Episode 33: Rock 7.3 and New RX2018 Tracks Transcript Insight",
-      "source_url": "https://shows.acast.com/rock-cast/episodes/episode-33-rock-73-and-new-rx2018-tracks"
     }
   ],
   "approved_media_dependency_hashes": {
     "media-insight:0176383f60385125": "18d2f687acb769d172666f8a671837f0b85c422fc57f839d5f05be394007aa62",
-    "media-insight:05f4fce834300a65": "d52e3f808b96f82aa71bd59fb00aead03852b56ce771a2fed2551cc675125e40",
-    "media-insight:1076321e3edbe90d": "3fbb63f0a3196edc4c8d2ce4dd5bab568dcc3ac21002aaffa32c230aefbd42cd",
-    "media-insight:1996763c554953f9": "25944046af8d49f29a5628f47bfedf9406488c078fc57d404ca2c74a5ee19959",
-    "media-insight:1f90493258b0b21b": "e969adc9e714990b931e76f08dcdb5a2769193db4768f4481e598b9369b767d4",
     "media-insight:1fb05cc8930bc9e2": "3b5b2cad5c23d5a8e67d19ec1cd69b781c0cf7ac40642e0fdd86d00d6adcf11e",
     "media-insight:2feee6594a4a39d3": "cd44d56f0a337ca099cf8dc7aced1cd573796b636e8d685d030875293440c7da",
     "media-insight:335f32e73b39bcee": "555a104d817991692fb4b890243fb53867b7c205bec785179da3bb6811c93860",
-    "media-insight:3e188ba1c129022b": "11b33ce846aca7fe9dd0b40de7599add3c8a7ad147a591809ec343b5817bb431",
     "media-insight:42dce3602ea3f7ef": "cefa2e335758b4854eec51956540166e09122e35573c98a0c1f43ac1c65bb84c",
     "media-insight:43111d964e899603": "78d75b645ffcb0b55e5df314c55262f4953c79c312f1f653de3cef1090990630",
     "media-insight:46cbecc1a1072d45": "f8275af00dfafb68bb37085887f7c410feaa816baf0d1047e11a263505737cd5",
-    "media-insight:56fac00bdec3165f": "5482208a227ca1932d05ac54a6935acfbd00ff4af710bd63fda03d0e29d3a02a",
-    "media-insight:574371376cd3e666": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
     "media-insight:6177a74e098f3302": "56f944b09c636a86dca3306d4e8bb19a8607a3a37565d59d257794245126984d",
     "media-insight:61af1407e6153473": "0c10674ee5b24dc9e02e62ad6c1732c797776890df4076ca38e6121a8ef36a47",
-    "media-insight:6b5ce810e2795435": "36a552d0998990cffffdfff0554acf59aa607acd226e130d35b166843eebf893",
     "media-insight:70fee5b08ce0f4f2": "f81129510606d429a4ea1ef73b37b61f404edeb699fab0f4c962f90bf7bc7899",
     "media-insight:726c382b13da37a9": "90bb21090a7d0c5281033203f47ecaa7a4af8d10a2b0c667add9c9b7a7057a2f",
     "media-insight:8c1c68acd9a3e175": "a0e12860c5e8cb10b132a064688989b9db012822586e83a171201fb0d19d23de",
     "media-insight:9f9e326b3e1fd719": "c940445bb9c694dc64d29963c490efade6837c741be6190be5be2bf87242377f",
-    "media-insight:a11e091aa9800728": "c28fedc8f70ee4ede99d6eaf11af5393690da6e2e01c752732a48859d82ed243",
     "media-insight:a8ed08ea505e5367": "e1aa10dd2d8dd1803fd31f252f3bc4ee6765744929931805bd6fd8ff7e82eff3",
     "media-insight:b32a4e808360fabc": "75fc149b165c91addad4efb6f1b2a2666480ed1b43a5016ae4f56dad6b4479f6",
     "media-insight:b9cfbae2df04e08f": "171803a2ea6b743bc49ae5f4ea1f5926e5783e74521446c8c68cd38bbaee7f28",
     "media-insight:b9ebb5bbd2009098": "619975d8be501a8d2e72848d69c1aee48965ff535fd6a86568ea89f3bb294aa2",
     "media-insight:c44e84f71993048e": "9d45b1e89b0aad26be718416aaf4243ef0fa0fb62dce85d31564cb7918fc8dc5",
     "media-insight:dc8fc84805d89f93": "d055017498686a6e0a500eb77dadc74b01ef79253cd771eac03468c75855056a",
-    "media-insight:dce93b59a77b5d0a": "e733677d14106ac81815cda94723f01ae29e35fa1076de6b5a22f3b5eab4429d",
     "media-insight:e066ef3153b2cc3d": "4614664530cd3bdb3e0652e2464fd5190da9d3820deb949068ced7e432ba4ef6",
-    "media-insight:e966cbaf8af14d10": "5e6d1913a9840f94774201b934775faabc614dd1c7dd248f0a11bdbcbe32c1d0",
     "media-insight:f131f156d62b7d38": "8f1bd90ed2f6cfcbcc717b6a17b11a578d3be4a723f5301db757b37d25f0a902",
     "media-insight:f6a15752e8c7fce3": "2edcb9f524e06ac9a1a1e90d3b7bbe28e8f82676a41a070aa924f9199c2b87fa"
   },
-  "approved_media_hash": "91d17c08b90d285312dbdadb367c719ed7518a6ea4783acdfd325d1c5d5f85eb",
+  "approved_media_hash": "10583ac2d6c548664ac36be4593009027572001302109af1c73195ea87cc0cd4",
   "approved_media_path": "knowledge/concepts/check-in/approved-media.md",
-  "built_at": "2026-07-26T00:29:23+00:00",
+  "built_at": "2026-07-30T02:07:37+00:00",
   "concept_id": "check-in",
-  "guide_hash": "530e3f4d584dca7f7b299c56bb2f85c18ace54abd8597ba3aa52ceb60cdbefef",
+  "guide_hash": "0b2f2f381521c1c8846e54584aa2eea0d5e7ddef66cb5fa54b7265f2b8839d19",
   "guide_line_count": 1640,
   "guide_path": "knowledge/concepts/check-in/guide.md",
-  "guide_word_count": 13463,
+  "guide_word_count": 13430,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -5325,15 +2412,6 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "e3517fa274c4048c",
-      "source_record_id": "",
-      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-    },
-    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -5361,6 +2439,7 @@
       "url": "https://www.rockrms.com/mobilereleasenotes"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -6759,11 +3838,11 @@
         "5fa353d6f0648800",
         "58a92984acbd2344",
         "5fa353d6f0648800",
-        "5fa353d6f0648800",
         "1ff0d6de569776fb",
         "78f1e8bbd9d351ff",
         "1ff0d6de569776fb",
         "78f1e8bbd9d351ff",
+        "1ff0d6de569776fb",
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
@@ -6776,12 +3855,12 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "e3517fa274c4048c",
-        "5fa353d6f0648800",
         "1ff0d6de569776fb",
         "ee9796ce7f9afea9",
         "bef4da01164a18bd",
         "d50e9300409bad92",
+        "1ff0d6de569776fb",
+        "1ff0d6de569776fb",
         "1ff0d6de569776fb",
         "1ff0d6de569776fb"
       ],
@@ -7625,16 +4704,6 @@
       "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "e3517fa274c4048c",
-      "source_record_id": "",
-      "title": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217",
-      "url": "https://shows.acast.com/rock-cast/episodes/3-underrated-features-ep-217"
-    },
-    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -7665,5 +4734,6 @@
       "url": "https://www.rockrms.com/mobilereleasenotes"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

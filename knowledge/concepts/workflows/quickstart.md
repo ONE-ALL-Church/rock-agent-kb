@@ -17,22 +17,22 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 
 ## Primary Tasks
 
-- [Recipe: Find Every Launch Path For A Workflow Type](tasks/recipe-find-every-launch-path-for-a-workflow-type.md): Follow the guide section for Recipe: Find Every Launch Path For A Workflow Type.
-- [Recipe: Explain A Workflow To A Staff Owner](tasks/recipe-explain-a-workflow-to-a-staff-owner.md): Follow the guide section for Recipe: Explain A Workflow To A Staff Owner.
-- [Recipe: Diagnose A Missing Submission](tasks/recipe-diagnose-a-missing-submission.md): Follow the guide section for Recipe: Diagnose A Missing Submission.
-- [Recipe: Safely Retire A Workflow](tasks/recipe-safely-retire-a-workflow.md): Follow the guide section for Recipe: Safely Retire A Workflow.
-- [Recipe: Build A Workflow Health Dashboard](tasks/recipe-build-a-workflow-health-dashboard.md): Follow the guide section for Recipe: Build A Workflow Health Dashboard.
-- [Recipe: Validate Person Entry Configuration](tasks/recipe-validate-person-entry-configuration.md): Follow the guide section for Recipe: Validate Person Entry Configuration.
-- [Recipe: Audit `workflowactivate` Lava](tasks/recipe-audit-workflowactivate-lava.md): Follow the guide section for Recipe: Audit `workflowactivate` Lava.
+- [Recipe: Design a bounded workflow type](tasks/recipe-design-a-bounded-workflow-type.md): A reviewable process model before configuration begins.
+- [Recipe: Review a workflow form change](tasks/recipe-review-a-workflow-form-change.md): A field change that preserves validation, visibility, and downstream behavior.
+- [Recipe: Configure a selective workflow webhook](tasks/recipe-configure-a-selective-workflow-webhook.md): One intended request starts only the intended workflow with inspectable input.
+- [Recipe: Diagnose an active workflow instance](tasks/recipe-diagnose-an-active-workflow-instance.md): The first incorrect state or action is identified without unsafe replay.
+- [Recipe: Audit a connection follow-up process](tasks/recipe-audit-a-connection-follow-up-process.md): A Connection process is understood as both person context and operational state.
+- [Recipe: Import or adapt a workflow safely](tasks/recipe-import-or-adapt-a-workflow-safely.md): An imported or cloned workflow is validated before activation.
+- [Recipe: Design background orchestration](tasks/recipe-design-background-orchestration.md): Slow work proceeds asynchronously with explicit operational state.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-50: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 51-97: 2. Scope And Terminology (high)
-- `3-workflows-mental-model` lines 98-149: 3. Workflows Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 150-175: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-workflow-type-configuration` lines 178-198: Workflow Type Configuration (normal)
-- `5-core-configuration-and-data-model-activities-and-actions` lines 227-241: Activities And Actions (normal)
+- `agent-summary` lines 34-50: Agent Summary (normal)
+- `mental-model` lines 66-85: Mental Model (normal)
+- `process-design-before-configuration` lines 86-104: Process Design Before Configuration (normal)
+- `triggers-and-activation-entry-pages-and-direct-links` lines 107-114: Entry pages and direct links (normal)
+- `triggers-and-activation-person-entity-and-grid-launches` lines 115-120: Person, entity, and grid launches (normal)
+- `triggers-and-activation-scheduled-activation-and-background-work` lines 121-126: Scheduled activation and background work (normal)
 
 ## Core Entities
 
@@ -43,11 +43,11 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 - `DataView`: Rock concept/entity referenced by the workflows guide.
 - `Family`: Rock concept/entity referenced by the workflows guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `GroupMember`: Rock concept/entity referenced by the workflows guide.
 - `Label`: Rock concept/entity referenced by the workflows guide.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the workflows guide.
 - `Person`: Rock concept/entity referenced by the workflows guide.
+- `PersonAlias`: Rock concept/entity referenced by the workflows guide.
 
 ## Version Caveats
 

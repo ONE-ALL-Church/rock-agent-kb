@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Investigate Family Serving Response Request
 
-Follow the guide section for Recipe: Investigate Family Serving Response Request.
+Source pattern: Manage Family Members' Serving Requests on MyAccount.
 
 ## When To Use
 
@@ -16,17 +16,32 @@ Follow the guide section for Recipe: Investigate Family Serving Response Request
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Person`
+- `Schedule`
+- `Family`
+- `Workflow`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Person`
+- `Schedule`
+- `Family`
+- `Workflow`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify current logged-in person.
+2. Identify target scheduled person.
+3. Verify family relationship.
+4. Verify age and role policy.
+5. Verify scheduled attendance row.
+6. Verify authorization to respond.
+7. Verify workflow action updates only that row.
+8. Log responder.
+9. Preserve decline reason.
+10. Test with spouse, minor child, adult child, and unrelated person.
 
 ## Do Not Assume
 
@@ -36,13 +51,13 @@ Follow the guide section for Recipe: Investigate Family Serving Response Request
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/recipes/169
-- https://community.rockrms.com/recipes/459
-- https://community.rockrms.com/rocku/groups/group-types
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox
-- https://community.rockrms.com/rocku/groups/group-requirements
+- https://community.rockrms.com/documentation/bookcontent/10/266
+- https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule
+- https://community.rockrms.com/rocku/groups/group-attendance
+- https://community.rockrms.com/recipes/489
+- https://community.rockrms.com/recipes/459
+- https://community.rockrms.com/recipes/356
+- https://community.rockrms.com/recipes/169
 - https://community.rockrms.com/rocku/groups/group-details
-- https://community.rockrms.com/rocku/groups/group-history
 - https://community.rockrms.com/rocku/groups/group-security
-- https://community.rockrms.com/rocku/groups/group-scheduling-overview
-- https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback

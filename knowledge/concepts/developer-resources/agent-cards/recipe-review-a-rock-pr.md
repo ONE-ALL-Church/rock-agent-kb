@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review a Rock PR
 
-Follow the guide section for Recipe: Review a Rock PR.
+References: Codex coding standards, peer review, compatibility, testing (Coding Standards, Suggestions on How to Peer Review, Tips for Maintaining Compatibility, Testing).
 
 ## When To Use
 
@@ -24,9 +24,17 @@ Follow the guide section for Recipe: Review a Rock PR.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify target Rock version/branch.
+2. Identify technology surface.
+3. Check naming conventions.
+4. Check service layer boundaries.
+5. Check generated code.
+6. Check migration correctness.
+7. Check security.
+8. Check performance.
+9. Check compatibility/public API.
+10. Check tests/verification.
+11. Check release notes if behavior changes user-facing contracts.
 
 ## Do Not Assume
 
@@ -35,14 +43,3 @@ Follow the guide section for Recipe: Review a Rock PR.
 ## Source Links
 
 - https://community.rockrms.com/developer
-- https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/obsidian
-- https://rocksolidchurchdemo.com/admin/power-tools/model-map
-- https://community.rockrms.com/ask/developing
-- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
-- https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/for-the-reviewer
-- https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/suggestions-on-how-to-peer-review
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/prayer

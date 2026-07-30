@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Find The Right Person”
 
-Follow the guide section for Recipe: “Find The Right Person”.
+Never assume the first name match is correct when the requested action is sensitive.
 
 ## When To Use
 
@@ -24,22 +24,16 @@ Follow the guide section for Recipe: “Find The Right Person”.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Search with a list tool.
+2. Return limited candidates with disambiguators.
+3. Ask the user to choose if more than one plausible match exists.
+4. Set context anchor after selection.
+5. Continue with get/summary tools.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Never assume the first name match is correct when the requested action is sensitive.
 
 ## Source Links
 
 - https://community.rockrms.com/ask/developing/2708
-- https://www.triumph.tech/resources/ai-agentic-cohort-with-claude
-- https://community.rockrms.com/documentation/BookContent/9
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/ai-agents
-- https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/rocku/individuals-in-rock/data-automation
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://shows.acast.com/rock-cast/episodes/rock-cast-episode-212

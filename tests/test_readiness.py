@@ -1,5 +1,5 @@
 import rock_kb.readiness as readiness_module
-from rock_kb.readiness import goal_readiness_report, readiness_status, readiness_summary
+from rock_kb.readiness import concept_artifacts_check, goal_readiness_report, readiness_status, readiness_summary
 
 
 def test_readiness_status_fails_on_failed_check():
@@ -18,6 +18,43 @@ def test_readiness_summary_counts_statuses():
     checks = [{"status": "pass"}, {"status": "warn"}, {"status": "warn"}, {"status": "fail"}]
 
     assert readiness_summary(checks) == {"pass": 1, "warn": 2, "fail": 1}
+
+
+def test_concept_artifacts_reports_quality_debt_as_warning(tmp_path, monkeypatch):
+    concept_dir = tmp_path / "concepts" / "test-concept"
+    concept_dir.mkdir(parents=True)
+    for filename in readiness_module.REQUIRED_AGENT_ENTRYPOINT_FILES:
+        (concept_dir / filename).write_text("", encoding="utf-8")
+    (concept_dir / "guide-quality.json").write_text(
+        '{"score": 90, "status": "fail"}',
+        encoding="utf-8",
+    )
+    concept = type("Concept", (), {"id": "test-concept"})()
+    monkeypatch.setattr(readiness_module, "KNOWLEDGE_DIR", tmp_path)
+    monkeypatch.setattr(readiness_module, "load_concepts", lambda: [concept])
+
+    result = concept_artifacts_check()
+
+    assert result["status"] == "warn"
+    assert result["evidence"]["artifact_error_count"] == 0
+    assert result["evidence"]["quality_debt_count"] == 1
+
+
+def test_concept_artifacts_still_fails_when_entrypoint_is_missing(tmp_path, monkeypatch):
+    concept_dir = tmp_path / "concepts" / "test-concept"
+    concept_dir.mkdir(parents=True)
+    (concept_dir / "guide-quality.json").write_text(
+        '{"score": 100, "status": "pass"}',
+        encoding="utf-8",
+    )
+    concept = type("Concept", (), {"id": "test-concept"})()
+    monkeypatch.setattr(readiness_module, "KNOWLEDGE_DIR", tmp_path)
+    monkeypatch.setattr(readiness_module, "load_concepts", lambda: [concept])
+
+    result = concept_artifacts_check()
+
+    assert result["status"] == "fail"
+    assert result["evidence"]["artifact_error_count"] > 0
 
 
 def test_public_readiness_scope_skips_private_media_check(monkeypatch):

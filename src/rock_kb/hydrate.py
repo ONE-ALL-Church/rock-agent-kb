@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 from typing import Any, Iterable, Optional
@@ -8,7 +9,21 @@ from urllib.parse import quote, urlparse
 import httpx
 from bs4 import BeautifulSoup
 
-from .concepts import Concept, compact_record_for_synthesis, get_concept, selected_records_for_concept
+from .community import (
+    ROCKUMENTATION_API_TOOL,
+    extract_rockumentation_fields,
+    fetch_rockumentation_payload,
+    rockumentation_readable_text,
+)
+from .concepts import (
+    Concept,
+    claims_for_concept_synthesis,
+    compact_record_for_synthesis,
+    concept_synthesis_evidence_policy,
+    get_concept,
+    record_constraint_values,
+    selected_records_for_concept,
+)
 from .contribution_sources import private_draft_contribution_records, public_contribution_records
 from .extract import USER_AGENT, main_markdown, now_iso, page_title, sha256_text
 
@@ -40,7 +55,7 @@ DEFAULT_CODE_REPOS = ["SparkDevNetwork/Rock"]
 def hydrated_concept_synthesis_pack(
     concept_id: str,
     limit: int = 40,
-    max_page_chars: int = 2600,
+    max_page_chars: int = 6000,
     max_code_chars: int = 3200,
     github_file_limit: int = 18,
     include_github: bool = True,
@@ -56,6 +71,7 @@ def hydrated_concept_synthesis_pack(
         if include_private_drafts
         else []
     )
+    approved_claims, routing_context = claims_for_concept_synthesis(concept_id)
     keywords = concept_search_terms(concept)
     hydrated_sources = hydrate_source_records(records, keywords, max_chars=max_page_chars)
     github_files = (
@@ -70,8 +86,13 @@ def hydrated_concept_synthesis_pack(
             "description": concept.description,
             "depends_on_topics": concept.depends_on_topics,
             "subguides": concept.subguides,
+            "routing_role": concept.routing_role,
+            "parent_concept_id": concept.parent_concept_id,
+            "documentation_branches": record_constraint_values(concept.raw, "documentation_branches"),
             "guide_status": "llm_generated_needs_review",
         },
+        "approved_claims": approved_claims,
+        "routing_context": routing_context,
         "source_records": [compact_record_for_synthesis(record) for record in records],
         "contribution_records": [compact_record_for_synthesis(record) for record in contribution_records],
         "private_draft_contribution_records": [compact_record_for_synthesis(record) for record in private_drafts],
@@ -79,9 +100,11 @@ def hydrated_concept_synthesis_pack(
         "github_source_files": github_files,
         "hydrated_at": now_iso(),
         "hydration_policy": (
-            "Bounded excerpts and source-code snippets only. These records are for synthesis, "
-            "citation, and refresh dependency tracking, not full-text redistribution."
+            "Approved answer-bearing claims are the factual spine. Public source excerpts and "
+            "source-code snippets are bounded inputs for synthesis, citation, and refresh "
+            "dependency tracking, not full-text redistribution."
         ),
+        "evidence_policy": concept_synthesis_evidence_policy(),
     }
 
 
@@ -136,6 +159,28 @@ def hydrate_source_record(
         "hydration_tool": "static_http_bounded_excerpt",
     }
     try:
+        rockumentation_payload = fetch_rockumentation_payload(client, url)
+        if rockumentation_payload:
+            text = normalize_text(rockumentation_readable_text(rockumentation_payload))
+            excerpt = relevant_excerpt(text, keywords, max_chars=max_chars)
+            fields = extract_rockumentation_fields(rockumentation_payload, url, text)
+            soup = BeautifulSoup(rockumentation_payload.get("initialContent") or "", "html.parser")
+            return {
+                **base,
+                "status": "ok",
+                "status_code": 200,
+                "final_url": url,
+                "content_type": "application/json; rockumentation=1",
+                "content_hash": sha256_text(json.dumps(rockumentation_payload, ensure_ascii=False, sort_keys=True)),
+                "page_title": fields.get("source_title") or record.get("source_title"),
+                "headings": extract_headings(soup),
+                "excerpt": excerpt,
+                "excerpt_hash": sha256_text(excerpt),
+                "hydration_tool": ROCKUMENTATION_API_TOOL,
+                "documentation_path": fields.get("documentation_path"),
+                "documentation_article_id": fields.get("documentation_article_id"),
+                "documentation_current_version": fields.get("documentation_current_version"),
+            }
         response = client.get(url)
         html = response.text
         markdown = normalize_text(main_markdown(html))
@@ -250,11 +295,13 @@ def discover_repo_source_files(
     tree_response = client.get(tree_url)
     if tree_response.status_code >= 400:
         return []
-    candidates = score_github_tree(tree_response.json().get("tree") or [], keywords)
+    tree_payload = tree_response.json()
+    source_ref = str(tree_payload.get("sha") or branch)
+    candidates = score_github_tree(tree_payload.get("tree") or [], keywords)
     rows = []
     for candidate in candidates[: limit * 3]:
         path = candidate["path"]
-        raw_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{quote(path, safe='/')}"
+        raw_url = f"https://raw.githubusercontent.com/{repo}/{source_ref}/{quote(path, safe='/')}"
         try:
             response = client.get(raw_url)
         except Exception:
@@ -269,9 +316,10 @@ def discover_repo_source_files(
                 "kind": "github_file",
                 "repo": repo,
                 "branch": branch,
+                "source_ref": source_ref,
                 "path": path,
                 "language": language_for_path(path),
-                "url": f"https://github.com/{repo}/blob/{branch}/{quote(path, safe='/')}",
+                "url": f"https://github.com/{repo}/blob/{source_ref}/{quote(path, safe='/')}",
                 "raw_url": raw_url,
                 "score": candidate["score"],
                 "matched_terms": candidate["matched_terms"],

@@ -1,138 +1,11 @@
 {
+  "answer_bearing_claim_count": 13,
+  "approved_claim_count": 13,
   "approved_claim_dependencies": [
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile development is part of the same product ecosystem as the core web platform, so mobile guidance should be routed alongside core profile, UX, and app-development context.",
-      "claim_hash": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-      "claim_id": "claim:02385390c0f4337809d5",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "01:07",
-          "timestamp_seconds": 67.96,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Contributor-authored KB material should aim for accessible explanations that church staff can use, not only developer-oriented technical detail.",
-      "claim_hash": "1196b12e73a8bf81f482fbf264c6ac9894d2cf3b17dab0d7afd37c7dcc10d66a",
-      "claim_id": "claim:09336fa3abf6533a6ad3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "73777c84a53e432cfbae9e0d6511177c9712dd3eb710ea10a165b645df3da326",
-      "source_record_ids": [
-        "rock_podcast_rss:c361a43aa217fe41"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy",
-          "timestamp": "02:07",
-          "timestamp_seconds": 127.5,
-          "title": "Episode 91: Special Edition with Cullen McCoy",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile adds public-safe context for check-in implementation work: real deployments can require long troubleshooting cycles, church-specific process mapping, and low-level label-printing knowledge such as ZPL. It is useful routing evidence for check-in, implementation, and developer troubleshooting topics.",
-      "claim_hash": "755d9d9e181ea52d6e08daab4f6f75c6c8ed6fcfccf363eeeaf83dbbb4e01d18",
-      "claim_id": "claim:094104f92c7a8daf8281",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Caching and cache clearing are developer-support surfaces because content changes may not appear immediately unless the right cache path is refreshed.",
-      "claim_hash": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
-      "claim_id": "claim:1ed694954b3d4cbe0315",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "developer-resources",
-        "event-registration",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
-      "source_record_ids": [
-        "rock_podcast_rss:26bef0ec9535af36"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
-          "timestamp": "04:44",
-          "timestamp_seconds": 284.14,
-          "title": "Episode 37: Special Edition Garrett Johnson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-        }
-      ]
-    },
     {
       "authority_tier": "official",
       "claim": "Rock Apple TV documentation groups JavaScript command behavior as a core part of building TV applications, so TV app guidance should treat commands as part of navigation, media, utility, and demo workflows.",
-      "claim_hash": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
+      "claim_hash": "a449f055046907fbe417e8984173c313823b0361df53b99983e10a7dc0e8a717",
       "claim_id": "claim:29f4e0bbc81c08861367",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -164,6 +37,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "fb2381e8a0c8d6a854b3e4d4e0948910c0a736cc631c6729f1b1ea2da7a848cc",
       "source_record_ids": [
         "rock_developer:80679876651d7dc7"
@@ -174,12 +48,13 @@
           "title": "Apple TV JavaScript Commands",
           "url": "https://community.rockrms.com/developer/apple-tv-docs/javascript"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior.",
-      "claim_hash": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
+      "claim_hash": "3aeb76b361606f314090a82fd2d4a4b1e3f20ce8cb73ed1b50f97252debd7f53",
       "claim_id": "claim:2a7f5e6781a2d2fa30a4",
       "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
@@ -194,6 +69,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "45d66f70e5d53094b362fb5564cac67e115637d15bc8ecbd76fc898ac0adfc21",
       "source_record_ids": [
         "rock_developer:c877aeede8d53f3d"
@@ -204,14 +80,15 @@
           "title": "Understanding Helix Forms",
           "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
-      "claim_hash": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
+      "claim_hash": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
       "claim_id": "claim:2cb25390d2b5f4ffeb6f",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -222,8 +99,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
       "source_record_ids": [
         "rock_developer:article:301"
@@ -234,44 +112,13 @@
           "title": "The Rock Rest API",
           "url": "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock documentation and Rock U material should be treated as official training sources that explain both feature behavior and intended use.",
-      "claim_hash": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
-      "claim_id": "claim:37c56553b4e1f7e72932",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "73777c84a53e432cfbae9e0d6511177c9712dd3eb710ea10a165b645df3da326",
-      "source_record_ids": [
-        "rock_podcast_rss:c361a43aa217fe41"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy",
-          "timestamp": "01:00",
-          "timestamp_seconds": 60.46,
-          "title": "Episode 91: Special Edition with Cullen McCoy",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock's Obsidian documentation is primarily written for the core developer team, but some sections such as Grids are published for broader public reading and require judgment when translating them to plugin development.",
-      "claim_hash": "2c09343f2bde6db430d9ef61572660f404a50c4a9dcc6419ac0dca58a7e6942d",
+      "claim_hash": "e44afe908fbce521ea0d9194e687ba525ab69cf665840abb00afa64b4bb4fead",
       "claim_id": "claim:5416735ea289965714bf",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -284,6 +131,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "83764f5c3dba677104c1f9d1850c369ca92eb707cd20149a15ee0c1ab0d518e0",
       "source_record_ids": [
         "rock_developer:8b36a3bb6cf452c1"
@@ -294,46 +142,13 @@
           "title": "Obsidian",
           "url": "https://community.rockrms.com/developer/obsidian"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Entity Framework is an important developer-track topic for understanding how Rock code works with data models and should be routed with developer resources.",
-      "claim_hash": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
-      "claim_id": "claim:696b196b4db5d683d857",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "developer-resources",
-        "event-registration",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
-      "source_record_ids": [
-        "rock_podcast_rss:26bef0ec9535af36"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
-          "timestamp": "06:37",
-          "timestamp_seconds": 397.06,
-          "title": "Episode 37: Special Edition Garrett Johnson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock plugin and theme packaging guidance frames the Rock Shop as the distribution path for community extensions, so plugin work should include packaging, review, and uninstall behavior rather than only local code changes.",
-      "claim_hash": "87f5d050a2fc13f9e8e6e994842df383c47e76776e43db4a34092a7e00c6ad6f",
+      "claim_hash": "433665abc8857b7374ca7362d2fb615edd332432d86aa150ac7c3ead03efaba4",
       "claim_id": "claim:6ae226ddf1e1e1df52ed",
       "claim_tier": "answer_pack_approved",
       "claim_type": "operational_guidance",
@@ -347,6 +162,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "124e047c581bd9781dc9ca3fa60f3a4bd6134093f71da56620553411a5b38e0b",
       "source_record_ids": [
         "rock_developer:87808d737d70437b"
@@ -357,76 +173,13 @@
           "title": "Packaging Plugins and Themes",
           "url": "https://community.rockrms.com/developer/packaging-plugins-themes"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Check-in support often reaches into label-printer details such as ZPL, so label issues should be routed to both check-in behavior and printer/template implementation context.",
-      "claim_hash": "674f95c22211fea516a3c6adfb5f62c959ef996d266c036b1560915ca1814e6b",
-      "claim_id": "claim:6e476b138ed3e7a5ffe3",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-          "timestamp": "01:48",
-          "timestamp_seconds": 108.94,
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile adds public-safe context for several developer-facing Rock surfaces: core UI/UX work, cache clearing, Wi-Fi presence, registration changes, and Entity Framework education. It is useful as routing evidence for developer troubleshooting and for treating registration, caching, and presence features as implementation areas with deeper internals.",
-      "claim_hash": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
-      "claim_id": "claim:7a5ee6fc55082950d06a",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "developer-resources",
-        "event-registration",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
-      "source_record_ids": [
-        "rock_podcast_rss:26bef0ec9535af36"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 37: Special Edition Garrett Johnson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "An Obsidian block combines a C# block, a TypeScript component, and block actions, so developer guidance should connect server logic, client UI, and action endpoints instead of treating a block as one file.",
-      "claim_hash": "9c412659cf07e5ec93c63c23916c79c0a75609d554efb84f20607cfbe1d712a5",
+      "claim_hash": "1235d1214f04ce0a28b0f30a6ef921cdcee8cf66614697e1a13118d0a68af7ef",
       "claim_id": "claim:855f7a33bcc8bb936067",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -440,6 +193,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d8cb21a78d3213ccf2107d5afc90421e4d1cef05af7fc500bb2b8b68d8a40607",
       "source_record_ids": [
         "rock_developer:688f7051e9eaa0b1"
@@ -450,14 +204,15 @@
           "title": "Creating Obsidian Blocks",
           "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Rock Mobile compatibility is two-dimensional: documentation uses `M` tags for minimum Mobile Shell versions and `C` tags for minimum Rock Core versions, and a feature may require both.",
-      "claim_hash": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
+      "claim_hash": "f7914c48c6e7f08998dd082bef774911c9036f3c34c527c03a935663347153f5",
       "claim_id": "claim:896d78fdcfa734dde54e",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "release_caveat",
       "community_derived": false,
       "concept_ids": [
@@ -467,8 +222,9 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "a970009afa448b517a7e45fb136daa968f9e2ab7c5e3a95fd3d567145b9c652d",
       "source_record_ids": [
         "rock_mobile_docs:article:431"
@@ -479,75 +235,13 @@
           "title": "Core & Shell Dependencies",
           "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "MAUI-related Rock Mobile guidance should include styling, border, shadow, animation, toast, and performance behavior because those are visible app-design surfaces, not only build-system concerns.",
-      "claim_hash": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-      "claim_id": "claim:8ea35a7125998a66db92",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:03",
-          "timestamp_seconds": 183.66,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile adds public-safe context for how official Rock documentation and Rock U videos are positioned: they are intended to keep pace with product changes, explain how features should be used, and remain accessible to non-developer church staff. This is useful for contributor guidance and source-priority decisions.",
-      "claim_hash": "bbe0e730fe4b07e9b757d35a6395b4552c82605550304ecf47d0605eb06f7bff",
-      "claim_id": "claim:937409de645bee7b0522",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "73777c84a53e432cfbae9e0d6511177c9712dd3eb710ea10a165b645df3da326",
-      "source_record_ids": [
-        "rock_podcast_rss:c361a43aa217fe41"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 91: Special Edition with Cullen McCoy",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-91-special-edition-with-cullen-mccoy"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Roku commands are executed by setting a rockCommand and command-specific parameters on supported controls, and multiple commands can be chained by separating command names with commas.",
-      "claim_hash": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
+      "claim_hash": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
       "claim_id": "claim:9398f3fb18e8a79c0e4d",
       "claim_tier": "live_verified",
       "claim_type": "implementation_pattern",
@@ -579,6 +273,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "e53898e072789bf664b39fa2355b590fd831746f748c3ad035482b6e4af207bf",
       "source_record_ids": [
         "rock_developer:8f58264f88176697"
@@ -589,12 +284,13 @@
           "title": "Roku Commands",
           "url": "https://community.rockrms.com/developer/roku-docs/commands"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix is a Rock web-development surface that combines HTMX, Lava Applications, Lava Commands, and Control Shortcodes as an evolution of Lava-driven web development.",
-      "claim_hash": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
+      "claim_hash": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
       "claim_id": "claim:940f299b268510da61d8",
       "claim_tier": "answer_pack_approved",
       "claim_type": "source_summary",
@@ -609,6 +305,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "d95944d125c6f3535b7b847ce368de6ecbd40157c9f3c12f60a65ce92a7f930a",
       "source_record_ids": [
         "rock_developer:802567c280193bd0"
@@ -619,143 +316,13 @@
           "title": "Helix Overview",
           "url": "https://community.rockrms.com/developer/helix/overview"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Compatibility support can reduce migration risk by allowing existing Xamarin Forms-style content to run while teams move selected content blocks or pages toward MAUI-native behavior.",
-      "claim_hash": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-      "claim_id": "claim:98aeedbbadb50affa418",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "03:33",
-          "timestamp_seconds": 213.54,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast profile gives public-safe context that the Spark team was investing in core profile-page user experience work and Rock Mobile development at the same time. For the KB, the useful takeaway is that profile/person-facing UI, mobile app work, and developer onboarding are connected product surfaces rather than isolated documentation topics.",
-      "claim_hash": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-      "claim_id": "claim:a5c497a69f1a8269eb53",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Rock Mobile's move toward .NET MAUI should be treated as an evolution from Xamarin Forms rather than an unrelated app platform.",
-      "claim_hash": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-      "claim_id": "claim:b83b4c10285c00974e57",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen",
-          "timestamp": "01:26",
-          "timestamp_seconds": 86.92,
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "A Rock Check-in implementation can involve process mapping and extended troubleshooting, not only enabling the check-in feature.",
-      "claim_hash": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
-      "claim_id": "claim:c7ad8608083bb51c3061",
-      "claim_tier": "routing_context_only",
-      "claim_type": "implementation_pattern",
-      "community_derived": true,
-      "concept_ids": [
-        "check-in",
-        "developer-resources",
-        "platform-configuration"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "e40fd2f5b8141e10c93f90c934660e1ab630cf8aa1f65e3f46995b567e6dad62",
-      "source_record_ids": [
-        "rock_podcast_rss:992b13bc8dadf972"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson",
-          "timestamp": "01:17",
-          "timestamp_seconds": 77.32,
-          "title": "Episode 47: Special Edition Lee Peterson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson"
-        }
-      ]
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow.",
-      "claim_hash": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
+      "claim_hash": "35a6332eb1d1447d497a0e205e12a6ae664f7ed7d8d0807cfa69466c8fa4ac29",
       "claim_id": "claim:d35ed98aadeaabd2cf1e",
       "claim_tier": "live_verified",
       "claim_type": "configuration",
@@ -791,6 +358,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "bb0bbed1aa822e9191bc8ca5ef1961056f85c2880091f1e7160cf69cd95913d0",
       "source_record_ids": [
         "rock_developer:6a9eebe7a077d89a"
@@ -801,12 +369,13 @@
           "title": "Helix Lava Application Endpoints",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Helix applications require explicit security and data-integrity review because endpoint-backed application surfaces can expose data or perform work beyond static content rendering.",
-      "claim_hash": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
+      "claim_hash": "bc51e8a30022e47ab5eeb91aa1bdc200c4c321cfa71a59b0a171024bd485b4ce",
       "claim_id": "claim:da56681f6277c12df324",
       "claim_tier": "live_verified",
       "claim_type": "risk",
@@ -841,6 +410,7 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [],
       "safe_evidence_hash": "28e170d268c93802af48503f7c2a1c14dee3fe2bf628931e65106de661cf7e46",
       "source_record_ids": [
         "rock_developer:dfd0cdc56d97fa7f"
@@ -851,14 +421,15 @@
           "title": "Helix Security",
           "url": "https://community.rockrms.com/developer/helix/overview/security"
         }
-      ]
+      ],
+      "version_scope_status": "unprocessed"
     },
     {
       "authority_tier": "official",
       "claim": "Moving a Rock Mobile app from shell V5 or earlier to V6 or later changes the framework from Xamarin Forms to .NET MAUI; much XAML remains similar, but documented breaking layout behavior must be tested and adapted.",
-      "claim_hash": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
+      "claim_hash": "3a94819fbc76d32f2c48144aa763768dbf80f29d124ddcc63912d30e157b52ae",
       "claim_id": "claim:dc73468ceef82ee62d45",
-      "claim_tier": "answer_pack_approved",
+      "claim_tier": "source_backed",
       "claim_type": "release_caveat",
       "community_derived": false,
       "concept_ids": [
@@ -868,8 +439,12 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "5.0",
+        "6.0"
+      ],
       "safe_evidence_hash": "8b4d302b5957182d43b53d0fbf8bf2bf414180b41af00ccee37cc302df13a944",
       "source_record_ids": [
         "rock_mobile_docs:article:654"
@@ -880,45 +455,13 @@
           "title": "Migrating to .NET MAUI (V6)",
           "url": "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Profile-page redesign work is a core platform surface, so guidance about people records should consider both data-model behavior and the user experience that staff see every day.",
-      "claim_hash": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-      "claim_id": "claim:ea894b6fede30d2ad628",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "developer-resources",
-        "mobile",
-        "people-families"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "b319eea8409332be23115808c58a1d10635d7242a279532a9c988639088880b4",
-      "source_record_ids": [
-        "rock_podcast_rss:4c21e8d949435bbf"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle",
-          "timestamp": "00:55",
-          "timestamp_seconds": 55.76,
-          "title": "Episode 94: Special Edition with Jay Nestle",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-94-special-edition-with-jay-nestle"
-        }
-      ]
+      "version_scope_status": "scoped"
     },
     {
       "authority_tier": "official",
       "claim": "The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route.",
-      "claim_hash": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
+      "claim_hash": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f",
       "claim_id": "claim:ee2f4e5a371c3b243567",
       "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
@@ -934,6 +477,9 @@
       "mentioned_in_guide": true,
       "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
+      "rock_versions": [
+        "2.0"
+      ],
       "safe_evidence_hash": "a35a4a6e9c13a26774603593cfe0ab43be3ab47b2d815a45befad421365f6a96",
       "source_record_ids": [
         "rock_developer:article:346"
@@ -944,118 +490,37 @@
           "title": "Content Block",
           "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
         }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "Core Rock UI and UX work affects the components staff use daily, so developer guidance should consider usability and feedback loops, not just backend behavior.",
-      "claim_hash": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
-      "claim_id": "claim:f30e067d617b5791888d",
-      "claim_tier": "routing_context_only",
-      "claim_type": "operational_guidance",
-      "community_derived": true,
-      "concept_ids": [
-        "cms-websites",
-        "developer-resources",
-        "event-registration",
-        "platform-configuration"
       ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "dc6e03a40f4a4d5943f989c5b168fabb458525c4bd84e6b4b74a770cc5e4dff7",
-      "source_record_ids": [
-        "rock_podcast_rss:26bef0ec9535af36"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "source_timestamp_url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson",
-          "timestamp": "00:40",
-          "timestamp_seconds": 40.9,
-          "title": "Episode 37: Special Edition Garrett Johnson",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson"
-        }
-      ]
-    },
-    {
-      "authority_tier": "community-reviewed",
-      "claim": "This RockCast episode adds public-safe context for the Rock Mobile transition from Xamarin Forms toward .NET MAUI. It describes MAUI as a close successor with compatibility support, newer styling and animation options, performance improvements, and a release path that lets existing apps test compatibility before fully moving new content blocks to MAUI-native behavior.",
-      "claim_hash": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad",
-      "claim_id": "claim:f52accde86e6d6617963",
-      "claim_tier": "routing_context_only",
-      "claim_type": "source_summary",
-      "community_derived": true,
-      "concept_ids": [
-        "apple-tv",
-        "developer-resources",
-        "mobile",
-        "tv-apps"
-      ],
-      "confidence": "medium",
-      "live_verification": {},
-      "mentioned_in_guide": true,
-      "needs_live_verification": true,
-      "review_status": "approved_for_public_distillation",
-      "safe_evidence_hash": "0499ef28f8b24bfbfb254afd8e7cbc6eed6135850cd9cfb8fd10d1632f55b84c",
-      "source_record_ids": [
-        "rock_podcast_rss:23b184cb77a708bb"
-      ],
-      "source_refs": [
-        {
-          "source_id": "rock_podcast_rss",
-          "title": "Episode 143: Special Edition- Braden Cohen",
-          "url": "https://shows.acast.com/rock-cast/episodes/episode-143-special-edition-braden-cohen"
-        }
-      ]
+      "version_scope_status": "scoped"
     }
   ],
   "approved_claim_hashes": {
-    "claim:02385390c0f4337809d5": "192654f9e318315a7f5ea7e2bd23437145ad5713ad7e093694c374da6f503c12",
-    "claim:09336fa3abf6533a6ad3": "1196b12e73a8bf81f482fbf264c6ac9894d2cf3b17dab0d7afd37c7dcc10d66a",
-    "claim:094104f92c7a8daf8281": "755d9d9e181ea52d6e08daab4f6f75c6c8ed6fcfccf363eeeaf83dbbb4e01d18",
-    "claim:1ed694954b3d4cbe0315": "9e22ea38df47889a45083823cad832cb49177fe81523045e77c16f4cf7d3c4e3",
-    "claim:29f4e0bbc81c08861367": "f86facaef6a9f756a21a45f37c8e657da284e957949d8b04852ce10df2fc1980",
-    "claim:2a7f5e6781a2d2fa30a4": "3120cab194143cc3c86ee607495b85c23113a0282f4e8762e73ee8b1241e5600",
-    "claim:2cb25390d2b5f4ffeb6f": "f3b6c9d0ec73385fe850d2f67037af054491c87f4f853234ef496c3aa300a73c",
-    "claim:37c56553b4e1f7e72932": "cdcf9b7f6cf1288359789340d38544ad69dd22e3833b215b7b8576dcee7d0bc2",
-    "claim:5416735ea289965714bf": "2c09343f2bde6db430d9ef61572660f404a50c4a9dcc6419ac0dca58a7e6942d",
-    "claim:696b196b4db5d683d857": "9f641a7bcbbd7862c6ebc3a08b26645c60af5a1b3c3efd9a06774830fb537106",
-    "claim:6ae226ddf1e1e1df52ed": "87f5d050a2fc13f9e8e6e994842df383c47e76776e43db4a34092a7e00c6ad6f",
-    "claim:6e476b138ed3e7a5ffe3": "674f95c22211fea516a3c6adfb5f62c959ef996d266c036b1560915ca1814e6b",
-    "claim:7a5ee6fc55082950d06a": "7175c7eca6b977af73fce9368fce44eaa0b3feed33a9f51c05182a72d1f2a97e",
-    "claim:855f7a33bcc8bb936067": "9c412659cf07e5ec93c63c23916c79c0a75609d554efb84f20607cfbe1d712a5",
-    "claim:896d78fdcfa734dde54e": "bb557c5cd7dbe3e5781d371cb72ea2c3ba81dfff5bea72cb8401b8c0e4db09e2",
-    "claim:8ea35a7125998a66db92": "aff68584e728ee5ab421a359b82463effc060ec16cf5a29b79804a5b3911b8b2",
-    "claim:937409de645bee7b0522": "bbe0e730fe4b07e9b757d35a6395b4552c82605550304ecf47d0605eb06f7bff",
-    "claim:9398f3fb18e8a79c0e4d": "a07c56415d7450a489f22b97c2dab2553a87aa93d2be14e42f4cbc2f62d28666",
-    "claim:940f299b268510da61d8": "ae9aeb4f0533b8f3e30756853a7a21052078757f76a2b77fe750435b85a90e5b",
-    "claim:98aeedbbadb50affa418": "60504a82260d5663fa97e839dacfade5bdfc726b244e43cce42992ba4e817e2e",
-    "claim:a5c497a69f1a8269eb53": "d7cb9270bcbfbc9b660eac98019ffd0d92abcd5b1f4ed60bb55898370e3d4fbf",
-    "claim:b83b4c10285c00974e57": "2c8d926d54be2c3d3db6597798d4f3ff9a1db1ba19864da7d88eef0bf1879898",
-    "claim:c7ad8608083bb51c3061": "86b1e7ec6ce91254a01b8b4a8055d86ee592cabb092d15ce5d566a7a04679cf4",
-    "claim:d35ed98aadeaabd2cf1e": "19ba5387c4cff9071aa76b08421769f467fbb7a583abfca32c53f3a2e5c6ab17",
-    "claim:da56681f6277c12df324": "7ddcf71c45ad50c91616f9abe60a8cc2293226604a2f4bb1c0306229625e201d",
-    "claim:dc73468ceef82ee62d45": "e7eb72b96ec0372dd14473864579924ba71bcdfd7b5e4cfe19dec294e32087a5",
-    "claim:ea894b6fede30d2ad628": "277d461c929c0e1156baafd983e08f682adeae7bf0563d5ad5afa9d7e08b00dc",
-    "claim:ee2f4e5a371c3b243567": "5b41f5a96034284fa1379ffd2053231490a335882ad89c8cee8f4fd51ab7908b",
-    "claim:f30e067d617b5791888d": "829d4694205cdf7d834b0e718d026cbfb3d6c3d9963d894a8e7df3f8a289f48f",
-    "claim:f52accde86e6d6617963": "8f26413ee555c56b4cb56a7ead1878608b51867fd5aed14afbf662e47920c9ad"
+    "claim:29f4e0bbc81c08861367": "a449f055046907fbe417e8984173c313823b0361df53b99983e10a7dc0e8a717",
+    "claim:2a7f5e6781a2d2fa30a4": "3aeb76b361606f314090a82fd2d4a4b1e3f20ce8cb73ed1b50f97252debd7f53",
+    "claim:2cb25390d2b5f4ffeb6f": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
+    "claim:5416735ea289965714bf": "e44afe908fbce521ea0d9194e687ba525ab69cf665840abb00afa64b4bb4fead",
+    "claim:6ae226ddf1e1e1df52ed": "433665abc8857b7374ca7362d2fb615edd332432d86aa150ac7c3ead03efaba4",
+    "claim:855f7a33bcc8bb936067": "1235d1214f04ce0a28b0f30a6ef921cdcee8cf66614697e1a13118d0a68af7ef",
+    "claim:896d78fdcfa734dde54e": "f7914c48c6e7f08998dd082bef774911c9036f3c34c527c03a935663347153f5",
+    "claim:9398f3fb18e8a79c0e4d": "ae560c5e0af12a392637e325b24ba502bd86a5ec8b82030b5c9581d04cb7c6f8",
+    "claim:940f299b268510da61d8": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
+    "claim:d35ed98aadeaabd2cf1e": "35a6332eb1d1447d497a0e205e12a6ae664f7ed7d8d0807cfa69466c8fa4ac29",
+    "claim:da56681f6277c12df324": "bc51e8a30022e47ab5eeb91aa1bdc200c4c321cfa71a59b0a171024bd485b4ce",
+    "claim:dc73468ceef82ee62d45": "3a94819fbc76d32f2c48144aa763768dbf80f29d124ddcc63912d30e157b52ae",
+    "claim:ee2f4e5a371c3b243567": "70674a8af7d0e809ea472a0517027fbd87186465a9632c8ab7a3d93f866a784f"
   },
-  "approved_claims_hash": "7c0766cf9f54e44f8ecb392177a7754ae826466f0511ab8a508459f987ccf210",
+  "approved_claims_hash": "d4e5a1f687e11a95c7e1a26b30bc524b8ca5ad5e34ec0230a9e960956ce3ed19",
   "approved_claims_path": "knowledge/concepts/developer-resources/approved-claims.md",
   "approved_media_dependencies": [],
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "a9d047fa2cc1f1ec2b193b8f93a9602994a8b2f5ec168017fdf335a649124de0",
   "approved_media_path": "knowledge/concepts/developer-resources/approved-media.md",
-  "built_at": "2026-07-26T00:30:03+00:00",
+  "built_at": "2026-07-30T02:08:11+00:00",
   "concept_id": "developer-resources",
-  "guide_hash": "5d76a7bacaed6338185e94eae6d7fc0c69c492d775e35947d01a7b69d594db90",
+  "guide_hash": "f3c19e1a7e28342b9229a73d24f00bce2bd4f8bc726d866ae540926b618a8881",
   "guide_line_count": 1607,
   "guide_path": "knowledge/concepts/developer-resources/guide.md",
-  "guide_word_count": 16606,
+  "guide_word_count": 16600,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1130,6 +595,7 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
+  "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
@@ -3411,5 +2877,6 @@
       "url": "https://community.rockrms.com/ask/developing"
     }
   ],
-  "synthesis_profile": "comprehensive"
+  "synthesis_profile": "comprehensive",
+  "synthesis_provenance": {}
 }

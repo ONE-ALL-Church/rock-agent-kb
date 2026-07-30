@@ -16,6 +16,8 @@ class Concept:
     guide_status: str
     max_records: int
     raw: dict[str, Any]
+    routing_role: str = "primary"
+    parent_concept_id: str = ""
 
 def concept_registry_path() -> Path:
     return CONCEPTS_DIR / "registry.yaml"
@@ -41,9 +43,20 @@ def load_concepts(path: Optional[Path] = None) -> list[Concept]:
                 guide_status=str(merged.get("guide_status", "generated_needs_review")),
                 max_records=int(merged.get("max_records", 80)),
                 raw=merged,
+                routing_role=str(merged.get("routing_role") or "primary"),
+                parent_concept_id=str(merged.get("parent_concept_id") or ""),
             )
         )
     return concepts
+
+def load_concept_registry_metadata(path: Optional[Path] = None) -> dict[str, Any]:
+    registry_path = path or concept_registry_path()
+    with registry_path.open("r", encoding="utf-8") as handle:
+        registry = yaml.safe_load(handle) or {}
+    return {
+        "version": int(registry.get("version") or 1),
+        "taxonomy": dict(registry.get("taxonomy") or {}),
+    }
 
 def get_concept(concept_id: str) -> Concept:
     for concept in load_concepts():

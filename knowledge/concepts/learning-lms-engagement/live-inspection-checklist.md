@@ -21,8 +21,7 @@ artifact_level: live_checklist
 10. Inspect `DataView and report filters` in the live instance when the question touches this surface.
 11. Inspect `Group, GroupType, Location, and Schedule records` in the live instance when the question touches this surface.
 12. Inspect `Communication recipient, medium, and send history` in the live instance when the question touches this surface.
-13. Inspect `Mobile shell version and mobile block settings` in the live instance when the question touches this surface.
-14. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
+13. Inspect `Registration instance and registrant records` in the live instance when the question touches this surface.
 
 ## Inspection Targets
 
@@ -33,7 +32,6 @@ artifact_level: live_checklist
 - `DataView and report filters`
 - `Group, GroupType, Location, and Schedule records`
 - `Communication recipient, medium, and send history`
-- `Mobile shell version and mobile block settings`
 - `Registration instance and registrant records`
 
 ## Read-Only Probes

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit Wait List
 
-Follow the guide section for Recipe: Audit Wait List.
+Return who is waiting, what data is missing, and what staff action is needed.
 
 ## When To Use
 
@@ -24,9 +24,14 @@ Follow the guide section for Recipe: Audit Wait List.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Capacity.
+2. Wait-list enabled setting.
+3. Wait-listed registrants.
+4. Required wait-list fields.
+5. First/Last name visibility in v19.1.
+6. Payment requirements.
+7. Promotion process.
+8. Communication sent to wait-listed people.
 
 ## Do Not Assume
 
@@ -35,14 +40,3 @@ Follow the guide section for Recipe: Audit Wait List.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/recipes/245
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceFeeList/registrationInstanceFeeListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstancePaymentList/registrationInstancePaymentListOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs

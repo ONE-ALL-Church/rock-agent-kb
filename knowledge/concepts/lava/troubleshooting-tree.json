@@ -1,231 +1,241 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-inventory-lava-risk-on-a-page",
+      "guide_section_id": "17-troubleshooting-decision-tree-the-lava-renders-blank",
+      "id": "the-lava-renders-blank",
       "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://community.rockrms.com/recipes/456",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs"
-      ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the merge field available in this context?",
+        "Is the variable name correct and case-correct?",
+        "Is the entity command returning rows?",
+        "Did `id` override `where` unintentionally?",
+        "Is the shortcode active?",
+        "Is an include file path resolving?",
+        "Is output hidden by CSS?",
+        "Is security filtering all results?"
       ],
-      "title": "Recipe: Inventory Lava Risk On A Page",
-      "when": "Follow the guide section for Recipe: Inventory Lava Risk On A Page."
+      "title": "The Lava Renders Blank",
+      "when": "The Lava Renders Blank"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Block"
       ],
+      "guide_section_id": "17-troubleshooting-decision-tree-the-command-says-it-is-not-authorized",
+      "id": "the-command-says-it-is-not-authorized",
+      "inspect": [
+        "Person",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands",
+        "https://www.rockrms.com/releasenotes",
+        "https://community.rockrms.com/recipes/456"
+      ],
+      "start_with": [
+        "Is the command enabled in the block?",
+        "Is it enabled in the shortcode if used inside a shortcode?",
+        "Is it inherited from default enabled commands?",
+        "Did v19.1 command security fixes alter behavior?",
+        "Is the command name correct?",
+        "Is the template executing in a context that disallows that command, such as remote Lava?",
+        "Does the current user or REST key person have needed security?"
+      ],
+      "title": "The Command Says It Is Not Authorized",
+      "when": "The Command Says It Is Not Authorized"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Campus",
+        "Attribute"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-entity-query-returns-the-wrong-rows",
+      "id": "entity-query-returns-the-wrong-rows",
+      "inspect": [
+        "Campus",
+        "Attribute"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Property names in Model Map.",
+        "`where` expression syntax.",
+        "Whether `id` is present.",
+        "Whether query string `dynamicparameters` overrides values.",
+        "Security filtering.",
+        "`limit` and `offset`.",
+        "Campus/status filters.",
+        "Whether attributes are properties or require `Attribute` filter."
+      ],
+      "title": "Entity Query Returns The Wrong Rows",
+      "when": "Entity Query Returns The Wrong Rows"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-sql-errors",
+      "id": "sql-errors",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/sql-commands"
+      ],
+      "start_with": [
+        "Is `Sql` enabled?",
+        "Is syntax valid in SQL Server?",
+        "Are parameters declared on the command line?",
+        "Are reserved names used as parameter names?",
+        "Is timeout too low?",
+        "Is a non-query statement missing required command-style configuration?",
+        "Is user input directly interpolated?",
+        "Are permissions or DB restrictions blocking the operation?"
+      ],
+      "title": "SQL Errors",
+      "when": "SQL Errors"
+    },
+    {
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-review-a-shortcode-for-production",
+      "guide_section_id": "17-troubleshooting-decision-tree-fluid-migration-errors",
+      "id": "fluid-migration-errors",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
+        "https://community.rockrms.com/lava/fluid/differences"
+      ],
+      "start_with": [
+        "Missing commas in include calls.",
+        "`&&` instead of `and`.",
+        "Nested comments.",
+        "Regex backslash escaping.",
+        "Sort/OrderBy differences.",
+        "Single quote inside single-quoted strings.",
+        "Variable names starting with numbers.",
+        "Split/null/empty behavior."
+      ],
+      "title": "Fluid Migration Errors",
+      "when": "Fluid Migration Errors"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-shortcode-output-leaks-or-variables-collide",
+      "id": "shortcode-output-leaks-or-variables-collide",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Shortcode scope behavior.",
+        "Nested shortcode behavior.",
+        "`blockContent` handling.",
+        "Whether caller and shortcode use the same variable names.",
+        "v19.1 nested blockContent fix status.",
+        "Whether the shortcode uses shared scope intentionally."
+      ],
+      "title": "Shortcode Output Leaks Or Variables Collide",
+      "when": "Shortcode Output Leaks Or Variables Collide"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-page-shows-another-person-s-data",
+      "id": "page-shows-another-person-s-data",
+      "inspect": [
+        "Person",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/cache-commands",
+        "https://community.rockrms.com/lava/remote-lava"
+      ],
+      "start_with": [
+        "Block cache duration.",
+        "Lava `cache` command key.",
+        "Output cache containing `CurrentPerson`.",
+        "Two-pass cache implementation.",
+        "CDN/proxy cache.",
+        "Security-disabled entity commands.",
+        "Remote Lava identity.",
+        "Whether current person was hardcoded during testing."
+      ],
+      "title": "Page Shows Another Person's Data",
+      "when": "Page Shows Another Person's Data"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-web-request-fails",
+      "id": "web-request-fails",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/web-request-commands",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "`WebRequest` enabled.",
+        "URL reachable from Rock server.",
+        "TLS requirements.",
+        "Method.",
+        "Headers.",
+        "Body content type.",
+        "Response content type.",
+        "Timeout."
       ],
-      "title": "Recipe: Review A Shortcode For Production",
-      "when": "Follow the guide section for Recipe: Review A Shortcode For Production."
+      "title": "Web Request Fails",
+      "when": "Web Request Fails"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Device",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-find-legacy-attribute-lava",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-mobile-lava-breaks",
+      "id": "mobile-lava-breaks",
+      "inspect": [
+        "Person",
+        "Device",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
+        "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is Lava processed server-side or client-side?",
+        "Is the filter available locally in the shell version?",
+        "Are strings escaped?",
+        "Are `PageParameter`, `CurrentPerson`, `Device`, `PageValues`, `AppValues`, or `DeviceTheme` available?",
+        "Are quotes or ampersands breaking markup?",
+        "Are mobile-specific commands available?"
       ],
-      "title": "Recipe: Find Legacy Attribute Lava",
-      "when": "Follow the guide section for Recipe: Find Legacy Attribute Lava."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-safely-use-securityenabled-false",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://community.rockrms.com/recipes/386",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools",
-        "https://community.rockrms.com/recipes/536",
-        "https://community.rockrms.com/recipes/408",
-        "https://community.rockrms.com/recipes/456",
-        "https://community.rockrms.com/recipes/368",
-        "https://community.rockrms.com/recipes/467",
-        "https://community.rockrms.com/recipes/107"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Safely Use `securityenabled:'false'`",
-      "when": "Follow the guide section for Recipe: Safely Use `securityenabled:'false'`."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-create-a-staff-friendly-link-copy-shortcode",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Create A Staff-Friendly Link Copy Shortcode",
-      "when": "Follow the guide section for Recipe: Create A Staff-Friendly Link Copy Shortcode."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-add-a-translation-shortcode",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Add A Translation Shortcode",
-      "when": "Follow the guide section for Recipe: Add A Translation Shortcode."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-generate-labels-with-lava",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WebRequestBlock.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Generate Labels With Lava",
-      "when": "Follow the guide section for Recipe: Generate Labels With Lava."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-an-agent-lava-tool",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/fluid/differences",
-        "https://community.rockrms.com/lava/commands/taglist-commands",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/lava",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/developer/helix/lava-commands",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeDetail.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaShortCode/LavaShortCode.Logic.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Cms/LavaShortcodeList.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/SqlCommand.ascx",
-        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build An Agent Lava Tool",
-      "when": "Follow the guide section for Recipe: Build An Agent Lava Tool."
+      "title": "Mobile Lava Breaks",
+      "when": "Mobile Lava Breaks"
     }
   ],
   "concept_id": "lava",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:29+00:00",
+  "generated_at": "2026-07-30T02:07:42+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-the-lava-renders-blank",

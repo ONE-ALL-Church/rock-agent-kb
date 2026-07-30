@@ -17,11 +17,11 @@ Connection types, opportunities, requests, statuses, boards, lists, assignments,
 
 ## Primary Tasks
 
-- [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md): Follow the guide section for Recipe: Audit One Connection Type.
-- [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md): Follow the guide section for Recipe: Explain Why A Request Is Hidden.
-- [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md): Follow the guide section for Recipe: Validate Signup Flow.
-- [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md): Follow the guide section for Recipe: Build Opportunity Cards.
-- [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md): Follow the guide section for Recipe: Investigate Connector Workload.
+- [Recipe: Audit One Connection Type](tasks/recipe-audit-one-connection-type.md): Complete Audit One Connection Type with evidence-backed checks and a verifiable outcome.
+- [Recipe: Explain Why A Request Is Hidden](tasks/recipe-explain-why-a-request-is-hidden.md): Cite mobile connected-state exclusion if relevant (Connection Request List mobile docs).
+- [Recipe: Validate Signup Flow](tasks/recipe-validate-signup-flow.md): Cite Add Request mobile docs for parameter behavior and v17.2/v18.1 release notes for attributes/record source if applicable (Add Connection Request mobile docs, release notes).
+- [Recipe: Build Opportunity Cards](tasks/recipe-build-opportunity-cards.md): Complete Build Opportunity Cards with evidence-backed checks and a verifiable outcome.
+- [Recipe: Investigate Connector Workload](tasks/recipe-investigate-connector-workload.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 

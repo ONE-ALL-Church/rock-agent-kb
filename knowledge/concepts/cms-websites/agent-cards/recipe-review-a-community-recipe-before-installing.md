@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: “Review A Community Recipe Before Installing”
 
-Follow the guide section for Recipe: “Review A Community Recipe Before Installing”.
+Complete “Review A Community Recipe Before Installing” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,25 @@ Follow the guide section for Recipe: “Review A Community Recipe Before Install
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Read recipe disclaimer and treat it as unreviewed community code (Search Rock Pages).
+2. Identify every SQL query.
+3. Identify every Lava command.
+4. Identify every script/style injection.
+5. Identify page/block security assumptions.
+6. Identify version assumptions.
+7. Test in non-production.
+8. Replace broad permissions with least privilege.
+9. Document local changes.
 
 ## Do Not Assume
 
@@ -37,12 +45,12 @@ Follow the guide section for Recipe: “Review A Community Recipe Before Install
 - https://community.rockrms.com/rocku/cms
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/recipes/261
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
 - https://community.rockrms.com/recipes/432
-- https://community.rockrms.com/documentation/bookcontent/6
-- https://community.rockrms.com/rocku/content-channels/content-channel-view
+- https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
+- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://community.rockrms.com/recipes/535
-- https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts

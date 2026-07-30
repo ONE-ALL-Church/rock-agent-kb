@@ -10,12 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Audit A TV App Configuration](tasks/recipe-audit-a-tv-app-configuration.md) |  |  |
-| [Recipe: Trace A Page GUID](tasks/recipe-trace-a-page-guid.md) |  |  |
-| [Recipe: Validate Remote Auth In Data](tasks/recipe-validate-remote-auth-in-data.md) |  |  |
-| [Recipe: Review A Roku Page For Focus](tasks/recipe-review-a-roku-page-for-focus.md) |  |  |
+| [Recipe: Audit A TV App Configuration](tasks/recipe-audit-a-tv-app-configuration.md) | `Person`, `Page`, `Block`, `Attribute` | `Person`, `Page`, `Block`, `Attribute` |
+| [Recipe: Trace A Page GUID](tasks/recipe-trace-a-page-guid.md) | `Device`, `Page` | `Device`, `Page` |
+| [Recipe: Validate Remote Auth In Data](tasks/recipe-validate-remote-auth-in-data.md) | `Person`, `PersonAlias`, `Device`, `Page` | `Person`, `PersonAlias`, `Device`, `Page` |
+| [Recipe: Review A Roku Page For Focus](tasks/recipe-review-a-roku-page-for-focus.md) | `Group`, `Label`, `Page` | `Group`, `Label`, `Page` |
 | [Recipe: Review Apple TV Markup](tasks/recipe-review-apple-tv-markup.md) |  |  |
-| [Recipe: Decide Cache Policy](tasks/recipe-decide-cache-policy.md) |  |  |
+| [Recipe: Decide Cache Policy](tasks/recipe-decide-cache-policy.md) | `Person`, `Campus`, `Page` | `Person`, `Campus`, `Page` |
 
 ## Entities
 
@@ -30,6 +30,7 @@ generated: true
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 
 ## Release Caveats

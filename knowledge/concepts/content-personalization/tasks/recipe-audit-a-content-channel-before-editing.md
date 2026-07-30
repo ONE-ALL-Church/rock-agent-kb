@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Audit a content channel before editing
 
-Follow the guide section for Recipe: Audit a content channel before editing.
+Do not change anything until you know which pages and workflows depend on the channel.
 
 ## When To Use
 
@@ -16,33 +16,50 @@ Follow the guide section for Recipe: Audit a content channel before editing.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Workflow`
+- `Page`
+- `Block`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Channel name, ID/GUID, type, and purpose.
+2. Channel item count by status.
+3. Item attributes and required fields.
+4. Channel attributes.
+5. Personalization enabled state.
+6. RSS enabled state.
+7. Content Library enabled state.
+8. Security rules for view/edit/approve/delete/admin.
+9. Blocks/pages that render it.
+10. Collection memberships.
+11. Jobs/workflows that update it.
+12. Recent release caveats relevant to the deployed version.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not change anything until you know which pages and workflows depend on the channel.
 
 ## Source Links
 
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
 - https://community.rockrms.com/documentation/digital-publishing/content-management
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
-- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/digital-publishing/personalization
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/digital-publishing/personalization
 - https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
 - https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
-- https://www.triumph.tech/resources/structured-content-rock-upgrade
-- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
 - https://community.rockrms.com/recipes/128
-- https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels
+- https://community.rockrms.com/documentation/digital-publishing/personalization/localization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/update-personalization-job

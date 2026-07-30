@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Diagnose “segment should include this person”
 
-Follow the guide section for Recipe: Diagnose “segment should include this person”.
+Complete Diagnose “segment should include this person” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Diagnose “segment should include this per
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `PersonAlias`
+- `Group`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `PersonAlias`
+- `Group`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Person record demographics and attributes.
+2. Group/registration/connection data used by the segment.
+3. Whether the segment is person-data based or browsing-history based.
+4. Visitor tracking if browsing history is involved.
+5. Segment active state.
+6. `Update Personalization Data` last run.
+7. Current membership list from the Personalization Segments page.
+8. `PersonAliasPersonalization` only if safe and appropriate to inspect.
 
 ## Do Not Assume
 
@@ -34,14 +47,15 @@ Follow the guide section for Recipe: Diagnose “segment should include this per
 
 ## Source Links
 
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/digital-publishing/content-management
-- https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
-- https://www.triumph.tech/resources/structured-content-rock-upgrade
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
-- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
 - https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments
-- https://community.rockrms.com/developer/101---launchpad/referencing-files-and-images
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels
+- https://community.rockrms.com/documentation/digital-publishing/content-management
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-channels
+- https://community.rockrms.com/documentation/digital-publishing/personalization
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component
+- https://community.rockrms.com/lava/commands/interaction-content-channel-item-write
 - https://community.rockrms.com/recipes/128
+- https://community.rockrms.com/documentation/digital-publishing/personalization/localization
+- https://community.rockrms.com/documentation/digital-publishing/personalization/adaptive-messages
+- https://community.rockrms.com/documentation/digital-publishing/personalization/personalization-segments/update-personalization-job
+- https://community.rockrms.com/documentation/digital-publishing/content-management/content-component/add-content-component-item-attributes

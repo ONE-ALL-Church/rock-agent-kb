@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer “Why Is This Data Wrong?”
 
-Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”.
+Complete Answer “Why Is This Data Wrong?” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,22 @@ Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify displayed value.
+2. Identify source entity.
+3. Identify whether display uses Data View, report, Lava, cache, or search.
+4. Compare source-of-truth row to displayed row.
+5. Check cache/index/persistence.
+6. Check security filtering.
+7. Check recent job history.
+8. Report exact mismatch and refresh path.
 
 ## Do Not Assume
 
@@ -35,14 +40,13 @@ Follow the guide section for Recipe: Answer “Why Is This Data Wrong?”.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/recipes/522
-- https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/rocku/core-concepts
-- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
-- https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/rocku/individuals-in-rock/data-integrity
-- https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowPerformance/enteredDataViewSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowPerformance/EnteredDataViewSettingsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Jobs/UpdatePersistedDataviews.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowDetail/communicationFlowDetailEnteredDataViewSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs

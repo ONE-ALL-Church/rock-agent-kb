@@ -41,6 +41,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert report["counts"]["models"] == len(list(read_jsonl(Path("agent/model-map-digests.jsonl"))))
     assert report["counts"]["source_summaries"] == len(list(read_jsonl(Path("agent/source-summaries.jsonl"))))
     assert report["counts"]["task_cards"] == len(list(read_jsonl(Path("agent/concept-task-cards.jsonl"))))
+    assert report["counts"]["troubleshooting_nodes"] > 0
     assert report["counts"]["rock_issues"] == len(list(read_jsonl(Path("agent/rock-issues.jsonl"))))
     assert report["counts"]["rock_ideas"] == len(list(read_jsonl(Path("agent/rock-ideas.jsonl"))))
     assert report["counts"]["contributions"] == len(
@@ -68,6 +69,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
         "Rock Model",
         "Source Summary",
         "Agent Task Card",
+        "Troubleshooting Node",
         "Rock Issue",
         "Rock Idea",
         "Reference",
@@ -118,6 +120,8 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
 
     claim_paths = list((destination / "claims").glob("*/*/*.md"))
     assert claim_paths, "claims must be sharded below concept and hash-prefix directories"
+    troubleshooting_paths = list((destination / "troubleshooting-nodes").glob("*/*.md"))
+    assert troubleshooting_paths, "troubleshooting nodes must be sharded below concept directories"
 
 
 def test_okf_idea_relationships_resolve_to_canonical_issue_and_model_paths():
@@ -174,7 +178,7 @@ def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_pat
     assert report["counts"].get("source_summaries", 0) == 0
     assert report["counts"].get("contributions", 0) == 0
     assert report["counts"].get("rock_issues", 0) == 0
-    assert report["counts"]["claims"] < len(list(read_jsonl(Path("claims/approved-claims.jsonl"))))
+    assert report["counts"]["claims"] == len(list(read_jsonl(Path("claims/approved-claims.jsonl"))))
     assert report["counts"]["recipes"] == len(list(read_jsonl(Path("agent/recipes.jsonl"))))
     assert find_document(destination, "model_map:stable:group")
     assert audit_okf_export(destination) == []

@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Inventory Existing Roku App
 
-Follow the guide section for Recipe: Inventory Existing Roku App.
+Complete Inventory Existing Roku App with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Inventory Existing Roku App.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Person`
+- `Page`
 
 ## Entities And Tables
 
-- `See guide`
+- `Person`
+- `Page`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Locate Roku/Lava application records.
+2. Record application name, GUID/ID, API key presence, auth page, page-view setting, retention.
+3. List pages with GUIDs, names, Show in Menu, cache settings.
+4. Identify pages using `CurrentPerson`, `Context`, media commands, login, or SQL.
+5. Identify enabled Lava commands.
+6. Check recent exceptions.
+7. Check recent interactions.
+8. Produce a map of page links by scanning `rockPageGuid` references.
+9. Flag public-cached personalized pages.
+10. Flag YouTube media URLs.
 
 ## Do Not Assume
 
@@ -36,13 +45,13 @@ Follow the guide section for Recipe: Inventory Existing Roku App.
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
+- https://community.rockrms.com/lava/commands/personalize-commands
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava
-- https://github.com/SparkDevNetwork/Rock
-- https://www.triumph.tech/resources/grouping-sets
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://www.triumph.tech/resources/ai-in-digital-ministry
-- https://www.triumph.tech/resources/pivot-patterns
-- https://www.triumph.tech/resources/sql-window-functions
-- https://community.rockrms.com/developer/roku-docs/getting-started/applications
-- https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/PersonalizationSegmentDetail/pageViewSegmentFilterBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs

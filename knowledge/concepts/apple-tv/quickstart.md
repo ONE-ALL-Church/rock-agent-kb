@@ -17,11 +17,11 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 
 ## Primary Tasks
 
-- [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md): Follow the guide section for Recipe: Inspect An Existing Apple TV App.
-- [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md): Follow the guide section for Recipe: Diagnose A Broken Button.
-- [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md): Follow the guide section for Recipe: Add A New Page Safely.
-- [Recipe: Review For Security](tasks/recipe-review-for-security.md): Follow the guide section for Recipe: Review For Security.
-- [Recipe: Review For Performance](tasks/recipe-review-for-performance.md): Follow the guide section for Recipe: Review For Performance.
+- [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md): Complete Inspect An Existing Apple TV App with evidence-backed checks and a verifiable outcome.
+- [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md): Complete Diagnose A Broken Button with evidence-backed checks and a verifiable outcome.
+- [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md): Complete Add A New Page Safely with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review For Security](tasks/recipe-review-for-security.md): Complete Review For Security with evidence-backed checks and a verifiable outcome.
+- [Recipe: Review For Performance](tasks/recipe-review-for-performance.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
 
 ## High-Signal Sections
 
@@ -43,6 +43,7 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the apple-tv guide.
 - `Person`: Rock concept/entity referenced by the apple-tv guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the apple-tv guide.
 

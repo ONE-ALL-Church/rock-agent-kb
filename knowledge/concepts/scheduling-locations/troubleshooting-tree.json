@@ -1,177 +1,218 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Device",
+        "Check-in Configuration"
       ],
-      "entities": [],
-      "id": "recipe-prove-why-a-check-in-room-is-not-available",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
+      "id": "a-schedule-is-missing-from-check-in",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Device",
+        "Check-in Configuration"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://community.rockrms.com/documentation/bookcontent/42",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
+        "https://community.rockrms.com/recipes/280",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Is the schedule active?",
+        "Is the current time inside the effective date/time and check-in offset window?",
+        "Is the schedule in the expected category?",
+        "Does the check-in configuration’s schedule builder show the schedule?",
+        "Is the group active and not archived?",
+        "Does the group location exist?",
+        "Does the `GroupLocationSchedule` row exist for the exact group/location/schedule?",
+        "Is the schedule excluded directly or by category?"
+      ],
+      "title": "A Schedule Is Missing From Check-In",
+      "when": "A Schedule Is Missing From Check-In"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Location",
+        "Schedule",
+        "Campus",
+        "Device",
+        "Workflow"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-a-room-is-missing-from-check-in",
+      "id": "a-room-is-missing-from-check-in",
+      "inspect": [
+        "Person",
+        "Group",
+        "Location",
+        "Schedule",
+        "Campus",
+        "Device",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
         "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/recipes/444"
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is `Location.IsActive` true?",
+        "Is the room closed in Check-In Manager?",
+        "Is the room under the expected campus/building parent?",
+        "Is the location assigned to the group?",
+        "Is the group/location enabled for the schedule?",
+        "Is the device allowed to see that location?",
+        "Is the room full according to soft threshold?",
+        "Did location selection strategy auto-select a different room?"
       ],
-      "title": "Recipe: Prove Why A Check-In Room Is Not Available",
-      "when": "Follow the guide section for Recipe: Prove Why A Check-In Room Is Not Available."
+      "title": "A Room Is Missing From Check-In",
+      "when": "A Room Is Missing From Check-In"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Person",
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Workflow"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-volunteer-was-scheduled-but-cannot-check-in",
+      "id": "volunteer-was-scheduled-but-cannot-check-in",
+      "inspect": [
+        "Attendance",
+        "Person",
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs"
+      ],
+      "start_with": [
+        "Confirm today’s attendance occurrence exists for the group/location/schedule.",
+        "Confirm attendance or assignment has the person as scheduled/requested.",
+        "Confirm the group’s Attendance Record Required For Check-in setting.",
+        "Confirm the schedule attached to the group location matches the attendance occurrence schedule.",
+        "Confirm the person’s group membership and role are active.",
+        "Confirm group role can check in if the rule requires membership.",
+        "Confirm check-in configuration includes that group type.",
+        "Confirm the kiosk schedule and location match the assignment."
+      ],
+      "title": "Volunteer Was Scheduled But Cannot Check In",
+      "when": "Volunteer Was Scheduled But Cannot Check In"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Location",
+        "Schedule"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-group-scheduler-capacity-looks-wrong",
+      "id": "group-scheduler-capacity-looks-wrong",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Inspect `GroupLocationScheduleConfig` rows for the group location and schedule.",
+        "Inspect minimum, desired, maximum capacity fields.",
+        "Inspect group member assignments for matching group member, location, and schedule.",
+        "Inspect duplicate or stale assignments.",
+        "Confirm the installed version includes the v17.2 fix for deleting a schedule from one group location removing capacity settings in other group locations.",
+        "If using Sign-Ups, verify Sign-Up model relationships in the live instance."
+      ],
+      "title": "Group Scheduler Capacity Looks Wrong",
+      "when": "Group Scheduler Capacity Looks Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Schedule",
+        "Campus",
+        "Block"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-calendar-event-does-not-appear",
+      "id": "calendar-event-does-not-appear",
+      "inspect": [
+        "Schedule",
+        "Campus",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/calendar-events",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list"
+      ],
+      "start_with": [
+        "Confirm event item exists.",
+        "Confirm event item approval status.",
+        "Confirm event item occurrence exists.",
+        "Confirm occurrence schedule is active and in range.",
+        "Confirm calendar membership.",
+        "Confirm audience filter.",
+        "Confirm campus filter or campus context.",
+        "Confirm date range and max occurrences."
+      ],
+      "title": "Calendar Event Does Not Appear",
+      "when": "Calendar Event Does Not Appear"
     },
     {
       "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+        "Do not use old recipes that store occurrence ID directly unless the live plugin still uses that model."
       ],
-      "entities": [],
-      "id": "recipe-audit-group-location-schedules",
-      "inspect": [],
+      "entities": [
+        "Location",
+        "Schedule",
+        "Workflow"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-reservation-and-calendar-are-out-of-sync",
+      "id": "reservation-and-calendar-are-out-of-sync",
+      "inspect": [
+        "Location",
+        "Schedule",
+        "Workflow"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://community.rockrms.com/documentation/bookcontent/42",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
-        "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/CheckIn/LocationSelectionStrategy.cs"
+        "https://community.rockrms.com/recipes/444",
+        "https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Verify plugin and schema.",
+        "Confirm reservation approval state.",
+        "Confirm reservation schedule and locations.",
+        "Confirm linked event item occurrence.",
+        "Inspect `ReservationLinkage` or current linkage object.",
+        "Compare schedule, location, contact, and note fields.",
+        "Identify the authoritative side.",
+        "Run or design a targeted sync workflow."
       ],
-      "title": "Recipe: Audit Group Location Schedules",
-      "when": "Follow the guide section for Recipe: Audit Group Location Schedules."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-verify-a-new-service-time",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/documentation/bookcontent/42",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Verify A New Service Time",
-      "when": "Follow the guide section for Recipe: Verify A New Service Time."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-facilities-daily-report",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/documentation/bookcontent/42",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build A Facilities Daily Report",
-      "when": "Follow the guide section for Recipe: Build A Facilities Daily Report."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-build-a-calendar-feed",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/bookcontent/7/296",
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://community.rockrms.com/documentation/bookcontent/42",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs",
-        "https://community.rockrms.com/rocku/groups/group-location",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Build A Calendar Feed",
-      "when": "Follow the guide section for Recipe: Build A Calendar Feed."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-diagnose-schedule-api-issues",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-unavailability",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/CheckIn/LocationAndScheduleBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Diagnose Schedule API Issues",
-      "when": "Follow the guide section for Recipe: Diagnose Schedule API Issues."
+      "title": "Reservation And Calendar Are Out Of Sync",
+      "when": "Reservation And Calendar Are Out Of Sync"
     }
   ],
   "concept_id": "scheduling-locations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:11+00:00",
+  "generated_at": "2026-07-30T02:08:18+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",

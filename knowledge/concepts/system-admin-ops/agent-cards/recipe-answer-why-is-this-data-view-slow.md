@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Answer “Why Is This Data View Slow?”
 
-Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”.
+Complete Answer “Why Is This Data View Slow?” with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,22 @@ Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify Data View ID/name/entity.
+2. Inspect filter tree and nested Data Views.
+3. Check persistence settings.
+4. Check last refresh duration if available.
+5. Check `Update Persisted DataViews` timeout.
+6. Test live result count.
+7. Identify expensive filters.
+8. Recommend filter/index/report changes only after evidence.
 
 ## Do Not Assume
 
@@ -35,14 +40,13 @@ Follow the guide section for Recipe: Answer “Why Is This Data View Slow?”.
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/lava/commands/cache-commands
-- https://community.rockrms.com/recipes/522
-- https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/rocku/core-concepts
-- https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
-- https://community.rockrms.com/rocku/core-concepts/automations
-- https://community.rockrms.com/rocku/individuals-in-rock/data-integrity
-- https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowPerformance/enteredDataViewSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowPerformance/EnteredDataViewSettingsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Jobs/UpdatePersistedDataviews.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowDetail/communicationFlowDetailEnteredDataViewSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs

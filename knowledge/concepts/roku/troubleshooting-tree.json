@@ -1,177 +1,281 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-inventory-existing-roku-app",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-app-does-not-load",
+      "id": "app-does-not-load",
+      "inspect": [
+        "Device",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://www.triumph.tech/resources/grouping-sets",
-        "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/pivot-patterns",
-        "https://www.triumph.tech/resources/sql-window-functions",
-        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-        "https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks"
+        "https://community.rockrms.com/developer/roku-docs"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is the Roku development/application shell provisioned?",
+        "Is the Rock URL reachable over HTTPS from the Roku device?",
+        "Is the API key configured and active?",
+        "Is the application pointing to the correct Rock environment?",
+        "Is a firewall/CDN/WAF blocking requests?",
+        "Are there Rock exceptions during app load?",
+        "Has the app package been updated after configuration changes?"
       ],
-      "title": "Recipe: Inventory Existing Roku App",
-      "when": "Follow the guide section for Recipe: Inventory Existing Roku App."
+      "title": "App Does Not Load",
+      "when": "App Does Not Load"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-review-a-roku-page-for-safety",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-page-loads-blank",
+      "id": "page-loads-blank",
+      "inspect": [
+        "Device",
+        "Page"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Does Lava render valid XML?",
+        "Does the page have a `Rock:Page` root?",
+        "Does `initialFocus` reference a real node?",
+        "Are dynamic values escaped?",
+        "Are required fields missing?",
+        "Is a Lava command disabled?",
+        "Is the page cached with stale content?",
+        "Does the Roku device log an XML or component error?"
+      ],
+      "title": "Page Loads Blank",
+      "when": "Page Loads Blank"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-focus-is-broken",
+      "id": "focus-is-broken",
+      "inspect": [
+        "Group",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-1042024"
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/page",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Does `Rock:Page initialFocus` point to a focusable node?",
+        "Are IDs unique?",
+        "Is the target node visible/enabled?",
+        "Should sibling controls be wrapped in `Rock:FocusGroup`?",
+        "Is `layoutDirection` set to match expected remote movement?",
+        "Are nested focus groups trapping focus?",
+        "Is the layout too complex?"
       ],
-      "title": "Recipe: Review A Roku Page For Safety",
-      "when": "Follow the guide section for Recipe: Review A Roku Page For Safety."
+      "title": "Focus Is Broken",
+      "when": "Focus Is Broken"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-convert-a-static-media-list-to-dynamic-rowlist",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-navigation-goes-to-the-wrong-page",
+      "id": "navigation-goes-to-the-wrong-page",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Is `rockCommand` spelled correctly?",
+        "Is `rockPageGuid` the correct page GUID?",
+        "Are query-string parameters valid?",
+        "Are multiple commands ordered as expected?",
+        "Is context from an earlier selection still set?",
+        "Is `replacePage` used where `pushPage` was intended?",
+        "Is a stale cached page rendering old GUIDs?"
+      ],
+      "title": "Navigation Goes To The Wrong Page",
+      "when": "Navigation Goes To The Wrong Page"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-menu-does-not-update",
+      "id": "menu-does-not-update",
+      "inspect": [
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-1042024"
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Which Lava builds the menu?",
+        "Does the query filter by Show in Menu?",
+        "Is the menu hard-coded?",
+        "Is the page/application cache stale?",
+        "Is the menu rendered for anonymous vs authenticated users differently?",
+        "Are disabled Lava commands preventing menu queries?"
       ],
-      "title": "Recipe: Convert A Static Media List To Dynamic RowList",
-      "when": "Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowList."
+      "title": "Menu Does Not Update",
+      "when": "Menu Does Not Update"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Label",
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-diagnose-a-cache-leak",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-login-qr-does-not-show",
+      "id": "login-qr-does-not-show",
+      "inspect": [
+        "Person",
+        "Label",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-1042024"
+        "https://community.rockrms.com/developer/roku-docs/commands/personal"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Is Authentication Page configured on the application?",
+        "Does the login command run?",
+        "Does the login page include `lgnQrPoster`?",
+        "Does it include `lgnCodeLabel`?",
+        "Is the authentication website page reachable externally?",
+        "Is the timeout too short?",
+        "Are server checks failing?",
+        "Are API key permissions sufficient?"
       ],
-      "title": "Recipe: Diagnose A Cache Leak",
-      "when": "Follow the guide section for Recipe: Diagnose A Cache Leak."
+      "title": "Login QR Does Not Show",
+      "when": "Login QR Does Not Show"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-add-a-safe-diagnostic-page",
-      "inspect": [],
+      "guide_section_id": "18-troubleshooting-decision-tree-authenticated-content-does-not-personalize",
+      "id": "authenticated-content-does-not-personalize",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://github.com/SparkDevNetwork/Rock",
-        "https://community.rockrms.com/lava/lava-api",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/api-docs",
-        "https://community.rockrms.com/lava/remote-lava",
-        "https://www.rockrms.com/releasenotes",
-        "https://www.triumph.tech/resources/dashboard-design-part-1",
-        "https://www.triumph.tech/resources/ai-in-digital-ministry",
-        "https://www.triumph.tech/resources/github-spotlight-1042024"
-      ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Add A Safe Diagnostic Page",
-      "when": "Follow the guide section for Recipe: Add A Safe Diagnostic Page."
-    },
-    {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
-      "entities": [],
-      "id": "recipe-validate-post-upgrade-roku-behavior",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs",
-        "https://community.rockrms.com/lava/commands",
-        "https://community.rockrms.com/developer/roku-docs/resources/tips-and-tricks",
-        "https://community.rockrms.com/developer/roku-docs/commands/media",
-        "https://community.rockrms.com/developer/roku-docs/commands/utility",
         "https://community.rockrms.com/developer/roku-docs/getting-started/pages",
-        "https://community.rockrms.com/developer/roku-docs/resources/useful-links",
-        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group",
-        "https://community.rockrms.com/lava/filters/attribute-filters",
-        "https://community.rockrms.com/developer/roku-docs/commands/personal",
-        "https://community.rockrms.com/developer/roku-docs/getting-started",
-        "https://community.rockrms.com/developer/roku-docs/commands"
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation",
+        "https://community.rockrms.com/lava/filters/attribute-filters"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Did login complete?",
+        "Is `CurrentPerson` available in the Roku page merge fields?",
+        "Is the page using public cache?",
+        "Is `rockPageCacheControl` personal/private where needed?",
+        "Did the navigation stack clear after login?",
+        "Are attributes blocked by security?",
+        "Are entity commands running with expected security settings?"
       ],
-      "title": "Recipe: Validate Post-Upgrade Roku Behavior",
-      "when": "Follow the guide section for Recipe: Validate Post-Upgrade Roku Behavior."
+      "title": "Authenticated Content Does Not Personalize",
+      "when": "Authenticated Content Does Not Personalize"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-video-does-not-play",
+      "id": "video-does-not-play",
+      "inspect": [
+        "Device"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
+      ],
+      "start_with": [
+        "Is the source YouTube? If yes, replace it; YouTube is not supported by the Roku TV app per docs (Media).",
+        "Is the URL direct and publicly/device accessible?",
+        "Is the format MP4 or HLS where expected?",
+        "Is the certificate valid?",
+        "Does the URL require cookies or browser auth?",
+        "Is `rockVideoUrl` populated after Lava render?",
+        "If using MediaElement GUID, does it resolve to playable media?",
+        "Does Roku log a playback error?"
+      ],
+      "title": "Video Does Not Play",
+      "when": "Video Does Not Play"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
+      "id": "resume-does-not-work",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
+      ],
+      "start_with": [
+        "Is `rockWatchMap` present?",
+        "Is `rockInteractionGuid` present when appending to an existing interaction?",
+        "Is a new interaction being created instead of appending?",
+        "Is the current person anonymous?",
+        "Are interactions enabled?",
+        "Does the prior interaction still exist after retention cleanup?"
+      ],
+      "title": "Resume Does Not Work",
+      "when": "Resume Does Not Work"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "PersonAlias",
+        "Page"
+      ],
+      "guide_section_id": "18-troubleshooting-decision-tree-interactions-are-missing-or-excessive",
+      "id": "interactions-are-missing-or-excessive",
+      "inspect": [
+        "Person",
+        "PersonAlias",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation",
+        "https://community.rockrms.com/lava/commands/interaction-write"
+      ],
+      "start_with": [
+        "Is Enable Page Views enabled?",
+        "Is `rockPageSuppressInteraction` true?",
+        "Are utility/loading pages writing interactions?",
+        "Are media commands writing separate interactions?",
+        "Is retention deleting older records?",
+        "Are invalid person aliases causing exceptions?",
+        "Are custom Lava interaction commands enabled and functioning?"
+      ],
+      "title": "Interactions Are Missing Or Excessive",
+      "when": "Interactions Are Missing Or Excessive"
     }
   ],
   "concept_id": "roku",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:30:08+00:00",
+  "generated_at": "2026-07-30T02:08:15+00:00",
   "guide_sections": [
     "18-troubleshooting-decision-tree",
     "18-troubleshooting-decision-tree-app-does-not-load",

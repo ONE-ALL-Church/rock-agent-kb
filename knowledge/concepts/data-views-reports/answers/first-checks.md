@@ -11,28 +11,26 @@ Start by identifying the reporting surface and the DataView, report, Lava, dynam
 
 ## Top Claims
 
+- `claim:7bc7c79d9dc4f5598a08`
+- `claim:b9e9583cbd0a9d5fe172`
+- `claim:0cde5229e64a425ac699`
+- `claim:45671c1244821ad9188d`
+- `claim:594b3e080952baeb7d52`
+- `claim:60289bce46d3f20da98d`
 - `claim:725a3342f3dc657cc546`
-- `claim:14b494b5978509441220`
-- `claim:4c4098a035a5ca256bfe`
-- `claim:8236f070927c9ba07547`
-- `claim:bf7a6f9ccaefc113cb5d`
-- `claim:d40bfdc2c3879d0290a3`
-- `claim:60d40983fd53c0173dd9`
-- `claim:ffba67d8847c47e68ea6`
+- `claim:dda10257bab241aa2c48`
 
 ## Distilled Claims
 
 - `distilled-claim:3956f608a4eda1239433`
-- `distilled-claim:c51e6e995b2e05007b83`
 - `distilled-claim:3d81166b3f841bab7c30`
+- `distilled-claim:c51e6e995b2e05007b83`
 - `distilled-claim:cab88b7aa551f3b911fa`
 
 ## Citations
 
+- [Use the BI Job](https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job)
+- [Create a Report](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report)
+- [Intro to Reports](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports)
+- [Dynamic Report Block](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block)
 - [RockIQ Rapid Fire Q&A from the AI Summit | Ep 218](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s) (`24:50`)
-- [Data View Overview](https://community.rockrms.com/rocku/reporting/data-view-overview) (`00:00`)
-- [3 Underrated Features Churches Are Overlooking | Ep 217](https://www.youtube.com/watch?v=edanHiYSDIM&t=386s) (`06:26`)
-- [Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
-- [Data Integrity](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1) (`00:00`)
-- [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) (`49:32`)
-- [Media Watch](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) (`07:12`)

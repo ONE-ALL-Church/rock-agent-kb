@@ -1357,24 +1357,19 @@ Community pledge-analysis examples use account filters, analysis date, and toler
 
 This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
 
-- Approved claims routed to this concept: `109`
+- Approved claims routed to this concept: `8`
 - Full generated claim table: `approved-claims.md`
 
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
 | rocku-confirmed | operational_guidance | When auditing giving-related guidance, verify the full path from public giving action to Rock financial transaction, account detail, receipts, and reporting definitions. | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
-| rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, BI Financial Transaction Report should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) |
-| rocku-confirmed | operational_guidance | The Scheduled Transactions RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/scheduled-transactions) |
-| rocku-confirmed | operational_guidance | The Pledges RockU lesson provides training context for reporting, analytics, and measurement; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/pledges) |
-| rocku-confirmed | operational_guidance | For ministry process design, Giving Overview should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-overview) |
-| rocku-confirmed | operational_guidance | The Giving Analytics RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-analytics) |
-| rocku-confirmed | operational_guidance | The Text Giving RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/text-giving) |
-| rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, Businesses should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/businesses) |
-| rocku-confirmed | operational_guidance | For reporting, analytics, and measurement, Financial Basics should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/financial-basics) |
-| rocku-confirmed | operational_guidance | The Online Giving RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/online-giving) |
-| rocku-confirmed | operational_guidance | For AI, automation, and responsible tool use, Pledges should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/pledges) |
-| More |  | 97 additional approved claims are tracked in `approved-claims.md`. |  |
+| rocku-confirmed | operational_guidance | Giving Journey should be used as finance-process context: distinguish donor experience, transaction records, account designation, follow-up, and reporting before changing giving workflows. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
+| rocku-confirmed | source_summary | Giving Journey adds finance guidance: evaluate donor experience and back-office financial records together before changing giving processes or reports. _(live verification recommended)_ | [source](https://community.rockrms.com/rocku/finance/giving-journey-1) |
+| community-reviewed | implementation_pattern | Use OVER with PARTITION BY as a row-preserving alternative to GROUP BY when a report needs grouped calculations without collapsing the result set. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| community-reviewed | implementation_pattern | Ranking window functions such as row number, rank, dense rank, and n-tile can add ordering, per-person sequence, or bucket analysis to Rock reports without procedural post-processing. | [source](https://www.triumph.tech/resources/sql-window-functions) |
+| community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
+| community-reviewed | operational_guidance | Window functions are useful in Rock SQL reporting when each detail row needs aggregate context, such as total transaction amount, detail count, or percent-of-gift alongside the original transaction-detail row. | [source](https://www.triumph.tech/resources/sql-window-functions) |
 
 <!-- END GENERATED APPROVED CLAIM COVERAGE -->
 
@@ -1383,20 +1378,17 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `32`
+- Approved media records routed to this concept: `6`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
-| [Accounts Transcript Insight](https://community.rockrms.com/rocku/finance/accounts) | approved_for_public_distillation | 1 | media-insight:94e53106a60b5495 |
 | [BI Financial Transaction Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report) | approved_for_public_distillation | 3 | media-insight:a815728575995f92 |
-| [Batches Transcript Insight](https://community.rockrms.com/rocku/finance/batches) | approved_for_public_distillation | 1 | media-insight:90e6f49e96607114 |
-| [Benevolence Transcript Insight](https://community.rockrms.com/rocku/finance/benevolence) | approved_for_public_distillation | 3 | media-insight:b69297ac23548d8d |
-| [Businesses Transcript Insight](https://community.rockrms.com/rocku/finance/businesses) | approved_for_public_distillation | 3 | media-insight:f84cdc67d1626107 |
-| [Check Matching Transcript Insight](https://community.rockrms.com/rocku/finance/check-matching) | approved_for_public_distillation | 2 | media-insight:160da6338d8c8c02 |
-| [Contribution Statements Transcript Insight](https://community.rockrms.com/rocku/finance/contribution-statements) | approved_for_public_distillation | 1 | media-insight:20d662d37f9ac44c |
 | [Dashboard Design Part 1 Transcript Insight](https://www.triumph.tech/resources/dashboard-design-part-1) | approved_for_public_distillation | 3 | media-insight:22ee135c5240caf2 |
-| More |  | 24 additional reviewed media records are tracked in `approved-media.md`. |  |
+| [Giving Analytics Transcript Insight](https://community.rockrms.com/rocku/finance/giving-analytics) | approved_for_public_distillation | 3 | media-insight:f93c85770d000a17 |
+| [Giving Journey Transcript Insight](https://community.rockrms.com/rocku/finance/giving-journey-1) | approved_for_public_distillation | 2 | media-insight:4e7bb5d30da6c77a |
+| [Online Giving Transcript Insight](https://community.rockrms.com/rocku/finance/online-giving) | approved_for_public_distillation | 3 | media-insight:81f503288cd61c08 |
+| [Text Giving Transcript Insight](https://community.rockrms.com/rocku/finance/text-giving) | approved_for_public_distillation | 1 | media-insight:a52f4989273e8706 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

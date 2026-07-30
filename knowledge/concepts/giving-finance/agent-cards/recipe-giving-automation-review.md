@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Giving Automation Review
 
-Follow the guide section for Recipe: Giving Automation Review.
+The recurring-giving prompt recipe is a useful pattern but includes a clear warning about external recurring profiles not synced into Rock (Automate asking Regular Givers to Set up Recurring Giving).
 
 ## When To Use
 
@@ -16,17 +16,30 @@ Follow the guide section for Recipe: Giving Automation Review.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `DataView`
+- `Schedule`
 
 ## Entities And Tables
 
-- `See guide`
+- `DataView`
+- `Schedule`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Data View criteria.
+2. Transaction source and type filters.
+3. Account filters.
+4. Date logic.
+5. Scheduled transaction visibility.
+6. Gateway sync completeness.
+7. Exclusions and opt-outs.
+8. Communication approval.
+9. Test recipient count.
+10. Audience definition.
+11. Known false positives/negatives.
+12. Test SQL/Data View count.
+13. Recommended dry run.
+14. Communication review requirements.
 
 ## Do Not Assume
 
@@ -34,15 +47,14 @@ Follow the guide section for Recipe: Giving Automation Review.
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/finance
-- https://www.rockrms.com/releasenotes
 - https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/bookcontent/15
 - https://community.rockrms.com/recipes/122
-- https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes
-- https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail
-- https://community.rockrms.com/recipes/254
-- https://www.triumph.tech/resources/giving-unit-analytics
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialTransaction/MonthlyAccountGivingHistory.cs
-- https://community.rockrms.com/rocku/finance/giving-alerts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/FinancialScheduledTransactionPaymentPlanPair.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs
+- https://community.rockrms.com/rocku/finance
+- https://community.rockrms.com/rocku/finance/scheduled-transactions

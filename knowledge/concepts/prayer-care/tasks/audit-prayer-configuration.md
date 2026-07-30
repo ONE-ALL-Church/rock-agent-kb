@@ -7,7 +7,7 @@ generated: true
 
 # Audit Prayer Configuration
 
-Follow the guide section for Audit Prayer Configuration.
+Complete Audit Prayer Configuration with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,31 @@ Follow the guide section for Audit Prayer Configuration.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Group`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Group`
+- `Workflow`
+- `Page`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify Rock version.
+2. List prayer pages and block types.
+3. Inspect Prayer Request Entry settings.
+4. Inspect Prayer Request List and Detail settings.
+5. Inspect Prayer Session/Card View pages.
+6. Review categories.
+7. Review Prayer Team and Prayer Administrator security.
+8. Check Send Prayer Comments job and system communication.
+9. Check custom prayer workflows.
+10. Check prayer wall, SMS, urgent email, and group prayer pages.
+11. Check release-note caveats for installed version.
 
 ## Do Not Assume
 
@@ -35,14 +49,14 @@ Follow the guide section for Audit Prayer Configuration.
 ## Source Links
 
 - https://community.rockrms.com/documentation/engagement/prayer
-- https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
+- https://community.rockrms.com/recipes/135
+- https://community.rockrms.com/recipes/338
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestList/PrayerRequestListOptionsBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntrySaveRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestEntry/prayerRequestEntryInitializationBox.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestEntry/PrayerRequestEntryInitializationBox.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/PrayerRequest/CategorySelect.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
+- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
+- https://community.rockrms.com/recipes/121
+- https://community.rockrms.com/recipes/389
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Blocks/Types/Mobile/Prayer/MyPrayerRequests.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestDetailOptionsBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Prayer/PrayerRequestDetail/prayerRequestBag.d.ts
+- https://community.rockrms.com/recipes/350

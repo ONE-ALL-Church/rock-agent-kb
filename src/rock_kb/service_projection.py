@@ -167,6 +167,8 @@ def build_search_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     rows.extend(concept_search_rows())
     rows.extend(answer_search_rows())
+    rows.extend(task_card_search_rows())
+    rows.extend(troubleshooting_node_search_rows())
     rows.extend(claim_search_rows())
     rows.extend(contribution_search_rows())
     rows.extend(model_map_search_rows())
@@ -211,6 +213,7 @@ def retrieval_document(row: dict[str, Any]) -> dict[str, Any]:
     authority_tier = str(row.get("authority_tier") or "")
     claim_tier = str(row.get("claim_tier") or "")
     rock_versions = retrieval_rock_versions(payload)
+    version_scope_status = retrieval_version_scope_status(payload, rock_versions)
     index_policy = retrieval_index_policy(row)
     text = contextual_retrieval_text(row, concepts=concepts, topics=topics, rock_versions=rock_versions)
     metadata = {
@@ -238,6 +241,7 @@ def retrieval_document(row: dict[str, Any]) -> dict[str, Any]:
         "source_content_hash": str(payload.get("content_hash") or payload.get("source_content_hash") or ""),
         "content_hash": sha256_text(text),
         "rock_versions": rock_versions,
+        "version_scope_status": version_scope_status,
         "temporal_status": str(payload.get("temporal_status") or "unspecified"),
         "needs_review": bool(payload.get("needs_review") or payload.get("needs_live_verification")),
         "index_policy": index_policy,
@@ -290,6 +294,13 @@ def retrieval_rock_versions(payload: dict[str, Any]) -> list[str]:
         tested = compatibility.get("tested_rock_versions")
         values.extend(tested if isinstance(tested, list) else [tested] if tested else [])
     return normalize_concept_ids(values)
+
+
+def retrieval_version_scope_status(payload: dict[str, Any], rock_versions: list[str]) -> str:
+    if rock_versions:
+        return "scoped"
+    status = str(payload.get("version_scope_status") or "unprocessed")
+    return status if status in {"version_independent", "unprocessed"} else "unprocessed"
 
 
 def rows_content_hash(rows: Iterable[dict[str, Any]]) -> str:
@@ -421,6 +432,105 @@ def answer_search_body(answer: dict[str, Any], checklist: dict[str, Any] | None)
             if isinstance(probe, dict):
                 parts.extend(str(probe.get(key) or "") for key in ["label", "sql", "check"])
     return " ".join(part for part in parts if part)
+
+
+def task_card_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    for task in read_jsonl(REPO_ROOT / "agent" / "concept-task-cards.jsonl"):
+        concept_id = str(task.get("concept_id") or "")
+        task_id = str(task.get("task_id") or "")
+        if not concept_id or not task_id:
+            continue
+        source_urls = [str(value) for value in task.get("source_urls") or [] if value]
+        body_parts = [
+            task.get("title"),
+            task.get("goal"),
+            " ".join(str(value) for value in task.get("steps") or []),
+            " ".join(str(value) for value in task.get("do_not_assume") or []),
+            " ".join(str(value) for value in task.get("entities") or []),
+            " ".join(str(value) for value in task.get("live_records") or []),
+        ]
+        rows.append(
+            {
+                "id": f"task_card:{concept_id}:{task_id}",
+                "kind": "task_card",
+                "title": task.get("title") or task_id,
+                "body": " ".join(str(value) for value in body_parts if value),
+                "path": task.get("path") or f"knowledge/concepts/{concept_id}/task-cards.jsonl",
+                "url": source_urls[0] if source_urls else "",
+                "concept": concept_id,
+                "concepts": [concept_id],
+                "authority_tier": "community-reviewed",
+                "claim_tier": "source_backed",
+                "source_id": ",".join(sorted({source_id_from_url(url) for url in source_urls if url})),
+                "payload": {**task, "version_scope_status": "unprocessed"},
+            }
+        )
+    return rows
+
+
+def troubleshooting_node_search_rows() -> list[dict[str, Any]]:
+    rows = []
+    concept_index = read_jsonl(REPO_ROOT / "agent" / "concept-index.jsonl")
+    for concept in concept_index:
+        concept_id = str(concept.get("concept_id") or "")
+        tree_path = REPO_ROOT / "knowledge" / "concepts" / concept_id / "troubleshooting-tree.json"
+        if not concept_id or not tree_path.exists():
+            continue
+        tree = json.loads(tree_path.read_text(encoding="utf-8"))
+        for node in tree.get("branches") or []:
+            if not isinstance(node, dict):
+                continue
+            node_id = str(node.get("id") or "")
+            if not node_id:
+                continue
+            source_urls = [str(value) for value in node.get("source_urls") or [] if value]
+            body_parts = [
+                node.get("title"),
+                node.get("when"),
+                " ".join(str(value) for value in node.get("start_with") or []),
+                " ".join(str(value) for value in node.get("do_not_assume") or []),
+                " ".join(str(value) for value in node.get("inspect") or []),
+                tree.get("entrypoint"),
+            ]
+            rows.append(
+                {
+                    "id": f"troubleshooting_node:{concept_id}:{node_id}",
+                    "kind": "troubleshooting_node",
+                    "title": node.get("title") or node_id,
+                    "body": " ".join(str(value) for value in body_parts if value),
+                    "path": f"knowledge/concepts/{concept_id}/troubleshooting-tree.json",
+                    "url": source_urls[0] if source_urls else "",
+                    "concept": concept_id,
+                    "concepts": [concept_id],
+                    "authority_tier": "community-reviewed",
+                    "claim_tier": "source_backed",
+                    "source_id": ",".join(sorted({source_id_from_url(url) for url in source_urls if url})),
+                    "payload": {
+                        **node,
+                        "concept_id": concept_id,
+                        "entrypoint": tree.get("entrypoint"),
+                        "version_scope_status": "unprocessed",
+                    },
+                }
+            )
+    return rows
+
+
+def source_id_from_url(url: str) -> str:
+    if "github.com/SparkDevNetwork/Rock" in url:
+        return "sparkdevnetwork_rock"
+    if "/documentation/" in url:
+        return "rock_documentation"
+    if "/rocku/" in url:
+        return "rock_rocku"
+    if "/recipes/" in url:
+        return "rock_recipes"
+    if "/ask/" in url:
+        return "rock_qa"
+    if "/developer/" in url:
+        return "rock_developer"
+    return ""
 
 
 def claim_search_rows() -> list[dict[str, Any]]:

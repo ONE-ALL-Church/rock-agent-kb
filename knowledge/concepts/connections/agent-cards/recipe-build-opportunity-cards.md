@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Build Opportunity Cards
 
-Follow the guide section for Recipe: Build Opportunity Cards.
+Complete Build Opportunity Cards with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,22 @@ Follow the guide section for Recipe: Build Opportunity Cards.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Block`
 
 ## Entities And Tables
 
-- `See guide`
+- `Block`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Connection Type source.
+2. Opportunity filter criteria.
+3. Public/private field mapping.
+4. Image field.
+5. Signup/detail link.
+6. Empty state.
+7. Security review.
+8. Test request result.
 
 ## Do Not Assume
 
@@ -34,15 +39,15 @@ Follow the guide section for Recipe: Build Opportunity Cards.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/ask/developing/2645
-- https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance

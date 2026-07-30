@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Review SQL Performance
 
-Follow the guide section for Recipe: Review SQL Performance.
+Cite release notes before recommending index changes Rock Core Release Notes.
 
 ## When To Use
 
@@ -24,9 +24,15 @@ Follow the guide section for Recipe: Review SQL Performance.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. SQL platform and tier.
+2. Current utilization.
+3. Top waits or slow queries if available.
+4. Job overlap.
+5. Database Maintenance job status.
+6. Rock version index caveats.
+7. Any custom indexes.
+8. Azure advisor recommendations and whether ignored/applied.
+9. Next safe actions.
 
 ## Do Not Assume
 
@@ -35,14 +41,3 @@ Follow the guide section for Recipe: Review SQL Performance.
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://community.rockrms.com/recipes/259
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Performance/Benchmarks/Security/EncryptionBenchmarks.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration.Performance/BenchmarkRunners/PersonSearchBenchmarks.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Performance/Attributes/OperationsPerSecondColumnAttribute.cs
-- https://community.rockrms.com/rocku/workflows/workflow-performance-tips

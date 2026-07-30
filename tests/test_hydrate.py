@@ -1,8 +1,10 @@
-from rock_kb.concepts import get_concept
+from rock_kb.concepts import Concept, get_concept
 import rock_kb.concepts as concepts_module
 from rock_kb.contribution_sources import public_contribution_records
 from rock_kb.hydrate import (
     concept_search_terms,
+    discover_repo_source_files,
+    hydrate_source_record,
     language_for_path,
     relevant_code_excerpt,
     relevant_excerpt,
@@ -75,6 +77,94 @@ def test_concept_search_terms_expands_hyphenated_terms():
 def test_language_for_path():
     assert language_for_path("Rock/CheckIn/Thing.cs") == "C#"
     assert language_for_path("Themes/foo.lava") == "Lava"
+
+
+def test_hydrate_source_record_prefers_rockumentation_api(monkeypatch):
+    payload = {
+        "configurationValues": {
+            "title": "Workflow Actions",
+            "slug": "core-concepts/workflows/workflow-actions",
+            "currentVersion": "v19.0",
+        },
+        "initialContent": (
+            '<article class="rockumentation-article" data-main-article="true" '
+            'data-article-id="2647"><h1>Workflow Actions</h1>'
+            "<p>Workflow actions execute configured behavior.</p></article>"
+        ),
+    }
+    monkeypatch.setattr(
+        "rock_kb.hydrate.fetch_rockumentation_payload",
+        lambda client, url: payload,
+    )
+
+    row = hydrate_source_record(
+        object(),
+        {
+            "id": "rock_documentation:article:2647",
+            "source_id": "rock_documentation",
+            "source_url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions",
+            "source_title": "Workflow Actions",
+        },
+        ["workflow", "action"],
+        max_chars=1000,
+    )
+
+    assert row["status"] == "ok"
+    assert row["hydration_tool"] == "rockumentation_block_action"
+    assert row["documentation_article_id"] == 2647
+    assert row["documentation_current_version"] == "v19.0"
+    assert "execute configured behavior" in row["excerpt"]
+
+
+def test_github_source_hydration_pins_immutable_commit_ref():
+    class Response:
+        def __init__(self, *, payload=None, text="", status_code=200):
+            self._payload = payload
+            self.text = text
+            self.status_code = status_code
+
+        def json(self):
+            return self._payload
+
+    class Client:
+        def get(self, url):
+            if url == "https://api.github.com/repos/SparkDevNetwork/Rock":
+                return Response(payload={"default_branch": "develop"})
+            if "/git/trees/develop" in url:
+                return Response(
+                    payload={
+                        "sha": "0123456789abcdef",
+                        "tree": [{"type": "blob", "path": "Rock/Workflows/WorkflowAction.cs"}],
+                    }
+                )
+            assert "0123456789abcdef" in url
+            return Response(text="public class WorkflowAction { public void Execute() {} }")
+
+    concept = Concept(
+        id="workflows",
+        title="Workflows",
+        description="Workflow behavior.",
+        keywords=["workflow", "action"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+
+    rows = discover_repo_source_files(
+        Client(),
+        "SparkDevNetwork/Rock",
+        concept_search_terms(concept),
+        limit=1,
+        max_chars=1000,
+    )
+
+    assert rows[0]["source_ref"] == "0123456789abcdef"
+    assert "/blob/0123456789abcdef/" in rows[0]["url"]
+    assert "/0123456789abcdef/" in rows[0]["raw_url"]
 
 
 def test_public_contribution_records_convert_reviewed_bundles(tmp_path):

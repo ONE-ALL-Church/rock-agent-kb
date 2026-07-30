@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Convert A Static Media List To Dynamic RowList
 
-Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowList.
+Complete Convert A Static Media List To Dynamic RowList with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,17 +16,26 @@ Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowL
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Page`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Page`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Identify content source and required fields.
+2. Use entity command or approved data source.
+3. Build rows in Lava.
+4. Render one RowList content root.
+5. Use `Rock:ContentNode` for rows/items.
+6. Attach `playVideo` or `pushPage`.
+7. Escape dynamic XML attribute values.
+8. Set a conservative cache policy.
+9. Test focus and playback.
+10. Verify interactions.
 
 ## Do Not Assume
 
@@ -36,13 +45,13 @@ Follow the guide section for Recipe: Convert A Static Media List To Dynamic RowL
 
 - https://community.rockrms.com/developer/roku-docs
 - https://community.rockrms.com/lava/commands
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/lava/lava-api
+- https://community.rockrms.com/developer/roku-docs/getting-started/pages
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/api-docs
-- https://community.rockrms.com/lava/remote-lava
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/dashboard-design-part-1
-- https://www.triumph.tech/resources/ai-in-digital-ministry
-- https://www.triumph.tech/resources/github-spotlight-1042024
+- https://community.rockrms.com/developer/roku-docs/resources/controls/page
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/BatchItemDetailPage.xaml.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/BatchPage.xaml
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/BatchPage.xaml.cs

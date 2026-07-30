@@ -1,141 +1,144 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group"
       ],
-      "entities": [],
-      "id": "recipe-find-all-pending-signature-requests-for-a-template",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/434",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
-        "https://community.rockrms.com/rocku/cms/entity-documents",
-        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482"
+      "guide_section_id": "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
+      "id": "start-here-what-kind-of-document-is-broken",
+      "inspect": [
+        "Person",
+        "Group"
       ],
-      "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
-      ],
-      "title": "Recipe: Find All Pending Signature Requests For A Template",
-      "when": "Follow the guide section for Recipe: Find All Pending Signature Requests For A Template."
+      "source_urls": [],
+      "start_with": [],
+      "title": "Start Here: What Kind Of Document Is Broken?",
+      "when": "Start Here: What Kind Of Document Is Broken?"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-verify-a-person-has-a-valid-signed-waiver",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-entity-documents",
+      "id": "entity-documents",
+      "inspect": [
+        "Workflow",
+        "Page",
+        "Block"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/434",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
-        "https://community.rockrms.com/rocku/cms/entity-documents",
-        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482"
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check the Document Type’s entity.",
+        "Check block settings.",
+        "Check whether the current page has entity context.",
+        "Check user security.",
+        "Check whether the document type is active if applicable in the current version.",
+        "Check File Type extension rules.",
+        "Check File Type storage provider.",
+        "Check file size."
       ],
-      "title": "Recipe: Verify A Person Has A Valid Signed Waiver",
-      "when": "Follow the guide section for Recipe: Verify A Person Has A Valid Signed Waiver."
+      "title": "Entity Documents",
+      "when": "Entity Documents"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "GroupMember",
+        "Family"
       ],
-      "entities": [],
-      "id": "recipe-diagnose-a-failed-registration-signature",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-merge-documents",
+      "id": "merge-documents",
+      "inspect": [
+        "Person",
+        "Group",
+        "GroupMember",
+        "Family"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/434",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
-        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
-        "https://community.rockrms.com/rocku/cms/entity-documents",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482"
+        "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check the source grid’s available fields.",
+        "Use the merge screen’s field list.",
+        "Confirm template expects `Row` fields.",
+        "Confirm group member data is accessed through `Row.GroupMember` when needed.",
+        "Confirm the grid contains the expected entity type.",
+        "Check straight quotes.",
+        "Check filter syntax.",
+        "Test with a simple template."
       ],
-      "title": "Recipe: Diagnose A Failed Registration Signature",
-      "when": "Follow the guide section for Recipe: Diagnose A Failed Registration Signature."
+      "title": "Merge Documents",
+      "when": "Merge Documents"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Family",
+        "Workflow",
+        "Block",
+        "Attribute"
       ],
-      "entities": [],
-      "id": "recipe-audit-public-exposure-risk",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-electronic-signatures",
+      "id": "electronic-signatures",
+      "inspect": [
+        "Person",
+        "Family",
+        "Workflow",
+        "Block",
+        "Attribute"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents",
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
-        "https://community.rockrms.com/recipes/482",
-        "https://community.rockrms.com/recipes/434"
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check template `IsActive`.",
+        "Check Rock version relative to v16.1 inactive-template filtering.",
+        "Check whether the action is configured to show Rock-native or legacy templates.",
+        "Check security.",
+        "Check Rock version relative to v15.2 inactive-template filtering.",
+        "Check registration block generation.",
+        "Check required signature template configuration.",
+        "Check whether the direct Signature Document Template field is set."
       ],
-      "title": "Recipe: Audit Public Exposure Risk",
-      "when": "Follow the guide section for Recipe: Audit Public Exposure Risk."
+      "title": "Electronic Signatures",
+      "when": "Electronic Signatures"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
-      ],
+      "do_not_assume": [],
       "entities": [],
-      "id": "recipe-build-a-staff-resend-process",
+      "guide_section_id": "17-troubleshooting-decision-tree-generated-pdfs",
+      "id": "generated-pdfs",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/documentation/core-concepts/documents",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents",
-        "https://community.rockrms.com/ModelMap",
-        "https://community.rockrms.com/recipes/434",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs",
-        "https://community.rockrms.com/rocku/cms/entity-documents",
-        "https://community.rockrms.com/rocku/workflows/electronic-signatures-1",
-        "https://www.triumph.tech/resources/github-spotlight-182025",
-        "https://www.triumph.tech/resources/github-spotlight-1042024",
-        "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
-        "https://community.rockrms.com/recipes/482"
+        "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check status is signed.",
+        "Check `BinaryFileId`.",
+        "Check signed date/time.",
+        "Check PDF generation configuration.",
+        "Check exception logs.",
+        "Check external rendering service if used.",
+        "Check Binary File Type storage.",
+        "Check template HTML."
       ],
-      "title": "Recipe: Build A Staff Resend Process",
-      "when": "Follow the guide section for Recipe: Build A Staff Resend Process."
+      "title": "Generated PDFs",
+      "when": "Generated PDFs"
     }
   ],
   "concept_id": "documents-signatures",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:41+00:00",
+  "generated_at": "2026-07-30T02:07:52+00:00",
   "guide_sections": [
     "10-generated-pdfs-deep-dive-pdf-troubleshooting",
     "17-troubleshooting-decision-tree",

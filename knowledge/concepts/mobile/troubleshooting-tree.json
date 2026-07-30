@@ -1,149 +1,235 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Device"
       ],
-      "entities": [],
-      "id": "recipe-inventory-a-mobile-app",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs",
-        "https://www.rockrms.com/mobilereleasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
-        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform"
+      "guide_section_id": "17-troubleshooting-decision-tree-app-does-not-launch",
+      "id": "app-does-not-launch",
+      "inspect": [
+        "Device"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Check shell version and OS minimums.",
+        "Check device OS.",
+        "Check app-store build.",
+        "Check iOS launch fixes if on old v2.x shells.",
+        "Check API URL reachability.",
+        "Check app-store review credentials only if failure occurs during review.",
+        "Check Rock availability and SSL."
       ],
-      "title": "Recipe: Inventory A Mobile App",
-      "when": "Follow the guide section for Recipe: Inventory A Mobile App."
+      "title": "App Does Not Launch",
+      "when": "App Does Not Launch"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-determine-whether-a-feature-can-be-used",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs",
-        "https://www.rockrms.com/mobilereleasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
-        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs"
+      "guide_section_id": "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
+      "id": "app-launches-but-shows-old-content",
+      "inspect": [
+        "Device",
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Was the app deployed?",
+        "Was the changed content dynamic?",
+        "Did the app reload after deploy?",
+        "Is the device pointed at the correct application ID/API URL?",
+        "Is homepage routing sending the user to another page?",
+        "Is security hiding the updated block?"
       ],
-      "title": "Recipe: Determine Whether A Feature Can Be Used",
-      "when": "Follow the guide section for Recipe: Determine Whether A Feature Can Be Used."
+      "title": "App Launches But Shows Old Content",
+      "when": "App Launches But Shows Old Content"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
       ],
-      "entities": [],
-      "id": "recipe-add-analytics-to-a-tap",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs",
-        "https://www.rockrms.com/mobilereleasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
-        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ActiveAttendanceBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ReprintAttendanceBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/KioskConfigurationBag.cs"
+      "guide_section_id": "17-troubleshooting-decision-tree-page-is-blank",
+      "id": "page-is-blank",
+      "inspect": [
+        "Page",
+        "Block"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Invalid XAML.",
+        "Block exception.",
+        "Missing shell feature.",
+        "Missing Core feature.",
+        "WebView sizing problem.",
+        "Page security.",
+        "Homepage routing issue.",
+        "API key or authorization issue."
       ],
-      "title": "Recipe: Add Analytics To A Tap",
-      "when": "Follow the guide section for Recipe: Add Analytics To A Tap."
+      "title": "Page Is Blank",
+      "when": "Page Is Blank"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Page"
       ],
-      "entities": [],
-      "id": "recipe-modernize-legacy-platform-xaml",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/mobilereleasenotes",
-        "https://community.rockrms.com/developer/mobile-docs",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
-        "https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components",
-        "https://community.rockrms.com/developer/mobile-docs/styling/legacy/borders",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page"
+      "guide_section_id": "17-troubleshooting-decision-tree-button-or-action-does-nothing",
+      "id": "button-or-action-does-nothing",
+      "inspect": [
+        "Page"
       ],
+      "source_urls": [],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Command unsupported in shell.",
+        "Wrong binding context.",
+        "Missing command parameter.",
+        "Invalid page GUID/URL.",
+        "Command attached to wrong property.",
+        "Disabled control.",
+        "Platform permission denied.",
+        "Page not deployed."
       ],
-      "title": "Recipe: Modernize Legacy Platform XAML",
-      "when": "Follow the guide section for Recipe: Modernize Legacy Platform XAML."
+      "title": "Button Or Action Does Nothing",
+      "when": "Button Or Action Does Nothing"
     },
     {
-      "do_not_assume": [
-        "Do not treat generated guidance as live-instance proof."
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Device"
       ],
-      "entities": [],
-      "id": "recipe-review-app-store-readiness",
-      "inspect": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-push-notification-not-received",
+      "id": "push-notification-not-received",
+      "inspect": [
+        "Person",
+        "Device"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Device permission not granted.",
+        "Push permission not requested.",
+        "Service account/provider missing.",
+        "Transport inactive.",
+        "Medium misconfigured.",
+        "Person/device not registered.",
+        "Target audience empty.",
+        "iOS shell version has known issue."
+      ],
+      "title": "Push Notification Not Received",
+      "when": "Push Notification Not Received"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-push-opens-wrong-page",
+      "id": "push-opens-wrong-page",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Open Action references non-mobile page.",
+        "Wrong mobile page GUID.",
+        "Missing query string.",
+        "Target page requires login.",
+        "Homepage routing overrides deep link.",
+        "User lacks page authorization."
+      ],
+      "title": "Push Opens Wrong Page",
+      "when": "Push Opens Wrong Page"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-webview-looks-wrong",
+      "id": "webview-looks-wrong",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [],
+      "start_with": [
+        "Missing viewport meta tag.",
+        "Page not mobile responsive.",
+        "CSS conflicts with native nav.",
+        "WebView container size wrong.",
+        "External page uses unsupported features.",
+        "Authentication redirect inside WebView.",
+        "Platform-specific rendering issue."
+      ],
+      "title": "WebView Looks Wrong",
+      "when": "WebView Looks Wrong"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Location",
+        "Schedule",
+        "Label",
+        "Family",
+        "Page"
+      ],
+      "guide_section_id": "17-troubleshooting-decision-tree-check-in-fails",
+      "id": "check-in-fails",
+      "inspect": [
+        "Person",
+        "Location",
+        "Schedule",
+        "Label",
+        "Family",
+        "Page"
+      ],
       "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs",
-        "https://www.rockrms.com/mobilereleasenotes",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources",
-        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements",
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/control-styling",
-        "https://community.rockrms.com/developer/apple-tv-docs/styling/references/apple-tv",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory",
-        "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications"
+        "https://www.rockrms.com/mobilereleasenotes"
       ],
       "start_with": [
-        "Read the linked guide section.",
-        "Inspect live Rock records before making changes."
+        "Wrong configuration template.",
+        "Kiosk not configured.",
+        "Areas missing.",
+        "Schedules inactive.",
+        "Locations closed.",
+        "Page parameters not applied; v7.0 fixed a check-in page parameter loading issue (Rock Mobile Release Notes).",
+        "Family mode edge case; v7.0 fixed an error for families with only one person (Rock Mobile Release Notes).",
+        "Security code settings wrong."
       ],
-      "title": "Recipe: Review App Store Readiness",
-      "when": "Follow the guide section for Recipe: Review App Store Readiness."
+      "title": "Check-In Fails",
+      "when": "Check-In Fails"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "17-troubleshooting-decision-tree-maui-upgrade-regression",
+      "id": "maui-upgrade-regression",
+      "inspect": [],
+      "source_urls": [],
+      "start_with": [
+        "Layout changed.",
+        "Scroll behavior changed.",
+        "Width/height request behavior changed.",
+        "Deprecated controls.",
+        "Safe area padding.",
+        "Legacy platform extension.",
+        "Popup overlay bug fixed in v7.0.",
+        "CSS property unsupported in MAUI."
+      ],
+      "title": "MAUI Upgrade Regression",
+      "when": "MAUI Upgrade Regression"
     }
   ],
   "concept_id": "mobile",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-07-26T00:29:58+00:00",
+  "generated_at": "2026-07-30T02:08:07+00:00",
   "guide_sections": [
     "8-commands-deep-dive-operational-command-troubleshooting",
     "17-troubleshooting-decision-tree",

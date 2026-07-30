@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import yaml
+
 from ._shared import *  # noqa: F401,F403
 
 
@@ -18,7 +20,7 @@ def build_guide_intelligence(concept_id: str) -> dict[str, Any]:
     task_cards = build_task_cards(concept_id, guide_text, section_rows, source_index)
     entity_rows = build_entity_rows(concept_id, guide_text, section_rows, task_cards, source_index)
     section_status_rows = build_section_status_rows(concept_id, section_rows, source_index)
-    troubleshooting_tree = build_troubleshooting_tree(concept_id, task_cards, section_rows)
+    troubleshooting_tree = build_troubleshooting_tree(concept_id, guide_text, task_cards, section_rows)
     audit = audit_guide_quality(concept_id, guide_text, section_rows, dependency, task_cards, entity_rows, pack)
 
     concept_dir = KNOWLEDGE_DIR / "concepts" / concept_id
@@ -114,6 +116,16 @@ def guide_dependency_record(
         for row in approved_claim_dependencies
         if row.get("claim_id")
     }
+    answer_bearing_claim_count = sum(
+        1
+        for row in approved_claim_dependencies
+        if str(row.get("claim_tier") or "") in {"source_backed", "answer_pack_approved", "live_verified"}
+    )
+    routing_context_claim_count = sum(
+        1
+        for row in approved_claim_dependencies
+        if str(row.get("claim_tier") or "") == "routing_context_only"
+    )
     return {
         "concept_id": concept_id,
         "guide_path": repo_relative_path(guide_path),
@@ -123,6 +135,7 @@ def guide_dependency_record(
         "built_at": generated_at_iso(),
         "source_pack_hydrated_at": pack.get("hydrated_at"),
         "synthesis_profile": pack.get("synthesis_profile"),
+        "synthesis_provenance": guide_synthesis_provenance(guide_text, pack),
         "sections": [
             {
                 "section_id": row["section_id"],
@@ -144,6 +157,9 @@ def guide_dependency_record(
         "approved_claims_hash": sha256_text(approved_claim_artifact_text) if approved_claim_artifact_text else "",
         "approved_claim_dependencies": approved_claim_dependencies,
         "approved_claim_hashes": approved_claim_hashes,
+        "approved_claim_count": len(approved_claim_dependencies),
+        "answer_bearing_claim_count": answer_bearing_claim_count,
+        "routing_context_claim_count": routing_context_claim_count,
         "rebuild_triggers": [
             {
                 "source_key": source["source_key"],
@@ -157,6 +173,25 @@ def guide_dependency_record(
             for source in used_sources
         ],
     }
+
+def guide_synthesis_provenance(guide_text: str, pack: dict[str, Any]) -> dict[str, Any]:
+    metadata: dict[str, Any] = {}
+    if guide_text.startswith("---\n") and "\n---\n" in guide_text[4:]:
+        frontmatter_text = guide_text.split("\n---\n", 1)[0].removeprefix("---\n")
+        parsed = yaml.safe_load(frontmatter_text) or {}
+        if isinstance(parsed, dict):
+            metadata = parsed
+    request = pack.get("synthesis_request") or {}
+    values = {
+        "model": metadata.get("synthesis_model") or request.get("model"),
+        "reasoning_effort": metadata.get("synthesis_reasoning_effort")
+        or request.get("reasoning_effort"),
+        "prompt_id": metadata.get("synthesis_prompt_id") or request.get("prompt_id"),
+        "prompt_version": metadata.get("synthesis_prompt_version")
+        or request.get("prompt_version"),
+        "source_pack_hash": metadata.get("synthesis_source_pack_hash"),
+    }
+    return {key: value for key, value in values.items() if value not in (None, "")}
 
 def release_caveat_rows(
     concept_id: str,

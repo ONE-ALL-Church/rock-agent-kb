@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Inventory Hosting
 
-Follow the guide section for Recipe: Inventory Hosting.
+Complete Inventory Hosting with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -24,9 +24,18 @@ Follow the guide section for Recipe: Inventory Hosting.
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Hosting model.
+2. Rock version.
+3. Runtime host(s).
+4. Database host/service.
+5. File storage providers.
+6. SMTP/SMS/payment providers.
+7. DNS and SSL.
+8. Jobs health.
+9. Backup policy.
+10. Monitoring.
+11. Known risks.
+12. Unknowns requiring live verification.
 
 ## Do Not Assume
 
@@ -34,15 +43,4 @@ Follow the guide section for Recipe: Inventory Hosting.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting
 - https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/recipes/259
-- https://community.rockrms.com/recipes/355
-- https://community.rockrms.com/recipes/202
-- https://community.rockrms.com/recipes/176
-- https://community.rockrms.com/recipes/352
-- https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms
-- https://www.triumph.tech/resources/azure-mobile-app

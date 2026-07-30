@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Triage An Accidental Merge
 
-Follow the guide section for Recipe: Triage An Accidental Merge.
+Complete Triage An Accidental Merge with evidence-backed checks and a verifiable outcome.
 
 ## When To Use
 
@@ -16,33 +16,46 @@ Follow the guide section for Recipe: Triage An Accidental Merge.
 
 ## Live Records To Inspect
 
-- `Guide section`
+- `Attendance`
+- `Person`
+- `Group`
+- `Workflow`
+- `Attribute`
 
 ## Entities And Tables
 
-- `See guide`
+- `Attendance`
+- `Person`
+- `Group`
+- `Workflow`
+- `Attribute`
 
 ## Steps
 
-1. Read the linked guide section.
-2. Inspect live Rock records before making changes.
-3. Cite exact source URLs in the final answer.
+1. Do not create more edits until evidence is collected.
+2. Identify merge timestamp and survivor.
+3. Collect aliases before and after merge.
+4. Inspect history and affected person surfaces.
+5. Restore backup to separate database if recovery is required.
+6. Use preview/rollback transaction for any script-based recovery.
+7. Validate group membership, giving, attendance, attributes, notes, workflows, logins, and aliases.
+8. Prefer expert review.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Do not create more edits until evidence is collected.
 
 ## Source Links
 
 - https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/lava/workflows
+- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava/filters/person-filters
-- https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/commands/entity-commands
 - https://community.rockrms.com/rocku/individuals-in-rock
-- https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/rocku/individuals-in-rock/person-profile
-- https://community.rockrms.com/rocku/individuals-in-rock/blended-families
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
+- https://community.rockrms.com/developer/303---blast-off/attributes
