@@ -13,12 +13,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 15931 words; expected at least 1200.",
+      "message": "Guide has 15927 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 15931 words; expected no more than 9000.",
+      "message": "Guide has 15927 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -75,24 +75,24 @@
   "concept_id": "security-permissions",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-30T02:08:04+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 1863,
-  "guide_word_count": 15931,
+  "guide_word_count": 15927,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
     "answer_claim_reference_count": 0,
     "entity_count": 12,
     "section_count": 140,
-    "source_count": 61,
+    "source_count": 60,
     "substantive_uncited_section_ratio": 0.011,
     "task_card_count": 7,
-    "word_count": 15931
+    "word_count": 15927
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 140,
-  "source_count": 61,
+  "source_count": 60,
   "status": "fail",
   "task_card_count": 7
 }

@@ -371,9 +371,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration.",
-      "claim_hash": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+      "claim_hash": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
       "claim_id": "claim:a774892d024b8bbe0560",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -384,7 +384,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "19.0"
@@ -707,7 +707,7 @@
     "claim:809519cf51bf3b32119f": "5e8361d3aaadbbe9163863f76b749238c9ad72c7dd881222a54db269507d5a49",
     "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
     "claim:903c8ff9b5d2590fd616": "e630aeb9c95efeba507ddbcd1ad9446a0bf4eb6fc8b9a7e8e4588d6d1c9cc5ba",
-    "claim:a774892d024b8bbe0560": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+    "claim:a774892d024b8bbe0560": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
     "claim:c8435f854b9e7075ab76": "666fc713cfda0e5637433074f3dc4cc842f349dfc4258e7d275a1c86fccea904",
     "claim:cd52138ec6ca3848cae9": "792751f592a1832f67f435861993bdce5361b95083cde80bfcafcead73b33f12",
     "claim:dd3b03571388d00cc80b": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652",
@@ -715,7 +715,7 @@
     "claim:f8380a3e786ab33df98f": "9b639df8fab9f4e6b6f37e3ae7b4ddb53814e80b1fcc0c27ac78f1dda83ab273",
     "claim:fb85d514f4ed765acad4": "b780cfbd12bcfbedfce8c6eda19bba7126bb33ed43390a777d1893898edc87d4"
   },
-  "approved_claims_hash": "d60d97cb3b40e58a983eb0e9ebdde1c0b7641a9faf0482148004565e8da27b68",
+  "approved_claims_hash": "a74118f6ea3acbef3277bbc7a9b13675fb452f8616756ed4056ac812804a4f71",
   "approved_claims_path": "knowledge/concepts/communications/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1360,12 +1360,12 @@
   },
   "approved_media_hash": "9982b5968087f84fa562a9aafc6f5448a52eefe5134ed117e2ffdde4f1331dc7",
   "approved_media_path": "knowledge/concepts/communications/approved-media.md",
-  "built_at": "2026-07-30T02:08:03+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "communications",
-  "guide_hash": "3543b98a1a3c8d91a9f363bb921a10cf953b79234aa19b42241f14d107aed89d",
+  "guide_hash": "a8a62d22e1636caccaa7e36e3485cdc9bd48bff61d3b043e1adc9a3f40136de7",
   "guide_line_count": 1223,
   "guide_path": "knowledge/concepts/communications/guide.md",
-  "guide_word_count": 12219,
+  "guide_word_count": 12214,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1845,6 +1845,15 @@
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-template"
     },
     {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1870,15 +1879,6 @@
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
     },
     {
       "authority": "unknown",
@@ -3222,13 +3222,13 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "a1e69804a411861b",
         "58a92984acbd2344",
         "a1bb90bc2fdee5ac",
         "58a92984acbd2344",
         "dcc9c3b1df657d9f",
         "58a92984acbd2344",
         "58a92984acbd2344",
-        "a1e69804a411861b",
         "892f43823742ae10",
         "3b673be37d4ab1ec",
         "5a4ab5d0faf80c15",
@@ -4467,6 +4467,16 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -4495,16 +4505,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
     },
     {
       "authority": "unknown",

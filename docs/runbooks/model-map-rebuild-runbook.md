@@ -16,9 +16,18 @@ Current checked-in tracks from the last accepted scrape:
 | Track | Source | Checked-in Rock Version | Raw Artifact |
 | --- | --- | --- | --- |
 | Stable | `https://rocksolidchurchdemo.com/admin/power-tools/model-map` | `19.2.0` | `data/review/model-map-scrape/demo-model-map-full-scrape.json` |
-| Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.5` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
+| Latest/pre-alpha | `https://rockrmslatest.com/admin/power-tools/model-map` | `20.0.6` | `data/review/model-map-scrape/latest-model-map-full-scrape.json` |
 
 Do not assume those versions are still live. `uv run kb status` probes the stable and latest Rock version endpoints and reports `model-map versions` as stale when either site has advanced.
+
+If a live demo reports an older version than the last reviewed artifact, do not
+silently downgrade the checked-in track. Preserve the live response as ignored
+review evidence, restore the last accepted artifact from the private corpus,
+and document the source anomaly. Resume normal promotion only after the demo
+advances to the accepted version or a maintainer reviews and explicitly accepts
+the downgrade. On 2026-07-30 the stable demo reported `19.1.8`, behind the
+accepted `19.2.0` artifact, so this policy was applied while latest advanced to
+`20.0.6`.
 
 ## Prerequisites
 

@@ -64,6 +64,198 @@ test("search is compact by default and exact result expands the row", async () =
   }
 });
 
+test("canonical canary is explicit, opt-in, isolated, and outcome-aware", async () => {
+  const canonicalHash = "d".repeat(64);
+  const mf = await buildWorker({
+    canonicalShadow: {
+      status: "ready",
+      contentHash: canonicalHash,
+      searchRowCount: 1,
+      knowledgeUnitCount: 1,
+      artifactCount: 8,
+      observationCount: 1,
+    },
+  });
+  const installationId = `rkbi_${"c".repeat(43)}`;
+  const canaryHeaders = {
+    "x-rock-kb-client": "cli",
+    "x-rock-kb-cohort": "external-test",
+    "x-rock-kb-installation-id": installationId,
+  };
+  const canaryId =
+    "cross-source:claim:content-channel-item-list-authorization-6914";
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `INSERT INTO canonical_search_rows (
+         id, kind, title, body, path, url, concept, authority_tier,
+         claim_tier, claim_tier_rank, source_id, concepts_json,
+         topics_json, payload_json
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(
+      canaryId,
+      "claim",
+      "Content Channel Item List Authorization Fix in Rock 19.3",
+      "Rock 19.3 authorizes add and delete against the selected content channel.",
+      "shadow/canonical/claim.jsonl",
+      "https://github.com/SparkDevNetwork/Rock/issues/6914",
+      "content-personalization",
+      "source-code-confirmed",
+      "source_backed",
+      1,
+      "sparkdevnetwork_rock",
+      JSON.stringify([
+        "content-personalization",
+        "security-permissions",
+      ]),
+      JSON.stringify(["cms", "permissions"]),
+      JSON.stringify({
+        knowledge_unit_id: canaryId,
+        rock_versions: ["19.3"],
+      }),
+    ).run();
+    await db.prepare(
+      "INSERT INTO canonical_search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+    ).bind(
+      canaryId,
+      "Content Channel Item List Authorization Fix in Rock 19.3",
+      "Rock 19.3 authorizes add and delete against the selected content channel.",
+      "content-personalization security-permissions cms permissions",
+    ).run();
+    await db.prepare(
+      "INSERT INTO canonical_search_row_aliases (alias_id, canonical_id) VALUES (?, ?)",
+    ).bind("claim:legacy-6914", canaryId).run();
+
+    const missingOptIn = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=content%20channel%20authorization&projection=canonical-canary",
+    );
+    assert.equal(missingOptIn.status, 400);
+    assert.equal(
+      (await missingOptIn.json()).error_code,
+      "canonical_canary_opt_in_required",
+    );
+
+    const communityOnly = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=content%20channel%20authorization&projection=canonical-canary",
+      {
+        headers: {
+          ...canaryHeaders,
+          "x-rock-kb-cohort": "community",
+        },
+      },
+    );
+    assert.equal(communityOnly.status, 400);
+
+    const legacy = await (
+      await mf.dispatchFetch(
+        "https://kb.example.test/search?q=content%20channel%20authorization",
+        { headers: canaryHeaders },
+      )
+    ).json();
+    assert.equal(
+      legacy.results.some((row) => row.id === canaryId),
+      false,
+    );
+
+    const canaryResponse = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=content%20channel%20authorization&projection=canonical-canary",
+      { headers: canaryHeaders },
+    );
+    const canary = await canaryResponse.json();
+    assert.equal(canaryResponse.status, 200);
+    assert.equal(canary.retrieval_projection, "canonical-canary");
+    assert.equal(canary.results[0].id, canaryId);
+    assert.equal(
+      canary.results[0].retrieval_projection,
+      "canonical-canary",
+    );
+
+    const exactResponse = await mf.dispatchFetch(
+      "https://kb.example.test/results/claim%3Alegacy-6914?projection=canonical-canary",
+      { headers: canaryHeaders },
+    );
+    const exact = await exactResponse.json();
+    assert.equal(exact.status, "ok");
+    assert.equal(exact.canonical_result_id, canaryId);
+    assert.equal(exact.retrieval_projection, "canonical-canary");
+
+    const mcpResponse = await mcp(
+      mf,
+      "tools/call",
+      {
+        name: "kb_search",
+        arguments: {
+          query: "content channel authorization",
+          projection: "canonical-canary",
+        },
+      },
+      canaryHeaders,
+    );
+    assert.equal(
+      mcpResponse.result.structuredContent.results[0].id,
+      canaryId,
+    );
+
+    const outcomeResponse = await mf.dispatchFetch(
+      "https://kb.example.test/outcomes",
+      {
+        method: "POST",
+        headers: {
+          ...canaryHeaders,
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          result_id: canaryId,
+          outcome: "useful",
+          reason_codes: ["answered"],
+          consent_attested: true,
+          retrieval_projection: "canonical-canary",
+        }),
+      },
+    );
+    const outcome = await outcomeResponse.json();
+    assert.equal(outcomeResponse.status, 201);
+    assert.equal(outcome.projection_version, canonicalHash);
+    assert.equal(outcome.retrieval_projection, "canonical-canary");
+    const storedOutcome = await db.prepare(
+      "SELECT retrieval_projection FROM outcome_events_v1 WHERE result_id = ?",
+    ).bind(canaryId).first();
+    assert.equal(storedOutcome.retrieval_projection, "canonical-canary");
+
+    const telemetry = await (
+      await mf.dispatchFetch("https://kb.example.test/telemetry/summary")
+    ).json();
+    assert.equal(
+      telemetry.canonical_canary.external_test_rows.some(
+        (row) => row.event === "search",
+      ),
+      true,
+    );
+    assert.equal(telemetry.canonical_canary.outcomes.length, 1);
+    assert.equal(
+      JSON.stringify(telemetry.canonical_canary).includes(installationId),
+      false,
+    );
+    assert.equal(
+      JSON.stringify(telemetry.canonical_canary).includes(
+        "content channel authorization",
+      ),
+      false,
+    );
+
+    const health = await (
+      await mf.dispatchFetch("https://kb.example.test/health")
+    ).json();
+    assert.equal(
+      health.canonical_shadow.active_retrieval_projection,
+      "legacy",
+    );
+    assert.equal(health.canonical_shadow.active_reader, false);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("full search, exact claim lookup, and MCP progressive tools work", async () => {
   const mf = await buildWorker();
   try {
@@ -669,6 +861,10 @@ test("health reports the active bounded artifact slot and artifact reads use it"
       mode: "dual_write_shadow",
       active_reader: false,
       active_retrieval_projection: "legacy",
+      canary_reader_available: true,
+      canary_retrieval_projection: "canonical-canary",
+      canary_requires_opt_in: true,
+      canary_cohorts: ["external-test", "maintainer"],
       content_hash: "a".repeat(64),
       search_row_count: 14268,
       knowledge_unit_count: 13704,
@@ -1560,6 +1756,63 @@ test("opted-in outcomes feed a privacy-bounded field-validation funnel and revie
   }
 });
 
+test("outcome telemetry migrates existing rows to an explicit retrieval projection", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `CREATE TABLE outcome_events_v1 (
+        day TEXT NOT NULL,
+        installation_hash TEXT NOT NULL,
+        client_class TEXT NOT NULL,
+        cohort TEXT NOT NULL,
+        result_id TEXT NOT NULL,
+        result_kind TEXT NOT NULL,
+        projection_version TEXT NOT NULL,
+        outcome TEXT NOT NULL,
+        reason_codes TEXT NOT NULL,
+        count INTEGER NOT NULL,
+        PRIMARY KEY(day, installation_hash, client_class, cohort, result_id, projection_version, outcome, reason_codes)
+      )`,
+    ).run();
+    const installationId = `rkbi_${"e".repeat(43)}`;
+    const response = await mf.dispatchFetch(
+      "https://kb.example.test/outcomes",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-rock-kb-client": "cli",
+          "x-rock-kb-cohort": "community",
+          "x-rock-kb-installation-id": installationId,
+        },
+        body: JSON.stringify({
+          result_id: "claim:claim:abc123",
+          outcome: "useful",
+          reason_codes: ["answered"],
+          consent_attested: true,
+        }),
+      },
+    );
+    assert.equal(response.status, 201);
+    const columns = await db.prepare(
+      "PRAGMA table_info(outcome_events_v1)",
+    ).all();
+    assert.equal(
+      columns.results.some(
+        (column) => column.name === "retrieval_projection",
+      ),
+      true,
+    );
+    const stored = await db.prepare(
+      "SELECT retrieval_projection FROM outcome_events_v1 LIMIT 1",
+    ).first();
+    assert.equal(stored.retrieval_projection, "legacy");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("community test rounds require a cohort and aggregate all fixed case outcomes", async () => {
   const mf = await buildWorker();
   try {
@@ -2078,6 +2331,24 @@ async function buildWorker(options = {}) {
     )`).run();
     await db.prepare("CREATE TABLE search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept))").run();
     await db.prepare("CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL)").run();
+    await db.prepare(`CREATE TABLE canonical_search_rows (
+      id TEXT PRIMARY KEY,
+      kind TEXT NOT NULL,
+      title TEXT NOT NULL,
+      body TEXT,
+      path TEXT NOT NULL,
+      url TEXT,
+      concept TEXT,
+      authority_tier TEXT,
+      claim_tier TEXT,
+      claim_tier_rank INTEGER,
+      source_id TEXT,
+      concepts_json TEXT NOT NULL DEFAULT '[]',
+      topics_json TEXT NOT NULL DEFAULT '[]',
+      payload_json TEXT
+    )`).run();
+    await db.prepare("CREATE TABLE canonical_search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept))").run();
+    await db.prepare("CREATE TABLE canonical_search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL)").run();
     await db.prepare(`CREATE TABLE related_content_edges (
       relationship_id TEXT PRIMARY KEY,
       source_id TEXT NOT NULL,
@@ -2091,6 +2362,7 @@ async function buildWorker(options = {}) {
       payload_json TEXT NOT NULL
     )`).run();
     await db.prepare("CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept)").run();
+    await db.prepare("CREATE VIRTUAL TABLE canonical_search_rows_fts USING fts5(id UNINDEXED, title, body, concept)").run();
     await db.prepare(`CREATE TABLE rock_issues (
       issue_id TEXT PRIMARY KEY,
       github_node_id TEXT NOT NULL UNIQUE,

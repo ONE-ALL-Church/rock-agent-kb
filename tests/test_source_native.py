@@ -11,6 +11,7 @@ from rock_kb.jsonl import read_jsonl, write_jsonl
 from rock_kb.schemas import SourceNativeDistillationOutput, SourceSnapshot
 from rock_kb.source_native import (
     build_source_native_impact_report,
+    build_source_native_document_candidates,
     merge_source_native_distillation_outputs,
     parse_markdown_source_units,
     promote_source_native_distillation,
@@ -20,6 +21,46 @@ from rock_kb.source_native import (
     write_source_native_distillation_schema,
     write_source_native_manifest,
 )
+
+
+def document_record() -> dict:
+    return {
+        "id": "rock_documentation:article:100",
+        "source_id": "rock_documentation",
+        "source_url": "https://community.rockrms.com/documentation/supporting-rock/caching/test",
+        "source_title": "Test Cache Article",
+        "summary": (
+            "Configure and inspect a cache provider from the administration "
+            "settings page, including the documented behavior and operational "
+            "cautions for indexing."
+        ),
+        "excerpt": "Configure and inspect a cache provider.",
+        "content_hash": "0" * 64,
+        "documentation_path": "documentation/supporting-rock/caching/test",
+        "documentation_branches": [
+            "documentation/supporting-rock",
+            "documentation/supporting-rock/caching",
+        ],
+        "documentation_article_id": 100,
+        "documentation_current_version": "v19.0",
+    }
+
+
+def rockumentation_payload() -> dict:
+    return {
+        "initialContent": (
+            '<article class="rockumentation-article" data-main-article="true">'
+            "<p>The cache provider stores reusable values for later requests.</p>"
+            "<h2>Configure</h2>"
+            "<ol><li>Open the settings page.</li>"
+            "<li>Enable the cache provider.</li></ol>"
+            "</article>"
+        ),
+        "configurationValues": {
+            "slug": "documentation/supporting-rock/caching/test",
+            "title": "Test Cache Article",
+        },
+    }
 
 
 def source_units() -> list[dict]:
@@ -145,6 +186,7 @@ def valid_output() -> dict:
                         "independent_question": "How do I configure the feature?",
                         "rationale": "The ordered list supplies the complete setup sequence.",
                         "concept_ids": ["system-admin-ops"],
+                        "temporal_status": "release_sensitive",
                         "payload": {
                             "summary": "Configure the feature through its documented settings.",
                             "steps": [
@@ -162,6 +204,7 @@ def valid_output() -> dict:
                         "independent_question": "What does the Enabled setting control?",
                         "rationale": "The settings table defines the option semantics.",
                         "concept_ids": ["system-admin-ops"],
+                        "temporal_status": "release_sensitive",
                         "payload": {
                             "summary": "Reference for the feature's documented setting.",
                             "reference_items": [
@@ -278,6 +321,29 @@ def test_parser_splits_list_items_and_links_nested_catalog_to_parent():
     assert units[2].context == "Person Location"
 
 
+def test_parser_marks_repeated_text_without_dropping_source_locators():
+    units = parse_markdown_source_units(
+        markdown=(
+            "# First Surface\n\n"
+            "Content Channel Item permissions are not enforced.\n\n"
+            "# Second Surface\n\n"
+            "Content Channel Item permissions are not enforced.\n"
+        ),
+        source_snapshot_id="source-snapshot:test",
+        source_record_id="rock_documentation:article:103",
+        source_url="https://community.rockrms.com/documentation/kiosk",
+        source_title="Kiosk Ads",
+    )
+
+    assert len(units) == 2
+    assert units[0].duplicate_text_of_source_unit_id is None
+    assert (
+        units[1].duplicate_text_of_source_unit_id
+        == units[0].source_unit_id
+    )
+    assert units[0].locator.value != units[1].locator.value
+
+
 def test_source_observation_preserves_change_time_for_unchanged_content():
     unchanged = source_observation_metadata(
         previous={
@@ -301,6 +367,67 @@ def test_source_observation_preserves_change_time_for_unchanged_content():
     }
     assert changed["observation_status"] == "changed"
     assert changed["content_changed_at"] == "2026-07-30T00:00:00+00:00"
+
+
+def test_unchanged_candidate_refresh_preserves_ids_and_change_time(
+    tmp_path: Path,
+):
+    empty = tmp_path / "empty"
+    first = tmp_path / "first"
+    second = tmp_path / "second"
+    empty.mkdir()
+    first_checked = "2026-07-01T00:00:00+00:00"
+    second_checked = "2026-07-30T00:00:00+00:00"
+
+    build_source_native_document_candidates(
+        concept_ids=["system-admin-ops"],
+        limit_per_concept=1,
+        destination=first,
+        previous_dir=empty,
+        checked_at=first_checked,
+        records=[document_record()],
+        payload_loader=lambda _record: rockumentation_payload(),
+    )
+    build_source_native_document_candidates(
+        concept_ids=["system-admin-ops"],
+        limit_per_concept=1,
+        destination=second,
+        previous_dir=first,
+        checked_at=second_checked,
+        records=[document_record()],
+        payload_loader=lambda _record: rockumentation_payload(),
+    )
+
+    first_snapshot = list(read_jsonl(first / "source-snapshots.jsonl"))[0]
+    second_snapshot = list(read_jsonl(second / "source-snapshots.jsonl"))[0]
+    first_units = list(read_jsonl(first / "source-units.private.jsonl"))
+    second_units = list(read_jsonl(second / "source-units.private.jsonl"))
+    assert second_snapshot["source_snapshot_id"] == first_snapshot["source_snapshot_id"]
+    assert [row["source_unit_id"] for row in second_units] == [
+        row["source_unit_id"] for row in first_units
+    ]
+    assert second_snapshot["observed_at"] == first_checked
+    assert second_snapshot["content_changed_at"] == first_checked
+    assert second_snapshot["last_checked_at"] == second_checked
+    assert second_snapshot["observation_status"] == "unchanged"
+
+    artifact = {
+        "artifact_id": "source-native:claim:test-cache",
+        "artifact": {"source_unit_ids": [first_units[0]["source_unit_id"]]},
+    }
+    for destination, units in ((first, first_units), (second, second_units)):
+        write_jsonl(destination / "source-units.jsonl", units)
+        write_jsonl(destination / "reviewed-artifacts.jsonl", [artifact])
+    report = build_source_native_impact_report(
+        previous_dir=first,
+        current_dir=second,
+    )
+    assert report["status"] == "unchanged"
+    assert report["revalidation_queue"] == {
+        "knowledge_unit_ids": [],
+        "removed_or_prior_knowledge_unit_ids": [],
+        "projection_targets": [],
+    }
 
 
 def test_source_snapshot_rejects_private_or_parent_routing_paths():
@@ -377,10 +504,20 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     output_path = tmp_path / "output.json"
     destination = tmp_path / "public"
     write_jsonl(input_path, [distillation_input()])
-    output_path.write_text(
-        json.dumps(valid_output()),
-        encoding="utf-8",
-    )
+    output = valid_output()
+    units = source_units()
+    output["articles"][0]["artifacts"][1]["related_artifact_links"] = [
+        {
+            "target_artifact_key": "feature-behavior",
+            "relation": "requires",
+            "rationale": (
+                "The configuration procedure requires the documented "
+                "feature behavior."
+            ),
+            "evidence_source_unit_ids": [units[0]["source_unit_id"]],
+        }
+    ]
+    output_path.write_text(json.dumps(output), encoding="utf-8")
 
     result = promote_source_native_distillation(
         input_path=input_path,
@@ -389,13 +526,24 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
         reviewer="test-reviewer",
         model="test-model",
         reviewed_at="2026-07-30T12:00:00+00:00",
+        generation_prompt_version="2.3.0",
+        generated_at="2026-07-29T12:00:00+00:00",
     )
 
     assert result["reviewed_artifact_count"] == 3
-    assert len(list(read_jsonl(destination / "generation-activities.jsonl"))) == 1
+    activities = list(read_jsonl(destination / "generation-activities.jsonl"))
+    assert len(activities) == 1
+    assert activities[0]["prompt_version"] == "2.3.0"
+    assert activities[0]["created_at"] == "2026-07-29T12:00:00+00:00"
+    assert activities[0]["parameters"]["review_contract_version"] == "2.3.1"
     public_units = list(read_jsonl(destination / "source-units.jsonl"))
     assert all("text" not in row for row in public_units)
     assert all(row["public_summary"] for row in public_units)
+    relationships = list(read_jsonl(destination / "relationships.jsonl"))
+    assert len(relationships) == 1
+    assert relationships[0]["relation"] == "requires"
+    assert relationships[0]["from_id"].endswith(":configure-feature")
+    assert relationships[0]["to_id"].endswith(":feature-behavior")
     evaluations = list(read_jsonl(destination / "evaluation-set.jsonl"))
     assert len(evaluations) == 3
     assert all(row["expected_result_ids"] for row in evaluations)
@@ -612,3 +760,80 @@ def test_impact_report_requeues_only_dependent_artifact(tmp_path: Path):
         "source-native:claim:test"
     ]
     assert "source-native:task-card:unrelated" not in json.dumps(report)
+
+
+def test_impact_report_requeues_removed_unit_dependency(tmp_path: Path):
+    previous = tmp_path / "previous"
+    current = tmp_path / "current"
+    previous.mkdir()
+    current.mkdir()
+    snapshot = distillation_input()["source_snapshot"]
+    units = source_units()
+    write_jsonl(previous / "source-snapshots.jsonl", [snapshot])
+    write_jsonl(current / "source-snapshots.jsonl", [snapshot])
+    write_jsonl(previous / "source-units.jsonl", units)
+    write_jsonl(current / "source-units.jsonl", units[1:])
+    write_jsonl(
+        previous / "reviewed-artifacts.jsonl",
+        [
+            {
+                "artifact_id": "source-native:claim:removed",
+                "artifact": {"source_unit_ids": [units[0]["source_unit_id"]]},
+            }
+        ],
+    )
+    write_jsonl(current / "reviewed-artifacts.jsonl", [])
+
+    report = build_source_native_impact_report(
+        previous_dir=previous,
+        current_dir=current,
+    )
+
+    assert report["status"] == "changed"
+    assert len(report["source_units"]["removed"]) == 1
+    assert report["revalidation_queue"]["knowledge_unit_ids"] == []
+    assert report["revalidation_queue"][
+        "removed_or_prior_knowledge_unit_ids"
+    ] == ["source-native:claim:removed"]
+
+
+def test_impact_report_requeues_route_metadata_move(tmp_path: Path):
+    previous = tmp_path / "previous"
+    current = tmp_path / "current"
+    previous.mkdir()
+    current.mkdir()
+    prior_snapshot = distillation_input()["source_snapshot"]
+    current_snapshot = {
+        **prior_snapshot,
+        "canonical_url": "https://community.rockrms.com/documentation/new-route/test",
+        "source_path": "documentation/new-route/test",
+        "routing_paths": [
+            "documentation/new-route",
+            "documentation/new-route/test",
+        ],
+    }
+    units = source_units()
+    artifact = {
+        "artifact_id": "source-native:claim:routed",
+        "artifact": {"source_unit_ids": [units[0]["source_unit_id"]]},
+    }
+    write_jsonl(previous / "source-snapshots.jsonl", [prior_snapshot])
+    write_jsonl(current / "source-snapshots.jsonl", [current_snapshot])
+    write_jsonl(previous / "source-units.jsonl", units)
+    write_jsonl(current / "source-units.jsonl", units)
+    write_jsonl(previous / "reviewed-artifacts.jsonl", [artifact])
+    write_jsonl(current / "reviewed-artifacts.jsonl", [artifact])
+
+    report = build_source_native_impact_report(
+        previous_dir=previous,
+        current_dir=current,
+    )
+
+    assert report["status"] == "changed"
+    assert report["source_records"]["routing_changed"] == [
+        "rock_documentation|documentation-article:100"
+    ]
+    assert report["source_units"]["changed"] == []
+    assert report["revalidation_queue"]["knowledge_unit_ids"] == [
+        "source-native:claim:routed"
+    ]

@@ -59,9 +59,9 @@
     {
       "authority_tier": "official",
       "claim": "A webhook can pass request data such as query parameters, headers, cookies, or the raw body into workflow attributes; complex parsing is better performed inside the workflow after storing the raw body than in the Defined Value template.",
-      "claim_hash": "d9a40602831ca4aab79a5668aa4473c078c8d611658fd16ae23b89764d094e25",
+      "claim_hash": "6a5d9e33e5f106c35faeb881e341bee23f725799b2c55c9ad31306ce26713730",
       "claim_id": "claim:110bf9867eb5640eec9c",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "implementation_pattern",
       "community_derived": false,
       "concept_ids": [
@@ -70,7 +70,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "97db132ed66f26608ce8696a34971e05f84254f5def53ddf15e1f1ce1302a243",
@@ -695,9 +695,9 @@
     {
       "authority_tier": "official",
       "claim": "In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format.",
-      "claim_hash": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
+      "claim_hash": "b5dc10e9f6a16eeb95e4afdce52b82d56f25a630687fe422568fc79af9edf7de",
       "claim_id": "claim:5d109547ddfc0fd7b9c2",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -707,7 +707,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "7.0"
@@ -2324,9 +2324,9 @@
     {
       "authority_tier": "official",
       "claim": "For an incoming workflow webhook, Rock evaluates every Workflow Webhook Defined Value and starts each configured workflow whose Process Request Lava evaluates to true; matching rules therefore need to be mutually intentional and sufficiently selective.",
-      "claim_hash": "90d6f742a7f35e5be1ba18558e9f063644ddb1ff9d65d77cdaa22e92ff43379e",
+      "claim_hash": "6f07f4c8dcaea4711dd211304c2956b6eb7fe477c43d30cc87a08e96b252b691",
       "claim_id": "claim:e9bda96374cd6969e777",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -2335,7 +2335,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "97db132ed66f26608ce8696a34971e05f84254f5def53ddf15e1f1ce1302a243",
@@ -2500,7 +2500,7 @@
   ],
   "approved_claim_hashes": {
     "claim:0af9f556ecfaad976a8c": "faa12f36261fdcf5454002037fa3a8793866fa7707a43c63dace38567f761156",
-    "claim:110bf9867eb5640eec9c": "d9a40602831ca4aab79a5668aa4473c078c8d611658fd16ae23b89764d094e25",
+    "claim:110bf9867eb5640eec9c": "6a5d9e33e5f106c35faeb881e341bee23f725799b2c55c9ad31306ce26713730",
     "claim:132033a6439f95f1e637": "05701a5f070cbb07d146a56c6f9da0114f1220c1fa21908a9d42b2132fd45100",
     "claim:1d849b5ec62cf35b0442": "5d725359e08e354ed6e36779aad9231f9c2d09997a2c41d67f29b2d324cbba37",
     "claim:1de24b99fec5882f9041": "ade2ef7be60671675684956078334ee2566fcc4979045fb9d1d198462074e156",
@@ -2514,7 +2514,7 @@
     "claim:4bc0aee305fa6b1bd524": "267a3036ea492b1d0b1970e0a4404734e0e97cf41a6a07da5ca4e0ec7f57cba1",
     "claim:4bf4025847cf0c78adf0": "12d02a703e46f4ee4519f071c27cadb37debb1236c321d0e18c0ba3f1ff16041",
     "claim:57b56ebf5bb293682e3d": "15885df0d3612cc6c4e48e7a0ab19226f4146a3f7a98b63622535ccfdef56547",
-    "claim:5d109547ddfc0fd7b9c2": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
+    "claim:5d109547ddfc0fd7b9c2": "b5dc10e9f6a16eeb95e4afdce52b82d56f25a630687fe422568fc79af9edf7de",
     "claim:5dffd9f22442fdf544b5": "75daea9a4f795e70ac42db6a928a2d154c724807fc5c2e93e861f33bcfe40c49",
     "claim:5eedd5acf0194a87c5ce": "b4393ed56230257c7f313d1ec6731db93a5856d593e6792dedebd430991926cd",
     "claim:6996eff28b427cb9de6e": "680e776620354d40b2b210fb9fe0cbb86fa1082de0df71c8c2d22fa18ae4a098",
@@ -2548,12 +2548,12 @@
     "claim:e78d41d7fefc84b6e9e7": "96931ac89d48d3554c56b6430f20245427f3824ba90d593be77a72ee0accffa2",
     "claim:e7f00d4a6f21126316af": "b927f1bb87d137a3e00b56f955719666764d952e7c0daa5837bb3322d8457235",
     "claim:e85569aadbc37d16c9cc": "c16e64ffff1d93bf4fb768b11f1065f478db3922042cd895b8011fd19384bc6d",
-    "claim:e9bda96374cd6969e777": "90d6f742a7f35e5be1ba18558e9f063644ddb1ff9d65d77cdaa22e92ff43379e",
+    "claim:e9bda96374cd6969e777": "6f07f4c8dcaea4711dd211304c2956b6eb7fe477c43d30cc87a08e96b252b691",
     "claim:f8380a3e786ab33df98f": "9b639df8fab9f4e6b6f37e3ae7b4ddb53814e80b1fcc0c27ac78f1dda83ab273",
     "claim:fb85d514f4ed765acad4": "b780cfbd12bcfbedfce8c6eda19bba7126bb33ed43390a777d1893898edc87d4",
     "claim:ffa69d01f0fb1999048c": "e382dfdb7c9f60c1fd09dedfe166554eda74b22e4111993a8aaed0d1ebad54fe"
   },
-  "approved_claims_hash": "c4cebe25395488627990afdf803148ad4007ecc9515802699723565ff8f3cf2b",
+  "approved_claims_hash": "7e9caeb80de1a6acb3affdcd19d0272cc8672ef665c5c1078722dd05274b22f1",
   "approved_claims_path": "knowledge/concepts/workflows/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2881,12 +2881,12 @@
   },
   "approved_media_hash": "fe1c77231575a1d748818e94695e22f2b936e8c00b66b10305049e1b358de39f",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-07-30T02:07:40+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "workflows",
-  "guide_hash": "011be61fa74891491fc2b694f062da35eb9ccfcf9c9ae558b47a546761e4e148",
+  "guide_hash": "3ba3494fdc13b1551b927b62c23ad772c8138b43fabb03cac1d62ee7c70c360e",
   "guide_line_count": 635,
   "guide_path": "knowledge/concepts/workflows/guide.md",
-  "guide_word_count": 7575,
+  "guide_word_count": 7585,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3830,21 +3830,21 @@
       "confidence": "normal",
       "end_line": 615,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "6e60154c3f9928e9",
         "27592d5a6665e286",
+        "ee16ebdb16d3e3c1",
+        "6e60154c3f9928e9",
+        "a4dcd2a24306e940",
         "6e60154c3f9928e9",
         "6e60154c3f9928e9",
         "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
+        "a4dcd2a24306e940",
         "6e60154c3f9928e9",
         "50f9d490eba68a43",
-        "3c1653073afe6b82",
-        "238bec09183ae488",
-        "50f9d490eba68a43",
-        "238bec09183ae488"
+        "3c1653073afe6b82"
       ],
       "start_line": 590
     },

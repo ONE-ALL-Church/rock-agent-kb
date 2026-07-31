@@ -2,7 +2,7 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-07-30T02:06:08+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -227,8 +227,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute Matrix Template](../../model-map/models/attribute-matrix-template.md) | Core | 19.2.0 | 43 | 15 | 28 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute Qualifier](../../model-map/models/attribute-qualifier.md) | Core | 19.2.0 | 22 | 9 | 15 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus](../../model-map/models/campus.md) | Core | 19.2.0 | 65 | 29 | 48 | 19 | 2 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus](../../model-map/models/campus.md) | Core | 19.2.0 | 65 | 29 | 48 | 19 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:
 

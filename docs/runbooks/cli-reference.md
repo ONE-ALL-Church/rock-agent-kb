@@ -207,6 +207,7 @@ uv run kb tools source-native-prompt --concept system-admin-ops
 uv run kb tools source-native-merge --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-promote --output <reviewed-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
+uv run kb tools reviewed-cross-source-promote --input <reviewed-decisions.jsonl>
 ```
 
 `kb contributions import-public` and `kb publish push` are retired split-repo transition commands. The single-public-repo path validates `community-contributions/` and `source-suggestions/` in place and treats `kb publish export` as ignored scratch/audit output. `kb publish okf` creates the complete read-only Open Knowledge Format v0.1 projection; `--profile full|core`, `--previous-bundle`, and `--archive-dir` control profile, release delta, and versioned assets. It does not replace canonical KB files. Use `kb publish okf-validate` for strict producer verification.
@@ -248,12 +249,23 @@ Use `--reviewed-at` to reproduce the hashes of an existing approval.
 dependent knowledge and projections that require revalidation. The tracked
 pilot remains an inactive canonical shadow input.
 
-`kb deploy-service` dual-writes the active legacy projection and an inactive
+`kb tools reviewed-cross-source-promote` compiles a maintainer-reviewed
+multi-source decision into source snapshots, addressable units, generation
+provenance, one typed knowledge unit, evidence links, relationships, and exact
+plus paraphrased evaluations. It requires at least two distinct public sources,
+preserves issue reports, official release evidence, and immutable code evidence
+as different relation types, and rejects private source text. Follow
+`docs/prompts/cross-source-evidence-synthesis-v1.md`.
+
+`kb deploy-service` dual-writes the active legacy projection and a non-default
 canonical shadow under `service/dist/canonical-shadow/v1/`. Applied deploys put
 the canonical files in the target R2 slot before that slot is activated and
-record content hash, counts, and bounded projection history in D1. `/health`
-reports the state. Hosted search, MCP, CLI, and OKF remain on legacy retrieval
-until a separately reviewed canary or cutover.
+record content hash, counts, and bounded projection history in D1. The D1 seed
+also loads separate `canonical_search_*` tables for an explicit, anonymously
+opted-in `canonical-canary` reader. `/health` reports default and canary state.
+Hosted search, MCP, CLI, and OKF remain on legacy retrieval unless an
+`external-test` or `maintainer` caller explicitly requests the canary. A canary
+release does not authorize a default cutover.
 
 `kb record-source-freshness` is a hidden CI command. It validates a generated
 freshness report, selects the source rows owned by one workflow, and upserts a

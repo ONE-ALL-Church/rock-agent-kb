@@ -13,12 +13,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12219 words; expected at least 1200.",
+      "message": "Guide has 12214 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 12219 words; expected no more than 9000.",
+      "message": "Guide has 12214 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -75,9 +75,9 @@
   "concept_id": "communications",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-07-30T02:08:03+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 1223,
-  "guide_word_count": 12219,
+  "guide_word_count": 12214,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
@@ -87,7 +87,7 @@
     "source_count": 62,
     "substantive_uncited_section_ratio": 0.0175,
     "task_card_count": 7,
-    "word_count": 12219
+    "word_count": 12214
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,

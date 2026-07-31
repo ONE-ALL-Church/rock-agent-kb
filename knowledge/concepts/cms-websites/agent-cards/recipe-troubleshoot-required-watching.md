@@ -52,5 +52,5 @@ RockU identifies Required Watching as part of the CMS/media learning path (Rock 
 - https://community.rockrms.com/recipes/432
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
 - https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://community.rockrms.com/developer/helix/lava-applications/content-block

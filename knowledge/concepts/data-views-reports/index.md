@@ -2,7 +2,7 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-07-30T02:06:18+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -185,6 +185,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | behavior | A field included in a Rock Report can be hidden from the on-screen grid while remaining available in the report's Excel export, which supports supplemental export-only data without cluttering the interactive view. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
 | official | configuration | Report security controls who can view a report, while entity-appropriate grid actions can use its results for operations such as communication or export. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/intro-to-reports) |
 | official | configuration | Rock's BI analytics tables are populated only when the Process BI Analytics job runs, so the shipped job must be scheduled and run at least once before BI reports can contain data. | [source](https://community.rockrms.com/documentation/church-management/reporting/power-bi/use-the-bi-job) |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | official | configuration | A Rock Report selects an entity type and an optional Data View as its record source, then independently defines display fields, sort order, and an optional result-row limit. | [source](https://community.rockrms.com/documentation/church-management/reporting/reports/create-a-report) |
 | official | configuration | Dynamic Report filter settings separately control whether a filter is visible, whether its criteria can be edited, and whether the filter can be toggled off; supported filters can also be initialized through URL parameters. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
 | official | implementation_pattern | The Dynamic Report block renders a selected Report and can expose chosen filters from its underlying Data View, allowing one report definition to accept viewer-controlled criteria instead of duplicating a report per campus or similar dimension. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block) |
@@ -196,7 +197,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | release_caveat | Rock v19 materializes recurring iCal schedule occurrences into ScheduleDate rows so date-based SQL and Lava queries can avoid repeatedly expanding recurrence rules. Use the generated dates rather than inventing a separate recurrence expansion process. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | Rock v19 adds a contains parameter to the Lava where filter for partial field matching rather than only equality comparisons. Confirm case, type and performance behavior with current Lava documentation before using it in broad queries. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
 | official | release_caveat | Rock v19 Connections navigation can expose list, board, grid and operational snapshot views with active, unassigned, due-soon and overdue metrics. Which views appear is configured on the connection type. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | rocku-confirmed | operational_guidance | Data Views should be treated as reusable record-set definitions: they answer which records qualify before a Report, Dynamic Report block, workflow, or other consumer decides how to display or act on those records. | [source](https://community.rockrms.com/rocku/reporting/data-view-overview) |
 | rocku-confirmed | operational_guidance | Data integrity work should start from the exact entity and field being corrected, then identify the owner, source of truth, duplicate risk, and reporting impact before changing records. | [source](https://community.rockrms.com/rocku/individuals-in-rock/data-integrity) |
 | More |  | 23 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
@@ -234,14 +234,14 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Analytics Dim Campus](../../model-map/models/analytics-dim-campus.md) | Reporting | 19.2.0 | 43 | 31 | 36 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Financial Account](../../model-map/models/analytics-dim-financial-account.md) | Reporting | 19.2.0 | 37 | 25 | 30 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Financial Batch](../../model-map/models/analytics-dim-financial-batch.md) | Reporting | 19.2.0 | 26 | 14 | 18 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.2.0 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 19.2.0 | 63 | 48 | 56 | 8 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Fact Financial Transaction](../../model-map/models/analytics-fact-financial-transaction.md) | Reporting | 19.2.0 | 63 | 48 | 56 | 8 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.2.0 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Campus](../../model-map/models/analytics-source-campus.md) | Reporting | 19.2.0 | 29 | 17 | 22 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
 

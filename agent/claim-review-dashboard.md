@@ -6,23 +6,13 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 
 | Action | Count |
 | --- | ---: |
-| `verify_live_before_operational_answer` | 11 |
+| No actionable claim review rows | 0 |
 
 ## Concept Queue
 
 | Concept | Actions |
 | --- | --- |
-| `api-integrations` | `verify_live_before_operational_answer`: 2 |
-| `cms-websites` | `verify_live_before_operational_answer`: 3 |
-| `communications` | `verify_live_before_operational_answer`: 1 |
-| `data-views-reports` | `verify_live_before_operational_answer`: 1 |
-| `developer-resources` | `verify_live_before_operational_answer`: 3 |
-| `groups` | `verify_live_before_operational_answer`: 1 |
-| `helix` | `verify_live_before_operational_answer`: 1 |
-| `lava` | `verify_live_before_operational_answer`: 4 |
-| `mobile` | `verify_live_before_operational_answer`: 3 |
-| `security-permissions` | `verify_live_before_operational_answer`: 3 |
-| `workflows` | `verify_live_before_operational_answer`: 3 |
+| No actionable concepts | 0 |
 
 ## Distilled Claim Clusters
 
@@ -32,18 +22,18 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 | `api-integrations` | 1 |
 | `apple-tv` | 2 |
 | `check-in` | 8 |
-| `cms-websites` | 5 |
+| `cms-websites` | 6 |
 | `connections` | 5 |
 | `content-personalization` | 13 |
 | `data-views-reports` | 7 |
 | `documents-signatures` | 6 |
 | `engagement-tracking` | 14 |
 | `groups` | 2 |
-| `helix` | 1 |
+| `helix` | 2 |
 | `hosting-infrastructure` | 4 |
 | `lava` | 6 |
 | `learning-lms-engagement` | 3 |
-| `mobile` | 3 |
+| `mobile` | 4 |
 | `obsidian-development` | 7 |
 | `people-families` | 7 |
 | `platform-configuration` | 7 |
@@ -51,7 +41,7 @@ Generated review dashboard for approved public claims, distilled claim clusters,
 | `roku` | 3 |
 | `scheduling-locations` | 4 |
 | `security-permissions` | 11 |
-| `workflows` | 9 |
+| `workflows` | 10 |
 
 ## Evaluation Failures
 

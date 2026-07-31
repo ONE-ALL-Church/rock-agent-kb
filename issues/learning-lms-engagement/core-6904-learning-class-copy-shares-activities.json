@@ -2,10 +2,10 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6904-learning-class-copy-shares-activities-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6904",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Rock source copies each LearningClassActivity when copying a class but does not clone its related LearningActivity, so the copied row retains the original content relationship. The same method also declares a newActivities list but never adds the copied activities before the attribute-save loop. By contrast, the single-activity copy path explicitly clones LearningActivity. This confirms both implementation differences on the reviewed source revision; exact affected release boundaries remain unverified.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "The affected class-copy path copied each LearningClassActivity without cloning its related LearningActivity, so copied classes shared the original activity content. It also declared a newActivities list without adding the copied activities before the attribute-save loop. Rock confirmed and closed the issue with commit 454307680220a4c219dc006c6e8b69b5d32f53aa, which eagerly loads and clones each LearningActivity and adds each new class activity to the attribute-save list. The issue is labeled fixed in Rock 19.4; exact package inclusion should still be verified before treating an installed build as unaffected.",
   "workaround_summaries": [
-    "Until the class-copy path is corrected, do not edit copied-class activity content under the assumption that it is independent. Build the new class and copy activities individually, then verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
+    "Use a Rock package proven to contain commit 454307680220a4c219dc006c6e8b69b5d32f53aa or an equivalent fix. Before upgrade, do not edit copied-class activity content under the assumption that it is independent; copy activities individually and verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
   ],
   "verification_playbook": {
     "goal": "Detect learning activities referenced by more than one class before an agent edits copied-class content.",
@@ -20,7 +20,7 @@
         "method": "source_revision_check",
         "instructions": "Verify whether LearningClassService.Copy still copies LearningClassActivity rows while retaining the original LearningActivity relationship.",
         "expected_if_affected": "The class-copy path retains LearningActivityId while the individual activity-copy path creates a distinct LearningActivity.",
-        "expected_if_unaffected": "The installed class-copy path clones each related LearningActivity and preserves its attributes independently.",
+        "expected_if_unaffected": "The installed package contains commit 454307680220a4c219dc006c6e8b69b5d32f53aa or an equivalent class-copy path that clones each related LearningActivity and preserves its attributes independently.",
         "evidence_to_record": ["Rock version", "package or commit identifier"],
         "mutation_risk": "none"
       },
@@ -64,21 +64,69 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6904-fixed-by-commit-4543076",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "LearningClassService.Copy with includeActivities enabled"
+      },
+      "versions": ["454307680220a4c219dc006c6e8b69b5d32f53aa"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6904",
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa",
+        "https://github.com/SparkDevNetwork/Rock/blob/454307680220a4c219dc006c6e8b69b5d32f53aa/Rock/Model/LMS/LearningClass/LearningClassService.cs#L112-L145"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-31T00:18:53Z"
+    },
+    {
+      "assertion_id": "core-6904-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6904",
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-31T00:18:53Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6904",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClass/LearningClassService.cs#L89-L139",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClassActivity/LearningClassActivityService.cs#L31-L57"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClassActivity/LearningClassActivityService.cs#L31-L57",
+    "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa",
+    "https://github.com/SparkDevNetwork/Rock/blob/454307680220a4c219dc006c6e8b69b5d32f53aa/Rock/Model/LMS/LearningClass/LearningClassService.cs#L112-L145"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-02T17:02:38Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "reviewer": "codex-public-source-revalidation-2026-07-30",
+  "issue_updated_at": "2026-07-29T19:37:59Z",
+  "reviewed_at": "2026-07-31T00:18:53Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -2,7 +2,7 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-07-30T02:06:15+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -134,7 +134,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Registration Instance](../../model-map/models/registration-instance.md) | Event | 19.2.0 | 71 | 37 | 54 | 17 | 1 | [source](https://community.rockrms.com/ModelMap) |
 | [Registration Registrant](../../model-map/models/registration-registrant.md) | Event | 19.2.0 | 56 | 17 | 39 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Registration Registrant Fee](../../model-map/models/registration-registrant-fee.md) | Event | 19.2.0 | 46 | 15 | 31 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Item](../../model-map/models/event-item.md) | Event | 19.2.0 | 52 | 19 | 35 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Item Audience](../../model-map/models/event-item-audience.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Interactive Experience Occurrence](../../model-map/models/interactive-experience-occurrence.md) | Event | 19.2.0 | 46 | 16 | 30 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |

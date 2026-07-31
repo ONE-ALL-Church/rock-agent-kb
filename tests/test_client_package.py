@@ -442,8 +442,64 @@ def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
     monkeypatch.setattr(cli, "get_json", fake_get_json)
 
     assert cli.main(["--url", "https://example.test", "search", "check in labels"]) == 0
-    assert urls == ["https://example.test/search?q=check%20in%20labels&limit=10&min_claim_tier=source_backed&detail=compact"]
+    assert urls == [
+        "https://example.test/search?q=check%20in%20labels&limit=10"
+        "&min_claim_tier=source_backed&detail=compact&projection=legacy"
+    ]
     assert "rock-kb-search-result-v3" in capsys.readouterr().out
+
+
+def test_client_canonical_canary_requires_opt_in_and_sets_projection(
+    monkeypatch,
+    capsys,
+):
+    cli = load_client_cli()
+    urls: list[str] = []
+    monkeypatch.setattr(
+        cli,
+        "telemetry_headers",
+        lambda: {
+            "x-rock-kb-cohort": "external-test",
+            "x-rock-kb-installation-id": f"rkbi_{'c' * 43}",
+        },
+    )
+    monkeypatch.setattr(
+        cli,
+        "get_json",
+        lambda url: (
+            urls.append(url)
+            or {"schema": "rock-kb-search-result-v3", "results": []}
+        ),
+    )
+
+    assert cli.main([
+        "--url",
+        "https://example.test",
+        "--projection",
+        "canonical-canary",
+        "search",
+        "content channel authorization",
+    ]) == 0
+    assert urls[0].endswith(
+        "&projection=canonical-canary"
+    )
+    capsys.readouterr()
+
+    cli_without_opt_in = load_client_cli()
+    monkeypatch.setattr(
+        cli_without_opt_in,
+        "telemetry_headers",
+        lambda: {},
+    )
+    with pytest.raises(SystemExit) as exc:
+        cli_without_opt_in.main([
+            "--projection",
+            "canonical-canary",
+            "search",
+            "content channel authorization",
+        ])
+    assert exc.value.code == 2
+    assert "requires anonymous opt-in" in capsys.readouterr().err
 
 
 def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
@@ -459,7 +515,8 @@ def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
     assert cli.main(["--url", "https://example.test", "result", "claim:claim:abc:check-in"]) == 0
     assert cli.main(["--url", "https://example.test", "claim", "claim:abc"]) == 0
     assert urls == [
-        "https://example.test/results/claim%3Aclaim%3Aabc%3Acheck-in",
+        "https://example.test/results/claim%3Aclaim%3Aabc%3Acheck-in"
+        "?projection=legacy",
         "https://example.test/claims/id/claim%3Aabc",
     ]
     capsys.readouterr()
@@ -1368,6 +1425,7 @@ def test_client_outcome_posts_only_fixed_structured_fields(monkeypatch, capsys):
             "outcome": "partially_useful",
             "reason_codes": ["incomplete", "version_gap"],
             "consent_attested": True,
+            "retrieval_projection": "legacy",
         },
     }
     assert "recorded" in capsys.readouterr().out

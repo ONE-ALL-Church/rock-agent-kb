@@ -69,6 +69,29 @@ contributions. It does not have better knowledge and should not replace direct
 MCP for single searches or exact lookups. Do not download an OKF bundle merely
 to answer an ordinary online question.
 
+### Opt-In Canonical Retrieval Test
+
+Normal MCP and CLI requests use the reviewed legacy projection. A separate
+`canonical-canary` reader lets consenting external testers and maintainers
+compare the source-native canonical architecture without changing that default.
+It is experimental evidence collection, not a higher trust tier.
+
+After accepting the privacy notice, enable an anonymous test marker:
+
+```bash
+uvx rock-kb telemetry enable --cohort external-test --consent-attested
+uvx rock-kb install-agent
+uvx rock-kb --projection canonical-canary search "content channel item permissions"
+```
+
+Pass `--projection canonical-canary` again when expanding a result or reporting
+its outcome. MCP clients pass `projection: "canonical-canary"` to `kb_search`,
+`kb_get_result`, and `kb_outcome`. The service stores bounded daily canary
+counts and structured outcomes, never the query, raw marker, organization,
+person, IP address, logs, secrets, or Rock data. The canary cannot change the
+default reader, and no default cutover is allowed without real external
+usefulness evidence and a separate reviewed release.
+
 ## Portable OKF Distribution
 
 Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.1 distributions of the canonical public KB. OKF is a secondary portability layer for offline operation, pinned snapshots, bulk analysis, local indexing or vectorization, archival, and cross-system interchange. It is not the default search interface.

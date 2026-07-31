@@ -61,6 +61,33 @@ Send one to three unique reason codes. Submit at most one quality rating and one
 outcome per exact result per completed task. Submit nothing when the result was
 not materially used or its usefulness is uncertain.
 
+## Canonical Canary
+
+The `external-test` and `maintainer` cohorts may explicitly test the
+non-default canonical retrieval projection:
+
+```bash
+uvx rock-kb --projection canonical-canary search "<question>"
+uvx rock-kb --projection canonical-canary result "<result-id>"
+uvx rock-kb --projection canonical-canary outcome "<result-id>" \
+  --outcome partially_useful \
+  --reason incomplete \
+  --consent-attested
+```
+
+Use the same projection on search, expansion, and outcome. MCP clients pass
+`projection: "canonical-canary"` to `kb_search`, `kb_get_result`, and
+`kb_outcome`. Do not silently retry against legacy when the purpose is to test
+the canary; record the bounded failure or compare legacy in a separate,
+explicit call.
+
+Canary traffic adds a separate daily aggregate containing only projection hash,
+event, client class, fixed cohort, result count, primary result kind, and count.
+It does not add the marker or its hash, query text or hash, topic, result ID,
+identity, IP address, or Rock data to that aggregate. A consented outcome still
+uses the normal outcome record so maintainers can review the public result ID,
+fixed usefulness value, reason codes, and exact projection hash.
+
 ## Retained And Excluded Data
 
 Field validation may retain the hashed installation marker, fixed cohort,

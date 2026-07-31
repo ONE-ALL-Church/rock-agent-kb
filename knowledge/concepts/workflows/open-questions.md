@@ -52,7 +52,6 @@ This file is for human reviewers and future agents. It lists guide areas where s
 - `agent-task-recipes-recipe-import-or-adapt-a-workflow-safely`: Recipe: Import or adapt a workflow safely
 - `agent-task-recipes-recipe-design-background-orchestration`: Recipe: Design background orchestration
 - `known-gaps-and-live-verification`: Known Gaps And Live Verification
-- `approved-claim-coverage`: Approved Claim Coverage
 
 ## Live Verification Clarification
 

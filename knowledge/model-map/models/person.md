@@ -22,7 +22,7 @@
 | Related model links | 38 |
 | Method signatures | 89 |
 | Obsolete methods | 6 |
-| Pre-alpha changes touching this model | 8 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -282,9 +282,4 @@
 | --- | --- | --- |
 | property_added | PreferredServiceTimeSchedule |  |
 | property_added | PreferredServiceTimeScheduleId |  |
-| property_changed | EthnicityValueId | enum_values |
-| property_changed | MaritalStatusValueId | enum_values |
-| property_changed | RaceValueId | enum_values |
 | property_changed | RecordSourceValueId | enum_values |
-| property_changed | RecordStatusReasonValueId | enum_values |
-| property_changed | RecordTypeValueId | enum_values |

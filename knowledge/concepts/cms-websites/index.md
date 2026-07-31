@@ -2,7 +2,7 @@
 id: concept-cms-websites
 title: CMS And Websites
 generated: true
-last_built: 2026-07-30T02:06:16+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -123,8 +123,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Authority | Type | Claim | Source |
 | --- | --- | --- | --- |
 | official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
+| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. | [source](https://community.rockrms.com/lava/filters/other-filters) |
 | official | behavior | The Page Parameter Filter block publishes each selected value under its configured key so redirects, listening Obsidian blocks, and Lava PageParameter lookups can consume the same filter state. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
 | official | configuration | With legacy reload disabled, Page Parameter Filter selections can be sent as virtual parameters to listening Obsidian blocks; enabling legacy reload puts the parameters in the query string and performs a full page reload for legacy consumers. | [source](https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block) |
+| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
 | official | configuration | Saving a theme in Rock's Theme Styler compiles its Less into CSS, and CSS Overrides are appended after the compiled styles so they can take precedence; some themes expose no editable variables. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes) |
 | official | configuration | Rock's Media Player Lava shortcode can render a video from a supplied source URL, including a URL copied from one of a Rock Media Element's available media files such as HLS, HD, or SD. | [source](https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode) |
 | official | configuration | A block placed at layout scope appears on every page using that layout, while a site-scoped block appears on every page in the site; administrators should confirm the intended scope before moving or adding a block. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
@@ -133,9 +135,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | Copying a Rock page also copies its blocks and child-page hierarchy and rewires references among the copies, but the resulting block settings should still be reviewed before publishing. | [source](https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=edanHiYSDIM) |
 | official | release_caveat | Rock v19 introduces built-in proof-of-work CAPTCHA with organization and block controls, reducing reliance on a separately configured CAPTCHA service. Confirm the selected visible, invisible or disabled mode and test each exposed form. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | behavior | `CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/filters/other-filters) |
-| official | configuration | In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context. _(live verification recommended)_ | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content) |
-| official | risk | Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured. _(live verification recommended)_ | [source](https://community.rockrms.com/lava/commands) |
+| official | risk | Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured. | [source](https://community.rockrms.com/lava/commands) |
 | rocku-confirmed | operational_guidance | Adding pages and blocks changes both navigation and authorization; agents should inspect site, page hierarchy, route, block type, zone, and inherited security before publishing. | [source](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) |
 | rocku-confirmed | operational_guidance | Content Channel View pages should be reviewed as both CMS presentation and data exposure surfaces because channel item lists can reveal titles, dates, attributes, or detail links. | [source](https://community.rockrms.com/rocku/content-channels/content-channel-view) |
 | rocku-confirmed | operational_guidance | Advanced HTML blocks are powerful CMS surfaces because they can combine markup, Lava, context, and sometimes enabled commands; treat edit access as privileged. | [source](https://community.rockrms.com/rocku/cms/advanced-html-block) |
@@ -178,7 +178,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item Association](../../model-map/models/content-channel-item-association.md) | CMS | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item Slug](../../model-map/models/content-channel-item-slug.md) | CMS | 19.2.0 | 40 | 12 | 25 | 13 | 0 | [source](https://community.rockrms.com/ModelMap) |

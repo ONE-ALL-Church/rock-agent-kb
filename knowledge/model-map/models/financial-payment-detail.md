@@ -22,7 +22,7 @@
 | Related model links | 7 |
 | Method signatures | 36 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 1 |
 
 ## Properties
 
@@ -124,4 +124,3 @@
 | Change | Property | Fields |
 | --- | --- | --- |
 | property_removed | HistoryChangeList |  |
-| property_changed | CurrencyTypeValueId | enum_values |

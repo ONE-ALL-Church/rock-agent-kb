@@ -12,6 +12,7 @@ from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .media.identity import infer_source_work_id
 from .paths import REPO_ROOT, REVIEW_DIR
+from .reviewed_cross_source import load_reviewed_cross_source
 from .schemas import (
     CanonicalIdentityBaselineManifest,
     CanonicalKnowledgeBundle,
@@ -37,6 +38,7 @@ from .source_native import (
 SHADOW_DIR = REVIEW_DIR / "canonical-knowledge-pilot"
 CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR = Path("canonical/identity/v1")
 CANONICAL_IDENTITY_REGISTRY_NAME = "identity-registry.jsonl"
+CANONICAL_RETIRED_IDENTITY_MIGRATIONS_NAME = "retired-identity-migrations.jsonl"
 CANONICAL_PUBLIC_ALIASES_NAME = "public-result-aliases.jsonl"
 CANONICAL_IDENTITY_MANIFEST_NAME = "manifest.json"
 SUPPORTED_SEARCH_KINDS = {
@@ -90,6 +92,7 @@ def build_canonical_knowledge_bundle(
     identity_migrations: Iterable[dict[str, Any]] | None = None,
     previous_knowledge_units: Iterable[dict[str, Any]] | None = None,
     include_source_native_pilot: bool | None = None,
+    include_reviewed_cross_source: bool | None = None,
     repo_root: Path = REPO_ROOT,
 ) -> tuple[CanonicalKnowledgeBundle, dict[str, Any]]:
     """Project current public artifacts into the shared architecture without publishing it."""
@@ -98,6 +101,11 @@ def build_canonical_knowledge_bundle(
         search_rows is None and distilled_claims is None
         if include_source_native_pilot is None
         else include_source_native_pilot
+    )
+    use_reviewed_cross_source = (
+        search_rows is None and distilled_claims is None
+        if include_reviewed_cross_source is None
+        else include_reviewed_cross_source
     )
     all_search_rows = list(search_rows) if search_rows is not None else build_search_rows()
     supported_rows = [row for row in all_search_rows if str(row.get("kind") or "") in SUPPORTED_SEARCH_KINDS]
@@ -122,6 +130,19 @@ def build_canonical_knowledge_bundle(
             continue
         builder.add_search_row(row)
 
+    reviewed_cross_source = (
+        load_reviewed_cross_source(repo_root)
+        if use_reviewed_cross_source
+        else {
+            "source_snapshots": [],
+            "source_units": [],
+            "generation_activities": [],
+            "knowledge_units": [],
+            "evidence_links": [],
+            "relationships": [],
+        }
+    )
+    builder.add_reviewed_cross_source(reviewed_cross_source)
     source_native = (
         load_source_native_pilot(repo_root)
         if use_source_native_pilot
@@ -143,6 +164,9 @@ def build_canonical_knowledge_bundle(
         claim_rows=claim_rows,
         distilled_rows=distilled_rows,
         source_native_artifact_count=len(source_native["reviewed_artifacts"]),
+        reviewed_cross_source_artifact_count=len(
+            reviewed_cross_source["knowledge_units"]
+        ),
     )
     return bundle, summary
 
@@ -174,6 +198,11 @@ def write_canonical_knowledge_shadow(
         local_identity_registry,
     )
     identity_migrations = list(read_jsonl(destination / "identity-migrations.jsonl"))
+    retired_identity_migrations = list(
+        read_jsonl(
+            destination / CANONICAL_RETIRED_IDENTITY_MIGRATIONS_NAME
+        )
+    )
     bundle, summary = build_canonical_knowledge_bundle(
         search_rows=search_rows,
         distilled_claims=distilled_claims,
@@ -182,6 +211,26 @@ def write_canonical_knowledge_shadow(
         previous_knowledge_units=previous_knowledge_units,
         repo_root=repo_root,
     )
+    active_migration_ids = {
+        row.migration_id for row in bundle.identity_migrations
+    }
+    retired_by_id: dict[str, KnowledgeIdentityMigration] = {}
+    for raw in [*retired_identity_migrations, *identity_migrations]:
+        migration = KnowledgeIdentityMigration.model_validate(raw)
+        if migration.migration_id in active_migration_ids:
+            continue
+        existing = retired_by_id.get(migration.migration_id)
+        if existing is not None and existing != migration:
+            raise ValueError(
+                "retired identity migration history conflicts for "
+                f"{migration.migration_id}"
+            )
+        retired_by_id[migration.migration_id] = migration
+    retired_rows = sorted(
+        retired_by_id.values(),
+        key=lambda row: row.migration_id,
+    )
+    summary["output"]["retired_identity_migrations"] = len(retired_rows)
     destination.mkdir(parents=True, exist_ok=True)
     write_jsonl(
         destination / "source-snapshots.jsonl",
@@ -206,6 +255,10 @@ def write_canonical_knowledge_shadow(
     write_jsonl(
         destination / "identity-migrations.jsonl",
         [row.public_dump() for row in bundle.identity_migrations],
+    )
+    write_jsonl(
+        destination / CANONICAL_RETIRED_IDENTITY_MIGRATIONS_NAME,
+        [row.public_dump() for row in retired_rows],
     )
     write_jsonl(
         destination / "evidence-links.jsonl",
@@ -770,6 +823,43 @@ class _IdentityResolver:
             matched_aliases=matched_aliases,
         )
 
+    def migrations_resolving_to(
+        self, current_knowledge_unit_ids: set[str]
+    ) -> list[KnowledgeIdentityMigration]:
+        migrations_by_source: dict[str, KnowledgeIdentityMigration] = {}
+        for migration in self.migrations.values():
+            existing = migrations_by_source.get(migration.from_knowledge_unit_id)
+            if (
+                existing is not None
+                and existing.to_knowledge_unit_id
+                != migration.to_knowledge_unit_id
+            ):
+                raise ValueError(
+                    "identity migration source has multiple targets: "
+                    f"{migration.from_knowledge_unit_id}"
+                )
+            migrations_by_source[migration.from_knowledge_unit_id] = migration
+
+        active_sources: set[str] = set()
+        for source_id in migrations_by_source:
+            visited: set[str] = set()
+            target = source_id
+            path: list[str] = []
+            while target in migrations_by_source:
+                if target in visited:
+                    raise ValueError(f"identity migration cycle detected: {source_id}")
+                visited.add(target)
+                path.append(target)
+                target = migrations_by_source[target].to_knowledge_unit_id
+            if target in current_knowledge_unit_ids:
+                active_sources.update(path)
+
+        return [
+            migration
+            for source_id, migration in migrations_by_source.items()
+            if source_id in active_sources
+        ]
+
 
 class _ProjectionBuilder:
     def __init__(self, identity_resolver: _IdentityResolver) -> None:
@@ -780,6 +870,119 @@ class _ProjectionBuilder:
         self.links: dict[str, EvidenceLink] = {}
         self.relationships: dict[str, KnowledgeRelationship] = {}
         self.identity_resolver = identity_resolver
+
+    def add_reviewed_cross_source(
+        self,
+        records: dict[str, list[Any]],
+    ) -> None:
+        for snapshot in records.get("source_snapshots") or []:
+            self.store_snapshot(snapshot)
+        for unit in records.get("source_units") or []:
+            existing = self.units.get(unit.source_unit_id)
+            if existing and existing != unit:
+                raise ValueError(
+                    "reviewed cross-source unit conflicts with an existing "
+                    f"source unit: {unit.source_unit_id}"
+                )
+            self.units[unit.source_unit_id] = unit
+        for activity in records.get("generation_activities") or []:
+            existing = self.activities.get(activity.generation_activity_id)
+            if existing and existing != activity:
+                raise ValueError(
+                    "reviewed cross-source generation activity conflicts with "
+                    f"an existing activity: {activity.generation_activity_id}"
+                )
+            self.activities[activity.generation_activity_id] = activity
+
+        canonical_ids: dict[str, str] = {}
+        for item in records.get("knowledge_units") or []:
+            identity = self.identity_resolver.resolve(
+                knowledge_type=item.knowledge_type,
+                aliases=[
+                    item.knowledge_unit_id,
+                    *item.legacy_ids,
+                ],
+                content_fingerprint=item.content_hash,
+                default_identity_key=(
+                    f"reviewed_cross_source:{item.knowledge_unit_id}"
+                ),
+                default_knowledge_unit_id=item.knowledge_unit_id,
+                default_basis="source_identity",
+            )
+            canonical_ids[item.knowledge_unit_id] = (
+                identity.knowledge_unit_id
+            )
+            updated = item.model_copy(
+                update={
+                    "knowledge_unit_id": identity.knowledge_unit_id,
+                    "legacy_ids": identity.aliases,
+                }
+            )
+            self.knowledge[identity.knowledge_unit_id] = (
+                KnowledgeUnit.model_validate(
+                    updated.model_dump(by_alias=True)
+                )
+            )
+
+        for link in records.get("evidence_links") or []:
+            knowledge_unit_id = canonical_ids.get(
+                link.knowledge_unit_id,
+                link.knowledge_unit_id,
+            )
+            updated = link.model_copy(
+                update={
+                    "knowledge_unit_id": knowledge_unit_id,
+                    "evidence_link_id": "evidence:"
+                    + sha256_text(
+                        f"{knowledge_unit_id}:{link.source_unit_id}:"
+                        f"{link.relation}"
+                    )[:24],
+                }
+            )
+            self.links[updated.evidence_link_id] = (
+                EvidenceLink.model_validate(
+                    updated.model_dump(by_alias=True)
+                )
+            )
+
+        endpoint_aliases = {
+            alias: identity.knowledge_unit_id
+            for identity in self.identity_resolver.identities.values()
+            for alias in (
+                identity.knowledge_unit_id,
+                *identity.aliases,
+            )
+        }
+        for relationship in records.get("relationships") or []:
+            from_id = canonical_ids.get(
+                relationship.from_id,
+                endpoint_aliases.get(
+                    relationship.from_id,
+                    relationship.from_id,
+                ),
+            )
+            to_id = canonical_ids.get(
+                relationship.to_id,
+                endpoint_aliases.get(
+                    relationship.to_id,
+                    relationship.to_id,
+                ),
+            )
+            updated = relationship.model_copy(
+                update={
+                    "relationship_id": "relationship:"
+                    + sha256_text(
+                        f"{from_id}:{relationship.relation}:{to_id}"
+                    )[:24],
+                    "from_id": from_id,
+                    "to_id": to_id,
+                }
+            )
+            self.relationships[updated.relationship_id] = (
+                KnowledgeRelationship.model_validate(
+                    updated.model_dump(by_alias=True)
+                )
+            )
 
     def add_source_native_pilot(
         self,
@@ -1359,7 +1562,9 @@ class _ProjectionBuilder:
                 key=lambda row: row.knowledge_unit_id,
             ),
             identity_migrations=sorted(
-                self.identity_resolver.migrations.values(),
+                self.identity_resolver.migrations_resolving_to(
+                    set(self.knowledge)
+                ),
                 key=lambda row: row.migration_id,
             ),
             evidence_links=sorted(self.links.values(), key=lambda row: row.evidence_link_id),
@@ -1375,6 +1580,7 @@ def projection_summary(
     claim_rows: list[dict[str, Any]],
     distilled_rows: list[dict[str, Any]],
     source_native_artifact_count: int = 0,
+    reviewed_cross_source_artifact_count: int = 0,
 ) -> dict[str, Any]:
     distilled_groups = defaultdict(list)
     for row in distilled_rows:
@@ -1416,6 +1622,9 @@ def projection_summary(
             "distilled_claim_groups": len(distilled_groups),
             "distilled_duplicate_rows_removed": len(distilled_rows) - len(distilled_groups),
             "source_native_reviewed_artifacts": source_native_artifact_count,
+            "reviewed_cross_source_artifacts": (
+                reviewed_cross_source_artifact_count
+            ),
         },
         "output": {
             "source_snapshots": len(bundle.source_snapshots),

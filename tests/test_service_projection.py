@@ -516,6 +516,13 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     assert shadow_manifest["content_hash"] == projection.canonical_shadow_hash
     assert shadow_manifest["active_reader"] is False
     assert shadow_manifest["active_retrieval_projection"] == "legacy"
+    assert shadow_manifest["canary_reader_available"] is True
+    assert shadow_manifest["canary_retrieval_projection"] == "canonical-canary"
+    assert shadow_manifest["canary_requires_opt_in"] is True
+    assert shadow_manifest["canary_cohorts"] == [
+        "external-test",
+        "maintainer",
+    ]
     assert shadow_manifest["unpublished_pilot_migrations_included"] is False
     assert shadow_manifest["search_row_count"] == projection.canonical_shadow_search_row_count
     assert len(shadow_manifest["artifacts"]) == 8
@@ -539,7 +546,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.8.0"
+    assert skill_manifest["skill_version"] == "1.9.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
@@ -645,6 +652,66 @@ def test_build_d1_seed_sql_records_inactive_canonical_shadow_history():
     assert "PRIMARY KEY (projection_version, generated_at)" in sql
     assert "ORDER BY generated_at DESC, projection_version DESC LIMIT 32" in sql
     assert "'canonical_shadow_observation_count'" in sql
+
+
+def test_build_d1_seed_sql_writes_isolated_canonical_canary_tables():
+    canonical_row = {
+        "id": "cross-source:claim:authorization-6914",
+        "kind": "claim",
+        "title": "Content Channel Authorization Fix",
+        "body": "Rock 19.3 checks Edit on the selected content channel.",
+        "path": "shadow/canonical/claim.jsonl",
+        "url": "https://github.com/SparkDevNetwork/Rock/issues/6914",
+        "concept": "content-personalization",
+        "concepts": [
+            "content-personalization",
+            "security-permissions",
+        ],
+        "topics": ["cms"],
+        "authority_tier": "source-code-confirmed",
+        "claim_tier": "source_backed",
+        "source_id": "sparkdevnetwork_rock",
+        "legacy_ids": ["claim:legacy-6914"],
+        "payload": {"rock_versions": ["19.3"]},
+    }
+    sql = build_d1_seed_sql(
+        version="abc123",
+        generated_at="2026-07-30T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+        canonical_shadow={
+            "content_hash": "b" * 64,
+            "search_row_count": 1,
+            "knowledge_unit_count": 1,
+            "source_snapshot_count": 3,
+            "source_unit_count": 3,
+            "evidence_link_count": 3,
+            "relationship_count": 2,
+            "artifact_count": 8,
+        },
+        canonical_search_rows=[canonical_row],
+    )
+    connection = sqlite3.connect(":memory:")
+    connection.executescript(sql)
+
+    assert connection.execute(
+        "SELECT id FROM canonical_search_rows"
+    ).fetchall() == [(canonical_row["id"],)]
+    assert connection.execute(
+        "SELECT alias_id, canonical_id FROM canonical_search_row_aliases"
+    ).fetchall() == [
+        ("claim:legacy-6914", canonical_row["id"])
+    ]
+    assert connection.execute(
+        "SELECT concept FROM canonical_search_row_concepts ORDER BY concept"
+    ).fetchall() == [
+        ("content-personalization",),
+        ("security-permissions",),
+    ]
+    assert connection.execute(
+        "SELECT value FROM kb_meta "
+        "WHERE key = 'active_retrieval_projection'"
+    ).fetchone() == ("legacy",)
 
 
 def test_canonical_shadow_history_preserves_unchanged_refresh_cycles(

@@ -22,7 +22,7 @@
 | Related model links | 9 |
 | Method signatures | 36 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -134,7 +134,4 @@
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | CampusStatusValueId | enum_values |
-| property_changed | CampusTypeValueId | enum_values |
+No stable-to-pre-alpha changes were detected for this model.

@@ -2,7 +2,7 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-07-30T02:06:04+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -150,9 +150,9 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.2.0 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.2.0 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.2.0 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance](../../model-map/models/attendance.md) | Event | 19.2.0 | 82 | 39 | 65 | 26 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance](../../model-map/models/attendance.md) | Event | 19.2.0 | 82 | 39 | 65 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.2.0 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [History Login](../../model-map/models/history-login.md) | Security | 19.2.0 | 52 | 22 | 34 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:

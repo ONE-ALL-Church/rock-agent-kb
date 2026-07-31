@@ -542,6 +542,94 @@ def test_distilled_claim_review_supplements_override_base_reviews(tmp_path, monk
     assert reviews["distilled-claim:changed"]["reviewer"] == "codex-review"
 
 
+def test_assign_stable_distilled_claim_id_preserves_unchanged_legacy_id():
+    row = {
+        "id": "distilled-claim:legacy",
+        "distillation_slot_id": "distilled-slot:stable",
+        "concept_id": "workflows",
+        "claim_type": "configuration",
+        "distilled_claim": "Generated workflow claim.",
+        "supporting_claim_ids": ["claim:a", "claim:b"],
+        "source_input_hash": "a" * 64,
+    }
+    existing = [
+        {
+            **row,
+            "distillation_slot_id": None,
+            "distillation_status": "approved_for_answer_pack",
+        }
+    ]
+
+    assigned = answer_module.assign_stable_distilled_claim_ids([row], existing)
+
+    assert assigned[0]["id"] == "distilled-claim:legacy"
+
+
+def test_assign_stable_distilled_claim_id_changes_with_input_and_stays_stable():
+    row = {
+        "id": "distilled-claim:legacy",
+        "distillation_slot_id": "distilled-slot:stable",
+        "concept_id": "workflows",
+        "claim_type": "configuration",
+        "distilled_claim": "New generated workflow claim.",
+        "supporting_claim_ids": ["claim:a", "claim:b", "claim:c"],
+        "source_input_hash": "b" * 64,
+    }
+    existing = [
+        {
+            **row,
+            "distillation_slot_id": None,
+            "distilled_claim": "Old generated workflow claim.",
+            "supporting_claim_ids": ["claim:a", "claim:b"],
+            "source_input_hash": "a" * 64,
+        }
+    ]
+
+    first = answer_module.assign_stable_distilled_claim_ids([row], existing)
+    second = answer_module.assign_stable_distilled_claim_ids(
+        [{**row, "id": "distilled-claim:legacy"}],
+        first,
+    )
+
+    assert first[0]["id"] != "distilled-claim:legacy"
+    assert second[0]["id"] == first[0]["id"]
+
+
+def test_changed_distilled_claim_does_not_inherit_stale_review():
+    row = {
+        "id": "distilled-claim:legacy",
+        "distillation_slot_id": "distilled-slot:stable",
+        "concept_id": "workflows",
+        "claim_type": "configuration",
+        "distilled_claim": "New generated workflow claim.",
+        "supporting_claim_ids": ["claim:a", "claim:b", "claim:c"],
+        "source_input_hash": "b" * 64,
+        "distillation_status": "generated_needs_reviewer_approval",
+    }
+    existing = [
+        {
+            **row,
+            "distillation_slot_id": None,
+            "distilled_claim": "Old generated workflow claim.",
+            "supporting_claim_ids": ["claim:a", "claim:b"],
+            "source_input_hash": "a" * 64,
+        }
+    ]
+    reviews = {
+        "distilled-claim:legacy": {
+            "review_status": "rejected_for_answer_pack",
+            "reviewer": "old-reviewer",
+        }
+    }
+
+    assigned = answer_module.assign_stable_distilled_claim_ids([row], existing)
+    reviewed = answer_module.apply_distilled_claim_reviews(assigned, reviews)
+
+    assert reviewed[0]["id"] != "distilled-claim:legacy"
+    assert reviewed[0]["distillation_status"] == "generated_needs_reviewer_approval"
+    assert "reviewer" not in reviewed[0]
+
+
 def test_preserve_stable_distilled_claim_created_at_when_source_input_matches():
     row = {
         "id": "distilled-claim:stable",

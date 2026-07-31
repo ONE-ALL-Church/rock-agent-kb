@@ -75,9 +75,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
-      "claim_hash": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
+      "claim_hash": "6c0786f44723703ac490a7fc38787cfa7617fe1ab5907a52632432e6b1880f62",
       "claim_id": "claim:2cb25390d2b5f4ffeb6f",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -88,7 +88,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
@@ -307,9 +307,9 @@
     {
       "authority_tier": "official",
       "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
-      "claim_hash": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
+      "claim_hash": "efbe564984522607f09af368e849519d95b9fa276742b16218ea7abf298fab2d",
       "claim_id": "claim:72d56e7ee7ef0be4b92e",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -320,7 +320,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
@@ -646,13 +646,13 @@
   "approved_claim_hashes": {
     "claim:2a2a9fc94666d58b0e4f": "bd385211a6a44172d6835d029b4cfda62dfe24b80db5addb537ea20fb15b0076",
     "claim:2a7ef23854b5dd315c7d": "10c4e528501bd19523ce5e9df0e2380f248722bc2c6042636f8ddc1c1356e13e",
-    "claim:2cb25390d2b5f4ffeb6f": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
+    "claim:2cb25390d2b5f4ffeb6f": "6c0786f44723703ac490a7fc38787cfa7617fe1ab5907a52632432e6b1880f62",
     "claim:410bf6750e90b7193262": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
     "claim:4b7b8d0b0379ceb7587f": "af4c7c6efca4403e0cd077071605b6d574e15109159e511dc28c66854b66010e",
     "claim:538f1a4e0ad7c90f7c5a": "efc180a1a3919021838717a92850019bb6ffba5aa5cf90171d20d2a9b15a80e7",
     "claim:57e32b4d554a759231a1": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
     "claim:60c2bcd25e1cce4efef4": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
-    "claim:72d56e7ee7ef0be4b92e": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
+    "claim:72d56e7ee7ef0be4b92e": "efbe564984522607f09af368e849519d95b9fa276742b16218ea7abf298fab2d",
     "claim:9cd70d19320375c27cb3": "4c7eeeb0486b93e111ea3e289b11e3aea93b3dc67694b5bfedec738660de462c",
     "claim:a181b9ddd5b0e689895b": "02bb404eb8bc4fd1779103c0b1b1d7d9fb91b5043248d58eef251176f7b4a34b",
     "claim:b4fb38224ff8452078f3": "9c567ad9cd0c87cdead051017fd333b6cd138cc94642de6ab869dc619e18ded2",
@@ -661,7 +661,7 @@
     "claim:d35ed98aadeaabd2cf1e": "35a6332eb1d1447d497a0e205e12a6ae664f7ed7d8d0807cfa69466c8fa4ac29",
     "claim:fb85d514f4ed765acad4": "b780cfbd12bcfbedfce8c6eda19bba7126bb33ed43390a777d1893898edc87d4"
   },
-  "approved_claims_hash": "29adc2b1ff46f3c31034a3cf4317be3c37b5afb27d38f9eed29416e9c5395617",
+  "approved_claims_hash": "2a0ccb1a3621da1b07958d609ea69b5e325d132de5b119a469c577d196aa37de",
   "approved_claims_path": "knowledge/concepts/api-integrations/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -848,12 +848,12 @@
   },
   "approved_media_hash": "ec35b8de14526a2c289432c0f16466114551322d087df88c30bf64aab1c26c0f",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-07-30T02:08:08+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "api-integrations",
-  "guide_hash": "f6a3c1b8d6def2406c8824dac93a195d24bb5ad75ce5ba390cb118410ad9291b",
+  "guide_hash": "39aefabf2e9956e81e2cbe5a9866c7fb32f40637ea68170a896232e8bec230e3",
   "guide_line_count": 1571,
   "guide_path": "knowledge/concepts/api-integrations/guide.md",
-  "guide_word_count": 14479,
+  "guide_word_count": 14474,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3034,6 +3034,7 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
+        "547b1337a6e19cf7",
         "6a9eebe7a077d89a",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
@@ -3044,8 +3045,7 @@
         "dcc9c3b1df657d9f",
         "dcc9c3b1df657d9f",
         "dcc9c3b1df657d9f",
-        "53ad1133e1cb2d0a",
-        "547b1337a6e19cf7"
+        "53ad1133e1cb2d0a"
       ],
       "start_line": 1478
     },

@@ -176,6 +176,26 @@ Use the test's stable result IDs with `rock-kb feedback` for result quality or
 only when the KB itself malfunctions. Never add church names, private records,
 logs, internal URLs, or secrets to any path.
 
+### Optionally Compare Canonical Retrieval
+
+External testers can compare the experimental source-native canonical
+projection without changing the normal service for anyone:
+
+```bash
+uvx rock-kb telemetry enable --cohort external-test --consent-attested
+uvx rock-kb install-agent
+uvx rock-kb --projection canonical-canary search "<real Rock question>"
+uvx rock-kb --projection canonical-canary result "<result-id>"
+```
+
+Run the same question once without `--projection canonical-canary` for an
+explicit legacy comparison. When a canary result materially contributes to a
+completed task, submit a fixed outcome with the same projection. The canary
+stores no query, church identity, raw marker, IP address, logs, or Rock data,
+and it cannot change the default reader. MCP-capable agents pass
+`projection: "canonical-canary"` to `kb_search`, `kb_get_result`, and
+`kb_outcome`.
+
 ### Let Your Agent Provide Ongoing Feedback
 
 An agent should ask once before enabling anonymous field validation or

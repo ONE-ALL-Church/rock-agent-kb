@@ -54,5 +54,5 @@ The community page-view recipe provides the basic pattern but should be hardened
 - https://community.rockrms.com/documentation/bookcontent/6
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
 - https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://community.rockrms.com/developer/helix/lava-applications/content-block

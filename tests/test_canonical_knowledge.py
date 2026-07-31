@@ -252,6 +252,93 @@ def test_distilled_claims_sharing_support_do_not_share_identity():
     )
 
 
+def test_retired_shadow_identity_migration_is_not_carried_into_current_bundle():
+    row = {
+        "id": "recipe:example:current",
+        "kind": "recipe",
+        "title": "Current Recipe",
+        "body": "Current recipe body.",
+        "concepts": ["workflows"],
+        "authority_tier": "community-reviewed",
+        "claim_tier": "answer_pack_approved",
+        "source_id": "example",
+        "payload": {
+            "schema": "rock-kb-recipe-v1",
+            "recipe_id": "example:current",
+            "review_status": "community_reviewed",
+        },
+    }
+    stale_migration = {
+        "schema": "rock-kb-knowledge-identity-migration-v1",
+        "migration_id": "identity-migration:retired",
+        "from_knowledge_unit_id": "knowledge:claim:old-content-addressed",
+        "to_knowledge_unit_id": "knowledge:claim:retired-registry-identity",
+        "migration_type": "content_addressed_to_registry",
+        "reason": "This unpublished shadow-only target was retired.",
+        "matched_aliases": [],
+    }
+
+    bundle, _summary = build_canonical_knowledge_bundle(
+        search_rows=[row],
+        distilled_claims=[],
+        identity_migrations=[stale_migration],
+    )
+
+    assert bundle.identity_migrations
+    assert all(
+        migration.migration_id != "identity-migration:retired"
+        for migration in bundle.identity_migrations
+    )
+
+
+def test_retired_shadow_identity_migration_is_archived(tmp_path):
+    stale_migration = {
+        "schema": "rock-kb-knowledge-identity-migration-v1",
+        "migration_id": "identity-migration:retired",
+        "from_knowledge_unit_id": "knowledge:claim:old-content-addressed",
+        "to_knowledge_unit_id": "knowledge:claim:retired-registry-identity",
+        "migration_type": "content_addressed_to_registry",
+        "reason": "This unpublished shadow-only target was retired.",
+        "matched_aliases": [],
+    }
+    (tmp_path / "identity-migrations.jsonl").write_text(
+        json.dumps(stale_migration) + "\n",
+        encoding="utf-8",
+    )
+    row = {
+        "id": "recipe:example:current",
+        "kind": "recipe",
+        "title": "Current Recipe",
+        "body": "Current recipe body.",
+        "concepts": ["workflows"],
+        "authority_tier": "community-reviewed",
+        "claim_tier": "answer_pack_approved",
+        "source_id": "example",
+        "payload": {
+            "schema": "rock-kb-recipe-v1",
+            "recipe_id": "example:current",
+            "review_status": "community_reviewed",
+        },
+    }
+
+    result = write_canonical_knowledge_shadow(
+        tmp_path,
+        search_rows=[row],
+        distilled_claims=[],
+    )
+
+    active = list(read_jsonl(tmp_path / "identity-migrations.jsonl"))
+    retired = list(read_jsonl(tmp_path / "retired-identity-migrations.jsonl"))
+    assert all(
+        migration["migration_id"] != "identity-migration:retired"
+        for migration in active
+    )
+    assert [migration["migration_id"] for migration in retired] == [
+        "identity-migration:retired"
+    ]
+    assert result["output"]["retired_identity_migrations"] == 1
+
+
 def test_identity_registry_and_migrations_are_byte_stable_on_rerun(tmp_path):
     row = {
         "id": "recipe:example:stable",

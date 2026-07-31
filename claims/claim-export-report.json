@@ -1,5 +1,5 @@
 {
-  "answer_bearing_count": 598,
+  "answer_bearing_count": 609,
   "authority_tiers": {
     "community-reviewed": 36,
     "official": 494,
@@ -8,9 +8,8 @@
   },
   "claim_count": 609,
   "claim_tiers": {
-    "answer_pack_approved": 494,
-    "live_verified": 104,
-    "source_backed": 11
+    "answer_pack_approved": 505,
+    "live_verified": 104
   },
   "claim_types": {
     "behavior": 149,
@@ -63,7 +62,7 @@
     "source_summary": 492
   },
   "excluded_routing_context_count": 1713,
-  "generated_at": "2026-07-30T02:05:44+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "generation_provenance": {
     "legacy_claims_without_provenance": 124,
     "methods": {

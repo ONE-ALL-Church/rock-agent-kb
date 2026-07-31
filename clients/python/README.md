@@ -119,6 +119,31 @@ with `uvx rock-kb telemetry disable`, rerun `install-agent`, and restart the
 host. Treat user-scoped agent configuration as private. Project-scoped MCP
 configuration never receives the marker.
 
+The same opt-in enables the experimental canonical retrieval canary. Legacy
+retrieval remains the default:
+
+```bash
+uvx rock-kb --projection canonical-canary search "content channel item permissions"
+uvx rock-kb --projection canonical-canary result '<result-id>'
+uvx rock-kb --projection canonical-canary outcome '<result-id>' \
+  --outcome useful \
+  --reason answered \
+  --consent-attested
+```
+
+`--projection` is a global option and therefore appears before the command.
+Only `search`, `result`, and `outcome` accept the canary. Use the same projection
+for all three so an outcome is attached to the exact projection that produced
+the result. The service rejects canary requests without a private anonymous
+marker and the fixed `external-test` or `maintainer` cohort.
+
+MCP clients use the installed private headers and pass
+`projection: "canonical-canary"` to `kb_search`, `kb_get_result`, and
+`kb_outcome`. The canary does not receive or store query text, the raw marker,
+organization or person identity, IP address, logs, secrets, or Rock data.
+Canary results may differ from legacy results, but they do not carry a higher
+authority tier merely because they came from the canonical projection.
+
 For repeated use on a server or agent host, install the CLI permanently:
 
 ```bash

@@ -147,8 +147,15 @@ def build_agent_answer_pack() -> dict[str, int]:
     claims = approved_claim_rows()
     concepts = load_answer_concepts()
     claims_by_concept = group_claims_by_concept(claims)
+    existing_distilled_rows = read_existing_distilled_claim_rows()
     distilled_rows = preserve_stable_distilled_claim_metadata(
-        apply_distilled_claim_reviews(distilled_claim_rows(concepts, claims_by_concept))
+        apply_distilled_claim_reviews(
+            assign_stable_distilled_claim_ids(
+                distilled_claim_rows(concepts, claims_by_concept),
+                existing_distilled_rows,
+            )
+        ),
+        existing_distilled_rows,
     )
     distilled_by_concept = group_distilled_claims_by_concept(distilled_rows)
     answer_rows = []
@@ -250,6 +257,73 @@ def apply_distilled_claim_reviews(rows: list[dict[str, Any]], reviews_by_id: dic
                 updated[field] = review[field]
         reviewed_rows.append(updated)
     return reviewed_rows
+
+
+def assign_stable_distilled_claim_ids(
+    rows: list[dict[str, Any]], existing_rows: list[dict[str, Any]] | None = None
+) -> list[dict[str, Any]]:
+    existing = existing_rows if existing_rows is not None else read_existing_distilled_claim_rows()
+    existing_by_id = {
+        str(row.get("id") or ""): row
+        for row in existing
+        if row.get("id")
+    }
+    existing_by_slot: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for prior in existing:
+        slot_id = str(prior.get("distillation_slot_id") or "").strip()
+        if slot_id:
+            existing_by_slot[slot_id].append(prior)
+
+    assigned_rows = []
+    assigned_ids: set[str] = set()
+    for row in rows:
+        updated = dict(row)
+        slot_id = str(updated.get("distillation_slot_id") or "").strip()
+        generated_id = str(updated.get("id") or "").strip()
+        if not slot_id or not generated_id:
+            raise ValueError("distilled claims require both distillation_slot_id and id")
+
+        candidates = list(existing_by_slot.get(slot_id, []))
+        legacy_prior = existing_by_id.get(generated_id)
+        if legacy_prior is not None and all(
+            prior.get("id") != legacy_prior.get("id") for prior in candidates
+        ):
+            candidates.append(legacy_prior)
+
+        exact_matches = [
+            prior
+            for prior in candidates
+            if distilled_claim_inputs_match(updated, prior)
+        ]
+        if len(exact_matches) > 1:
+            raise ValueError(
+                f"multiple existing distilled claims match the same input snapshot: {slot_id}"
+            )
+        assigned_id = (
+            str(exact_matches[0]["id"])
+            if exact_matches
+            else content_versioned_distilled_claim_id(updated)
+        )
+
+        if assigned_id in assigned_ids:
+            raise ValueError(f"duplicate distilled claim id after reconciliation: {assigned_id}")
+        updated["id"] = assigned_id
+        assigned_ids.add(assigned_id)
+        assigned_rows.append(updated)
+
+    return assigned_rows
+
+
+def content_versioned_distilled_claim_id(row: dict[str, Any]) -> str:
+    slot_id = str(row.get("distillation_slot_id") or "").strip()
+    source_input_hash = str(row.get("source_input_hash") or "").strip()
+    if not slot_id:
+        raise ValueError("distilled claim is missing distillation_slot_id")
+    if not source_input_hash:
+        source_input_hash = sha256_text(
+            json.dumps(distilled_claim_stability_payload(row), ensure_ascii=False, sort_keys=True)
+        )
+    return "distilled-claim:" + sha256_text(f"{slot_id}:{source_input_hash}")[:20]
 
 
 def preserve_stable_distilled_claim_metadata(
@@ -849,10 +923,14 @@ def distilled_claim_rows(concepts: list[Any], claims_by_concept: dict[str, list[
             lead = ordered[0]
             source_refs = compact_citations(ordered)
             generated_claim = distilled_claim_text(concept, ordered)
+            distillation_slot_id = (
+                "distilled-slot:" + sha256_text(f"{concept.id}:{key}")[:20]
+            )
             rows.append(
                 {
                     "schema": "rock-kb-distilled-claim-v1",
                     "id": "distilled-claim:" + sha256_text(f"{concept.id}:{key}")[:20],
+                    "distillation_slot_id": distillation_slot_id,
                     "concept_id": concept.id,
                     "claim_type": lead.get("claim_type"),
                     "distilled_claim": generated_claim,

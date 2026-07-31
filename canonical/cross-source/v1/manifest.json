@@ -1,0 +1,27 @@
+{
+  "artifact_count": 1,
+  "evaluation_case_count": 2,
+  "evidence_link_count": 3,
+  "file_hashes": {
+    "evaluation-set.jsonl": "bfa33f2b39e918251c06a736a23d457ad1a7ea30ab77ccec05db1a131dadd2ce",
+    "evidence-links.jsonl": "46051284c3b95767e7047152eebf823914a48125ae8092cdd6fdd415d2882955",
+    "generation-activities.jsonl": "c7a66103f50a54b3c1d22c2568095c3b86778b93bbb7b5f69a4e4f9ae9698036",
+    "knowledge-units.jsonl": "fb6b4e02941f3f5a4ff9b7f67ae9e59830be6bd579240c193ea2fe33babcffd6",
+    "relationships.jsonl": "a77a167acc2432b687b18fadfdb403795bb68a0268a9a3a1e21cecbdb061614f",
+    "review-decisions.jsonl": "4ec1f07110a1eda61bf0e08e2ba6e6dc4c1482da99e5beb444ad70a64de86eca",
+    "source-snapshots.jsonl": "96ebd9bdd29388ddc6887d7defefdd19d2ee72b144e07c186712a2e33b56dd98",
+    "source-units.jsonl": "a33367ea86abc20eddd7ae1875b33ed7b589edc90d87f7f87e40f8831d408869"
+  },
+  "generation_activity_count": 1,
+  "notes": [
+    "The bundle remains canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
+    "Mutable issue reports are separated from official release and immutable source-code evidence.",
+    "Reported affected versions and officially fixed versions retain distinct evidence relations."
+  ],
+  "public_retrieval_changed": false,
+  "relationship_count": 2,
+  "schema": "rock-kb-reviewed-cross-source-manifest-v1",
+  "source_snapshot_count": 3,
+  "source_unit_count": 3,
+  "status": "shadow_only"
+}

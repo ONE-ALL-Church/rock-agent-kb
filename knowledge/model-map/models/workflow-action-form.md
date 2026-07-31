@@ -22,7 +22,7 @@
 | Related model links | 1 |
 | Method signatures | 37 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 4 |
+| Pre-alpha changes touching this model | 2 |
 
 ## Properties
 
@@ -152,7 +152,5 @@
 
 | Change | Property | Fields |
 | --- | --- | --- |
-| property_changed | PersonEntryCampusStatusValueId | enum_values |
-| property_changed | PersonEntryCampusTypeValueId | enum_values |
 | property_changed | PersonEntryRecordSourceValueId | enum_values |
 | property_changed | PersonEntrySectionTypeValueId | enum_values |

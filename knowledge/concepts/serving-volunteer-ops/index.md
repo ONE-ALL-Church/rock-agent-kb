@@ -2,7 +2,7 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-07-30T02:06:10+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -136,11 +136,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Analytics Fact Attendance](../../model-map/models/analytics-fact-attendance.md) | Reporting | 19.2.0 | 51 | 37 | 44 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Attendance](../../model-map/models/analytics-source-attendance.md) | Reporting | 19.2.0 | 40 | 26 | 33 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance](../../model-map/models/attendance.md) | Event | 19.2.0 | 82 | 39 | 65 | 26 | 2 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance](../../model-map/models/attendance.md) | Event | 19.2.0 | 82 | 39 | 65 | 26 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Check In Session](../../model-map/models/attendance-check-in-session.md) | Event | 19.2.0 | 21 | 7 | 14 | 7 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attendance Code](../../model-map/models/attendance-code.md) | Event | 19.2.0 | 20 | 7 | 12 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Attendance Occurrence](../../model-map/models/attendance-occurrence.md) | Event | 19.2.0 | 64 | 27 | 47 | 20 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Member Requirement](../../model-map/models/group-member-requirement.md) | Group | 19.2.0 | 58 | 25 | 41 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Member Schedule Template](../../model-map/models/group-member-schedule-template.md) | Group | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Group Requirement](../../model-map/models/group-requirement.md) | Group | 19.2.0 | 52 | 19 | 37 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |

@@ -2,7 +2,7 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-07-30T02:06:14+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -104,7 +104,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Step](../../model-map/models/step.md) | Engagement | 19.2.0 | 62 | 24 | 46 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Step Program](../../model-map/models/step-program.md) | Engagement | 19.2.0 | 50 | 19 | 34 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Step Status](../../model-map/models/step-status.md) | Engagement | 19.2.0 | 46 | 16 | 30 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Step Type](../../model-map/models/step-type.md) | Engagement | 19.2.0 | 70 | 33 | 55 | 22 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Step Type](../../model-map/models/step-type.md) | Engagement | 19.2.0 | 70 | 33 | 55 | 22 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Step Type Prerequisite](../../model-map/models/step-type-prerequisite.md) | Engagement | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Step Workflow](../../model-map/models/step-workflow.md) | Engagement | 19.2.0 | 42 | 12 | 27 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Step Workflow Trigger](../../model-map/models/step-workflow-trigger.md) | Engagement | 19.2.0 | 47 | 16 | 32 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |

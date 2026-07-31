@@ -8,6 +8,7 @@ from rock_kb.canonical_retrieval_shadow import (
     build_endpoint_compatibility_cases,
     canonical_claim_search_title,
     canonical_search_body,
+    canonical_search_row,
     evaluate_endpoint_compatibility,
     evaluate_retrieval_shadow,
     score_evaluation_hits,
@@ -85,6 +86,59 @@ def test_source_native_search_body_includes_typed_reference_details():
     assert "Which fields control kiosk ad targeting?" in body
     assert "Campuses Limits the ad to selected campuses." in body
     assert "Verify targeting before publishing." in body
+
+
+def test_canonical_search_row_exposes_observation_without_implying_version_scope():
+    item = KnowledgeUnit(
+        schema="rock-kb-knowledge-unit-v1",
+        knowledge_unit_id="source-native:claim:test",
+        knowledge_type="claim",
+        title="Observed documentation behavior",
+        retrieval_text="The documentation describes this behavior.",
+        concept_facets=["system-admin-ops"],
+        authority_tiers=["official"],
+        source_unit_ids=["source-unit:test"],
+        version_scope_status="unprocessed",
+        payload={},
+        content_hash="0" * 64,
+    )
+    snapshot = SourceSnapshot(
+        schema="rock-kb-source-snapshot-v2",
+        source_snapshot_id="source-snapshot:test",
+        source_id="rock_documentation",
+        source_record_id="rock_documentation:article:100",
+        canonical_url="https://community.rockrms.com/documentation/test",
+        authority_tier="official",
+        public_policy="cite_and_summarize_only",
+        upstream_revision="v19.0",
+        last_checked_at="2026-07-30T00:00:00+00:00",
+        content_changed_at="2026-07-01T00:00:00+00:00",
+    )
+    unit = SourceUnit(
+        schema="rock-kb-source-unit-v2",
+        source_unit_id="source-unit:test",
+        source_snapshot_id="source-snapshot:test",
+        unit_kind="paragraph",
+        locator=SourceLocator(
+            kind="paragraph",
+            value="Overview",
+            url=snapshot.canonical_url,
+        ),
+        public_summary="The documentation describes the behavior.",
+        required_public_handling="cite_and_summarize_only",
+    )
+
+    row = canonical_search_row(
+        item,
+        {snapshot.source_snapshot_id: snapshot},
+        {unit.source_unit_id: unit},
+    )
+
+    assert row["payload"]["source_observation"]["upstream_revisions"] == ["v19.0"]
+    assert row["payload"]["version_scope_note"].endswith(
+        "verify this detail for the target version."
+    )
+    assert "Rock product-version applicability is unprocessed" in row["body"]
 
 
 def test_canonical_claim_title_uses_statement_for_contribution_corroboration():

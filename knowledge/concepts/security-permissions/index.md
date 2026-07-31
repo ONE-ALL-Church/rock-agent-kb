@@ -2,7 +2,7 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-07-30T02:06:17+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -133,6 +133,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | behavior | Rock's PersonActionIdentifier identifies a person only for a specific bound action, such as RSVP, rather than functioning as a general-purpose authentication or authorization token. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
 | official | behavior | Rock evaluates an item's ordered Allow and Deny permission rules from top to bottom and applies the first rule matching the current person, so a broad deny placed above a narrower allow can block the narrower role. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
 | official | behavior | The Security Change Audit records changes to an item's permission rules, including role rules or direct user rules, but it does not record adding or removing a person from a security role. | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit) |
+| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
 | official | configuration | Creating a top-level Sign-Up group requires Edit permission on both the Project Type group attribute and the Sign-Up Groups block, in addition to the permissions needed to manage the project or its attendees. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) |
 | official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
 | official | implementation_pattern | For public-facing Obsidian blocks beginning with Rock v14, IdKey is preferred over exposing numeric entity IDs in URLs, but the server must still authorize and validate the referenced entity. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
@@ -147,7 +148,6 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | operational_guidance | The summit strongly warns against allowing an agent to generate and execute arbitrary SQL at runtime because that bypasses Rock security and business logic. Reviewed static SQL inside a narrowly secured Lava tool is distinguished from giving the model an open-ended SQL execution capability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
 | official | operational_guidance | Sign-Up authorization can come from Group Role permissions, project-level permissions, or Group Type security; overlapping capabilities mean access diagnosis must inspect all three sources. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) |
 | official | release_caveat | Rock's planned MCP flow uses OAuth so the external harness holds and renews the access token without exposing a general Rock API key to the language model. Administrators should still review client authorization, token scope and revocation behavior in the released implementation. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| official | release_caveat | The pre-release design applies Rock permission checks as the authenticated person using the agent, including MCP access, rather than granting an agent unrestricted administrative access. Verify the shipped version and each enabled tool's authorization behavior before production use. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 | More |  | 45 additional approved claims are tracked in `claims/approved-claims.jsonl`. |  |
 
 ## Source Coverage

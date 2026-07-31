@@ -381,9 +381,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests.",
-      "claim_hash": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
+      "claim_hash": "6c0786f44723703ac490a7fc38787cfa7617fe1ab5907a52632432e6b1880f62",
       "claim_id": "claim:2cb25390d2b5f4ffeb6f",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -394,7 +394,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "6a5cca3508709b4cdfecf4117436569fdd986f7ae4cc194187444245b7562bcd",
@@ -1188,9 +1188,9 @@
     {
       "authority_tier": "official",
       "claim": "Treat every Helix endpoint as directly callable outside its front end: validate all inputs, enforce the caller's view or edit rights, avoid GET for mutations, and sanitize query and body values before SQL use.",
-      "claim_hash": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
+      "claim_hash": "efbe564984522607f09af368e849519d95b9fa276742b16218ea7abf298fab2d",
       "claim_id": "claim:72d56e7ee7ef0be4b92e",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -1201,7 +1201,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "f088c9c25a1c8f3ca85814c476a1fae2a66fd310acaca25f587416c5afb694c6",
@@ -1308,9 +1308,9 @@
     {
       "authority_tier": "official",
       "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
-      "claim_hash": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+      "claim_hash": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
       "claim_id": "claim:7bca2f8db03f8f468586",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -1321,7 +1321,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
@@ -2767,7 +2767,7 @@
     "claim:2a2a9fc94666d58b0e4f": "bd385211a6a44172d6835d029b4cfda62dfe24b80db5addb537ea20fb15b0076",
     "claim:2a7ef23854b5dd315c7d": "10c4e528501bd19523ce5e9df0e2380f248722bc2c6042636f8ddc1c1356e13e",
     "claim:2a9844acce5ba6150dec": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
-    "claim:2cb25390d2b5f4ffeb6f": "d91c267b11864901e279919b35d8c628ac3208fc89d051a997bc339337ffa07b",
+    "claim:2cb25390d2b5f4ffeb6f": "6c0786f44723703ac490a7fc38787cfa7617fe1ab5907a52632432e6b1880f62",
     "claim:32be14ce0431e82d2f1b": "3b7c24c2d17dc9f1dcf661537d5d8b18a874683662a61308b9ac8b05aafeb688",
     "claim:33a7cc3b7e0626ec5cc1": "2415568f3b8049e80bfff022461e569ec3f265bcbf46ea1b9834464717e348a4",
     "claim:34144e7226c4a430a307": "32e76c9421e03c1e10fece13b0ddbc19fba2850caf1a95f386cf30305bd71b50",
@@ -2786,10 +2786,10 @@
     "claim:60c2bcd25e1cce4efef4": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
     "claim:64100db2b5d60396b9fd": "ae63faa268d61153f6bcdd63a541e4df7222b918aea292545c512fba664fe1c0",
     "claim:725a3342f3dc657cc546": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
-    "claim:72d56e7ee7ef0be4b92e": "5e56e8d895fcb0cf7e7067eca653378be1aa533f9fa8b79a69da41eb89e0dfa0",
+    "claim:72d56e7ee7ef0be4b92e": "efbe564984522607f09af368e849519d95b9fa276742b16218ea7abf298fab2d",
     "claim:72dd1841cd10ed6d5a30": "b9c0ceb5a3455bcb9439894db3f3bd2de2df261c3e91bf5afb697558cba4c506",
     "claim:751d703f1c8d30a9db1e": "46cc588b9dfb6baa9311185e1f2151c2ccc0241531264c3bbaeb8fd04849da8d",
-    "claim:7bca2f8db03f8f468586": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+    "claim:7bca2f8db03f8f468586": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
     "claim:7ddbde1cd7e23aec0e70": "51dfae9c165bb93243a305b2657c2cf2bf15fc83878805d4af553acffbc132dd",
     "claim:7e6e3979faad614f0b42": "b2235fe89f96ace0673eb54cc0ca2b093d9c4cfb86da558d1ba8d4afb78975ed",
     "claim:82a64d99bfa7fdab38bc": "bc89eda10ee02f19483b41be7c410e2d2908191233fbce50e8fa175e63c93d15",
@@ -2823,7 +2823,7 @@
     "claim:fc1c8fb6ae5414717fe3": "54852e0d446a4dacb9b40d135ed021c509464990cbb63694ed991e747703f4ac",
     "claim:ffba67d8847c47e68ea6": "f78e26f0c348920d47949a0f7cfcb4d8123e744796c711a603efba1f5d1e40f9"
   },
-  "approved_claims_hash": "faf60717c5b66294b430e69ada9dc18a4ec699643fb50e905b035d558cb569d4",
+  "approved_claims_hash": "2bf9fa76a88e52ec691780881c12aea57e69e54fa6f82d965f98d03098ab0c60",
   "approved_claims_path": "knowledge/concepts/security-permissions/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -3463,12 +3463,12 @@
   },
   "approved_media_hash": "0144bea11d8dc1bc1a445902cf99712b8fb4e7525c706ec5dc1c70247e4bf164",
   "approved_media_path": "knowledge/concepts/security-permissions/approved-media.md",
-  "built_at": "2026-07-30T02:08:04+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "security-permissions",
-  "guide_hash": "84ca5e083241a80a338376cf189fa4a531446e65435fd51cc3acf590d69fcc4d",
+  "guide_hash": "760f1ff8dbad9a02a654407a012c3aa41d1c41239d863dacb5b7ed78d16bff81",
   "guide_line_count": 1863,
   "guide_path": "knowledge/concepts/security-permissions/guide.md",
-  "guide_word_count": 15931,
+  "guide_word_count": 15927,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -3946,15 +3946,6 @@
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "bd359c503b146774",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
     },
     {
       "authority": "official-training",
@@ -5691,6 +5682,7 @@
         "f807acb8c3c3d207",
         "3570656d84751e63",
         "7ee5f2c5d04d18ff",
+        "547b1337a6e19cf7",
         "8c641622ba22f231",
         "ae672f3d3d6f8730",
         "f807acb8c3c3d207",
@@ -5698,8 +5690,7 @@
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "dcc9c3b1df657d9f",
-        "bd359c503b146774"
+        "dcc9c3b1df657d9f"
       ],
       "start_line": 1703
     },
@@ -7119,16 +7110,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "bd359c503b146774",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=bu5nPeAVCAo",
-      "url": "https://www.youtube.com/watch?v=bu5nPeAVCAo"
     },
     {
       "authority": "official-training",
