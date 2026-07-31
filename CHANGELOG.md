@@ -33,6 +33,8 @@ tags and follow semantic versioning for public client and service contracts.
   Changed clusters return to review under a content-versioned ID, and retired
   shadow migration chains move to a private audit archive instead of breaking
   the current canonical bundle.
+- Agent installation now upgrades older Codex MCP configurations that store
+  private headers in a nested TOML table without creating a duplicate table.
 - The agent skill is version `1.9.0` and requires client `0.20.0`. It documents
   tester opt-in, exact projection continuity, cross-source trust semantics, and
   the evidence gate that blocks a default cutover without real external

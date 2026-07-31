@@ -838,9 +838,26 @@ def update_toml_config(text: str, mcp_url: str, headers: dict[str, str] | None =
     if headers:
         values = ", ".join(f"{json.dumps(key)} = {json.dumps(value)}" for key, value in sorted(headers.items()))
         section += f"http_headers = {{ {values} }}\n"
-    pattern = re.compile(r"(?ms)^\[mcp_servers\.(?:rock-kb|\"rock-kb\")\]\s*\n.*?(?=^\[|\Z)")
-    if pattern.search(text):
-        updated = pattern.sub(section + "\n", text, count=1).rstrip() + "\n"
+    table_pattern = re.compile(r"(?m)^[ \t]*\[(?!\[)([^\]\r\n]+)\][ \t]*(?:#.*)?(?:\r?\n|\Z)")
+    table_headers = list(table_pattern.finditer(text))
+    managed_ranges: list[tuple[int, int]] = []
+    for index, match in enumerate(table_headers):
+        table_path = re.sub(r"\s+", "", match.group(1))
+        if not re.fullmatch(r'mcp_servers\.(?:rock-kb|"rock-kb")(?:\..+)?', table_path):
+            continue
+        end = table_headers[index + 1].start() if index + 1 < len(table_headers) else len(text)
+        managed_ranges.append((match.start(), end))
+
+    if managed_ranges:
+        parts: list[str] = []
+        cursor = 0
+        for index, (start, end) in enumerate(managed_ranges):
+            parts.append(text[cursor:start])
+            if index == 0:
+                parts.append(section + "\n")
+            cursor = end
+        parts.append(text[cursor:])
+        updated = "".join(parts).rstrip() + "\n"
     else:
         updated = text.rstrip() + ("\n\n" if text.strip() else "") + section
     tomllib.loads(updated)
