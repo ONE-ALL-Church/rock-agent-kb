@@ -1123,9 +1123,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration.",
-      "claim_hash": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+      "claim_hash": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
       "claim_id": "claim:a774892d024b8bbe0560",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -1136,7 +1136,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "19.0"
@@ -1777,7 +1777,7 @@
     "claim:935e26c8fb050a1e0ec5": "0f30ba60309f736c9c0ac3014db5a0c65eded5acb1c7288575bfdb4d2ca9ed86",
     "claim:9851e6f9beb234b9ae44": "877201a2bedd09507879821318474a72a581db876b6e9d1d6f35f1543de8ea94",
     "claim:a5f0a54f29d226cec5fc": "a25001d54eaa40ac9c82e7bc06575d9d30794410c19f9ce5b6d1341dd737e95a",
-    "claim:a774892d024b8bbe0560": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+    "claim:a774892d024b8bbe0560": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
     "claim:b9e9583cbd0a9d5fe172": "08d776f98e37fe7c04b248d42acfb818603816f143438c93d21bebbda710add9",
     "claim:bf7a6f9ccaefc113cb5d": "edc2bfa0fddae94723f21b34af57285f6d32b6aaa52fbdbef09410712725970e",
     "claim:bfaff0eddb3f23abe371": "f1e73b9cf737e121ae5b825d2b24794700ae554f5ef10259067976f4bb96e494",
@@ -1792,7 +1792,7 @@
     "claim:fed2ae4224412957cddf": "1e3c8ca61628970f834666ddee8c55b9ded12fa7e077c6001d213f829b9b6fd2",
     "claim:ffba67d8847c47e68ea6": "f78e26f0c348920d47949a0f7cfcb4d8123e744796c711a603efba1f5d1e40f9"
   },
-  "approved_claims_hash": "060dcd0209c65c1ca0d3425b46084b79e0b945f55d8d660706b6368b0deeba92",
+  "approved_claims_hash": "d5335b5b36607656bafae5164fdc3fdda9b66d70542ac6aa6c76d695d7eac166",
   "approved_claims_path": "knowledge/concepts/data-views-reports/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2676,9 +2676,9 @@
   },
   "approved_media_hash": "f311663773e4324e0cdd2ad6f2fbc3e4c21eb7acee5fc2a06ee3df8b4610fb96",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-07-30T02:08:06+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "data-views-reports",
-  "guide_hash": "2e1deccecdcf114a69bdfc0b709fbad8ef18a0054fa6beb64f83c76d0524a9b8",
+  "guide_hash": "092ac0d364ff46c5238d16a886aeeb1fb78fbdd044527b34c444fb649bbc2309",
   "guide_line_count": 2005,
   "guide_path": "knowledge/concepts/data-views-reports/guide.md",
   "guide_word_count": 16125,
@@ -3120,6 +3120,15 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
+      "authority": "official",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_documentation",
       "source_key": "8f6296a444e98498",
       "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block"
@@ -3141,15 +3150,6 @@
       "source_key": "7808ba03b95d07eb",
       "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",
@@ -4835,21 +4835,21 @@
       "confidence": "normal",
       "end_line": 1925,
       "heading": "Approved Claim Coverage",
-      "needs_live_verification": false,
+      "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "3d7f0942c946fafb",
         "c3e3569135040e5d",
         "be335a48f32132fe",
         "0584ab813abc5b62",
+        "a1e69804a411861b",
         "c3e3569135040e5d",
         "8f6296a444e98498",
         "8f6296a444e98498",
         "0584ab813abc5b62",
         "be335a48f32132fe",
         "dcc9c3b1df657d9f",
-        "7808ba03b95d07eb",
-        "58a92984acbd2344"
+        "7808ba03b95d07eb"
       ],
       "start_line": 1900
     },
@@ -6025,6 +6025,16 @@
       "authority_score": 100,
       "kind": "citation_only",
       "source_id": "rock_documentation",
+      "source_key": "a1e69804a411861b",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
       "source_key": "8f6296a444e98498",
       "source_record_id": "",
       "title": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block",
@@ -6049,16 +6059,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
     },
     {
       "authority": "official-training",

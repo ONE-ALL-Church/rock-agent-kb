@@ -13,12 +13,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 13758 words; expected at least 1200.",
+      "message": "Guide has 13759 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 13758 words; expected no more than 9000.",
+      "message": "Guide has 13759 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -75,9 +75,9 @@
   "concept_id": "cms-websites",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-30T02:08:02+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 1583,
-  "guide_word_count": 13758,
+  "guide_word_count": 13759,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
@@ -87,7 +87,7 @@
     "source_count": 25,
     "substantive_uncited_section_ratio": 0.0312,
     "task_card_count": 7,
-    "word_count": 13758
+    "word_count": 13759
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,

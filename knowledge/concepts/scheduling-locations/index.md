@@ -2,7 +2,7 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-07-30T02:06:24+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -112,7 +112,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Model | Category | Stable Rock | Properties | DB Props | Lava Props | Lava Non-DB Props | Pre-alpha Changes | Citation |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Campus Schedule](../../model-map/models/campus-schedule.md) | Core | 19.2.0 | 43 | 13 | 28 | 15 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar](../../model-map/models/event-calendar.md) | Event | 19.2.0 | 43 | 14 | 26 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Content Channel](../../model-map/models/event-calendar-content-channel.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Event Calendar Item](../../model-map/models/event-calendar-item.md) | Event | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |

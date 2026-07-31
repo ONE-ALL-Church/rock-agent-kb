@@ -22,7 +22,7 @@
 | Related model links | 7 |
 | Method signatures | 36 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 0 |
+| Pre-alpha changes touching this model | 3 |
 
 ## Properties
 
@@ -112,4 +112,8 @@
 
 ## Stable To Pre-Alpha Changes
 
-No stable-to-pre-alpha changes were detected for this model.
+| Change | Property | Fields |
+| --- | --- | --- |
+| property_changed | EntityTypeId | description |
+| property_changed | EntityTypeQualifierColumn | description |
+| property_changed | EntityTypeQualifierValue | description |

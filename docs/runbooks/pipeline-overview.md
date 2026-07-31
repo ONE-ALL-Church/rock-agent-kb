@@ -96,7 +96,7 @@ Approved claims are the durable public unit of knowledge. `kb build --stage clai
 
 Claim tiers are defined in [Claim Tier Policy](../decisions/claim-tier-policy.md): `routing_context_only` claims route agents to sources, `source_backed` claims are guide-safe but not operational proof, `answer_pack_approved` claims may feed generated answers, and `live_verified` claims include concrete read-only evidence. `kb claims live-plan` batches `source_backed` live-verification rows into read-only probe groups; promote rows through `data/review/live-claim-verifications.jsonl` only when evidence directly verifies the claim. `kb claims validate` enforces traceability and blocks direct media URLs, transcript fields, secrets, and other private-only data from the public claim graph.
 
-The canonical knowledge architecture is currently read-shadow-only. Maintainers
+The canonical knowledge architecture remains non-default. Maintainers
 can run `uv run kb tools canonical-shadow` to test shared source snapshots,
 source units, generation activities, evidence links, typed relationships,
 persistent identity records, and explicit identity migrations without changing
@@ -114,8 +114,11 @@ previously public compatibility aliases; ignored pilot migration history
 remains private review evidence. Refresh that baseline with
 `uv run kb tools canonical-identity-baseline`, without treating the command as
 a retrieval cutover. Service builds dual-write both projections, store canonical
-files as inactive R2 shadow objects, and expose only their hash/count status in
-`/health`; all readers continue to use legacy D1 tables. See
+files as inactive R2 shadow objects, and load separate canonical D1 tables.
+Normal readers continue to use legacy D1 tables. Only anonymously opted-in
+`external-test` and `maintainer` callers may explicitly request the
+`canonical-canary` projection for search, exact expansion, and structured
+outcomes. See
 [Canonical Knowledge Shadow](canonical-knowledge-shadow.md).
 
 Public reviewer adjudications live in

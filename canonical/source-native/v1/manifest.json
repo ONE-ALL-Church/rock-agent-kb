@@ -7,21 +7,23 @@
   "file_hashes": {
     "evaluation-holdout.jsonl": "ea14bc2b84e1344b185a783cb7b1003ac23172d166bc67368b8ad7e8faa0a3d3",
     "evaluation-set.jsonl": "b4c626da5dbabd36cc74a663d6fd5b186368018828ee8c4a53c93eb593b74d08",
-    "generation-activities.jsonl": "183c35f65055ba6cf52168dc65c7a04facdb14bebc88697e3d47ca27635d2781",
-    "relationships.jsonl": "60e77fd6da765a033ac0cbb34b74986f11206c37863d6be910b953a258341648",
-    "reviewed-artifacts.jsonl": "1f1f6545961653bdc4d87547ee1eb89da0b58e85adc0c5462b73832d6ff9f750",
-    "source-snapshots.jsonl": "b619e701d35b94651d5b512dc9baefd913a58bb981104bd2e7b771aa8d53a940",
-    "source-units.jsonl": "392610669765bd164ae27c99448bb8334f24ee551ff2a2c14ee8c9683be1eedd"
+    "generation-activities.jsonl": "efebd3ead5341909d3188eeeabacee61bcfbde870a416515b547e248b4caa4e1",
+    "relationships.jsonl": "515fe9e2c00cf09d7d125bb331772e9dc517f73a19949989c7533562df17ec18",
+    "reviewed-artifacts.jsonl": "6ae9046372f42f8e7d3103da192dc47663faf51b55ccd3f81459c3c3a9195cec",
+    "source-snapshots.jsonl": "9990b3b73783eece1d759220e6001551830df560c5b8ab61a20d7b6a81cd6bbd",
+    "source-units.jsonl": "2b01af98ea2fcdcb55f51f6734b6f6eb8e333c2e39addd818fc87aaf572d7ce2"
   },
   "generation_activity_count": 12,
   "notes": [
-    "The pilot is a canonical shadow input; active public retrieval remains legacy.",
-    "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text."
+    "The pilot is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
+    "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text.",
+    "Bounded factual catalogs may preserve reviewed field names, types, settings, and option matrices without reproducing expressive article prose.",
+    "Unprocessed product-version scope is exposed separately from the observed documentation revision."
   ],
   "prompt_id": "source-knowledge-distillation-v2.3",
-  "prompt_version": "2.3.0",
+  "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 15,
+  "relationship_count": 19,
   "reviewed_artifact_count": 76,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_refresh_required_for_rebuild": true,

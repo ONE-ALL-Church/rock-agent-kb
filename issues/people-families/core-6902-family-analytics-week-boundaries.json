@@ -3,7 +3,7 @@
   "enrichment_id": "rock_issue_enrichment:core-6902-family-analytics-week-boundaries-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6902",
   "diagnosis_status": "maintainer_confirmed",
-  "diagnosis_summary": "Rock confirmed and closed this issue with commit 942f6ebc1e803ba4cd38325a2d399c6810be7cec. The pre-fix Family Analytics procedures mixed date-time transaction or attendance fields with Sunday-midnight boundaries, which could include the starting Sunday and exclude activity later on the final Sunday. The fix consistently compares the derived SundayDate to an exclusive lower boundary and inclusive upper boundary in the eRA, giving, and attendance procedures. This affects derived eRA state and first, last, and count attributes; it does not imply that the underlying attendance or financial transactions are wrong.",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 942f6ebc1e803ba4cd38325a2d399c6810be7cec. The pre-fix Family Analytics procedures mixed date-time transaction or attendance fields with Sunday-midnight boundaries, which could include the starting Sunday and exclude activity later on the final Sunday. The fix changes the final eligibility and count windows to compare derived SundayDate values against an exclusive lower boundary and inclusive upper boundary. A later public comment notes that the broad eRA transaction staging query still uses TransactionDateTime and the procedure still uses GETDATE for created/start values; Rock acknowledged that follow-up and is reviewing it. Treat the original boundary fix as source-confirmed, but do not imply that the follow-up time-zone concern is resolved.",
   "workaround_summaries": [
     "Use a Rock package proven to contain the fixing commit. Before upgrade, treat Family Analytics and eRA values near a weekly boundary as potentially stale, but do not rewrite stock procedures or manually change derived person attributes in production. After upgrade, follow the normal job and reporting validation process before relying on recalculated values."
   ],
@@ -47,7 +47,8 @@
     "limitations": [
       "A zero visibility flag means the check is inconclusive because the login may lack VIEW DEFINITION permission.",
       "Correct procedure text does not prove that derived attributes have already been recalculated or that historical values were never affected.",
-      "A locally customized procedure may require a source review even when its text does not match the stock signature exactly."
+      "A locally customized procedure may require a source review even when its text does not match the stock signature exactly.",
+      "The fixing revision still uses TransactionDateTime in the broad eRA transaction staging query and GETDATE for two generated values. Rock has acknowledged a public follow-up about those lines, but no subsequent fix is linked yet."
     ],
     "production_safe": true
   },
@@ -126,16 +127,18 @@
     "https://github.com/SparkDevNetwork/Rock/commit/942f6ebc1e803ba4cd38325a2d399c6810be7cec",
     "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsEraDataset.sql",
     "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsGiving.sql",
-    "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsAttendance.sql"
+    "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsAttendance.sql",
+    "https://github.com/SparkDevNetwork/Rock/issues/6902#issuecomment-5122978754",
+    "https://github.com/SparkDevNetwork/Rock/issues/6902#issuecomment-5133134429"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-13T21:56:57Z",
-  "reviewed_at": "2026-07-17T08:48:12Z",
+  "reviewer": "codex-public-source-revalidation-2026-07-30",
+  "issue_updated_at": "2026-07-30T15:50:22Z",
+  "reviewed_at": "2026-07-31T00:18:53Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

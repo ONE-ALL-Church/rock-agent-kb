@@ -2,7 +2,7 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-07-30T02:06:13+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
@@ -107,13 +107,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | [Signature Document](../../model-map/models/signature-document.md) | Core | 19.2.0 | 65 | 31 | 49 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Benevolence Request Document](../../model-map/models/benevolence-request-document.md) | Finance | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Document](../../model-map/models/document.md) | Core | 19.2.0 | 45 | 15 | 28 | 14 | 1 | [source](https://community.rockrms.com/ModelMap) |
-| [Document Type](../../model-map/models/document-type.md) | Core | 19.2.0 | 50 | 21 | 35 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Document Type](../../model-map/models/document-type.md) | Core | 19.2.0 | 50 | 21 | 35 | 14 | 3 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message](../../model-map/models/adaptive-message.md) | CMS | 19.2.0 | 44 | 15 | 29 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message Adaptation](../../model-map/models/adaptive-message-adaptation.md) | CMS | 19.2.0 | 47 | 18 | 32 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Adaptive Message Adaptation Segment](../../model-map/models/adaptive-message-adaptation-segment.md) | CMS | 19.2.0 | 40 | 11 | 25 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Block](../../model-map/models/block.md) | CMS | 19.2.0 | 55 | 23 | 40 | 17 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Block Type](../../model-map/models/block-type.md) | CMS | 19.2.0 | 47 | 18 | 27 | 12 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 1 | [source](https://community.rockrms.com/ModelMap) |
+| [Content Channel](../../model-map/models/content-channel.md) | CMS | 19.2.0 | 65 | 29 | 47 | 18 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Content Channel Item](../../model-map/models/content-channel-item.md) | CMS | 19.2.0 | 71 | 31 | 52 | 21 | 0 | [source](https://community.rockrms.com/ModelMap) |
 
 Lava fields that the stable generated Model Map marks as non-database are tracked in `knowledge/model-map/stable-properties.jsonl`. Examples for this concept:

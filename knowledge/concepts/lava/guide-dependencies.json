@@ -112,9 +112,9 @@
     {
       "authority_tier": "official",
       "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
-      "claim_hash": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+      "claim_hash": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
       "claim_id": "claim:2d534c63c723204ad8c9",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -125,7 +125,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
@@ -631,9 +631,9 @@
     {
       "authority_tier": "official",
       "claim": "In `workflowactivate`, any key and value beyond the command parameters is treated as a workflow or activity attribute value for the matching attribute key; the supplied value must use that field type's stored-value format.",
-      "claim_hash": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
+      "claim_hash": "b5dc10e9f6a16eeb95e4afdce52b82d56f25a630687fe422568fc79af9edf7de",
       "claim_id": "claim:5d109547ddfc0fd7b9c2",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -643,7 +643,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "7.0"
@@ -664,9 +664,9 @@
     {
       "authority_tier": "official",
       "claim": "`CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string.",
-      "claim_hash": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
+      "claim_hash": "57085d18bfa8cc3b8e16a1f5764b384ca145674f566dd5e8770db4438a248760",
       "claim_id": "claim:5d8bddb267bffde3cfe7",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -676,7 +676,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "8.0"
@@ -770,9 +770,9 @@
     {
       "authority_tier": "official",
       "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
-      "claim_hash": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+      "claim_hash": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
       "claim_id": "claim:7bca2f8db03f8f468586",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -783,7 +783,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
@@ -1276,7 +1276,7 @@
   "approved_claim_hashes": {
     "claim:00ccd91253b6bea7c870": "133c05317260a943b0a34dc755b3bb3731fa5d5134eca6b3e0d55ae0934d26e3",
     "claim:01d746f9a6bc23a6d503": "b3a0523241223753db240dae8f31cc81c1d8323a44f854f91f6976112248d842",
-    "claim:2d534c63c723204ad8c9": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+    "claim:2d534c63c723204ad8c9": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
     "claim:32f0173b23a7d2c356c0": "28fb5336be65be38d07f0ded369e78090275d9689f6c4a6c68c64051eb8d3c38",
     "claim:3b4b8ec335aa0a17968c": "cf525270c2f1ab140b1da9cb6bc2ae3bf82300b8ba3c2017df585d439251bda2",
     "claim:410bf6750e90b7193262": "6f1e9369488de82cad31748f5ecf8b806c755c59aa9573c7592ec93bacc1e90a",
@@ -1289,11 +1289,11 @@
     "claim:563e520ec15928e19628": "57959e258cf7099a01054d17ecb789811d90725e3232ffcbfbefaf8120300fb5",
     "claim:57e32b4d554a759231a1": "d722af5e28cd62ebf69d5bba8b7d82a134e3ed26fba50633884dae7d99f85b5f",
     "claim:5bd2b6b4cac279be5e13": "056ac2b913d91d378fb85147ef9722fda1fa94d4b22ac4cac58e2d8a835e64f8",
-    "claim:5d109547ddfc0fd7b9c2": "7edaea328136501744852f611190ab90b7169a6363c81c60cd2fa62e9fc43005",
-    "claim:5d8bddb267bffde3cfe7": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
+    "claim:5d109547ddfc0fd7b9c2": "b5dc10e9f6a16eeb95e4afdce52b82d56f25a630687fe422568fc79af9edf7de",
+    "claim:5d8bddb267bffde3cfe7": "57085d18bfa8cc3b8e16a1f5764b384ca145674f566dd5e8770db4438a248760",
     "claim:60c2bcd25e1cce4efef4": "10a63666110ec9217d9f04e004fb0eb1ae65b9586396991a1a27d4cf6e15aa99",
     "claim:725a3342f3dc657cc546": "6d16aa4c6621685a744100cd1fb6344758c99d02194709bb5f9c305d8f348cc7",
-    "claim:7bca2f8db03f8f468586": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+    "claim:7bca2f8db03f8f468586": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
     "claim:7e6e3979faad614f0b42": "b2235fe89f96ace0673eb54cc0ca2b093d9c4cfb86da558d1ba8d4afb78975ed",
     "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
     "claim:940f299b268510da61d8": "7c126dbe63ec6b145eb233b63bf2a5c4d6b7a028637f5042470223807cfc89b0",
@@ -1305,7 +1305,7 @@
     "claim:f34b7d439fac6c9062f0": "109e6d46fa2fd60e1d3993521d26399f2de364f56be1e42e4fe29106e48dcade",
     "claim:ffba67d8847c47e68ea6": "f78e26f0c348920d47949a0f7cfcb4d8123e744796c711a603efba1f5d1e40f9"
   },
-  "approved_claims_hash": "c4cbb97105ad6d66c090d8e8b42d2f0fcf776ab71d053aad1b0a1d53fdb176a2",
+  "approved_claims_hash": "348d7b8464a511cd2aff0ca7d06ca22b95b3f4caa0a22e4c83ba688d2dbb5e59",
   "approved_claims_path": "knowledge/concepts/lava/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -1716,12 +1716,12 @@
   },
   "approved_media_hash": "9c8278212f8defa3d3ee4edae7ce1933a921d342680724923364d46db88032b9",
   "approved_media_path": "knowledge/concepts/lava/approved-media.md",
-  "built_at": "2026-07-30T02:07:42+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "lava",
-  "guide_hash": "04804402b49280cd056aba44387ac93b7015f7466ab1a569f5296b343d7a92c6",
+  "guide_hash": "0e81ce7ecb9d51f9b8d6a2ca955630c36e2f8ac9414fba66f00e6ffed1ba78e5",
   "guide_line_count": 2027,
   "guide_path": "knowledge/concepts/lava/guide.md",
-  "guide_word_count": 15008,
+  "guide_word_count": 14996,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2130,6 +2130,15 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
       "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
       "source_id": "rock_developer",
@@ -2154,15 +2163,6 @@
       "source_key": "dcc9c3b1df657d9f",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "official-training",
@@ -3890,15 +3890,15 @@
         "044170dca04e8bbb",
         "6449dcd93497b4cd",
         "67f84804d07244b3",
+        "044170dca04e8bbb",
+        "044170dca04e8bbb",
+        "127269e4afa33de4",
         "ae672f3d3d6f8730",
         "48cabcef2f22cabd",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
         "fe0b6d3b462f6c75",
-        "dcc9c3b1df657d9f",
-        "fe0b6d3b462f6c75",
-        "fe0b6d3b462f6c75",
-        "5fa353d6f0648800"
+        "dcc9c3b1df657d9f"
       ],
       "start_line": 1901
     },
@@ -5034,6 +5034,16 @@
     {
       "authority": "official-developer",
       "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
       "change_type": null,
       "content_hash": "f41a4f8ccf1ee3db812fa661a00a47978b98e86418738ad06f9752964b4dcaa9",
       "excerpt_hash": "4abb669d9ad852b5f8fa58056961f43a6271833124517f58f53c64893cb78fe0",
@@ -5074,16 +5084,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=dpYJiOAiJYM",
       "url": "https://www.youtube.com/watch?v=dpYJiOAiJYM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
     },
     {
       "authority": "official-training",

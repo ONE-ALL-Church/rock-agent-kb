@@ -48,7 +48,7 @@ Lava syntax, filters, commands, shortcodes, remote Lava, and safe operational us
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the lava guide.
 - `Person`: Rock concept/entity referenced by the lava guide.
-- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Workflow`: Rock concept/entity referenced by the lava guide.
 
 ## Version Caveats
 

@@ -11,12 +11,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 7575 words; expected at least 1200.",
+      "message": "Guide has 7585 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 7575 words; expected no more than 9000.",
+      "message": "Guide has 7585 words; expected no more than 9000.",
       "passed": true
     },
     {
@@ -88,19 +88,19 @@
   "concept_id": "workflows",
   "contribution_record_count": 67,
   "entity_count": 14,
-  "generated_at": "2026-07-30T02:07:40+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 635,
-  "guide_word_count": 7575,
+  "guide_word_count": 7585,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 53,
-    "answer_claim_reference_count": 50,
+    "answer_claim_reference_count": 49,
     "entity_count": 14,
     "section_count": 52,
     "source_count": 30,
     "substantive_uncited_section_ratio": 0.0682,
     "task_card_count": 7,
-    "word_count": 7575
+    "word_count": 7585
   },
   "private_draft_contribution_record_count": 0,
   "score": 100,

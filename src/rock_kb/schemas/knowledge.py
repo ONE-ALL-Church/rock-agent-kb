@@ -27,6 +27,7 @@ SourceUnitKind = Literal[
     "procedure_step",
     "media_segment",
     "source_code_span",
+    "release_note_observation",
     "issue_observation",
     "idea_observation",
     "model_map_observation",
@@ -51,7 +52,15 @@ KnowledgeType = Literal[
     "source_summary",
     "other",
 ]
-EvidenceRelation = Literal["supports", "qualifies", "contradicts", "supersedes", "derived_from"]
+EvidenceRelation = Literal[
+    "supports",
+    "qualifies",
+    "contradicts",
+    "supersedes",
+    "derived_from",
+    "reports",
+    "demonstrates",
+]
 RelationshipType = Literal[
     "related_to",
     "corroborates",
@@ -221,10 +230,22 @@ class SourceUnit(KBRecord):
     heading_path: list[str] = Field(default_factory=list, max_length=20)
     contextual_prefix: str | None = Field(default=None, max_length=1000)
     context: str = Field(default="", max_length=1000)
+    duplicate_text_of_source_unit_id: str | None = Field(
+        default=None,
+        max_length=240,
+    )
     text: str | None = Private(default=None)
     public_summary: str | None = Field(default=None, max_length=1500)
     normalized_content_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
     required_public_handling: PublicHandling
+
+    @model_validator(mode="after")
+    def validate_duplicate_owner(self) -> "SourceUnit":
+        if self.duplicate_text_of_source_unit_id == self.source_unit_id:
+            raise ValueError(
+                "duplicate_text_of_source_unit_id cannot reference itself"
+            )
+        return self
 
 
 class GenerationActivity(KBRecord):

@@ -16,6 +16,7 @@ from .sources import load_sources
 PUBLIC_PATHS = [
     "canonical/identity/v1",
     "canonical/source-native/v1",
+    "canonical/cross-source/v1",
     "claims/approved-claims.jsonl",
     "community-contributions",
     "docs/runbooks/contributor-reviewer-workflow.md",
@@ -27,6 +28,7 @@ PUBLIC_PATHS = [
     "docs/prompts/media-claim-distillation-v1.md",
     "docs/prompts/source-claim-distillation-v1.md",
     "docs/prompts/source-knowledge-distillation-v2.3.md",
+    "docs/prompts/cross-source-evidence-synthesis-v1.md",
     "docs/specs/source-knowledge-distillation-v2.3.schema.json",
     "docs/prompts/rock-issue-investigation-v1.md",
     "docs/decisions/public-export-policy.md",

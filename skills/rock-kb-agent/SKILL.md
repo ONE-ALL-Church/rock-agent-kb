@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.8.0"
+  rock-kb-skill-version: "1.9.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-29T23:55:43Z"
-  rock-kb-minimum-client-version: "0.19.0"
+  rock-kb-published-at: "2026-07-30T23:54:25Z"
+  rock-kb-minimum-client-version: "0.20.0"
 ---
 
 # Rock KB Agent
@@ -36,6 +36,12 @@ interfaces to the same hosted public projection:
 
 MCP does not contain better or newer knowledge than the CLI. Do not download or
 load an OKF bundle merely to answer an ordinary online Rock question.
+
+Normal MCP and CLI requests use the reviewed legacy retrieval projection. The
+experimental `canonical-canary` projection is available only to an anonymously
+opted-in `external-test` or `maintainer` cohort. Use it only when the human has
+agreed to test retrieval quality. It is not a higher authority tier, and it
+must not silently replace legacy retrieval or become the default.
 
 The hosted direct `/mcp` endpoint uses stateless MCP `2026-07-28` and
 automatically supports ordinary 2025 clients on the same URL. Let the agent
@@ -87,6 +93,8 @@ The KB can help agents do more than plain text search:
 - Use Rockumentation API metadata and branch paths as routing signals.
 - Run the bounded external-church test round and preserve its stable public
   result IDs for structured feedback.
+- Compare the opt-in source-native canonical retrieval projection with legacy
+  search while preserving the projection on exact retrieval and outcomes.
 - With explicit consent, report whether an exact public result was useful,
   partially useful, or not useful without sending the question or private data.
 - Validate and submit public-safe community contribution bundles.
@@ -239,6 +247,10 @@ Use these commands for specific jobs:
   raw queries, logs, identities, or private Rock data.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `telemetry enable --cohort <community|external-test|maintainer> --consent-attested`: create a private random installation marker and opt into anonymous field validation. The service stores only its one-way hash. Run `telemetry disable` to revoke the opt-in.
+- Global `--projection canonical-canary`: for an opted-in `external-test` or
+  `maintainer`, use the experimental canonical projection with `search`,
+  `result`, or `outcome`. Place the option before the command and use it for
+  all three calls. Omit it for normal legacy retrieval.
 - `outcome <result-id> --outcome <useful|partially_useful|not_useful> --reason <fixed-code> --consent-attested`: report the usefulness of an exact result after a completed task. Repeat `--reason` up to three times; never send prose or private data.
 - `report-issue --failure-type <service|mcp|cli|schema|authentication|retrieval> --operation <id> --error-code <id> --description <redacted-summary> --redaction-attested`: report a KB malfunction for review. Never include logs, queries, secrets, private paths, or private Rock data.
 - `manifest`: inspect public agent entrypoints and generated artifact paths.
@@ -381,8 +393,18 @@ tools instead of shell commands:
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
 
 Use MCP for agent-native typed tools and the CLI for terminal or scripted
-access. Both query the same hosted projection; choose by client capability, not
-expected answer quality.
+access. Both query the same hosted projection by default; choose by client
+capability, not expected answer quality.
+
+For an explicitly approved canonical canary test, pass
+`projection: "canonical-canary"` to `kb_search`, then pass the same projection
+to `kb_get_result` and `kb_outcome`. The installed user-scoped MCP configuration
+must already contain the private anonymous marker and the fixed
+`external-test` or `maintainer` cohort. Never copy that marker into prompts,
+project files, reports, or chat. If the canary is unavailable or returns a
+ranking failure, report the result; do not hide it by silently retrying against
+legacy. Use legacy separately only when the test calls for an explicit
+comparison.
 
 The default direct MCP endpoint exposes each operation as a typed tool with
 read/write annotations and structured results. The optional `/mcp/code`

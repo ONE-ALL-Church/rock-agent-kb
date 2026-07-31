@@ -2,7 +2,7 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-07-30T02:06:05+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -56,9 +56,9 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | official | configuration | The Group Attendance Digest expects a three-level hierarchy: one top parent, leader-bearing region or area groups beneath it, and attendance-recording groups below those regions. | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) |
 | official | configuration | Group History becomes available after the Group Type enables history and the Process Group History job has run; its timeline can show group edits and member additions or removals by date. | [source](https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history) |
 | official | configuration | Rock can add a group at the root of the group tree or as a child of the selected group, but child creation is unavailable when that Group Type does not permit child groups. | [source](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group) |
+| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | official | configuration | A member requirement attached to a Group Type applies across that type's groups and can be limited by group role, age classification, or a Data View-defined population. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
 | official | configuration | Group Type requirements can allow leader overrides or prevent a person from being added until the requirement is met, enabling enforceable eligibility rules such as completed background checks. | [source](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types) |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. _(live verification recommended)_ | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
 | rocku-confirmed | configuration | Rapid Attendance Entry is configurable enough to support multiple page variants, so teams can create focused versions for different ministry workflows instead of using one catch-all setup everywhere. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | The block can combine attendance marking with family editing, adding family members, person notes, prayer requests, and workflow launch actions from the same operational screen. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |
 | rocku-confirmed | operational_guidance | Rapid Attendance Entry starts from a selected group and attendance date, with location and schedule values available when the group and attendance context support them. | [source](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry) |

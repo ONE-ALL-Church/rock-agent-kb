@@ -170,6 +170,9 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         artifact_prefix=resolved_artifact_prefix,
         rock_issue_summary=issue_summary,
         canonical_shadow=canonical_shadow,
+        canonical_search_rows=list(
+            canonical_shadow.get("_search_rows") or []
+        ),
     )
     (dist / "d1-seed.sql").write_text(sql_text, encoding="utf-8")
     projection = ServiceProjection(
@@ -204,7 +207,7 @@ def build_canonical_service_shadow(
     dist: Path,
     legacy_search_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Write the canonical projection beside legacy output without activating it."""
+    """Write the canonical projection beside the unchanged default reader."""
 
     from .canonical_knowledge import (
         CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR,
@@ -240,6 +243,7 @@ def build_canonical_service_shadow(
             for row in identity_registry
         ],
         include_source_native_pilot=True,
+        include_reviewed_cross_source=True,
         repo_root=REPO_ROOT,
     )
     canonical_search_rows = build_canonical_search_rows(
@@ -301,6 +305,10 @@ def build_canonical_service_shadow(
         "mode": "dual_write_shadow",
         "active_reader": False,
         "active_retrieval_projection": "legacy",
+        "canary_reader_available": True,
+        "canary_retrieval_projection": "canonical-canary",
+        "canary_requires_opt_in": True,
+        "canary_cohorts": ["external-test", "maintainer"],
         "unpublished_pilot_migrations_included": False,
         "identity_baseline_sha256": sha256_file(identity_manifest_path),
         "identity_count": int(identity_manifest.get("identity_count") or 0),
@@ -330,7 +338,10 @@ def build_canonical_service_shadow(
         + "\n",
         encoding="utf-8",
     )
-    return manifest
+    return {
+        **manifest,
+        "_search_rows": canonical_search_rows,
+    }
 
 
 def build_search_rows() -> list[dict[str, Any]]:
@@ -1204,6 +1215,7 @@ def build_d1_seed_sql(
     artifact_prefix: str | None = None,
     rock_issue_summary: dict[str, Any] | None = None,
     canonical_shadow: dict[str, Any] | None = None,
+    canonical_search_rows: list[dict[str, Any]] | None = None,
 ) -> str:
     resolved_artifact_prefix = artifact_prefix or f"versions/{version}"
     relationship_rows = list(read_jsonl(REPO_ROOT / "agent" / "rock-idea-relationships.jsonl"))
@@ -1261,6 +1273,30 @@ def build_d1_seed_sql(
         "CREATE TABLE search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL);",
         "DROP TABLE IF EXISTS search_rows_fts;",
         "CREATE VIRTUAL TABLE search_rows_fts USING fts5(id UNINDEXED, title, body, concept, tokenize='porter');",
+        "DROP TABLE IF EXISTS canonical_search_rows;",
+        """CREATE TABLE canonical_search_rows (
+  id TEXT PRIMARY KEY,
+  kind TEXT NOT NULL,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  path TEXT NOT NULL,
+  url TEXT,
+  concept TEXT,
+  authority_tier TEXT,
+  claim_tier TEXT,
+  claim_tier_rank INTEGER NOT NULL,
+  source_id TEXT,
+  concepts_json TEXT NOT NULL DEFAULT '[]',
+  topics_json TEXT NOT NULL DEFAULT '[]',
+  payload_json TEXT NOT NULL
+);""",
+        "DROP TABLE IF EXISTS canonical_search_row_concepts;",
+        "CREATE TABLE canonical_search_row_concepts (row_id TEXT NOT NULL, concept TEXT NOT NULL, PRIMARY KEY (row_id, concept));",
+        "CREATE INDEX canonical_search_row_concepts_concept_idx ON canonical_search_row_concepts (concept, row_id);",
+        "DROP TABLE IF EXISTS canonical_search_row_aliases;",
+        "CREATE TABLE canonical_search_row_aliases (alias_id TEXT PRIMARY KEY, canonical_id TEXT NOT NULL);",
+        "DROP TABLE IF EXISTS canonical_search_rows_fts;",
+        "CREATE VIRTUAL TABLE canonical_search_rows_fts USING fts5(id UNINDEXED, title, body, concept, tokenize='porter');",
         "DROP TABLE IF EXISTS org_registry;",
         "CREATE TABLE org_registry (org_id TEXT PRIMARY KEY, display_name TEXT, status TEXT, payload_json TEXT NOT NULL);",
         "DROP TABLE IF EXISTS rock_issues;",
@@ -1498,6 +1534,86 @@ def build_d1_seed_sql(
                             )
                             + ");"
                         )
+    for row in canonical_search_rows or []:
+        tier = str(row.get("claim_tier") or "")
+        body = d1_search_body(row.get("body") or "")
+        concepts = normalize_concept_ids(
+            row.get("concepts") or [row.get("concept") or ""]
+        )
+        topics = normalize_concept_ids(row.get("topics") or [])
+        concepts_json = json.dumps(
+            concepts,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        topics_json = json.dumps(
+            topics,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        concept_search_text = " ".join([*concepts, *topics])
+        lines.append(
+            "INSERT INTO canonical_search_rows "
+            "(id, kind, title, body, path, url, concept, authority_tier, "
+            "claim_tier, claim_tier_rank, source_id, concepts_json, "
+            "topics_json, payload_json) VALUES ("
+            + ", ".join(
+                [
+                    sql_string(row["id"]),
+                    sql_string(row["kind"]),
+                    sql_string(row["title"]),
+                    sql_string(body),
+                    sql_string(row["path"]),
+                    sql_string(row.get("url") or ""),
+                    sql_string(row.get("concept") or ""),
+                    sql_string(row.get("authority_tier") or ""),
+                    sql_string(tier),
+                    str(CLAIM_TIER_RANK.get(tier, 0)),
+                    sql_string(row.get("source_id") or ""),
+                    sql_string(concepts_json),
+                    sql_string(topics_json),
+                    sql_string(
+                        json.dumps(
+                            row.get("payload") or {},
+                            ensure_ascii=False,
+                            sort_keys=True,
+                        )
+                    ),
+                ]
+            )
+            + ");"
+        )
+        lines.append(
+            "INSERT INTO canonical_search_rows_fts "
+            "(id, title, body, concept) VALUES ("
+            + ", ".join(
+                [
+                    sql_string(row["id"]),
+                    sql_string(row["title"]),
+                    sql_string(body),
+                    sql_string(concept_search_text),
+                ]
+            )
+            + ");"
+        )
+        for concept_id in concepts:
+            lines.append(
+                "INSERT INTO canonical_search_row_concepts "
+                "(row_id, concept) VALUES ("
+                + ", ".join(
+                    [sql_string(row["id"]), sql_string(concept_id)]
+                )
+                + ");"
+            )
+        for alias_id in row.get("legacy_ids") or []:
+            lines.append(
+                "INSERT INTO canonical_search_row_aliases "
+                "(alias_id, canonical_id) VALUES ("
+                + ", ".join(
+                    [sql_string(alias_id), sql_string(row["id"])]
+                )
+                + ");"
+            )
     for relationship in relationship_rows:
         lines.append(
             "INSERT INTO related_content_edges VALUES ("

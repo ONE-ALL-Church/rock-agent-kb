@@ -78,5 +78,4 @@ generated: true
 | `agent-task-recipes-recipe-design-background-orchestration` | citation-only | live verification |
 | `known-gaps-and-live-verification` | needs-citation | live verification |
 | `source-map-community-examples-and-reviewed-patterns` | community-supported | community-supported |
-| `approved-claim-coverage` | normal | live verification |
 | `approved-media-coverage` | community-supported | community-supported |

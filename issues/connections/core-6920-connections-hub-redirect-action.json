@@ -2,10 +2,10 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6920-connections-hub-redirect-action-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6920",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Current public Connections Hub source launches a single workflow by calling WorkflowService.Process and returns only an active Workflow Entry form URL. Redirect actions deliberately skip HttpContext redirects during any Obsidian block action request and expose their redirect through IInteractiveAction instead. Connections Hub does not invoke that interactive-action path or return its redirect message, which supports the reported missing browser navigation on the reviewed source revision.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "The affected Connections Hub launch path processed a workflow and returned a Workflow Entry URL only when an active entry form existed. Redirect and other interactive actions deliberately wait for Workflow Entry handling during an Obsidian block action, so the workflow could remain parked without a browser destination. Rock closed the issue with commit 5cdcdf797c1c13c564517793cb610d62b3b7d90f, which detects a pending interactive action and routes the user to Workflow Entry for it. The issue is labeled fixed in Rock 19.4; exact package inclusion should still be verified.",
   "workaround_summaries": [
-    "Until Connections Hub handles interactive redirect results, do not rely on a Redirect action for a manually launched connection workflow. Use an active entry-form flow that Connections Hub can return, or launch the workflow from the classic Connection Request Board after staging verification."
+    "Use a Rock package proven to contain commit 5cdcdf797c1c13c564517793cb610d62b3b7d90f or an equivalent fix. Before upgrade, do not rely on a Redirect action for a manually launched Connections Hub workflow; use an active entry-form flow or launch from the classic Connection Request Board after staging verification."
   ],
   "verification_playbook": {
     "goal": "Identify connection workflows that rely on Redirect when manually launched from Connections Hub, without launching or processing a workflow.",
@@ -20,7 +20,7 @@
         "method": "source_revision_check",
         "instructions": "Verify whether Connections Hub still returns only an active Workflow Entry form URL and does not consume Redirect's interactive-action result.",
         "expected_if_affected": "The installed path has the reviewed behavior and a launched workflow can complete through Redirect without returning a browser destination.",
-        "expected_if_unaffected": "The installed build explicitly handles the interactive redirect result or otherwise returns the intended destination.",
+        "expected_if_unaffected": "The installed package contains commit 5cdcdf797c1c13c564517793cb610d62b3b7d90f or an equivalent path that routes pending interactive actions through Workflow Entry.",
         "evidence_to_record": ["Rock version", "package or commit identifier"],
         "mutation_risk": "none"
       },
@@ -63,22 +63,70 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6920-fixed-by-commit-5cdcdf7",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "manual single-request workflows launched from Connections Hub that execute an interactive action"
+      },
+      "versions": ["5cdcdf797c1c13c564517793cb610d62b3b7d90f"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/5cdcdf797c1c13c564517793cb610d62b3b7d90f"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6920",
+        "https://github.com/SparkDevNetwork/Rock/commit/5cdcdf797c1c13c564517793cb610d62b3b7d90f",
+        "https://github.com/SparkDevNetwork/Rock/blob/5cdcdf797c1c13c564517793cb610d62b3b7d90f/Rock.Blocks/Engagement/ConnectionsHub.cs#L4601-L4642"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-31T00:18:53Z"
+    },
+    {
+      "assertion_id": "core-6920-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/5cdcdf797c1c13c564517793cb610d62b3b7d90f"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6920",
+        "https://github.com/SparkDevNetwork/Rock/commit/5cdcdf797c1c13c564517793cb610d62b3b7d90f"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-31T00:18:53Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6920",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Engagement/ConnectionsHub.cs#L5390-L5518",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Workflow/Action/WorkflowControl/Redirect.cs#L76-L159",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Workflow/Action/WorkflowControl/Redirect.cs#L161-L200"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Workflow/Action/WorkflowControl/Redirect.cs#L161-L200",
+    "https://github.com/SparkDevNetwork/Rock/commit/5cdcdf797c1c13c564517793cb610d62b3b7d90f",
+    "https://github.com/SparkDevNetwork/Rock/blob/5cdcdf797c1c13c564517793cb610d62b3b7d90f/Rock.Blocks/Engagement/ConnectionsHub.cs#L4601-L4642"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-15T14:37:09Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "reviewer": "codex-public-source-revalidation-2026-07-30",
+  "issue_updated_at": "2026-07-29T23:01:25Z",
+  "reviewed_at": "2026-07-31T00:18:53Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

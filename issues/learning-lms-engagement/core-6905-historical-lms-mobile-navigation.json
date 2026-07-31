@@ -2,10 +2,10 @@
   "schema": "rock-kb-rock-issue-enrichment-v1",
   "enrichment_id": "rock_issue_enrichment:core-6905-historical-lms-mobile-navigation-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6905",
-  "diagnosis_status": "source_supported",
-  "diagnosis_summary": "The public workspace block permits historical access server-side when the course allows it, but the reviewed client source chooses the completion screen before honoring an activity query parameter whenever every activity is complete. It clears the selected activity while showing the completion view; desktop retains a visible activity list, while the mobile presentation depends on the collapsed selector. This supports the reported navigation difference, but no public fix or exact package boundary is recorded.",
+  "diagnosis_status": "maintainer_confirmed",
+  "diagnosis_summary": "The affected public workspace selected the completion screen before honoring an activity query parameter whenever every activity was complete and returned an empty selected activity. Desktop retained a visible activity list, while the narrow mobile presentation depended on that selection for its collapsed selector. Rock closed the issue with commit 10529457ecafabe6cf01695ffca1d0a033fb05fe, which retains the most recent completed activity as the selection and adjusts the mobile selector icon spacing. The issue is labeled fixed in Rock 19.4; exact package inclusion should still be verified.",
   "workaround_summaries": [
-    "For completed courses that must remain browsable, direct learners to the desktop workspace until the mobile selector behavior is fixed, and verify historical access with a completed test learner on every supported viewport."
+    "Use a Rock package proven to contain commit 10529457ecafabe6cf01695ffca1d0a033fb05fe or an equivalent fix. Before upgrade, direct completed learners who need historical content to the desktop workspace and verify historical access with a completed test learner on every supported viewport."
   ],
   "applicability_requirements": [
     {
@@ -68,7 +68,7 @@
       },
       "versions": ["6e305568763043b3fb85c85142ce85b1ec566414"],
       "ranges": [],
-      "status": "under_investigation",
+      "status": "affected",
       "fix_refs": [],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6905",
@@ -80,22 +80,72 @@
       "claim_tier": "source_backed",
       "confidence": "medium",
       "assessed_at": "2026-07-16T00:00:06Z"
+    },
+    {
+      "assertion_id": "core-6905-fixed-by-commit-1052945",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "completed LMS classes with historical access enabled on narrow browser viewports"
+      },
+      "versions": ["10529457ecafabe6cf01695ffca1d0a033fb05fe"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/10529457ecafabe6cf01695ffca1d0a033fb05fe"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6905",
+        "https://github.com/SparkDevNetwork/Rock/commit/10529457ecafabe6cf01695ffca1d0a033fb05fe",
+        "https://github.com/SparkDevNetwork/Rock/blob/10529457ecafabe6cf01695ffca1d0a033fb05fe/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L297-L302",
+        "https://github.com/SparkDevNetwork/Rock/blob/10529457ecafabe6cf01695ffca1d0a033fb05fe/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L509-L526"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-07-31T00:18:53Z"
+    },
+    {
+      "assertion_id": "core-6905-fixed-19.4",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.4",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.4"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/10529457ecafabe6cf01695ffca1d0a033fb05fe"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6905",
+        "https://github.com/SparkDevNetwork/Rock/commit/10529457ecafabe6cf01695ffca1d0a033fb05fe"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-07-31T00:18:53Z"
     }
   ],
   "source_refs": [
     "https://github.com/SparkDevNetwork/Rock/issues/6905",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.Blocks/Lms/Public/PublicLearningClassWorkspace.cs#L475-L504",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L188-L256",
-    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L500-L535"
+    "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L500-L535",
+    "https://github.com/SparkDevNetwork/Rock/commit/10529457ecafabe6cf01695ffca1d0a033fb05fe",
+    "https://github.com/SparkDevNetwork/Rock/blob/10529457ecafabe6cf01695ffca1d0a033fb05fe/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L297-L302",
+    "https://github.com/SparkDevNetwork/Rock/blob/10529457ecafabe6cf01695ffca1d0a033fb05fe/Rock.JavaScript.Obsidian.Blocks/src/Lms/publicLearningClassWorkspace.obs#L509-L526"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
-  "confidence": "medium",
+  "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-02T19:37:32Z",
-  "reviewed_at": "2026-07-16T00:00:06Z",
+  "reviewer": "codex-public-source-revalidation-2026-07-30",
+  "issue_updated_at": "2026-07-28T21:52:13Z",
+  "reviewed_at": "2026-07-31T00:18:53Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -11,12 +11,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12899 words; expected at least 1200.",
+      "message": "Guide has 12884 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 12899 words; expected no more than 9000.",
+      "message": "Guide has 12884 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -73,9 +73,9 @@
   "concept_id": "mobile",
   "contribution_record_count": 0,
   "entity_count": 15,
-  "generated_at": "2026-07-30T02:08:07+00:00",
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 1497,
-  "guide_word_count": 12899,
+  "guide_word_count": 12884,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
@@ -85,7 +85,7 @@
     "source_count": 37,
     "substantive_uncited_section_ratio": 0.0172,
     "task_card_count": 5,
-    "word_count": 12899
+    "word_count": 12884
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,

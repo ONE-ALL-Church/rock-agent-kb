@@ -18,7 +18,7 @@ Start by identifying the exact Group, GroupType, role, membership, location, sch
 - `claim:07e2013c88bfc50be00a`
 - `claim:6459b5c1bdeb9257b77e`
 - `claim:bde19ee62aa336ac343f`
-- `claim:4bc0aee305fa6b1bd524`
+- `claim:a774892d024b8bbe0560`
 
 ## Citations
 
@@ -26,4 +26,4 @@ Start by identifying the exact Group, GroupType, role, membership, location, sch
 - [Add a Group](https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group)
 - [Applying Requirements to Group Types](https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types)
 - [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email)
-- [Media Watch](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) (`26:43`)
+- [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)

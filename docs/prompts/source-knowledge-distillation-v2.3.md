@@ -1,7 +1,7 @@
 # Source Knowledge Distillation v2.3
 
 Prompt ID: `source-knowledge-distillation-v2.3`
-Prompt version: `2.3.0`
+Prompt version: `2.3.1`
 Status: reviewed pilot contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -55,9 +55,12 @@ Process source units in input order. Assign exactly one disposition:
 
 - `claim`: a durable, independently answerable behavior, configuration rule,
   implementation rule, risk, caveat, or operational assertion.
-- `task_card`: a bounded ordered procedure or diagnostic sequence.
-- `recipe`: an adaptable multi-step implementation with code, Lava, workflow
-  design, SQL, or meaningful organization choices.
+- `task_card`: a bounded ordered procedure or diagnostic sequence with one
+  documented outcome.
+- `recipe`: an adaptable implementation pattern with meaningful design choices,
+  reusable components, code, Lava, workflow design, SQL, or organization-level
+  adaptation. A navigation-and-configuration walkthrough is a task card, not a
+  recipe merely because it has several steps.
 - `structured_reference`: an exact setting catalog, option list, matrix, schema,
   enumeration, endpoint, permission map, field list, mutable default, or
   interface control map.
@@ -133,7 +136,8 @@ Each artifact needs:
 
 - a stable, descriptive `artifact_key`;
 - one question it independently answers;
-- a standalone title and retrieval text;
+- a standalone title and retrieval text written as a complete declarative
+  sentence ending in punctuation, never a keyword bag;
 - source-unit IDs;
 - supplied concept IDs only;
 - rationale, priority, time/version state, confidence, and verification state;
@@ -157,9 +161,31 @@ Requirements:
 - Structured references include actual reference items.
 - Source summaries contain concrete scope or location.
 - Claims contain no procedure steps or reference catalog.
+- Task cards, recipes, and structured references from mutable documentation use
+  `temporal_status: release_sensitive`; stable product-version scope still
+  requires explicit evidence.
+- `release_caveat` claims must be release-sensitive.
+- `operational_guidance` claims use
+  `evidence_class: operational_recommendation`.
+- A `novel` or `not_applicable` artifact cannot declare related existing
+  claims; `adds_condition` and `conflicts` artifacts must declare them.
 
 Preserve short identifiers, UI labels, paths, property names, and code tokens
 when exactness is operationally necessary. Otherwise use public-safe paraphrases.
+Bounded factual catalogs such as documented field names, types, settings, and
+option matrices may be preserved as reviewed structured facts under a
+cite-and-summarize policy. Do not reproduce expressive article prose, whole
+sections, or an unbounded source table.
+
+### Related Artifacts
+
+Use `related_artifact_links` only for another artifact emitted from the same
+article. Link a procedure to a material prerequisite, security qualifier, or
+companion procedure so retrieving the action cannot strand its gate in another
+row. Allowed relations are `related_to`, `corroborates`, `qualifies`,
+`supersedes`, `requires`, and `references`. Cite exact article source-unit IDs
+and give a source-supported rationale. Do not invent a link merely because two
+artifacts share a concept.
 
 ## Step 5: Claim Atomicity
 
@@ -194,6 +220,9 @@ Each reference item labels its value status:
 
 Every `mutable_default` must set `needs_verification: true`. Use a bounded
 verification request when confirming the value materially affects an answer.
+Treat shipped content-channel names, sample records, seeded configuration, and
+out-of-box artifacts as mutable defaults even when the documentation says Rock
+provides them.
 
 Allowed verification surfaces:
 
@@ -208,6 +237,10 @@ cannot become public evidence.
 `documentation_current_version` is documentation metadata, not Rock product
 scope. Use `scoped` only with explicit supported Rock versions. Otherwise use
 `version_independent` only when the source proves it, or `unprocessed`.
+For `unprocessed`, preserve a release-sensitive temporal state when the answer
+depends on UI paths, control labels, exact settings, enumerated fields, shipped
+defaults, or other mutable product surfaces. Projections must expose the
+documentation revision separately from product-version applicability.
 
 ## Step 7: Coverage
 
@@ -227,12 +260,18 @@ Before returning, verify:
 
 - Candidate IDs, source hashes, article order, and source-unit IDs are unchanged.
 - Every source unit has one decision.
+- Exact repeated text units identify their deterministic duplicate-text owner;
+  do not create a second artifact for repeated text unless its surrounding
+  context materially changes the fact.
 - Every useful unit belongs to exactly one artifact.
 - Artifact types match unit dispositions.
 - Each artifact answers a distinct question.
+- Retrieval text is a complete declarative sentence, not search keywords.
 - Claims contain no steps or setting catalogs.
 - Task-card steps are contiguous and one-based.
 - Mutable defaults are marked for verification.
+- Material prerequisites, security qualifiers, and companion procedures are
+  connected with a typed related-artifact link.
 - Concept IDs and existing claim IDs come only from the input.
 - No useful material is hidden in generic review notes.
 - No raw private data, credentials, local paths, or connected-instance evidence

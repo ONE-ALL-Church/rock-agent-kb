@@ -3,6 +3,10 @@ from __future__ import annotations
 from .base import KBRecord, Private
 from .claim import Claim
 from .contribution import ContributionRow
+from .cross_source import (
+    ReviewedCrossSourceArtifact,
+    ReviewedCrossSourceManifest,
+)
 from .knowledge import (
     CanonicalIdentityBaselineManifest,
     CanonicalKnowledgeBundle,
@@ -43,6 +47,8 @@ __all__ = [
     "Private",
     "PublicResultAlias",
     "RecipeRow",
+    "ReviewedCrossSourceArtifact",
+    "ReviewedCrossSourceManifest",
     "RockIssue",
     "RockIssueReleaseNoteRef",
     "RockIssueReviewedEnrichment",

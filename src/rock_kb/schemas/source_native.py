@@ -34,6 +34,30 @@ ExistingRelation = Literal[
 ]
 
 
+class SourceNativeArtifactLink(KBRecord):
+    target_artifact_key: str = Field(
+        pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$",
+        max_length=120,
+    )
+    relation: Literal[
+        "related_to",
+        "corroborates",
+        "qualifies",
+        "supersedes",
+        "requires",
+        "references",
+    ]
+    rationale: str = Field(min_length=10, max_length=1500)
+    evidence_source_unit_ids: list[str] = Field(min_length=1, max_length=100)
+
+    @field_validator("evidence_source_unit_ids")
+    @classmethod
+    def validate_evidence_ids(cls, values: list[str]) -> list[str]:
+        if len(values) != len(set(values)):
+            raise ValueError("evidence_source_unit_ids values must be unique")
+        return values
+
+
 class SourceNativeReferenceItem(KBRecord):
     label: str = Field(min_length=1, max_length=300)
     detail: str = Field(min_length=5, max_length=1500)
@@ -151,6 +175,10 @@ class SourceNativeArtifactCandidate(KBRecord):
         "not_applicable",
     ] = "novel"
     related_existing_claim_ids: list[str] = Field(default_factory=list, max_length=100)
+    related_artifact_links: list[SourceNativeArtifactLink] = Field(
+        default_factory=list,
+        max_length=30,
+    )
     payload: SourceNativeArtifactPayload
 
     @model_validator(mode="after")
@@ -168,6 +196,10 @@ class SourceNativeArtifactCandidate(KBRecord):
             raise ValueError("independent_question must end with a question mark")
         if self.retrieval_text.count("?") > 0:
             raise ValueError("retrieval_text must state knowledge, not ask questions")
+        if not self.retrieval_text.rstrip().endswith((".", "!")):
+            raise ValueError(
+                "retrieval_text must be a complete declarative sentence"
+            )
         if re.search(r"\b(?:step\s+1|1[.)]\s+.+2[.)]\s+)", self.retrieval_text, re.I):
             if self.artifact_type == "claim":
                 raise ValueError("procedural text cannot be represented as a claim")
@@ -197,6 +229,41 @@ class SourceNativeArtifactCandidate(KBRecord):
             raise ValueError("scoped artifacts require rock_versions")
         if self.version_scope_status != "scoped" and self.rock_versions:
             raise ValueError("rock_versions require version_scope_status=scoped")
+        if self.artifact_type in {
+            "task_card",
+            "recipe",
+            "structured_reference",
+        } and self.temporal_status != "release_sensitive":
+            raise ValueError(
+                "procedures and exact references from mutable documentation "
+                "must be release_sensitive"
+            )
+        if (
+            self.claim_type == "release_caveat"
+            and self.temporal_status != "release_sensitive"
+        ):
+            raise ValueError(
+                "release_caveat claims must be release_sensitive"
+            )
+        if (
+            self.claim_type == "operational_guidance"
+            and self.evidence_class != "operational_recommendation"
+        ):
+            raise ValueError(
+                "operational_guidance claims require "
+                "operational_recommendation evidence"
+            )
+        if self.relation_to_existing in {"novel", "not_applicable"}:
+            if self.related_existing_claim_ids:
+                raise ValueError(
+                    "novel or not_applicable artifacts cannot declare "
+                    "related existing claims"
+                )
+        elif not self.related_existing_claim_ids:
+            raise ValueError(
+                "adds_condition or conflicts artifacts require related "
+                "existing claim IDs"
+            )
         return self
 
 
@@ -262,6 +329,30 @@ class SourceNativeDistillationArticle(KBRecord):
             raise ValueError(
                 "each artifact must answer a distinct independent question"
             )
+        artifact_key_set = set(artifact_keys)
+        unit_id_set = set(unit_ids)
+        link_keys: set[tuple[str, str, str]] = set()
+        for artifact in self.artifacts:
+            for link in artifact.related_artifact_links:
+                if link.target_artifact_key == artifact.artifact_key:
+                    raise ValueError("artifacts cannot link to themselves")
+                if link.target_artifact_key not in artifact_key_set:
+                    raise ValueError(
+                        "related_artifact_links targets must exist in the "
+                        "same article"
+                    )
+                if not set(link.evidence_source_unit_ids) <= unit_id_set:
+                    raise ValueError(
+                        "related artifact evidence must use article source units"
+                    )
+                key = (
+                    artifact.artifact_key,
+                    link.relation,
+                    link.target_artifact_key,
+                )
+                if key in link_keys:
+                    raise ValueError("related artifact links must be unique")
+                link_keys.add(key)
         return self
 
 

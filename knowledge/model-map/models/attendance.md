@@ -22,7 +22,7 @@
 | Related model links | 26 |
 | Method signatures | 39 |
 | Obsolete methods | 4 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -175,7 +175,4 @@
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | DeclineReasonValueId | enum_values |
-| property_changed | SourceValueId | enum_values |
+No stable-to-pre-alpha changes were detected for this model.

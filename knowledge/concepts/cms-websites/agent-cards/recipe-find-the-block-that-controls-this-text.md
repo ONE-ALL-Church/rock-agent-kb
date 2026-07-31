@@ -50,6 +50,6 @@ Complete “Find The Block That Controls This Text” with evidence-backed check
 - https://community.rockrms.com/recipes/432
 - https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
 - https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
 - https://community.rockrms.com/developer/helix/lava-applications/content-block
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts

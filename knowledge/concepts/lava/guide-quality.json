@@ -12,12 +12,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 15008 words; expected at least 1200.",
+      "message": "Guide has 14996 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 15008 words; expected no more than 9000.",
+      "message": "Guide has 14996 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -42,7 +42,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 13 entity rows; expected at least 3.",
+      "message": "Guide has 12 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -73,20 +73,20 @@
   ],
   "concept_id": "lava",
   "contribution_record_count": 0,
-  "entity_count": 13,
-  "generated_at": "2026-07-30T02:07:42+00:00",
+  "entity_count": 12,
+  "generated_at": "2026-07-31T00:30:00+00:00",
   "guide_line_count": 2027,
-  "guide_word_count": 15008,
+  "guide_word_count": 14996,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
     "answer_claim_reference_count": 0,
-    "entity_count": 13,
+    "entity_count": 12,
     "section_count": 140,
     "source_count": 54,
     "substantive_uncited_section_ratio": 0.0122,
     "task_card_count": 8,
-    "word_count": 15008
+    "word_count": 14996
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,

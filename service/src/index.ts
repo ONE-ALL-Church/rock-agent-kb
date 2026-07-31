@@ -68,6 +68,15 @@ type SearchRow = {
   rank?: number;
 };
 
+type RetrievalProjection = "legacy" | "canonical-canary";
+
+type RetrievalTables = {
+  rows: "search_rows" | "canonical_search_rows";
+  concepts: "search_row_concepts" | "canonical_search_row_concepts";
+  aliases: "search_row_aliases" | "canonical_search_row_aliases";
+  fts: "search_rows_fts" | "canonical_search_rows_fts";
+};
+
 type ContributionRow = {
   schema?: unknown;
   contribution_id?: unknown;
@@ -208,7 +217,13 @@ const OUTCOME_REASON_CODES: Record<string, Set<string>> = {
   partially_useful: new Set(["incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence"]),
   not_useful: new Set(["incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"]),
 };
-const OUTCOME_FIELDS = new Set(["result_id", "outcome", "reason_codes", "consent_attested"]);
+const OUTCOME_FIELDS = new Set([
+  "result_id",
+  "outcome",
+  "reason_codes",
+  "consent_attested",
+  "retrieval_projection",
+]);
 const OUTCOME_REQUEST_MAX_BYTES = 2048;
 const OUTCOME_LIMIT_PER_INSTALLATION_DAY = 100;
 const LAVA_CONTEXT_VERIFICATION_FIELDS = new Set(["context_id", "root_key", "rock_version", "observation", "consent_attested"]);
@@ -248,6 +263,25 @@ const ISSUE_REQUEST_MAX_BYTES = 4096;
 const ISSUE_FINGERPRINT_LIMIT_PER_MINUTE = 10;
 const ISSUE_GLOBAL_LIMIT_PER_MINUTE = 120;
 const DECLARED_TELEMETRY_COHORTS = new Set(["community", "external-test", "maintainer"]);
+const CANONICAL_CANARY_COHORTS = new Set(["external-test", "maintainer"]);
+const RETRIEVAL_PROJECTIONS = new Set<RetrievalProjection>([
+  "legacy",
+  "canonical-canary",
+]);
+const RETRIEVAL_TABLES: Record<RetrievalProjection, RetrievalTables> = {
+  legacy: {
+    rows: "search_rows",
+    concepts: "search_row_concepts",
+    aliases: "search_row_aliases",
+    fts: "search_rows_fts",
+  },
+  "canonical-canary": {
+    rows: "canonical_search_rows",
+    concepts: "canonical_search_row_concepts",
+    aliases: "canonical_search_row_aliases",
+    fts: "canonical_search_rows_fts",
+  },
+};
 const TEST_ROUND_REVIEW_COHORTS = new Set(["external-test", "maintainer"]);
 const EXACT_RETRIEVAL_EVENTS = new Set([
   "result_get",
@@ -263,7 +297,7 @@ const MCP_LIST_CACHE_TTL_MS = 60 * 60 * 1000;
 const MCP_MODERN_PROTOCOL_VERSION = "2026-07-28";
 const MCP_RESPONSE_ENVELOPE_ESTIMATE_BYTES = 512;
 const MCP_ERROR_INSPECTION_LIMIT_BYTES = 64 * 1024;
-const MCP_INSTRUCTIONS = "Start with kb_search, which defaults to source-backed or stronger results and routes symptom queries to task cards and troubleshooting nodes. Then expand only the exact result you need. Use exact model, recipe, issue, idea, and Lava-context tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health.";
+const MCP_INSTRUCTIONS = "Start with kb_search, which defaults to source-backed or stronger results and routes symptom queries to task cards and troubleshooting nodes. Then expand only the exact result you need. Use exact model, recipe, issue, idea, and Lava-context tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health. Retrieval defaults to legacy; only opted-in external testers and maintainers should request projection=canonical-canary, and they must pass the same projection to kb_get_result and kb_outcome.";
 const MCP_CORS_HEADERS = [
   "Content-Type",
   "Accept",
@@ -374,9 +408,37 @@ export default {
         const kind = url.searchParams.get("kind") || "";
         const debug = url.searchParams.get("debug") === "true";
         const rockVersion = url.searchParams.get("rock_version") || "";
+        const retrievalProjection = validatedRetrievalProjection(
+          url.searchParams.get("projection"),
+        );
+        await requireRetrievalProjectionAccess(
+          request,
+          env,
+          retrievalProjection,
+        );
         const intent = inferSearchIntent(query);
-        const rows = await search(env, query, limit, minTier, detail === "full", kind, debug, rockVersion);
-        ctx.waitUntil(recordUsage(env, "search", query, rows, request));
+        const rows = await search(
+          env,
+          query,
+          limit,
+          minTier,
+          detail === "full",
+          kind,
+          debug,
+          rockVersion,
+          retrievalProjection,
+        );
+        ctx.waitUntil(
+          recordUsage(
+            env,
+            "search",
+            query,
+            rows,
+            request,
+            "",
+            retrievalProjection,
+          ),
+        );
         return json({
           schema: "rock-kb-search-result-v3",
           query,
@@ -386,13 +448,36 @@ export default {
           rock_version: rockVersion || null,
           detail,
           debug,
+          retrieval_projection: retrievalProjection,
           results: rows,
         });
       }
       if (url.pathname.startsWith("/results/")) {
         const resultId = decodeURIComponent(url.pathname.slice("/results/".length));
-        const result = await getResult(env, resultId);
-        ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), result.status === "ok" ? 1 : 0, request));
+        const retrievalProjection = validatedRetrievalProjection(
+          url.searchParams.get("projection"),
+        );
+        await requireRetrievalProjectionAccess(
+          request,
+          env,
+          retrievalProjection,
+        );
+        const result = await getResult(
+          env,
+          resultId,
+          retrievalProjection,
+        );
+        ctx.waitUntil(
+          recordAccessUsage(
+            env,
+            "result_get",
+            String(asRecord(result.result).kind || "unknown"),
+            result.status === "ok" ? 1 : 0,
+            request,
+            "",
+            retrievalProjection,
+          ),
+        );
         return json(result, result.status === "not_found" ? 404 : 200);
       }
       if (url.pathname === "/model-map/models") {
@@ -629,6 +714,52 @@ export default {
   }
 };
 
+function validatedRetrievalProjection(
+  value: unknown,
+): RetrievalProjection {
+  const normalized = String(value || "legacy").trim().toLowerCase();
+  if (!RETRIEVAL_PROJECTIONS.has(normalized as RetrievalProjection)) {
+    throw new PublicRequestError(
+      400,
+      "invalid_retrieval_projection",
+      "projection must be legacy or canonical-canary",
+    );
+  }
+  return normalized as RetrievalProjection;
+}
+
+async function requireRetrievalProjectionAccess(
+  request: Request,
+  env: ServiceEnv,
+  projection: RetrievalProjection,
+  forcedClientClass = "",
+): Promise<void> {
+  if (projection === "legacy") return;
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (
+    !identity.installationId
+    || !CANONICAL_CANARY_COHORTS.has(identity.cohort)
+  ) {
+    throw new PublicRequestError(
+      400,
+      "canonical_canary_opt_in_required",
+      "canonical-canary requires an opted-in anonymous installation marker and the external-test or maintainer cohort",
+    );
+  }
+  const status = await canonicalShadowStatus(env);
+  if (
+    status.status !== "ready"
+    || !status.content_hash
+    || Number(status.search_row_count || 0) < 1
+  ) {
+    throw new PublicRequestError(
+      503,
+      "canonical_canary_unavailable",
+      "The canonical canary projection is not ready",
+    );
+  }
+}
+
 async function search(
   env: ServiceEnv,
   query: string,
@@ -638,6 +769,7 @@ async function search(
   kind = "",
   debug = false,
   rockVersion = "",
+  retrievalProjection: RetrievalProjection = "legacy",
 ): Promise<JsonRecord[]> {
   const fts = buildFtsQuery(query);
   if (!fts) {
@@ -649,12 +781,13 @@ async function search(
   const includeRockIssues = kind === "rock_issue" || hasRockIssueQueryIntent(terms, query) ? 1 : 0;
   const includeRockIdeas = kind === "rock_idea" || hasRockIdeaQueryIntent(terms, query) ? 1 : 0;
   const candidateLimit = Math.max(limit * 25, 200);
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
   const result = await env.KB_DB.prepare(
-    `SELECT r.*, bm25(search_rows_fts) AS rank,
-            snippet(search_rows_fts, 2, '', '', '...', 28) AS snippet
-     FROM search_rows_fts f
-     JOIN search_rows r ON r.id = f.id
-     WHERE search_rows_fts MATCH ?
+    `SELECT r.*, bm25(${tables.fts}) AS rank,
+            snippet(${tables.fts}, 2, '', '', '...', 28) AS snippet
+     FROM ${tables.fts} f
+     JOIN ${tables.rows} r ON r.id = f.id
+     WHERE ${tables.fts} MATCH ?
        AND (
          r.claim_tier_rank >= ?
          OR (? = 1 AND r.kind = 'rock_issue')
@@ -681,16 +814,35 @@ async function search(
     rowsById.set(row.id, row);
   }
   if (!kind) {
-    for (const row of await exactModelMapRows(env, query, minRank)) {
+    for (
+      const row of await exactModelMapRows(
+        env,
+        query,
+        minRank,
+        retrievalProjection,
+      )
+    ) {
       rowsById.set(row.id, row);
     }
-    for (const row of await exactConceptRows(env, query, minRank)) {
+    for (
+      const row of await exactConceptRows(
+        env,
+        query,
+        minRank,
+        retrievalProjection,
+      )
+    ) {
       rowsById.set(row.id, row);
     }
   }
   if (kind === "rock_issue" || includeRockIssues === 1) {
     const requestedIssueId = extractRockIssueIdFromQuery(query);
-    const exactRows = await exactRockIssueRows(env, query, 0);
+    const exactRows = await exactRockIssueRows(
+      env,
+      query,
+      0,
+      retrievalProjection,
+    );
     for (const row of exactRows) {
       rowsById.set(row.id, row);
     }
@@ -704,7 +856,14 @@ async function search(
     }
   }
   if (kind === "rock_idea" || includeRockIdeas === 1) {
-    for (const row of await exactRockIdeaRows(env, query, 0)) {
+    for (
+      const row of await exactRockIdeaRows(
+        env,
+        query,
+        0,
+        retrievalProjection,
+      )
+    ) {
       rowsById.set(row.id, row);
     }
   }
@@ -724,12 +883,17 @@ async function search(
     seenResultGroups.add(group);
     return true;
   });
-  return collapsed
+  const selected = collapsed
     .slice(0, limit)
     .map((item) => {
       const options = { debug, intent, rockVersion };
       return full ? publicResultRow(item.row, item.signals, options) : publicSearchRow(item.row, item.signals, options);
     });
+  if (retrievalProjection === "legacy") return selected;
+  return selected.map((row) => ({
+    ...row,
+    retrieval_projection: retrievalProjection,
+  }));
 }
 
 function searchResultGroup(row: SearchRow): string {
@@ -759,16 +923,30 @@ function searchResultGroup(row: SearchRow): string {
   return "";
 }
 
-async function getResult(env: ServiceEnv, resultId: string): Promise<JsonRecord> {
-  const result = await resolveSearchRow(env, resultId);
+async function getResult(
+  env: ServiceEnv,
+  resultId: string,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<JsonRecord> {
+  const result = await resolveSearchRow(
+    env,
+    resultId,
+    retrievalProjection,
+  );
   if (!result) {
-    return { schema: "rock-kb-result-v1", status: "not_found", result_id: resultId };
+    return {
+      schema: "rock-kb-result-v1",
+      status: "not_found",
+      result_id: resultId,
+      retrieval_projection: retrievalProjection,
+    };
   }
   return {
     schema: "rock-kb-result-v1",
     status: "ok",
     requested_result_id: resultId,
     canonical_result_id: result.id,
+    retrieval_projection: retrievalProjection,
     result: publicResultRow(result),
   };
 }
@@ -794,14 +972,20 @@ async function getClaim(env: ServiceEnv, requestedId: string): Promise<JsonRecor
   };
 }
 
-async function exactConceptRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+async function exactConceptRows(
+  env: ServiceEnv,
+  query: string,
+  minRank: number,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<Array<SearchRow & { rank?: number }>> {
   const queryTerms = new Set(searchTerms(query));
   if (!queryTerms.size || !hasConceptNavigationIntent(query)) {
     return [];
   }
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
   const result = await env.KB_DB.prepare(
     `SELECT *
-     FROM search_rows
+     FROM ${tables.rows}
      WHERE kind IN ('concept', 'answer') AND claim_tier_rank >= ?`
   ).bind(minRank).all<SearchRow>();
   const rows = result.results || [];
@@ -815,27 +999,39 @@ async function exactConceptRows(env: ServiceEnv, query: string, minRank: number)
     .map((row) => ({ ...row, rank: 0 }));
 }
 
-async function exactRockIssueRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+async function exactRockIssueRows(
+  env: ServiceEnv,
+  query: string,
+  minRank: number,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<Array<SearchRow & { rank?: number }>> {
   const issueId = extractRockIssueIdFromQuery(query);
   if (!issueId) return [];
   const locationId = issueId.replace(/^rock_issue:/, "");
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
   const row = await env.KB_DB.prepare(
     `SELECT r.*
      FROM rock_issue_locations l
      JOIN rock_issues i ON i.issue_id = l.issue_id
-     JOIN search_rows r ON r.id = i.issue_id
+     JOIN ${tables.rows} r ON r.id = i.issue_id
      WHERE l.location_id = ? AND r.claim_tier_rank >= ?
      LIMIT 1`,
   ).bind(locationId, minRank).first<SearchRow>();
   return row ? [{ ...row, rank: -60 }] : [];
 }
 
-async function exactRockIdeaRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+async function exactRockIdeaRows(
+  env: ServiceEnv,
+  query: string,
+  minRank: number,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<Array<SearchRow & { rank?: number }>> {
   const ideaId = extractRockIdeaIdFromQuery(query);
   if (!ideaId) return [];
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
   const row = await env.KB_DB.prepare(
     `SELECT *
-     FROM search_rows
+     FROM ${tables.rows}
      WHERE id = ? AND kind = 'rock_idea' AND claim_tier_rank >= ?
      LIMIT 1`,
   ).bind(ideaId, minRank).first<SearchRow>();
@@ -861,13 +1057,19 @@ function hasConceptNavigationIntent(query: string): boolean {
     || normalized.includes("answer about");
 }
 
-async function exactModelMapRows(env: ServiceEnv, query: string, minRank: number): Promise<Array<SearchRow & { rank?: number }>> {
+async function exactModelMapRows(
+  env: ServiceEnv,
+  query: string,
+  minRank: number,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<Array<SearchRow & { rank?: number }>> {
   if (!normalizeModelLookup(query)) {
     return [];
   }
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
   const result = await env.KB_DB.prepare(
     `SELECT *
-     FROM search_rows
+     FROM ${tables.rows}
      WHERE kind = 'model_map' AND claim_tier_rank >= ?`
   ).bind(minRank).all<SearchRow>();
   return (result.results || [])
@@ -1379,6 +1581,15 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       "source_backed",
       "min_claim_tier",
     );
+    const retrievalProjection = validatedRetrievalProjection(
+      args.projection,
+    );
+    await requireRetrievalProjectionAccess(
+      request,
+      env,
+      retrievalProjection,
+      "mcp",
+    );
     const rows = await search(
       env,
       query,
@@ -1388,13 +1599,47 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       String(args.kind || ""),
       args.debug === true,
       String(args.rock_version || ""),
+      retrievalProjection,
     );
-    ctx.waitUntil(recordUsage(env, "search", query, rows, request, "mcp"));
+    ctx.waitUntil(
+      recordUsage(
+        env,
+        "search",
+        query,
+        rows,
+        request,
+        "mcp",
+        retrievalProjection,
+      ),
+    );
     return rows;
   }
   if (name === "kb_get_result") {
-    const result = await getResult(env, String(args.id || args.result_id || ""));
-    ctx.waitUntil(recordAccessUsage(env, "result_get", String(asRecord(result.result).kind || "unknown"), result.status === "ok" ? 1 : 0, request, "mcp"));
+    const retrievalProjection = validatedRetrievalProjection(
+      args.projection,
+    );
+    await requireRetrievalProjectionAccess(
+      request,
+      env,
+      retrievalProjection,
+      "mcp",
+    );
+    const result = await getResult(
+      env,
+      String(args.id || args.result_id || ""),
+      retrievalProjection,
+    );
+    ctx.waitUntil(
+      recordAccessUsage(
+        env,
+        "result_get",
+        String(asRecord(result.result).kind || "unknown"),
+        result.status === "ok" ? 1 : 0,
+        request,
+        "mcp",
+        retrievalProjection,
+      ),
+    );
     return result;
   }
   if (name === "kb_get_claim") {
@@ -3532,6 +3777,17 @@ async function currentVersion(env: ServiceEnv): Promise<string> {
   return result?.value || "unknown";
 }
 
+async function currentRetrievalProjectionVersion(
+  env: ServiceEnv,
+  projection: RetrievalProjection,
+): Promise<string> {
+  if (projection === "legacy") {
+    return currentVersion(env);
+  }
+  const shadow = await canonicalShadowStatus(env);
+  return String(shadow.content_hash || "canonical-unavailable");
+}
+
 async function currentArtifactPrefix(env: ServiceEnv): Promise<string> {
   const result = await env.KB_DB.prepare("SELECT value FROM kb_meta WHERE key = 'artifact_prefix'").first<{ value: string }>();
   return result?.value || `versions/${await currentVersion(env)}`;
@@ -3559,6 +3815,13 @@ async function canonicalShadowStatus(env: ServiceEnv): Promise<JsonRecord> {
     mode: "dual_write_shadow",
     active_reader: activeProjection === "canonical",
     active_retrieval_projection: activeProjection,
+    canary_reader_available: (
+      values.canonical_shadow_status === "ready"
+      && Boolean(values.canonical_shadow_content_hash)
+    ),
+    canary_retrieval_projection: "canonical-canary",
+    canary_requires_opt_in: true,
+    canary_cohorts: ["external-test", "maintainer"],
     content_hash: values.canonical_shadow_content_hash || null,
     search_row_count: numericMetadataValue(
       values.canonical_shadow_search_row_count,
@@ -3641,11 +3904,22 @@ async function recordUsage(
   results: JsonRecord[],
   request: Request,
   forcedClientClass = "",
+  retrievalProjection: RetrievalProjection = "legacy",
 ): Promise<void> {
   const resultCount = results.length;
   const primaryResultKind = String(results[0]?.kind || "none");
   const kindCounts = countValues(results.map((row) => String(row.kind || "unknown")));
   const identity = telemetryIdentity(request, forcedClientClass);
+  if (retrievalProjection === "canonical-canary") {
+    await recordCanaryUsageSummary(
+      env,
+      event,
+      identity,
+      resultCount,
+      primaryResultKind,
+    );
+    return;
+  }
   await recordUsageSummary(env, event, identity, queryTopicHint(query), resultCount, primaryResultKind, kindCounts);
 }
 
@@ -3656,9 +3930,20 @@ async function recordAccessUsage(
   resultCount: number,
   request: Request,
   forcedClientClass = "",
+  retrievalProjection: RetrievalProjection = "legacy",
 ): Promise<void> {
   const count = Math.max(0, Math.floor(resultCount));
   const identity = telemetryIdentity(request, forcedClientClass);
+  if (retrievalProjection === "canonical-canary") {
+    await recordCanaryUsageSummary(
+      env,
+      event,
+      identity,
+      count,
+      count > 0 ? resultKind : "none",
+    );
+    return;
+  }
   await recordUsageSummary(
     env,
     event,
@@ -3698,6 +3983,39 @@ async function recordUsageSummary(
        DO UPDATE SET count = count + excluded.count`
     ).bind(day, event, identity.clientClass, identity.cohort, resultKind, Number(count)).run();
   }
+}
+
+async function recordCanaryUsageSummary(
+  env: ServiceEnv,
+  event: string,
+  identity: TelemetryIdentity,
+  resultCount: number,
+  primaryResultKind: string,
+): Promise<void> {
+  await ensureTelemetryTables(env);
+  const day = new Date().toISOString().slice(0, 10);
+  const projectionVersion = await currentRetrievalProjectionVersion(
+    env,
+    "canonical-canary",
+  );
+  await env.KB_DB.prepare(
+    `INSERT INTO canonical_canary_usage_v1 (
+       day, projection_version, event, client_class, cohort,
+       result_count, primary_result_kind, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(
+       day, projection_version, event, client_class, cohort,
+       result_count, primary_result_kind
+     ) DO UPDATE SET count = count + 1`,
+  ).bind(
+    day,
+    projectionVersion,
+    event,
+    identity.clientClass,
+    identity.cohort,
+    Math.max(0, Math.floor(resultCount)),
+    primaryResultKind,
+  ).run();
 }
 
 async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
@@ -3757,9 +4075,12 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
      GROUP BY day, client_class, result_id, result_kind, projection_version, rating, reason`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-    `SELECT day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes, SUM(count) AS count
+    `SELECT day, client_class, cohort, result_id, result_kind,
+            retrieval_projection, projection_version, outcome, reason_codes,
+            SUM(count) AS count
      FROM outcome_events_v1
-     GROUP BY day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes`
+     GROUP BY day, client_class, cohort, result_id, result_kind,
+              retrieval_projection, projection_version, outcome, reason_codes`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
     `SELECT COUNT(DISTINCT installation_hash) AS count
@@ -3789,6 +4110,16 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     100,
   );
   const mcpTransport = await mcpTransportSummary(env, false);
+  const canaryUsage = await env.KB_DB.prepare(
+    `SELECT day, projection_version, event, client_class, cohort,
+            result_count, primary_result_kind, SUM(count) AS count
+     FROM canonical_canary_usage_v1
+     GROUP BY day, projection_version, event, client_class, cohort,
+              result_count, primary_result_kind
+     ORDER BY day DESC, count DESC
+     LIMIT 200`,
+  ).all<JsonRecord>();
+  const canaryRows = canaryUsage.results || [];
   return {
     schema: "rock-kb-telemetry-summary-v5",
     rows,
@@ -3801,8 +4132,26 @@ async function telemetrySummary(env: ServiceEnv): Promise<JsonRecord> {
     feedback,
     outcomes: outcomes.results || [],
     opted_in_installation_count: Number(installations?.count || 0),
+    canonical_canary: {
+      schema: "rock-kb-canonical-canary-telemetry-v1",
+      default_reader_changed: false,
+      rows: canaryRows.filter(
+        (row) => !["evaluation", "maintainer"].includes(
+          String(row.cohort || ""),
+        ),
+      ),
+      external_test_rows: canaryRows.filter(
+        (row) => row.cohort === "external-test",
+      ),
+      maintainer_rows: canaryRows.filter(
+        (row) => row.cohort === "maintainer",
+      ),
+      outcomes: (outcomes.results || []).filter(
+        (row) => row.retrieval_projection === "canonical-canary",
+      ),
+    },
     mcp_transport: mcpTransport,
-    privacy: "No raw or hashed query text, user identity, organization identity, IP address, free text, or Rock data is retained. An opted-in random installation marker is stored only as a one-way hash and is never exposed. Cohorts are fixed aggregate labels restricted to community, external-test, maintainer, evaluation, or unattributed; they are not authentication.",
+    privacy: "No raw or hashed query text, user identity, organization identity, IP address, free text, or Rock data is retained. An opted-in random installation marker is stored only as a one-way hash and is never exposed. Canonical-canary usage stores only day, projection hash, operation, client class, fixed cohort, result-count bucket, primary result kind, and count. Cohorts are fixed aggregate labels restricted to community, external-test, maintainer, evaluation, or unattributed; they are not authentication.",
   };
 }
 
@@ -4163,6 +4512,22 @@ async function createMcpTransportTable(env: ServiceEnv): Promise<void> {
 
 async function createTelemetryTables(env: ServiceEnv): Promise<void> {
   await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS canonical_canary_usage_v1 (
+      day TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      primary_result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(
+        day, projection_version, event, client_class, cohort,
+        result_count, primary_result_kind
+      )
+    )`
+  ).run();
+  await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS usage_events_v5 (
       day TEXT NOT NULL,
       event TEXT NOT NULL,
@@ -4330,6 +4695,7 @@ async function createTelemetryTables(env: ServiceEnv): Promise<void> {
       cohort TEXT NOT NULL,
       result_id TEXT NOT NULL,
       result_kind TEXT NOT NULL,
+      retrieval_projection TEXT NOT NULL DEFAULT 'legacy',
       projection_version TEXT NOT NULL,
       outcome TEXT NOT NULL,
       reason_codes TEXT NOT NULL,
@@ -4337,6 +4703,7 @@ async function createTelemetryTables(env: ServiceEnv): Promise<void> {
       PRIMARY KEY(day, installation_hash, client_class, cohort, result_id, projection_version, outcome, reason_codes)
     )`
   ).run();
+  await ensureOutcomeRetrievalProjectionColumn(env);
   await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS outcome_rate_v1 (
       day TEXT NOT NULL,
@@ -4369,6 +4736,37 @@ async function createTelemetryTables(env: ServiceEnv): Promise<void> {
     )`
   ).run();
   await createMcpTransportTable(env);
+}
+
+async function ensureOutcomeRetrievalProjectionColumn(
+  env: ServiceEnv,
+): Promise<void> {
+  const columns = await env.KB_DB.prepare(
+    "PRAGMA table_info(outcome_events_v1)",
+  ).all<{ name: string }>();
+  if (
+    (columns.results || []).some(
+      (column) => column.name === "retrieval_projection",
+    )
+  ) {
+    return;
+  }
+  try {
+    await env.KB_DB.prepare(
+      "ALTER TABLE outcome_events_v1 ADD COLUMN retrieval_projection TEXT NOT NULL DEFAULT 'legacy'",
+    ).run();
+  } catch (error) {
+    const refreshed = await env.KB_DB.prepare(
+      "PRAGMA table_info(outcome_events_v1)",
+    ).all<{ name: string }>();
+    if (
+      !(refreshed.results || []).some(
+        (column) => column.name === "retrieval_projection",
+      )
+    ) {
+      throw error;
+    }
+  }
 }
 
 async function submitFeedback(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
@@ -4404,8 +4802,17 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
   }
   const body = await readBoundedJson(request, OUTCOME_REQUEST_MAX_BYTES, { label: "Outcome", tooLargeCode: "outcome_too_large" });
   if (Object.keys(body).some((field) => !OUTCOME_FIELDS.has(field))) {
-    throw new PublicRequestError(400, "unsupported_fields", "Outcomes may contain only result_id, outcome, reason_codes, and consent_attested");
+    throw new PublicRequestError(400, "unsupported_fields", "Outcomes may contain only result_id, outcome, reason_codes, consent_attested, and retrieval_projection");
   }
+  const retrievalProjection = validatedRetrievalProjection(
+    body.retrieval_projection,
+  );
+  await requireRetrievalProjectionAccess(
+    request,
+    env,
+    retrievalProjection,
+    forcedClientClass,
+  );
   const resultId = typeof body.result_id === "string" ? body.result_id.trim() : "";
   const outcome = typeof body.outcome === "string" ? body.outcome.trim().toLowerCase() : "";
   if (!PUBLIC_RESULT_ID_PATTERN.test(resultId)) {
@@ -4425,7 +4832,11 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     throw new PublicRequestError(400, "invalid_reason_codes", "reason_codes must be unique and compatible with the selected outcome");
   }
   reasonCodes.sort();
-  const result = await resolveSearchRow(env, resultId);
+  const result = await resolveSearchRow(
+    env,
+    resultId,
+    retrievalProjection,
+  );
   if (!result) {
     throw new PublicRequestError(400, "unknown_result_id", "The outcome result_id was not found in the public projection");
   }
@@ -4444,13 +4855,16 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     throw new PublicRequestError(429, "rate_limited", "Outcome rate limit exceeded; retry tomorrow");
   }
 
-  const projectionVersion = await currentVersion(env);
+  const projectionVersion = await currentRetrievalProjectionVersion(
+    env,
+    retrievalProjection,
+  );
   const reasonCodeValue = reasonCodes.join(",");
   await env.KB_DB.prepare(
     `INSERT INTO outcome_events_v1 (
        day, installation_hash, client_class, cohort, result_id, result_kind,
-       projection_version, outcome, reason_codes, count
-     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+       retrieval_projection, projection_version, outcome, reason_codes, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
      ON CONFLICT(day, installation_hash, client_class, cohort, result_id, projection_version, outcome, reason_codes)
      DO UPDATE SET count = count + 1`
   ).bind(
@@ -4460,11 +4874,20 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     identity.cohort,
     result.id,
     result.kind,
+    retrievalProjection,
     projectionVersion,
     outcome,
     reasonCodeValue,
   ).run();
-  await recordAccessUsage(env, "outcome", "outcome", 1, request, forcedClientClass);
+  await recordAccessUsage(
+    env,
+    "outcome",
+    "outcome",
+    1,
+    request,
+    forcedClientClass,
+    retrievalProjection,
+  );
   const outcomeId = `kbo_${(await sha256Hex(JSON.stringify([day, installationHash, result.id, projectionVersion, outcome, reasonCodes]))).slice(0, 24)}`;
   return {
     schema: "rock-kb-outcome-result-v1",
@@ -4473,6 +4896,7 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     result_id: result.id,
     result_kind: result.kind,
     projection_version: projectionVersion,
+    retrieval_projection: retrievalProjection,
     outcome,
     reason_codes: reasonCodes,
     cohort: identity.cohort,
@@ -5885,12 +6309,19 @@ function rowTopics(row: SearchRow): string[] {
   return [];
 }
 
-async function resolveSearchRow(env: ServiceEnv, resultId: string): Promise<SearchRow | null> {
-  const direct = await env.KB_DB.prepare("SELECT * FROM search_rows WHERE id = ? LIMIT 1").bind(resultId).first<SearchRow>();
+async function resolveSearchRow(
+  env: ServiceEnv,
+  resultId: string,
+  retrievalProjection: RetrievalProjection = "legacy",
+): Promise<SearchRow | null> {
+  const tables = RETRIEVAL_TABLES[retrievalProjection];
+  const direct = await env.KB_DB.prepare(
+    `SELECT * FROM ${tables.rows} WHERE id = ? LIMIT 1`,
+  ).bind(resultId).first<SearchRow>();
   if (direct) return direct;
   return env.KB_DB.prepare(
-    `SELECT r.* FROM search_row_aliases a
-     JOIN search_rows r ON r.id = a.canonical_id
+    `SELECT r.* FROM ${tables.aliases} a
+     JOIN ${tables.rows} r ON r.id = a.canonical_id
      WHERE a.alias_id = ? LIMIT 1`
   ).bind(resultId).first<SearchRow>();
 }
@@ -6071,6 +6502,7 @@ function normalizeSearchTerm(value: string): string {
     eligible: "eligibility",
     personalize: "personalization",
     personalized: "personalization",
+    reprinting: "reprint",
     developer: "develop",
     development: "develop",
     workflows: "workflow",
@@ -6511,8 +6943,8 @@ function cors(response: Response): Response {
 
 function toolDefinitions(): JsonRecord[] {
   const definitions: JsonRecord[] = [
-    { name: "kb_search", description: "Start here for any Rock question. Defaults to source-backed or stronger results, routes symptoms to task cards and troubleshooting nodes, and returns compact rows; use kb_get_result or an exact tool for full detail.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Minimum claim trust tier. Defaults to source_backed; use routing_context_only only for explicit source-discovery work." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." }, rock_version: { type: "string", description: "Optional Rock version. Conflicting scoped rows are excluded; unprocessed rows remain labeled as such." }, kind: { type: "string", description: "Optional exact result-kind filter, such as task_card, troubleshooting_node, recipe, claim, or lava_context." }, debug: { type: "boolean", description: "Include detailed ranking signals. Off by default." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." } }, required: ["query"] } },
-    { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID.", inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] } },
+    { name: "kb_search", description: "Start here for any Rock question. Defaults to source-backed or stronger results, routes symptoms to task cards and troubleshooting nodes, and returns compact rows; use kb_get_result or an exact tool for full detail. The canonical-canary projection is opt-in and requires anonymous installation plus external-test or maintainer cohort headers.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Minimum claim trust tier. Defaults to source_backed; use routing_context_only only for explicit source-discovery work." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." }, rock_version: { type: "string", description: "Optional Rock version. Conflicting scoped rows are excluded; unprocessed rows remain labeled as such." }, kind: { type: "string", description: "Optional exact result-kind filter, such as task_card, troubleshooting_node, recipe, claim, or lava_context." }, debug: { type: "boolean", description: "Include detailed ranking signals. Off by default." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." }, projection: { type: "string", enum: ["legacy", "canonical-canary"], description: "Defaults to legacy. canonical-canary is an explicit field-test projection and never changes the default reader." } }, required: ["query"] } },
+    { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID. Pass the same projection used for search.", inputSchema: { type: "object", additionalProperties: false, properties: { id: { type: "string" }, projection: { type: "string", enum: ["legacy", "canonical-canary"] } }, required: ["id"] } },
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },
     { name: "kb_get_model", description: "Return an exact stable Model Map digest by slug or model name, optionally filtered by fields or one property.", inputSchema: { type: "object", properties: { model: { type: "string" }, fields: { type: "string" }, property: { type: "string" } }, required: ["model"] } },
@@ -6541,7 +6973,7 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
-    { name: "kb_outcome", description: "Submit a consent-attested usefulness outcome for one exact public result. Requires the opt-in anonymous installation header and accepts only fixed reason codes; never send a query, organization, person, IP address, logs, or Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { result_id: { type: "string", maxLength: 200 }, outcome: { type: "string", enum: ["useful", "partially_useful", "not_useful"] }, reason_codes: { type: "array", minItems: 1, maxItems: 3, items: { type: "string", enum: ["answered", "actionable", "well_sourced", "correct_route", "incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence", "incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"] } }, consent_attested: { type: "boolean", const: true } }, required: ["result_id", "outcome", "reason_codes", "consent_attested"] } },
+    { name: "kb_outcome", description: "Submit a consent-attested usefulness outcome for one exact public result. Requires the opt-in anonymous installation header and accepts only fixed reason codes; never send a query, organization, person, IP address, logs, or Rock data. Pass retrieval_projection=canonical-canary for a canary result.", inputSchema: { type: "object", additionalProperties: false, properties: { result_id: { type: "string", maxLength: 200 }, outcome: { type: "string", enum: ["useful", "partially_useful", "not_useful"] }, reason_codes: { type: "array", minItems: 1, maxItems: 3, items: { type: "string", enum: ["answered", "actionable", "well_sourced", "correct_route", "incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence", "incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"] } }, consent_attested: { type: "boolean", const: true }, retrieval_projection: { type: "string", enum: ["legacy", "canonical-canary"] } }, required: ["result_id", "outcome", "reason_codes", "consent_attested"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
     { name: "kb_submit", description: "Validate and submit a community contribution bundle for a registered org.", inputSchema: { type: "object", properties: { org_id: { type: "string" }, bundle: { type: "array" }, dry_run: { type: "boolean" } }, required: ["org_id", "bundle"] } }
   ];

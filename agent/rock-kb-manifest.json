@@ -56,7 +56,7 @@
     "troubleshooting": "knowledge/concepts/*/troubleshooting-tree.json"
   },
   "approved_claims": {
-    "answer_bearing_count": 598,
+    "answer_bearing_count": 609,
     "authority_tiers": {
       "community-reviewed": 36,
       "official": 494,
@@ -132,7 +132,7 @@
       "troubleshooting_tree": "knowledge/concepts/check-in/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 18,
+      "answer_bearing_count": 19,
       "answers": "knowledge/concepts/groups/answers",
       "approved_claims": "knowledge/concepts/groups/approved-claims.md",
       "approved_media": "knowledge/concepts/groups/approved-media.md",
@@ -148,8 +148,8 @@
       "open_questions": "knowledge/concepts/groups/open-questions.md",
       "primary_claim_count": 9,
       "quality_metrics": {
-        "answer_bearing_count": 18,
-        "answer_bearing_rate": 0.9474,
+        "answer_bearing_count": 19,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 9,
         "retrieval_eligible_count": 19,
         "retrieval_evaluation_count": 0,
@@ -162,7 +162,7 @@
         "version_scoped_count": 1,
         "version_sensitive_count": 9
       },
-      "quality_score": 75,
+      "quality_score": 78,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/groups/quickstart.md",
       "release_caveats": "knowledge/concepts/groups/release-caveats.jsonl",
@@ -177,7 +177,7 @@
       "troubleshooting_tree": "knowledge/concepts/groups/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 50,
+      "answer_bearing_count": 53,
       "answers": "knowledge/concepts/workflows/answers",
       "approved_claims": "knowledge/concepts/workflows/approved-claims.md",
       "approved_media": "knowledge/concepts/workflows/approved-media.md",
@@ -193,8 +193,8 @@
       "open_questions": "knowledge/concepts/workflows/open-questions.md",
       "primary_claim_count": 30,
       "quality_metrics": {
-        "answer_bearing_count": 50,
-        "answer_bearing_rate": 0.9434,
+        "answer_bearing_count": 53,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 30,
         "retrieval_eligible_count": 53,
         "retrieval_evaluation_count": 0,
@@ -207,7 +207,7 @@
         "version_scoped_count": 4,
         "version_sensitive_count": 16
       },
-      "quality_score": 78,
+      "quality_score": 81,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/workflows/quickstart.md",
       "release_caveats": "knowledge/concepts/workflows/release-caveats.jsonl",
@@ -267,7 +267,7 @@
       "troubleshooting_tree": "knowledge/concepts/connections/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 26,
+      "answer_bearing_count": 30,
       "answers": "knowledge/concepts/lava/answers",
       "approved_claims": "knowledge/concepts/lava/approved-claims.md",
       "approved_media": "knowledge/concepts/lava/approved-media.md",
@@ -283,8 +283,8 @@
       "open_questions": "knowledge/concepts/lava/open-questions.md",
       "primary_claim_count": 5,
       "quality_metrics": {
-        "answer_bearing_count": 26,
-        "answer_bearing_rate": 0.8667,
+        "answer_bearing_count": 30,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 5,
         "retrieval_eligible_count": 30,
         "retrieval_evaluation_count": 0,
@@ -297,7 +297,7 @@
         "version_scoped_count": 5,
         "version_sensitive_count": 9
       },
-      "quality_score": 81,
+      "quality_score": 89,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/lava/quickstart.md",
       "release_caveats": "knowledge/concepts/lava/release-caveats.jsonl",
@@ -897,7 +897,7 @@
       "troubleshooting_tree": "knowledge/concepts/event-registration/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 30,
+      "answer_bearing_count": 33,
       "answers": "knowledge/concepts/cms-websites/answers",
       "approved_claims": "knowledge/concepts/cms-websites/approved-claims.md",
       "approved_media": "knowledge/concepts/cms-websites/approved-media.md",
@@ -913,8 +913,8 @@
       "open_questions": "knowledge/concepts/cms-websites/open-questions.md",
       "primary_claim_count": 28,
       "quality_metrics": {
-        "answer_bearing_count": 30,
-        "answer_bearing_rate": 0.9091,
+        "answer_bearing_count": 33,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 28,
         "retrieval_eligible_count": 33,
         "retrieval_evaluation_count": 0,
@@ -927,7 +927,7 @@
         "version_scoped_count": 4,
         "version_sensitive_count": 11
       },
-      "quality_score": 79,
+      "quality_score": 84,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/cms-websites/quickstart.md",
       "release_caveats": "knowledge/concepts/cms-websites/release-caveats.jsonl",
@@ -942,7 +942,7 @@
       "troubleshooting_tree": "knowledge/concepts/cms-websites/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 14,
+      "answer_bearing_count": 15,
       "answers": "knowledge/concepts/communications/answers",
       "approved_claims": "knowledge/concepts/communications/approved-claims.md",
       "approved_media": "knowledge/concepts/communications/approved-media.md",
@@ -958,8 +958,8 @@
       "open_questions": "knowledge/concepts/communications/open-questions.md",
       "primary_claim_count": 12,
       "quality_metrics": {
-        "answer_bearing_count": 14,
-        "answer_bearing_rate": 0.9333,
+        "answer_bearing_count": 15,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 12,
         "retrieval_eligible_count": 15,
         "retrieval_evaluation_count": 0,
@@ -972,7 +972,7 @@
         "version_scoped_count": 6,
         "version_sensitive_count": 7
       },
-      "quality_score": 92,
+      "quality_score": 96,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/communications/quickstart.md",
       "release_caveats": "knowledge/concepts/communications/release-caveats.jsonl",
@@ -987,7 +987,7 @@
       "troubleshooting_tree": "knowledge/concepts/communications/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 60,
+      "answer_bearing_count": 63,
       "answers": "knowledge/concepts/security-permissions/answers",
       "approved_claims": "knowledge/concepts/security-permissions/approved-claims.md",
       "approved_media": "knowledge/concepts/security-permissions/approved-media.md",
@@ -1003,8 +1003,8 @@
       "open_questions": "knowledge/concepts/security-permissions/open-questions.md",
       "primary_claim_count": 19,
       "quality_metrics": {
-        "answer_bearing_count": 60,
-        "answer_bearing_rate": 0.9524,
+        "answer_bearing_count": 63,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 19,
         "retrieval_eligible_count": 63,
         "retrieval_evaluation_count": 0,
@@ -1017,7 +1017,7 @@
         "version_scoped_count": 6,
         "version_sensitive_count": 19
       },
-      "quality_score": 80,
+      "quality_score": 83,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/security-permissions/quickstart.md",
       "release_caveats": "knowledge/concepts/security-permissions/release-caveats.jsonl",
@@ -1032,7 +1032,7 @@
       "troubleshooting_tree": "knowledge/concepts/security-permissions/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 40,
+      "answer_bearing_count": 41,
       "answers": "knowledge/concepts/data-views-reports/answers",
       "approved_claims": "knowledge/concepts/data-views-reports/approved-claims.md",
       "approved_media": "knowledge/concepts/data-views-reports/approved-media.md",
@@ -1048,8 +1048,8 @@
       "open_questions": "knowledge/concepts/data-views-reports/open-questions.md",
       "primary_claim_count": 36,
       "quality_metrics": {
-        "answer_bearing_count": 40,
-        "answer_bearing_rate": 0.9756,
+        "answer_bearing_count": 41,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 36,
         "retrieval_eligible_count": 41,
         "retrieval_evaluation_count": 0,
@@ -1062,7 +1062,7 @@
         "version_scoped_count": 6,
         "version_sensitive_count": 12
       },
-      "quality_score": 86,
+      "quality_score": 88,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/data-views-reports/quickstart.md",
       "release_caveats": "knowledge/concepts/data-views-reports/release-caveats.jsonl",
@@ -1077,7 +1077,7 @@
       "troubleshooting_tree": "knowledge/concepts/data-views-reports/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 18,
+      "answer_bearing_count": 21,
       "answers": "knowledge/concepts/mobile/answers",
       "approved_claims": "knowledge/concepts/mobile/approved-claims.md",
       "approved_media": "knowledge/concepts/mobile/approved-media.md",
@@ -1093,8 +1093,8 @@
       "open_questions": "knowledge/concepts/mobile/open-questions.md",
       "primary_claim_count": 6,
       "quality_metrics": {
-        "answer_bearing_count": 18,
-        "answer_bearing_rate": 0.8571,
+        "answer_bearing_count": 21,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 6,
         "retrieval_eligible_count": 21,
         "retrieval_evaluation_count": 0,
@@ -1107,7 +1107,7 @@
         "version_scoped_count": 2,
         "version_sensitive_count": 8
       },
-      "quality_score": 73,
+      "quality_score": 81,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/mobile/quickstart.md",
       "release_caveats": "knowledge/concepts/mobile/release-caveats.jsonl",
@@ -1122,7 +1122,7 @@
       "troubleshooting_tree": "knowledge/concepts/mobile/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 14,
+      "answer_bearing_count": 16,
       "answers": "knowledge/concepts/api-integrations/answers",
       "approved_claims": "knowledge/concepts/api-integrations/approved-claims.md",
       "approved_media": "knowledge/concepts/api-integrations/approved-media.md",
@@ -1138,8 +1138,8 @@
       "open_questions": "knowledge/concepts/api-integrations/open-questions.md",
       "primary_claim_count": 6,
       "quality_metrics": {
-        "answer_bearing_count": 14,
-        "answer_bearing_rate": 0.875,
+        "answer_bearing_count": 16,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 6,
         "retrieval_eligible_count": 16,
         "retrieval_evaluation_count": 0,
@@ -1152,8 +1152,8 @@
         "version_scoped_count": 0,
         "version_sensitive_count": 5
       },
-      "quality_score": 68,
-      "quality_status": "needs_review",
+      "quality_score": 75,
+      "quality_status": "pass",
       "quickstart": "knowledge/concepts/api-integrations/quickstart.md",
       "release_caveats": "knowledge/concepts/api-integrations/release-caveats.jsonl",
       "retrieval_eligible_count": 16,
@@ -1167,7 +1167,7 @@
       "troubleshooting_tree": "knowledge/concepts/api-integrations/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 16,
+      "answer_bearing_count": 17,
       "answers": "knowledge/concepts/helix/answers",
       "approved_claims": "knowledge/concepts/helix/approved-claims.md",
       "approved_media": "knowledge/concepts/helix/approved-media.md",
@@ -1183,8 +1183,8 @@
       "open_questions": "knowledge/concepts/helix/open-questions.md",
       "primary_claim_count": 15,
       "quality_metrics": {
-        "answer_bearing_count": 16,
-        "answer_bearing_rate": 0.9412,
+        "answer_bearing_count": 17,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 15,
         "retrieval_eligible_count": 17,
         "retrieval_evaluation_count": 0,
@@ -1197,7 +1197,7 @@
         "version_scoped_count": 2,
         "version_sensitive_count": 7
       },
-      "quality_score": 79,
+      "quality_score": 82,
       "quality_status": "pass",
       "quickstart": "knowledge/concepts/helix/quickstart.md",
       "release_caveats": "knowledge/concepts/helix/release-caveats.jsonl",
@@ -1212,7 +1212,7 @@
       "troubleshooting_tree": "knowledge/concepts/helix/troubleshooting-tree.json"
     },
     {
-      "answer_bearing_count": 10,
+      "answer_bearing_count": 13,
       "answers": "knowledge/concepts/developer-resources/answers",
       "approved_claims": "knowledge/concepts/developer-resources/approved-claims.md",
       "approved_media": "knowledge/concepts/developer-resources/approved-media.md",
@@ -1228,8 +1228,8 @@
       "open_questions": "knowledge/concepts/developer-resources/open-questions.md",
       "primary_claim_count": 5,
       "quality_metrics": {
-        "answer_bearing_count": 10,
-        "answer_bearing_rate": 0.7692,
+        "answer_bearing_count": 13,
+        "answer_bearing_rate": 1.0,
         "primary_claim_count": 5,
         "retrieval_eligible_count": 13,
         "retrieval_evaluation_count": 0,
@@ -1242,8 +1242,8 @@
         "version_scoped_count": 1,
         "version_sensitive_count": 5
       },
-      "quality_score": 66,
-      "quality_status": "needs_review",
+      "quality_score": 80,
+      "quality_status": "pass",
       "quickstart": "knowledge/concepts/developer-resources/quickstart.md",
       "release_caveats": "knowledge/concepts/developer-resources/release-caveats.jsonl",
       "retrieval_eligible_count": 13,
@@ -1482,8 +1482,8 @@
       "troubleshooting_tree": "knowledge/concepts/scheduling-locations/troubleshooting-tree.json"
     }
   ],
-  "entity_count": 459,
-  "generated_at": "2026-07-30T02:08:25+00:00",
+  "entity_count": 458,
+  "generated_at": "2026-07-31T00:44:00+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -1521,7 +1521,7 @@
   "rock_idea_count": 1082,
   "rock_idea_relationship_count": 1577,
   "rock_idea_verification_queue_count": 185,
-  "rock_issue_count": 5814,
+  "rock_issue_count": 5828,
   "rock_issue_enrichment_count": 28,
   "schema": "rock-kb-agent-manifest-v2",
   "source_summaries": {

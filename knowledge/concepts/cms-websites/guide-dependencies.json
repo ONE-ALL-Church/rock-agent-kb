@@ -217,9 +217,9 @@
     {
       "authority_tier": "official",
       "claim": "In Rock Mobile's Content block, Dynamic Content pulls fresh content from the server on each page initialization; static content is bundled into the shell, requires a deploy to update, and processes Lava without `CurrentPerson` context.",
-      "claim_hash": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+      "claim_hash": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
       "claim_id": "claim:2d534c63c723204ad8c9",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -230,7 +230,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "4798d694f481b6e61db01976fdb4f7a4b21af11b9701de5a667eee57c8607874",
@@ -491,9 +491,9 @@
     {
       "authority_tier": "official",
       "claim": "`CreateShortLink` accepts optional settings in this order: token, site ID, overwrite, random length, category ID, and pinned flag; invalid settings may fall back to defaults, while an empty URL or no shortening-enabled site returns an empty string.",
-      "claim_hash": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
+      "claim_hash": "57085d18bfa8cc3b8e16a1f5764b384ca145674f566dd5e8770db4438a248760",
       "claim_id": "claim:5d8bddb267bffde3cfe7",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "behavior",
       "community_derived": false,
       "concept_ids": [
@@ -503,7 +503,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "8.0"
@@ -579,9 +579,9 @@
     {
       "authority_tier": "official",
       "claim": "Lava Commands can bypass Rock's built-in security and business logic, so each execution surface should explicitly enable only the commands it needs; HTML blocks start with no commands enabled unless configured.",
-      "claim_hash": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+      "claim_hash": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
       "claim_id": "claim:7bca2f8db03f8f468586",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "risk",
       "community_derived": false,
       "concept_ids": [
@@ -592,7 +592,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [],
       "safe_evidence_hash": "efbf97c6b34763fa8fdcbe852016788c699b98445a2b7cb3e58668b10ac9c966",
@@ -1465,15 +1465,15 @@
     "claim:1621058d8e8879c03a60": "834cf3c1beebe2719776cd323e89dc723d85b1c486fe515feabc6781fb358f99",
     "claim:2a7f5e6781a2d2fa30a4": "3aeb76b361606f314090a82fd2d4a4b1e3f20ce8cb73ed1b50f97252debd7f53",
     "claim:2a9844acce5ba6150dec": "53547ffaaa3e349a67dd7757b702f4612b37405c91039ff1a7f7d055aae920a5",
-    "claim:2d534c63c723204ad8c9": "46bf9e37870acffa501c33f7f0976977b6b29202e19bf74503016bf3f34a3e8d",
+    "claim:2d534c63c723204ad8c9": "3adf570e3a370ee7026446bc5c87f0d72960bf1145d056ff4bb07d4cc0b1f802",
     "claim:39735f6a8684f32d8191": "04b981adc2f79068319a385728b5c4be5f3a2eed7522dbc956e097a40da33a36",
     "claim:3e398ac03167b9c52704": "754e7f08fb45e2fdb878564df58b2df2b8603e5aa25c6c90d70d517a0f201270",
     "claim:49453ea8932cdc4b0736": "136089e11ad5b3643f70d7c4924d43befd6d6c0b51f1875013a81d2231d7f069",
     "claim:4c6c24811261384a0eb4": "e425f39923af17a63128e7eb2b782d7ca7f5acb8c4e44d10dc76e5833e7a83c9",
     "claim:5073aebf878a8fbe7c63": "446675e3d7a763edb69c2035f96afc24b252bc168aa38ba62338868db2ba2789",
-    "claim:5d8bddb267bffde3cfe7": "289e6aed09b8b63af803166d72f2001febbf38c293e389623e8f0a6063eab79a",
+    "claim:5d8bddb267bffde3cfe7": "57085d18bfa8cc3b8e16a1f5764b384ca145674f566dd5e8770db4438a248760",
     "claim:64100db2b5d60396b9fd": "ae63faa268d61153f6bcdd63a541e4df7222b918aea292545c512fba664fe1c0",
-    "claim:7bca2f8db03f8f468586": "26717c238b3b5dd20683eea63a79311788b01b168751c87fe7d91bff60027160",
+    "claim:7bca2f8db03f8f468586": "430b24b0f494438ef11da8b3fe7fe8970149cf89084e3ffe1f83cf1f8846baf0",
     "claim:7ddbde1cd7e23aec0e70": "51dfae9c165bb93243a305b2657c2cf2bf15fc83878805d4af553acffbc132dd",
     "claim:7e6e3979faad614f0b42": "b2235fe89f96ace0673eb54cc0ca2b093d9c4cfb86da558d1ba8d4afb78975ed",
     "claim:8509dad15d1c3f386bb1": "49b8832588fc6c3f5a62e6858c81094f61197c6149fea3f8750507e55aebe4bc",
@@ -1494,7 +1494,7 @@
     "claim:effbedc1751d739bc4d9": "3cc6ce0e91edef036cd8f5dafdd1a435815334ef1f3d175250dad498a6382700",
     "claim:f34b7d439fac6c9062f0": "109e6d46fa2fd60e1d3993521d26399f2de364f56be1e42e4fe29106e48dcade"
   },
-  "approved_claims_hash": "776427f8ee4e19e17da189d08bed455d3115da1e1f7d58e1a49818094b76554a",
+  "approved_claims_hash": "b85824ad0827d9c2e843673061f1f6a0fa8f41f133643a94eb4c9a439bf2ec9f",
   "approved_claims_path": "knowledge/concepts/cms-websites/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -2122,12 +2122,12 @@
   },
   "approved_media_hash": "3bdaa3f81aedd25505090095d795a16dbf7f2dd1e8a58bf4786c0c386bf87b75",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-30T02:08:02+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "d347f5ac65ff6e1609621ec88a15c03bb1283a334544bbf51199c6d18bce5cea",
+  "guide_hash": "ae9e9926bcb93414b0e5c28dd6ecddd236ff7908b3a0a6de5510ccf98f09d3ce",
   "guide_line_count": 1583,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
-  "guide_word_count": 13758,
+  "guide_word_count": 13759,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2274,6 +2274,15 @@
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
     },
     {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "f7086ab6ff215e14",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
       "authority": "official",
       "content_hash": null,
       "excerpt_hash": null,
@@ -2281,6 +2290,15 @@
       "source_key": "c3be071dd5b3a869",
       "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
     },
     {
       "authority": "official",
@@ -2326,24 +2344,6 @@
       "source_key": "5fa353d6f0648800",
       "source_record_id": "",
       "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "f7086ab6ff215e14",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
     },
     {
       "authority": "official-triumph",
@@ -3747,17 +3747,17 @@
       "section_id": "approved-claim-coverage",
       "source_keys": [
         "c877aeede8d53f3d",
+        "f7086ab6ff215e14",
         "c3be071dd5b3a869",
         "c3be071dd5b3a869",
+        "127269e4afa33de4",
         "f115b21c5843aa4b",
         "8f4bd6647d2fc942",
         "bb967eaa604104d2",
         "688f7051e9eaa0b1",
         "fd3fd2bfe8a855c0",
         "bb967eaa604104d2",
-        "5fa353d6f0648800",
-        "58a92984acbd2344",
-        "f7086ab6ff215e14"
+        "5fa353d6f0648800"
       ],
       "start_line": 1470
     },
@@ -4178,6 +4178,16 @@
       "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
     },
     {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "f7086ab6ff215e14",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/lava/filters/other-filters",
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
       "authority": "official",
       "authority_score": 100,
       "kind": "citation_only",
@@ -4186,6 +4196,16 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block",
       "url": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "kind": "citation_only",
+      "source_id": "rock_developer",
+      "source_key": "127269e4afa33de4",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
     },
     {
       "authority": "official",
@@ -4236,26 +4256,6 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
       "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "58a92984acbd2344",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ",
-      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "f7086ab6ff215e14",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/lava/filters/other-filters",
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
     },
     {
       "authority": "official-triumph",

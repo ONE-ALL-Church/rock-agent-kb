@@ -13,6 +13,11 @@ from ..canonical_knowledge import (
 )
 from ..paths import REPO_ROOT
 from ..canonical_retrieval_shadow import run_canonical_retrieval_shadow
+from ..reviewed_cross_source import (
+    REVIEWED_CROSS_SOURCE_RELATIVE_DIR,
+    REVIEW_DECISIONS_NAME,
+    promote_reviewed_cross_source,
+)
 from ..source_native import (
     SOURCE_NATIVE_PILOT_CONCEPTS,
     SOURCE_NATIVE_PILOT_DIR,
@@ -74,6 +79,44 @@ def canonical_retrieval_shadow(
                 destination,
                 limit=limit,
                 build_worker=not skip_worker_build,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("reviewed-cross-source-promote")
+def reviewed_cross_source_promote(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Public-safe reviewed cross-source decision JSONL.",
+    ),
+    destination: Path = typer.Option(
+        REPO_ROOT / REVIEWED_CROSS_SOURCE_RELATIVE_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+        help="Tracked canonical reviewed cross-source bundle directory.",
+    ),
+) -> None:
+    """Promote reviewed multi-source evidence into the canonical shadow."""
+
+    if input_path.name != REVIEW_DECISIONS_NAME:
+        typer.echo(
+            "The promoted bundle will retain a normalized "
+            f"{REVIEW_DECISIONS_NAME} copy.",
+            err=True,
+        )
+    typer.echo(
+        json.dumps(
+            promote_reviewed_cross_source(
+                input_path=input_path,
+                destination=destination,
             ),
             ensure_ascii=False,
             indent=2,
@@ -236,6 +279,22 @@ def source_native_promote(
         "--reviewed-at",
         help="Optional fixed ISO-8601 review timestamp for reproducible rebuilds.",
     ),
+    generation_prompt_version: str | None = typer.Option(
+        None,
+        "--generation-prompt-version",
+        help=(
+            "Exact prompt version used for the model generation when the "
+            "review contract has since advanced."
+        ),
+    ),
+    generated_at: str | None = typer.Option(
+        None,
+        "--generated-at",
+        help=(
+            "Original model-generation timestamp when maintainer review "
+            "occurs later."
+        ),
+    ),
 ) -> None:
     """Validate reviewed typed artifacts and write the public-safe shadow bundle."""
 
@@ -248,6 +307,8 @@ def source_native_promote(
                 reviewer=reviewer,
                 model=model,
                 reviewed_at=reviewed_at,
+                generation_prompt_version=generation_prompt_version,
+                generated_at=generated_at,
             ),
             ensure_ascii=False,
             indent=2,

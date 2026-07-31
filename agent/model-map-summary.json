@@ -21,7 +21,7 @@
   },
   "concept_slice_count": 18,
   "contains_row_data": false,
-  "generated_at": "2026-07-15T23:41:07.886+00:00",
+  "generated_at": "2026-07-31T00:10:34.876+00:00",
   "generation_method": [
     "Stable and pre-alpha model/property data come from authenticated Obsidian block-action calls against generic Rock demo Model Map pages.",
     "The collector uses RefreshObsidianBlockInitialization for the category/model list and GetModelDetails for each model detail payload.",
@@ -47,7 +47,7 @@
     "obsolete_model_count": 1,
     "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
     "property_count": 16254,
-    "rock_version": "20.0.5",
+    "rock_version": "20.0.6",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
     "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
     "table_name_model_count": 2
@@ -91,7 +91,7 @@
     "obsolete_model_count": 1,
     "path": "data/review/model-map-scrape/latest-model-map-full-scrape.json",
     "property_count": 16254,
-    "rock_version": "20.0.5",
+    "rock_version": "20.0.6",
     "rock_version_source_url": "https://rockrmslatest.com/api/Utility/GetRockSemanticVersionNumber",
     "source_url": "https://rockrmslatest.com/admin/power-tools/model-map",
     "table_name_model_count": 2
@@ -136,11 +136,11 @@
   "stable_property_count": 16111,
   "stable_table_name_model_count": 1,
   "version_diff": {
-    "change_count": 89,
+    "change_count": 46,
     "model_added_count": 1,
     "model_removed_count": 1,
     "property_added_count": 13,
-    "property_changed_count": 57,
+    "property_changed_count": 14,
     "property_removed_count": 17
   }
 }

@@ -6,6 +6,38 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.20.0] - 2026-07-30
+
+### Added
+
+- A reviewed source-native canonical bundle with deterministic sentence,
+  list-item, table, code, and catalog units; typed knowledge artifacts; durable
+  provenance; explicit version-scope caveats; and dependent-impact tracking.
+- A generic reviewed cross-source synthesis pipeline that preserves issue
+  reports, official release records, and immutable source-code evidence as
+  distinct evidence roles with exact and paraphrased retrieval evaluations.
+- An explicit `canonical-canary` reader for anonymously opted-in
+  `external-test` and `maintainer` cohorts across CLI search/result/outcome and
+  direct MCP `kb_search`, `kb_get_result`, and `kb_outcome`.
+
+### Changed
+
+- Service builds now load canonical search rows into parallel D1 row, concept,
+  alias, and FTS tables while keeping `legacy` as the immutable default
+  retrieval projection.
+- Canary telemetry uses a separate privacy-bounded daily aggregate with no
+  installation hash, query, topic, organization, person, IP address, logs, or
+  Rock data. Outcome rows retain an explicit retrieval projection through an
+  automatic additive D1 migration.
+- Distilled-claim review IDs now bind to the exact source-input snapshot.
+  Changed clusters return to review under a content-versioned ID, and retired
+  shadow migration chains move to a private audit archive instead of breaking
+  the current canonical bundle.
+- The agent skill is version `1.9.0` and requires client `0.20.0`. It documents
+  tester opt-in, exact projection continuity, cross-source trust semantics, and
+  the evidence gate that blocks a default cutover without real external
+  usefulness outcomes.
+
 ## [0.19.0] - 2026-07-29
 
 ### Added

@@ -45,6 +45,8 @@ AUTHORITY_TIER_VALUES = (
     "live-verified",
 )
 TEST_ROUND_COHORT_VALUES = ("external-test", "maintainer")
+RETRIEVAL_PROJECTION_VALUES = ("legacy", "canonical-canary")
+CANARY_COMMANDS = {"search", "result", "outcome"}
 PASSIVE_SKILL_CHECK_COMMANDS = {
     "search",
     "result",
@@ -125,6 +127,12 @@ def main(argv: list[str] | None = None) -> int:
         "--cohort",
         default=os.environ.get("ROCK_KB_COHORT", ""),
         help="Optional aggregate telemetry cohort: community, external-test, or maintainer. This is not authentication.",
+    )
+    parser.add_argument(
+        "--projection",
+        choices=RETRIEVAL_PROJECTION_VALUES,
+        default=os.environ.get("ROCK_KB_PROJECTION", "legacy"),
+        help="Retrieval projection for search, result, and outcome. Defaults to legacy; canonical-canary requires an opted-in external-test or maintainer cohort.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -364,6 +372,19 @@ def main(argv: list[str] | None = None) -> int:
     configured_headers = telemetry_headers()
     REQUEST_COHORT = str(args.cohort or configured_headers.get("x-rock-kb-cohort") or "")
     REQUEST_INSTALLATION_ID = str(configured_headers.get("x-rock-kb-installation-id") or "")
+    if (
+        args.projection == "canonical-canary"
+        and args.command in CANARY_COMMANDS
+        and (
+            REQUEST_COHORT not in TEST_ROUND_COHORT_VALUES
+            or not REQUEST_INSTALLATION_ID
+        )
+    ):
+        parser.error(
+            "canonical-canary requires anonymous opt-in. Run "
+            "`uvx rock-kb telemetry enable --cohort external-test "
+            "--consent-attested` (or maintainer), then retry."
+        )
     base_url = str(args.url).rstrip("/")
     if args.command == "telemetry":
         if args.telemetry_command == "enable":
@@ -407,9 +428,15 @@ def main(argv: list[str] | None = None) -> int:
             params.append(f"kind={quote(args.kind)}")
         if args.debug:
             params.append("debug=true")
+        params.append(f"projection={quote(args.projection)}")
         return print_json(get_json(f"{base_url}/search?{'&'.join(params)}"))
     if args.command == "result":
-        return print_json(get_json(f"{base_url}/results/{quote(args.result_id)}"))
+        return print_json(
+            get_json(
+                f"{base_url}/results/{quote(args.result_id)}"
+                f"?projection={quote(args.projection)}"
+            )
+        )
     if args.command == "claim":
         return print_json(get_json(f"{base_url}/claims/id/{quote(args.claim_id)}"))
     if args.command == "concepts":
@@ -584,6 +611,7 @@ def main(argv: list[str] | None = None) -> int:
             "outcome": args.outcome,
             "reason_codes": args.reason,
             "consent_attested": bool(args.consent_attested),
+            "retrieval_projection": args.projection,
         }))
     if args.command == "report-issue":
         payload = {

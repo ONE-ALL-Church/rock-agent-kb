@@ -565,9 +565,9 @@
     {
       "authority_tier": "official",
       "claim": "Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration.",
-      "claim_hash": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+      "claim_hash": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
       "claim_id": "claim:a774892d024b8bbe0560",
-      "claim_tier": "source_backed",
+      "claim_tier": "answer_pack_approved",
       "claim_type": "configuration",
       "community_derived": false,
       "concept_ids": [
@@ -578,7 +578,7 @@
       "confidence": "high",
       "live_verification": {},
       "mentioned_in_guide": true,
-      "needs_live_verification": true,
+      "needs_live_verification": false,
       "review_status": "approved_for_public_distillation",
       "rock_versions": [
         "19.0"
@@ -870,7 +870,7 @@
     "claim:882208fdf2bb82703931": "b4a7c4c1483f52a1f11350b750b119aadf3900c2547ea1327709a04a46c1179b",
     "claim:a5f0a54f29d226cec5fc": "a25001d54eaa40ac9c82e7bc06575d9d30794410c19f9ce5b6d1341dd737e95a",
     "claim:a69d0b49451cf59e5ef8": "2728c742c181d7442f510bfda2711c23694632b42a1c50af9e14d019a1cd4dc1",
-    "claim:a774892d024b8bbe0560": "92e51188d2fb6bade40c2c9a3432b93876e61fb50e6ec08da08c33c0f7f6df19",
+    "claim:a774892d024b8bbe0560": "95061c9aaec5a145fc2ae412ff6ae563769f656f55b78f3805d24a1bad711e0b",
     "claim:bde19ee62aa336ac343f": "a1ccbd27e8572020c62ddf1be5501d45a57305088999d7eced43675e6f56e167",
     "claim:c538cf61594b1114dc41": "09952a68c034e0650863bd688cc8d438bb5be259f0da290659c5ff5bdab8bcb3",
     "claim:cd55aeeeb6e608920a0a": "8e89c29f4d2673b46e65c19be31d5e4e30574c68c783588a622c8a679840dbee",
@@ -878,7 +878,7 @@
     "claim:dae53f2715a5838fd9fc": "8713215832a6df78bd26e786f64fc3dbae85c1da649d1eb2237f1629ce598d85",
     "claim:dd3b03571388d00cc80b": "c07c2363143c710b1dc9fd49be0ed020b35c6b4ad67918ebbb5937157e38f652"
   },
-  "approved_claims_hash": "1be31adf1877c5f00faae14a2bd9726b58229251b4edf713ce3da28c642f143a",
+  "approved_claims_hash": "162441140289af63dd096521c92fdf09f517d6e0b56680107faab5e259f3f167",
   "approved_claims_path": "knowledge/concepts/groups/approved-claims.md",
   "approved_media_dependencies": [
     {
@@ -903,12 +903,12 @@
   },
   "approved_media_hash": "85fbf5272dc375150dd10316d1e2e5ef09bc14bac3869f9515c8191b1a5604e4",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-07-30T02:07:38+00:00",
+  "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "groups",
-  "guide_hash": "56349d43843a3488fa09ca3b35d3c6cee8f7a2871099c3ca0b6105c3fd93274d",
+  "guide_hash": "54f4f15c544da04c7cc878e5a8e0bf4e5fc53da3353655bd92004c7674d5dd0f",
   "guide_line_count": 1268,
   "guide_path": "knowledge/concepts/groups/guide.md",
-  "guide_word_count": 11946,
+  "guide_word_count": 11941,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1428,18 +1428,18 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "rock_documentation",
-      "source_key": "59b3b4a1adadfd4d",
+      "source_key": "a1e69804a411861b",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types"
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
     },
     {
       "authority": "official",
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
+      "source_key": "59b3b4a1adadfd4d",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types"
     },
     {
       "authority": "official-training",
@@ -2698,9 +2698,9 @@
         "6fa61ac3465e4cf7",
         "413adaad2f5e48b2",
         "2ebd4b54273e5765",
-        "59b3b4a1adadfd4d",
-        "59b3b4a1adadfd4d",
         "a1e69804a411861b",
+        "59b3b4a1adadfd4d",
+        "59b3b4a1adadfd4d",
         "78f1e8bbd9d351ff",
         "78f1e8bbd9d351ff",
         "78f1e8bbd9d351ff",
@@ -4141,20 +4141,20 @@
       "authority_score": 100,
       "kind": "citation_only",
       "source_id": "rock_documentation",
-      "source_key": "59b3b4a1adadfd4d",
+      "source_key": "a1e69804a411861b",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types",
-      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types"
+      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
     },
     {
       "authority": "official",
       "authority_score": 100,
       "kind": "citation_only",
       "source_id": "rock_documentation",
-      "source_key": "a1e69804a411861b",
+      "source_key": "59b3b4a1adadfd4d",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
-      "url": "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+      "title": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types",
+      "url": "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types"
     },
     {
       "authority": "official-training",

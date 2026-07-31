@@ -36,7 +36,7 @@ from .schemas import (
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
 SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
 SOURCE_NATIVE_PROMPT_ID = "source-knowledge-distillation-v2.3"
-SOURCE_NATIVE_PROMPT_VERSION = "2.3.0"
+SOURCE_NATIVE_PROMPT_VERSION = "2.3.1"
 SOURCE_NATIVE_PROMPT_PATH = (
     REPO_ROOT
     / "docs"
@@ -249,6 +249,16 @@ def parse_markdown_source_units(
         block_token = str(block.get("block_token") or "")
         if block_token:
             unit_id_by_block_token[block_token] = source_unit_id
+    canonical_text_units: dict[tuple[str, str], str] = {}
+    for index, unit in enumerate(units):
+        key = (unit.unit_kind, str(unit.normalized_content_hash or ""))
+        canonical_id = canonical_text_units.get(key)
+        if canonical_id:
+            units[index] = unit.model_copy(
+                update={"duplicate_text_of_source_unit_id": canonical_id}
+            )
+        else:
+            canonical_text_units[key] = unit.source_unit_id
     return units
 
 
@@ -496,6 +506,8 @@ def build_source_native_document_candidates(
     concept_ids: Iterable[str] = SOURCE_NATIVE_PILOT_CONCEPTS,
     limit_per_concept: int = SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
     destination: Path = SOURCE_NATIVE_REVIEW_DIR,
+    previous_dir: Path = SOURCE_NATIVE_PILOT_DIR,
+    checked_at: str | None = None,
     records: list[dict[str, Any]] | None = None,
     payload_loader: Callable[[dict[str, Any]], dict[str, Any] | None] | None = None,
 ) -> dict[str, Any]:
@@ -514,6 +526,8 @@ def build_source_native_document_candidates(
                 limit_per_concept=limit_per_concept,
                 destination=destination,
                 candidate_path=candidate_path,
+                previous_dir=previous_dir,
+                checked_at=checked_at,
                 records=records,
                 payload_loader=lambda record: fetch_rockumentation_payload(
                     client,
@@ -526,6 +540,8 @@ def build_source_native_document_candidates(
         limit_per_concept=limit_per_concept,
         destination=destination,
         candidate_path=candidate_path,
+        previous_dir=previous_dir,
+        checked_at=checked_at,
         records=records,
         payload_loader=payload_loader,
         markdown_by_record=markdown_by_record,
@@ -538,6 +554,8 @@ def _build_source_native_document_candidates(
     limit_per_concept: int,
     destination: Path,
     candidate_path: Path,
+    previous_dir: Path,
+    checked_at: str | None,
     records: list[dict[str, Any]] | None,
     payload_loader: Callable[[dict[str, Any]], dict[str, Any] | None],
     markdown_by_record: dict[str, str],
@@ -550,7 +568,7 @@ def _build_source_native_document_candidates(
     previous_snapshots = {
         str(row.get("source_record_id") or ""): row
         for row in read_jsonl(
-            SOURCE_NATIVE_PILOT_DIR / "source-snapshots.jsonl"
+            previous_dir / "source-snapshots.jsonl"
         )
         if row.get("source_record_id")
     }
@@ -574,7 +592,7 @@ def _build_source_native_document_candidates(
     snapshots: list[SourceSnapshot] = []
     units: list[SourceUnit] = []
     inputs: list[dict[str, Any]] = []
-    checked_at = now_iso()
+    observed_check_time = checked_at or now_iso()
     for candidate in read_jsonl(candidate_path):
         source_record_id = str(candidate["source_record_id"])
         record = record_by_id.get(source_record_id, {})
@@ -585,7 +603,7 @@ def _build_source_native_document_candidates(
         )[:32]
         observation = source_observation_metadata(
             previous=previous_snapshots.get(source_record_id),
-            checked_at=checked_at,
+            checked_at=observed_check_time,
             content_hash=content_hash,
         )
         snapshot = SourceSnapshot(
@@ -603,7 +621,7 @@ def _build_source_native_document_candidates(
                 if value
             ],
             observed_at=observation["observed_at"],
-            last_checked_at=checked_at,
+            last_checked_at=observed_check_time,
             content_changed_at=observation["content_changed_at"],
             content_hash=content_hash,
             normalized_content_hash=content_hash,
@@ -932,6 +950,8 @@ def promote_source_native_distillation(
     reviewer: str,
     model: str,
     reviewed_at: str | None = None,
+    generation_prompt_version: str | None = None,
+    generated_at: str | None = None,
 ) -> dict[str, Any]:
     inputs = list(read_jsonl(input_path))
     output = SourceNativeDistillationOutput.model_validate(
@@ -947,6 +967,10 @@ def promote_source_native_distillation(
         for row in inputs
     }
     reviewed_at = reviewed_at or now_iso()
+    generated_at = generated_at or reviewed_at
+    generated_with_prompt_version = (
+        generation_prompt_version or SOURCE_NATIVE_PROMPT_VERSION
+    )
     snapshots: dict[str, SourceSnapshot] = {}
     source_units: dict[str, SourceUnit] = {}
     activities: list[GenerationActivity] = []
@@ -980,7 +1004,7 @@ def promote_source_native_distillation(
             )
         activity_id = "generation:" + sha256_text(
             f"{article.candidate_id}:{article.source_input_hash}:"
-            f"{SOURCE_NATIVE_PROMPT_VERSION}:{model}"
+            f"{generated_with_prompt_version}:{model}"
         )[:24]
         activities.append(
             GenerationActivity(
@@ -989,24 +1013,29 @@ def promote_source_native_distillation(
                 activity_type="source_distillation",
                 model=model,
                 prompt_id=SOURCE_NATIVE_PROMPT_ID,
-                prompt_version=SOURCE_NATIVE_PROMPT_VERSION,
+                prompt_version=generated_with_prompt_version,
                 source_snapshot_ids=[snapshot.source_snapshot_id],
                 source_unit_ids=sorted(input_units),
                 source_input_hash=article.source_input_hash,
-                created_at=reviewed_at,
+                created_at=generated_at,
                 review_method="model_generated_maintainer_reviewed",
                 parameters={
                     "typed_artifact_contract": "v2.3",
+                    "review_contract_version": SOURCE_NATIVE_PROMPT_VERSION,
                     "public_retrieval_changed": False,
                 },
             )
         )
-        for artifact in article.artifacts:
-            article_id = int(snapshot.derivation.get("documentation_article_id") or 0)
-            artifact_id = (
+        article_id = int(snapshot.derivation.get("documentation_article_id") or 0)
+        artifact_ids_by_key = {
+            artifact.artifact_key: (
                 f"source-native:{artifact.artifact_type}:"
                 f"{snapshot.source_id}:article-{article_id}:{artifact.artifact_key}"
             )
+            for artifact in article.artifacts
+        }
+        for artifact in article.artifacts:
+            artifact_id = artifact_ids_by_key[artifact.artifact_key]
             reviewed_artifacts.append(
                 ReviewedSourceNativeArtifact(
                     schema="rock-kb-reviewed-source-native-artifact-v1",
@@ -1044,6 +1073,26 @@ def promote_source_native_distillation(
                             reviewed_at=reviewed_at,
                         )
                     )
+
+            for link in artifact.related_artifact_links:
+                target_id = artifact_ids_by_key[link.target_artifact_key]
+                relationship_id = "relationship:" + sha256_text(
+                    f"{artifact_id}:{link.relation}:{target_id}"
+                )[:24]
+                relationships.append(
+                    KnowledgeRelationship(
+                        schema="rock-kb-knowledge-relationship-v1",
+                        relationship_id=relationship_id,
+                        from_id=artifact_id,
+                        to_id=target_id,
+                        relation=link.relation,
+                        decision="accept",
+                        confidence=artifact.confidence,
+                        rationale=link.rationale,
+                        evidence_source_unit_ids=link.evidence_source_unit_ids,
+                        reviewed_at=reviewed_at,
+                    )
+                )
 
     destination.mkdir(parents=True, exist_ok=True)
     write_jsonl(
@@ -1157,8 +1206,10 @@ def write_source_native_manifest(
         evaluation_case_count=len(evaluations),
         file_hashes=file_hashes,
         notes=[
-            "The pilot is a canonical shadow input; active public retrieval remains legacy.",
+            "The pilot is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
             "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text.",
+            "Bounded factual catalogs may preserve reviewed field names, types, settings, and option matrices without reproducing expressive article prose.",
+            "Unprocessed product-version scope is exposed separately from the observed documentation revision.",
         ],
     )
     (destination / "manifest.json").write_text(
@@ -1309,6 +1360,7 @@ def build_source_native_impact_report(
     added: list[str] = []
     removed: list[str] = []
     changed: list[str] = []
+    relocated: list[str] = []
     unchanged: list[str] = []
     impacted_unit_ids: set[str] = set()
     for locator in all_locators:
@@ -1330,8 +1382,39 @@ def build_source_native_impact_report(
                     str(after["source_unit_id"]),
                 }
             )
+        elif before.get("source_unit_id") != after.get("source_unit_id"):
+            relocated.append(locator)
+            impacted_unit_ids.update(
+                {
+                    str(before["source_unit_id"]),
+                    str(after["source_unit_id"]),
+                }
+            )
         else:
             unchanged.append(locator)
+    record_added: list[str] = []
+    record_removed: list[str] = []
+    routing_changed: list[str] = []
+    revision_changed: list[str] = []
+    for record_key in sorted(set(previous["records"]) | set(current["records"])):
+        before = previous["records"].get(record_key)
+        after = current["records"].get(record_key)
+        if before is None:
+            record_added.append(record_key)
+            impacted_unit_ids.update(after["source_unit_ids"])
+            continue
+        if after is None:
+            record_removed.append(record_key)
+            impacted_unit_ids.update(before["source_unit_ids"])
+            continue
+        if before["routing_signature"] != after["routing_signature"]:
+            routing_changed.append(record_key)
+            impacted_unit_ids.update(before["source_unit_ids"])
+            impacted_unit_ids.update(after["source_unit_ids"])
+        if before["revision_signature"] != after["revision_signature"]:
+            revision_changed.append(record_key)
+            impacted_unit_ids.update(before["source_unit_ids"])
+            impacted_unit_ids.update(after["source_unit_ids"])
     impacted_artifacts = sorted(
         artifact_id
         for artifact_id, source_ids in current["dependencies"].items()
@@ -1345,11 +1428,31 @@ def build_source_native_impact_report(
     )
     return {
         "schema": "rock-kb-source-native-impact-report-v1",
-        "status": "changed" if added or removed or changed else "unchanged",
+        "status": (
+            "changed"
+            if (
+                added
+                or removed
+                or changed
+                or relocated
+                or record_added
+                or record_removed
+                or routing_changed
+                or revision_changed
+            )
+            else "unchanged"
+        ),
+        "source_records": {
+            "added": record_added,
+            "removed": record_removed,
+            "routing_changed": routing_changed,
+            "revision_changed": revision_changed,
+        },
         "source_units": {
             "added": added,
             "removed": removed,
             "changed": changed,
+            "relocated": relocated,
             "unchanged_count": len(unchanged),
         },
         "revalidation_queue": {
@@ -1369,14 +1472,43 @@ def source_native_dependency_state(destination: Path) -> dict[str, Any]:
         str(row.get("source_snapshot_id") or ""): row
         for row in read_jsonl(destination / "source-snapshots.jsonl")
     }
+    records: dict[str, dict[str, Any]] = {}
     units: dict[str, dict[str, Any]] = {}
     for row in read_jsonl(destination / "source-units.jsonl"):
         snapshot = snapshots.get(str(row.get("source_snapshot_id") or ""), {})
+        record_key = "|".join(
+            [
+                str(snapshot.get("source_id") or ""),
+                str(
+                    snapshot.get("source_work_id")
+                    or snapshot.get("source_record_id")
+                    or snapshot.get("source_snapshot_id")
+                    or ""
+                ),
+            ]
+        )
+        record = records.setdefault(
+            record_key,
+            {
+                "routing_signature": [
+                    str(snapshot.get("source_record_id") or ""),
+                    str(snapshot.get("canonical_url") or ""),
+                    str(snapshot.get("source_path") or ""),
+                    sorted(str(value) for value in snapshot.get("routing_paths") or []),
+                    sorted(str(value) for value in snapshot.get("location_aliases") or []),
+                ],
+                "revision_signature": [
+                    str(snapshot.get("upstream_revision") or ""),
+                    bool(snapshot.get("immutable")),
+                ],
+                "source_unit_ids": [],
+            },
+        )
+        record["source_unit_ids"].append(str(row.get("source_unit_id") or ""))
         locator = row.get("locator") or {}
         key = "|".join(
             [
-                str(snapshot.get("source_id") or ""),
-                str(snapshot.get("source_record_id") or ""),
+                record_key,
                 str(locator.get("kind") or ""),
                 str(locator.get("value") or ""),
             ]
@@ -1389,7 +1521,7 @@ def source_native_dependency_state(destination: Path) -> dict[str, Any]:
         for row in read_jsonl(destination / "reviewed-artifacts.jsonl")
         if row.get("artifact_id")
     }
-    return {"units": units, "dependencies": dependencies}
+    return {"records": records, "units": units, "dependencies": dependencies}
 
 
 def sha256_file(path: Path) -> str:

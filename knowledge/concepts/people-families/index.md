@@ -2,7 +2,7 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-07-30T02:06:23+00:00
+last_built: 2026-07-31T00:30:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -158,12 +158,12 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | [Person Alias](../../model-map/models/person-alias.md) | CRM | 19.2.0 | 26 | 12 | 16 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Family Current](../../model-map/models/analytics-dim-family-current.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Family Head Of Household](../../model-map/models/analytics-dim-family-head-of-household.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Dim Family Historical](../../model-map/models/analytics-dim-family-historical.md) | Reporting | 19.2.0 | 59 | 47 | 52 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Current](../../model-map/models/analytics-dim-person-current.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Dim Person Historical](../../model-map/models/analytics-dim-person-historical.md) | Reporting | 19.2.0 | 94 | 81 | 87 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Analytics Source Family Historical](../../model-map/models/analytics-source-family-historical.md) | Reporting | 19.2.0 | 33 | 21 | 26 | 5 | 0 | [source](https://community.rockrms.com/ModelMap) |
-| [Analytics Source Person Historical](../../model-map/models/analytics-source-person-historical.md) | Reporting | 19.2.0 | 56 | 43 | 49 | 6 | 3 | [source](https://community.rockrms.com/ModelMap) |
+| [Analytics Source Person Historical](../../model-map/models/analytics-source-person-historical.md) | Reporting | 19.2.0 | 56 | 43 | 49 | 6 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute](../../model-map/models/attribute.md) | Core | 19.2.0 | 73 | 43 | 59 | 16 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute Matrix](../../model-map/models/attribute-matrix.md) | Core | 19.2.0 | 39 | 10 | 24 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |
 | [Attribute Matrix Item](../../model-map/models/attribute-matrix-item.md) | Core | 19.2.0 | 41 | 12 | 26 | 14 | 0 | [source](https://community.rockrms.com/ModelMap) |

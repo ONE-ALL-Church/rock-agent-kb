@@ -22,7 +22,7 @@
 | Related model links | 0 |
 | Method signatures | 13 |
 | Obsolete methods | 3 |
-| Pre-alpha changes touching this model | 2 |
+| Pre-alpha changes touching this model | 0 |
 
 ## Properties
 
@@ -99,7 +99,4 @@ No related entity links were present in the scraped Model Map for this model.
 
 ## Stable To Pre-Alpha Changes
 
-| Change | Property | Fields |
-| --- | --- | --- |
-| property_changed | CurrencyTypeValueId | enum_values |
-| property_changed | SourceTypeValueId | enum_values |
+No stable-to-pre-alpha changes were detected for this model.

@@ -17,6 +17,7 @@ from .canonical_knowledge import (
 from .extract import sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import REPO_ROOT
+from .reviewed_cross_source import reviewed_cross_source_evaluation_rows
 from .schemas import EvidenceLink, KnowledgeUnit, SourceSnapshot, SourceUnit
 from .service_eval import EVALUATION_SET_PATH, evaluation_metrics, hit_concepts
 from .service_projection import AUTHORITY_TIER_RANK, SERVICE_DIR, build_search_rows
@@ -88,6 +89,7 @@ def run_canonical_retrieval_shadow(
         *read_jsonl(EVALUATION_SET_PATH),
         *SHADOW_NO_ANSWER_EVALUATIONS,
         *source_native_evaluation_rows(REPO_ROOT),
+        *reviewed_cross_source_evaluation_rows(REPO_ROOT),
     ]
     endpoint_cases = build_endpoint_compatibility_cases(baseline_rows)
     claim_collapse_review = write_claim_collapse_review(
@@ -715,6 +717,45 @@ def canonical_search_row(
         }
     authority_tier = highest_authority(item.authority_tiers)
     body = canonical_search_body(item)
+    source_revisions = sorted(
+        {
+            str(snapshot.upstream_revision)
+            for snapshot in snapshots
+            if snapshot.upstream_revision
+        }
+    )
+    source_observation = {
+        "upstream_revisions": source_revisions,
+        "last_checked_at": max(
+            (
+                str(snapshot.last_checked_at)
+                for snapshot in snapshots
+                if snapshot.last_checked_at
+            ),
+            default="",
+        )
+        or None,
+        "content_changed_at": max(
+            (
+                str(snapshot.content_changed_at)
+                for snapshot in snapshots
+                if snapshot.content_changed_at
+            ),
+            default="",
+        )
+        or None,
+    }
+    if any(source_observation.values()):
+        payload = {**payload, "source_observation": source_observation}
+    if item.version_scope_status == "unprocessed" and source_revisions:
+        version_note = (
+            "Source observation: the supporting documentation revision is "
+            f"{', '.join(source_revisions)}; Rock product-version "
+            "applicability is unprocessed, so verify this detail for the "
+            "target version."
+        )
+        body = f"{body}\n\n{version_note}"
+        payload = {**payload, "version_scope_note": version_note}
     return {
         "id": item.knowledge_unit_id,
         "kind": item.knowledge_type,
