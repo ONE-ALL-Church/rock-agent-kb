@@ -5,6 +5,7 @@ import hashlib
 import json
 import sys
 import stat
+import tomllib
 import warnings
 import zipfile
 from pathlib import Path
@@ -1556,6 +1557,45 @@ def test_agent_installer_applies_and_removes_private_telemetry_headers(monkeypat
     updated = config.read_text(encoding="utf-8")
     assert "x-rock-kb-cohort" not in updated
     assert "x-rock-kb-installation-id" not in updated
+
+
+def test_agent_installer_replaces_legacy_nested_toml_headers():
+    load_client_cli()
+    from rock_kb_client.installer import update_toml_config
+
+    original = """# keep this comment
+[mcp_servers.rock-kb]
+url = "https://old.test/mcp"
+
+[mcp_servers.other]
+url = "https://other.test/mcp"
+
+[mcp_servers.rock-kb.http_headers]
+x-rock-kb-cohort = "maintainer"
+x-rock-kb-installation-id = "old-installation-id"
+"""
+
+    updated = update_toml_config(
+        original,
+        "https://kb.test/mcp",
+        {
+            "x-rock-kb-cohort": "maintainer",
+            "x-rock-kb-installation-id": "new-installation-id",
+        },
+    )
+
+    parsed = tomllib.loads(updated)
+    assert parsed["mcp_servers"]["rock-kb"] == {
+        "url": "https://kb.test/mcp",
+        "http_headers": {
+            "x-rock-kb-cohort": "maintainer",
+            "x-rock-kb-installation-id": "new-installation-id",
+        },
+    }
+    assert parsed["mcp_servers"]["other"] == {"url": "https://other.test/mcp"}
+    assert "[mcp_servers.rock-kb.http_headers]" not in updated
+    assert updated.count("[mcp_servers.rock-kb]") == 1
+    assert "# keep this comment" in updated
 
 
 def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):
