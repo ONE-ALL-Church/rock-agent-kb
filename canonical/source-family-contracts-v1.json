@@ -1,0 +1,129 @@
+{
+  "architecture": "source observation -> deterministic source unit -> reviewed knowledge unit -> rebuildable projections",
+  "canonical_projection_state": "shadow_and_opt_in_canary",
+  "default_retrieval_projection": "legacy",
+  "generated_knowledge_contracts": [
+    {
+      "change_policy": "legacy_path_pending_source_native_or_typed_migration",
+      "ingestion_mode": "legacy_reviewed_claim_projection",
+      "knowledge_unit_contract": "rock-kb-approved-claim-v1",
+      "review_gate": "existing_claim_review_and_validation",
+      "source_family": "approved_claim",
+      "source_unit_contract": "legacy_source_reference"
+    },
+    {
+      "change_policy": "revalidate_only_units_dependent_on_changed_source_units",
+      "ingestion_mode": "source_native_distillation",
+      "knowledge_unit_contract": "rock-kb-reviewed-source-native-artifact-v1",
+      "review_gate": "schema_constrained_generation_and_maintainer_approval",
+      "source_family": "official_documentation",
+      "source_unit_contract": "rock-kb-source-unit-v2"
+    },
+    {
+      "change_policy": "revalidate_when_any_cited_source_revision_changes",
+      "ingestion_mode": "reviewed_cross_source_synthesis",
+      "knowledge_unit_contract": "rock-kb-reviewed-cross-source-decision-v1",
+      "review_gate": "maintainer_reviewed_multi_source_evidence",
+      "source_family": "reviewed_cross_source",
+      "source_unit_contract": "rock-kb-source-unit-v2"
+    }
+  ],
+  "schema": "rock-kb-source-family-contracts-v1",
+  "status": "reviewed",
+  "typed_record_contracts": [
+    {
+      "ingestion_mode": "reviewed_typed_record",
+      "knowledge_type": "community_contribution",
+      "mutable": false,
+      "optional_freshness_fields": [],
+      "payload_schemas": [],
+      "required_freshness_fields": [
+        "content_hash"
+      ]
+    },
+    {
+      "ingestion_mode": "source_code_derived_record",
+      "knowledge_type": "lava_context",
+      "mutable": false,
+      "optional_freshness_fields": [],
+      "payload_schemas": [
+        "rock-kb-lava-context-v2",
+        "rock-kb-lava-context-v3"
+      ],
+      "required_freshness_fields": [
+        "source_commit",
+        "last_seen_version"
+      ]
+    },
+    {
+      "ingestion_mode": "official_api_derived_record",
+      "knowledge_type": "model_map",
+      "mutable": true,
+      "optional_freshness_fields": [],
+      "payload_schemas": [
+        "rock-kb-model-map-search-payload-v1"
+      ],
+      "required_freshness_fields": [
+        "identity.rock_version",
+        "identity.track"
+      ]
+    },
+    {
+      "ingestion_mode": "reviewed_typed_record",
+      "knowledge_type": "recipe",
+      "mutable": false,
+      "optional_freshness_fields": [],
+      "payload_schemas": [
+        "rock-kb-recipe-v1"
+      ],
+      "required_freshness_fields": [
+        "implementation.commit_sha",
+        "updated_at"
+      ]
+    },
+    {
+      "ingestion_mode": "official_api_derived_record",
+      "knowledge_type": "rock_idea",
+      "mutable": true,
+      "optional_freshness_fields": [],
+      "payload_schemas": [
+        "rock-kb-rock-idea-v1"
+      ],
+      "required_freshness_fields": [
+        "last_checked_at",
+        "content_changed_at",
+        "content_hash"
+      ]
+    },
+    {
+      "ingestion_mode": "official_api_derived_record",
+      "knowledge_type": "rock_issue",
+      "mutable": true,
+      "optional_freshness_fields": [
+        "timeline_sha256"
+      ],
+      "payload_schemas": [
+        "rock-kb-rock-issue-v1"
+      ],
+      "required_freshness_fields": [
+        "updated_at",
+        "source_content_hash"
+      ]
+    },
+    {
+      "ingestion_mode": "legacy_summary_projection",
+      "knowledge_type": "source_summary",
+      "mutable": true,
+      "optional_freshness_fields": [
+        "updated_at"
+      ],
+      "payload_schemas": [
+        "rock-kb-public-source-summary-v1"
+      ],
+      "required_freshness_fields": [
+        "content_hash",
+        "retrieved_at"
+      ]
+    }
+  ]
+}

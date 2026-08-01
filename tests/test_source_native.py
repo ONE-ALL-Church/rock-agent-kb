@@ -7,18 +7,23 @@ import pytest
 from pydantic import ValidationError
 
 from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
+from rock_kb.extract import sha256_text
 from rock_kb.jsonl import read_jsonl, write_jsonl
-from rock_kb.schemas import SourceNativeDistillationOutput, SourceSnapshot
+from rock_kb.schemas import SourceNativeDistillationOutput, SourceSnapshot, SourceUnit
 from rock_kb.source_native import (
+    apply_source_unit_split_rules,
     build_source_native_impact_report,
     build_source_native_document_candidates,
+    load_source_unit_split_rules,
     merge_source_native_distillation_outputs,
     parse_markdown_source_units,
     promote_source_native_distillation,
     source_observation_metadata,
+    source_native_model_input_hash,
     source_native_evaluation_rows,
     validate_source_native_distillation,
     write_source_native_distillation_schema,
+    write_source_native_generation_prompt,
     write_source_native_manifest,
 )
 
@@ -321,6 +326,131 @@ def test_parser_splits_list_items_and_links_nested_catalog_to_parent():
     assert units[2].context == "Person Location"
 
 
+def test_reviewed_split_rule_creates_addressable_child_units():
+    source_record_id = "rock_documentation:article:split-test"
+    markdown = (
+        "1. **Inherited Permissions** - Items inherit from parents. "
+        "Add item permissions only for a narrower override. "
+        "Parent changes cascade to children."
+    )
+    unsplit = parse_markdown_source_units(
+        markdown=markdown,
+        source_snapshot_id="source-snapshot:split-test",
+        source_record_id=source_record_id,
+        source_url="https://community.rockrms.com/documentation/split-test",
+        source_title="Split Test",
+    )
+
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "list_item",
+                "heading_path": [],
+                "context_label": "Inherited Permissions",
+                "block_token": "list:0:1",
+                "text": markdown,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": unsplit[0].normalized_content_hash,
+                "strategy": "sentence",
+            }
+        ],
+    )
+
+    assert [row["kind"] for row in split] == [
+        "list_item",
+        "paragraph",
+        "paragraph",
+    ]
+    assert split[1]["parent_block_token"] == split[0]["block_token"]
+    assert split[0]["text"].startswith("1. **Inherited Permissions**")
+
+
+def test_reviewed_split_rule_handles_joined_paragraph_sentences():
+    source_record_id = "rock_documentation:article:paragraph-split-test"
+    paragraph = (
+        "It appears at the bottom by default."
+        "Mailgun tracking must be disabled."
+    )
+    paragraph_hash = sha256_text(" ".join(paragraph.split()))
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Unsubscribe HTML",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": paragraph_hash,
+                "strategy": "sentence",
+            },
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "It appears at the bottom by default.",
+        "Mailgun tracking must be disabled.",
+    ]
+
+
+def test_reviewed_split_rule_preserves_closing_markdown_before_joined_text():
+    source_record_id = "rock_documentation:article:markdown-split-test"
+    paragraph = "**Where Did It Go?**Each night, the cleanup job runs."
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Cleanup",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "sentence",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "**Where Did It Go?**",
+        "Each night, the cleanup job runs.",
+    ]
+
+
+def test_split_rule_file_requires_review_provenance(tmp_path: Path):
+    split_rules_path = tmp_path / "split-rules.jsonl"
+    write_jsonl(
+        split_rules_path,
+        [
+            {
+                "schema": "rock-kb-source-unit-split-rule-v1",
+                "source_record_id": "rock_documentation:article:100",
+                "source_unit_content_hash": "a" * 64,
+                "strategy": "sentence",
+                "review_reason": "The upstream block contains two independent facts.",
+            }
+        ],
+    )
+
+    with pytest.raises(ValueError, match="missing reviewed_by"):
+        load_source_unit_split_rules(split_rules_path)
+
+
 def test_parser_marks_repeated_text_without_dropping_source_locators():
     units = parse_markdown_source_units(
         markdown=(
@@ -430,6 +560,44 @@ def test_unchanged_candidate_refresh_preserves_ids_and_change_time(
     }
 
 
+def test_model_input_hash_covers_stable_review_context_not_check_time():
+    source_input = distillation_input()
+    snapshot = SourceSnapshot.model_validate(source_input["source_snapshot"])
+    units = [SourceUnit.model_validate(row) for row in source_input["source_units"]]
+
+    def digest(
+        selected_snapshot: SourceSnapshot,
+        *,
+        claims: list[dict] | None = None,
+    ) -> str:
+        return source_native_model_input_hash(
+            snapshot=selected_snapshot,
+            source_units=units,
+            concept_ids=source_input["concept_ids"],
+            existing_claims=claims or source_input["existing_claims"],
+            documentation_path=source_input.get("documentation_path"),
+            documentation_branches=source_input.get("documentation_branches") or [],
+            documentation_current_version=source_input.get(
+                "documentation_current_version"
+            ),
+        )
+
+    baseline = digest(snapshot)
+    assert digest(
+        snapshot.model_copy(update={"last_checked_at": "2026-08-01T00:00:00Z"})
+    ) == baseline
+    assert digest(
+        snapshot.model_copy(update={"parser_version": "next-parser-version"})
+    ) != baseline
+    assert digest(
+        snapshot,
+        claims=[
+            {
+                "claim_id": "claim:changed-context",
+                "claim": "A materially changed existing claim.",
+            }
+        ],
+    ) != baseline
 def test_source_snapshot_rejects_private_or_parent_routing_paths():
     base = {
         "schema": "rock-kb-source-snapshot-v2",
@@ -482,6 +650,17 @@ def test_v23_validator_requires_exact_coverage_and_one_primary_artifact():
         "articles"
     ][0]["artifacts"][0]["source_unit_ids"]
     with pytest.raises(ValueError, match="type does not match disposition"):
+        validate_source_native_distillation(
+            output,
+            inputs=[distillation_input()],
+        )
+
+
+def test_v23_validator_requires_explicit_requests_for_verification_flags():
+    output = valid_output()
+    output["articles"][0]["artifacts"][0]["needs_live_verification"] = True
+
+    with pytest.raises(ValueError, match="verification flag"):
         validate_source_native_distillation(
             output,
             inputs=[distillation_input()],
@@ -552,6 +731,92 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     assert manifest["evaluation_case_count"] == 3
 
 
+def test_promotion_appends_safely_and_records_review_corrections(tmp_path: Path):
+    input_path = tmp_path / "input.jsonl"
+    generated_path = tmp_path / "generated.json"
+    reviewed_path = tmp_path / "reviewed.json"
+    destination = tmp_path / "canonical" / "source-native" / "v1"
+    write_jsonl(input_path, [distillation_input()])
+    generated = valid_output()
+    reviewed = valid_output()
+    reviewed["articles"][0]["review_notes"].append(
+        "Maintainer confirmed the artifact boundaries."
+    )
+    reviewed["articles"][0]["artifacts"][0]["needs_live_verification"] = True
+    reviewed["articles"][0]["verification_requests"] = [
+        {
+            "source_unit_ids": [source_units()[0]["source_unit_id"]],
+            "verification_surface": "public_source_code",
+            "question": "Does current public source retain this behavior?",
+            "why_material": (
+                "The answer determines whether the release-sensitive artifact "
+                "can be used without a verification caveat."
+            ),
+        }
+    ]
+    generated_path.write_text(json.dumps(generated), encoding="utf-8")
+    reviewed_path.write_text(json.dumps(reviewed), encoding="utf-8")
+
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=destination,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-30T12:00:00+00:00",
+        generated_output_path=generated_path,
+    )
+    write_jsonl(
+        destination / "evaluation-holdout.jsonl",
+        [
+            {
+                "schema": "rock-kb-service-evaluation-case-v1",
+                "id": "source-native-holdout:append",
+                "question": "What behavior does the feature provide?",
+                "concept_id": "system-admin-ops",
+                "source": "source_native_pilot_manual_paraphrase",
+                "evaluation_mode": "retrieval",
+                "expected_result_ids": [
+                    "source-native:claim:rock_documentation:"
+                    "article-100:feature-behavior"
+                ],
+                "expected_result_kinds": ["claim"],
+                "required_authority_tiers": ["official"],
+                "max_rank": 5,
+            }
+        ],
+    )
+    write_source_native_manifest(destination)
+
+    result = promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=destination,
+        base_dir=destination,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-31T12:00:00+00:00",
+        generated_output_path=generated_path,
+    )
+
+    assert result["reviewed_artifact_count"] == 3
+    assert len(list(read_jsonl(destination / "source-snapshots.jsonl"))) == 1
+    assert len(list(read_jsonl(destination / "evaluation-holdout.jsonl"))) == 1
+    verification_rows = list(read_jsonl(destination / "verification-queue.jsonl"))
+    assert len(verification_rows) == 1
+    assert verification_rows[0]["artifact_ids"] == [
+        "source-native:claim:rock_documentation:article-100:feature-behavior"
+    ]
+    activity = next(read_jsonl(destination / "generation-activities.jsonl"))
+    assert activity["prompt_version"] == "2.3.1"
+    assert activity["parameters"]["review_changed"] is True
+    assert activity["parameters"]["review_correction_count"] > 0
+    manifest = json.loads((destination / "manifest.json").read_text())
+    assert manifest["article_count"] == 1
+    assert manifest["verification_request_count"] == 1
+    assert manifest["review_changed_article_count"] == 1
+
+
 def test_manual_holdout_is_hashed_and_loaded_with_generated_evaluations(
     tmp_path: Path,
 ):
@@ -595,6 +860,74 @@ def test_manual_holdout_is_hashed_and_loaded_with_generated_evaluations(
     assert len(source_native_evaluation_rows(tmp_path)) == 4
 
 
+def test_manifest_rejects_holdouts_for_removed_artifacts(tmp_path: Path):
+    input_path = tmp_path / "input.jsonl"
+    output_path = tmp_path / "output.json"
+    destination = tmp_path / "canonical" / "source-native" / "v1"
+    write_jsonl(input_path, [distillation_input()])
+    output_path.write_text(json.dumps(valid_output()), encoding="utf-8")
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=output_path,
+        destination=destination,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-30T12:00:00+00:00",
+    )
+    write_jsonl(
+        destination / "evaluation-holdout.jsonl",
+        [
+            {
+                "schema": "rock-kb-service-evaluation-case-v1",
+                "id": "source-native-holdout:stale",
+                "question": "What happened to the removed artifact?",
+                "concept_id": "system-admin-ops",
+                "source": "source_native_manual_paraphrase",
+                "evaluation_mode": "retrieval",
+                "expected_result_ids": ["source-native:claim:removed"],
+                "expected_result_kinds": ["claim"],
+                "required_authority_tiers": ["official"],
+                "max_rank": 5,
+            }
+        ],
+    )
+
+    with pytest.raises(ValueError, match="missing reviewed artifacts"):
+        write_source_native_manifest(destination)
+
+
+def test_prompt_can_target_a_stable_source_record_after_candidate_id_changes(
+    tmp_path: Path,
+):
+    first = distillation_input()
+    second = json.loads(json.dumps(first))
+    second["candidate_id"] = "source-native-candidate:second"
+    second["source_snapshot"]["source_record_id"] = (
+        "rock_documentation:article:second"
+    )
+    input_path = tmp_path / "input.jsonl"
+    destination = tmp_path / "prompt.txt"
+    write_jsonl(input_path, [first, second])
+
+    result = write_source_native_generation_prompt(
+        input_path=input_path,
+        destination=destination,
+        source_record_id="rock_documentation:article:second",
+    )
+
+    prompt = destination.read_text(encoding="utf-8")
+    assert result["candidate_count"] == 1
+    assert "source-native-candidate:second" in prompt
+    assert "source-native-candidate:test" not in prompt
+    with pytest.raises(ValueError, match="mutually exclusive"):
+        write_source_native_generation_prompt(
+            input_path=input_path,
+            destination=destination,
+            candidate_id="source-native-candidate:second",
+            source_record_id="rock_documentation:article:second",
+        )
+
+
 def test_merge_orders_batches_by_canonical_input_and_runs_semantic_gate(
     tmp_path: Path,
 ):
@@ -615,6 +948,73 @@ def test_merge_orders_batches_by_canonical_input_and_runs_semantic_gate(
     assert json.loads(destination.read_text())["articles"][0][
         "candidate_id"
     ] == "source-native-candidate:test"
+
+
+def test_merge_can_preserve_split_feedback_for_private_review(tmp_path: Path):
+    input_path = tmp_path / "input.jsonl"
+    batch_path = tmp_path / "batch.json"
+    destination = tmp_path / "merged.json"
+    write_jsonl(input_path, [distillation_input()])
+    blocked = valid_output()
+    article = blocked["articles"][0]
+    blocked_unit_id = article["unit_decisions"][0]["source_unit_id"]
+    article["unit_decisions"][0].update(
+        {
+            "disposition": "split_required",
+            "mixed_material": True,
+            "decision_reason": (
+                "The source unit combines facts that require maintainer review."
+            ),
+        }
+    )
+    article["artifacts"] = article["artifacts"][1:]
+    article["coverage_check"]["material_unit_count"] = 3
+    article["coverage_check"]["captured_source_unit_ids"] = article[
+        "coverage_check"
+    ]["captured_source_unit_ids"][1:]
+    article["coverage_check"]["omitted_source_units"] = [
+        {
+            "source_unit_id": blocked_unit_id,
+            "reason": "The source unit requires an exact maintainer disposition.",
+        }
+    ]
+    article["verification_requests"] = [
+        {
+            "source_unit_ids": [blocked_unit_id],
+            "verification_surface": "maintainer_review",
+            "question": "Does this unit require a deterministic source split?",
+            "why_material": (
+                "The answer determines whether the unit can receive one "
+                "reviewed primary representation."
+            ),
+        }
+    ]
+    batch_path.write_text(json.dumps(blocked), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="requires deterministic source-unit splits"):
+        merge_source_native_distillation_outputs(
+            input_path=input_path,
+            batch_paths=[batch_path],
+            destination=destination,
+        )
+
+    result = merge_source_native_distillation_outputs(
+        input_path=input_path,
+        batch_paths=[batch_path],
+        destination=destination,
+        allow_review_blockers=True,
+    )
+
+    assert result["status"] == "review_required"
+    assert result["split_required_count"] == 1
+    assert json.loads(destination.read_text())["articles"][0][
+        "coverage_check"
+    ]["omitted_source_units"] == [
+        {
+            "reason": "The source unit requires an exact maintainer disposition.",
+            "source_unit_id": blocked_unit_id,
+        }
+    ]
 
 
 def test_promoted_pilot_compiles_into_canonical_shadow_only(tmp_path: Path):
@@ -703,6 +1103,8 @@ def test_source_native_relationship_resolves_existing_public_alias(
             "schema": "rock-kb-recipe-v1",
             "recipe_id": "test",
             "review_status": "community_reviewed",
+            "implementation": {"commit_sha": "a" * 40},
+            "updated_at": "2026-07-31",
         },
     }
 

@@ -29,6 +29,10 @@ from .schemas import (
     SourceUnit,
 )
 from .service_projection import build_search_rows
+from .source_family_contracts import (
+    source_family_contract,
+    source_family_contract_summary,
+)
 from .source_native import (
     canonical_records_for_source_native_artifacts,
     load_source_native_pilot,
@@ -915,6 +919,7 @@ class _ProjectionBuilder:
             updated = item.model_copy(
                 update={
                     "knowledge_unit_id": identity.knowledge_unit_id,
+                    "ingestion_mode": "reviewed_cross_source_synthesis",
                     "legacy_ids": identity.aliases,
                 }
             )
@@ -1039,6 +1044,7 @@ class _ProjectionBuilder:
             updated = item.model_copy(
                 update={
                     "knowledge_unit_id": identity.knowledge_unit_id,
+                    "ingestion_mode": "source_native_distillation",
                     "source_work_ids": source_work_ids,
                     "legacy_ids": identity.aliases,
                 }
@@ -1238,6 +1244,7 @@ class _ProjectionBuilder:
             schema="rock-kb-knowledge-unit-v1",
             knowledge_unit_id=knowledge_unit_id,
             knowledge_type="claim",
+            ingestion_mode="legacy_reviewed_claim_projection",
             title=statement[:500],
             retrieval_text=statement,
             concept_facets=concepts,
@@ -1273,6 +1280,7 @@ class _ProjectionBuilder:
         row = dict(raw)
         kind = str(row.get("kind") or "other")
         payload = dict(row.get("payload") or {})
+        contract = source_family_contract(kind, payload)
         assert_public_safe(payload)
         row_id = str(row.get("id") or "")
         title = str(row.get("title") or row_id)
@@ -1329,6 +1337,7 @@ class _ProjectionBuilder:
             schema="rock-kb-knowledge-unit-v1",
             knowledge_unit_id=knowledge_unit_id,
             knowledge_type=kind if kind in SUPPORTED_SEARCH_KINDS else "other",
+            ingestion_mode=contract.ingestion_mode,
             title=title,
             retrieval_text=retrieval_text,
             concept_facets=sorted({str(value) for value in row.get("concepts") or [] if value}),
@@ -1588,6 +1597,7 @@ def projection_summary(
         if statement:
             distilled_groups[canonical_claim_fingerprint(statement, str(row.get("claim_type") or "other"))].append(row)
     knowledge_kind_counts = Counter(row.knowledge_type for row in bundle.knowledge_units)
+    ingestion_mode_counts = Counter(row.ingestion_mode for row in bundle.knowledge_units)
     direct_database_units = [
         row
         for row in bundle.knowledge_units
@@ -1647,6 +1657,14 @@ def projection_summary(
             "evidence_links": len(bundle.evidence_links),
             "relationships": len(bundle.relationships),
             "knowledge_types": dict(sorted(knowledge_kind_counts.items())),
+            "ingestion_modes": dict(sorted(ingestion_mode_counts.items())),
+            "source_family_contracts": source_family_contract_summary(
+                [
+                    row
+                    for row in supported_rows
+                    if str(row.get("kind") or "") != "claim"
+                ]
+            ),
             "mirror_relationships": sum(1 for row in bundle.relationships if row.relation == "mirrors"),
         },
         "regressions": {

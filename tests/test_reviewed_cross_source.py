@@ -53,6 +53,8 @@ def issue_search_row() -> dict:
             "source_id": "rock_core_issues",
             "github_node_id": "I_kwDOABihOc8AAAABIN1ZQA",
             "url": "https://github.com/SparkDevNetwork/Rock/issues/6914",
+            "updated_at": "2026-07-26T20:26:36Z",
+            "source_content_hash": "a" * 64,
             "authority_tier": "community-unreviewed",
             "claim_tier": "routing_context_only",
         },

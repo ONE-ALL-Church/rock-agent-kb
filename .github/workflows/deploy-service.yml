@@ -29,6 +29,7 @@ on:
       - "src/rock_kb/canonical_retrieval_shadow.py"
       - "src/rock_kb/schemas/knowledge.py"
       - "src/rock_kb/schemas/source_native.py"
+      - "src/rock_kb/source_family_contracts.py"
       - "src/rock_kb/source_native.py"
       - "src/rock_kb/service_projection.py"
       - "src/rock_kb/service_eval.py"

@@ -100,9 +100,13 @@ The canonical knowledge architecture remains non-default. Maintainers
 can run `uv run kb tools canonical-shadow` to test shared source snapshots,
 source units, generation activities, evidence links, typed relationships,
 persistent identity records, and explicit identity migrations without changing
-claims or retrieval. The bounded source-native documentation pilot under
+claims or retrieval. The reviewed source-native documentation bundle under
 `canonical/source-native/v1/` is compiled from deterministic Rockumentation
-sentence/table/code/list-item units and reviewer-approved v2.3 typed artifacts.
+sentence/table/code/list-item units and reviewer-approved adaptive v2.3 typed
+artifacts. The public `canonical/source-family-contracts-v1.json` distinguishes
+that model-assisted path from deterministic typed ingestion for issues, Ideas,
+Model Map, Lava contexts, recipes, and contributions, while exposing remaining
+legacy projections as migration debt.
 Nested catalogs retain parent links, and source snapshots preserve API-derived
 documentation path/branch routing plus independent check/change timestamps;
 full source text stays ignored. Run

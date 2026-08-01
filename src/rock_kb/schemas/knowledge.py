@@ -52,6 +52,15 @@ KnowledgeType = Literal[
     "source_summary",
     "other",
 ]
+IngestionMode = Literal[
+    "source_native_distillation",
+    "reviewed_cross_source_synthesis",
+    "reviewed_typed_record",
+    "official_api_derived_record",
+    "source_code_derived_record",
+    "legacy_reviewed_claim_projection",
+    "legacy_summary_projection",
+]
 EvidenceRelation = Literal[
     "supports",
     "qualifies",
@@ -292,6 +301,7 @@ class KnowledgeUnit(KBRecord):
     schema_: Literal["rock-kb-knowledge-unit-v1"] = Field(alias="schema")
     knowledge_unit_id: str = Field(min_length=3, max_length=240)
     knowledge_type: KnowledgeType
+    ingestion_mode: IngestionMode = "legacy_summary_projection"
     title: str = Field(min_length=1, max_length=500)
     retrieval_text: str = Field(min_length=1, max_length=100_000)
     concept_facets: list[str] = Field(default_factory=list, max_length=100)
