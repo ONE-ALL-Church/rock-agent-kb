@@ -29,6 +29,7 @@ from .source_native import (
     SourceNativeArtifactCandidate,
     SourceNativeDistillationOutput,
     SourceNativePilotManifest,
+    SourceNativeVerificationQueueItem,
 )
 
 __all__ = [
@@ -57,6 +58,7 @@ __all__ = [
     "SourceNativeArtifactCandidate",
     "SourceNativeDistillationOutput",
     "SourceNativePilotManifest",
+    "SourceNativeVerificationQueueItem",
     "SourceLocator",
     "SourceSnapshot",
     "SourceUnit",

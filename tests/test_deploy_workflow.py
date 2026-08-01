@@ -27,3 +27,4 @@ def test_source_native_pipeline_changes_trigger_service_deploy():
 
     assert '- "src/rock_kb/source_native.py"' in workflow
     assert '- "src/rock_kb/schemas/source_native.py"' in workflow
+    assert '- "src/rock_kb/source_family_contracts.py"' in workflow

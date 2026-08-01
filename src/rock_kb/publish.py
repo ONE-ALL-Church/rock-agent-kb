@@ -15,6 +15,7 @@ from .sources import load_sources
 
 PUBLIC_PATHS = [
     "canonical/identity/v1",
+    "canonical/source-family-contracts-v1.json",
     "canonical/source-native/v1",
     "canonical/cross-source/v1",
     "claims/approved-claims.jsonl",

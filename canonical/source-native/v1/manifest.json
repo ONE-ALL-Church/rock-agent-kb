@@ -1,21 +1,45 @@
 {
+  "article_count": 24,
+  "artifact_type_counts": {
+    "claim": 42,
+    "recipe": 6,
+    "source_summary": 15,
+    "structured_reference": 65,
+    "task_card": 22
+  },
   "concept_ids": [
     "check-in",
-    "system-admin-ops"
+    "communications",
+    "security-permissions",
+    "system-admin-ops",
+    "workflows"
   ],
-  "evaluation_case_count": 90,
+  "evaluation_case_count": 176,
   "file_hashes": {
-    "evaluation-holdout.jsonl": "ea14bc2b84e1344b185a783cb7b1003ac23172d166bc67368b8ad7e8faa0a3d3",
-    "evaluation-set.jsonl": "b4c626da5dbabd36cc74a663d6fd5b186368018828ee8c4a53c93eb593b74d08",
-    "generation-activities.jsonl": "efebd3ead5341909d3188eeeabacee61bcfbde870a416515b547e248b4caa4e1",
-    "relationships.jsonl": "515fe9e2c00cf09d7d125bb331772e9dc517f73a19949989c7533562df17ec18",
-    "reviewed-artifacts.jsonl": "6ae9046372f42f8e7d3103da192dc47663faf51b55ccd3f81459c3c3a9195cec",
-    "source-snapshots.jsonl": "9990b3b73783eece1d759220e6001551830df560c5b8ab61a20d7b6a81cd6bbd",
-    "source-units.jsonl": "2b01af98ea2fcdcb55f51f6734b6f6eb8e333c2e39addd818fc87aaf572d7ce2"
+    "evaluation-holdout.jsonl": "284bdb748c9eee1944f125a7a52c4549053380f8aa24dacee262c45af0f51891",
+    "evaluation-set.jsonl": "4e3122f066f898e96e146523bf5d8bd11c201e59f8858c5a2f0cfebd40484dd2",
+    "generation-activities.jsonl": "18818da391f06a674c41035e22eda22a044187da10bc77e0297b275a37c5f747",
+    "relationships.jsonl": "befb9d3f495323cd559224ea5adf35b22c4e940788ce95860fe941f709c6bb91",
+    "reviewed-artifacts.jsonl": "380676556d84b3cdda7d49f810682525f42897ee77d72450193454fb34e8a2dc",
+    "source-snapshots.jsonl": "94f0e5e5116c9b50a140a086598f2f364f2e71d43182df393538d5c5b7139173",
+    "source-units.jsonl": "84b1bf43b5f6e3d7226deb458756b155ff5d7d0b8c6bfd22992a149dc3eaaaa2",
+    "split-rules.jsonl": "41a123820117e487c99d92896c7de6944e5d83d31e69ba0b64d0708da435cf87",
+    "verification-queue.jsonl": "de5cd4c275ad492404d9ef98f09744b17fd4e765fb7dc6f7eb3ded74d9f29ef0"
   },
-  "generation_activity_count": 12,
+  "generation_activity_count": 24,
+  "generation_input_hash_versions": {
+    "1": 12,
+    "2": 12
+  },
+  "generation_models": {
+    "gpt-5.6-sol": 24
+  },
+  "generation_prompt_versions": {
+    "2.3.0": 12,
+    "2.3.1": 12
+  },
   "notes": [
-    "The pilot is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
+    "The source-native bundle is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
     "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text.",
     "Bounded factual catalogs may preserve reviewed field names, types, settings, and option matrices without reproducing expressive article prose.",
     "Unprocessed product-version scope is exposed separately from the observed documentation revision."
@@ -23,11 +47,16 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 19,
-  "reviewed_artifact_count": 76,
+  "relationship_count": 30,
+  "review_changed_article_count": 3,
+  "reviewed_artifact_count": 150,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
+  "source_family_counts": {
+    "rock_documentation": 24
+  },
   "source_refresh_required_for_rebuild": true,
-  "source_snapshot_count": 12,
-  "source_unit_count": 336,
-  "status": "shadow_only"
+  "source_snapshot_count": 24,
+  "source_unit_count": 722,
+  "status": "shadow_only",
+  "verification_request_count": 34
 }

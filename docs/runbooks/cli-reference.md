@@ -201,9 +201,15 @@ uv run kb tools repo-pack --repo https://github.com/SparkDevNetwork/Rock
 uv run kb tools canonical-shadow
 uv run kb tools canonical-retrieval-shadow
 uv run kb tools canonical-identity-baseline
-uv run kb tools source-native-candidates --concept system-admin-ops --concept check-in
+uv run kb tools source-family-contracts
+uv run kb tools source-native-candidates \
+  --concept workflows \
+  --concept communications \
+  --concept security-permissions \
+  --limit-per-concept 4
 uv run kb tools source-native-schema
-uv run kb tools source-native-prompt --concept system-admin-ops
+uv run kb tools source-native-prompt \
+  --source-record-id rock_documentation:article:<id>
 uv run kb tools source-native-merge --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-promote --output <reviewed-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
@@ -235,19 +241,33 @@ only current or legacy result IDs already exposed by the public retrieval
 projection. Unpublished pilot migrations remain under ignored review data and
 are never copied into the baseline. This command does not switch retrieval.
 
+`kb tools source-family-contracts` writes the reviewed machine-readable
+ingestion contracts for generated knowledge and deterministic typed records.
+The manifest distinguishes source-native documentation, reviewed cross-source
+synthesis, API-derived records, source-code-derived records, reviewed typed
+records, and remaining legacy projections. It also records that legacy
+retrieval is still the default and canonical retrieval is shadow/canary only.
+
 `kb tools source-native-candidates` fetches selected Rockumentation articles
 through the official block-action API and writes deterministic sentence, table,
 code, and addressable list-item units to ignored review data. Nested catalogs
 retain parent links, while API documentation paths and branch hierarchies remain
 structured routing metadata. `source-native-schema` and `source-native-prompt`
-create a strict v2.3 structured-output contract and a bounded model packet.
+create a strict v2.3 structured-output contract and a bounded model packet. Use
+`--source-record-id` for stable article retries; `--candidate-id` targets an
+exact content-derived input revision.
 `source-native-merge` requires exact batch coverage and reruns the semantic
-gate. `source-native-promote` accepts only maintainer-reviewed, public-safe typed
+gate. `--allow-review-blockers` may assemble exact `split_required` feedback
+only into an ignored private review packet; it does not relax promotion.
+`source-native-promote` accepts only maintainer-reviewed, public-safe typed
 artifacts with complete source-unit coverage; raw article text is never tracked.
-Use `--reviewed-at` to reproduce the hashes of an existing approval.
+Use `--base` for an append-safe refresh, `--generated-output` to record bounded
+reviewer-correction metrics, and `--reviewed-at` to reproduce the hashes of an
+existing approval. Reviewed hash-bound split rules and unresolved verification
+requests remain public-safe bundle metadata.
 `source-native-impact` compares two reviewed bundles and reports only the
 dependent knowledge and projections that require revalidation. The tracked
-pilot remains an inactive canonical shadow input.
+bundle remains an inactive canonical shadow input.
 
 `kb tools reviewed-cross-source-promote` compiles a maintainer-reviewed
 multi-source decision into source snapshots, addressable units, generation

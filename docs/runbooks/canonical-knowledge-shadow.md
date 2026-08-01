@@ -58,6 +58,21 @@ lifecycle observations are not flattened into claims, recipes retain security
 and adaptation fields, and Model Map records retain their structured model
 payloads.
 
+The reviewed machine-readable contracts live in
+`canonical/source-family-contracts-v1.json`. Rebuild them with:
+
+```bash
+uv run kb tools source-family-contracts
+```
+
+Official documentation uses source-native distillation because prose must be
+separated into independently useful claims, procedures, recipes, references,
+and discovery summaries. Already structured issue, Idea, Model Map, Lava
+context, recipe, and contribution records retain deterministic typed ingestion
+contracts instead of being rewritten by a model. Legacy reviewed claims and
+source summaries are explicitly labeled as legacy projections so remaining
+migration work stays measurable.
+
 The bundle validator rejects `existing_knowledge_projection` units as primary
 evidence. Private source-unit text is schema-marked private and omitted from
 public serialization.
@@ -93,21 +108,24 @@ public serialization.
 - Existing claims, answer packs, lexical retrieval, MCP behavior, CLI behavior,
   and OKF exports remain the default authoritative interface.
 
-## Source-Native Documentation Pilot
+## Source-Native Documentation Bundle
 
-The tracked `canonical/source-native/v1/` pilot tests source-native ingestion
-for `system-admin-ops` and `check-in`. It is a non-default input to the
+The tracked `canonical/source-native/v1/` bundle contains reviewed
+source-native documentation for `system-admin-ops`, `check-in`, `workflows`,
+`communications`, and `security-permissions`. It is a non-default input to the
 canonical shadow and opt-in canary, not to ordinary retrieval or OKF.
 
 Build deterministic private review inputs from the Rockumentation API:
 
 ```bash
 uv run kb tools source-native-candidates \
-  --concept system-admin-ops \
-  --concept check-in \
-  --limit-per-concept 6
+  --concept workflows \
+  --concept communications \
+  --concept security-permissions \
+  --limit-per-concept 4
 uv run kb tools source-native-schema
-uv run kb tools source-native-prompt --concept system-admin-ops
+uv run kb tools source-native-prompt \
+  --source-record-id rock_documentation:article:<id>
 ```
 
 The parser assigns stable IDs before model review to sentences, tables, code
@@ -117,25 +135,43 @@ documentation path and branch hierarchy, separate check/change timestamps, the
 upstream documentation revision, and parser version. Full article text and
 source-unit text remain under ignored `data/review/`. The v2.3 prompt can
 classify a supplied unit or request a deterministic split; it cannot invent
-evidence addresses.
+evidence addresses or target a fixed number of claims. Maintainer-approved,
+content-hash-bound sentence splits are recorded in `split-rules.jsonl`; a rule
+that no longer matches current source text fails closed.
+
+The model input hash covers the stable source snapshot, parser and split-rule
+revision, every source unit and locator, concept facets, existing-claim review
+context, and documentation routing/version metadata. Volatile check timestamps
+are excluded. A context-only change therefore invalidates stale generation
+without forcing re-review when only `last_checked_at` advances.
 
 Merge every schema-constrained model batch and run the semantic gate before
 maintainer review:
 
 ```bash
 uv run kb tools source-native-merge \
-  --input data/review/source-native-pilot/distillation-input.jsonl \
-  --batch data/review/source-native-pilot/output-a.json \
-  --batch data/review/source-native-pilot/output-b.json \
-  --destination data/review/source-native-pilot/reviewed-output.json
+  --input data/review/source-native-expansion/distillation-input.jsonl \
+  --batch data/review/source-native-expansion/model-output/batch-a.json \
+  --batch data/review/source-native-expansion/model-output/batch-b.json \
+  --destination data/review/source-native-expansion/generated-output.json
 ```
+
+The strict merge rejects `split_required` feedback by default. If a model has
+returned exact-coverage split feedback, use `--allow-review-blockers` only to
+assemble the ignored private review packet. A maintainer must then either add a
+content-hash-bound deterministic split or explicitly correct an overcalled
+split in the reviewed output. Promotion always reruns the strict gate and never
+accepts an unresolved blocker.
 
 After maintainer review, promote only the public-safe paraphrases and provenance:
 
 ```bash
 uv run kb tools source-native-promote \
-  --input data/review/source-native-pilot/distillation-input.jsonl \
-  --output data/review/source-native-pilot/reviewed-output.json \
+  --input data/review/source-native-expansion/distillation-input.jsonl \
+  --output data/review/source-native-expansion/reviewed-output.json \
+  --generated-output data/review/source-native-expansion/generated-output.json \
+  --base canonical/source-native/v1 \
+  --destination canonical/source-native/v1 \
   --reviewer <reviewer-id> \
   --model <exact-model-id> \
   --reviewed-at <iso-8601>
@@ -144,7 +180,10 @@ uv run kb tools source-native-promote \
 Promotion fails unless every source unit has one decision, every useful unit
 has exactly one primary artifact type, claim and procedure/reference material
 are separated, mutable defaults carry verification status, and no split request
-remains. Compare refreshes with:
+remains. Append mode replaces only refreshed source works, preserves unrelated
+artifacts and holdouts, rejects stale holdout IDs, records model-versus-reviewer
+change counts, and writes unresolved checks to `verification-queue.jsonl`.
+Compare refreshes with:
 
 ```bash
 uv run kb tools source-native-impact \
@@ -154,6 +193,8 @@ uv run kb tools source-native-impact \
 
 The impact report queues only knowledge units that depend on added, removed, or
 changed source units. Unrelated knowledge and projections remain untouched.
+Verification requests remain explicit caveats; they are not silently promoted
+to live-verified facts.
 
 ## Reviewed Cross-Source Synthesis
 

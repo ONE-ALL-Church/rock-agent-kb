@@ -18,6 +18,10 @@ from ..reviewed_cross_source import (
     REVIEW_DECISIONS_NAME,
     promote_reviewed_cross_source,
 )
+from ..source_family_contracts import (
+    SOURCE_FAMILY_CONTRACT_MANIFEST_PATH,
+    write_source_family_contract_manifest,
+)
 from ..source_native import (
     SOURCE_NATIVE_PILOT_CONCEPTS,
     SOURCE_NATIVE_PILOT_DIR,
@@ -36,6 +40,25 @@ from . import _legacy as legacy
 app = typer.Typer(help="Developer utility commands.")
 
 app.command("repo-pack")(legacy.repo_pack)
+
+
+@app.command("source-family-contracts")
+def source_family_contracts(
+    destination: Path = typer.Option(
+        SOURCE_FAMILY_CONTRACT_MANIFEST_PATH,
+        "--destination",
+        help="Tracked machine-readable canonical ingestion contracts.",
+    ),
+) -> None:
+    """Write reviewed ingestion contracts for each canonical source family."""
+
+    typer.echo(
+        json.dumps(
+            write_source_family_contract_manifest(destination),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
 
 
 @app.command("canonical-shadow")
@@ -157,7 +180,7 @@ def source_native_candidates(
         list(SOURCE_NATIVE_PILOT_CONCEPTS),
         "--concept",
         "-c",
-        help="Concept to include in the source-native documentation pilot.",
+        help="Concept to include in the source-native documentation batch.",
     ),
     limit_per_concept: int = typer.Option(
         SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
@@ -225,6 +248,16 @@ def source_native_prompt(
         "--concept",
         help="Optionally render only candidates for one concept.",
     ),
+    candidate_id: str | None = typer.Option(
+        None,
+        "--candidate-id",
+        help="Render the one exact content-derived candidate ID.",
+    ),
+    source_record_id: str | None = typer.Option(
+        None,
+        "--source-record-id",
+        help="Render the one exact stable source record, including after a split.",
+    ),
     offset: int = typer.Option(0, "--offset", min=0),
     limit: int | None = typer.Option(
         None,
@@ -241,6 +274,8 @@ def source_native_prompt(
                 input_path=input_path,
                 destination=destination,
                 concept_id=concept,
+                candidate_id=candidate_id,
+                source_record_id=source_record_id,
                 offset=offset,
                 limit=limit,
             ),
@@ -270,7 +305,7 @@ def source_native_promote(
     destination: Path = typer.Option(
         SOURCE_NATIVE_PILOT_DIR,
         "--destination",
-        help="Tracked public-safe source-native pilot directory.",
+        help="Tracked public-safe source-native bundle directory.",
     ),
     reviewer: str = typer.Option(..., "--reviewer"),
     model: str = typer.Option(..., "--model"),
@@ -295,6 +330,28 @@ def source_native_promote(
             "occurs later."
         ),
     ),
+    base_dir: Path | None = typer.Option(
+        None,
+        "--base",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+        help=(
+            "Append to this reviewed source-native bundle, replacing only "
+            "records for refreshed source works."
+        ),
+    ),
+    generated_output_path: Path | None = typer.Option(
+        None,
+        "--generated-output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help=(
+            "Unedited merged model output used to record bounded reviewer "
+            "correction metrics without publishing the raw review file."
+        ),
+    ),
 ) -> None:
     """Validate reviewed typed artifacts and write the public-safe shadow bundle."""
 
@@ -309,6 +366,8 @@ def source_native_promote(
                 reviewed_at=reviewed_at,
                 generation_prompt_version=generation_prompt_version,
                 generated_at=generated_at,
+                base_dir=base_dir,
+                generated_output_path=generated_output_path,
             ),
             ensure_ascii=False,
             indent=2,
@@ -339,6 +398,14 @@ def source_native_merge(
         file_okay=True,
         dir_okay=False,
     ),
+    allow_review_blockers: bool = typer.Option(
+        False,
+        "--allow-review-blockers",
+        help=(
+            "Write a private review packet containing exact split_required "
+            "feedback; final promotion remains strict."
+        ),
+    ),
 ) -> None:
     """Merge model batches in source order and enforce the semantic gate."""
 
@@ -348,6 +415,7 @@ def source_native_merge(
                 input_path=input_path,
                 batch_paths=batch,
                 destination=destination,
+                allow_review_blockers=allow_review_blockers,
             ),
             ensure_ascii=False,
             indent=2,

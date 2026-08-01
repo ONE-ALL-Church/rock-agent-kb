@@ -69,6 +69,7 @@ def test_source_specific_payload_is_preserved_inside_common_envelope(tmp_path):
             "repository_url": "https://github.com/example/recipes",
             "source_path": "recipes/test",
         },
+        "updated_at": "2026-07-31",
         "custom_recipe_field": {"kept": True},
     }
     search_row = {
@@ -266,6 +267,8 @@ def test_retired_shadow_identity_migration_is_not_carried_into_current_bundle():
             "schema": "rock-kb-recipe-v1",
             "recipe_id": "example:current",
             "review_status": "community_reviewed",
+            "implementation": {"commit_sha": "a" * 40},
+            "updated_at": "2026-07-31",
         },
     }
     stale_migration = {
@@ -318,6 +321,8 @@ def test_retired_shadow_identity_migration_is_archived(tmp_path):
             "schema": "rock-kb-recipe-v1",
             "recipe_id": "example:current",
             "review_status": "community_reviewed",
+            "implementation": {"commit_sha": "a" * 40},
+            "updated_at": "2026-07-31",
         },
     }
 
@@ -353,6 +358,8 @@ def test_identity_registry_and_migrations_are_byte_stable_on_rerun(tmp_path):
             "schema": "rock-kb-recipe-v1",
             "recipe_id": "example:stable",
             "review_status": "community_reviewed",
+            "implementation": {"commit_sha": "a" * 40},
+            "updated_at": "2026-07-31",
         },
     }
     write_canonical_knowledge_shadow(

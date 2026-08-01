@@ -279,6 +279,34 @@ class SourceNativeVerificationRequest(KBRecord):
     why_material: str = Field(min_length=10, max_length=1500)
 
 
+class SourceNativeVerificationQueueItem(KBRecord):
+    schema_: Literal["rock-kb-source-native-verification-request-v1"] = Field(
+        alias="schema"
+    )
+    verification_id: str = Field(min_length=3, max_length=240)
+    source_candidate_id: str = Field(min_length=3, max_length=240)
+    artifact_ids: list[str] = Field(default_factory=list, max_length=50)
+    concept_ids: list[str] = Field(min_length=1, max_length=20)
+    source_unit_ids: list[str] = Field(min_length=1, max_length=50)
+    verification_surface: Literal[
+        "public_source_code",
+        "official_api",
+        "read_only_instance",
+        "maintainer_review",
+    ]
+    question: str = Field(min_length=10, max_length=1000)
+    why_material: str = Field(min_length=10, max_length=1500)
+    review_state: Literal["needs_verification"] = "needs_verification"
+
+    @model_validator(mode="after")
+    def validate_unique_references(self) -> "SourceNativeVerificationQueueItem":
+        for field_name in ("artifact_ids", "concept_ids", "source_unit_ids"):
+            values = getattr(self, field_name)
+            if len(values) != len(set(values)):
+                raise ValueError(f"{field_name} values must be unique")
+        return self
+
+
 class SourceNativeCoverageCheck(KBRecord):
     material_unit_count: int = Field(ge=0, le=200)
     captured_source_unit_ids: list[str] = Field(default_factory=list, max_length=200)
@@ -391,12 +419,20 @@ class SourceNativePilotManifest(KBRecord):
     prompt_id: Literal["source-knowledge-distillation-v2.3"]
     prompt_version: str = Field(min_length=1, max_length=80)
     concept_ids: list[str] = Field(min_length=1, max_length=20)
+    article_count: int = Field(default=0, ge=0)
     source_snapshot_count: int = Field(ge=0)
     source_unit_count: int = Field(ge=0)
     generation_activity_count: int = Field(ge=0)
     reviewed_artifact_count: int = Field(ge=0)
     relationship_count: int = Field(ge=0)
     evaluation_case_count: int = Field(ge=0)
+    verification_request_count: int = Field(default=0, ge=0)
+    artifact_type_counts: dict[str, int] = Field(default_factory=dict)
+    generation_prompt_versions: dict[str, int] = Field(default_factory=dict)
+    generation_models: dict[str, int] = Field(default_factory=dict)
+    generation_input_hash_versions: dict[str, int] = Field(default_factory=dict)
+    review_changed_article_count: int = Field(default=0, ge=0)
+    source_family_counts: dict[str, int] = Field(default_factory=dict)
     file_hashes: dict[str, str] = Field(default_factory=dict)
     source_refresh_required_for_rebuild: bool = True
     notes: list[str] = Field(default_factory=list, max_length=30)

@@ -164,6 +164,7 @@ def promote_reviewed_cross_source(
             schema="rock-kb-knowledge-unit-v1",
             knowledge_unit_id=artifact.knowledge_unit_id,
             knowledge_type=artifact.knowledge_type,
+            ingestion_mode="reviewed_cross_source_synthesis",
             title=artifact.title,
             retrieval_text=artifact.retrieval_text,
             concept_facets=sorted(artifact.concept_ids),
