@@ -50,7 +50,8 @@ Use workflow forms for structured input, activities for stages or responsibility
 
 ## Scope And Boundaries
 
-This guide covers:
+This guide covers the workflow surfaces organized by Rock's
+[official Workflows documentation](https://community.rockrms.com/documentation/core-concepts/workflows):
 
 - Workflow types, attributes, activities, actions, instances, persistence, and assignment.
 - Workflow activation from entry pages, URLs, person or entity contexts, grids, jobs, Lava, webhooks, SMS Pipeline, and adjacent Rock surfaces.

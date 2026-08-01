@@ -503,6 +503,133 @@ def test_client_canonical_canary_requires_opt_in_and_sets_projection(
     assert "requires anonymous opt-in" in capsys.readouterr().err
 
 
+def test_client_version_is_available_without_a_subcommand(monkeypatch, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(cli, "package_version", lambda: "0.14.0")
+
+    with pytest.raises(SystemExit) as exc:
+        cli.main(["--version"])
+
+    assert exc.value.code == 0
+    assert capsys.readouterr().out.strip() == "rock-kb 0.14.0"
+
+
+def test_client_comparison_requires_external_opt_in(monkeypatch, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(cli, "telemetry_headers", lambda: {})
+    monkeypatch.setattr(cli, "post_json", lambda *_args, **_kwargs: pytest.fail("comparison should not be posted"))
+
+    with pytest.raises(SystemExit) as exc:
+        cli.main(["compare", "content channel authorization"])
+
+    assert exc.value.code == 2
+    assert "requires anonymous opt-in" in capsys.readouterr().err
+
+
+def test_client_comparison_submits_only_bounded_review_fields(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(
+        cli,
+        "telemetry_headers",
+        lambda: {
+            "x-rock-kb-cohort": "external-test",
+            "x-rock-kb-installation-id": f"rkbi_{'d' * 43}",
+        },
+    )
+    monkeypatch.setattr(cli, "passive_skill_checks", lambda **_kwargs: [])
+    calls: list[tuple[str, dict]] = []
+
+    def fake_post_json(url: str, payload: dict, token: str = ""):
+        calls.append((url, payload))
+        if url.endswith("/comparisons"):
+            return {
+                "schema": "rock-kb-retrieval-comparison-v1",
+                "status": "ready",
+                "comparison_id": "kbc_0123456789abcdef01234567",
+                "options": [
+                    {"label": "A", "results": [{"id": "claim:first"}]},
+                    {"label": "B", "results": [{"id": "claim:second"}]},
+                ],
+            }
+        return {"schema": "rock-kb-retrieval-comparison-review-v1", "status": "recorded"}
+
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+    review_file = tmp_path / "comparison-review.json"
+    review_file.write_text(
+        json.dumps({"preference": "b_better", "reason_codes": ["better_match", "better_sourced"]}),
+        encoding="utf-8",
+    )
+
+    assert cli.main([
+        "--url", "https://example.test",
+        "compare", "content channel authorization",
+        "--category", "version_sensitive",
+        "--review-file", str(review_file),
+        "--submit",
+        "--consent-attested",
+    ]) == 0
+
+    assert calls == [
+        (
+            "https://example.test/comparisons",
+            {
+                "query": "content channel authorization",
+                "category": "version_sensitive",
+                "limit": 3,
+                "min_claim_tier": "source_backed",
+            },
+        ),
+        (
+            "https://example.test/comparisons/review",
+            {
+                "comparison_id": "kbc_0123456789abcdef01234567",
+                "preference": "b_better",
+                "reason_codes": ["better_match", "better_sourced"],
+                "consent_attested": True,
+            },
+        ),
+    ]
+    output = capsys.readouterr().out
+    assert "content channel authorization" not in output
+    assert '"status": "recorded"' in output
+
+
+def test_client_comparison_rejects_incompatible_review_before_submission(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    monkeypatch.setattr(
+        cli,
+        "telemetry_headers",
+        lambda: {
+            "x-rock-kb-cohort": "maintainer",
+            "x-rock-kb-installation-id": f"rkbi_{'e' * 43}",
+        },
+    )
+    monkeypatch.setattr(cli, "passive_skill_checks", lambda **_kwargs: [])
+    calls: list[str] = []
+
+    def fake_post_json(url: str, payload: dict, token: str = ""):
+        calls.append(url)
+        return {
+            "status": "ready",
+            "comparison_id": "kbc_abcdef0123456789abcdef01",
+            "options": [{"label": "A", "results": []}, {"label": "B", "results": []}],
+        }
+
+    monkeypatch.setattr(cli, "post_json", fake_post_json)
+    review_file = tmp_path / "invalid-comparison-review.json"
+    review_file.write_text(
+        json.dumps({"preference": "equivalent", "reason_codes": ["better_match"]}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit) as exc:
+        cli.main(["compare", "workflow form action", "--review-file", str(review_file), "--submit", "--consent-attested"])
+
+    assert exc.value.code == 2
+    assert calls == []
+    assert "incompatible with equivalent" in capsys.readouterr().err
+
+
 def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
     cli = load_client_cli()
     urls: list[str] = []
@@ -1344,6 +1471,29 @@ def test_client_telemetry_opt_in_is_private_and_mcp_config_uses_anonymous_marker
     disabled = json.loads(capsys.readouterr().out)
     assert disabled["enabled"] is False
     assert not state_path.exists()
+
+
+def test_client_telemetry_version_two_does_not_authorize_expanded_comparison_retention():
+    load_client_cli()
+    from rock_kb_client.telemetry import TELEMETRY_STATE_SCHEMA, telemetry_headers, telemetry_state_path, telemetry_status
+
+    state_path = telemetry_state_path()
+    state_path.parent.mkdir(parents=True)
+    state_path.write_text(
+        json.dumps({
+            "schema": TELEMETRY_STATE_SCHEMA,
+            "enabled": True,
+            "consent_notice_version": 2,
+            "cohort": "external-test",
+            "installation_id": f"rkbi_{'f' * 43}",
+        }),
+        encoding="utf-8",
+    )
+
+    assert telemetry_headers() == {}
+    status = telemetry_status()
+    assert status["enabled"] is False
+    assert status["consent_notice_version"] is None
 
 
 def test_client_telemetry_status_detects_current_managed_mcp_configuration(monkeypatch, capsys):

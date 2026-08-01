@@ -10,11 +10,10 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
-- `scope-and-boundaries`: Scope And Boundaries (162 words)
-- `known-gaps-and-live-verification`: Known Gaps And Live Verification (252 words)
 
 ## Community-Supported Only
 
+- `workflow-forms-person-and-family-entry-patterns`: Person and family entry patterns
 - `workflow-integrations-lava-entity-operations`: Lava entity operations
 - `adjacent-operational-patterns`: Adjacent Operational Patterns
 - `troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank`: `workflowactivate` starts a workflow but values are blank

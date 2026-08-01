@@ -546,7 +546,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.9.0"
+    assert skill_manifest["skill_version"] == "1.10.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))

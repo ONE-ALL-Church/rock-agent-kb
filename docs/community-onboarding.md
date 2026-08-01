@@ -186,15 +186,16 @@ uvx rock-kb telemetry enable --cohort external-test --consent-attested
 uvx rock-kb install-agent
 uvx rock-kb --projection canonical-canary search "<real Rock question>"
 uvx rock-kb --projection canonical-canary result "<result-id>"
+uvx rock-kb compare "<real Rock question>" --category normal_task
 ```
 
-Run the same question once without `--projection canonical-canary` for an
-explicit legacy comparison. When a canary result materially contributes to a
-completed task, submit a fixed outcome with the same projection. The canary
-stores no query, church identity, raw marker, IP address, logs, or Rock data,
-and it cannot change the default reader. MCP-capable agents pass
+Use `compare` for a randomized blind legacy/canonical comparison instead of
+manually labeling two result sets. When a canary result materially contributes
+to a completed task, submit a fixed outcome with the same projection. The
+canary stores no query, church identity, raw marker, IP address, logs, or Rock
+data, and it cannot change the default reader. MCP-capable agents pass
 `projection: "canonical-canary"` to `kb_search`, `kb_get_result`, and
-`kb_outcome`.
+`kb_outcome`, or use `kb_compare_retrieval` for the blind pair.
 
 ### Let Your Agent Provide Ongoing Feedback
 
@@ -203,18 +204,22 @@ submitting quality/usefulness signals. The recommended consent prompt is:
 
 > Rock KB can use privacy-bounded field-validation signals to improve retrieval.
 > It can retain a one-way hash of a random installation marker, a fixed cohort,
-> the public result ID and kind, the KB projection and client version, a fixed
+> public result IDs and kinds, the KB projection and client version, a fixed
 > quality rating or usefulness outcome, fixed reason codes, timestamps, and
-> aggregate counts. It does not retain your question, prompt, organization,
+> aggregate counts. A blind retrieval comparison additionally retains a fixed
+> category, paired public result IDs, projection versions, randomized A/B
+> assignment, and a fixed preference/reason codes; its pending session expires
+> after 30 minutes. It does not retain your question, prompt, organization,
 > church or person identity, IP address, free text, logs, secrets, or private
 > Rock data. May I enable this anonymous marker and submit these signals when I
 > can confidently evaluate a completed task? Choose: Allow automatically, Ask
 > each time, or Do not send. May I remember that choice in private user-level
 > memory?
 
-The agent may store consent notice version `2` in private user-level memory only
-when the human separately permits remembering the choice. A version `1`
-decision does not cover installation markers or usefulness outcomes. The agent
+The agent may store consent notice version `3` in private user-level memory only
+when the human separately permits remembering the choice. A version `2`
+decision does not cover comparison retention and is ignored by the updated
+client. The agent
 must not write the preference or marker to a repository, shared project
 instructions, contribution bundle, or the KB. Without private persistence and
 permission, keep the choice session-scoped and leave persistent telemetry off.
@@ -235,6 +240,11 @@ Standing permission covers only fixed-vocabulary `kb_feedback` for confidently
 assessed result quality and `kb_outcome` for an exact result materially used in
 a completed task. Submit no more than one of each per result per task. Uncertain
 results should receive no signal.
+
+Ask separately before `kb_compare_retrieval` or `rock-kb compare` unless the
+current private preference explicitly grants automatic retrieval comparisons.
+The blind options do not reveal which projection produced them, and the review
+accepts no free text.
 
 Agents must still ask before each redaction-attested malfunction report, each
 reviewed test-round submission, and every public contribution or PR. To revoke,
@@ -344,8 +354,8 @@ Use this in your local agent instructions:
 Before answering a Rock RMS operational question, search the Rock KB first.
 Prefer official, release-note-confirmed, source-code-confirmed, and community-reviewed rows.
 Use community-unreviewed rows only as leads and label them as unreviewed.
-After the first completed KB-assisted task, use consent notice version 2 to ask whether I may enable anonymous field validation and submit fixed exact-result quality feedback and completed-task usefulness outcomes. Offer Allow automatically, Ask each time, or Do not send. Separately ask whether I may remember the choice, and persist it only in private user-level memory with explicit permission.
-Standing consent applies only to kb_feedback and kb_outcome. Ask separately before malfunction reports, test-round submissions, contributions, or public PRs.
+After the first completed KB-assisted task, use consent notice version 3 to ask whether I may enable anonymous field validation and submit fixed exact-result quality feedback and completed-task usefulness outcomes. Explain the separate bounded retention for blind retrieval comparisons. Offer Allow automatically, Ask each time, or Do not send. Separately ask whether I may remember the choice, and persist it only in private user-level memory with explicit permission.
+Standing consent applies only to kb_feedback and kb_outcome. Ask separately before retrieval comparisons unless private memory explicitly allows them, and before malfunction reports, test-round submissions, contributions, or public PRs.
 When you discover a reusable public-safe Rock RMS insight, write a distilled contribution row with source URLs and submit it through rock-kb submit or the kb_submit MCP tool.
 Never submit private person data, internal URLs, raw transcripts, screenshots with private state, SQL exports, tokens, or copied proprietary source text.
 ```

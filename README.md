@@ -40,6 +40,7 @@ Or query the same hosted knowledge from a terminal:
 
 ```bash
 uvx rock-kb search "check-in labels not printing"
+uvx rock-kb --version
 uvx rock-kb result '<result-id>'
 uvx rock-kb lava-context list --family check-in-label
 uvx rock-kb lava-context get check-in-label-checkout-dynamic-text
@@ -63,11 +64,12 @@ filters in one operation:
 uvx rock-kb mcp-config --mode code
 ```
 
-Code Mode excludes all six write-capable tools: feedback, usefulness outcomes,
-Lava-context verification, issue reports, test-round reviews, and community
-contributions. It does not have better knowledge and should not replace direct
-MCP for single searches or exact lookups. Do not download an OKF bundle merely
-to answer an ordinary online question.
+Code Mode excludes all eight write-capable tools: feedback, usefulness
+outcomes, Lava-context verification, issue reports, test-round reviews,
+community contributions, blind comparison starts, and comparison reviews. It
+does not have better knowledge and should not replace direct MCP for single
+searches or exact lookups. Do not download an OKF bundle merely to answer an
+ordinary online question.
 
 ### Opt-In Canonical Retrieval Test
 
@@ -82,7 +84,15 @@ After accepting the privacy notice, enable an anonymous test marker:
 uvx rock-kb telemetry enable --cohort external-test --consent-attested
 uvx rock-kb install-agent
 uvx rock-kb --projection canonical-canary search "content channel item permissions"
+uvx rock-kb compare "content channel item permissions" --category version_sensitive
 ```
+
+`compare` randomizes legacy and canonical results as A/B choices. With an
+explicit reviewed submission it stores only a temporary one-way installation
+hash, fixed category/cohort, paired public result IDs, projection versions, and
+fixed preference/reason codes. The question is used for the two searches but is
+never stored. Legacy retrieval remains the default until real external outcomes
+satisfy the promotion gate.
 
 Pass `--projection canonical-canary` again when expanding a result or reporting
 its outcome. MCP clients pass `projection: "canonical-canary"` to `kb_search`,

@@ -99,10 +99,21 @@ def extract_citations(text: str) -> list[tuple[str, str]]:
 
 def match_source_for_url(url: str, source_index: dict[str, dict[str, Any]]) -> Optional[dict[str, Any]]:
     normalized = normalize_url_for_match(url)
-    for source in source_index.values():
-        source_url = normalize_url_for_match(str(source.get("url") or ""))
-        if normalized == source_url or normalized.startswith(source_url) or source_url.startswith(normalized):
+    candidates = [
+        (source, normalize_url_for_match(str(source.get("url") or "")))
+        for source in source_index.values()
+        if source.get("url")
+    ]
+    for source, source_url in candidates:
+        if normalized == source_url:
             return source
+    prefix_matches = [
+        (abs(len(normalized) - len(source_url)), source)
+        for source, source_url in candidates
+        if normalized.startswith(source_url) or source_url.startswith(normalized)
+    ]
+    if prefix_matches:
+        return min(prefix_matches, key=lambda item: item[0])[1]
     return {
         "source_key": stable_source_key(url, url),
         "source_record_id": "",

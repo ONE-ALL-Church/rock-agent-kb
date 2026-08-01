@@ -7,8 +7,10 @@ contributions.
 
 ## Consent And Setup
 
-Use consent notice version `2`. Version `1` quality-feedback permission does not
-cover an anonymous installation marker or usefulness outcomes. The human must
+Use consent notice version `3`. Version `2` does not cover temporary blind
+comparison sessions, paired public result IDs, or comparison preferences. The
+updated client ignores older consent state rather than silently expanding it.
+The human must
 choose `Allow automatically`, `Ask each time`, or `Do not send`, and must
 separately permit storing that choice in private user-level memory.
 
@@ -61,6 +63,29 @@ Send one to three unique reason codes. Submit at most one quality rating and one
 outcome per exact result per completed task. Submit nothing when the result was
 not materially used or its usefulness is uncertain.
 
+## Blind Retrieval Comparison
+
+Only the opted-in `external-test` and `maintainer` cohorts may compare legacy
+and canonical retrieval. Run a comparison for a real task or a deliberately
+chosen regression case, not a synthetic stream of near-duplicate questions:
+
+```bash
+uvx rock-kb compare "<question>" --category normal_task
+uvx rock-kb compare "<question>" --category version_sensitive \
+  --review --submit --consent-attested
+```
+
+The service queries both projections, randomizes them as A/B, and strips the
+projection label, public result ID, and internal path from returned rows. Each
+displayed row receives only an option-local key such as `A1`. The question is
+used transiently and is not stored. A pending session is usable for 30 minutes
+and retains only a one-way installation hash, fixed cohort/category, paired
+public result IDs, projection versions, and randomized assignment. Expired rows
+are purged on the next comparison start, review attempt, or dashboard read. A
+submitted review adds one fixed preference and one to three compatible reason
+codes. Agents must ask separately before comparisons unless private memory
+records explicit current permission for them.
+
 ## Canonical Canary
 
 The `external-test` and `maintainer` cohorts may explicitly test the
@@ -92,13 +117,17 @@ fixed usefulness value, reason codes, and exact projection hash.
 
 Field validation may retain the hashed installation marker, fixed cohort,
 client class/version, operation, public result ID and kind, projection version,
-fixed rating/outcome/reasons, timestamps, and aggregate counts. It never stores
+fixed rating/outcome/reasons, comparison category, paired public result IDs,
+randomized assignment, fixed comparison preference/reasons, timestamps, and
+aggregate counts. It never stores
 the raw installation marker, question or prompt, organization, church or person
 identity, IP address, raw or hashed query text, attempted exact IDs for misses,
 free text, logs, secrets, or Rock data.
 
-The service rate-limits outcomes to 100 per opted-in installation per UTC day.
-Every accepted outcome returns a stable `kbo_...` identifier.
+The service rate-limits outcomes and comparison starts/submissions to 100 of
+each per opted-in installation per UTC day. Every accepted outcome returns a
+stable `kbo_...` identifier; every comparison uses a temporary `kbc_...`
+identifier.
 
 ## MCP Transport Aggregates
 
@@ -120,15 +149,24 @@ Use `response_size_coverage_rate` and `by_response_size_basis` before comparing
 payload sizes. Unmeasured responses are explicit rather than treated as zero,
 and successful streams are never consumed just to collect telemetry.
 
+Direct GET or DELETE session operations return `405` by design because the MCP
+endpoint is stateless. The dashboard preserves those raw failures but reports
+them separately as expected stateless rejections; use `actionable_failure_count`
+and `actionable_failure_rate` for service-health decisions.
+
 ## Dashboard And Review Queue
 
-`uvx rock-kb dashboard` and `kb_review_dashboard` expose a `field_validation`
-section plus an `mcp_transport` section. Both default views exclude evaluation
-and maintainer traffic. The field-validation funnel counts search, exact
+`uvx rock-kb dashboard` and `kb_review_dashboard` expose `field_validation`,
+`retrieval_comparisons`, and `mcp_transport` sections. Default real-use views
+exclude evaluation and maintainer traffic. The field-validation funnel counts search, exact
 retrieval success/failure, outcome, feedback, and report-issue events. Every
 stage uses the v5 event stream beginning with service v0.16.0; older telemetry
 is intentionally excluded from this funnel so its stages share one coverage
 window. The broader telemetry summary retains historical aggregate continuity.
+The comparison section reports starts, submissions, fixed mapped preferences,
+category/reason aggregates, canonical preference rate, and a bounded queue of
+`legacy_better` or `neither_useful` groups. It never reveals the A/B assignment
+for an individual pending session.
 
 The service builds a bounded queue of at most 50 aggregate review items from:
 

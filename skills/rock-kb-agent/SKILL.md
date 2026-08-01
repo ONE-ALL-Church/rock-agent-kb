@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.9.0"
+  rock-kb-skill-version: "1.10.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-07-30T23:54:25Z"
-  rock-kb-minimum-client-version: "0.20.0"
+  rock-kb-published-at: "2026-08-01T01:40:12Z"
+  rock-kb-minimum-client-version: "0.21.0"
 ---
 
 # Rock KB Agent
@@ -247,6 +247,7 @@ Use these commands for specific jobs:
   raw queries, logs, identities, or private Rock data.
 - `feedback <result-id> --rating <-1|1> --reason <helpful|outdated|missing|incorrect|wrong_route>`: record structured feedback without sending free text.
 - `telemetry enable --cohort <community|external-test|maintainer> --consent-attested`: create a private random installation marker and opt into anonymous field validation. The service stores only its one-way hash. Run `telemetry disable` to revoke the opt-in.
+- `compare <query> [--category <category>] [--review|--review-file <path>] [--submit --consent-attested]`: for an opted-in `external-test` or `maintainer`, blindly compare randomized legacy and canonical A/B results. The question is used transiently and never retained. Ask separately before starting unless current private consent explicitly allows retrieval comparisons.
 - Global `--projection canonical-canary`: for an opted-in `external-test` or
   `maintainer`, use the experimental canonical projection with `search`,
   `result`, or `outcome`. Place the option before the command and use it for
@@ -261,6 +262,8 @@ Use these commands for specific jobs:
 - `mcp-config`: connect clients that support HTTP MCP to the hosted direct tools.
 - `mcp-config --mode code`: opt into the experimental read-only composition
   endpoint. Use direct tools for single calls and every write operation.
+- Global `--version`: print the installed client version without making a
+  network request.
 - `okf download [--profile full|core]`: download and digest-verify a read-only Open Knowledge Format release for offline, pinned, bulk, or interoperable use. Use `core` for a smaller local corpus and `full` for lossless public records.
 - `okf inspect <bundle>`: show an OKF directory or archive's version, source commit, scope, and counts.
 - `okf conformance <bundle>`: apply portable upstream OKF rules to any bundle; broken links and unknown versions are warnings.
@@ -378,6 +381,14 @@ tools instead of shell commands:
   installation marker, record whether an exact public result was `useful`,
   `partially_useful`, or `not_useful` plus one to three compatible fixed reason
   codes. It is task-usefulness evidence, not a free-form comment.
+- `kb_compare_retrieval`: for a consented `external-test` or `maintainer`, run
+  both retrieval projections and return randomized A/B results without a
+  projection label, public ID, or internal path. Display rows use option-local
+  keys such as `A1`. It creates a pending session that is usable for 30 minutes
+  but never stores the question; expired rows are purged on the next comparison
+  start, review attempt, or dashboard read.
+- `kb_submit_retrieval_comparison`: submit only the comparison ID, fixed A/B
+  preference, one to three compatible reason codes, and consent attestation.
 - `kb_report_issue`: report a service, MCP, CLI, schema, authentication, or
   retrieval malfunction. Send only structured fields and a short generic
   redaction-attested description. Never send a query, prompt, raw request or
@@ -385,8 +396,11 @@ tools instead of shell commands:
   identifier. Keep `kb_feedback` for incorrect, outdated, missing, or misrouted
   knowledge.
 - `kb_review_dashboard`: check public review queues, conflicts, community
-  intake, issue reports, hosted evaluation, field-validation counts, and
-  privacy-bounded MCP transport adoption/failure aggregates.
+  intake, issue reports, hosted evaluation, field-validation counts, blind
+  retrieval-comparison outcomes, and privacy-bounded MCP transport
+  adoption/failure aggregates. For stateless direct MCP, use the actionable
+  failure fields; raw `405` GET/DELETE session rejections are expected and
+  reported separately.
 - `kb_get_freshness`: check daily/weekly schedule health and source
   `last_checked_at`, `content_changed_at`, result count, content hash, and
   status independently.
@@ -403,8 +417,7 @@ must already contain the private anonymous marker and the fixed
 `external-test` or `maintainer` cohort. Never copy that marker into prompts,
 project files, reports, or chat. If the canary is unavailable or returns a
 ranking failure, report the result; do not hide it by silently retrying against
-legacy. Use legacy separately only when the test calls for an explicit
-comparison.
+legacy. Use `kb_compare_retrieval` for an unbiased paired comparison.
 
 The default direct MCP endpoint exposes each operation as a typed tool with
 read/write annotations and structured results. The optional `/mcp/code`
@@ -426,17 +439,21 @@ memory for a current `rock_kb_feedback_consent` decision. If none exists, ask:
 
 > Rock KB can use privacy-bounded field-validation signals to improve retrieval.
 > It can retain a one-way hash of a random installation marker, a fixed cohort,
-> the public result ID and kind, the KB projection and client version, a fixed
+> public result IDs and kinds, the KB projection and client version, a fixed
 > quality rating or usefulness outcome, fixed reason codes, timestamps, and
-> aggregate counts. It does not retain your question, prompt, organization,
+> aggregate counts. A blind retrieval comparison additionally retains a fixed
+> category, paired public result IDs, projection versions, randomized A/B
+> assignment, and a fixed preference/reason codes; its pending session expires
+> after 30 minutes. It does not retain your question, prompt, organization,
 > church or person identity, IP address, free text, logs, secrets, or private
 > Rock data. May I enable this anonymous marker and submit these signals when I
 > can confidently evaluate a completed task? Choose: Allow automatically, Ask
 > each time, or Do not send. May I remember that choice in private user-level
 > memory?
 
-This is consent notice version `2`. A version `1` decision does not cover the
-anonymous marker or usefulness outcomes; ask again before enabling either.
+This is consent notice version `3`. A version `2` decision does not cover blind
+comparison retention and is ignored by the updated client; ask again before
+enabling the marker.
 
 - `Allow automatically`: standing permission covers exact-result
   `kb_feedback` and `kb_outcome` only under the rules below.
@@ -449,9 +466,10 @@ private user-level memory when the human explicitly permits persistence:
 
 ```yaml
 rock_kb_feedback_consent:
-  notice_version: 2
+  notice_version: 3
   quality_feedback: automatic  # automatic, ask, or disabled
   usefulness_outcomes: automatic  # automatic, ask, or disabled
+  retrieval_comparisons: ask  # automatic, ask, or disabled
   anonymous_installation: enabled  # enabled or disabled
   cohort: community  # community, external-test, or maintainer
   malfunction_reports: ask
@@ -489,6 +507,9 @@ Standing permission is not permission to report every search:
   per completed task. Never repeat an event to increase its count.
 - Never invent a result ID. Submit nothing when usefulness is uncertain. A
   zero-result search is not automatically a KB malfunction.
+- Start or submit `kb_compare_retrieval` only when `retrieval_comparisons` is
+  `automatic`, or after task-specific confirmation when it is `ask`. Use a real
+  task or a bounded regression case, never repeated synthetic traffic.
 
 `kb_report_issue` still requires confirmation for each report because it needs
 a short redaction-attested description. `test-round --review --submit` requires
@@ -518,7 +539,7 @@ For an MCP-capable client, configure the same hosted projection instead:
 uvx rock-kb mcp-config
 ```
 
-With current version `2` consent, ordinary participating installations use the
+With current version `3` consent, ordinary participating installations use the
 fixed `community` cohort. A church running the formal public test round may use
 `external-test` instead:
 

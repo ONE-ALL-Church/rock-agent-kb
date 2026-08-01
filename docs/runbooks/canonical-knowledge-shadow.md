@@ -280,7 +280,7 @@ not authorize a default retrieval cutover.
 
 ### Tester Commands
 
-After the human accepts consent notice version 2:
+After the human accepts consent notice version 3:
 
 ```bash
 uvx rock-kb telemetry enable --cohort external-test --consent-attested
@@ -291,12 +291,22 @@ uvx rock-kb --projection canonical-canary outcome "<result-id>" \
   --outcome useful \
   --reason answered \
   --consent-attested
+uvx rock-kb compare "<question>" --category normal_task
+uvx rock-kb compare "<question>" --category version_sensitive \
+  --review --submit --consent-attested
 ```
 
 For MCP, pass `projection: "canonical-canary"` to `kb_search`,
 `kb_get_result`, and `kb_outcome`. Restart the host after `install-agent` so its
 user-scoped MCP configuration receives the private marker. Never place the
 marker in a project file or prompt.
+
+For a blind paired test, use `kb_compare_retrieval` followed by
+`kb_submit_retrieval_comparison`. The start tool returns randomized A/B results
+with option-local result keys but without projection labels, public IDs, or
+internal paths, and does not retain the question. Review submission
+accepts only the comparison ID, fixed preference, fixed reason codes, and
+consent attestation.
 
 ## Promotion Gate
 

@@ -6,6 +6,27 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.21.0] - 2026-07-31
+
+### Added
+
+- Privacy-safe blind legacy-versus-canonical retrieval comparisons over REST,
+  CLI, and direct MCP. Pending sessions expire after 30 minutes, never retain
+  the question, and expose only randomized A/B results; reviewed outcomes use a
+  fixed preference and reason vocabulary.
+- `rock-kb --version`, comparison dashboard aggregates, and an explicit split
+  between raw MCP transport failures, expected stateless `405` rejections, and
+  actionable failures.
+
+### Changed
+
+- Anonymous field-validation consent is version `3`; version `2` state does not
+  authorize paired comparison retention and is intentionally ignored by the
+  updated client.
+- Direct MCP exposes 35 tools. Code Mode remains limited to the same 27
+  read-only operations and omits both comparison writes.
+- The agent skill is version `1.10.0` and requires client `0.21.0`.
+
 ## [0.20.0] - 2026-07-30
 
 ### Added

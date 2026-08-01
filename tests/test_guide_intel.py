@@ -133,6 +133,32 @@ def test_section_source_map_links_citations_to_pack_sources():
     assert rows[0]["confidence"] == "high"
 
 
+def test_section_source_map_prefers_exact_parent_url_over_first_child_prefix():
+    pack = {
+        "source_records": [
+            {
+                "id": "doc:child",
+                "source_id": "rock_documentation",
+                "source_url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types",
+            },
+            {
+                "id": "doc:parent",
+                "source_id": "rock_documentation",
+                "source_url": "https://community.rockrms.com/documentation/core-concepts/workflows",
+            },
+        ]
+    }
+    source_index = build_source_index(pack)
+    markdown = (
+        "## Scope\n\n"
+        "Use the [workflow index](https://community.rockrms.com/documentation/core-concepts/workflows)."
+    )
+
+    rows = section_source_map("workflows", parse_markdown_sections(markdown), source_index)
+
+    assert rows[0]["source_record_ids"] == ["doc:parent"]
+
+
 def test_build_source_index_includes_org_contributions():
     pack = {
         "contribution_records": [
@@ -215,6 +241,21 @@ def test_section_source_map_inherits_traceability_from_child_sections():
     parent = rows[0]
     assert parent["source_keys"] == rows[1]["source_keys"]
     assert parent["trace_mode"] == "inherited_children"
+
+
+def test_live_verification_checklist_is_structural_without_hiding_live_review():
+    markdown = (
+        "## Known Gaps And Live Verification\n\n"
+        "The supplied evidence does not establish these installation-specific values. "
+        "Verify them with bounded read-only inspection before implementation.\n\n"
+        + "\n".join(f"- Verify installation-specific setting {index}." for index in range(20))
+    )
+
+    rows = section_source_map("workflows", parse_markdown_sections(markdown), {})
+
+    assert rows[0]["word_count"] > 80
+    assert rows[0]["confidence"] == "structural"
+    assert rows[0]["needs_live_verification"] is True
 
 
 def test_audit_guide_quality_flags_shallow_guides():

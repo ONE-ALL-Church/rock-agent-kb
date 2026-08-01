@@ -48,13 +48,12 @@ generated: true
 | --- | --- | --- |
 | `generated-model-map-pointers` | citation-only | live verification |
 | `agent-summary` | normal | live verification |
-| `scope-and-boundaries` | needs-citation | needs-citation |
 | `mental-model` | normal | live verification |
 | `triggers-and-activation-entry-pages-and-direct-links` | normal | live verification |
 | `triggers-and-activation-lava-workflowactivate` | normal | live verification |
 | `workflow-forms-chained-forms-and-branching` | normal | live verification |
 | `workflow-forms-form-builder` | normal | live verification |
-| `workflow-forms-person-and-family-entry-patterns` | citation-only | live verification |
+| `workflow-forms-person-and-family-entry-patterns` | community-supported | live verification |
 | `workflow-integrations-lava-entity-operations` | community-supported | live verification |
 | `managing-workflow-instances-and-staff-work` | normal | live verification |
 | `connections-as-operational-workflows` | citation-only | live verification |
@@ -76,6 +75,6 @@ generated: true
 | `agent-task-recipes-recipe-audit-a-connection-follow-up-process` | citation-only | live verification |
 | `agent-task-recipes-recipe-import-or-adapt-a-workflow-safely` | normal | live verification |
 | `agent-task-recipes-recipe-design-background-orchestration` | citation-only | live verification |
-| `known-gaps-and-live-verification` | needs-citation | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
 | `source-map-community-examples-and-reviewed-patterns` | community-supported | community-supported |
 | `approved-media-coverage` | community-supported | community-supported |
