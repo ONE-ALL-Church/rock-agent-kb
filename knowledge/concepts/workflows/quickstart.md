@@ -28,11 +28,11 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 ## High-Signal Sections
 
 - `agent-summary` lines 34-50: Agent Summary (normal)
-- `mental-model` lines 66-85: Mental Model (normal)
-- `process-design-before-configuration` lines 86-104: Process Design Before Configuration (normal)
-- `triggers-and-activation-entry-pages-and-direct-links` lines 107-114: Entry pages and direct links (normal)
-- `triggers-and-activation-person-entity-and-grid-launches` lines 115-120: Person, entity, and grid launches (normal)
-- `triggers-and-activation-scheduled-activation-and-background-work` lines 121-126: Scheduled activation and background work (normal)
+- `scope-and-boundaries` lines 51-66: Scope And Boundaries (normal)
+- `mental-model` lines 67-86: Mental Model (normal)
+- `process-design-before-configuration` lines 87-105: Process Design Before Configuration (normal)
+- `triggers-and-activation-entry-pages-and-direct-links` lines 108-115: Entry pages and direct links (normal)
+- `triggers-and-activation-person-entity-and-grid-launches` lines 116-121: Person, entity, and grid launches (normal)
 
 ## Core Entities
 

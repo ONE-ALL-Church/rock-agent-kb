@@ -34,6 +34,14 @@ OUTCOME_REASON_CODES = {
     "not_useful": ("incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"),
 }
 OUTCOME_REASON_VALUES = tuple(reason for reasons in OUTCOME_REASON_CODES.values() for reason in reasons)
+COMPARISON_CATEGORIES = ("normal_task", "exact_lookup", "semantic", "version_sensitive", "issue", "no_answer")
+COMPARISON_PREFERENCES = ("a_better", "b_better", "equivalent", "neither_useful")
+COMPARISON_REASON_CODES = {
+    "a_better": ("better_match", "more_complete", "better_sourced", "better_authority", "better_version_fit", "less_redundant", "correct_no_answer"),
+    "b_better": ("better_match", "more_complete", "better_sourced", "better_authority", "better_version_fit", "less_redundant", "correct_no_answer"),
+    "equivalent": ("both_useful", "same_quality"),
+    "neither_useful": ("both_not_useful", "weak_evidence", "wrong_route", "missing_detail"),
+}
 CLAIM_TIER_VALUES = ("routing_context_only", "source_backed", "answer_pack_approved", "live_verified")
 AUTHORITY_TIER_VALUES = (
     "community-unreviewed",
@@ -46,7 +54,7 @@ AUTHORITY_TIER_VALUES = (
 )
 TEST_ROUND_COHORT_VALUES = ("external-test", "maintainer")
 RETRIEVAL_PROJECTION_VALUES = ("legacy", "canonical-canary")
-CANARY_COMMANDS = {"search", "result", "outcome"}
+CANARY_COMMANDS = {"search", "result", "outcome", "compare"}
 PASSIVE_SKILL_CHECK_COMMANDS = {
     "search",
     "result",
@@ -67,6 +75,7 @@ PASSIVE_SKILL_CHECK_COMMANDS = {
     "dashboard",
     "freshness",
     "test-round",
+    "compare",
 }
 
 
@@ -122,6 +131,7 @@ def telemetry_status_with_agent_configuration(base_url: str) -> dict:
 def main(argv: list[str] | None = None) -> int:
     global REQUEST_COHORT, REQUEST_INSTALLATION_ID
     parser = argparse.ArgumentParser(prog="rock-kb")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {package_version()}")
     parser.add_argument("--url", default=os.environ.get("ROCK_KB_URL", DEFAULT_BASE_URL), help="Rock KB service base URL")
     parser.add_argument(
         "--cohort",
@@ -275,6 +285,18 @@ def main(argv: list[str] | None = None) -> int:
     test_round.add_argument("--review-file", type=Path, help="Read case outcomes from a bounded JSON object instead of prompting.")
     test_round.add_argument("--submit", action="store_true", help="Submit the complete structured review for aggregate maintainer reporting.")
 
+    compare = subparsers.add_parser("compare", help="Blindly compare legacy and canonical retrieval without retaining the question.")
+    compare.add_argument("query")
+    compare.add_argument("--category", choices=COMPARISON_CATEGORIES, default="normal_task")
+    compare.add_argument("--limit", type=int, choices=range(1, 6), default=3)
+    compare.add_argument("--min-claim-tier", choices=CLAIM_TIER_VALUES, default="source_backed")
+    compare.add_argument("--rock-version")
+    compare.add_argument("--kind")
+    compare.add_argument("--review", action="store_true", help="Prompt for one bounded A/B preference after displaying the blind results.")
+    compare.add_argument("--review-file", type=Path, help="Read preference and fixed reason_codes from a bounded JSON object.")
+    compare.add_argument("--submit", action="store_true", help="Submit the reviewed comparison for aggregate maintainer reporting.")
+    compare.add_argument("--consent-attested", action="store_true", help="Required with --submit under consent notice version 3.")
+
     feedback = subparsers.add_parser("feedback")
     feedback.add_argument("result_id")
     feedback.add_argument("--rating", type=int, choices=[-1, 1], required=True)
@@ -373,8 +395,8 @@ def main(argv: list[str] | None = None) -> int:
     REQUEST_COHORT = str(args.cohort or configured_headers.get("x-rock-kb-cohort") or "")
     REQUEST_INSTALLATION_ID = str(configured_headers.get("x-rock-kb-installation-id") or "")
     if (
-        args.projection == "canonical-canary"
-        and args.command in CANARY_COMMANDS
+        args.command in CANARY_COMMANDS
+        and (args.command == "compare" or args.projection == "canonical-canary")
         and (
             REQUEST_COHORT not in TEST_ROUND_COHORT_VALUES
             or not REQUEST_INSTALLATION_ID
@@ -413,6 +435,13 @@ def main(argv: list[str] | None = None) -> int:
             parser.error("test-round accepts either --review or --review-file, not both")
         if args.submit and REQUEST_COHORT not in TEST_ROUND_COHORT_VALUES:
             parser.error("test-round --submit requires --cohort external-test or --cohort maintainer")
+    if args.command == "compare":
+        if args.submit and not (args.review or args.review_file):
+            parser.error("compare --submit requires --review or --review-file")
+        if args.review and args.review_file:
+            parser.error("compare accepts either --review or --review-file, not both")
+        if args.submit and not args.consent_attested:
+            parser.error("compare --submit requires --consent-attested")
 
     if args.command == "search":
         detail = "full" if args.full else "compact"
@@ -596,6 +625,53 @@ def main(argv: list[str] | None = None) -> int:
         else:
             print_json(report)
         return 0 if report["status"] == "ok" else 1
+    if args.command == "compare":
+        prepared_review = None
+        if args.review_file:
+            try:
+                prepared_review = comparison_review_from_payload(
+                    json.loads(args.review_file.read_text(encoding="utf-8"))
+                )
+            except (OSError, json.JSONDecodeError, ValueError) as exc:
+                parser.error(f"invalid comparison review: {exc}")
+        payload = {
+            "query": args.query,
+            "category": args.category,
+            "limit": args.limit,
+            "min_claim_tier": args.min_claim_tier,
+        }
+        if args.rock_version:
+            payload["rock_version"] = args.rock_version
+        if args.kind:
+            payload["kind"] = args.kind
+        comparison = post_json(f"{base_url}/comparisons", payload)
+        if not isinstance(comparison, dict) or comparison.get("status") != "ready":
+            print_json(comparison)
+            return 1
+        if not (args.review or args.review_file):
+            return print_json(comparison)
+        print(json.dumps(comparison, indent=2, sort_keys=True))
+        try:
+            review = prepared_review or prompt_for_comparison_review()
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            parser.error(f"invalid comparison review: {exc}")
+        submission = None
+        if args.submit:
+            submission = post_json(f"{base_url}/comparisons/review", {
+                "comparison_id": comparison["comparison_id"],
+                "preference": review["preference"],
+                "reason_codes": review["reason_codes"],
+                "consent_attested": True,
+            })
+        print_json({
+            "schema": "rock-kb-retrieval-comparison-client-result-v1",
+            "comparison_id": comparison["comparison_id"],
+            "review": review,
+            "submission": submission,
+        })
+        if args.submit and (not isinstance(submission, dict) or submission.get("status") != "recorded"):
+            return 1
+        return 0
     if args.command == "feedback":
         return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
     if args.command == "outcome":
@@ -830,6 +906,40 @@ def prompt_for_test_round_outcomes(report: dict) -> dict[str, str]:
                 break
             print(f"Choose one of: {choices}", file=sys.stderr)
     return outcomes
+
+
+def comparison_review_from_payload(payload: object) -> dict[str, object]:
+    if not isinstance(payload, dict) or set(payload) != {"preference", "reason_codes"}:
+        raise ValueError("comparison review must contain only preference and reason_codes")
+    preference = str(payload.get("preference") or "").strip().lower()
+    reason_codes = payload.get("reason_codes")
+    if preference not in COMPARISON_PREFERENCES:
+        raise ValueError(f"preference must be one of: {', '.join(COMPARISON_PREFERENCES)}")
+    if not isinstance(reason_codes, list) or not 1 <= len(reason_codes) <= 3:
+        raise ValueError("reason_codes must contain one to three values")
+    normalized = [str(value).strip().lower() for value in reason_codes]
+    if len(set(normalized)) != len(normalized):
+        raise ValueError("reason_codes must be unique")
+    invalid = sorted(set(normalized) - set(COMPARISON_REASON_CODES[preference]))
+    if invalid:
+        raise ValueError(f"reason_codes are incompatible with {preference}: {', '.join(invalid)}")
+    return {"preference": preference, "reason_codes": normalized}
+
+
+def prompt_for_comparison_review() -> dict[str, object]:
+    while True:
+        preference = input(f"Preference ({', '.join(COMPARISON_PREFERENCES)}): ").strip().lower()
+        if preference in COMPARISON_PREFERENCES:
+            break
+        print(f"Choose one of: {', '.join(COMPARISON_PREFERENCES)}", file=sys.stderr)
+    allowed_reasons = COMPARISON_REASON_CODES[preference]
+    while True:
+        raw = input(f"Reason codes, comma-separated ({', '.join(allowed_reasons)}): ")
+        reasons = [value.strip().lower() for value in raw.split(",") if value.strip()]
+        try:
+            return comparison_review_from_payload({"preference": preference, "reason_codes": reasons})
+        except ValueError as exc:
+            print(str(exc), file=sys.stderr)
 
 
 def print_model(base_url: str, model: str, fields: str | None, property_name: str | None, format_name: str) -> int:

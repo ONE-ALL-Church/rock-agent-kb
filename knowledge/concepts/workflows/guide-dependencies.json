@@ -2883,10 +2883,10 @@
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
   "built_at": "2026-07-31T00:30:00+00:00",
   "concept_id": "workflows",
-  "guide_hash": "3ba3494fdc13b1551b927b62c23ad772c8138b43fabb03cac1d62ee7c70c360e",
-  "guide_line_count": 635,
+  "guide_hash": "4e5cac7a194b58fa4c368e7cdff16792e8e9eb82aca73f787a1e1e169cde7f91",
+  "guide_line_count": 636,
   "guide_path": "knowledge/concepts/workflows/guide.md",
-  "guide_word_count": 7585,
+  "guide_word_count": 7601,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -2899,12 +2899,12 @@
     },
     {
       "authority": "official",
-      "content_hash": "55851a673e3d2b92dd3b771cc69ac7424f71a0651d6ca40aab7095fcf32bd5e7",
-      "excerpt_hash": "c71b149b8a017b72222b8db60de0aca057774195a4b5c7d4eb09b4bf99446234",
+      "content_hash": "da0e260d298ed4c219c4e717e4423da7c4f4374254126d67e560c8fe69d622d4",
+      "excerpt_hash": "8f8b7d0088774240027ad0fa1dd652a00bf00559e3cd0be158a5d119542b22f6",
       "source_id": "rock_documentation",
-      "source_key": "6e60154c3f9928e9",
-      "source_record_id": "rock_documentation:article:850",
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows"
+      "source_key": "b4906f93cb1fa360",
+      "source_record_id": "rock_documentation:article:2108",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types"
     },
     {
       "authority": "unknown",
@@ -2917,12 +2917,75 @@
     },
     {
       "authority": "official",
-      "content_hash": "a1bc2dca6766f504e8ec1cf4cbaab6e2dcced8dc7f92fa555cbad81e80000e49",
-      "excerpt_hash": "dd18b3f8d20e8b604ebc915f29b46b921c4e2b1e252d39270dd89633beeb3854",
+      "content_hash": "19ebccdf314f5114792743cb6f6ffcbb32ebe9dd37a48f9b2c2a2f071a3ab391",
+      "excerpt_hash": "3f73491365b06e5b31875452afa52b1c4be8f2877994b56db23697cb574a6d3e",
       "source_id": "rock_documentation",
-      "source_key": "a4dcd2a24306e940",
-      "source_record_id": "rock_documentation:article:923",
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows"
+      "source_key": "a67440c45ef2ffaa",
+      "source_record_id": "rock_documentation:article:2107",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/intro-to-workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "55851a673e3d2b92dd3b771cc69ac7424f71a0651d6ca40aab7095fcf32bd5e7",
+      "excerpt_hash": "c71b149b8a017b72222b8db60de0aca057774195a4b5c7d4eb09b4bf99446234",
+      "source_id": "rock_documentation",
+      "source_key": "6e60154c3f9928e9",
+      "source_record_id": "rock_documentation:article:850",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9baaea249848bdc6052fffbce430724b7821de1217bc4b3f6cda60c329623b40",
+      "excerpt_hash": "af3a2ae79fbd65259f246bed6a96038234c6fa0a79a029db01d153512015fb42",
+      "source_id": "rock_documentation",
+      "source_key": "b0185a01a01efa50",
+      "source_record_id": "rock_documentation:article:2110",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6ad8577741b6eefc850c14c17a0187cf1eb3a3a18af975c8f585aa7dccaa543c",
+      "excerpt_hash": "b1a124bdba4baf6a90e6395bd774c07f7bc4da8754f1bcd1b114eea5a7e09857",
+      "source_id": "rock_documentation",
+      "source_key": "aab356dcf49037bb",
+      "source_record_id": "rock_documentation:article:957",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details"
+    },
+    {
+      "authority": "official",
+      "content_hash": "baf1ef7a08f69d695fe1cf393d5837dfb006453c54375ea3904e1c6852eef6ad",
+      "excerpt_hash": "d50f5bacc9ed5fd628debbd9ffce9c9f8bcbdd194ee03d5cdbc46c37c80e57b6",
+      "source_id": "rock_documentation",
+      "source_key": "30ee229014951e29",
+      "source_record_id": "rock_documentation:article:961",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b0845127e69a1928013f64114af6f4483b5e417070648365dd500f4d16707bb5",
+      "excerpt_hash": "9a0251b81dd57f62d5132bf58fc464d69f6d5727ef2cd857617a324064e80012",
+      "source_id": "rock_documentation",
+      "source_key": "a0f222d77a550738",
+      "source_record_id": "rock_documentation:article:978",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/built-in-workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "03da905fca4e3d9159577eb8e6dda5e2d6601b59ca6f3eb25a561f6aead3f9c2",
+      "excerpt_hash": "5b56021471e01bc35977284fbd7fae1c7d6037efeadb0ad6c749d963f75f887b",
+      "source_id": "rock_documentation",
+      "source_key": "9818daa9f9091751",
+      "source_record_id": "rock_documentation:article:2294",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d792020215bfab3e1c0cdfe3ebfd747aee9bcd312803e0094f16c4595c969af2",
+      "excerpt_hash": "8b60bd8ca0b661cf06d0e2de92927beee806360e51f4b3bbe8e27c67751054d2",
+      "source_id": "rock_documentation",
+      "source_key": "3aba64922a297e17",
+      "source_record_id": "rock_documentation:article:981",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/link-to-workflows"
     },
     {
       "authority": "unknown",
@@ -2934,22 +2997,22 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
     },
     {
-      "authority": "official-training",
-      "content_hash": "b60a98c454db4c67fda831d44c05be0fd96de0ca880139e98c5701b94afb5865",
-      "excerpt_hash": "bde2c38f7b129bd0173e6007aceb09a1c213368778df532e98539bfdfc0189e4",
-      "source_id": "rock_rocku",
-      "source_key": "c7e64b58d0d67e94",
-      "source_record_id": "media-insight:4d696c083d2ec15d",
-      "url": "https://community.rockrms.com/rocku/workflows/form-builder"
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "a0977938560d1ac4",
+      "source_record_id": "org_contribution:oneall:sms-code-workflows-avoid-retained-plain-code-history",
+      "url": "https://community.rockrms.com/rocku/workflows"
     },
     {
       "authority": "org-contribution",
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "org_contribution",
-      "source_key": "ee16ebdb16d3e3c1",
-      "source_record_id": "org_contribution:oneall:lava-condition-branches-should-favor-simple-blocks",
-      "url": "https://community.rockrms.com/lava"
+      "source_key": "7e8da43368880b42",
+      "source_record_id": "org_contribution:oneall:workflowactivate-attribute-key-contract",
+      "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
     },
     {
       "authority": "source-code",
@@ -2961,6 +3024,60 @@
       "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs"
     },
     {
+      "authority": "official",
+      "content_hash": "209b29a6c0d173c626f1739d3b9c2be327650e014116b816c796f9e931695c7c",
+      "excerpt_hash": "3d4794142598d5c94c3f12e8ec3e12f74e92270c713262ffd4aa59f8558437a2",
+      "source_id": "rock_documentation",
+      "source_key": "dfbff59cfa7228a0",
+      "source_record_id": "rock_documentation:article:937",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2260611afc75e2ee5c262dd6e6242a50515d3e87fd667440cd876842251c1187",
+      "excerpt_hash": "566b2a32e3114c33810e3b301bf8f604004c04dba9a5dfd1c46e68072441b2ee",
+      "source_id": "rock_documentation",
+      "source_key": "aa96a022e5469620",
+      "source_record_id": "rock_documentation:article:939",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9b1dfbcf806eb412d93a4dd5d23b3d1f9d36cad130c213bbc747d9ac09056b20",
+      "excerpt_hash": "59fc4a361721f743e4806cdd09830ad89fe4bd5fbe999aa9bb1a7c51e158586c",
+      "source_id": "rock_documentation",
+      "source_key": "c911c22f4f7df54b",
+      "source_record_id": "rock_documentation:article:2112",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder"
+    },
+    {
+      "authority": "official",
+      "content_hash": "4763c9efa02944349b425691a05eed99caed8f9f6385b723016c1028c06e2d40",
+      "excerpt_hash": "f228de82dc8e67ce5853ddfec3da0d2ce023962a0f472194bb56ada6b33482f0",
+      "source_id": "rock_documentation",
+      "source_key": "21a80a0444619a83",
+      "source_record_id": "rock_documentation:article:944",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/create-a-form"
+    },
+    {
+      "authority": "official",
+      "content_hash": "64f24b0d04ffcad43da8114ed1a1ace4e5bf86fee405692d0f26baacbe38eb85",
+      "excerpt_hash": "6ff5bd97a1c74048a69ef84b0c18a0a834036e2da23117d6e7c2d002d439b682",
+      "source_id": "rock_documentation",
+      "source_key": "816a5a659a1efa46",
+      "source_record_id": "rock_documentation:article:950",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/navigate-the-form-builder"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b60a98c454db4c67fda831d44c05be0fd96de0ca880139e98c5701b94afb5865",
+      "excerpt_hash": "bde2c38f7b129bd0173e6007aceb09a1c213368778df532e98539bfdfc0189e4",
+      "source_id": "rock_rocku",
+      "source_key": "c7e64b58d0d67e94",
+      "source_record_id": "media-insight:4d696c083d2ec15d",
+      "url": "https://community.rockrms.com/rocku/workflows/form-builder"
+    },
+    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -2968,6 +3085,51 @@
       "source_key": "7cd07bd6d4ff5479",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+    },
+    {
+      "authority": "official",
+      "content_hash": "7c5e17b31bf58845a980f93d4091bceb899baecd85a6872870038a055869559c",
+      "excerpt_hash": "98aec8f4a05ee12ba69404bb828ee80b8a4f72890944cb1d24b4dbb4e14ff843",
+      "source_id": "rock_documentation",
+      "source_key": "1c3c9b4e2001ff72",
+      "source_record_id": "rock_documentation:article:2652",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control"
+    },
+    {
+      "authority": "official",
+      "content_hash": "39b7c47ee137ec12def354cb1903d2ab9601826607c0ea8f8b53f11ec1f7ef7f",
+      "excerpt_hash": "22ae6f6943c59fcd459d85e19aae9116fd0bdc27c6b4d321f627ff0fb3bc9c24",
+      "source_id": "rock_documentation",
+      "source_key": "74d0a267486afd55",
+      "source_record_id": "rock_documentation:article:959",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6c3a811b2004924dbff082798bf87bc4d971c14deb818e68a02ca111ca7c9af2",
+      "excerpt_hash": "51f508b9bb58cfa19cfb8a57d907e6f90197bddc4756698073231137f7e42829",
+      "source_id": "rock_documentation",
+      "source_key": "6db9e127b44500c6",
+      "source_record_id": "rock_documentation:article:920",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/workflow-notes"
+    },
+    {
+      "authority": "official",
+      "content_hash": "0093ea37af3dd549ce6e8e9453af4c96c133aaebc60aae44fd6dbf717c11f01c",
+      "excerpt_hash": "97db132ed66f26608ce8696a34971e05f84254f5def53ddf15e1f1ce1302a243",
+      "source_id": "rock_documentation",
+      "source_key": "c6c618a8406c7343",
+      "source_record_id": "rock_documentation:article:983",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
+    },
+    {
+      "authority": "official",
+      "content_hash": "81c789719fffb25e922d662e4425445d8fa6e72a7ebab0cb2cca834b401f13e1",
+      "excerpt_hash": "b8c2cc5d661a5fbfd64f9fd09488fe29f62e4ceb54f7e7c81f1e3136e02ad089",
+      "source_id": "rock_documentation",
+      "source_key": "eda576256f4c43f6",
+      "source_record_id": "rock_documentation:article:1787",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows"
     },
     {
       "authority": "unknown",
@@ -3004,6 +3166,24 @@
       "source_key": "27592d5a6665e286",
       "source_record_id": "org_contribution:oneall:modify-command-change-tracker-poisoning",
       "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "official",
+      "content_hash": "593c419d096d34d5391b362093052c1a1a9a058dc0f3d483eef403db88a5c85f",
+      "excerpt_hash": "7d141fa764e9d3a38157fdf8fb90f5bec1b4eed466db253e93e7f810f592714b",
+      "source_id": "rock_documentation",
+      "source_key": "8027893a070f1d50",
+      "source_record_id": "rock_documentation:article:955",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/viewing-a-workflow-instance"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d93e445010482fd21b815b10d59177318731bc25360b7f66863a2b109a796574",
+      "excerpt_hash": "182ef3a2ee8de4d624e6ae93e32ba2e33d3b6ac7ff99b5a1d536ad7bc182432a",
+      "source_id": "rock_documentation",
+      "source_key": "d179d70925efd654",
+      "source_record_id": "rock_documentation:article:958",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows"
     },
     {
       "authority": "official-training",
@@ -3105,13 +3285,40 @@
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
     },
     {
+      "authority": "official",
+      "content_hash": "18d7d58f8764d6befeb964f2ef7f7117308bd2576b8c4e2b33e6b5272ad38698",
+      "excerpt_hash": "e670b21d8d089932d9d7dd6cc30c5803dab10e0e03b7270c8127386f178d43a9",
+      "source_id": "rock_documentation",
+      "source_key": "9f7941416a5e7bec",
+      "source_record_id": "rock_documentation:article:921",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "a1935a8c4fa7faa869b678e2217d43c3cfeb2852ea11b38ab588700c130f0349",
+      "excerpt_hash": "611e5282a52cd3885f3e0373713dbd7170eb96da15419327e89dbbe6bcc3c19e",
+      "source_id": "rock_documentation",
+      "source_key": "2ad51695904ab66e",
+      "source_record_id": "rock_documentation:article:922",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "8416ade23fbb13ac3e80a1d4f3bd228f53a4c5b3eeb3f0139ee33a36cd074ee7",
+      "excerpt_hash": "7b3ecfd7b931d38b40693da0a1074a5021358314cc1cc8b58e413632af4ff245",
+      "source_id": "rock_documentation",
+      "source_key": "bdc3167e03e53e66",
+      "source_record_id": "rock_documentation:article:980",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/use-workflow-importexport"
+    },
+    {
       "authority": "source-code",
-      "content_hash": "ed67af1c989e811314cb4675b57a82ff4fa81a5fb7e495c81d0c044930337fdf",
-      "excerpt_hash": "5795117cb47e9be755c3ea3da8adda0f55c28e1e16270024203f1519666e4f69",
+      "content_hash": "92f2f1dec23cc9ba0e739854de1ca60eb77337363721f45974bc1c2e5dc892dd",
+      "excerpt_hash": "21f54f5603a72c8b58606014ba4cc8b22c4b38678b40fe090472d1b7d3ff153d",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "7d1b37cb1d7ebc74",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx"
+      "source_key": "94650664a4d1e1f5",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs"
     },
     {
       "authority": "unknown",
@@ -3123,6 +3330,33 @@
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s"
     },
     {
+      "authority": "official",
+      "content_hash": "441e5605bb7629825fe3b4b98ee782243b4a9235098f5fb432ee912f128278a0",
+      "excerpt_hash": "a18581f8afd36790f9959617e18ef3d8881ad2b05505b69bb5e619f15361046d",
+      "source_id": "rock_documentation",
+      "source_key": "42e0fc1ef2dbb69a",
+      "source_record_id": "rock_documentation:article:919",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow"
+    },
+    {
+      "authority": "official",
+      "content_hash": "89921ff764be6869a05236fca9d808fb0a912b75104a88526950028be04e42ad",
+      "excerpt_hash": "c4acc23d99fc99b67ac6216fab7d586baebe422e552bdd980206e081339e81ab",
+      "source_id": "rock_documentation",
+      "source_key": "38711554c989e8a5",
+      "source_record_id": "rock_documentation:article:917",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder"
+    },
+    {
+      "authority": "official",
+      "content_hash": "24c21d210ef2a00e774c4ab1ee6e51911269cd934a6cef90adec5c6154a67736",
+      "excerpt_hash": "f8b904fd2d27f27975a56dc6a8c8351812ac001ad6447935a05880906600622b",
+      "source_id": "rock_documentation",
+      "source_key": "2db71c3f90da0f54",
+      "source_record_id": "rock_documentation:article:918",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -3130,15 +3364,6 @@
       "source_key": "7392dbb131202d0a",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-job"
-    },
-    {
-      "authority": "org-contribution",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "org_contribution",
-      "source_key": "a0977938560d1ac4",
-      "source_record_id": "org_contribution:oneall:sms-code-workflows-avoid-retained-plain-code-history",
-      "url": "https://community.rockrms.com/rocku/workflows"
     },
     {
       "authority": "official-training",
@@ -3179,239 +3404,246 @@
       "needs_live_verification": true,
       "section_id": "agent-summary",
       "source_keys": [
-        "6e60154c3f9928e9",
+        "b4906f93cb1fa360",
         "50f9d490eba68a43",
-        "6e60154c3f9928e9"
+        "a67440c45ef2ffaa"
       ],
       "start_line": 34
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 65,
+      "confidence": "normal",
+      "end_line": 66,
       "heading": "Scope And Boundaries",
       "needs_live_verification": false,
       "section_id": "scope-and-boundaries",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "50f9d490eba68a43",
         "6e60154c3f9928e9"
       ],
       "start_line": 51
     },
     {
       "confidence": "normal",
-      "end_line": 85,
+      "end_line": 86,
       "heading": "Mental Model",
       "needs_live_verification": true,
       "section_id": "mental-model",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9"
+        "b4906f93cb1fa360",
+        "b0185a01a01efa50",
+        "aab356dcf49037bb",
+        "30ee229014951e29"
       ],
-      "start_line": 66
+      "start_line": 67
     },
     {
       "confidence": "normal",
-      "end_line": 104,
+      "end_line": 105,
       "heading": "Process Design Before Configuration",
       "needs_live_verification": false,
       "section_id": "process-design-before-configuration",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940"
+        "30ee229014951e29",
+        "a0f222d77a550738"
       ],
-      "start_line": 86
+      "start_line": 87
     },
     {
       "confidence": "structural",
-      "end_line": 106,
+      "end_line": 107,
       "heading": "Triggers And Activation",
       "needs_live_verification": false,
       "section_id": "triggers-and-activation",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
+        "9818daa9f9091751",
+        "3aba64922a297e17",
+        "a67440c45ef2ffaa",
         "4e3a8aa1d3a4e953",
-        "c7e64b58d0d67e94",
-        "ee16ebdb16d3e3c1",
+        "a0977938560d1ac4",
+        "7e8da43368880b42",
         "a5c2796c2efd183e"
       ],
-      "start_line": 105
+      "start_line": 106
     },
     {
       "confidence": "normal",
-      "end_line": 114,
+      "end_line": 115,
       "heading": "Entry pages and direct links",
       "needs_live_verification": true,
       "section_id": "triggers-and-activation-entry-pages-and-direct-links",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
-        "6e60154c3f9928e9"
+        "9818daa9f9091751",
+        "3aba64922a297e17",
+        "9818daa9f9091751"
       ],
-      "start_line": 107
+      "start_line": 108
     },
     {
       "confidence": "normal",
-      "end_line": 120,
+      "end_line": 121,
       "heading": "Person, entity, and grid launches",
       "needs_live_verification": false,
       "section_id": "triggers-and-activation-person-entity-and-grid-launches",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9"
+        "9818daa9f9091751",
+        "9818daa9f9091751"
       ],
-      "start_line": 115
+      "start_line": 116
     },
     {
       "confidence": "normal",
-      "end_line": 126,
+      "end_line": 127,
       "heading": "Scheduled activation and background work",
       "needs_live_verification": false,
       "section_id": "triggers-and-activation-scheduled-activation-and-background-work",
       "source_keys": [
-        "6e60154c3f9928e9",
+        "a67440c45ef2ffaa",
         "4e3a8aa1d3a4e953",
-        "c7e64b58d0d67e94"
+        "a0977938560d1ac4"
       ],
-      "start_line": 121
+      "start_line": 122
     },
     {
       "confidence": "normal",
-      "end_line": 139,
+      "end_line": 140,
       "heading": "Lava `workflowactivate`",
       "needs_live_verification": true,
       "section_id": "triggers-and-activation-lava-workflowactivate",
       "source_keys": [
-        "ee16ebdb16d3e3c1",
+        "7e8da43368880b42",
         "a5c2796c2efd183e",
-        "ee16ebdb16d3e3c1"
+        "7e8da43368880b42"
       ],
-      "start_line": 127
+      "start_line": 128
     },
     {
       "confidence": "structural",
-      "end_line": 141,
+      "end_line": 142,
       "heading": "Workflow Forms",
       "needs_live_verification": false,
       "section_id": "workflow-forms",
       "source_keys": [
-        "6e60154c3f9928e9",
+        "dfbff59cfa7228a0",
+        "b0185a01a01efa50",
+        "aa96a022e5469620",
+        "30ee229014951e29",
+        "c911c22f4f7df54b",
+        "21a80a0444619a83",
+        "816a5a659a1efa46",
         "c7e64b58d0d67e94",
+        "a0977938560d1ac4",
         "7cd07bd6d4ff5479"
       ],
-      "start_line": 140
+      "start_line": 141
     },
     {
       "confidence": "normal",
-      "end_line": 157,
+      "end_line": 158,
       "heading": "Entry Forms and Form actions",
       "needs_live_verification": false,
       "section_id": "workflow-forms-entry-forms-and-form-actions",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9"
+        "dfbff59cfa7228a0",
+        "b0185a01a01efa50"
       ],
-      "start_line": 142
+      "start_line": 143
     },
     {
       "confidence": "normal",
-      "end_line": 163,
+      "end_line": 164,
       "heading": "Chained forms and branching",
       "needs_live_verification": true,
       "section_id": "workflow-forms-chained-forms-and-branching",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9"
+        "aa96a022e5469620",
+        "30ee229014951e29"
       ],
-      "start_line": 158
+      "start_line": 159
     },
     {
       "confidence": "normal",
-      "end_line": 173,
+      "end_line": 174,
       "heading": "Form Builder",
       "needs_live_verification": true,
       "section_id": "workflow-forms-form-builder",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
+        "c911c22f4f7df54b",
+        "21a80a0444619a83",
+        "816a5a659a1efa46",
         "c7e64b58d0d67e94"
       ],
-      "start_line": 164
+      "start_line": 165
     },
     {
-      "confidence": "citation-only",
-      "end_line": 179,
+      "confidence": "community-supported",
+      "end_line": 180,
       "heading": "Person and family entry patterns",
       "needs_live_verification": true,
       "section_id": "workflow-forms-person-and-family-entry-patterns",
       "source_keys": [
-        "c7e64b58d0d67e94",
+        "a0977938560d1ac4",
         "7cd07bd6d4ff5479"
       ],
-      "start_line": 174
+      "start_line": 175
     },
     {
       "confidence": "normal",
-      "end_line": 195,
+      "end_line": 196,
       "heading": "Activities, Actions, State, And Persistence",
       "needs_live_verification": false,
       "section_id": "activities-actions-state-and-persistence",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940"
+        "b0185a01a01efa50",
+        "1c3c9b4e2001ff72",
+        "74d0a267486afd55",
+        "1c3c9b4e2001ff72",
+        "6db9e127b44500c6"
       ],
-      "start_line": 180
+      "start_line": 181
     },
     {
       "confidence": "structural",
-      "end_line": 197,
+      "end_line": 198,
       "heading": "Workflow Integrations",
       "needs_live_verification": false,
       "section_id": "workflow-integrations",
       "source_keys": [
-        "a4dcd2a24306e940",
+        "c6c618a8406c7343",
+        "eda576256f4c43f6",
         "238bec09183ae488",
         "2cf11aac4d7e5e09",
         "9c799b7c551bfed4",
         "27592d5a6665e286"
       ],
-      "start_line": 196
+      "start_line": 197
     },
     {
       "confidence": "normal",
-      "end_line": 205,
+      "end_line": 206,
       "heading": "Webhooks",
       "needs_live_verification": false,
       "section_id": "workflow-integrations-webhooks",
       "source_keys": [
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940"
+        "c6c618a8406c7343",
+        "c6c618a8406c7343"
       ],
-      "start_line": 198
+      "start_line": 199
     },
     {
       "confidence": "normal",
-      "end_line": 211,
+      "end_line": 212,
       "heading": "SMS Pipeline",
       "needs_live_verification": false,
       "section_id": "workflow-integrations-sms-pipeline",
       "source_keys": [
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940",
+        "eda576256f4c43f6",
+        "eda576256f4c43f6",
         "238bec09183ae488"
       ],
-      "start_line": 206
+      "start_line": 207
     },
     {
       "confidence": "citation-only",
-      "end_line": 217,
+      "end_line": 218,
       "heading": "Communications and provider events",
       "needs_live_verification": false,
       "section_id": "workflow-integrations-communications-and-provider-events",
@@ -3419,11 +3651,11 @@
         "2cf11aac4d7e5e09",
         "9c799b7c551bfed4"
       ],
-      "start_line": 212
+      "start_line": 213
     },
     {
       "confidence": "community-supported",
-      "end_line": 231,
+      "end_line": 232,
       "heading": "Lava entity operations",
       "needs_live_verification": true,
       "section_id": "workflow-integrations-lava-entity-operations",
@@ -3431,24 +3663,24 @@
         "27592d5a6665e286",
         "27592d5a6665e286"
       ],
-      "start_line": 218
+      "start_line": 219
     },
     {
       "confidence": "normal",
-      "end_line": 250,
+      "end_line": 251,
       "heading": "Managing Workflow Instances And Staff Work",
       "needs_live_verification": true,
       "section_id": "managing-workflow-instances-and-staff-work",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9"
+        "8027893a070f1d50",
+        "d179d70925efd654",
+        "aab356dcf49037bb"
       ],
-      "start_line": 232
+      "start_line": 233
     },
     {
       "confidence": "citation-only",
-      "end_line": 260,
+      "end_line": 261,
       "heading": "Connections As Operational Workflows",
       "needs_live_verification": true,
       "section_id": "connections-as-operational-workflows",
@@ -3460,11 +3692,11 @@
         "a19faf4c8934cc5e",
         "3c1653073afe6b82"
       ],
-      "start_line": 251
+      "start_line": 252
     },
     {
       "confidence": "community-supported",
-      "end_line": 270,
+      "end_line": 271,
       "heading": "Adjacent Operational Patterns",
       "needs_live_verification": false,
       "section_id": "adjacent-operational-patterns",
@@ -3475,121 +3707,126 @@
         "892f43823742ae10",
         "fe63cd4826aecb55"
       ],
-      "start_line": 261
+      "start_line": 262
     },
     {
       "confidence": "normal",
-      "end_line": 280,
+      "end_line": 281,
       "heading": "Security And Governance",
       "needs_live_verification": true,
       "section_id": "security-and-governance",
       "source_keys": [
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940"
+        "9f7941416a5e7bec",
+        "9f7941416a5e7bec",
+        "2ad51695904ab66e",
+        "bdc3167e03e53e66"
       ],
-      "start_line": 271
+      "start_line": 272
     },
     {
       "confidence": "normal",
-      "end_line": 293,
+      "end_line": 294,
       "heading": "Version And Authority Caveats",
       "needs_live_verification": false,
       "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "ee16ebdb16d3e3c1",
+        "7e8da43368880b42",
         "3c1653073afe6b82",
         "238bec09183ae488",
-        "7d1b37cb1d7ebc74",
+        "94650664a4d1e1f5",
         "6fc62272f038e067"
       ],
-      "start_line": 281
+      "start_line": 282
     },
     {
       "confidence": "structural",
-      "end_line": 295,
+      "end_line": 296,
       "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
       "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "a4dcd2a24306e940",
-        "6e60154c3f9928e9",
-        "ee16ebdb16d3e3c1",
+        "9f7941416a5e7bec",
+        "dfbff59cfa7228a0",
+        "b0185a01a01efa50",
+        "aab356dcf49037bb",
+        "c6c618a8406c7343",
+        "7e8da43368880b42",
         "a520db9e9adc1368",
-        "a19faf4c8934cc5e"
+        "a19faf4c8934cc5e",
+        "1c3c9b4e2001ff72",
+        "2ad51695904ab66e"
       ],
-      "start_line": 294
+      "start_line": 295
     },
     {
       "confidence": "normal",
-      "end_line": 305,
+      "end_line": 306,
       "heading": "A workflow or form is not visible",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-workflow-or-form-is-not-visible",
       "source_keys": [
-        "a4dcd2a24306e940"
+        "9f7941416a5e7bec"
       ],
-      "start_line": 296
+      "start_line": 297
     },
     {
       "confidence": "normal",
-      "end_line": 315,
+      "end_line": 316,
       "heading": "A form field is missing, unexpectedly required, or exposing data",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-form-field-is-missing-unexpectedly-required-or-exposing-data",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "dfbff59cfa7228a0"
       ],
-      "start_line": 306
+      "start_line": 307
     },
     {
       "confidence": "normal",
-      "end_line": 325,
+      "end_line": 326,
       "heading": "A workflow action was skipped",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-workflow-action-was-skipped",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "b0185a01a01efa50"
       ],
-      "start_line": 316
+      "start_line": 317
     },
     {
       "confidence": "normal",
-      "end_line": 335,
+      "end_line": 336,
       "heading": "A workflow is stuck or repeatedly processing",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-workflow-is-stuck-or-repeatedly-processing",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "aab356dcf49037bb"
       ],
-      "start_line": 326
+      "start_line": 327
     },
     {
       "confidence": "normal",
-      "end_line": 346,
+      "end_line": 347,
       "heading": "A webhook returns 404 or launches the wrong number of workflows",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-webhook-returns-404-or-launches-the-wrong-number-of-workflows",
       "source_keys": [
-        "a4dcd2a24306e940"
+        "c6c618a8406c7343"
       ],
-      "start_line": 336
+      "start_line": 337
     },
     {
       "confidence": "community-supported",
-      "end_line": 356,
+      "end_line": 357,
       "heading": "`workflowactivate` starts a workflow but values are blank",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-workflowactivate-starts-a-workflow-but-values-are-blank",
       "source_keys": [
-        "ee16ebdb16d3e3c1"
+        "7e8da43368880b42"
       ],
-      "start_line": 347
+      "start_line": 348
     },
     {
       "confidence": "citation-only",
-      "end_line": 368,
+      "end_line": 369,
       "heading": "A connection request is missing from a board or list",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-a-connection-request-is-missing-from-a-board-or-list",
@@ -3597,142 +3834,154 @@
         "a520db9e9adc1368",
         "a19faf4c8934cc5e"
       ],
-      "start_line": 357
+      "start_line": 358
     },
     {
       "confidence": "normal",
-      "end_line": 378,
+      "end_line": 379,
       "heading": "SQL or reporting cannot see a value just submitted by a form",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-sql-or-reporting-cannot-see-a-value-just-submitted-by-a-form",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "1c3c9b4e2001ff72"
       ],
-      "start_line": 369
+      "start_line": 370
     },
     {
       "confidence": "normal",
-      "end_line": 387,
+      "end_line": 388,
       "heading": "Lava output is blank or a parser error points at the wrong line",
       "needs_live_verification": true,
       "section_id": "troubleshooting-decision-tree-lava-output-is-blank-or-a-parser-error-points-at-the-wrong-line",
       "source_keys": [
-        "a4dcd2a24306e940"
+        "2ad51695904ab66e"
       ],
-      "start_line": 379
+      "start_line": 380
     },
     {
       "confidence": "structural",
-      "end_line": 389,
+      "end_line": 390,
       "heading": "Agent Task Recipes",
       "needs_live_verification": false,
       "section_id": "agent-task-recipes",
       "source_keys": [
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
+        "42e0fc1ef2dbb69a",
+        "dfbff59cfa7228a0",
+        "c6c618a8406c7343",
+        "aab356dcf49037bb",
         "028b35260711018b",
+        "bdc3167e03e53e66",
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 388
+      "start_line": 389
     },
     {
       "confidence": "normal",
-      "end_line": 413,
+      "end_line": 414,
       "heading": "Recipe: Design a bounded workflow type",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-design-a-bounded-workflow-type",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "42e0fc1ef2dbb69a"
       ],
-      "start_line": 390
+      "start_line": 391
     },
     {
       "confidence": "normal",
-      "end_line": 429,
+      "end_line": 430,
       "heading": "Recipe: Review a workflow form change",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-review-a-workflow-form-change",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "dfbff59cfa7228a0"
       ],
-      "start_line": 414
+      "start_line": 415
     },
     {
       "confidence": "normal",
-      "end_line": 448,
+      "end_line": 449,
       "heading": "Recipe: Configure a selective workflow webhook",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-configure-a-selective-workflow-webhook",
       "source_keys": [
-        "a4dcd2a24306e940"
+        "c6c618a8406c7343"
       ],
-      "start_line": 430
+      "start_line": 431
     },
     {
       "confidence": "normal",
-      "end_line": 465,
+      "end_line": 466,
       "heading": "Recipe: Diagnose an active workflow instance",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-diagnose-an-active-workflow-instance",
       "source_keys": [
-        "6e60154c3f9928e9"
+        "aab356dcf49037bb"
       ],
-      "start_line": 449
+      "start_line": 450
     },
     {
       "confidence": "citation-only",
-      "end_line": 483,
+      "end_line": 484,
       "heading": "Recipe: Audit a connection follow-up process",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-audit-a-connection-follow-up-process",
       "source_keys": [
         "028b35260711018b"
       ],
-      "start_line": 466
+      "start_line": 467
     },
     {
       "confidence": "normal",
-      "end_line": 499,
+      "end_line": 500,
       "heading": "Recipe: Import or adapt a workflow safely",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-import-or-adapt-a-workflow-safely",
       "source_keys": [
-        "a4dcd2a24306e940"
+        "bdc3167e03e53e66"
       ],
-      "start_line": 484
+      "start_line": 485
     },
     {
       "confidence": "citation-only",
-      "end_line": 514,
+      "end_line": 515,
       "heading": "Recipe: Design background orchestration",
       "needs_live_verification": true,
       "section_id": "agent-task-recipes-recipe-design-background-orchestration",
       "source_keys": [
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 500
+      "start_line": 501
     },
     {
-      "confidence": "needs-citation",
-      "end_line": 543,
+      "confidence": "structural",
+      "end_line": 544,
       "heading": "Known Gaps And Live Verification",
       "needs_live_verification": true,
       "section_id": "known-gaps-and-live-verification",
       "source_keys": [
         "4e3a8aa1d3a4e953"
       ],
-      "start_line": 515
+      "start_line": 516
     },
     {
       "confidence": "structural",
-      "end_line": 545,
+      "end_line": 546,
       "heading": "Source Map",
       "needs_live_verification": false,
       "section_id": "source-map",
       "source_keys": [
-        "a4dcd2a24306e940",
         "6e60154c3f9928e9",
-        "ee16ebdb16d3e3c1",
+        "b4906f93cb1fa360",
+        "b0185a01a01efa50",
+        "30ee229014951e29",
+        "dfbff59cfa7228a0",
+        "38711554c989e8a5",
+        "9818daa9f9091751",
+        "9f7941416a5e7bec",
+        "2db71c3f90da0f54",
+        "c6c618a8406c7343",
+        "eda576256f4c43f6",
+        "7e8da43368880b42",
         "27592d5a6665e286",
         "028b35260711018b",
         "b0ff1ff79427421a",
@@ -3744,7 +3993,7 @@
         "3c1653073afe6b82",
         "238bec09183ae488",
         "a5c2796c2efd183e",
-        "7d1b37cb1d7ebc74",
+        "94650664a4d1e1f5",
         "b89c217b09ef1764",
         "df7c8ffe1ca46e3d",
         "fe63cd4826aecb55",
@@ -3753,34 +4002,34 @@
         "892f43823742ae10",
         "2cf11aac4d7e5e09"
       ],
-      "start_line": 544
+      "start_line": 545
     },
     {
       "confidence": "normal",
-      "end_line": 561,
+      "end_line": 562,
       "heading": "Official Rock documentation and Lava references",
       "needs_live_verification": false,
       "section_id": "source-map-official-rock-documentation-and-lava-references",
       "source_keys": [
-        "a4dcd2a24306e940",
         "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
-        "a4dcd2a24306e940",
-        "ee16ebdb16d3e3c1",
+        "b4906f93cb1fa360",
+        "b0185a01a01efa50",
+        "30ee229014951e29",
+        "dfbff59cfa7228a0",
+        "38711554c989e8a5",
+        "9818daa9f9091751",
+        "9f7941416a5e7bec",
+        "2db71c3f90da0f54",
+        "c6c618a8406c7343",
+        "eda576256f4c43f6",
+        "7e8da43368880b42",
         "27592d5a6665e286"
       ],
-      "start_line": 546
+      "start_line": 547
     },
     {
       "confidence": "citation-only",
-      "end_line": 571,
+      "end_line": 572,
       "heading": "RockU operational sources",
       "needs_live_verification": false,
       "section_id": "source-map-rocku-operational-sources",
@@ -3793,11 +4042,11 @@
         "78f1e8bbd9d351ff",
         "c7e64b58d0d67e94"
       ],
-      "start_line": 562
+      "start_line": 563
     },
     {
       "confidence": "normal",
-      "end_line": 578,
+      "end_line": 579,
       "heading": "Version and implementation evidence",
       "needs_live_verification": false,
       "section_id": "source-map-version-and-implementation-evidence",
@@ -3805,13 +4054,13 @@
         "3c1653073afe6b82",
         "238bec09183ae488",
         "a5c2796c2efd183e",
-        "7d1b37cb1d7ebc74"
+        "94650664a4d1e1f5"
       ],
-      "start_line": 572
+      "start_line": 573
     },
     {
       "confidence": "community-supported",
-      "end_line": 589,
+      "end_line": 590,
       "heading": "Community examples and reviewed patterns",
       "needs_live_verification": false,
       "section_id": "source-map-community-examples-and-reviewed-patterns",
@@ -3824,33 +4073,33 @@
         "892f43823742ae10",
         "2cf11aac4d7e5e09"
       ],
-      "start_line": 579
+      "start_line": 580
     },
     {
       "confidence": "normal",
-      "end_line": 615,
+      "end_line": 616,
       "heading": "Approved Claim Coverage",
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "6e60154c3f9928e9",
+        "dfbff59cfa7228a0",
         "27592d5a6665e286",
-        "ee16ebdb16d3e3c1",
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "6e60154c3f9928e9",
-        "a4dcd2a24306e940",
-        "6e60154c3f9928e9",
+        "7e8da43368880b42",
+        "d179d70925efd654",
+        "c6c618a8406c7343",
+        "d179d70925efd654",
+        "dfbff59cfa7228a0",
+        "30ee229014951e29",
+        "c6c618a8406c7343",
+        "30ee229014951e29",
         "50f9d490eba68a43",
         "3c1653073afe6b82"
       ],
-      "start_line": 590
+      "start_line": 591
     },
     {
       "confidence": "community-supported",
-      "end_line": 635,
+      "end_line": 636,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
@@ -3864,7 +4113,7 @@
         "a0977938560d1ac4",
         "c7e64b58d0d67e94"
       ],
-      "start_line": 616
+      "start_line": 617
     }
   ],
   "source_pack_hydrated_at": "2026-07-30T00:54:35+00:00",
@@ -3878,6 +4127,64 @@
       "source_record_id": "rock_model_map:stable-demo-scrape",
       "title": "Stable Rock Model Map scrape",
       "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "da0e260d298ed4c219c4e717e4423da7c4f4374254126d67e560c8fe69d622d4",
+      "excerpt_hash": "8f8b7d0088774240027ad0fa1dd652a00bf00559e3cd0be158a5d119542b22f6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b4906f93cb1fa360",
+      "source_record_id": "rock_documentation:article:2108",
+      "title": "Workflow Types",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-types",
+      "version": null
+    },
+    {
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "50f9d490eba68a43",
+      "source_record_id": "",
+      "title": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s",
+      "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "19ebccdf314f5114792743cb6f6ffcbb32ebe9dd37a48f9b2c2a2f071a3ab391",
+      "excerpt_hash": "3f73491365b06e5b31875452afa52b1c4be8f2877994b56db23697cb574a6d3e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a67440c45ef2ffaa",
+      "source_record_id": "rock_documentation:article:2107",
+      "title": "Intro to Workflows",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/intro-to-workflows",
+      "version": null
     },
     {
       "authority": "official",
@@ -3903,38 +4210,144 @@
       "version": null
     },
     {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "50f9d490eba68a43",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s",
-      "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=747s"
-    },
-    {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "a1bc2dca6766f504e8ec1cf4cbaab6e2dcced8dc7f92fa555cbad81e80000e49",
-      "excerpt_hash": "dd18b3f8d20e8b604ebc915f29b46b921c4e2b1e252d39270dd89633beeb3854",
+      "content_hash": "9baaea249848bdc6052fffbce430724b7821de1217bc4b3f6cda60c329623b40",
+      "excerpt_hash": "af3a2ae79fbd65259f246bed6a96038234c6fa0a79a029db01d153512015fb42",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "a4dcd2a24306e940",
-      "source_record_id": "rock_documentation:article:923",
-      "title": "Advanced Workflows",
+      "source_key": "b0185a01a01efa50",
+      "source_record_id": "rock_documentation:article:2110",
+      "title": "Workflow Actions",
       "topics": [
         "admin",
-        "api",
-        "lava",
+        "operations",
+        "sql",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6ad8577741b6eefc850c14c17a0187cf1eb3a3a18af975c8f585aa7dccaa543c",
+      "excerpt_hash": "b1a124bdba4baf6a90e6395bd774c07f7bc4da8754f1bcd1b114eea5a7e09857",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "aab356dcf49037bb",
+      "source_record_id": "rock_documentation:article:957",
+      "title": "Edit Workflow Details",
+      "topics": [
+        "admin",
         "operations",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows",
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "baf1ef7a08f69d695fe1cf393d5837dfb006453c54375ea3904e1c6852eef6ad",
+      "excerpt_hash": "d50f5bacc9ed5fd628debbd9ffce9c9f8bcbdd194ee03d5cdbc46c37c80e57b6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "30ee229014951e29",
+      "source_record_id": "rock_documentation:article:961",
+      "title": "Define Workflow Activities",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b0845127e69a1928013f64114af6f4483b5e417070648365dd500f4d16707bb5",
+      "excerpt_hash": "9a0251b81dd57f62d5132bf58fc464d69f6d5727ef2cd857617a324064e80012",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a0f222d77a550738",
+      "source_record_id": "rock_documentation:article:978",
+      "title": "Built-In Workflows",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/built-in-workflows",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "03da905fca4e3d9159577eb8e6dda5e2d6601b59ca6f3eb25a561f6aead3f9c2",
+      "excerpt_hash": "5b56021471e01bc35977284fbd7fae1c7d6037efeadb0ad6c749d963f75f887b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9818daa9f9091751",
+      "source_record_id": "rock_documentation:article:2294",
+      "title": "Launch a Workflow",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d792020215bfab3e1c0cdfe3ebfd747aee9bcd312803e0094f16c4595c969af2",
+      "excerpt_hash": "8b60bd8ca0b661cf06d0e2de92927beee806360e51f4b3bbe8e27c67751054d2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "3aba64922a297e17",
+      "source_record_id": "rock_documentation:article:981",
+      "title": "Link to Workflows",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/link-to-workflows",
       "version": null
     },
     {
@@ -3946,6 +4359,196 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
+    },
+    {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:sms-code-workflows-avoid-retained-plain-code-history",
+      "contribution_type": "troubleshooting_pattern",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "a0977938560d1ac4",
+      "source_record_id": "org_contribution:oneall:sms-code-workflows-avoid-retained-plain-code-history",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/workflows",
+        "https://community.rockrms.com/documentation",
+        "https://community.rockrms.com/ModelMap"
+      ],
+      "title": "Avoid retaining plain SMS verification codes in communication history when not needed",
+      "topics": [
+        "workflows",
+        "security-permissions"
+      ],
+      "url": "https://community.rockrms.com/rocku/workflows"
+    },
+    {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:workflowactivate-attribute-key-contract",
+      "contribution_type": "troubleshooting_pattern",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "7e8da43368880b42",
+      "source_record_id": "org_contribution:oneall:workflowactivate-attribute-key-contract",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands/workflow-activate-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Lava/Blocks/WorkflowActivateBlock.cs",
+        "https://community.rockrms.com/rocku/workflows"
+      ],
+      "title": "Treat workflowactivate parameters as an attribute-key contract",
+      "topics": [
+        "workflows",
+        "lava"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/workflow-activate-commands"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f96932cc520002871409cb8a9144443680806108914ba8214531b939893754a4",
+      "excerpt_hash": "51617dfc8d8943446cf455f85fcd37d64dd8a7af7f95b9e938918ddf1996adc7",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "workflow",
+        "activate",
+        "lava",
+        "workflow activate",
+        "workflowactivate"
+      ],
+      "path": "Rock/Lava/Blocks/WorkflowActivateBlock.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a5c2796c2efd183e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Lava/Blocks/WorkflowActivateBlock.cs",
+      "title": "Rock/Lava/Blocks/WorkflowActivateBlock.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "209b29a6c0d173c626f1739d3b9c2be327650e014116b816c796f9e931695c7c",
+      "excerpt_hash": "3d4794142598d5c94c3f12e8ec3e12f74e92270c713262ffd4aa59f8558437a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "dfbff59cfa7228a0",
+      "source_record_id": "rock_documentation:article:937",
+      "title": "Understand Form Actions",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2260611afc75e2ee5c262dd6e6242a50515d3e87fd667440cd876842251c1187",
+      "excerpt_hash": "566b2a32e3114c33810e3b301bf8f604004c04dba9a5dfd1c46e68072441b2ee",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "aa96a022e5469620",
+      "source_record_id": "rock_documentation:article:939",
+      "title": "Chain Entry Forms",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9b1dfbcf806eb412d93a4dd5d23b3d1f9d36cad130c213bbc747d9ac09056b20",
+      "excerpt_hash": "59fc4a361721f743e4806cdd09830ad89fe4bd5fbe999aa9bb1a7c51e158586c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "c911c22f4f7df54b",
+      "source_record_id": "rock_documentation:article:2112",
+      "title": "Intro to the Form Builder",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "4763c9efa02944349b425691a05eed99caed8f9f6385b723016c1028c06e2d40",
+      "excerpt_hash": "f228de82dc8e67ce5853ddfec3da0d2ce023962a0f472194bb56ada6b33482f0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "21a80a0444619a83",
+      "source_record_id": "rock_documentation:article:944",
+      "title": "Create a Form",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/create-a-form",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "64f24b0d04ffcad43da8114ed1a1ace4e5bf86fee405692d0f26baacbe38eb85",
+      "excerpt_hash": "6ff5bd97a1c74048a69ef84b0c18a0a834036e2da23117d6e7c2d002d439b682",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "816a5a659a1efa46",
+      "source_record_id": "rock_documentation:article:950",
+      "title": "Navigate the Form Builder",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/navigate-the-form-builder",
+      "version": null
     },
     {
       "authority": "official-training",
@@ -3973,53 +4576,6 @@
       "version": null
     },
     {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:lava-condition-branches-should-favor-simple-blocks",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "ee16ebdb16d3e3c1",
-      "source_record_id": "org_contribution:oneall:lava-condition-branches-should-favor-simple-blocks",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava",
-        "https://community.rockrms.com/lava/workflows",
-        "https://community.rockrms.com/lava/commands"
-      ],
-      "title": "Favor simple Lava condition blocks when workflow templates parse unpredictably",
-      "topics": [
-        "lava",
-        "workflows"
-      ],
-      "url": "https://community.rockrms.com/lava"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "f96932cc520002871409cb8a9144443680806108914ba8214531b939893754a4",
-      "excerpt_hash": "51617dfc8d8943446cf455f85fcd37d64dd8a7af7f95b9e938918ddf1996adc7",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "workflow",
-        "activate",
-        "lava",
-        "workflow activate",
-        "workflowactivate"
-      ],
-      "path": "Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "a5c2796c2efd183e",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-      "title": "Rock/Lava/Blocks/WorkflowActivateBlock.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs"
-    },
-    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -4028,6 +4584,126 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz",
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "7c5e17b31bf58845a980f93d4091bceb899baecd85a6872870038a055869559c",
+      "excerpt_hash": "98aec8f4a05ee12ba69404bb828ee80b8a4f72890944cb1d24b4dbb4e14ff843",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1c3c9b4e2001ff72",
+      "source_record_id": "rock_documentation:article:2652",
+      "title": "Workflow Control",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "39b7c47ee137ec12def354cb1903d2ab9601826607c0ea8f8b53f11ec1f7ef7f",
+      "excerpt_hash": "22ae6f6943c59fcd459d85e19aae9116fd0bdc27c6b4d321f627ff0fb3bc9c24",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "74d0a267486afd55",
+      "source_record_id": "rock_documentation:article:959",
+      "title": "Configure Workflow Details",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6c3a811b2004924dbff082798bf87bc4d971c14deb818e68a02ca111ca7c9af2",
+      "excerpt_hash": "51f508b9bb58cfa19cfb8a57d907e6f90197bddc4756698073231137f7e42829",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6db9e127b44500c6",
+      "source_record_id": "rock_documentation:article:920",
+      "title": "Workflow Notes",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/workflow-notes",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "0093ea37af3dd549ce6e8e9453af4c96c133aaebc60aae44fd6dbf717c11f01c",
+      "excerpt_hash": "97db132ed66f26608ce8696a34971e05f84254f5def53ddf15e1f1ce1302a243",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "c6c618a8406c7343",
+      "source_record_id": "rock_documentation:article:983",
+      "title": "Configure a Webhook to a Workflow",
+      "topics": [
+        "admin",
+        "api",
+        "lava",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "81c789719fffb25e922d662e4425445d8fa6e72a7ebab0cb2cca834b401f13e1",
+      "excerpt_hash": "b8c2cc5d661a5fbfd64f9fd09488fe29f62e4ceb54f7e7c81f1e3136e02ad089",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "eda576256f4c43f6",
+      "source_record_id": "rock_documentation:article:1787",
+      "title": "SMS Pipeline Workflows",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows",
+      "version": null
     },
     {
       "authority": "unknown",
@@ -4084,6 +4760,52 @@
         "cms-websites"
       ],
       "url": "https://community.rockrms.com/lava/commands/entity-commands"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "593c419d096d34d5391b362093052c1a1a9a058dc0f3d483eef403db88a5c85f",
+      "excerpt_hash": "7d141fa764e9d3a38157fdf8fb90f5bec1b4eed466db253e93e7f810f592714b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8027893a070f1d50",
+      "source_record_id": "rock_documentation:article:955",
+      "title": "Viewing a Workflow Instance",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/viewing-a-workflow-instance",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d93e445010482fd21b815b10d59177318731bc25360b7f66863a2b109a796574",
+      "excerpt_hash": "182ef3a2ee8de4d624e6ae93e32ba2e33d3b6ac7ff99b5a1d536ad7bc182432a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d179d70925efd654",
+      "source_record_id": "rock_documentation:article:958",
+      "title": "My Workflows",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows",
+      "version": null
     },
     {
       "authority": "official-training",
@@ -4250,25 +4972,96 @@
       "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification"
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "18d7d58f8764d6befeb964f2ef7f7117308bd2576b8c4e2b33e6b5272ad38698",
+      "excerpt_hash": "e670b21d8d089932d9d7dd6cc30c5803dab10e0e03b7270c8127386f178d43a9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9f7941416a5e7bec",
+      "source_record_id": "rock_documentation:article:921",
+      "title": "Secure Workflows",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "a1935a8c4fa7faa869b678e2217d43c3cfeb2852ea11b38ab588700c130f0349",
+      "excerpt_hash": "611e5282a52cd3885f3e0373713dbd7170eb96da15419327e89dbbe6bcc3c19e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2ad51695904ab66e",
+      "source_record_id": "rock_documentation:article:922",
+      "title": "Lava Tips for Workflows",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "8416ade23fbb13ac3e80a1d4f3bd228f53a4c5b3eeb3f0139ee33a36cd074ee7",
+      "excerpt_hash": "7b3ecfd7b931d38b40693da0a1074a5021358314cc1cc8b58e413632af4ff245",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "bdc3167e03e53e66",
+      "source_record_id": "rock_documentation:article:980",
+      "title": "Use Workflow Import/Export",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/use-workflow-importexport",
+      "version": null
+    },
+    {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "ed67af1c989e811314cb4675b57a82ff4fa81a5fb7e495c81d0c044930337fdf",
-      "excerpt_hash": "5795117cb47e9be755c3ea3da8adda0f55c28e1e16270024203f1519666e4f69",
+      "content_hash": "92f2f1dec23cc9ba0e739854de1ca60eb77337363721f45974bc1c2e5dc892dd",
+      "excerpt_hash": "21f54f5603a72c8b58606014ba4cc8b22c4b38678b40fe090472d1b7d3ff153d",
       "kind": "github_file",
-      "language": "ASP.NET Web Forms",
+      "language": "C#",
       "matched_terms": [
         "workflow",
         "activate",
         "workflow activate",
         "workflowactivate"
       ],
-      "path": "RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
+      "path": "RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "7d1b37cb1d7ebc74",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-      "title": "RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx"
+      "source_key": "94650664a4d1e1f5",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs",
+      "title": "RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs"
     },
     {
       "authority": "unknown",
@@ -4281,6 +5074,75 @@
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s"
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "441e5605bb7629825fe3b4b98ee782243b4a9235098f5fb432ee912f128278a0",
+      "excerpt_hash": "a18581f8afd36790f9959617e18ef3d8881ad2b05505b69bb5e619f15361046d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "42e0fc1ef2dbb69a",
+      "source_record_id": "rock_documentation:article:919",
+      "title": "Build a Workflow",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "89921ff764be6869a05236fca9d808fb0a912b75104a88526950028be04e42ad",
+      "excerpt_hash": "c4acc23d99fc99b67ac6216fab7d586baebe422e552bdd980206e081339e81ab",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "38711554c989e8a5",
+      "source_record_id": "rock_documentation:article:917",
+      "title": "Form Builder",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/form-builder",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "24c21d210ef2a00e774c4ab1ee6e51911269cd934a6cef90adec5c6154a67736",
+      "excerpt_hash": "f8b904fd2d27f27975a56dc6a8c8351812ac001ad6447935a05880906600622b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2db71c3f90da0f54",
+      "source_record_id": "rock_documentation:article:918",
+      "title": "Manage Workflow Instances",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances",
+      "version": null
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -4289,31 +5151,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-job",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-job"
-    },
-    {
-      "authority": "org-contribution",
-      "authority_score": 58,
-      "content_hash": null,
-      "contribution_id": "oneall:sms-code-workflows-avoid-retained-plain-code-history",
-      "contribution_type": "troubleshooting_pattern",
-      "kind": "org_contribution",
-      "needs_live_verification": true,
-      "org_id": "oneall",
-      "source_id": "org_contribution",
-      "source_key": "a0977938560d1ac4",
-      "source_record_id": "org_contribution:oneall:sms-code-workflows-avoid-retained-plain-code-history",
-      "source_record_ids": [],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/workflows",
-        "https://community.rockrms.com/documentation",
-        "https://community.rockrms.com/ModelMap"
-      ],
-      "title": "Avoid retaining plain SMS verification codes in communication history when not needed",
-      "topics": [
-        "workflows",
-        "security-permissions"
-      ],
-      "url": "https://community.rockrms.com/rocku/workflows"
     },
     {
       "authority": "official-training",

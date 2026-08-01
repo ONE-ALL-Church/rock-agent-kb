@@ -226,6 +226,43 @@ const OUTCOME_FIELDS = new Set([
 ]);
 const OUTCOME_REQUEST_MAX_BYTES = 2048;
 const OUTCOME_LIMIT_PER_INSTALLATION_DAY = 100;
+const RETRIEVAL_COMPARISON_CATEGORIES = new Set([
+  "normal_task",
+  "exact_lookup",
+  "semantic",
+  "version_sensitive",
+  "issue",
+  "no_answer",
+]);
+const RETRIEVAL_COMPARISON_PREFERENCES = new Set([
+  "a_better",
+  "b_better",
+  "equivalent",
+  "neither_useful",
+]);
+const RETRIEVAL_COMPARISON_REASON_CODES: Record<string, Set<string>> = {
+  a_better: new Set(["better_match", "more_complete", "better_sourced", "better_authority", "better_version_fit", "less_redundant", "correct_no_answer"]),
+  b_better: new Set(["better_match", "more_complete", "better_sourced", "better_authority", "better_version_fit", "less_redundant", "correct_no_answer"]),
+  equivalent: new Set(["both_useful", "same_quality"]),
+  neither_useful: new Set(["both_not_useful", "weak_evidence", "wrong_route", "missing_detail"]),
+};
+const RETRIEVAL_COMPARISON_START_FIELDS = new Set([
+  "query",
+  "category",
+  "limit",
+  "min_claim_tier",
+  "rock_version",
+  "kind",
+]);
+const RETRIEVAL_COMPARISON_REVIEW_FIELDS = new Set([
+  "comparison_id",
+  "preference",
+  "reason_codes",
+  "consent_attested",
+]);
+const RETRIEVAL_COMPARISON_REQUEST_MAX_BYTES = 4096;
+const RETRIEVAL_COMPARISON_LIMIT_PER_INSTALLATION_DAY = 100;
+const RETRIEVAL_COMPARISON_SESSION_TTL_MS = 30 * 60 * 1000;
 const LAVA_CONTEXT_VERIFICATION_FIELDS = new Set(["context_id", "root_key", "rock_version", "observation", "consent_attested"]);
 const LAVA_CONTEXT_VERIFICATION_VALUES = new Set(["present", "unavailable", "uncertain"]);
 const LAVA_CONTEXT_VERIFICATION_REQUEST_MAX_BYTES = 1024;
@@ -297,7 +334,7 @@ const MCP_LIST_CACHE_TTL_MS = 60 * 60 * 1000;
 const MCP_MODERN_PROTOCOL_VERSION = "2026-07-28";
 const MCP_RESPONSE_ENVELOPE_ESTIMATE_BYTES = 512;
 const MCP_ERROR_INSPECTION_LIMIT_BYTES = 64 * 1024;
-const MCP_INSTRUCTIONS = "Start with kb_search, which defaults to source-backed or stronger results and routes symptom queries to task cards and troubleshooting nodes. Then expand only the exact result you need. Use exact model, recipe, issue, idea, and Lava-context tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health. Retrieval defaults to legacy; only opted-in external testers and maintainers should request projection=canonical-canary, and they must pass the same projection to kb_get_result and kb_outcome.";
+const MCP_INSTRUCTIONS = "Start with kb_search, which defaults to source-backed or stronger results and routes symptom queries to task cards and troubleshooting nodes. Then expand only the exact result you need. Use exact model, recipe, issue, idea, and Lava-context tools when the identifier is known. Treat community Ideas and unreviewed issues as leads, not implementation proof. Use kb_get_freshness for current source and workflow health. Retrieval defaults to legacy; only opted-in external testers and maintainers should request projection=canonical-canary. For a reviewed field test, use kb_compare_retrieval and then kb_submit_retrieval_comparison without sending the question or private data in the review.";
 const MCP_CORS_HEADERS = [
   "Content-Type",
   "Accept",
@@ -654,6 +691,26 @@ export default {
         } catch (error) {
           if (error instanceof PublicRequestError) {
             return json({ schema: "rock-kb-outcome-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
+      }
+      if (url.pathname === "/comparisons" && request.method === "POST") {
+        try {
+          return json(await startRetrievalComparison(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-retrieval-comparison-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
+          }
+          throw error;
+        }
+      }
+      if (url.pathname === "/comparisons/review" && request.method === "POST") {
+        try {
+          return json(await submitRetrievalComparison(request, env), 201);
+        } catch (error) {
+          if (error instanceof PublicRequestError) {
+            return json({ schema: "rock-kb-retrieval-comparison-review-result-v1", status: "rejected", error_code: error.code, message: error.message }, error.status);
           }
           throw error;
         }
@@ -1837,6 +1894,34 @@ async function callTool(name: string, args: JsonRecord, env: ServiceEnv, request
       env,
       "mcp",
     );
+  }
+  if (name === "kb_compare_retrieval") {
+    try {
+      return await startRetrievalComparison(
+        new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+        env,
+        "mcp",
+      );
+    } catch (error) {
+      if (error instanceof PublicRequestError) {
+        return { schema: "rock-kb-retrieval-comparison-v1", status: "rejected", error_code: error.code, message: error.message };
+      }
+      throw error;
+    }
+  }
+  if (name === "kb_submit_retrieval_comparison") {
+    try {
+      return await submitRetrievalComparison(
+        new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }),
+        env,
+        "mcp",
+      );
+    } catch (error) {
+      if (error instanceof PublicRequestError) {
+        return { schema: "rock-kb-retrieval-comparison-review-result-v1", status: "rejected", error_code: error.code, message: error.message };
+      }
+      throw error;
+    }
   }
   if (name === "kb_feedback") {
     return submitFeedback(new Request(request.url, { method: "POST", headers: request.headers, body: JSON.stringify(args) }), env, "mcp");
@@ -4404,6 +4489,7 @@ async function mcpTransportSummary(env: ServiceEnv, ensureTables = true): Promis
       response_size_measure: "Uses Content-Length when present, buffers small handler-generated errors, and estimates direct tool payloads and tool-list metadata from values already in memory. Successful response streams are not read or cloned; all other responses are marked unmeasured.",
       cache_hits_observable: false,
       cache_signal: "Compare discover and tools_list counts with tool_call counts by projection and cohort. A request avoided by a client cache is not directly observable server-side.",
+      failure_classification: "failure_count is the raw HTTP/MCP failure count. actionable_failure_count excludes only direct GET/DELETE session operations that the documented stateless endpoint intentionally rejects with 405.",
     },
     privacy: "Stores only daily aggregate projection, endpoint, protocol generation, operation category, fixed cohort, HTTP status, normalized error code, latency bucket, response-size bucket and basis, and count. It excludes installation hashes, tool names, arguments, queries, headers, origins, user agents, IP addresses, bodies, logs, identities, and Rock data.",
   };
@@ -4419,9 +4505,14 @@ function normalizeMcpTransportRow(row: JsonRecord): JsonRecord {
 
 function summarizeMcpTransportRows(rows: JsonRecord[]): JsonRecord {
   const totalCount = rows.reduce((total, row) => total + Number(row.count || 0), 0);
-  const failureCount = rows
-    .filter((row) => Number(row.http_status || 0) >= 400 || String(row.error_code || "none") !== "none")
+  const failureRows = rows
+    .filter((row) => Number(row.http_status || 0) >= 400 || String(row.error_code || "none") !== "none");
+  const failureCount = failureRows
     .reduce((total, row) => total + Number(row.count || 0), 0);
+  const expectedStatelessRejectionCount = failureRows
+    .filter(isExpectedStatelessSessionRejection)
+    .reduce((total, row) => total + Number(row.count || 0), 0);
+  const actionableFailureCount = failureCount - expectedStatelessRejectionCount;
   const operationCounts = mcpTransportDimensionCounts(rows, "operation_category");
   const toolCallCount = Number(operationCounts.tool_call || 0);
   const toolsListCount = Number(operationCounts.tools_list || 0);
@@ -4433,6 +4524,9 @@ function summarizeMcpTransportRows(rows: JsonRecord[]): JsonRecord {
     success_count: totalCount - failureCount,
     failure_count: failureCount,
     failure_rate: totalCount ? Math.round((failureCount / totalCount) * 1_000_000) / 1_000_000 : 0,
+    expected_stateless_rejection_count: expectedStatelessRejectionCount,
+    actionable_failure_count: actionableFailureCount,
+    actionable_failure_rate: totalCount ? Math.round((actionableFailureCount / totalCount) * 1_000_000) / 1_000_000 : 0,
     tools_list_per_tool_call: toolCallCount ? Math.round((toolsListCount / toolCallCount) * 10_000) / 10_000 : null,
     discover_per_tool_call: toolCallCount ? Math.round((discoverCount / toolCallCount) * 10_000) / 10_000 : null,
     response_size_coverage_rate: totalCount
@@ -4449,6 +4543,12 @@ function summarizeMcpTransportRows(rows: JsonRecord[]): JsonRecord {
     by_response_size_bucket: mcpTransportDimensionCounts(rows, "response_size_bucket"),
     by_response_size_basis: responseSizeBasisCounts,
   };
+}
+
+function isExpectedStatelessSessionRejection(row: JsonRecord): boolean {
+  return row.endpoint === "direct"
+    && row.operation_category === "session_operation"
+    && Number(row.http_status || 0) === 405;
 }
 
 function mcpTransportDimensionCounts(rows: JsonRecord[], field: string): JsonRecord {
@@ -4713,6 +4813,60 @@ async function createTelemetryTables(env: ServiceEnv): Promise<void> {
     )`
   ).run();
   await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS retrieval_comparison_sessions_v1 (
+      comparison_id TEXT PRIMARY KEY,
+      created_at TEXT NOT NULL,
+      expires_at TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      category TEXT NOT NULL,
+      legacy_projection_version TEXT NOT NULL,
+      canonical_projection_version TEXT NOT NULL,
+      option_a_projection TEXT NOT NULL,
+      legacy_result_ids_json TEXT NOT NULL,
+      canonical_result_ids_json TEXT NOT NULL,
+      submitted_at TEXT NOT NULL
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS retrieval_comparison_outcomes_v1 (
+      day TEXT NOT NULL,
+      comparison_id TEXT PRIMARY KEY,
+      installation_hash TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      category TEXT NOT NULL,
+      legacy_projection_version TEXT NOT NULL,
+      canonical_projection_version TEXT NOT NULL,
+      legacy_result_id TEXT NOT NULL,
+      canonical_result_id TEXT NOT NULL,
+      preference TEXT NOT NULL,
+      reason_codes TEXT NOT NULL,
+      count INTEGER NOT NULL
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS retrieval_comparison_funnel_v1 (
+      day TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      stage TEXT NOT NULL,
+      category TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(day, client_class, cohort, stage, category)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS retrieval_comparison_rate_v1 (
+      day TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      start_count INTEGER NOT NULL,
+      submit_count INTEGER NOT NULL,
+      PRIMARY KEY(day, installation_hash)
+    )`
+  ).run();
+  await env.KB_DB.prepare(
     `CREATE TABLE IF NOT EXISTS lava_context_verifications_v1 (
       day TEXT NOT NULL,
       installation_hash TEXT NOT NULL,
@@ -4899,6 +5053,243 @@ async function submitOutcome(request: Request, env: ServiceEnv, forcedClientClas
     retrieval_projection: retrievalProjection,
     outcome,
     reason_codes: reasonCodes,
+    cohort: identity.cohort,
+  };
+}
+
+async function startRetrievalComparison(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (!identity.installationId || !CANONICAL_CANARY_COHORTS.has(identity.cohort)) {
+    throw new PublicRequestError(400, "comparison_opt_in_required", "Retrieval comparisons require an opted-in anonymous installation marker and the external-test or maintainer cohort");
+  }
+  const body = await readBoundedJson(request, RETRIEVAL_COMPARISON_REQUEST_MAX_BYTES, {
+    label: "Retrieval comparison",
+    tooLargeCode: "comparison_too_large",
+  });
+  if (Object.keys(body).some((field) => !RETRIEVAL_COMPARISON_START_FIELDS.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Retrieval comparisons may contain only query, category, limit, min_claim_tier, rock_version, and kind");
+  }
+  const query = typeof body.query === "string" ? body.query.trim() : "";
+  if (!query || query.length > 500) {
+    throw new PublicRequestError(400, "invalid_query", "query must contain 1 through 500 characters");
+  }
+  const category = typeof body.category === "string" ? body.category.trim().toLowerCase() : "normal_task";
+  if (!RETRIEVAL_COMPARISON_CATEGORIES.has(category)) {
+    throw new PublicRequestError(400, "invalid_category", "category must be normal_task, exact_lookup, semantic, version_sensitive, issue, or no_answer");
+  }
+  const minTier = validatedClaimTier(stringOrNull(body.min_claim_tier), "source_backed", "min_claim_tier");
+  const limit = boundedInt(body.limit, 3, 1, 5);
+  const rockVersion = typeof body.rock_version === "string" ? body.rock_version.trim() : "";
+  const kind = typeof body.kind === "string" ? body.kind.trim() : "";
+  if (rockVersion.length > 32 || kind.length > 64) {
+    throw new PublicRequestError(400, "invalid_filter", "rock_version and kind must use their bounded public values");
+  }
+  await requireRetrievalProjectionAccess(request, env, "canonical-canary", forcedClientClass);
+  await ensureTelemetryTables(env);
+
+  const now = new Date();
+  const day = now.toISOString().slice(0, 10);
+  const installationHash = await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`);
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_rate_v1 (day, installation_hash, start_count, submit_count)
+     VALUES (?, ?, 1, 0)
+     ON CONFLICT(day, installation_hash) DO UPDATE SET start_count = start_count + 1`,
+  ).bind(day, installationHash).run();
+  const rate = await env.KB_DB.prepare(
+    "SELECT start_count FROM retrieval_comparison_rate_v1 WHERE day = ? AND installation_hash = ?",
+  ).bind(day, installationHash).first<{ start_count: number }>();
+  if (Number(rate?.start_count || 0) > RETRIEVAL_COMPARISON_LIMIT_PER_INSTALLATION_DAY) {
+    throw new PublicRequestError(429, "rate_limited", "Retrieval comparison rate limit exceeded; retry tomorrow");
+  }
+
+  const [legacyResults, canonicalResults, legacyVersion, canonicalVersion] = await Promise.all([
+    search(env, query, limit, minTier, false, kind, false, rockVersion, "legacy"),
+    search(env, query, limit, minTier, false, kind, false, rockVersion, "canonical-canary"),
+    currentRetrievalProjectionVersion(env, "legacy"),
+    currentRetrievalProjectionVersion(env, "canonical-canary"),
+  ]);
+  const randomByte = crypto.getRandomValues(new Uint8Array(1))[0];
+  const optionAProjection: RetrievalProjection = randomByte % 2 === 0 ? "legacy" : "canonical-canary";
+  const comparisonId = `kbc_${crypto.randomUUID().replaceAll("-", "").slice(0, 24)}`;
+  const expiresAt = new Date(now.getTime() + RETRIEVAL_COMPARISON_SESSION_TTL_MS).toISOString();
+  await purgeExpiredRetrievalComparisonSessions(env, now);
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_sessions_v1 (
+       comparison_id, created_at, expires_at, installation_hash, client_class, cohort,
+       category, legacy_projection_version, canonical_projection_version,
+       option_a_projection, legacy_result_ids_json, canonical_result_ids_json, submitted_at
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '')`,
+  ).bind(
+    comparisonId,
+    now.toISOString(),
+    expiresAt,
+    installationHash,
+    identity.clientClass,
+    identity.cohort,
+    category,
+    legacyVersion,
+    canonicalVersion,
+    optionAProjection,
+    JSON.stringify(legacyResults.map((row) => String(row.id || ""))),
+    JSON.stringify(canonicalResults.map((row) => String(row.id || ""))),
+  ).run();
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_funnel_v1 (day, client_class, cohort, stage, category, count)
+     VALUES (?, ?, ?, 'started', ?, 1)
+     ON CONFLICT(day, client_class, cohort, stage, category) DO UPDATE SET count = count + 1`,
+  ).bind(day, identity.clientClass, identity.cohort, category).run();
+  await Promise.all([
+    recordAccessUsage(env, "comparison_search", String(legacyResults[0]?.kind || "none"), legacyResults.length, request, forcedClientClass, "legacy"),
+    recordAccessUsage(env, "comparison_search", String(canonicalResults[0]?.kind || "none"), canonicalResults.length, request, forcedClientClass, "canonical-canary"),
+  ]);
+  const optionA = blindComparisonRows(optionAProjection === "legacy" ? legacyResults : canonicalResults, "A");
+  const optionB = blindComparisonRows(optionAProjection === "legacy" ? canonicalResults : legacyResults, "B");
+  return {
+    schema: "rock-kb-retrieval-comparison-v1",
+    status: "ready",
+    comparison_id: comparisonId,
+    category,
+    expires_at: expiresAt,
+    options: [
+      { label: "A", results: optionA },
+      { label: "B", results: optionB },
+    ],
+    preferences: [...RETRIEVAL_COMPARISON_PREFERENCES],
+    reason_codes: Object.fromEntries(Object.entries(RETRIEVAL_COMPARISON_REASON_CODES).map(([preference, values]) => [preference, [...values]])),
+    privacy: "The question is used transiently for two searches and is not stored. The pending comparison stores only a one-way installation hash, fixed cohort/category, public result IDs, projection versions, and randomized A/B assignment for 30 minutes.",
+  };
+}
+
+function blindComparisonRows(rows: JsonRecord[], optionLabel: "A" | "B"): JsonRecord[] {
+  return rows.map((row, index) => {
+    const {
+      id: _resultId,
+      path: _path,
+      retrieval_projection: _retrievalProjection,
+      ...publicRow
+    } = row;
+    return { result_key: `${optionLabel}${index + 1}`, ...publicRow };
+  });
+}
+
+async function submitRetrievalComparison(request: Request, env: ServiceEnv, forcedClientClass = ""): Promise<JsonRecord> {
+  const identity = telemetryIdentity(request, forcedClientClass);
+  if (!identity.installationId || !CANONICAL_CANARY_COHORTS.has(identity.cohort)) {
+    throw new PublicRequestError(400, "comparison_opt_in_required", "Retrieval comparison reviews require an opted-in anonymous installation marker and the external-test or maintainer cohort");
+  }
+  const body = await readBoundedJson(request, RETRIEVAL_COMPARISON_REQUEST_MAX_BYTES, {
+    label: "Retrieval comparison review",
+    tooLargeCode: "comparison_review_too_large",
+  });
+  if (Object.keys(body).some((field) => !RETRIEVAL_COMPARISON_REVIEW_FIELDS.has(field))) {
+    throw new PublicRequestError(400, "unsupported_fields", "Retrieval comparison reviews may contain only comparison_id, preference, reason_codes, and consent_attested");
+  }
+  const comparisonId = typeof body.comparison_id === "string" ? body.comparison_id.trim() : "";
+  const preference = typeof body.preference === "string" ? body.preference.trim().toLowerCase() : "";
+  if (!/^kbc_[0-9a-f]{24}$/.test(comparisonId)) {
+    throw new PublicRequestError(400, "invalid_comparison_id", "comparison_id must be a Rock KB retrieval comparison identifier");
+  }
+  if (!RETRIEVAL_COMPARISON_PREFERENCES.has(preference)) {
+    throw new PublicRequestError(400, "invalid_preference", "preference must be a_better, b_better, equivalent, or neither_useful");
+  }
+  if (body.consent_attested !== true) {
+    throw new PublicRequestError(400, "consent_attestation_required", "consent_attested must be true");
+  }
+  if (!Array.isArray(body.reason_codes) || body.reason_codes.length < 1 || body.reason_codes.length > 3) {
+    throw new PublicRequestError(400, "invalid_reason_codes", "reason_codes must contain one to three fixed values");
+  }
+  const reasonCodes = body.reason_codes.map((value) => typeof value === "string" ? value.trim().toLowerCase() : "");
+  if (reasonCodes.some((value) => !RETRIEVAL_COMPARISON_REASON_CODES[preference].has(value)) || new Set(reasonCodes).size !== reasonCodes.length) {
+    throw new PublicRequestError(400, "invalid_reason_codes", "reason_codes must be unique and compatible with the selected preference");
+  }
+  reasonCodes.sort();
+
+  await requireRetrievalProjectionAccess(request, env, "canonical-canary", forcedClientClass);
+  await ensureTelemetryTables(env);
+  const installationHash = await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`);
+  const session = await env.KB_DB.prepare(
+    `SELECT comparison_id, expires_at, installation_hash, client_class, cohort, category,
+            legacy_projection_version, canonical_projection_version, option_a_projection,
+            legacy_result_ids_json, canonical_result_ids_json, submitted_at
+     FROM retrieval_comparison_sessions_v1 WHERE comparison_id = ? LIMIT 1`,
+  ).bind(comparisonId).first<JsonRecord>();
+  if (!session || session.installation_hash !== installationHash || session.cohort !== identity.cohort) {
+    throw new PublicRequestError(404, "comparison_not_found", "The retrieval comparison was not found for this opted-in installation");
+  }
+  if (String(session.submitted_at || "")) {
+    throw new PublicRequestError(409, "comparison_already_submitted", "The retrieval comparison already has a review");
+  }
+  if (Date.parse(String(session.expires_at || "")) <= Date.now()) {
+    await env.KB_DB.prepare(
+      "DELETE FROM retrieval_comparison_sessions_v1 WHERE comparison_id = ?",
+    ).bind(comparisonId).run();
+    throw new PublicRequestError(410, "comparison_expired", "The retrieval comparison expired; run it again");
+  }
+  const [legacyVersion, canonicalVersion] = await Promise.all([
+    currentRetrievalProjectionVersion(env, "legacy"),
+    currentRetrievalProjectionVersion(env, "canonical-canary"),
+  ]);
+  if (session.legacy_projection_version !== legacyVersion || session.canonical_projection_version !== canonicalVersion) {
+    throw new PublicRequestError(409, "comparison_projection_changed", "A retrieval projection changed; run the comparison again");
+  }
+
+  const optionAProjection = String(session.option_a_projection || "legacy") as RetrievalProjection;
+  let mappedPreference = preference;
+  if (preference === "a_better") mappedPreference = optionAProjection === "legacy" ? "legacy_better" : "canonical_better";
+  if (preference === "b_better") mappedPreference = optionAProjection === "legacy" ? "canonical_better" : "legacy_better";
+  const legacyResultIds = parseStoredJson(session.legacy_result_ids_json, []) as unknown[];
+  const canonicalResultIds = parseStoredJson(session.canonical_result_ids_json, []) as unknown[];
+  const day = new Date().toISOString().slice(0, 10);
+  const reasonCodeValue = reasonCodes.join(",");
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_rate_v1 (day, installation_hash, start_count, submit_count)
+     VALUES (?, ?, 0, 1)
+     ON CONFLICT(day, installation_hash) DO UPDATE SET submit_count = submit_count + 1`,
+  ).bind(day, installationHash).run();
+  const rate = await env.KB_DB.prepare(
+    "SELECT submit_count FROM retrieval_comparison_rate_v1 WHERE day = ? AND installation_hash = ?",
+  ).bind(day, installationHash).first<{ submit_count: number }>();
+  if (Number(rate?.submit_count || 0) > RETRIEVAL_COMPARISON_LIMIT_PER_INSTALLATION_DAY) {
+    throw new PublicRequestError(429, "rate_limited", "Retrieval comparison review rate limit exceeded; retry tomorrow");
+  }
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_outcomes_v1 (
+       day, comparison_id, installation_hash, client_class, cohort, category,
+       legacy_projection_version, canonical_projection_version, legacy_result_id,
+       canonical_result_id, preference, reason_codes, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+  ).bind(
+    day,
+    comparisonId,
+    installationHash,
+    identity.clientClass,
+    identity.cohort,
+    String(session.category || "normal_task"),
+    legacyVersion,
+    canonicalVersion,
+    String(legacyResultIds[0] || ""),
+    String(canonicalResultIds[0] || ""),
+    mappedPreference,
+    reasonCodeValue,
+  ).run();
+  const submittedAt = new Date().toISOString();
+  await env.KB_DB.prepare(
+    "UPDATE retrieval_comparison_sessions_v1 SET submitted_at = ? WHERE comparison_id = ?",
+  ).bind(submittedAt, comparisonId).run();
+  await env.KB_DB.prepare(
+    `INSERT INTO retrieval_comparison_funnel_v1 (day, client_class, cohort, stage, category, count)
+     VALUES (?, ?, ?, 'submitted', ?, 1)
+     ON CONFLICT(day, client_class, cohort, stage, category) DO UPDATE SET count = count + 1`,
+  ).bind(day, identity.clientClass, identity.cohort, String(session.category || "normal_task")).run();
+  await recordAccessUsage(env, "comparison_outcome", "retrieval_comparison", 1, request, forcedClientClass);
+  return {
+    schema: "rock-kb-retrieval-comparison-review-result-v1",
+    status: "recorded",
+    comparison_id: comparisonId,
+    preference: mappedPreference,
+    reason_codes: reasonCodes,
+    legacy_projection_version: legacyVersion,
+    canonical_projection_version: canonicalVersion,
     cohort: identity.cohort,
   };
 }
@@ -5711,7 +6102,7 @@ function parseStoredJson(value: unknown, fallback: unknown): unknown {
 }
 
 async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
-  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation, sourceFreshness, fieldValidation] = await Promise.all([
+  const [reviewQueue, conflicts, sectionStatus, evaluationResults, telemetry, communityRows, issueReports, rockIssues, rockIdeas, testRounds, hostedEvaluation, sourceFreshness, fieldValidation, retrievalComparisons] = await Promise.all([
     artifactJsonlOptional(env, "agent/claim-review-queue.jsonl"),
     artifactJsonlOptional(env, "agent/source-conflicts.jsonl"),
     artifactJsonlOptional(env, "agent/section-status.jsonl"),
@@ -5725,6 +6116,7 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     hostedEvaluationSummary(env),
     sourceOperationsSnapshot(env),
     fieldValidationDashboard(env),
+    retrievalComparisonDashboard(env),
   ]);
   const generatedEvaluation = summarizeEvaluationResults(evaluationResults);
   return {
@@ -5743,10 +6135,107 @@ async function operationsDashboard(env: ServiceEnv): Promise<JsonRecord> {
     telemetry,
     mcp_transport: telemetry.mcp_transport,
     field_validation: fieldValidation,
+    retrieval_comparisons: retrievalComparisons,
     issue_reports: issueReports,
     rock_issues: rockIssues,
     rock_ideas: rockIdeas,
     source_freshness: sourceFreshness,
+  };
+}
+
+async function retrievalComparisonDashboard(env: ServiceEnv): Promise<JsonRecord> {
+  await ensureTelemetryTables(env);
+  await purgeExpiredRetrievalComparisonSessions(env);
+  const [funnelResult, outcomeResult, installationResult] = await Promise.all([
+    env.KB_DB.prepare(
+      `SELECT day, client_class, cohort, stage, category, SUM(count) AS count
+       FROM retrieval_comparison_funnel_v1
+       GROUP BY day, client_class, cohort, stage, category`,
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT day, comparison_id, client_class, cohort, category,
+              legacy_projection_version, canonical_projection_version,
+              legacy_result_id, canonical_result_id, preference, reason_codes, SUM(count) AS count
+       FROM retrieval_comparison_outcomes_v1
+       GROUP BY day, comparison_id, client_class, cohort, category,
+                legacy_projection_version, canonical_projection_version,
+                legacy_result_id, canonical_result_id, preference, reason_codes`,
+    ).all<JsonRecord>(),
+    env.KB_DB.prepare(
+      `SELECT cohort, COUNT(DISTINCT installation_hash) AS count
+       FROM retrieval_comparison_outcomes_v1
+       GROUP BY cohort`,
+    ).all<JsonRecord>(),
+  ]);
+  const funnelRows = funnelResult.results || [];
+  const outcomeRows = outcomeResult.results || [];
+  const defaultFunnelRows = funnelRows.filter((row) => !["evaluation", "maintainer"].includes(String(row.cohort || "")));
+  const defaultOutcomeRows = outcomeRows.filter((row) => !["evaluation", "maintainer"].includes(String(row.cohort || "")));
+  const maintainerFunnelRows = funnelRows.filter((row) => row.cohort === "maintainer");
+  const maintainerOutcomeRows = outcomeRows.filter((row) => row.cohort === "maintainer");
+  const installationCounts = Object.fromEntries(
+    (installationResult.results || []).map((row) => [String(row.cohort || "unattributed"), Number(row.count || 0)]),
+  );
+  return {
+    schema: "rock-kb-retrieval-comparison-dashboard-v1",
+    default_scope: {
+      evaluation_traffic_included: false,
+      maintainer_traffic_included: false,
+      cohorts_included: ["community", "external-test", "unattributed"],
+    },
+    opted_in_installation_count: Object.entries(installationCounts)
+      .filter(([cohort]) => !["evaluation", "maintainer"].includes(cohort))
+      .reduce((total, [, count]) => total + Number(count || 0), 0),
+    ...summarizeRetrievalComparisonScope(defaultFunnelRows, defaultOutcomeRows),
+    maintainer_summary: summarizeRetrievalComparisonScope(maintainerFunnelRows, maintainerOutcomeRows),
+    review_queue: defaultOutcomeRows
+      .filter((row) => ["legacy_better", "neither_useful"].includes(String(row.preference || "")))
+      .slice(0, 50)
+      .map((row) => ({
+        id: `retrieval_comparison_review:${String(row.comparison_id || "")}`,
+        comparison_id: row.comparison_id || "",
+        category: row.category || "",
+        preference: row.preference || "",
+        reason_codes: String(row.reason_codes || "").split(",").filter(Boolean),
+        legacy_result_id: row.legacy_result_id || null,
+        canonical_result_id: row.canonical_result_id || null,
+        legacy_projection_version: row.legacy_projection_version || "",
+        canonical_projection_version: row.canonical_projection_version || "",
+      })),
+    privacy: "The dashboard contains only aggregate funnel counts, fixed cohorts/categories/preferences/reasons, public result IDs for negative review, and projection versions. It excludes installation hashes, questions, organizations, people, IP addresses, free text, logs, secrets, and Rock data.",
+  };
+}
+
+async function purgeExpiredRetrievalComparisonSessions(
+  env: ServiceEnv,
+  now = new Date(),
+): Promise<void> {
+  await env.KB_DB.prepare(
+    "DELETE FROM retrieval_comparison_sessions_v1 WHERE expires_at < ?",
+  ).bind(now.toISOString()).run();
+}
+
+function summarizeRetrievalComparisonScope(funnelRows: JsonRecord[], outcomeRows: JsonRecord[]): JsonRecord {
+  const startedCount = weightedCount(funnelRows.filter((row) => row.stage === "started"));
+  const submittedCount = weightedCount(funnelRows.filter((row) => row.stage === "submitted"));
+  const byPreference = countWeightedValues(outcomeRows, "preference");
+  const canonicalBetter = Number(byPreference.canonical_better || 0);
+  const legacyBetter = Number(byPreference.legacy_better || 0);
+  const decisiveCount = canonicalBetter + legacyBetter;
+  return {
+    funnel: {
+      started_count: startedCount,
+      submitted_count: submittedCount,
+      completion_rate: startedCount ? Math.round((submittedCount / startedCount) * 1_000_000) / 1_000_000 : 0,
+    },
+    outcome_count: weightedCount(outcomeRows),
+    by_preference: byPreference,
+    by_category: countWeightedValues(outcomeRows, "category"),
+    by_reason_code_set: countWeightedValues(outcomeRows, "reason_codes"),
+    decision_metrics: {
+      decisive_count: decisiveCount,
+      canonical_preference_rate: decisiveCount ? Math.round((canonicalBetter / decisiveCount) * 1_000_000) / 1_000_000 : null,
+    },
   };
 }
 
@@ -6972,6 +7461,8 @@ function toolDefinitions(): JsonRecord[] {
     { name: "kb_get_freshness", description: "Return authoritative public source and refresh-workflow health, with last check, content change, result count, content hash, and status stored separately.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_get_test_round", description: "Return the ten canonical community test-round case IDs and fixed outcome vocabulary for the current projection.", inputSchema: { type: "object", additionalProperties: false, properties: {} } },
     { name: "kb_submit_test_round_review", description: "Submit one complete structured community test-round review. Requires the external-test or maintainer cohort header; never submit free text, queries, logs, identities, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { schema: { type: "string", const: "rock-kb-community-test-round-review-v1" }, test_round_schema: { type: "string", const: "rock-kb-community-test-round-v1" }, projection_version: { type: "string", minLength: 1, maxLength: 128 }, automatic_status: { type: "string", enum: ["ok", "fail"] }, cases: { type: "array", minItems: 10, maxItems: 10, items: { type: "object", additionalProperties: false, properties: { case_id: { type: "string" }, category: { type: "string" }, automatic_status: { type: "string", enum: ["pass", "fail"] }, outcome: { type: "string", enum: ["useful", "incorrect", "incomplete", "unclear", "unsure"] }, result_id: { type: ["string", "null"], maxLength: 200 } }, required: ["case_id", "category", "automatic_status", "outcome", "result_id"] } } }, required: ["schema", "test_round_schema", "projection_version", "automatic_status", "cases"] } },
+    { name: "kb_compare_retrieval", description: "Run one privacy-bounded blind comparison between legacy and canonical-canary retrieval. Requires anonymous opt-in plus the external-test or maintainer cohort. The question is used transiently and never stored; the result hides which projection is A or B.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string", minLength: 1, maxLength: 500 }, category: { type: "string", enum: ["normal_task", "exact_lookup", "semantic", "version_sensitive", "issue", "no_answer"] }, limit: { type: "integer", minimum: 1, maximum: 5 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES }, rock_version: { type: "string", maxLength: 32 }, kind: { type: "string", maxLength: 64 } }, required: ["query"] } },
+    { name: "kb_submit_retrieval_comparison", description: "Submit a fixed A/B preference for one unexpired blind retrieval comparison. Requires consent and the same opted-in installation. Never send the question, prose, logs, identities, or Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { comparison_id: { type: "string", pattern: "^kbc_[0-9a-f]{24}$" }, preference: { type: "string", enum: ["a_better", "b_better", "equivalent", "neither_useful"] }, reason_codes: { type: "array", minItems: 1, maxItems: 3, items: { type: "string", enum: ["better_match", "more_complete", "better_sourced", "better_authority", "better_version_fit", "less_redundant", "correct_no_answer", "both_useful", "same_quality", "both_not_useful", "weak_evidence", "wrong_route", "missing_detail"] } }, consent_attested: { type: "boolean", const: true } }, required: ["comparison_id", "preference", "reason_codes", "consent_attested"] } },
     { name: "kb_feedback", description: "Record structured feedback for an exact result without retaining free text.", inputSchema: { type: "object", properties: { result_id: { type: "string" }, rating: { type: "number", enum: [-1, 1] }, reason: { type: "string", enum: ["helpful", "outdated", "missing", "incorrect", "wrong_route"] } }, required: ["result_id", "rating", "reason"] } },
     { name: "kb_outcome", description: "Submit a consent-attested usefulness outcome for one exact public result. Requires the opt-in anonymous installation header and accepts only fixed reason codes; never send a query, organization, person, IP address, logs, or Rock data. Pass retrieval_projection=canonical-canary for a canary result.", inputSchema: { type: "object", additionalProperties: false, properties: { result_id: { type: "string", maxLength: 200 }, outcome: { type: "string", enum: ["useful", "partially_useful", "not_useful"] }, reason_codes: { type: "array", minItems: 1, maxItems: 3, items: { type: "string", enum: ["answered", "actionable", "well_sourced", "correct_route", "incomplete", "unclear", "needed_other_sources", "version_gap", "weak_evidence", "incorrect", "outdated", "wrong_route", "missing_detail", "not_actionable", "source_conflict"] } }, consent_attested: { type: "boolean", const: true }, retrieval_projection: { type: "string", enum: ["legacy", "canonical-canary"] } }, required: ["result_id", "outcome", "reason_codes", "consent_attested"] } },
     { name: "kb_report_issue", description: "Report a KB service, MCP, CLI, schema, authentication, or retrieval malfunction for maintainer review. Use only a short redacted description; never send logs, queries, secrets, or private Rock data.", inputSchema: { type: "object", additionalProperties: false, properties: { failure_type: { type: "string", enum: ["service", "mcp", "cli", "schema", "authentication", "retrieval"] }, operation: { type: "string", minLength: 1, maxLength: 64 }, result_id: { type: "string", maxLength: 200 }, http_status: { type: "integer", minimum: 100, maximum: 599 }, error_code: { type: "string", minLength: 1, maxLength: 64 }, description: { type: "string", minLength: 12, maxLength: 280 }, redaction_attested: { type: "boolean", const: true } }, required: ["failure_type", "operation", "error_code", "description", "redaction_attested"] } },
@@ -6984,7 +7475,7 @@ function toolDefinitions(): JsonRecord[] {
 }
 
 function mcpToolAnnotations(name: string): JsonRecord {
-  const writeTools = new Set(["kb_feedback", "kb_outcome", "kb_verify_lava_context", "kb_report_issue", "kb_submit_test_round_review", "kb_submit"]);
+  const writeTools = new Set(["kb_feedback", "kb_outcome", "kb_verify_lava_context", "kb_report_issue", "kb_submit_test_round_review", "kb_compare_retrieval", "kb_submit_retrieval_comparison", "kb_submit"]);
   const openWorldTools = new Set(["kb_verify_recipe", "kb_submit"]);
   const readOnly = !writeTools.has(name);
   return {

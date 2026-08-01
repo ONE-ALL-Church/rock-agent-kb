@@ -195,6 +195,20 @@ test("canonical canary is explicit, opt-in, isolated, and outcome-aware", async 
       mcpResponse.result.structuredContent.results[0].id,
       canaryId,
     );
+    const mcpComparison = await mcp(
+      mf,
+      "tools/call",
+      {
+        name: "kb_compare_retrieval",
+        arguments: {
+          query: "content channel authorization",
+          category: "version_sensitive",
+        },
+      },
+      canaryHeaders,
+    );
+    assert.equal(mcpComparison.result.structuredContent.status, "ready");
+    assert.equal(JSON.stringify(mcpComparison).includes("content channel authorization"), false);
 
     const outcomeResponse = await mf.dispatchFetch(
       "https://kb.example.test/outcomes",
@@ -221,6 +235,105 @@ test("canonical canary is explicit, opt-in, isolated, and outcome-aware", async 
       "SELECT retrieval_projection FROM outcome_events_v1 WHERE result_id = ?",
     ).bind(canaryId).first();
     assert.equal(storedOutcome.retrieval_projection, "canonical-canary");
+
+    const missingComparisonOptIn = await mf.dispatchFetch(
+      "https://kb.example.test/comparisons",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ query: "content channel authorization" }),
+      },
+    );
+    assert.equal(missingComparisonOptIn.status, 400);
+    assert.equal((await missingComparisonOptIn.json()).error_code, "comparison_opt_in_required");
+
+    const comparisonResponse = await mf.dispatchFetch(
+      "https://kb.example.test/comparisons",
+      {
+        method: "POST",
+        headers: { ...canaryHeaders, "content-type": "application/json" },
+        body: JSON.stringify({
+          query: "content channel authorization",
+          category: "version_sensitive",
+          limit: 3,
+        }),
+      },
+    );
+    assert.equal(comparisonResponse.status, 201);
+    const comparison = await comparisonResponse.json();
+    assert.equal(comparison.status, "ready");
+    assert.match(comparison.comparison_id, /^kbc_[0-9a-f]{24}$/);
+    assert.deepEqual(comparison.options.map((option) => option.label), ["A", "B"]);
+    assert.equal(comparison.options.every((option) => option.results.every((row) => (
+      !("id" in row)
+      && !("path" in row)
+      && !("retrieval_projection" in row)
+      && new RegExp(`^${option.label}\\d+$`).test(row.result_key)
+    ))), true);
+    assert.equal(JSON.stringify(comparison).includes("content channel authorization"), false);
+    const pendingComparison = await db.prepare(
+      "SELECT option_a_projection FROM retrieval_comparison_sessions_v1 WHERE comparison_id = ?",
+    ).bind(comparison.comparison_id).first();
+    const comparisonPreference = pendingComparison.option_a_projection === "canonical-canary" ? "a_better" : "b_better";
+
+    const comparisonReviewResponse = await mf.dispatchFetch(
+      "https://kb.example.test/comparisons/review",
+      {
+        method: "POST",
+        headers: { ...canaryHeaders, "content-type": "application/json" },
+        body: JSON.stringify({
+          comparison_id: comparison.comparison_id,
+          preference: comparisonPreference,
+          reason_codes: ["better_version_fit"],
+          consent_attested: true,
+        }),
+      },
+    );
+    assert.equal(comparisonReviewResponse.status, 201);
+    const comparisonReview = await comparisonReviewResponse.json();
+    assert.equal(comparisonReview.preference, "canonical_better");
+    assert.equal(comparisonReview.canonical_projection_version, canonicalHash);
+    const duplicateComparisonReview = await mf.dispatchFetch(
+      "https://kb.example.test/comparisons/review",
+      {
+        method: "POST",
+        headers: { ...canaryHeaders, "content-type": "application/json" },
+        body: JSON.stringify({
+          comparison_id: comparison.comparison_id,
+          preference: comparisonPreference,
+          reason_codes: ["better_version_fit"],
+          consent_attested: true,
+        }),
+      },
+    );
+    assert.equal(duplicateComparisonReview.status, 409);
+    assert.equal((await duplicateComparisonReview.json()).error_code, "comparison_already_submitted");
+
+    const comparisonColumns = await db.prepare("PRAGMA table_info(retrieval_comparison_sessions_v1)").all();
+    assert.equal(comparisonColumns.results.some((column) => column.name === "query"), false);
+    const storedComparison = await db.prepare(
+      "SELECT preference, legacy_result_id, canonical_result_id FROM retrieval_comparison_outcomes_v1 WHERE comparison_id = ?",
+    ).bind(comparison.comparison_id).first();
+    assert.equal(storedComparison.preference, "canonical_better");
+    assert.equal(storedComparison.canonical_result_id, canaryId);
+
+    const comparisonDashboard = await (
+      await mf.dispatchFetch("https://kb.example.test/operations/dashboard")
+    ).json();
+    assert.equal(comparisonDashboard.retrieval_comparisons.outcome_count, 1);
+    assert.equal(comparisonDashboard.retrieval_comparisons.by_preference.canonical_better, 1);
+    assert.equal(comparisonDashboard.retrieval_comparisons.decision_metrics.canonical_preference_rate, 1);
+    assert.equal(comparisonDashboard.retrieval_comparisons.review_queue.length, 0);
+    assert.equal(JSON.stringify(comparisonDashboard.retrieval_comparisons).includes(installationId), false);
+    assert.equal(JSON.stringify(comparisonDashboard.retrieval_comparisons).includes("content channel authorization"), false);
+    await db.prepare(
+      "UPDATE retrieval_comparison_sessions_v1 SET expires_at = ? WHERE comparison_id = ?",
+    ).bind("2000-01-01T00:00:00.000Z", comparison.comparison_id).run();
+    await mf.dispatchFetch("https://kb.example.test/operations/dashboard");
+    const expiredComparison = await db.prepare(
+      "SELECT comparison_id FROM retrieval_comparison_sessions_v1 WHERE comparison_id = ?",
+    ).bind(comparison.comparison_id).first();
+    assert.equal(expiredComparison, null);
 
     const telemetry = await (
       await mf.dispatchFetch("https://kb.example.test/telemetry/summary")
@@ -273,16 +386,19 @@ test("full search, exact claim lookup, and MCP progressive tools work", async ()
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);
-    assert.equal(toolNames.length, 33);
+    assert.equal(toolNames.length, 35);
     assert.equal(toolNames.includes("kb_get_result"), true);
     assert.equal(toolNames.includes("kb_get_claim"), true);
     assert.equal(toolNames.includes("kb_report_issue"), true);
     assert.equal(toolNames.includes("kb_outcome"), true);
+    assert.equal(toolNames.includes("kb_compare_retrieval"), true);
+    assert.equal(toolNames.includes("kb_submit_retrieval_comparison"), true);
     assert.equal(toolNames.includes("kb_diff_lava_context"), true);
     assert.equal(toolNames.includes("kb_verify_lava_context"), true);
     assert.equal(toolNames.includes("kb_get_freshness"), true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_search").annotations.readOnlyHint, true);
     assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_submit").annotations.readOnlyHint, false);
+    assert.equal(toolsResponse.result.tools.find((tool) => tool.name === "kb_compare_retrieval").annotations.readOnlyHint, false);
 
     const callResponse = await mcp(mf, "tools/call", { name: "kb_get_claim", arguments: { claim_id: "claim:abc123" } });
     const callResult = JSON.parse(callResponse.result.content[0].text);
@@ -558,7 +674,7 @@ test("direct MCP serves stateless 2026 clients through the official SDK", async 
 
     const listed = await modernMcp(mf, "tools/list", {});
     assert.equal(listed.status, 200);
-    assert.equal(listed.payload.result.tools.length, 33);
+    assert.equal(listed.payload.result.tools.length, 35);
     assert.equal(listed.payload.result.ttlMs, 3_600_000);
     assert.equal(listed.payload.result.cacheScope, "public");
 
@@ -568,7 +684,7 @@ test("direct MCP serves stateless 2026 clients through the official SDK", async 
     );
     await client.connect(transport);
     const sdkTools = await client.listTools();
-    assert.equal(sdkTools.tools.length, 33);
+    assert.equal(sdkTools.tools.length, 35);
     const sdkResult = await client.callTool({
       name: "kb_get_claim",
       arguments: { claim_id: "claim:abc123" },
@@ -641,7 +757,7 @@ test("direct MCP enforces modern headers, browser origins, and legacy compatibil
 
     const legacyTools = await legacyDirectMcp(mf, "tools/list", {});
     assert.equal(legacyTools.status, 200);
-    assert.equal(legacyTools.payload.result.tools.length, 33);
+    assert.equal(legacyTools.payload.result.tools.length, 35);
     assert.equal("ttlMs" in legacyTools.payload.result, false);
 
     const legacyCall = await legacyDirectMcp(mf, "tools/call", {
@@ -704,6 +820,14 @@ test("MCP transport telemetry is bounded, cohort-aware, and excludes request dat
       clientInfo: { name: "private-legacy-agent", version: "1.0.0" },
     }, externalHeaders);
     await legacyDirectMcp(mf, "tools/list", {}, externalHeaders);
+    const expectedSessionRejection = await mf.dispatchFetch("https://kb.example.test/mcp", {
+      method: "GET",
+      headers: {
+        ...externalHeaders,
+        "mcp-protocol-version": "2025-11-25",
+      },
+    });
+    assert.equal(expectedSessionRejection.status, 405);
 
     const codeInitialized = await streamableMcp(
       mf,
@@ -734,32 +858,38 @@ test("MCP transport telemetry is bounded, cohort-aware, and excludes request dat
     const transport = await response.json();
     assert.equal(transport.schema, "rock-kb-mcp-transport-summary-v1");
     assert.equal(transport.default_scope.maintainer_traffic_included, false);
-    assert.equal(transport.summary.total_count, 8);
+    assert.equal(transport.summary.total_count, 9);
     assert.equal(transport.summary.success_count, 7);
-    assert.equal(transport.summary.failure_count, 1);
+    assert.equal(transport.summary.failure_count, 2);
+    assert.equal(transport.summary.expected_stateless_rejection_count, 1);
+    assert.equal(transport.summary.actionable_failure_count, 1);
+    assert.equal(transport.summary.actionable_failure_rate, 0.111111);
     assert.equal(transport.summary.by_protocol_generation["2026"], 4);
-    assert.equal(transport.summary.by_protocol_generation["2025"], 4);
-    assert.equal(transport.summary.by_endpoint.direct, 6);
+    assert.equal(transport.summary.by_protocol_generation["2025"], 5);
+    assert.equal(transport.summary.by_endpoint.direct, 7);
     assert.equal(transport.summary.by_endpoint.code, 2);
     assert.equal(transport.summary.by_operation_category.discover, 1);
     assert.equal(transport.summary.by_operation_category.initialize, 2);
     assert.equal(transport.summary.by_operation_category.tools_list, 4);
     assert.equal(transport.summary.by_operation_category.tool_call, 1);
+    assert.equal(transport.summary.by_operation_category.session_operation, 1);
     assert.equal(transport.summary.by_http_status["200"], 7);
     assert.equal(transport.summary.by_http_status["400"], 1);
+    assert.equal(transport.summary.by_http_status["405"], 1);
     assert.equal(transport.summary.by_error_code["mcp_-32020"], 1);
     assert.equal(transport.summary.tools_list_per_tool_call, 4);
     assert.equal(transport.summary.discover_per_tool_call, 1);
-    assert.equal(transport.summary.response_size_coverage_rate, 0.5);
+    assert.equal(transport.summary.response_size_coverage_rate, 0.555556);
     assert.equal(transport.summary.by_response_size_basis.estimated_payload, 3);
-    assert.equal(transport.summary.by_response_size_basis.buffered_error, 1);
+    assert.equal(transport.summary.by_response_size_basis.buffered_error, 2);
     assert.equal(transport.summary.by_response_size_basis.unmeasured, 4);
     assert.equal(transport.maintainer_summary.total_count, 1);
-    assert.equal(transport.all_traffic_summary.total_count, 9);
+    assert.equal(transport.all_traffic_summary.total_count, 10);
     assert.deepEqual(transport.coverage.projection_versions, ["test-version"]);
     assert.equal(transport.rows.every((row) => row.projection_version === "test-version"), true);
     assert.equal(transport.interpretation.cache_hits_observable, false);
     assert.match(transport.interpretation.response_size_measure, /Successful response streams are not read or cloned/);
+    assert.match(transport.interpretation.failure_classification, /actionable_failure_count excludes/);
 
     const serialized = JSON.stringify(transport);
     assert.equal(serialized.includes(privateArgument), false);

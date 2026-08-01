@@ -135,6 +135,8 @@ def source_keys_for_keywords(
 
 def confidence_for_section(section: GuideSection, sources: list[dict[str, Any]]) -> str:
     if not sources:
+        if verification_boundary_section(section):
+            return "structural"
         return "needs-citation" if count_words(section.text) > 80 else "structural"
     authorities = {source.get("authority") for source in sources}
     if "official" in authorities and ("source-code" in authorities or "official-release" in authorities):
@@ -144,6 +146,10 @@ def confidence_for_section(section: GuideSection, sources: list[dict[str, Any]])
     if authorities & {"community-example", "community-answer", "community-reference", "org-contribution"}:
         return "community-supported"
     return "citation-only"
+
+def verification_boundary_section(section: GuideSection) -> bool:
+    heading = section.heading.lower()
+    return "live verification" in heading and needs_live_verification(section.text)
 
 def sections_mentioning(guide_text: str, section_rows: list[dict[str, Any]], terms: list[str]) -> list[str]:
     if not terms:

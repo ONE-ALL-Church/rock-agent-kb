@@ -198,6 +198,8 @@ verification queue state and revalidation hash; neither is product evidence.
 - `GET /telemetry/mcp-transport`
 - `POST /feedback`
 - `POST /outcomes`
+- `POST /comparisons`
+- `POST /comparisons/review`
 - `POST /issues/report`
 - `POST /mcp`
 - `POST /mcp/code`
@@ -241,6 +243,12 @@ tool-list and discovery counts relative to tool calls as a bounded cache-use
 signal, but never claims to observe a cache hit: requests avoided by a client
 cache do not reach the server. Latency is Worker handler time to response
 headers, not full network transfer time.
+
+Raw failure counts remain available for protocol analysis. The summary also
+classifies direct `session_operation` responses with HTTP `405` as expected
+stateless rejections and exposes `actionable_failure_count` and
+`actionable_failure_rate` with those responses removed. Availability decisions
+must use the actionable fields without erasing the raw protocol evidence.
 
 Response-size coverage is explicit. The service uses `Content-Length` when
 present, buffers only small handler-generated error responses, and estimates
@@ -296,7 +304,7 @@ exact-lookup operation types. Funnel stages use only the v5 event stream that
 starts with service v0.16.0; historical aggregate telemetry remains available
 outside this funnel.
 
-With version `2` human consent, the client keeps a private random installation
+With version `3` human consent, the client keeps a private random installation
 marker and sends it only with one of three fixed cohorts: `community`,
 `external-test`, or `maintainer`. The Worker stores a SHA-256 hash scoped to
 Rock KB, never the raw marker. It does not store raw or hashed query text,
@@ -313,6 +321,14 @@ store `useful`, `partially_useful`, or `not_useful` with one to three compatible
 fixed reason codes. Complete test-round reviews remain a separate fixed public
 test path. None of these paths accepts a question or free text.
 
+The `external-test` and `maintainer` cohorts may also create a blind
+retrieval-comparison session that is usable for 30 minutes. It stores only the
+one-way installation hash, fixed cohort/category, paired public result IDs, both
+projection versions, and randomized A/B assignment. Expired rows are purged on
+the next comparison start, review attempt, or dashboard read. A reviewed
+submission adds a fixed preference and one to three fixed reason codes. The
+question is used transiently for the two searches and is never stored.
+
 Enable field validation only after current consent:
 
 ```bash
@@ -320,6 +336,7 @@ uvx rock-kb telemetry enable --cohort community --consent-attested
 uvx rock-kb install-agent
 ROCK_KB_COHORT=external-test uvx rock-kb test-round
 ROCK_KB_COHORT=external-test uvx rock-kb test-round --review --submit
+uvx rock-kb compare "content channel item permissions" --category version_sensitive
 ROCK_KB_COHORT=maintainer uvx rock-kb dashboard
 ```
 

@@ -41,8 +41,8 @@ Slow work proceeds asynchronously with explicit operational state.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/workflows
-- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows
+- https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/launch-a-workflow
+- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/link-to-workflows
 - https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock.ViewModels/Blocks/WorkFlow/FormBuilder/FormPersonEntryViewModel.cs
 - https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx
 - https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/RockWeb/Blocks/WorkFlow/ActivateWorkflow.ascx.cs

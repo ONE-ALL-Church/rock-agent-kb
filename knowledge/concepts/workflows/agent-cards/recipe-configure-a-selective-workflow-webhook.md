@@ -43,15 +43,15 @@ One intended request starts only the intended workflow with inspectable input.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/workflows
-- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows
-- https://community.rockrms.com/rocku/workflows/form-builder
-- https://community.rockrms.com/lava
-- https://community.rockrms.com/lava/commands/entity-commands
-- https://github.com/SparkDevNetwork/Rock/blob/e9c98b9bc6cd4ce2b04115df835a316e49f4ff91/Rock/Lava/Blocks/WorkflowActivateBlock.cs
-- https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-attributes
-- https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-attributes
-- https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions/workflow-control
+- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow
+- https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/edit-workflow-details
+- https://community.rockrms.com/documentation/core-concepts/workflows/workflow-components/workflow-actions
+- https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions
+- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/sms-pipeline-workflows
 - https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/create-a-form
-- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/lava-tips-for-workflows
-- https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances
+- https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/define-workflow-activities
+- https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/navigate-the-form-builder
+- https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms
+- https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder
+- https://community.rockrms.com/lava/commands/workflow-activate-commands
+- https://community.rockrms.com/rocku/workflows/form-builder

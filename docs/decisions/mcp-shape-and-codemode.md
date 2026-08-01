@@ -5,7 +5,7 @@ and Code Mode opt-in and experimental.
 
 ## Decision
 
-The hosted `/mcp` endpoint is the default agent interface. It exposes 33
+The hosted `/mcp` endpoint is the default agent interface. It exposes 35
 task-oriented tools for direct search, exact retrieval, operations, feedback,
 and reviewed intake from one canonical tool-definition registry. Tools return
 structured content plus compatible JSON text and advertise read-only,
@@ -33,11 +33,12 @@ move large intermediate results through model context. Configure it only with:
 uvx rock-kb mcp-config --mode code
 ```
 
-The six write-capable operations are deliberately omitted: feedback,
+The eight write-capable operations are deliberately omitted: feedback,
 completed-task usefulness outcomes, Lava-context verification, KB issue
-reports, test-round review submission, and community knowledge submission.
-Their consent, redaction, authentication, and review boundaries remain on the
-direct interface.
+reports, test-round review submission, community knowledge submission, blind
+retrieval-comparison starts, and comparison-review submission. Their consent,
+redaction, authentication, and review boundaries remain on the direct
+interface.
 
 ## Caching And Validation
 
@@ -88,7 +89,7 @@ response streams are never cloned or consumed for telemetry.
 | Direct typed tools | Default | The catalog is bounded, tool intent is clear, and exact technical retrieval is the normal workload. |
 | Stateless MCP 2026 only | Not yet | Client adoption will lag the new protocol; the official stateless compatibility path preserves ordinary 2025 clients without adding server sessions. |
 | One Code Mode tool | Opt-in | Useful for multi-step read-only composition without making every client execute code. |
-| Search plus execute | Not adopted | Intended for very large or changing API catalogs; 33 stable tools do not justify another discovery round trip. |
+| Search plus execute | Not adopted | Intended for very large or changing API catalogs; 35 stable tools do not justify another discovery round trip. |
 | Resources only | Not adopted | Rock questions need parameterized search and exact lookups, not only static file reads. |
 | OKF download | Secondary | Best for offline, pinned, bulk, archival, or local-index workloads rather than live questions. |
 

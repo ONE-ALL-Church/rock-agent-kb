@@ -89,6 +89,7 @@ uvx rock-kb issues assess instance-profile.json
 uvx rock-kb issues watch instance-profile.json
 uvx rock-kb issues plan 6919
 uvx rock-kb test-round
+uvx rock-kb --version
 uvx rock-kb telemetry status
 uvx rock-kb telemetry enable --cohort community --consent-attested
 uvx rock-kb feedback '<result-id>' --rating -1 --reason outdated
@@ -100,7 +101,7 @@ uvx rock-kb mcp-config
 uvx rock-kb skill status --format json
 ```
 
-After the human accepts consent notice version 2, a participating installation
+After the human accepts consent notice version 3, a participating installation
 can opt into anonymous field validation without identifying its church or users:
 
 ```bash
@@ -129,13 +130,18 @@ uvx rock-kb --projection canonical-canary outcome '<result-id>' \
   --outcome useful \
   --reason answered \
   --consent-attested
+uvx rock-kb compare "content channel item permissions" --category version_sensitive
+uvx rock-kb compare "content channel item permissions" --category version_sensitive \
+  --review --submit --consent-attested
 ```
 
 `--projection` is a global option and therefore appears before the command.
-Only `search`, `result`, and `outcome` accept the canary. Use the same projection
-for all three so an outcome is attached to the exact projection that produced
-the result. The service rejects canary requests without a private anonymous
-marker and the fixed `external-test` or `maintainer` cohort.
+Only `search`, `result`, and `outcome` accept the global canary option. Use the
+same projection for all three so an outcome is attached to the exact projection
+that produced the result. `compare` instead queries both projections, randomizes
+them as A/B choices, and never labels either option. The service rejects canary
+or comparison requests without a private anonymous marker and the fixed
+`external-test` or `maintainer` cohort.
 
 MCP clients use the installed private headers and pass
 `projection: "canonical-canary"` to `kb_search`, `kb_get_result`, and
@@ -143,6 +149,15 @@ MCP clients use the installed private headers and pass
 organization or person identity, IP address, logs, secrets, or Rock data.
 Canary results may differ from legacy results, but they do not carry a higher
 authority tier merely because they came from the canonical projection.
+
+Consent notice version 3 adds comparison-specific retention. A pending
+comparison is usable for 30 minutes and stores only a one-way installation hash,
+fixed category/cohort, paired public result IDs, projection versions, and the
+randomized A/B assignment. Expired rows are purged on the next comparison start,
+review attempt, or dashboard read. A submitted review adds one fixed preference
+and up to three compatible reason codes. The question is used transiently for
+both searches and is never retained. Version 2 state is not accepted by the
+updated client; ask again and rerun `telemetry enable` before participating.
 
 For repeated use on a server or agent host, install the CLI permanently:
 

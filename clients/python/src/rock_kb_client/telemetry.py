@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 TELEMETRY_STATE_SCHEMA = "rock-kb-telemetry-opt-in-v1"
-CONSENT_NOTICE_VERSION = 2
+CONSENT_NOTICE_VERSION = 3
 COHORT_VALUES = ("community", "external-test", "maintainer")
 
 

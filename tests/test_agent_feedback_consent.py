@@ -14,9 +14,10 @@ def test_agent_skill_requires_versioned_feedback_consent() -> None:
     assert "## Feedback Consent" in text
     assert "Allow automatically, Ask each time, or Do not send" in normalized
     assert "May I remember that choice in private user-level memory?" in normalized
-    assert "notice_version: 2" in text
+    assert "notice_version: 3" in text
     assert "quality_feedback: automatic" in text
     assert "usefulness_outcomes: automatic" in text
+    assert "retrieval_comparisons: ask" in text
     assert "anonymous_installation: enabled" in text
     assert "cohort: community" in text
     assert "malfunction_reports: ask" in text
@@ -31,6 +32,7 @@ def test_agent_skill_limits_standing_permission_to_exact_result_feedback() -> No
     assert "Standing permission is not permission to report every search" in text
     assert "Submit at most one quality rating and one usefulness outcome per exact result" in text
     assert "`kb_report_issue` still requires confirmation for each report" in text
+    assert "Start or submit `kb_compare_retrieval` only when `retrieval_comparisons` is" in text
     assert "Contributions and public PRs always require explicit human review" in normalized
     assert "Never put this preference or the private installation marker" in text
     assert "uvx rock-kb telemetry disable" in text
@@ -50,3 +52,4 @@ def test_public_agent_guidance_repeats_consent_and_revocation_boundaries() -> No
     assert "Standing permission applies only to exact-result `kb_feedback` and completed-task" in contributor_text
     assert "uvx rock-kb telemetry enable --cohort community --consent-attested" in contributor_text
     assert "Agents must still ask before each redaction-attested malfunction report" in onboarding_text
+    assert "Ask separately before `kb_compare_retrieval` or `rock-kb compare`" in onboarding_text

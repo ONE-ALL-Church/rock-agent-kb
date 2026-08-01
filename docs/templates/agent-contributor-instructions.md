@@ -35,9 +35,12 @@ label that tier in answers.
 After the first completed KB-assisted task, do not silently enable telemetry or
 submit feedback. If no current preference exists in private user-level memory,
 explain that field validation may retain only a one-way hash of a random local
-installation marker, a fixed cohort, public result ID and kind, current KB
-projection and client version, fixed quality rating or usefulness outcome,
-fixed reason codes, timestamps, and aggregate counts. It does not retain the
+    installation marker, a fixed cohort, public result IDs and kinds, current KB
+    projection and client version, fixed quality rating or usefulness outcome,
+    fixed reason codes, timestamps, and aggregate counts. A blind retrieval
+    comparison additionally retains a fixed category, paired public result IDs,
+    projection versions, randomized A/B assignment, and fixed preference/reason
+    codes; its pending session expires after 30 minutes. It does not retain the
 question, prompt, organization, church or person identity, IP address, free
 text, logs, secrets, or private Rock data. Ask the human to choose:
 
@@ -49,8 +52,8 @@ text, logs, secrets, or private Rock data. Ask the human to choose:
 
 Ask separately whether the human permits remembering that choice. Persist any
 decision only when the human explicitly agrees and the host provides private
-persistent memory. Use consent notice version `2`; version `1` permission does
-not cover the anonymous marker or usefulness outcomes. Never put consent in a
+persistent memory. Use consent notice version `3`; version `2` does not cover
+comparison retention and is ignored by the updated client. Never put consent in a
 repository, KB payload, project artifact, contribution bundle, or church data
 store. Without private persistence or permission to use it, keep the choice
 session-scoped.
@@ -59,8 +62,10 @@ Standing permission applies only to exact-result `kb_feedback` and completed-tas
 `kb_outcome`. Submit at most one of each per result per task and never repeat an
 event to inflate a count. If usefulness is uncertain, submit nothing. Use
 `uvx rock-kb telemetry enable --cohort community --consent-attested`, then rerun
-`uvx rock-kb install-agent` and restart the host. Ask separately before every
-redaction-attested `kb_report_issue`, reviewed test-round submission, public
+`uvx rock-kb install-agent` and restart the host. Ask separately before
+`kb_compare_retrieval` or `rock-kb compare` unless current private memory
+explicitly permits comparisons. Also ask before every redaction-attested
+`kb_report_issue`, reviewed test-round submission, public
 contribution, or PR. To revoke, disable telemetry, rerun the installer, and
 restart. Ask again if the consent notice or retained fields change.
 
