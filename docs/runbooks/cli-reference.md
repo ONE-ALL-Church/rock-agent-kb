@@ -203,9 +203,14 @@ uv run kb tools canonical-retrieval-shadow
 uv run kb tools canonical-identity-baseline
 uv run kb tools source-family-contracts
 uv run kb tools source-native-candidates \
+  --source-id rock_documentation \
+  --source-id rock_developer \
+  --source-id rock_mobile_docs \
+  --source-id rock_lava_docs \
+  --source-id rock_community_blog \
   --concept workflows \
-  --concept communications \
-  --concept security-permissions \
+  --concept obsidian-development \
+  --concept mobile \
   --limit-per-concept 4
 uv run kb tools source-native-schema
 uv run kb tools source-native-prompt \
@@ -213,6 +218,10 @@ uv run kb tools source-native-prompt \
 uv run kb tools source-native-merge --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-promote --output <reviewed-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
+uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
+uv run kb tools source-native-verification-promote --input <reviewed-resolutions.jsonl> --reviewer <reviewer-id> --reviewed-at <iso-8601>
+uv run kb tools source-native-verification-audit --check-live --destination <live-verification-report.json>
+uv run kb tools source-native-readiness --retrieval-report <retrieval-report.json> --verification-report <live-verification-report.json>
 uv run kb tools reviewed-cross-source-promote --input <reviewed-decisions.jsonl>
 ```
 
@@ -248,14 +257,19 @@ synthesis, API-derived records, source-code-derived records, reviewed typed
 records, and remaining legacy projections. It also records that legacy
 retrieval is still the default and canonical retrieval is shadow/canary only.
 
-`kb tools source-native-candidates` fetches selected Rockumentation articles
-through the official block-action API and writes deterministic sentence, table,
-code, and addressable list-item units to ignored review data. Nested catalogs
-retain parent links, while API documentation paths and branch hierarchies remain
-structured routing metadata. `source-native-schema` and `source-native-prompt`
-create a strict v2.3 structured-output contract and a bounded model packet. Use
-`--source-record-id` for stable article retries; `--candidate-id` targets an
-exact content-derived input revision.
+`kb tools source-native-candidates` accepts official documentation, developer
+and mobile documentation, Lava prose, and Rock community articles.
+Rockumentation families use the official block-action API; supported static
+prose sources use their public normalized article text. The command writes
+deterministic sentence, table, code, and addressable list-item units to ignored
+review data. Nested catalogs retain parent links, while API paths and branch
+hierarchies remain structured routing metadata. Repeated concept matches are
+coalesced into one candidate with concept facets. `source-native-schema` and
+`source-native-prompt` create a strict v2.3 structured-output contract and a
+bounded model packet. Use repeated `--source-record-id` values for explicit
+stable article selection; `--candidate-id` targets an exact content-derived
+input revision. Candidates over 200 units stop for reviewed deterministic
+partitioning instead of being truncated.
 `source-native-merge` requires exact batch coverage and reruns the semantic
 gate. `--allow-review-blockers` may assemble exact `split_required` feedback
 only into an ignored private review packet; it does not relax promotion.
@@ -268,6 +282,23 @@ requests remain public-safe bundle metadata.
 `source-native-impact` compares two reviewed bundles and reports only the
 dependent knowledge and projections that require revalidation. The tracked
 bundle remains an inactive canonical shadow input.
+
+`source-native-verification-packet` binds each mutable or
+implementation-sensitive question to its exact queue-row hash.
+`source-native-verification-promote` accepts reviewed public evidence and
+confirm, narrow, correct, or supersede dispositions. Corrected and narrowed
+text replaces stale model wording only in the canonical projection; superseded
+artifacts are omitted. Run `source-native-verification-audit --check-live`
+before retrieval evaluation so changed source snapshots, mutable public pages,
+and due time-bound evidence reopen instead of passing silently.
+
+`source-native-readiness` applies the versioned quantitative policy after the
+retrieval shadow. It reports technical and external evidence separately and
+never changes the active reader. It performs live verification when
+`--verification-report` is omitted; an explicit report must come from a
+`--check-live` audit because the policy rejects non-live evidence. Maintainer,
+synthetic, and evaluation traffic cannot satisfy the external gate; use the
+`maintainer` cohort for local tests and keep legacy retrieval as the default.
 
 `kb tools reviewed-cross-source-promote` compiles a maintainer-reviewed
 multi-source decision into source snapshots, addressable units, generation

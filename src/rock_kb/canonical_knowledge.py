@@ -37,6 +37,7 @@ from .source_native import (
     canonical_records_for_source_native_artifacts,
     load_source_native_pilot,
 )
+from .source_native_verification import verification_resolutions_by_artifact
 
 
 SHADOW_DIR = REVIEW_DIR / "canonical-knowledge-pilot"
@@ -1012,8 +1013,19 @@ class _ProjectionBuilder:
                 )
             self.activities[activity.generation_activity_id] = activity
 
+        verification_by_artifact = verification_resolutions_by_artifact(
+            queue_rows=[
+                row.public_dump()
+                for row in records.get("verification_queue") or []
+            ],
+            resolution_rows=[
+                row.public_dump()
+                for row in records.get("verification_resolutions") or []
+            ],
+        )
         knowledge_units, evidence_links = canonical_records_for_source_native_artifacts(
-            records.get("reviewed_artifacts") or []
+            records.get("reviewed_artifacts") or [],
+            verification_by_artifact=verification_by_artifact,
         )
         canonical_ids: dict[str, str] = {}
         for item in knowledge_units:

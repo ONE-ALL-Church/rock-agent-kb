@@ -704,6 +704,23 @@ def canonical_search_row(
             for source_id in sorted(snapshot_ids)
         ]
     payload = dict(item.payload)
+    if item.payload_schema == "rock-kb-source-native-artifact-payload-v1":
+        artifact_payload = item.payload.get("artifact") or {}
+        verification_payload = item.payload.get("verification") or {}
+        payload = {
+            **payload,
+            "needs_live_verification": bool(
+                artifact_payload.get("needs_live_verification")
+            ),
+            "verification_state": str(
+                verification_payload.get("state")
+                or (
+                    "unresolved"
+                    if artifact_payload.get("needs_live_verification")
+                    else "not_required"
+                )
+            ),
+        }
     title = item.title
     if item.knowledge_type == "claim":
         title = canonical_claim_search_title(item)
@@ -789,6 +806,19 @@ def canonical_search_body(item: KnowledgeUnit) -> str:
         return item.retrieval_text
     artifact = item.payload.get("artifact") or {}
     typed_payload = artifact.get("payload") or {}
+    verification = item.payload.get("verification") or {}
+    if verification.get("effective_override"):
+        values = [
+            item.retrieval_text,
+            str(artifact.get("independent_question") or ""),
+            *[
+                str(row.get("finding") or "")
+                for row in verification.get("resolutions") or []
+                if isinstance(row, dict)
+            ],
+        ]
+        normalized = [" ".join(value.split()) for value in values if value]
+        return " ".join(dict.fromkeys(normalized))[:20_000]
     values.extend(
         [
             str(artifact.get("independent_question") or ""),
@@ -814,6 +844,11 @@ def canonical_search_body(item: KnowledgeUnit) -> str:
             ],
             *[str(value) for value in typed_payload.get("cautions") or []],
             str(typed_payload.get("completion_or_use") or ""),
+            *[
+                str(row.get("finding") or "")
+                for row in verification.get("resolutions") or []
+                if isinstance(row, dict)
+            ],
         ]
     )
     normalized: list[str] = []

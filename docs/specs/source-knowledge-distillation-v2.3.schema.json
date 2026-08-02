@@ -104,6 +104,14 @@
           "title": "Rationale",
           "type": "string"
         },
+        "related_artifact_links": {
+          "items": {
+            "$ref": "#/$defs/SourceNativeArtifactLink"
+          },
+          "maxItems": 30,
+          "title": "Related Artifact Links",
+          "type": "array"
+        },
         "related_existing_claim_ids": {
           "items": {
             "type": "string"
@@ -190,9 +198,56 @@
         "needs_live_verification",
         "relation_to_existing",
         "related_existing_claim_ids",
+        "related_artifact_links",
         "payload"
       ],
       "title": "SourceNativeArtifactCandidate",
+      "type": "object"
+    },
+    "SourceNativeArtifactLink": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_source_unit_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "title": "Evidence Source Unit Ids",
+          "type": "array"
+        },
+        "rationale": {
+          "maxLength": 1500,
+          "minLength": 10,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "related_to",
+            "corroborates",
+            "qualifies",
+            "supersedes",
+            "requires",
+            "references"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "target_artifact_key": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Target Artifact Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_artifact_key",
+        "relation",
+        "rationale",
+        "evidence_source_unit_ids"
+      ],
+      "title": "SourceNativeArtifactLink",
       "type": "object"
     },
     "SourceNativeArtifactPayload": {

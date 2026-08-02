@@ -15,8 +15,9 @@ from .community import (
     fetch_rockumentation_payload,
     rockumentation_article_soup,
 )
+from .concepts import concept_source_records
 from .document_claims import build_document_claim_candidates
-from .extract import USER_AGENT, now_iso, sha256_text
+from .extract import USER_AGENT, main_markdown, now_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import REPO_ROOT, REVIEW_DIR
 from .schemas import (
@@ -29,8 +30,15 @@ from .schemas import (
     SourceNativeDistillationOutput,
     SourceNativePilotManifest,
     SourceNativeVerificationQueueItem,
+    SourceNativeVerificationResolution,
     SourceSnapshot,
     SourceUnit,
+)
+from .source_native_verification import (
+    VERIFICATION_REPORT_NAME,
+    VERIFICATION_RESOLUTIONS_NAME,
+    audit_source_native_verifications,
+    verification_resolutions_by_artifact,
 )
 
 
@@ -39,6 +47,7 @@ SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
 SOURCE_NATIVE_PROMPT_ID = "source-knowledge-distillation-v2.3"
 SOURCE_NATIVE_PROMPT_VERSION = "2.3.1"
 SOURCE_NATIVE_INPUT_HASH_VERSION = "2"
+SOURCE_NATIVE_MAX_UNITS_PER_CANDIDATE = 200
 SOURCE_NATIVE_PROMPT_PATH = (
     REPO_ROOT
     / "docs"
@@ -56,6 +65,19 @@ SOURCE_NATIVE_SPLIT_RULES_PATH = (
 )
 SOURCE_NATIVE_PILOT_CONCEPTS = ("system-admin-ops", "check-in")
 SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT = 6
+SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS = (
+    "rock_developer",
+    "rock_documentation",
+    "rock_mobile_docs",
+)
+SOURCE_NATIVE_STATIC_PROSE_SOURCE_IDS = (
+    "rock_community_blog",
+    "rock_lava_docs",
+)
+SOURCE_NATIVE_PROSE_SOURCE_IDS = (
+    *SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
+    *SOURCE_NATIVE_STATIC_PROSE_SOURCE_IDS,
+)
 PILOT_FILE_NAMES = (
     "source-snapshots.jsonl",
     "source-units.jsonl",
@@ -65,6 +87,8 @@ PILOT_FILE_NAMES = (
     "evaluation-set.jsonl",
     "evaluation-holdout.jsonl",
     "verification-queue.jsonl",
+    VERIFICATION_RESOLUTIONS_NAME,
+    VERIFICATION_REPORT_NAME,
     "split-rules.jsonl",
 )
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
@@ -91,6 +115,29 @@ def rockumentation_markdown(payload: Any) -> str:
             node.decompose()
     markdown = html_to_markdown(str(article), heading_style="ATX").strip()
     return normalize_markdown(clean_rockumentation_markdown(markdown))
+
+
+def source_native_source_markdown(
+    client: httpx.Client,
+    record: dict[str, Any],
+) -> str:
+    """Fetch full official prose through the source family's canonical route."""
+    source_id = str(record.get("source_id") or "")
+    source_url = str(record.get("source_url") or "")
+    if source_id in SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS:
+        return rockumentation_markdown(
+            fetch_rockumentation_payload(client, source_url)
+        )
+    if source_id in SOURCE_NATIVE_STATIC_PROSE_SOURCE_IDS:
+        response = client.get(source_url)
+        response.raise_for_status()
+        content_type = response.headers.get("content-type", "").lower()
+        if "html" not in content_type:
+            return ""
+        return normalize_markdown(
+            clean_rockumentation_markdown(main_markdown(response.text))
+        )
+    raise ValueError(f"unsupported source-native prose source ID: {source_id}")
 
 
 def write_source_native_distillation_schema(
@@ -161,6 +208,24 @@ def write_source_native_generation_prompt(
     inputs = inputs[offset : offset + limit if limit is not None else None]
     if not inputs:
         raise ValueError("No source-native candidates matched the prompt filter")
+    oversized = [
+        (
+            str(row.get("candidate_id") or "unknown"),
+            len(row.get("source_units") or []),
+        )
+        for row in inputs
+        if len(row.get("source_units") or [])
+        > SOURCE_NATIVE_MAX_UNITS_PER_CANDIDATE
+    ]
+    if oversized:
+        details = ", ".join(
+            f"{candidate_id} ({unit_count} units)"
+            for candidate_id, unit_count in oversized
+        )
+        raise ValueError(
+            "source-native prompt candidates exceed the 200-unit response "
+            f"contract and require deterministic partitioning: {details}"
+        )
     prompt = SOURCE_NATIVE_PROMPT_PATH.read_text(encoding="utf-8").rstrip()
     prompt += (
         "\n\n## Batch Requirement\n\n"
@@ -377,7 +442,7 @@ def load_source_unit_split_rules(
     for line_number, rule in enumerate(rules, start=1):
         if rule.get("schema") != "rock-kb-source-unit-split-rule-v1":
             raise ValueError(f"{path}:{line_number} has an unsupported schema")
-        if rule.get("strategy") != "sentence":
+        if rule.get("strategy") not in {"sentence", "contrast_clause"}:
             raise ValueError(f"{path}:{line_number} has an unsupported strategy")
         if not str(rule.get("reviewed_by") or "").strip():
             raise ValueError(f"{path}:{line_number} is missing reviewed_by")
@@ -427,10 +492,19 @@ def apply_source_unit_split_rules(
             raise ValueError(
                 f"split rule {content_hash} created a recursive split cycle"
             )
+        strategy = str(rule.get("strategy") or "")
         if block.get("kind") == "list_item":
-            split_blocks = split_list_item_block(block)
+            split_blocks = (
+                split_list_item_block(block)
+                if strategy == "sentence"
+                else split_list_item_contrast_block(block)
+            )
         elif block.get("kind") == "paragraph":
-            split_blocks = split_paragraph_block(block)
+            split_blocks = (
+                split_paragraph_block(block)
+                if strategy == "sentence"
+                else split_paragraph_contrast_block(block)
+            )
         else:
             raise ValueError(
                 f"split rule {content_hash} expected a list_item or paragraph"
@@ -510,6 +584,79 @@ def split_paragraph_block(block: dict[str, Any]) -> list[dict[str, Any]]:
         for index, sentence in enumerate(sentences[1:], start=2)
     ]
     return [first, *children]
+
+
+def split_list_item_contrast_block(block: dict[str, Any]) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    marker = re.match(r"^(\s*(?:\d+[.)]|[-*+])\s+)(.*)$", text, re.DOTALL)
+    if marker is None:
+        return [block]
+    clauses = split_reviewed_contrast_clauses(marker.group(2).strip())
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {
+            **block,
+            "block_token": parent_token,
+            "text": f"{marker.group(1)}{clauses[0]}",
+        },
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:contrast:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
+def split_paragraph_contrast_block(block: dict[str, Any]) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    clauses = split_reviewed_contrast_clauses(text)
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": clauses[0]},
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:contrast:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
+def split_reviewed_contrast_clauses(value: str) -> list[str]:
+    depth = 0
+    lower = value.lower()
+    for index, character in enumerate(value):
+        if character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        if depth or not lower.startswith("but ", index):
+            continue
+        prefix = value[:index]
+        if prefix and prefix[-1] not in {" ", ",", ";"}:
+            continue
+        left = prefix.rstrip(" ,;")
+        right = value[index + 4 :].strip()
+        if len(left) < 20 or len(right) < 20:
+            continue
+        left = left if left.endswith((".", "!", "?")) else f"{left}."
+        return [left, f"{right[0].upper()}{right[1:]}"]
+    return [value]
 
 
 def split_reviewed_block_sentences(value: str) -> list[str]:
@@ -694,17 +841,62 @@ def build_source_native_document_candidates(
     *,
     concept_ids: Iterable[str] = SOURCE_NATIVE_PILOT_CONCEPTS,
     limit_per_concept: int = SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
+    source_ids: Iterable[str] = SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
+    source_record_ids: Iterable[str] | None = None,
     destination: Path = SOURCE_NATIVE_REVIEW_DIR,
     previous_dir: Path = SOURCE_NATIVE_PILOT_DIR,
     checked_at: str | None = None,
     records: list[dict[str, Any]] | None = None,
     payload_loader: Callable[[dict[str, Any]], dict[str, Any] | None] | None = None,
+    markdown_loader: Callable[[dict[str, Any]], str] | None = None,
 ) -> dict[str, Any]:
+    requested_source_ids = sorted(
+        {
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        }
+    )
+    unknown_source_ids = sorted(
+        set(requested_source_ids) - set(SOURCE_NATIVE_PROSE_SOURCE_IDS)
+    )
+    if unknown_source_ids:
+        raise ValueError(
+            "unsupported source-native prose source IDs: "
+            + ", ".join(unknown_source_ids)
+        )
+    if not requested_source_ids:
+        raise ValueError("source_ids must contain at least one source ID")
+    if payload_loader is not None and markdown_loader is not None:
+        raise ValueError("provide payload_loader or markdown_loader, not both")
+    requested_record_ids = sorted(
+        {
+            str(source_record_id).strip()
+            for source_record_id in (source_record_ids or [])
+            if str(source_record_id).strip()
+        }
+    )
+    if requested_record_ids:
+        available_records = records if records is not None else concept_source_records()
+        available_by_id = {
+            str(record.get("id") or ""): record
+            for record in available_records
+            if record.get("id")
+        }
+        missing_record_ids = sorted(
+            set(requested_record_ids) - set(available_by_id)
+        )
+        if missing_record_ids:
+            raise ValueError(
+                "unknown source-native source record IDs: "
+                + ", ".join(missing_record_ids)
+            )
+        records = [available_by_id[record_id] for record_id in requested_record_ids]
     destination.mkdir(parents=True, exist_ok=True)
     candidate_path = destination / "document-candidates.jsonl"
     markdown_by_record: dict[str, str] = {}
 
-    if payload_loader is None:
+    if payload_loader is None and markdown_loader is None:
         with httpx.Client(
             follow_redirects=True,
             timeout=30,
@@ -713,26 +905,32 @@ def build_source_native_document_candidates(
             return _build_source_native_document_candidates(
                 concept_ids=list(concept_ids),
                 limit_per_concept=limit_per_concept,
+                source_ids=requested_source_ids,
+                source_record_ids=requested_record_ids,
                 destination=destination,
                 candidate_path=candidate_path,
                 previous_dir=previous_dir,
                 checked_at=checked_at,
                 records=records,
-                payload_loader=lambda record: fetch_rockumentation_payload(
-                    client,
-                    str(record.get("source_url") or ""),
+                markdown_loader=lambda record: source_native_source_markdown(
+                    client, record
                 ),
                 markdown_by_record=markdown_by_record,
             )
+    resolved_markdown_loader = markdown_loader or (
+        lambda record: rockumentation_markdown(payload_loader(record))
+    )
     return _build_source_native_document_candidates(
         concept_ids=list(concept_ids),
         limit_per_concept=limit_per_concept,
+        source_ids=requested_source_ids,
+        source_record_ids=requested_record_ids,
         destination=destination,
         candidate_path=candidate_path,
         previous_dir=previous_dir,
         checked_at=checked_at,
         records=records,
-        payload_loader=payload_loader,
+        markdown_loader=resolved_markdown_loader,
         markdown_by_record=markdown_by_record,
     )
 
@@ -741,12 +939,14 @@ def _build_source_native_document_candidates(
     *,
     concept_ids: list[str],
     limit_per_concept: int,
+    source_ids: list[str],
+    source_record_ids: list[str],
     destination: Path,
     candidate_path: Path,
     previous_dir: Path,
     checked_at: str | None,
     records: list[dict[str, Any]] | None,
-    payload_loader: Callable[[dict[str, Any]], dict[str, Any] | None],
+    markdown_loader: Callable[[dict[str, Any]], str],
     markdown_by_record: dict[str, str],
 ) -> dict[str, Any]:
     record_by_id = {
@@ -766,8 +966,7 @@ def _build_source_native_document_candidates(
     def context_loader(record: dict[str, Any]) -> str:
         record_id = str(record.get("id") or "")
         record_by_id[record_id] = record
-        payload = payload_loader(record)
-        markdown = rockumentation_markdown(payload)
+        markdown = normalize_markdown(markdown_loader(record))
         markdown_by_record[record_id] = markdown
         return " ".join(markdown.split())
 
@@ -778,6 +977,8 @@ def _build_source_native_document_candidates(
         records=records,
         context_loader=context_loader,
         require_full_text=True,
+        source_ids=source_ids,
+        source_record_ids=source_record_ids,
     )
     snapshots: list[SourceSnapshot] = []
     units: list[SourceUnit] = []
@@ -801,15 +1002,45 @@ def _build_source_native_document_candidates(
             checked_at=observed_check_time,
             content_hash=content_hash,
         )
+        source_id = str(candidate.get("source_id") or "")
+        source_path = str(
+            candidate.get("documentation_path")
+            or record.get("canonical_path")
+            or ""
+        ) or None
+        documentation_article_id = int(
+            candidate.get("documentation_article_id") or 0
+        )
+        source_work_id = (
+            f"documentation-article:{documentation_article_id}"
+            if documentation_article_id
+            else f"{source_id}:page:"
+            + sha256_text(str(candidate.get("source_url") or ""))[:20]
+        )
+        uses_rockumentation = source_id in SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS
+        derivation = {
+            "extraction_tool": (
+                "rockumentation_block_action"
+                if uses_rockumentation
+                else "official_static_http"
+            ),
+            "source_unit_split_rule_count": len(article_split_rule_hashes),
+        }
+        if documentation_article_id:
+            derivation["documentation_article_id"] = documentation_article_id
+        if article_split_rule_hashes:
+            derivation["source_unit_split_rules_sha256"] = sha256_text(
+                ":".join(article_split_rule_hashes)
+            )
         snapshot = SourceSnapshot(
             schema="rock-kb-source-snapshot-v2",
             source_snapshot_id=snapshot_id,
-            source_id=str(candidate.get("source_id") or ""),
+            source_id=source_id,
             source_record_id=source_record_id,
-            source_work_id=f"documentation-article:{candidate.get('documentation_article_id')}",
+            source_work_id=source_work_id,
             canonical_url=str(candidate.get("source_url") or ""),
             title=str(candidate.get("source_title") or ""),
-            source_path=str(candidate.get("documentation_path") or "") or None,
+            source_path=source_path,
             routing_paths=[
                 str(value)
                 for value in candidate.get("documentation_branches") or []
@@ -821,28 +1052,17 @@ def _build_source_native_document_candidates(
             content_hash=content_hash,
             normalized_content_hash=content_hash,
             upstream_revision=str(candidate.get("documentation_current_version") or "") or None,
-            parser_id="rockumentation-markdown-blocks",
-            parser_version="1.4.0",
+            parser_id=(
+                "rockumentation-markdown-blocks"
+                if uses_rockumentation
+                else "official-static-markdown-blocks"
+            ),
+            parser_version="1.4.0" if uses_rockumentation else "1.0.0",
             observation_status=observation["observation_status"],
             immutable=False,
             authority_tier="official",
             public_policy="cite_and_summarize_only",
-            derivation={
-                "extraction_tool": "rockumentation_block_action",
-                "documentation_article_id": int(
-                    candidate.get("documentation_article_id") or 0
-                ),
-                "source_unit_split_rule_count": len(article_split_rule_hashes),
-                **(
-                    {
-                        "source_unit_split_rules_sha256": sha256_text(
-                            ":".join(article_split_rule_hashes)
-                        )
-                    }
-                    if article_split_rule_hashes
-                    else {}
-                ),
-            },
+            derivation=derivation,
         )
         article_units = parse_markdown_source_units(
             markdown=markdown,
@@ -918,6 +1138,8 @@ def _build_source_native_document_candidates(
         "schema": "rock-kb-source-native-candidate-build-v1",
         "status": "ok",
         "concept_ids": concept_ids,
+        "source_ids": source_ids,
+        "source_record_ids": source_record_ids,
         "article_count": len(inputs),
         "source_snapshot_count": len(snapshots),
         "source_unit_count": len(units),
@@ -1528,6 +1750,7 @@ def promote_source_native_distillation(
             base_dir=base_dir,
             incoming=bundle_rows,
         )
+    validate_source_native_bundle_consistency(bundle_rows)
     destination.mkdir(parents=True, exist_ok=True)
     sort_keys = {
         "source-snapshots.jsonl": "source_snapshot_id",
@@ -1547,6 +1770,7 @@ def promote_source_native_distillation(
         for preserved_name in (
             "evaluation-holdout.jsonl",
             "split-rules.jsonl",
+            VERIFICATION_RESOLUTIONS_NAME,
         ):
             preserved_path = base_dir / preserved_name
             destination_path = destination / preserved_name
@@ -1690,18 +1914,123 @@ def merge_source_native_bundle_rows(
 
     combined: dict[str, list[dict[str, Any]]] = {}
     for name, key in key_by_file.items():
-        rows_by_id = {
-            str(row.get(key) or ""): row
-            for row in filtered[name]
-            if row.get(key)
-        }
+        rows_by_id = unique_rows_by_id(filtered[name], key=key, source=name)
         for row in incoming[name]:
             row_id = str(row.get(key) or "")
             if not row_id:
                 raise ValueError(f"{name} row is missing {key}")
+            if row_id in rows_by_id:
+                raise ValueError(f"{name} duplicates {key} {row_id}")
             rows_by_id[row_id] = row
         combined[name] = list(rows_by_id.values())
+    validate_source_native_bundle_consistency(combined)
     return combined
+
+
+def unique_rows_by_id(
+    rows: Iterable[dict[str, Any]],
+    *,
+    key: str,
+    source: str,
+) -> dict[str, dict[str, Any]]:
+    indexed: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        row_id = str(row.get(key) or "")
+        if not row_id:
+            raise ValueError(f"{source} row is missing {key}")
+        if row_id in indexed:
+            raise ValueError(f"{source} duplicates {key} {row_id}")
+        indexed[row_id] = row
+    return indexed
+
+
+def validate_source_native_bundle_consistency(
+    bundle_rows: dict[str, list[dict[str, Any]]],
+) -> dict[str, int]:
+    """Reject final bundles whose verification flags and queue disagree."""
+
+    artifact_rows = [
+        ReviewedSourceNativeArtifact.model_validate(row)
+        for row in bundle_rows.get("reviewed-artifacts.jsonl", [])
+    ]
+    queue_rows = [
+        SourceNativeVerificationQueueItem.model_validate(row)
+        for row in bundle_rows.get("verification-queue.jsonl", [])
+    ]
+    unit_rows = [
+        SourceUnit.model_validate(row)
+        for row in bundle_rows.get("source-units.jsonl", [])
+    ]
+    artifacts_by_id = unique_rows_by_id(
+        [row.public_dump() for row in artifact_rows],
+        key="artifact_id",
+        source="reviewed-artifacts.jsonl",
+    )
+    unique_rows_by_id(
+        [row.public_dump() for row in queue_rows],
+        key="verification_id",
+        source="verification-queue.jsonl",
+    )
+    source_unit_ids = {row.source_unit_id for row in unit_rows}
+    required_artifact_ids = {
+        row.artifact_id
+        for row in artifact_rows
+        if row.artifact.needs_live_verification
+    }
+    queued_artifact_ids: set[str] = set()
+    for queue_item in queue_rows:
+        if not queue_item.artifact_ids:
+            raise ValueError(
+                f"{queue_item.verification_id} has no reviewable artifacts"
+            )
+        unknown_units = sorted(set(queue_item.source_unit_ids) - source_unit_ids)
+        if unknown_units:
+            raise ValueError(
+                f"{queue_item.verification_id} references unknown source units: "
+                f"{unknown_units[:3]}"
+            )
+        for artifact_id in queue_item.artifact_ids:
+            artifact_row = artifacts_by_id.get(artifact_id)
+            if artifact_row is None:
+                raise ValueError(
+                    f"{queue_item.verification_id} references unknown artifact "
+                    f"{artifact_id}"
+                )
+            if (
+                artifact_row.get("source_candidate_id")
+                != queue_item.source_candidate_id
+            ):
+                raise ValueError(
+                    f"{queue_item.verification_id} and {artifact_id} have "
+                    "different source candidates"
+                )
+            artifact_unit_ids = set(
+                (artifact_row.get("artifact") or {}).get("source_unit_ids") or []
+            )
+            if not artifact_unit_ids.intersection(queue_item.source_unit_ids):
+                raise ValueError(
+                    f"{queue_item.verification_id} does not cite a source unit "
+                    f"owned by {artifact_id}"
+                )
+            queued_artifact_ids.add(artifact_id)
+
+    missing_queue = sorted(required_artifact_ids - queued_artifact_ids)
+    unexpected_queue = sorted(queued_artifact_ids - required_artifact_ids)
+    if missing_queue:
+        raise ValueError(
+            "source-native artifacts require verification but are absent from "
+            f"the queue: {missing_queue[:3]}"
+        )
+    if unexpected_queue:
+        raise ValueError(
+            "source-native verification queue includes artifacts not marked for "
+            f"verification: {unexpected_queue[:3]}"
+        )
+    return {
+        "artifact_count": len(artifact_rows),
+        "verification_required_artifact_count": len(required_artifact_ids),
+        "verification_queue_count": len(queue_rows),
+    }
 
 
 def json_change_count(before: Any, after: Any) -> int:
@@ -1734,11 +2063,6 @@ def _canonical_json(value: Any) -> str:
 def write_source_native_manifest(
     destination: Path = SOURCE_NATIVE_PILOT_DIR,
 ) -> SourceNativePilotManifest:
-    file_hashes = {
-        name: sha256_file(destination / name)
-        for name in PILOT_FILE_NAMES
-        if (destination / name).exists()
-    }
     snapshots = list(read_jsonl(destination / "source-snapshots.jsonl"))
     source_units = list(read_jsonl(destination / "source-units.jsonl"))
     activities = list(read_jsonl(destination / "generation-activities.jsonl"))
@@ -1747,6 +2071,56 @@ def write_source_native_manifest(
     verification_queue = list(
         read_jsonl(destination / "verification-queue.jsonl")
     )
+    verification_resolutions = list(
+        read_jsonl(destination / VERIFICATION_RESOLUTIONS_NAME)
+    )
+    validate_source_native_bundle_consistency(
+        {
+            "reviewed-artifacts.jsonl": artifacts,
+            "verification-queue.jsonl": verification_queue,
+            "source-units.jsonl": source_units,
+        }
+    )
+    verification_checked_at = max(
+        [
+            *(
+                str(
+                    row.get("last_checked_at")
+                    or row.get("observed_at")
+                    or ""
+                )
+                for row in snapshots
+                if row.get("last_checked_at") or row.get("observed_at")
+            ),
+            *(
+                str(row.get("reviewed_at") or "")
+                for row in verification_resolutions
+                if row.get("reviewed_at")
+            ),
+        ],
+        default=now_iso(),
+    )
+    verification_report = audit_source_native_verifications(
+        queue_path=destination / "verification-queue.jsonl",
+        resolution_path=destination / VERIFICATION_RESOLUTIONS_NAME,
+        source_snapshots_path=destination / "source-snapshots.jsonl",
+        checked_at=verification_checked_at,
+    )
+    (destination / VERIFICATION_REPORT_NAME).write_text(
+        json.dumps(
+            verification_report,
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    file_hashes = {
+        name: sha256_file(destination / name)
+        for name in PILOT_FILE_NAMES
+        if (destination / name).exists()
+    }
     evaluations = [
         *read_jsonl(destination / "evaluation-set.jsonl"),
         *read_jsonl(destination / "evaluation-holdout.jsonl"),
@@ -1802,6 +2176,15 @@ def write_source_native_manifest(
         relationship_count=len(relationships),
         evaluation_case_count=len(evaluations),
         verification_request_count=len(verification_queue),
+        verification_resolution_count=int(
+            verification_report["resolution_count"]
+        ),
+        verification_unresolved_count=int(
+            verification_report["unresolved_count"]
+        ),
+        verification_state_counts=dict(
+            verification_report["by_state"]
+        ),
         artifact_type_counts=dict(
             sorted(
                 Counter(
@@ -1880,6 +2263,8 @@ def load_source_native_pilot(
             "generation_activities": [],
             "reviewed_artifacts": [],
             "relationships": [],
+            "verification_queue": [],
+            "verification_resolutions": [],
         }
     manifest = SourceNativePilotManifest.model_validate(
         json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -1912,6 +2297,16 @@ def load_source_native_pilot(
             KnowledgeRelationship.model_validate(row)
             for row in read_jsonl(destination / "relationships.jsonl")
         ],
+        "verification_queue": [
+            SourceNativeVerificationQueueItem.model_validate(row)
+            for row in read_jsonl(destination / "verification-queue.jsonl")
+        ],
+        "verification_resolutions": [
+            SourceNativeVerificationResolution.model_validate(row)
+            for row in read_jsonl(
+                destination / VERIFICATION_RESOLUTIONS_NAME
+            )
+        ],
     }
 
 
@@ -1927,11 +2322,46 @@ def source_native_evaluation_rows(
 
 def canonical_records_for_source_native_artifacts(
     reviewed_artifacts: Iterable[ReviewedSourceNativeArtifact],
+    verification_by_artifact: dict[str, list[dict[str, Any]]] | None = None,
 ) -> tuple[list[KnowledgeUnit], list[EvidenceLink]]:
     knowledge_units: list[KnowledgeUnit] = []
     evidence_links: list[EvidenceLink] = []
     for reviewed in reviewed_artifacts:
         artifact = reviewed.artifact
+        verification_rows = sorted(
+            (verification_by_artifact or {}).get(reviewed.artifact_id) or [],
+            key=lambda row: str(row.get("verification_id") or ""),
+        )
+        if any(
+            row.get("artifact_disposition") == "supersedes"
+            for row in verification_rows
+        ):
+            continue
+        effective_rows = [
+            row
+            for row in verification_rows
+            if row.get("artifact_disposition") in {"narrows", "corrects"}
+        ]
+        effective_titles = {
+            str(row.get("effective_title") or "")
+            for row in effective_rows
+            if row.get("effective_title")
+        }
+        effective_retrieval_texts = {
+            str(row.get("effective_retrieval_text") or "")
+            for row in effective_rows
+            if row.get("effective_retrieval_text")
+        }
+        if len(effective_titles) > 1 or len(effective_retrieval_texts) > 1:
+            raise ValueError(
+                "verification resolutions disagree on effective artifact text: "
+                f"{reviewed.artifact_id}"
+            )
+        effective_title = next(iter(effective_titles), artifact.title)
+        effective_retrieval_text = next(
+            iter(effective_retrieval_texts),
+            artifact.retrieval_text,
+        )
         payload = {
             "schema": "rock-kb-source-native-artifact-payload-v1",
             "source_candidate_id": reviewed.source_candidate_id,
@@ -1944,6 +2374,19 @@ def canonical_records_for_source_native_artifacts(
                 "source_input_hash": reviewed.source_input_hash,
             },
         }
+        if verification_rows:
+            payload["verification"] = {
+                "state": (
+                    "verified"
+                    if all(
+                        row.get("resolution_state") == "verified"
+                        for row in verification_rows
+                    )
+                    else "review_required"
+                ),
+                "effective_override": bool(effective_rows),
+                "resolutions": verification_rows,
+            }
         knowledge_type = artifact.artifact_type
         content_hash = sha256_text(
             json.dumps(
@@ -1959,8 +2402,8 @@ def canonical_records_for_source_native_artifacts(
                 knowledge_unit_id=reviewed.artifact_id,
                 knowledge_type=knowledge_type,
                 ingestion_mode="source_native_distillation",
-                title=artifact.title,
-                retrieval_text=artifact.retrieval_text,
+                title=effective_title,
+                retrieval_text=effective_retrieval_text,
                 concept_facets=artifact.concept_ids,
                 authority_tiers=["official"],
                 claim_tier="source_backed",
@@ -1977,6 +2420,17 @@ def canonical_records_for_source_native_artifacts(
                 content_hash=content_hash,
             )
         )
+        source_relation = "supports"
+        if any(
+            row.get("artifact_disposition") == "corrects"
+            for row in verification_rows
+        ):
+            source_relation = "contradicts"
+        elif any(
+            row.get("artifact_disposition") == "narrows"
+            for row in verification_rows
+        ):
+            source_relation = "qualifies"
         for source_unit_id in artifact.source_unit_ids:
             link_id = "evidence:" + sha256_text(
                 f"{reviewed.artifact_id}:{source_unit_id}:supports"
@@ -1987,7 +2441,7 @@ def canonical_records_for_source_native_artifacts(
                     evidence_link_id=link_id,
                     knowledge_unit_id=reviewed.artifact_id,
                     source_unit_id=source_unit_id,
-                    relation="supports",
+                    relation=source_relation,
                     evidence_summary=artifact.rationale[:1500],
                     authority_tier="official",
                     confidence=artifact.confidence,

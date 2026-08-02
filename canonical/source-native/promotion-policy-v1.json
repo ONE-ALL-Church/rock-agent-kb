@@ -1,0 +1,29 @@
+{
+  "external_evidence": {
+    "canonical_to_legacy_preference_ratio_min": 2.0,
+    "min_decisive_comparisons": 50,
+    "min_opted_in_installations": 5,
+    "required_categories": [
+      "exact_lookup",
+      "issue",
+      "no_answer",
+      "normal_task",
+      "semantic",
+      "version_sensitive"
+    ]
+  },
+  "policy_id": "source-native-default-cutover-v1",
+  "schema": "rock-kb-source-native-promotion-policy-v1",
+  "technical_evidence": {
+    "max_authority_regressions": 0,
+    "max_default_cutover_verification_blockers": 0,
+    "max_endpoint_compatibility_regressions": 0,
+    "max_exact_lookup_regressions": 0,
+    "max_no_answer_regressions": 0,
+    "max_retrieval_regressions": 0,
+    "min_article_count": 36,
+    "min_source_family_count": 4,
+    "require_live_verification_report": true,
+    "require_retrieval_shadow_pass": true
+  }
+}

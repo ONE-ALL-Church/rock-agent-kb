@@ -26,14 +26,29 @@ from ..source_native import (
     SOURCE_NATIVE_PILOT_CONCEPTS,
     SOURCE_NATIVE_PILOT_DIR,
     SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
+    SOURCE_NATIVE_PROSE_SOURCE_IDS,
     SOURCE_NATIVE_REVIEW_DIR,
+    SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
     SOURCE_NATIVE_SCHEMA_PATH,
     build_source_native_document_candidates,
     build_source_native_impact_report,
     merge_source_native_distillation_outputs,
     promote_source_native_distillation,
+    write_source_native_manifest,
     write_source_native_distillation_schema,
     write_source_native_generation_prompt,
+)
+from ..source_native_verification import (
+    VERIFICATION_RESOLUTIONS_NAME,
+    audit_source_native_verifications,
+    build_source_native_verification_packet,
+    promote_source_native_verification_resolutions,
+)
+from ..source_native_readiness import (
+    SOURCE_NATIVE_PROMOTION_POLICY_PATH,
+    evaluate_source_native_promotion_readiness,
+    fetch_operations_dashboard,
+    load_json,
 )
 from . import _legacy as legacy
 
@@ -188,6 +203,23 @@ def source_native_candidates(
         min=1,
         max=20,
     ),
+    source_id: list[str] = typer.Option(
+        list(SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS),
+        "--source-id",
+        help=(
+            "Official prose source family to include. Repeat to build a "
+            "balanced family-specific batch. Supported values: "
+            + ", ".join(SOURCE_NATIVE_PROSE_SOURCE_IDS)
+        ),
+    ),
+    source_record_id: list[str] = typer.Option(
+        [],
+        "--source-record-id",
+        help=(
+            "Optionally select exact normalized source records. Repeat for a "
+            "bounded, reviewable source-native batch."
+        ),
+    ),
     destination: Path = typer.Option(
         SOURCE_NATIVE_REVIEW_DIR,
         "--destination",
@@ -201,6 +233,8 @@ def source_native_candidates(
             build_source_native_document_candidates(
                 concept_ids=concept,
                 limit_per_concept=limit_per_concept,
+                source_ids=source_id,
+                source_record_ids=source_record_id,
                 destination=destination,
             ),
             ensure_ascii=False,
@@ -421,6 +455,210 @@ def source_native_merge(
             indent=2,
         )
     )
+
+
+@app.command("source-native-verification-packet")
+def source_native_verification_packet(
+    queue_path: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR / "verification-queue.jsonl",
+        "--queue",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_REVIEW_DIR / "verification-packet.jsonl",
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Write hash-bound private review inputs for unresolved verification rows."""
+
+    typer.echo(
+        json.dumps(
+            build_source_native_verification_packet(
+                queue_path=queue_path,
+                destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-verification-promote")
+def source_native_verification_promote(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Reviewed public-safe verification resolutions JSONL.",
+    ),
+    queue_path: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR / "verification-queue.jsonl",
+        "--queue",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+    reviewer: str = typer.Option(..., "--reviewer"),
+    reviewed_at: str | None = typer.Option(None, "--reviewed-at"),
+) -> None:
+    """Promote reviewed evidence without rewriting source-native artifacts."""
+
+    result = promote_source_native_verification_resolutions(
+        queue_path=queue_path,
+        input_path=input_path,
+        destination=destination,
+        reviewer=reviewer,
+        reviewed_at=reviewed_at,
+        source_snapshots_path=destination / "source-snapshots.jsonl",
+    )
+    result["manifest"] = write_source_native_manifest(destination).public_dump()
+    typer.echo(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+@app.command("source-native-verification-audit")
+def source_native_verification_audit(
+    queue_path: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR / "verification-queue.jsonl",
+        "--queue",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    resolution_path: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR / VERIFICATION_RESOLUTIONS_NAME,
+        "--resolutions",
+        file_okay=True,
+        dir_okay=False,
+    ),
+    check_live: bool = typer.Option(
+        False,
+        "--check-live",
+        help="Re-fetch mutable public evidence and compare content hashes.",
+    ),
+    destination: Path | None = typer.Option(
+        None,
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+        help="Optional captured report for the readiness gate.",
+    ),
+) -> None:
+    """Report unresolved, stale, and default-cutover-blocking verification rows."""
+
+    report = audit_source_native_verifications(
+        queue_path=queue_path,
+        resolution_path=resolution_path,
+        source_snapshots_path=(
+            SOURCE_NATIVE_PILOT_DIR / "source-snapshots.jsonl"
+        ),
+        check_live=check_live,
+    )
+    if destination is not None:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True)
+            + "\n",
+            encoding="utf-8",
+        )
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+
+
+@app.command("source-native-readiness")
+def source_native_readiness(
+    retrieval_report_path: Path = typer.Option(
+        ...,
+        "--retrieval-report",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    dashboard_path: Path | None = typer.Option(
+        None,
+        "--dashboard",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Optional captured operations dashboard; hosted readback is the default.",
+    ),
+    dashboard_url: str = typer.Option(
+        "https://rock-agent-kb.oneandall.church/operations/dashboard",
+        "--dashboard-url",
+    ),
+    verification_report_path: Path | None = typer.Option(
+        None,
+        "--verification-report",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help=(
+            "Optional captured live verification report. Without it, the "
+            "command re-fetches mutable public evidence."
+        ),
+    ),
+    policy_path: Path = typer.Option(
+        SOURCE_NATIVE_PROMOTION_POLICY_PATH,
+        "--policy",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path | None = typer.Option(
+        None,
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Evaluate technical and independent external evidence separately."""
+
+    dashboard = (
+        load_json(dashboard_path)
+        if dashboard_path is not None
+        else fetch_operations_dashboard(dashboard_url)
+    )
+    verification_report = (
+        load_json(verification_report_path)
+        if verification_report_path is not None
+        else audit_source_native_verifications(
+            queue_path=(
+                SOURCE_NATIVE_PILOT_DIR / "verification-queue.jsonl"
+            ),
+            resolution_path=(
+                SOURCE_NATIVE_PILOT_DIR / VERIFICATION_RESOLUTIONS_NAME
+            ),
+            source_snapshots_path=(
+                SOURCE_NATIVE_PILOT_DIR / "source-snapshots.jsonl"
+            ),
+            check_live=True,
+        )
+    )
+    report = evaluate_source_native_promotion_readiness(
+        manifest=load_json(SOURCE_NATIVE_PILOT_DIR / "manifest.json"),
+        verification_report=verification_report,
+        retrieval_report=load_json(retrieval_report_path),
+        dashboard=dashboard,
+        policy=load_json(policy_path),
+    )
+    if destination is not None:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True)
+            + "\n",
+            encoding="utf-8",
+        )
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
 
 
 @app.command("source-native-impact")

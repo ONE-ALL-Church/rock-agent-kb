@@ -110,23 +110,35 @@ public serialization.
 
 ## Source-Native Documentation Bundle
 
-The tracked `canonical/source-native/v1/` bundle contains reviewed
-source-native documentation for `system-admin-ops`, `check-in`, `workflows`,
-`communications`, and `security-permissions`. It is a non-default input to the
+The tracked `canonical/source-native/v1/` bundle contains reviewed official
+documentation, developer and mobile documentation, Lava prose, and Rock
+community articles. Concepts remain task-oriented facets rather than one copy
+of each source navigation branch. The bundle is a non-default input to the
 canonical shadow and opt-in canary, not to ordinary retrieval or OKF.
 
 Build deterministic private review inputs from the Rockumentation API:
 
 ```bash
 uv run kb tools source-native-candidates \
+  --source-id rock_documentation \
+  --source-id rock_developer \
+  --source-id rock_mobile_docs \
+  --source-id rock_lava_docs \
+  --source-id rock_community_blog \
   --concept workflows \
-  --concept communications \
-  --concept security-permissions \
+  --concept obsidian-development \
+  --concept mobile \
   --limit-per-concept 4
 uv run kb tools source-native-schema
 uv run kb tools source-native-prompt \
   --source-record-id rock_documentation:article:<id>
 ```
+
+Use repeated `--source-record-id` options when a maintainer has selected exact
+records. Exact record IDs are explicit routing decisions and are not dropped
+because their normalized summary has a low concept score. Records surfaced
+under multiple concepts are coalesced into one candidate with multiple concept
+facets.
 
 The parser assigns stable IDs before model review to sentences, tables, code
 blocks, and individual list items. Nested field catalogs are separate child
@@ -138,6 +150,10 @@ classify a supplied unit or request a deterministic split; it cannot invent
 evidence addresses or target a fixed number of claims. Maintainer-approved,
 content-hash-bound sentence splits are recorded in `split-rules.jsonl`; a rule
 that no longer matches current source text fails closed.
+
+A source candidate may contain at most 200 units. Oversized articles stop before
+model review and require a reviewed deterministic partitioning strategy; do not
+truncate them or increase the limit just to make a batch pass.
 
 The model input hash covers the stable source snapshot, parser and split-rule
 revision, every source unit and locator, concept facets, existing-claim review
@@ -196,6 +212,44 @@ changed source units. Unrelated knowledge and projections remain untouched.
 Verification requests remain explicit caveats; they are not silently promoted
 to live-verified facts.
 
+Resolve verification requests through a separate hash-bound review packet:
+
+```bash
+uv run kb tools source-native-verification-packet \
+  --destination data/review/source-native/verification-packet.jsonl
+uv run kb tools source-native-verification-promote \
+  --input data/review/source-native/verification-resolutions.jsonl \
+  --reviewer <reviewer-id> \
+  --reviewed-at <iso-8601>
+uv run kb tools source-native-verification-audit \
+  --check-live \
+  --destination data/review/source-native/verification-report-live.json
+```
+
+Use immutable GitHub commit evidence for implementation contracts and current
+official documentation or source snapshots for mutable guidance. A resolution
+may confirm, narrow, correct, or supersede an artifact. Narrowing and correction
+must provide effective title and retrieval text; canonical retrieval uses that
+reviewed text instead of the stale model wording. Superseded artifacts are
+excluded. Source-hash and time-bound evidence reopen automatically when stale.
+
+After retrieval evaluation, run the quantitative readiness gate:
+
+```bash
+uv run kb tools source-native-readiness \
+  --retrieval-report data/review/canonical-knowledge-pilot/retrieval-report.json \
+  --verification-report data/review/source-native/verification-report-live.json \
+  --destination data/review/source-native/readiness-report.json
+```
+
+The versioned policy in `canonical/source-native/promotion-policy-v1.json`
+requires a live verification report and separates technical evidence from real
+external usefulness evidence. Omitting `--verification-report` makes readiness
+perform the live audit itself; a captured non-live report cannot pass the gate.
+Synthetic, evaluation, and maintainer traffic may prove correctness but never counts as
+external evidence. Keep those tests in the `maintainer` cohort and retain
+legacy as the default until the external gate passes.
+
 ## Reviewed Cross-Source Synthesis
 
 The tracked `canonical/cross-source/v1/` bundle tests the evidence model on a
@@ -246,6 +300,12 @@ The report separates:
   aliases, claims, issues, Ideas, Model Map, Lava contexts, and recipes;
 - latency and serialized storage; and
 - improved, unchanged, and regressed query results.
+
+Run the report against the pre-change bundle as well as the current bundle when
+expanding source families. That comparison makes source coverage gains,
+corrected mutable facts, ranking regressions, and exact-lookup behavior visible
+without treating newly added self-authored evaluation questions as independent
+proof.
 
 A report status of `pass` means the candidate did not regress from the
 baseline. It does not erase failures shared by both variants. Shared defects are
@@ -372,3 +432,9 @@ legacy until real external opt-in outcomes demonstrate that semantic and
 version-sensitive questions improve without degrading exact technical lookup,
 authority correctness, duplicate rate, no-answer behavior, latency, or public
 safety. Maintainer and evaluation traffic alone cannot satisfy that gate.
+The machine gate also requires the reviewed minimum source-family and article
+coverage, zero unresolved or stale verification blockers, a passing retrieval
+shadow, zero exact, authority, no-answer, endpoint, or overall retrieval
+regressions, and the configured external cohort, comparison, category, and
+preference thresholds. Passing the technical half authorizes only continued
+canary testing.

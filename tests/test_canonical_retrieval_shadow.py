@@ -141,6 +141,37 @@ def test_canonical_search_row_exposes_observation_without_implying_version_scope
     assert "Rock product-version applicability is unprocessed" in row["body"]
 
 
+def test_source_native_search_row_distinguishes_not_required_from_unresolved():
+    item = KnowledgeUnit(
+        schema="rock-kb-knowledge-unit-v1",
+        knowledge_unit_id="source-native:claim:test",
+        knowledge_type="claim",
+        title="Documented behavior",
+        retrieval_text="The documentation describes this behavior.",
+        concept_facets=["system-admin-ops"],
+        authority_tiers=["official"],
+        payload_schema="rock-kb-source-native-artifact-payload-v1",
+        payload={"artifact": {"needs_live_verification": False}},
+        content_hash="0" * 64,
+    )
+
+    not_required = canonical_search_row(item, {}, {})
+    unresolved = canonical_search_row(
+        item.model_copy(
+            update={
+                "payload": {
+                    "artifact": {"needs_live_verification": True}
+                }
+            }
+        ),
+        {},
+        {},
+    )
+
+    assert not_required["payload"]["verification_state"] == "not_required"
+    assert unresolved["payload"]["verification_state"] == "unresolved"
+
+
 def test_canonical_claim_title_uses_statement_for_contribution_corroboration():
     item = claim_unit()
     payload = dict(item.payload)
