@@ -1178,6 +1178,7 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     assert.equal(search.results.length, 1);
     assert.equal(search.results[0].kind, "recipe");
     assert.equal(search.results[0].id, "recipe:oneall:check-in-status-dashboard");
+    assert.deepEqual(search.results[0].rock_versions, ["18"]);
 
     const toolsResponse = await mcp(mf, "tools/list", {});
     const toolNames = toolsResponse.result.tools.map((tool) => tool.name);

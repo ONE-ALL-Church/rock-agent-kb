@@ -6939,13 +6939,11 @@ function rowRockVersions(row: SearchRow): string[] {
       : []
   ));
   for (const record of records) {
-    for (const key of ["rock_versions", "versions", "tested_rock_versions"]) {
+    for (const key of ["rock_versions", "tested_rock_versions"]) {
       const value = record[key];
       values.push(...(Array.isArray(value) ? value : value ? [value] : []));
     }
-    for (const key of ["rock_version", "version"]) {
-      if (record[key]) values.push(record[key]);
-    }
+    if (record.rock_version) values.push(record.rock_version);
   }
   const compatibility = asRecord(payload.compatibility);
   const tested = compatibility.tested_rock_versions;

@@ -20,6 +20,8 @@ tags and follow semantic versioning for public client and service contracts.
 - Source-native verification corrections now carry their reviewed Rock-version
   scope into canonical retrieval, preventing a Rock 19.4 correction from being
   presented as a Rock 20 answer.
+- Recipe package versions are no longer exposed as Rock RMS compatibility
+  versions in search results.
 
 ## [0.21.0] - 2026-07-31
 
