@@ -1,0 +1,738 @@
+{
+  "by_disposition": {
+    "confirms": 37,
+    "corrects": 18,
+    "narrows": 14
+  },
+  "by_state": {
+    "verified": 69
+  },
+  "by_surface": {
+    "maintainer_review": 26,
+    "official_api": 2,
+    "public_source_code": 41
+  },
+  "checked_at": "2026-08-02T03:45:00Z",
+  "default_cutover_blocker_count": 0,
+  "items": [
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_mobile_docs:article-437:app-factory-publishing-requires-delegated-account-access",
+        "source-native:claim:rock_mobile_docs:article-437:developer-account-owner-maintains-platform-requirements"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:00707684e074896ff032fd73",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_documentation:article-983:workflow-webhook-defined-value-lava-special-character-limit"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:0120585190d32d861f88ee83",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-email-delivery-controls"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:01b7b5f120129bef0b8ddccd",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-961:structured-reference-initial-activation-green-indicator"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:0cad065993d1e52f834e39de",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1821:attendance-analytics-group-specific-settings"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:0e9eba93995897f25d6569f7",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1161:next-gen-check-in-welcome-screen-controls-and-ads"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:142d73ccd038253769072866",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-1024:reference-highlight-detail-column-detail-field-interface"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:14ccddff1dcf6b12ad568da9",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_documentation:article-1161:configure-and-target-next-gen-kiosk-ads"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:15482c3827ce1f7b3d24c700",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-unsubscribe-controls"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:1867e0cebdec8079103d4aa5",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-whats-new"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:1956d46b84a94f6ea9d59179",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_community_blog:article-0:claim-rock-v19-ai-agent-preview-launch"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:1a93e970cb21683f42414f63",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:1e5c9e3e7e778b8592b5d6d3",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_community_blog:article-0:recipe-multi-stage-volunteer-onboarding",
+        "source-native:task_card:rock_community_blog:article-0:task-card-establish-volunteer-onboarding-foundations"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:22f57bc7d7e78acebf258679",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_mobile_docs:article-621:rock-mobile-on-device-platform-compatibility-marker"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:23996be27bea24915179ecb6",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-lava-request-object-catalog"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:23e811c5cebf5c9ae3d420f7",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_documentation:article-1932:configure-email-specialized-delivery-service-recommendation"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:2cf9bdf3bb9971cce7df3503",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:2ee84003f6aa81a10630c8c4",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:source_summary:rock_documentation:article-1932:configure-email-communication-transport-settings-location"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3480b68c5fa4065f56fa6522",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_mobile_docs:article-437:invite-app-factory-through-apple-app-store-connect"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:35d88eee42d20b965c2556d6",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-1932:configure-email-safe-sender-domains"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:385fd1759c655ec2e1678b4a",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-376:reference-chrome-shortcut-remote-debugging-target-suffix",
+        "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:38fd03bdeba3529213505e78",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_mobile_docs:article-437:app-factory-requires-organization-owned-developer-accounts",
+        "source-native:claim:rock_mobile_docs:article-437:organization-owned-developer-accounts-control-store-app"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3c01e9305f69d234f7673de5",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-personal-ministry-onboarding"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3c0d31bd2ac138fa87d20a14",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_documentation:article-961:recipe-example-position-request-workflow"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3ea8d0531cce62c1ebf224d8",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:41b666d07a10373e5f514eca",
+      "verification_surface": "official_api"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1169:check-in-manager-allow-label-reprinting-setting"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:4bbd319a07eff97a24c8f265",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-generic-smtp-settings"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:4c0d483e36e0f9d436015437",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-attribute-value-templates",
+        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-name-template"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:563c6afbbe39d4ee36816e87",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_developer:article-381:configuration-provided-selectable-options-recipe"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:567934179347443748137852",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_mobile_docs:article-437:app-factory-triumph-hosted-app-delisting-risk"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:5d73bdddab4c5416a0e84e70",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:source_summary:rock_documentation:article-1970:communication-mediums-location-and-scope"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:5ddd51f1e0dec149d508d4b6",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-app-name",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-categories",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-copyright",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-description",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-keywords",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-marketing-url",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-promotional-text",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-screenshots",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-subtitle",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-support-url",
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-whats-new"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:60918568dc4b5469e44a9b9a",
+      "verification_surface": "official_api"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-defined-value-location"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:666f2948d72041a2fb8bb4f1",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1970:bulk-email-threshold-editor-behavior"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:66d08e16cc6253fe304d4a55",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-889:structured-reference-security-editor-controls"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:6cc9981fbadeabc18cb8f6d9",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:6e0c8588c863b1e47cd13864",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_documentation:article-1970:mailgun-tracking-and-duplicate-unsubscribe-options"
+      ],
+      "reviewed_at": "2026-08-02T03:45:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:73c900a4cf4de32824a605ec",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:75e42de408ad015e491957bf",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_lava_docs:article-0:claim-lava-shortcode-type-change-compatibility-risk",
+        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-block-lava-shortcode-form",
+        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-inline-lava-shortcode-form",
+        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-lava-shortcode-types-and-shared-syntax"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:7a0c4dc2916e43f4bfe5b640",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-1975:respond-to-forwarded-sms-from-mobile-device"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:8659d348150f5d30e220ce11",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_mobile_docs:article-436:structured-reference-app-store-categories"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:9c81a3b6782f12a5542beb0c",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_documentation:article-983:workflow-webhook-query-string-selector"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:9dcc5151c7911fbc31841cd6",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-1932:configure-email-self-managed-deliverability-checks"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:ab21ca47c03f5092e865f3c1",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1863:check-in-label-types-and-sample-labels"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:aed4d9d4e5288a9fcbf256a2",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_documentation:article-889:task-card-inspect-person-entity-security",
+        "source-native:task_card:rock_documentation:article-889:task-card-restore-own-permissions-with-unlock-security"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b18d85261b91f9a680dd7c7a",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-381:obsidian-edit-component-input-contract"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b83ec37527293ac3d802a2e1",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_mobile_docs:article-443:rock-mobile-shell-update-new-os-availability-risk"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b96e05d050d5cca8015363c9",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_developer:article-376:claim-vscode-obsidian-breakpoint-gutter",
+        "source-native:structured_reference:rock_developer:article-376:reference-vscode-obsidian-debugger-controls"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:bf61f0946e939030f9a9f3d0",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-381:defined-value-server-refresh-dependencies"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c258c8c098313f1e39b3f1fb",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-bundled-and-additional-transports"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c5e8c480e78dbc8e07b68009",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-unsubscribe-controls"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:cbd1153ef9deac86b6feed65",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1821:attendance-analytics-help-and-detail-controls"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:cf00d838a3b673299a208420",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_developer:article-381:client-only-configuration-update-recipe",
+        "source-native:recipe:rock_developer:article-381:server-derived-configuration-refresh-recipe"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d20357fe97916386e1d91a15",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-gmail-smtp-example"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d34a000453d7c14d2ffd6516",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_documentation:article-983:workflow-webhook-unmatched-request-404"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d3580397f8edcf6d8abadaf3",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-css-inlining-support"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d86c795a72975df8dad0ffdd",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_mobile_docs:article-443:rock-mobile-android-shell-update-timing-reference"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d8ee3e24c7af1abb2673a644",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_lava_docs:article-0:lava-taglist-command-reference"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:dafd2aad419e0066e86708ee",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-2131:cache-manager-statistics-reference"
+      ],
+      "reviewed_at": "2026-08-02T03:18:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:e74302b5abc2ed1589382c99",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:task_card:rock_mobile_docs:article-437:invite-app-factory-through-google-play-console"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:e74d54cae2127982583c6169",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:source_summary:rock_documentation:article-1932:configure-email-mailgun-integration-guidance-location"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:eafaf7d6f36ea3253ea42fcf",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-http-settings"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:ef5207586bf8d90b7e75a955",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-contact-control-catalog",
+        "source-native:structured_reference:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-touchpoint-cadence-schedulers"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f351be8b23e8ebb2f0ce3ccb",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:claim:rock_community_blog:article-0:claim-rock-v19-ai-agent-tools-not-immediately-visible"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f35f56eca96e836efe6eabe8",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-381:configuration-properties-interface-reference"
+      ],
+      "reviewed_at": "2026-08-02T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f4be9ab45d31b6a6b3a9808f",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_documentation:article-983:workflow-webhook-raw-body-inspection-and-parsing"
+      ],
+      "reviewed_at": "2026-08-02T00:26:30Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:fcae60995c26ec846c73cdee",
+      "verification_surface": "maintainer_review"
+    }
+  ],
+  "live_check_performed": false,
+  "queue_count": 69,
+  "resolution_count": 69,
+  "schema": "rock-kb-source-native-verification-report-v1",
+  "status": "ok",
+  "unresolved_count": 0,
+  "verified_count": 69
+}

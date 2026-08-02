@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import re
 from typing import Any, Literal
+from urllib.parse import urlparse
 
 from pydantic import Field, field_validator, model_validator
 
 from .base import KBRecord
+from .knowledge import SourceLocator
 
 
 ArtifactType = Literal[
@@ -307,6 +309,147 @@ class SourceNativeVerificationQueueItem(KBRecord):
         return self
 
 
+class SourceNativeVerificationEvidence(KBRecord):
+    evidence_type: Literal[
+        "github_source",
+        "official_documentation",
+        "official_api",
+        "source_snapshot",
+    ]
+    source_url: str = Field(min_length=10, max_length=2000)
+    source_ref: str = Field(min_length=3, max_length=500)
+    content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    hash_mode: Literal[
+        "raw_content",
+        "normalized_text",
+        "normalized_article_text",
+        "rockumentation_markdown",
+        "source_snapshot",
+    ]
+    finding: str = Field(min_length=10, max_length=2000)
+    locator: SourceLocator | None = None
+    revalidation_url: str | None = Field(default=None, max_length=2000)
+
+    @field_validator("source_url", "revalidation_url")
+    @classmethod
+    def validate_public_url(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        parsed = urlparse(value)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username:
+            raise ValueError("verification evidence requires a public HTTPS URL")
+        if parsed.hostname.lower() in {"localhost", "127.0.0.1", "::1"}:
+            raise ValueError("verification evidence cannot use a local URL")
+        return value
+
+    @model_validator(mode="after")
+    def validate_evidence_contract(self) -> "SourceNativeVerificationEvidence":
+        if self.evidence_type == "github_source":
+            if not re.search(r"/blob/[0-9a-f]{40}/", self.source_url):
+                raise ValueError(
+                    "github_source evidence must use an immutable commit URL"
+                )
+            if not re.fullmatch(r"[0-9a-f]{40}", self.source_ref):
+                raise ValueError(
+                    "github_source source_ref must be a full commit SHA"
+                )
+        if self.evidence_type == "source_snapshot":
+            if self.hash_mode != "source_snapshot":
+                raise ValueError(
+                    "source_snapshot evidence requires source_snapshot hash mode"
+                )
+            if self.revalidation_url is not None:
+                raise ValueError(
+                    "source_snapshot evidence is revalidated against the bundle"
+                )
+        return self
+
+
+class SourceNativeVerificationResolution(KBRecord):
+    schema_: Literal[
+        "rock-kb-source-native-verification-resolution-v1"
+    ] = Field(alias="schema")
+    verification_id: str = Field(min_length=3, max_length=240)
+    queue_item_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    resolution_state: Literal[
+        "verified",
+        "partially_verified",
+        "not_verified",
+        "superseded",
+    ]
+    artifact_disposition: Literal[
+        "confirms",
+        "narrows",
+        "corrects",
+        "supersedes",
+    ] = "confirms"
+    finding: str = Field(min_length=10, max_length=2500)
+    effective_title: str | None = Field(default=None, min_length=3, max_length=500)
+    effective_retrieval_text: str | None = Field(
+        default=None,
+        min_length=10,
+        max_length=100_000,
+    )
+    evidence: list[SourceNativeVerificationEvidence] = Field(
+        default_factory=list,
+        max_length=12,
+    )
+    reviewer: str = Field(min_length=2, max_length=160)
+    reviewed_at: str = Field(min_length=10, max_length=80)
+    revalidation_policy: Literal[
+        "source_hash_change",
+        "time_bound",
+        "immutable",
+        "manual",
+    ]
+    revalidate_after: str | None = Field(default=None, max_length=80)
+    rock_versions: list[str] = Field(default_factory=list, max_length=100)
+    version_scope_status: Literal[
+        "scoped",
+        "version_independent",
+        "unprocessed",
+    ] = "unprocessed"
+
+    @model_validator(mode="after")
+    def validate_resolution_contract(self) -> "SourceNativeVerificationResolution":
+        if self.resolution_state in {"verified", "partially_verified"} and not self.evidence:
+            raise ValueError("verified resolutions require evidence")
+        if self.revalidation_policy in {"time_bound", "manual"} and not self.revalidate_after:
+            raise ValueError(
+                "time_bound and manual resolutions require revalidate_after"
+            )
+        if self.revalidation_policy == "source_hash_change" and not any(
+            row.revalidation_url or row.evidence_type == "source_snapshot"
+            for row in self.evidence
+        ):
+            raise ValueError(
+                "source_hash_change resolutions require revalidation evidence"
+            )
+        if self.version_scope_status == "scoped" and not self.rock_versions:
+            raise ValueError("scoped resolutions require rock_versions")
+        if len(self.rock_versions) != len(set(self.rock_versions)):
+            raise ValueError("rock_versions values must be unique")
+        if self.artifact_disposition in {"narrows", "corrects"}:
+            if self.resolution_state != "verified":
+                raise ValueError(
+                    "artifact corrections require a verified resolution"
+                )
+            if not self.effective_title or not self.effective_retrieval_text:
+                raise ValueError(
+                    "narrowed or corrected artifacts require effective retrieval text"
+                )
+        elif self.effective_title or self.effective_retrieval_text:
+            raise ValueError(
+                "effective retrieval text is only valid for narrowed or corrected artifacts"
+            )
+        if (
+            self.artifact_disposition == "supersedes"
+            and self.resolution_state != "verified"
+        ):
+            raise ValueError("superseding an artifact requires a verified resolution")
+        return self
+
+
 class SourceNativeCoverageCheck(KBRecord):
     material_unit_count: int = Field(ge=0, le=200)
     captured_source_unit_ids: list[str] = Field(default_factory=list, max_length=200)
@@ -427,6 +570,9 @@ class SourceNativePilotManifest(KBRecord):
     relationship_count: int = Field(ge=0)
     evaluation_case_count: int = Field(ge=0)
     verification_request_count: int = Field(default=0, ge=0)
+    verification_resolution_count: int = Field(default=0, ge=0)
+    verification_unresolved_count: int = Field(default=0, ge=0)
+    verification_state_counts: dict[str, int] = Field(default_factory=dict)
     artifact_type_counts: dict[str, int] = Field(default_factory=dict)
     generation_prompt_versions: dict[str, int] = Field(default_factory=dict)
     generation_models: dict[str, int] = Field(default_factory=dict)

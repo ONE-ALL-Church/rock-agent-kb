@@ -21,6 +21,7 @@ from rock_kb.source_native import (
     source_observation_metadata,
     source_native_model_input_hash,
     source_native_evaluation_rows,
+    validate_source_native_bundle_consistency,
     validate_source_native_distillation,
     write_source_native_distillation_schema,
     write_source_native_generation_prompt,
@@ -403,6 +404,38 @@ def test_reviewed_split_rule_handles_joined_paragraph_sentences():
     ]
 
 
+def test_reviewed_split_rule_handles_exact_contrast_clause():
+    source_record_id = "rock_mobile_docs:article:contrast-test"
+    paragraph = (
+        "Hosting under your account gives you complete control, but you must "
+        "grant the publisher access to release the app."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Developer Accounts",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "contrast_clause",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Hosting under your account gives you complete control.",
+        "You must grant the publisher access to release the app.",
+    ]
+
+
 def test_reviewed_split_rule_preserves_closing_markdown_before_joined_text():
     source_record_id = "rock_documentation:article:markdown-split-test"
     paragraph = "**Where Did It Go?**Each night, the cleanup job runs."
@@ -497,6 +530,79 @@ def test_source_observation_preserves_change_time_for_unchanged_content():
     }
     assert changed["observation_status"] == "changed"
     assert changed["content_changed_at"] == "2026-07-30T00:00:00+00:00"
+
+
+def test_candidate_build_can_target_one_prose_source_family(tmp_path: Path):
+    developer_record = {
+        **document_record(),
+        "id": "rock_developer:article:200",
+        "source_id": "rock_developer",
+        "source_url": "https://community.rockrms.com/developer/obsidian/components",
+        "source_title": "Obsidian Components",
+        "documentation_path": "developer/obsidian/components",
+        "documentation_branches": ["developer/obsidian"],
+        "documentation_article_id": 200,
+    }
+    destination = tmp_path / "candidate"
+    empty = tmp_path / "empty"
+    empty.mkdir()
+
+    result = build_source_native_document_candidates(
+        concept_ids=["obsidian-development"],
+        source_ids=["rock_developer"],
+        limit_per_concept=1,
+        destination=destination,
+        previous_dir=empty,
+        records=[document_record(), developer_record],
+        markdown_loader=lambda _record: (
+            "# Components\n\nObsidian components expose typed properties and "
+            "events for Rock blocks."
+        ),
+    )
+
+    assert result["source_ids"] == ["rock_developer"]
+    snapshot = next(read_jsonl(destination / "source-snapshots.jsonl"))
+    assert snapshot["source_id"] == "rock_developer"
+    assert snapshot["parser_id"] == "rockumentation-markdown-blocks"
+
+
+def test_static_prose_candidate_coalesces_concept_facets(tmp_path: Path):
+    record = {
+        **document_record(),
+        "id": "rock_community_blog:ai-mobile",
+        "source_id": "rock_community_blog",
+        "source_url": "https://community.rockrms.com/connect/ai-mobile",
+        "source_title": "AI Agents in Rock Mobile",
+        "summary": (
+            "Rock Mobile AI agents support automation and mobile ministry "
+            "workflows in the current product preview."
+        ),
+        "documentation_path": None,
+        "documentation_branches": [],
+        "documentation_article_id": None,
+    }
+    destination = tmp_path / "candidate"
+    empty = tmp_path / "empty"
+    empty.mkdir()
+
+    result = build_source_native_document_candidates(
+        concept_ids=["ai-agents-automation", "mobile"],
+        source_ids=["rock_community_blog"],
+        source_record_ids=[record["id"]],
+        limit_per_concept=1,
+        destination=destination,
+        previous_dir=empty,
+        records=[document_record(), record],
+        markdown_loader=lambda _record: (
+            "# AI Agents in Rock Mobile\n\nThe preview combines mobile "
+            "ministry workflows with configured AI agent automation."
+        ),
+    )
+
+    assert result["article_count"] == 1
+    assert result["source_record_ids"] == [record["id"]]
+    candidate = next(read_jsonl(destination / "distillation-input.jsonl"))
+    assert candidate["concept_ids"] == ["ai-agents-automation", "mobile"]
 
 
 def test_unchanged_candidate_refresh_preserves_ids_and_change_time(
@@ -896,6 +1002,77 @@ def test_manifest_rejects_holdouts_for_removed_artifacts(tmp_path: Path):
         write_source_native_manifest(destination)
 
 
+def test_final_bundle_rejects_verification_flags_missing_from_queue(
+    tmp_path: Path,
+):
+    input_path = tmp_path / "input.jsonl"
+    output_path = tmp_path / "output.json"
+    destination = tmp_path / "canonical" / "source-native" / "v1"
+    write_jsonl(input_path, [distillation_input()])
+    output_path.write_text(json.dumps(valid_output()), encoding="utf-8")
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=output_path,
+        destination=destination,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-30T12:00:00+00:00",
+    )
+    artifacts = list(read_jsonl(destination / "reviewed-artifacts.jsonl"))
+    artifacts[0]["artifact"]["needs_live_verification"] = True
+
+    with pytest.raises(ValueError, match="absent from the queue"):
+        validate_source_native_bundle_consistency(
+            {
+                "reviewed-artifacts.jsonl": artifacts,
+                "source-units.jsonl": list(
+                    read_jsonl(destination / "source-units.jsonl")
+                ),
+                "verification-queue.jsonl": [],
+            }
+        )
+
+
+def test_final_bundle_rejects_cross_candidate_verification_links():
+    artifact = {
+        "schema": "rock-kb-reviewed-source-native-artifact-v1",
+        "artifact_id": "source-native:claim:test",
+        "source_candidate_id": "source-native-candidate:first",
+        "generation_activity_id": "generation:test",
+        "artifact": valid_output()["articles"][0]["artifacts"][0],
+        "review_state": "reviewer_approved",
+        "reviewer": "test-reviewer",
+        "reviewed_at": "2026-08-01T00:00:00Z",
+        "review_notes": ["Reviewed for test coverage."],
+        "source_input_hash": "a" * 64,
+    }
+    artifact["artifact"]["needs_live_verification"] = True
+    source_unit_id = artifact["artifact"]["source_unit_ids"][0]
+    queue = {
+        "schema": "rock-kb-source-native-verification-request-v1",
+        "verification_id": "source-native-verification:test",
+        "source_candidate_id": "source-native-candidate:second",
+        "artifact_ids": [artifact["artifact_id"]],
+        "concept_ids": ["system-admin-ops"],
+        "source_unit_ids": [source_unit_id],
+        "verification_surface": "public_source_code",
+        "question": "Does current public source retain this behavior?",
+        "why_material": "The behavior changes the recommended implementation.",
+    }
+    unit = next(
+        row for row in source_units() if row["source_unit_id"] == source_unit_id
+    )
+
+    with pytest.raises(ValueError, match="different source candidates"):
+        validate_source_native_bundle_consistency(
+            {
+                "reviewed-artifacts.jsonl": [artifact],
+                "source-units.jsonl": [unit],
+                "verification-queue.jsonl": [queue],
+            }
+        )
+
+
 def test_prompt_can_target_a_stable_source_record_after_candidate_id_changes(
     tmp_path: Path,
 ):
@@ -925,6 +1102,29 @@ def test_prompt_can_target_a_stable_source_record_after_candidate_id_changes(
             destination=destination,
             candidate_id="source-native-candidate:second",
             source_record_id="rock_documentation:article:second",
+        )
+
+
+def test_prompt_fails_closed_when_article_exceeds_response_contract(
+    tmp_path: Path,
+):
+    candidate = distillation_input()
+    template = candidate["source_units"][0]
+    candidate["source_units"] = [
+        {
+            **template,
+            "source_unit_id": f"source-unit:oversized:{index}",
+        }
+        for index in range(201)
+    ]
+    input_path = tmp_path / "input.jsonl"
+    destination = tmp_path / "prompt.txt"
+    write_jsonl(input_path, [candidate])
+
+    with pytest.raises(ValueError, match="deterministic partitioning"):
+        write_source_native_generation_prompt(
+            input_path=input_path,
+            destination=destination,
         )
 
 

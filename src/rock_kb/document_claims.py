@@ -72,10 +72,27 @@ def build_document_claim_candidates(
     records: list[dict[str, Any]] | None = None,
     context_loader: Callable[[dict[str, Any]], str] | None = None,
     require_full_text: bool = True,
+    source_ids: Iterable[str] | None = None,
+    source_record_ids: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     if limit_per_concept < 1:
         raise ValueError("limit_per_concept must be at least 1")
     requested = list(concept_ids or DEFAULT_DOCUMENT_CLAIM_CONCEPTS)
+    requested_source_ids = sorted(
+        {
+            str(source_id).strip()
+            for source_id in (source_ids or DEFAULT_DOCUMENT_SOURCE_IDS)
+            if str(source_id).strip()
+        }
+    )
+    if not requested_source_ids:
+        raise ValueError("source_ids must contain at least one source ID")
+    allowed_source_ids = set(requested_source_ids)
+    requested_record_ids = {
+        str(source_record_id).strip()
+        for source_record_id in (source_record_ids or [])
+        if str(source_record_id).strip()
+    }
     concepts = {concept.id: concept for concept in load_concepts()}
     unknown = sorted(set(requested) - set(concepts))
     if unknown:
@@ -87,11 +104,28 @@ def build_document_claim_candidates(
     for concept_id in requested:
         concept = concepts[concept_id]
         ranked = rank_records_for_concept(concept, source_records)
+        ranked_ids = {str(record.get("id") or "") for record in ranked}
+        ranked.extend(
+            sorted(
+                (
+                    record
+                    for record in source_records
+                    if str(record.get("id") or "") in requested_record_ids
+                    and str(record.get("id") or "") not in ranked_ids
+                ),
+                key=lambda record: str(record.get("id") or ""),
+            )
+        )
         eligible = []
         for rank, record in enumerate(ranked):
-            if str(record.get("source_id") or "") not in DEFAULT_DOCUMENT_SOURCE_IDS:
+            if str(record.get("source_id") or "") not in allowed_source_ids:
                 continue
-            if concept_has_path_constraints(concept) and not record_matches_path_constraints(record, concept.raw):
+            if (
+                concept_has_path_constraints(concept)
+                and str(record.get("source_id") or "")
+                in DEFAULT_DOCUMENT_SOURCE_IDS
+                and not record_matches_path_constraints(record, concept.raw)
+            ):
                 continue
             if not record.get("id") or not str(record.get("source_url") or "").startswith("http"):
                 continue
@@ -124,16 +158,26 @@ def build_document_claim_candidates(
             )
             skipped.extend(hydration_skips)
 
-    rows.sort(key=lambda row: (str(row.get("concept_ids", [""])[0]), str(row.get("source_url") or "")))
+    rows.sort(
+        key=lambda row: (
+            tuple(str(value) for value in row.get("concept_ids") or []),
+            str(row.get("source_url") or ""),
+        )
+    )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     write_jsonl(output_path, rows)
     return {
         "schema": "rock-kb-document-claim-candidate-build-v1",
         "status": "ok",
         "concept_ids": requested,
+        "source_ids": requested_source_ids,
+        "source_record_ids": sorted(requested_record_ids),
         "limit_per_concept": limit_per_concept,
         "candidate_count": len(rows),
-        "full_text_candidates": sum(row.get("source_context_mode") == "rockumentation_full_text" for row in rows),
+        "full_text_candidates": sum(
+            str(row.get("source_context_mode") or "").endswith("_full_text")
+            for row in rows
+        ),
         "skipped_count": len(skipped),
         "skipped": skipped[:50],
         "output": str(output_path),
@@ -148,24 +192,80 @@ def hydrate_document_candidates(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows = []
     skipped = []
+    grouped: dict[str, dict[str, Any]] = {}
     for concept, record, quality in selected:
+        record_id = str(record.get("id") or "")
+        if not record_id:
+            continue
+        entry = grouped.setdefault(
+            record_id,
+            {
+                "record": record,
+                "concepts": {},
+                "quality": quality,
+            },
+        )
+        entry["concepts"][concept.id] = concept
+        entry["quality"] = max(int(entry["quality"]), quality)
+
+    ordered = sorted(
+        grouped.values(),
+        key=lambda entry: (
+            tuple(sorted(entry["concepts"])),
+            str(entry["record"].get("source_url") or ""),
+        ),
+    )
+    for entry in ordered:
+        record = entry["record"]
+        concepts = [
+            entry["concepts"][concept_id]
+            for concept_id in sorted(entry["concepts"])
+        ]
+        concept_ids = [concept.id for concept in concepts]
+        quality = int(entry["quality"])
         full_text = " ".join(str(context_loader(record) or "").split())
-        context_mode = "rockumentation_full_text" if full_text else "normalized_summary"
+        source_id = str(record.get("source_id") or "")
+        context_mode = (
+            "rockumentation_full_text"
+            if full_text and source_id in DEFAULT_DOCUMENT_SOURCE_IDS
+            else "official_source_full_text"
+            if full_text
+            else "normalized_summary"
+        )
         source_context = full_text or normalized_document_context(record)
-        if require_full_text and context_mode != "rockumentation_full_text":
-            skipped.append({"concept_id": concept.id, "source_record_id": record.get("id"), "reason": "rockumentation_full_text_unavailable"})
+        if require_full_text and not context_mode.endswith("_full_text"):
+            skipped.append(
+                {
+                    "concept_ids": concept_ids,
+                    "source_record_id": record.get("id"),
+                    "reason": "official_full_text_unavailable",
+                }
+            )
             continue
         truncated = len(source_context) > MAX_SOURCE_CONTEXT_CHARS
         if truncated and require_full_text:
-            skipped.append({"concept_id": concept.id, "source_record_id": record.get("id"), "reason": "rockumentation_full_text_exceeds_review_limit"})
+            skipped.append(
+                {
+                    "concept_ids": concept_ids,
+                    "source_record_id": record.get("id"),
+                    "reason": "rockumentation_full_text_exceeds_review_limit",
+                }
+            )
             continue
         if truncated:
             context_mode += "_truncated"
         source_context = source_context[:MAX_SOURCE_CONTEXT_CHARS]
         source_input_hash = sha256_text(source_context)
         candidate_id = "document-claim-candidate:" + sha256_text(
-            f"{concept.id}:{record.get('id')}:{source_input_hash}"
+            f"{','.join(concept_ids)}:{record.get('id')}:{source_input_hash}"
         )[:20]
+        existing_claims: dict[str, dict[str, Any]] = {}
+        for concept in concepts:
+            for claim in relevant_existing_claims(
+                source_context,
+                existing_by_concept.get(concept.id, []),
+            ):
+                existing_claims[str(claim.get("claim_id") or "")] = claim
         rows.append(
             {
                 "schema": DOCUMENT_CLAIM_CANDIDATE_SCHEMA,
@@ -174,7 +274,7 @@ def hydrate_document_candidates(
                 "source_id": record.get("source_id"),
                 "source_url": record.get("source_url"),
                 "source_title": record.get("source_title"),
-                "concept_ids": [concept.id],
+                "concept_ids": concept_ids,
                 "documentation_path": record.get("documentation_path"),
                 "documentation_branches": record.get("documentation_branches") or [],
                 "documentation_article_id": record.get("documentation_article_id"),
@@ -185,10 +285,11 @@ def hydrate_document_candidates(
                 "source_context_mode": context_mode,
                 "source_context_truncated": truncated,
                 "source_context": source_context,
-                "existing_claims": relevant_existing_claims(
-                    source_context,
-                    existing_by_concept.get(concept.id, []),
-                ),
+                "existing_claims": [
+                    existing_claims[claim_id]
+                    for claim_id in sorted(existing_claims)
+                    if claim_id
+                ],
                 "selection_score": quality,
                 "review_status": "needs_agent_distillation",
                 "recommended_prompt_id": "rock-kb-source-claim-distillation",
