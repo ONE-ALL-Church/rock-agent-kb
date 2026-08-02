@@ -709,6 +709,8 @@ def canonical_search_row(
         verification_payload = item.payload.get("verification") or {}
         payload = {
             **payload,
+            "rock_versions": item.rock_versions,
+            "version_scope_status": item.version_scope_status,
             "needs_live_verification": bool(
                 artifact_payload.get("needs_live_verification")
             ),

@@ -480,6 +480,7 @@ export default {
           schema: "rock-kb-search-result-v3",
           query,
           intent,
+          answer_boundary: privateInstanceAnswerBoundary(query) || null,
           min_claim_tier: minTier,
           kind: kind || null,
           rock_version: rockVersion || null,
@@ -828,6 +829,9 @@ async function search(
   rockVersion = "",
   retrievalProjection: RetrievalProjection = "legacy",
 ): Promise<JsonRecord[]> {
+  if (privateInstanceAnswerBoundary(query)) {
+    return [];
+  }
   const fts = buildFtsQuery(query);
   if (!fts) {
     return [];
@@ -926,6 +930,7 @@ async function search(
   }
   const ranked = Array.from(rowsById.values())
     .filter((row) => versionMatchStatus(row, rockVersion) !== "not_applicable")
+    .filter((row) => matchesExplicitRockIssueConstraints(row, query))
     .map((row) => ({ row, signals: searchSignals(row, terms, query, intent) }))
     .sort((left, right) => Number(right.signals.score || 0) - Number(left.signals.score || 0) || String(left.row.id).localeCompare(String(right.row.id)));
   const seenResultGroups = new Set<string>();
@@ -6904,15 +6909,43 @@ function inferSearchIntent(query: string): "symptom" | "how_to" | "reference" | 
   return "reference";
 }
 
+function privateInstanceAnswerBoundary(query: string): string {
+  const normalized = normalizeSearchText(query);
+  const localScope = /\b(my|our|private|local)\b/.test(normalized)
+    || /\b(this|that) (rock )?(church|database|instance|organization)\b/.test(normalized)
+    || /\bonly in\b.*\b(database|instance)\b/.test(normalized);
+  if (!localScope || /\bhow (?:can|do|should|would)\b/.test(normalized)) {
+    return "";
+  }
+  const requestsSecret = /\b(password|authentication token|auth token|api key|secret|credential|connection string)\b/.test(normalized)
+    && /\b(what|which|where|show|tell|give|reveal)\b/.test(normalized);
+  const requestsLocalIdentifier = /\b(exact )?(guid|identifier|record id|type id)\b/.test(normalized)
+    && /\b(what|which|show|tell|give)\b/.test(normalized);
+  const requestsPersonAttendance = /\b(who|which|what)\b.*\b(named )?(person|people|individual|attendee)\b.*\b(attend|attended|attendance|checked in)\b/.test(normalized);
+  const requestsPrivateOnlyValue = /\b(what|which|show|tell)\b.*\b(custom|exact)\b.*\b(only|private|local)\b.*\b(database|instance)\b/.test(normalized);
+  return requestsSecret || requestsLocalIdentifier || requestsPersonAttendance || requestsPrivateOnlyValue
+    ? "private_instance_data_required"
+    : "";
+}
+
 function rowRockVersions(row: SearchRow): string[] {
   const payload = parsePayload(row);
   const values: unknown[] = [];
-  for (const key of ["rock_versions", "versions", "tested_rock_versions"]) {
-    const value = payload[key];
-    values.push(...(Array.isArray(value) ? value : value ? [value] : []));
-  }
-  for (const key of ["rock_version", "version"]) {
-    if (payload[key]) values.push(payload[key]);
+  const records = [payload, asRecord(payload.artifact)];
+  const verification = asRecord(payload.verification);
+  records.push(...(
+    Array.isArray(verification.resolutions)
+      ? verification.resolutions.map(asRecord)
+      : []
+  ));
+  for (const record of records) {
+    for (const key of ["rock_versions", "versions", "tested_rock_versions"]) {
+      const value = record[key];
+      values.push(...(Array.isArray(value) ? value : value ? [value] : []));
+    }
+    for (const key of ["rock_version", "version"]) {
+      if (record[key]) values.push(record[key]);
+    }
   }
   const compatibility = asRecord(payload.compatibility);
   const tested = compatibility.tested_rock_versions;
@@ -7172,6 +7205,35 @@ function rockIssueRetrievalBoost(row: SearchRow, queryTerms: string[], query: st
   return titleBoost + versionBoost;
 }
 
+function matchesExplicitRockIssueConstraints(row: SearchRow, query: string): boolean {
+  if (row.kind !== "rock_issue" || extractRockIssueIdFromQuery(query)) {
+    return true;
+  }
+  const normalized = normalizeSearchText(query);
+  const payload = parsePayload(row);
+  const state = String(payload.state || "").toLowerCase();
+  if (/\bopen\b/.test(normalized) && state !== "open") return false;
+  if (/\bclosed\b/.test(normalized) && state !== "closed") return false;
+  if (!/\bcritical\b/.test(normalized)) return true;
+
+  const enrichments = Array.isArray(payload.reviewed_enrichments)
+    ? payload.reviewed_enrichments.map(asRecord)
+    : [];
+  const riskLevels = [
+    asRecord(payload.risk).level,
+    asRecord(payload.risk_assessment).level,
+    payload.priority_band,
+    rockIssueRiskAssessment(payload, enrichments).level,
+  ].map((value) => String(value || "").toLowerCase());
+  const labels = [
+    ...(Array.isArray(payload.priority_labels) ? payload.priority_labels : []),
+    ...(Array.isArray(payload.labels) ? payload.labels : []),
+  ].map((value) => String(value || "").toLowerCase());
+  return riskLevels.includes("critical")
+    || labels.some((label) => /\b(critical|urgent|p0)\b/.test(label))
+    || /\bcritical\b/.test(normalizeSearchText(row.title || ""));
+}
+
 function naturalizeIdentifierText(value: string): string {
   return value
     .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
@@ -7296,6 +7358,10 @@ function modelLookupQueries(value: string): string[] {
   const full = normalizeModelLookup(value);
   if (full) queries.add(full);
   for (const match of value.matchAll(/\b([A-Za-z][A-Za-z0-9_-]*)\s+model(?:\s+map)?\b/gi)) {
+    const captured = normalizeModelLookup(match[1]);
+    if (captured) queries.add(captured);
+  }
+  for (const match of value.matchAll(/\bmodel(?:\s+map)?(?:\s+slug)?\s+(?:for|of)\s+([A-Za-z][A-Za-z0-9_-]*)\b/gi)) {
     const captured = normalizeModelLookup(match[1]);
     if (captured) queries.add(captured);
   }

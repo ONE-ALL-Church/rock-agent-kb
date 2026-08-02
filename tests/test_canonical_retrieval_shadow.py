@@ -171,6 +171,19 @@ def test_source_native_search_row_distinguishes_not_required_from_unresolved():
     assert not_required["payload"]["verification_state"] == "not_required"
     assert unresolved["payload"]["verification_state"] == "unresolved"
 
+    scoped = canonical_search_row(
+        item.model_copy(
+            update={
+                "rock_versions": ["19.4"],
+                "version_scope_status": "scoped",
+            }
+        ),
+        {},
+        {},
+    )
+    assert scoped["payload"]["rock_versions"] == ["19.4"]
+    assert scoped["payload"]["version_scope_status"] == "scoped"
+
 
 def test_canonical_claim_title_uses_statement_for_contribution_corroboration():
     item = claim_unit()

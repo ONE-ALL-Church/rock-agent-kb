@@ -6,6 +6,21 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.21.1] - 2026-08-01
+
+### Fixed
+
+- The community test round now validates the current Rock issue-assessment
+  contract instead of requiring removed issue `#6920`.
+- Search returns no public results for direct requests for private-instance
+  secrets, local identifiers, person-level attendance, or private custom data.
+- Exact queries phrased as `model slug for <model>` route to the requested
+  Model Map record, while broad issue searches honor explicit open, closed, and
+  critical constraints.
+- Source-native verification corrections now carry their reviewed Rock-version
+  scope into canonical retrieval, preventing a Rock 19.4 correction from being
+  presented as a Rock 20 answer.
+
 ## [0.21.0] - 2026-07-31
 
 ### Added

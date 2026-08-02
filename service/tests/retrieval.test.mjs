@@ -64,6 +64,42 @@ test("search is compact by default and exact result expands the row", async () =
   }
 });
 
+test("search returns a private-instance boundary instead of unrelated public guidance", async () => {
+  const mf = await buildWorker();
+  const privateQueries = [
+    "What is my church's private Twilio authentication token?",
+    "What is the exact GUID of a workflow type created only in my local Rock instance?",
+    "Which named person attended my church last Sunday?",
+    "What is the password for my Rock database?",
+    "What custom Lava shortcode exists only in my private Rock database?",
+  ];
+  try {
+    for (const query of privateQueries) {
+      const response = await mf.dispatchFetch(
+        `https://kb.example.test/search?q=${encodeURIComponent(query)}&limit=3`,
+      );
+      const payload = await response.json();
+      assert.equal(response.status, 200);
+      assert.equal(payload.answer_boundary, "private_instance_data_required");
+      assert.deepEqual(payload.results, []);
+    }
+
+    const guidanceResponse = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=How%20do%20I%20secure%20a%20password%20for%20my%20local%20Rock%20database%3F",
+    );
+    const guidance = await guidanceResponse.json();
+    assert.equal(guidance.answer_boundary, null);
+
+    const mcpResponse = await mcp(mf, "tools/call", {
+      name: "kb_search",
+      arguments: { query: privateQueries[0], limit: 3 },
+    });
+    assert.deepEqual(mcpResponse.result.structuredContent.results, []);
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("canonical canary is explicit, opt-in, isolated, and outcome-aware", async () => {
   const canonicalHash = "d".repeat(64);
   const mf = await buildWorker({
@@ -610,6 +646,31 @@ test("Rock version filtering excludes conflicting scoped rows and labels uncerta
           version_scope_status: "unprocessed",
         }),
       },
+      {
+        id: "source-native:structured_reference:nested-version-probe",
+        kind: "structured_reference",
+        title: "Nested verification version probe",
+        body: "Nested verification version probe for a corrected property interface.",
+        path: "shadow/canonical/structured_reference.jsonl",
+        url: "https://example.test/nested-version",
+        concept: "obsidian-development",
+        authority_tier: "source-code-confirmed",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "sparkdevnetwork_rock",
+        payload_json: JSON.stringify({
+          artifact: {
+            rock_versions: [],
+            version_scope_status: "unprocessed",
+          },
+          verification: {
+            resolutions: [{
+              rock_versions: ["19.4"],
+              version_scope_status: "scoped",
+            }],
+          },
+        }),
+      },
     ];
     for (const row of rows) {
       await db.prepare(`INSERT INTO search_rows
@@ -631,6 +692,21 @@ test("Rock version filtering excludes conflicting scoped rows and labels uncerta
     assert.equal(byId.has("claim:claim:version-probe-unprocessed"), true);
     assert.equal(byId.get("claim:claim:version-probe-18").version_match, "matched");
     assert.equal(byId.get("claim:claim:version-probe-unprocessed").version_match, "unprocessed");
+
+    const nestedMatch = await (await mf.dispatchFetch(
+      "https://kb.example.test/search?q=nested%20verification%20version%20probe&rock_version=19.4&limit=10",
+    )).json();
+    assert.equal(
+      nestedMatch.results.some((row) => row.id === "source-native:structured_reference:nested-version-probe"),
+      true,
+    );
+    const nestedMismatch = await (await mf.dispatchFetch(
+      "https://kb.example.test/search?q=nested%20verification%20version%20probe&rock_version=20&limit=10",
+    )).json();
+    assert.equal(
+      nestedMismatch.results.some((row) => row.id === "source-native:structured_reference:nested-version-probe"),
+      false,
+    );
 
     const claimsResponse = await mf.dispatchFetch(
       "https://kb.example.test/claims/check-in?authority_tier=official&rock_version=18.2&limit=100",
@@ -1044,6 +1120,10 @@ test("search normalizes model intent, plurals, and common check-in misspellings"
     const modelPayload = await modelResponse.json();
     assert.equal(modelPayload.results[0].id, "model_map:stable:group");
 
+    const slugResponse = await mf.dispatchFetch("https://kb.example.test/search?q=What%20is%20the%20exact%20model%20slug%20for%20Group%2C%20and%20what%20relationships%20does%20it%20expose%3F&limit=3");
+    const slugPayload = await slugResponse.json();
+    assert.equal(slugPayload.results[0].id, "model_map:stable:group");
+
     const typoResponse = await mf.dispatchFetch("https://kb.example.test/search?q=child%20eligable%20but%20not%20avalable%20at%20checkin&limit=3");
     const typoPayload = await typoResponse.json();
     assert.equal(typoPayload.results[0].concept, "check-in");
@@ -1328,6 +1408,19 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const versionSearchResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/search?q=issue%2019.2%20Azure%20Blob%20CPU&limit=5");
     const versionSearch = await versionSearchResponse.json();
     assert.equal(versionSearch.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");
+
+    const openSearch = await (await mf.dispatchFetch(
+      "https://kb.example.test/rock-issues/search?q=open%20Azure%20Blob%20CPU%20issue&limit=5",
+    )).json();
+    assert.equal(openSearch.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");
+    const closedSearch = await (await mf.dispatchFetch(
+      "https://kb.example.test/rock-issues/search?q=closed%20Azure%20Blob%20CPU%20issue&limit=5",
+    )).json();
+    assert.deepEqual(closedSearch.results, []);
+    const criticalSearch = await (await mf.dispatchFetch(
+      "https://kb.example.test/rock-issues/search?q=critical%20open%20Azure%20Blob%20CPU%20issue&limit=5",
+    )).json();
+    assert.deepEqual(criticalSearch.results, []);
 
     const getResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/6919");
     const get = await getResponse.json();

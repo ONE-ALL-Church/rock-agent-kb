@@ -410,7 +410,24 @@ def test_matching_verification_corrections_replace_retrieval_text() -> None:
         "Current browser debugging requires a non-default user-data directory."
     )
     assert units[0].payload["verification"]["effective_override"] is True
+    assert units[0].rock_versions == []
+    assert units[0].version_scope_status == "version_independent"
     assert {link.relation for link in links} == {"contradicts"}
+
+    scoped_units, _ = canonical_records_for_source_native_artifacts(
+        [reviewed],
+        verification_by_artifact={
+            reviewed.artifact_id: [
+                {
+                    **correction,
+                    "rock_versions": ["19.4"],
+                    "version_scope_status": "scoped",
+                }
+            ]
+        },
+    )
+    assert scoped_units[0].rock_versions == ["19.4"]
+    assert scoped_units[0].version_scope_status == "scoped"
 
 
 def test_superseding_verification_removes_artifact_from_canonical_projection() -> None:
