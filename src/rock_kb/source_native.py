@@ -2362,6 +2362,32 @@ def canonical_records_for_source_native_artifacts(
             iter(effective_retrieval_texts),
             artifact.retrieval_text,
         )
+        effective_rock_versions = sorted(
+            {
+                str(version)
+                for row in effective_rows
+                for version in row.get("rock_versions") or []
+                if version
+            }
+        )
+        effective_version_scope_status = artifact.version_scope_status
+        if effective_rows:
+            effective_scope_statuses = {
+                str(row.get("version_scope_status") or "")
+                for row in effective_rows
+                if row.get("version_scope_status")
+            }
+            if len(effective_scope_statuses) > 1:
+                raise ValueError(
+                    "verification resolutions disagree on version scope: "
+                    f"{reviewed.artifact_id}"
+                )
+            effective_version_scope_status = next(
+                iter(effective_scope_statuses),
+                artifact.version_scope_status,
+            )
+            if effective_rock_versions:
+                effective_version_scope_status = "scoped"
         payload = {
             "schema": "rock-kb-source-native-artifact-payload-v1",
             "source_candidate_id": reviewed.source_candidate_id,
@@ -2408,8 +2434,12 @@ def canonical_records_for_source_native_artifacts(
                 authority_tiers=["official"],
                 claim_tier="source_backed",
                 review_state=reviewed.review_state,
-                rock_versions=artifact.rock_versions,
-                version_scope_status=artifact.version_scope_status,
+                rock_versions=(
+                    effective_rock_versions
+                    if effective_rows
+                    else artifact.rock_versions
+                ),
+                version_scope_status=effective_version_scope_status,
                 source_unit_ids=artifact.source_unit_ids,
                 generation_activity_ids=[reviewed.generation_activity_id],
                 created_at=reviewed.reviewed_at,

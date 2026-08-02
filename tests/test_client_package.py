@@ -207,8 +207,26 @@ def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypa
         assert url.endswith("/rock-issues/assess")
         assert payload["profile"]["core_version"] == "19.1.8"
         return {
+            "schema": "rock-kb-rock-issue-assessment-v2",
             "caveat": "Verify locally.",
-            "results": [{"issue_id": "rock_issue:SparkDevNetwork/Rock#6920", "applicability": "possible", "needs_live_verification": True}],
+            "results": [
+                {
+                    "issue_id": "rock_issue:SparkDevNetwork/Rock#6998",
+                    "applicability": "not_applicable",
+                    "target_version": "19.1.8",
+                    "needs_live_verification": False,
+                    "decision": {"matched_on": [{"signal": "concept"}]},
+                    "live_verification": {"required": False},
+                },
+                {
+                    "issue_id": "rock_issue:SparkDevNetwork/Rock#6999",
+                    "applicability": "possible",
+                    "target_version": "19.1.8",
+                    "needs_live_verification": True,
+                    "decision": {"matched_on": [{"signal": "concept"}]},
+                    "live_verification": {"required": True},
+                },
+            ],
         }
 
     monkeypatch.setattr(cli, "get_json", fake_get_json)
@@ -225,6 +243,8 @@ def test_client_test_round_exercises_search_recipes_and_imported_issues(monkeypa
     assert report["manual_review_required"] is True
     assert report["projection_version"] == "projection-v1"
     assert all(row["status"] == "pass" for row in report["cases"])
+    assessment = next(row for row in report["cases"] if row["case_id"] == "issue-version-assessment")
+    assert assessment["result_ids"] == ["rock_issue:SparkDevNetwork/Rock#6999"]
 
 
 def test_client_test_round_submits_complete_bounded_review(monkeypatch, tmp_path, capsys):

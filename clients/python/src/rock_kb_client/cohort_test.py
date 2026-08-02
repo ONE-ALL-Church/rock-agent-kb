@@ -313,9 +313,25 @@ def issue_assessment_case(base: str, post_json: JsonPoster) -> dict[str, Any]:
         {"profile": {"core_version": "19.1.8", "concepts": ["connections", "workflows"]}, "limit": 100},
     )
     results = payload.get("results") or []
-    match = next((row for row in results if row.get("issue_id") == "rock_issue:SparkDevNetwork/Rock#6920"), None)
+    match = next(
+        (
+            row
+            for row in results
+            if str(row.get("issue_id") or "").startswith("rock_issue:")
+            and row.get("applicability") in {"confirmed", "likely", "possible", "insufficient_evidence"}
+            and row.get("target_version") == "19.1.8"
+            and bool((row.get("decision") or {}).get("matched_on"))
+            and row.get("needs_live_verification") is True
+            and (row.get("live_verification") or {}).get("required") is True
+        ),
+        None,
+    )
     return {
-        "passed": bool(match) and match.get("needs_live_verification") is True and bool(payload.get("caveat")),
+        "passed": (
+            payload.get("schema") == "rock-kb-rock-issue-assessment-v2"
+            and bool(match)
+            and bool(payload.get("caveat"))
+        ),
         "result_ids": [str(match.get("issue_id"))] if match else [],
         "applicability": match.get("applicability") if match else None,
         "needs_live_verification": match.get("needs_live_verification") if match else None,
