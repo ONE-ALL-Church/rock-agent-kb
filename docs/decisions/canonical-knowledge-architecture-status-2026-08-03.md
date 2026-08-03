@@ -55,15 +55,35 @@ task cards. It also contains 77 typed relationships and 265 source-native
 evaluation cases. All 38 generation activities used `gpt-5.6-sol`; the current
 prompt is `source-knowledge-distillation-v2.3` version `2.3.1`.
 
-The 2026-08-03 canonical retrieval shadow evaluated 428 questions through the
+The 2026-08-03 canonical retrieval shadow evaluated 430 questions through the
 production Worker's local FTS and ranking implementation:
 
-- 267 improved, 161 were unchanged, and none regressed;
+- 267 improved, 163 were unchanged, and none regressed;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
 - all ten exact REST and stateless MCP compatibility cases passed; and
-- serialized projection storage increased by 5.305 percent, within the 10
-  percent gate.
+- serialized canonical projection storage increased by 5.402 percent, within
+  the 10 percent gate.
+
+The default projection now compiles each concept as a compact quickstart plus
+an explicit live-verification boundary instead of concatenating its generated
+source index and reviewer queue. It separately exposes 186 first-class
+`guide_section` rows: at most six high- or normal-confidence, source-backed
+sections for each of 31 concepts. Each row preserves its guide line range,
+citations, source IDs and records, authority, section status, content hash,
+evidence hash, and live-verification boundary. No concept body exceeds the D1
+search-body limit. The OKF projection retains these typed sections under
+`guide-sections/<concept-id>/` so its directory indexes remain bounded and
+concept-oriented.
+
+A direct pre-change versus post-change Worker comparison found one improved
+question, 427 unchanged questions, and no regressions. Mean reciprocal rank
+increased from 0.369718 to 0.370892, and the baseline search JSONL became 1.798
+percent smaller despite the 186 additional addressable sections. A first pass
+found that a broad hosting database section could displace the exact direct
+database-access claim; the final ranking removes generic concept-route boosts
+from guide sections, and the tracked regression now keeps the claim first while
+still returning and exactly expanding the guide section.
 
 This is strong evidence that the architecture is better than the legacy-only
 projection. It is not enough to make the canary the default. Maintainer tests
@@ -75,50 +95,53 @@ legacy claims and 5,566 legacy source summaries remain alongside 239
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
 
-## Open Gates
+## Resolved Technical Gates
 
-As of the 2026-08-03 live review, default cutover is blocked by three distinct
-conditions:
+The 2026-08-03 live review closed the three technical and content-quality items
+that were open at the start of the review:
 
-1. **Evidence freshness:** three artifacts derived from the official
-   `Configure Email` article are stale because the upstream content hash
-   changed after review. Their prior resolutions must be revalidated against
-   the current article and cited provider or pinned source evidence.
-2. **Identity review:** seven exact-statement claim groups represent nine
-   redundant public rows. The generated collapse packet preserves every public
-   alias, concept facet, authority tier, and evidence link, but a maintainer
-   must still approve or reject each group against its current input hash.
-3. **External usefulness:** the canary has zero external paired comparisons.
-   The policy requires at least five anonymously opted-in installations, 50
-   decisive comparisons, coverage of exact lookup, issue, no-answer, normal
-   task, semantic, and version-sensitive questions, and at least a 2:1
-   canonical-to-legacy preference ratio.
+1. The three `Configure Email` artifacts were revalidated against the unchanged
+   current Rock article and current official provider evidence. The live audit
+   now reports 69 of 69 resolutions verified, zero unresolved rows, and zero
+   default-cutover verification blockers.
+2. A maintainer approved all seven exact-statement collapse groups against the
+   current packet hash. Canonical retrieval retains all source evidence,
+   concept facets, and public aliases while removing nine redundant public
+   rows from the candidate.
+3. The privacy-bounded `concept:security-permissions` outcome was reproduced.
+   The exact concept body was truncated and contained generated index tables
+   instead of the detailed guide. Compact concept routing plus bounded
+   `guide_section` rows fixes that retrieval contract. Two tracked security
+   section evaluations now pass at rank two with official or
+   source-code-confirmed authority.
 
-Separate field-validation telemetry has one privacy-bounded review item:
-`concept:security-permissions` was marked `partially_useful` with the bounded
-reasons `incomplete` and `needed_other_sources`. It should be investigated as a
-content-quality issue, but one outcome should not bypass normal source and
-review controls.
+The quantitative readiness report therefore passes every technical check.
+
+## Remaining Gate
+
+Default cutover remains blocked only by independent external usefulness
+evidence. The canary currently has zero anonymously opted-in external
+installations and zero external paired comparisons. The versioned policy
+requires at least five installations, 50 decisive comparisons, coverage of
+exact lookup, issue, no-answer, normal task, semantic, and version-sensitive
+questions, and at least a 2:1 canonical-to-legacy preference ratio.
+
+Maintainer, evaluation, and synthetic traffic cannot satisfy this gate. The
+current readiness decision is `remain_opt_in_canary`; passing technical checks
+does not authorize a default-reader change or a deployment.
 
 ## Next Sequence
 
-1. Refresh and re-review only the affected `Configure Email` source record.
-   Reuse unchanged source units and artifacts; regenerate or supersede only
-   hash-invalidated conclusions. Rerun the live verification audit until all
-   three blockers are resolved.
-2. Adjudicate all seven claim-collapse groups. Collapse only identical
-   propositions, preserve independent evidence and public aliases, and reject
-   any group whose version scope or operational meaning differs.
-3. Reproduce the `security-permissions` result through both projections and
-   inspect its evidence and routing. Add or correct reviewed content only when
-   a specific missing source or proposition is identified.
-4. Run the blind paired canary with consenting external testers until the
+1. Review, merge, and deploy the compact concept and guide-section projection
+   through the normal public release workflow. Do not change the default
+   reader during that release.
+2. Run the blind paired canary with consenting external testers until the
    versioned policy thresholds are met. Do not retain queries, organization
    identifiers, Rock data, or free-form feedback.
-5. Rerun the canonical retrieval shadow, live verification audit, source-native
+3. Rerun the canonical retrieval shadow, live verification audit, source-native
    readiness gate, full tests, and public audits. A passing report still
    requires an explicit reviewed release to change the default reader.
-6. After the cutover decision, migrate legacy claims and source summaries in
+4. After the cutover decision, migrate legacy claims and source summaries in
    bounded source-family batches. Each batch must demonstrate stable identity,
    no retrieval regressions, and rebuildable provenance before replacing its
    legacy projection.

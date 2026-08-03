@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from rock_kb import service_projection
+from rock_kb.guide_intel.sections import HIGH_SIGNAL_SECTION_LIMIT
 from rock_kb.service_projection import build_d1_seed_sql, build_retrieval_documents, build_search_rows, build_service_projection, retrieval_projection_diff
 
 
@@ -24,6 +25,10 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
     rows = build_search_rows()
 
     assert any(row["kind"] == "concept" and row["concept"] == "check-in" for row in rows)
+    assert any(
+        row["id"] == "guide_section:security-permissions:1-executive-summary-for-agents"
+        for row in rows
+    )
     assert any(row["kind"] == "claim" and row["claim_tier"] for row in rows)
     assert any(
         row["id"] == "task_card:check-in:diagnose-labels-not-printing"
@@ -46,6 +51,63 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
     ]
     assert corroborating_claims
     assert all(row["title"] == row["body"] for row in corroborating_claims)
+
+
+def test_concept_search_rows_are_compact_routing_summaries():
+    row = next(
+        row
+        for row in service_projection.concept_search_rows()
+        if row["id"] == "concept:security-permissions"
+    )
+    quickstart = (
+        Path(__file__).resolve().parents[1]
+        / "knowledge"
+        / "concepts"
+        / "security-permissions"
+        / "quickstart.md"
+    ).read_text(encoding="utf-8")
+
+    assert row["body"].startswith(quickstart.rstrip())
+    assert row["path"].endswith("/quickstart.md")
+    assert len(row["body"]) < service_projection.D1_SEARCH_BODY_CHAR_LIMIT
+    assert "Security And Permissions Quickstart" in row["body"]
+    assert service_projection.CONCEPT_LIVE_VERIFICATION_BOUNDARY in row["body"]
+    assert "This file is for human reviewers and future agents" not in row["body"]
+
+
+def test_guide_section_search_rows_expose_bounded_source_backed_detail():
+    rows = service_projection.guide_section_search_rows()
+    counts: dict[str, int] = {}
+    for row in rows:
+        counts[row["concept"]] = counts.get(row["concept"], 0) + 1
+
+    assert rows
+    assert max(counts.values()) <= HIGH_SIGNAL_SECTION_LIMIT
+    assert len({row["id"] for row in rows}) == len(rows)
+    assert all(row["kind"] == "guide_section" for row in rows)
+    assert all(row["claim_tier"] == "source_backed" for row in rows)
+    assert all(row["payload"]["source_record_ids"] for row in rows)
+    assert all(len(row["payload"]["source_content_hash"]) == 64 for row in rows)
+
+    row = next(
+        row
+        for row in rows
+        if row["id"]
+        == "guide_section:security-permissions:1-executive-summary-for-agents"
+    )
+    payload = row["payload"]
+
+    assert row["path"] == "knowledge/concepts/security-permissions/guide.md"
+    assert row["body"].startswith("## 1. Executive Summary For Agents")
+    assert "Authorization.cs" in row["body"]
+    assert row["authority_tier"] == "source-code-confirmed"
+    assert payload["schema"] == "rock-kb-guide-section-search-v1"
+    assert payload["section_status"] == "current"
+    assert payload["confidence"] == "normal"
+    assert payload["source_record_ids"]
+    assert payload["citations"]
+    assert len(payload["content_hash"]) == 64
+    assert len(payload["source_content_hash"]) == 64
 
 
 def test_build_search_rows_includes_public_community_contributions(monkeypatch):

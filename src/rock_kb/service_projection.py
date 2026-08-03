@@ -19,6 +19,7 @@ import yaml
 
 from .contribution_sources import public_contribution_records
 from .extract import generated_at_iso, sha256_text
+from .guide_intel.sections import high_signal_section_rows
 from .jsonl import read_jsonl, write_jsonl
 from .paths import REPO_ROOT
 from .publish import public_export_manifest, public_export_text_for_public_path
@@ -44,6 +45,10 @@ SERVICE_RETRIEVAL_CHANGE_REPORT_PATH = SERVICE_DIST_DIR / "retrieval-change-repo
 SERVICE_CANONICAL_SHADOW_RELATIVE_DIR = Path("canonical-shadow/v1")
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
+CONCEPT_LIVE_VERIFICATION_BOUNDARY = (
+    "Inspect the exact live records before changing production behavior; "
+    "generated guidance does not prove current configuration."
+)
 ARTIFACT_SHARD_PREFIX_LENGTH = 2
 ARTIFACT_SLOT_PREFIXES = ("slots/a", "slots/b")
 LEGACY_ARTIFACT_RETENTION_RULE_ID = "rock-kb-legacy-versions-expiry"
@@ -347,6 +352,7 @@ def build_canonical_service_shadow(
 def build_search_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     rows.extend(concept_search_rows())
+    rows.extend(guide_section_search_rows())
     rows.extend(answer_search_rows())
     rows.extend(task_card_search_rows())
     rows.extend(troubleshooting_node_search_rows())
@@ -546,18 +552,14 @@ def concept_search_rows() -> list[dict[str, Any]]:
         if not concept_id:
             continue
         concept_dir = REPO_ROOT / "knowledge" / "concepts" / concept_id
-        body_parts = [
-            read_text(concept_dir / "quickstart.md"),
-            read_text(concept_dir / "index.md"),
-            read_text(concept_dir / "open-questions.md"),
-        ]
+        body = concept_search_body(read_text(concept_dir / "quickstart.md"))
         rows.append(
             {
                 "id": f"concept:{concept_id}",
                 "kind": "concept",
                 "title": concept.get("title") or concept_id,
-                "body": "\n\n".join(part for part in body_parts if part),
-                "path": f"knowledge/concepts/{concept_id}/index.md",
+                "body": body,
+                "path": f"knowledge/concepts/{concept_id}/quickstart.md",
                 "url": "",
                 "concept": concept_id,
                 "authority_tier": "official",
@@ -567,6 +569,165 @@ def concept_search_rows() -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def concept_search_body(quickstart: str) -> str:
+    if not quickstart or CONCEPT_LIVE_VERIFICATION_BOUNDARY in quickstart:
+        return quickstart
+    return (
+        quickstart.rstrip()
+        + "\n\n## Verification Boundary\n\n- "
+        + CONCEPT_LIVE_VERIFICATION_BOUNDARY
+        + "\n"
+    )
+
+
+def guide_section_search_rows() -> list[dict[str, Any]]:
+    concepts = {
+        str(row.get("concept_id") or ""): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "concept-index.jsonl")
+        if row.get("concept_id")
+    }
+    source_rows_by_concept: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in read_jsonl(REPO_ROOT / "agent" / "section-source-map.jsonl"):
+        concept_id = str(row.get("concept_id") or "")
+        if concept_id:
+            source_rows_by_concept[concept_id].append(row)
+    status_by_section = {
+        (str(row.get("concept_id") or ""), str(row.get("section_id") or "")): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "section-status.jsonl")
+        if row.get("concept_id") and row.get("section_id")
+    }
+    public_sources_by_url = {
+        normalized_public_url(row.get("source_url") or row.get("url")): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "source-summaries.jsonl")
+        if normalized_public_url(row.get("source_url") or row.get("url"))
+    }
+
+    rows: list[dict[str, Any]] = []
+    for concept_id in sorted(source_rows_by_concept):
+        guide_path = REPO_ROOT / "knowledge" / "concepts" / concept_id / "guide.md"
+        guide_lines = read_text(guide_path).splitlines()
+        if not guide_lines:
+            continue
+        concept_title = str(concepts.get(concept_id, {}).get("title") or concept_id)
+        for section in high_signal_section_rows(source_rows_by_concept[concept_id]):
+            section_id = str(section.get("section_id") or "")
+            start_line = int(section.get("start_line") or 0)
+            end_line = int(section.get("end_line") or 0)
+            if not section_id or start_line < 1 or end_line < start_line or end_line > len(guide_lines):
+                continue
+            body = "\n".join(guide_lines[start_line - 1 : end_line]).strip()
+            if not body:
+                continue
+            status = status_by_section.get((concept_id, section_id), {})
+            citation_sources = [
+                public_sources_by_url[normalized_public_url(citation.get("url"))]
+                for citation in section.get("citations") or []
+                if isinstance(citation, dict)
+                and normalized_public_url(citation.get("url")) in public_sources_by_url
+            ]
+            source_ids = normalize_concept_ids(
+                [
+                    *(section.get("source_ids") or []),
+                    *(source.get("source_id") for source in citation_sources),
+                ]
+            )
+            source_record_ids = normalize_concept_ids(
+                [
+                    *(section.get("source_record_ids") or []),
+                    *(source.get("source_record_id") for source in citation_sources),
+                ]
+            )
+            source_fingerprints = {
+                (
+                    str(dependency.get("source_record_id") or ""),
+                    str(dependency.get("content_hash") or ""),
+                )
+                for dependency in status.get("depends_on_sources") or []
+                if isinstance(dependency, dict)
+                and (dependency.get("source_record_id") or dependency.get("content_hash"))
+            }
+            source_fingerprints.update(
+                (
+                    str(source.get("source_record_id") or ""),
+                    str(source.get("content_hash") or ""),
+                )
+                for source in citation_sources
+                if source.get("source_record_id") or source.get("content_hash")
+            )
+            source_content_hash = (
+                sha256_text(
+                    json.dumps(
+                        sorted(source_fingerprints),
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    )
+                )
+                if source_fingerprints
+                else ""
+            )
+            payload = {
+                "schema": "rock-kb-guide-section-search-v1",
+                "concept_id": concept_id,
+                "section_id": section_id,
+                "heading": section.get("heading") or section_id,
+                "parent": section.get("parent") or "",
+                "level": int(section.get("level") or 0),
+                "start_line": start_line,
+                "end_line": end_line,
+                "word_count": int(section.get("word_count") or 0),
+                "citation_count": int(section.get("citation_count") or 0),
+                "citations": section.get("citations") or [],
+                "source_ids": source_ids,
+                "source_record_ids": source_record_ids,
+                "authorities": normalize_concept_ids(section.get("authorities") or []),
+                "trace_mode": section.get("trace_mode") or "none",
+                "confidence": section.get("confidence") or "",
+                "needs_live_verification": bool(section.get("needs_live_verification")),
+                "section_status": status.get("status") or "untracked",
+                "status_reasons": normalize_concept_ids(status.get("reasons") or []),
+                "needs_review": bool(status and status.get("status") != "current"),
+                "content_hash": sha256_text(body),
+                "source_content_hash": source_content_hash,
+            }
+            rows.append(
+                {
+                    "id": f"guide_section:{concept_id}:{section_id}",
+                    "kind": "guide_section",
+                    "title": f"{concept_title}: {section.get('heading') or section_id}",
+                    "body": body,
+                    "path": f"knowledge/concepts/{concept_id}/guide.md",
+                    "url": "",
+                    "concept": concept_id,
+                    "authority_tier": guide_section_authority_tier(
+                        section.get("authorities") or []
+                    ),
+                    "claim_tier": "source_backed",
+                    "source_id": source_ids[0] if len(source_ids) == 1 else "",
+                    "payload": payload,
+                }
+            )
+    return rows
+
+
+def normalized_public_url(value: Any) -> str:
+    return str(value or "").strip().rstrip("/")
+
+
+def guide_section_authority_tier(authorities: Iterable[Any]) -> str:
+    values = {
+        str(value or "").strip()
+        for value in authorities
+        if str(value or "").strip()
+    }
+    if "source-code" in values:
+        return "source-code-confirmed"
+    if "official-release" in values:
+        return "release-note-confirmed"
+    if any(value.startswith("official") for value in values):
+        return "official"
+    return "community-reviewed"
 
 
 def answer_search_rows() -> list[dict[str, Any]]:

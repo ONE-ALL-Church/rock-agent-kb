@@ -7059,7 +7059,7 @@ function searchSignals(
   const rockIssueLookupBoost = rockIssueRetrievalBoost(row, queryTerms, query);
   const rockIdeaLookupBoost = rockIdeaRetrievalBoost(row, queryTerms, query);
   const conceptIntent = conceptIntentBoost(row, queryTerms, query);
-  const routeIntent = concepts.includes(queryTopicHint(query)) ? 80 : 0;
+  const routeIntent = concepts.includes(queryTopicHint(query)) && row.kind !== "guide_section" ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
   const lexicalCoverage = bodyOverlap / Math.max(1, queryTerms.length);
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
@@ -7099,6 +7099,9 @@ function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): 
   if (row.kind === "lava_context") {
     if (intent === "symptom") return -60;
     return queryTerms.some((term) => LAVA_CONTEXT_QUERY_INTENT_TERMS.has(term)) ? 20 : 4;
+  }
+  if (row.kind === "guide_section") {
+    return queryTerms.some((term) => term === "guide" || term === "section") ? 12 : -12;
   }
   if (row.kind === "rock_issue") {
     return queryTerms.some((term) => ROCK_ISSUE_QUERY_INTENT_TERMS.has(term)) ? 28 : -20;
@@ -7496,7 +7499,7 @@ function cors(response: Response): Response {
 
 function toolDefinitions(): JsonRecord[] {
   const definitions: JsonRecord[] = [
-    { name: "kb_search", description: "Start here for any Rock question. Defaults to source-backed or stronger results, routes symptoms to task cards and troubleshooting nodes, and returns compact rows; use kb_get_result or an exact tool for full detail. The canonical-canary projection is opt-in and requires anonymous installation plus external-test or maintainer cohort headers.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Minimum claim trust tier. Defaults to source_backed; use routing_context_only only for explicit source-discovery work." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." }, rock_version: { type: "string", description: "Optional Rock version. Conflicting scoped rows are excluded; unprocessed rows remain labeled as such." }, kind: { type: "string", description: "Optional exact result-kind filter, such as task_card, troubleshooting_node, recipe, claim, or lava_context." }, debug: { type: "boolean", description: "Include detailed ranking signals. Off by default." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." }, projection: { type: "string", enum: ["legacy", "canonical-canary"], description: "Defaults to legacy. canonical-canary is an explicit field-test projection and never changes the default reader." } }, required: ["query"] } },
+    { name: "kb_search", description: "Start here for any Rock question. Defaults to source-backed or stronger results, routes symptoms to task cards and troubleshooting nodes, and returns compact rows; use kb_get_result or an exact tool for full detail. Concept results are compact routing summaries, while guide_section results provide bounded long-guide detail with source metadata. The canonical-canary projection is opt-in and requires anonymous installation plus external-test or maintainer cohort headers.", inputSchema: { type: "object", additionalProperties: false, properties: { query: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 50 }, min_claim_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Minimum claim trust tier. Defaults to source_backed; use routing_context_only only for explicit source-discovery work." }, min_tier: { type: "string", enum: CLAIM_TIER_VALUES, description: "Deprecated alias for min_claim_tier." }, rock_version: { type: "string", description: "Optional Rock version. Conflicting scoped rows are excluded; unprocessed rows remain labeled as such." }, kind: { type: "string", description: "Optional exact result-kind filter, such as task_card, troubleshooting_node, guide_section, recipe, claim, or lava_context." }, debug: { type: "boolean", description: "Include detailed ranking signals. Off by default." }, full: { type: "boolean", description: "Compatibility option that includes full body and payload in search results." }, projection: { type: "string", enum: ["legacy", "canonical-canary"], description: "Defaults to legacy. canonical-canary is an explicit field-test projection and never changes the default reader." } }, required: ["query"] } },
     { name: "kb_get_result", description: "Return the full body and payload for one exact kb_search result ID. Pass the same projection used for search.", inputSchema: { type: "object", additionalProperties: false, properties: { id: { type: "string" }, projection: { type: "string", enum: ["legacy", "canonical-canary"] } }, required: ["id"] } },
     { name: "kb_get_claim", description: "Return one exact approved claim by claim_id, including all concept routes and result IDs.", inputSchema: { type: "object", properties: { claim_id: { type: "string" } }, required: ["claim_id"] } },
     { name: "kb_list_models", description: "List stable Rock Model Map models with slugs, categories, versions, and property/method counts.", inputSchema: { type: "object", properties: {} } },

@@ -61,6 +61,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
 
     expected_types = {
         "Concept",
+        "Guide Section",
         "Agent Answer",
         "Claim",
         "Contribution Provenance",
@@ -122,6 +123,26 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert claim_paths, "claims must be sharded below concept and hash-prefix directories"
     troubleshooting_paths = list((destination / "troubleshooting-nodes").glob("*/*.md"))
     assert troubleshooting_paths, "troubleshooting nodes must be sharded below concept directories"
+    guide_section_paths = [
+        path
+        for path in (destination / "guide-sections").glob("*/*.md")
+        if path.name != "index.md"
+    ]
+    assert len(guide_section_paths) == report["counts"]["guide_sections"]
+    assert list((destination / "guide-sections").glob("*/index.md"))
+    assert not [
+        path
+        for path in (destination / "guide-sections").glob("*.md")
+        if path.name != "index.md"
+    ], (
+        "guide sections must be grouped below concept directories"
+    )
+    security_section = find_document(
+        destination,
+        "guide_section:security-permissions:3-security-and-permissions-mental-model-the-action-layer",
+    )
+    assert security_section.parent.name == "security-permissions"
+    assert read_frontmatter(security_section.read_text(encoding="utf-8"))["type"] == "Guide Section"
 
 
 def test_okf_idea_relationships_resolve_to_canonical_issue_and_model_paths():

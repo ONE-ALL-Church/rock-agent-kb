@@ -12,7 +12,7 @@
     "official_api": 2,
     "public_source_code": 41
   },
-  "checked_at": "2026-08-02T03:45:00Z",
+  "checked_at": "2026-08-03T21:29:50Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -437,7 +437,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-03T21:29:50Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
@@ -487,7 +487,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-03T21:29:50Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
@@ -559,7 +559,7 @@
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-03T21:29:50Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",

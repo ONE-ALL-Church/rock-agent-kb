@@ -1747,6 +1747,20 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
         source_id: "oneall",
         payload_json: JSON.stringify({ recipe_id: "oneall:registration-transfer" }),
       },
+      {
+        id: "guide_section:hosting-infrastructure:database-and-persistence",
+        kind: "guide_section",
+        title: "Hosting And Infrastructure: Database And Persistence",
+        body: "Rock agents can inspect database and persistence infrastructure, including direct database access, backups, SQL Server, and data operations. Keep access bounded to the required operational task.",
+        path: "knowledge/concepts/hosting-infrastructure/guide.md",
+        url: "",
+        concept: "hosting-infrastructure",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ section_id: "database-and-persistence" }),
+      },
     ];
     for (const row of rows) {
       await db.prepare(`INSERT INTO search_rows
@@ -1770,9 +1784,40 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
     }
 
     const paraphrase = encodeURIComponent("Can Rock agents use direct database access?");
-    const paraphraseResponse = await mf.dispatchFetch(`https://kb.example.test/search?q=${paraphrase}&min_tier=answer_pack_approved&limit=3`);
+    const paraphraseResponse = await mf.dispatchFetch(`https://kb.example.test/search?q=${paraphrase}&limit=3&debug=true`);
     const paraphrasePayload = await paraphraseResponse.json();
-    assert.equal(paraphrasePayload.results[0].id, "claim:claim:direct-access:security-permissions");
+    assert.equal(
+      paraphrasePayload.results[0].id,
+      "claim:claim:direct-access:security-permissions",
+      JSON.stringify(
+        paraphrasePayload.results.map((row) => ({ id: row.id, score: row.score, signals: row.signals })),
+      ),
+    );
+    assert.ok(
+      paraphrasePayload.results.some(
+        (row) => row.id === "guide_section:hosting-infrastructure:database-and-persistence",
+      ),
+    );
+
+    const guideQuery = encodeURIComponent(
+      "hosting infrastructure database and persistence guide section",
+    );
+    const guideResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${guideQuery}&limit=3`,
+    );
+    const guidePayload = await guideResponse.json();
+    assert.equal(
+      guidePayload.results[0].id,
+      "guide_section:hosting-infrastructure:database-and-persistence",
+    );
+
+    const exactGuideResponse = await mf.dispatchFetch(
+      "https://kb.example.test/results/guide_section%3Ahosting-infrastructure%3Adatabase-and-persistence",
+    );
+    const exactGuide = await exactGuideResponse.json();
+    assert.equal(exactGuide.status, "ok");
+    assert.equal(exactGuide.result.kind, "guide_section");
+    assert.equal(exactGuide.result.payload.section_id, "database-and-persistence");
   } finally {
     await mf.dispose();
   }

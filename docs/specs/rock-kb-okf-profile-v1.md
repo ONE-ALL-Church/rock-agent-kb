@@ -29,13 +29,15 @@ version routing, integrity, and graph traversal.
 - canonical scope, exclusions, record counts, changes, licensing, and hashes.
 
 The `full` profile is the lossless public projection. The `core` profile is a
-smaller agent-oriented subset containing concepts, answers, non-routing-only
-claims, recipes, Lava contexts, stable model digests, task cards, and
-source-policy references. Public Rock issue routing records are full-profile
-only because they are numerous, version-sensitive, and always
-`routing_context_only`. Approved issue enrichments remain nested on their one
-canonical issue record rather than becoming duplicate OKF documents. Canonical
-IDs are shared between profiles.
+smaller agent-oriented subset containing concepts, bounded source-backed guide
+sections, answers, non-routing-only claims, recipes, Lava contexts, stable model
+digests, task cards, and source-policy references. Guide sections are grouped at
+`guide-sections/<concept-id>/` so each directory index remains bounded and an
+agent can browse detail within the relevant concept. Public Rock issue routing
+records are full-profile only because they are numerous, version-sensitive, and
+always `routing_context_only`. Approved issue enrichments remain nested on their
+one canonical issue record rather than becoming duplicate OKF documents.
+Canonical IDs are shared between profiles.
 
 ## Concept Frontmatter
 

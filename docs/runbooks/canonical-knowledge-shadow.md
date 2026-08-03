@@ -292,6 +292,28 @@ treated as equivalent to an official release statement or immutable code.
 
 ## Retrieval Comparison
 
+Concept search rows are routing summaries, not containers for every generated
+concept artifact. The service uses `quickstart.md` plus an explicit
+live-verification boundary for each concept. Detailed authored guidance is
+projected separately as `guide_section` rows using the same deterministic
+high-signal policy as the quickstart: confidence `high` or `normal`, at least 75
+words, and at most six sections per concept. Each row includes the exact guide
+path and line range, citations, source IDs and records, source authority,
+freshness status, content hash, evidence hash, and live-verification flag.
+
+Do not concatenate `index.md` or `open-questions.md` into concept search rows.
+Those are generated navigation and reviewer artifacts, and large concepts can
+exceed D1's bounded search body before useful guide detail appears. Guide
+sections receive no generic concept-route boost; they rely on their title and
+content unless the query explicitly asks for a guide or section. This keeps an
+exact claim or operational answer ahead of broad background while preserving
+direct section search and exact `kb_get_result` expansion.
+
+The read-only OKF distribution retains the same typed guide sections under
+`guide-sections/<concept-id>/`. Do not flatten them into one directory: the
+concept hierarchy keeps generated indexes within the bundle's entry and byte
+limits and gives offline agents a bounded navigation path.
+
 `kb tools canonical-retrieval-shadow` builds both row sets, bundles the current
 production Worker, creates two temporary Miniflare D1 databases, and runs the
 same evaluation questions through the Worker's actual FTS5 and ranking code.

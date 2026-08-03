@@ -3,6 +3,11 @@ from __future__ import annotations
 from ._shared import *  # noqa: F401,F403
 
 
+HIGH_SIGNAL_SECTION_CONFIDENCE = frozenset({"high", "normal"})
+HIGH_SIGNAL_SECTION_MIN_WORDS = 75
+HIGH_SIGNAL_SECTION_LIMIT = 6
+
+
 @dataclass(frozen=True)
 class GuideSection:
     heading: str
@@ -11,6 +16,19 @@ class GuideSection:
     end_line: int
     parent: str
     text: str
+
+
+def high_signal_section_rows(
+    section_rows: Iterable[dict[str, Any]],
+    *,
+    limit: int = HIGH_SIGNAL_SECTION_LIMIT,
+) -> list[dict[str, Any]]:
+    return [
+        row
+        for row in section_rows
+        if row.get("confidence") in HIGH_SIGNAL_SECTION_CONFIDENCE
+        and int(row.get("word_count") or 0) >= HIGH_SIGNAL_SECTION_MIN_WORDS
+    ][:limit]
 
 def parse_markdown_sections(markdown: str) -> list[GuideSection]:
     lines = markdown.splitlines()

@@ -1234,6 +1234,7 @@ def render_baseline_quickstart(
         "- Start with `task-cards.jsonl` when the user has an operational task or symptom.",
         "- Use `entities.jsonl` to identify likely records, models, tables, blocks, or configuration surfaces.",
         "- Use `release-caveats.jsonl` before deciding behavior is configuration, customization, or a bug.",
+        "- Inspect the exact live records before changing production behavior; generated guidance does not prove current configuration.",
         "- Use `section-source-map.jsonl` and `section-status.jsonl` to decide which source records need refresh.",
         "",
         "## Primary Tasks",

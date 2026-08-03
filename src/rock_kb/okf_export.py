@@ -53,6 +53,7 @@ MAX_INDEX_ENTRIES = 200
 MAX_INDEX_BYTES = 64 * 1024
 KIND_CONFIG = {
     "concept": ("Concept", "concepts"),
+    "guide_section": ("Guide Section", "guide-sections"),
     "answer": ("Agent Answer", "answers"),
     "claim": ("Claim", "claims"),
     "model_map": ("Rock Model", "models"),
@@ -289,6 +290,7 @@ def build_okf_export(
         },
         "canonical_scope": [
             "concept guides",
+            "bounded source-backed guide sections",
             "agent answers",
             "approved claims",
             "public contribution provenance",
@@ -535,6 +537,8 @@ def row_path(row: dict[str, Any]) -> PurePosixPath:
             "troubleshooting_node": "troubleshooting-nodes",
         }[kind]
         return PurePosixPath(folder) / safe_slug(first_concept_id(row) or "unrouted") / filename
+    if kind == "guide_section":
+        return PurePosixPath("guide-sections") / safe_slug(first_concept_id(row) or "unrouted") / filename
     if kind == "lava_context":
         return PurePosixPath("lava-contexts") / safe_slug(str(payload.get("context_family") or "other")) / filename
     if kind == "rock_issue":
@@ -1058,6 +1062,7 @@ def write_root_index(
     counts = Counter(row_kind_count_key(row) for row in rows)
     browse_options = [
         ("concepts", "Concept guides", "concepts/"),
+        ("guide_sections", "Source-backed guide sections", "guide-sections/"),
         ("answers", "Agent answers", "answers/"),
         ("claims", "Approved claims", "claims/"),
         ("contributions", "Community contribution provenance", "contributions/"),
