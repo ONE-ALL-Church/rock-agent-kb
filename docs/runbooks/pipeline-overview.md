@@ -96,7 +96,10 @@ Approved claims are the durable public unit of knowledge. `kb build --stage clai
 
 Claim tiers are defined in [Claim Tier Policy](../decisions/claim-tier-policy.md): `routing_context_only` claims route agents to sources, `source_backed` claims are guide-safe but not operational proof, `answer_pack_approved` claims may feed generated answers, and `live_verified` claims include concrete read-only evidence. `kb claims live-plan` batches `source_backed` live-verification rows into read-only probe groups; promote rows through `data/review/live-claim-verifications.jsonl` only when evidence directly verifies the claim. `kb claims validate` enforces traceability and blocks direct media URLs, transcript fields, secrets, and other private-only data from the public claim graph.
 
-The canonical knowledge architecture remains non-default. Maintainers
+The canonical knowledge architecture remains non-default. Its current decision,
+evidence, blockers, and next sequence are recorded in
+[Canonical Knowledge Architecture Status](../decisions/canonical-knowledge-architecture-status-2026-08-03.md).
+Maintainers
 can run `uv run kb tools canonical-shadow` to test shared source snapshots,
 source units, generation activities, evidence links, typed relationships,
 persistent identity records, and explicit identity migrations without changing

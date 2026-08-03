@@ -6,6 +6,12 @@ contributions, and source summaries. Legacy retrieval remains the public
 default. A separately authorized, anonymously opted-in canary can read the
 canonical projection without changing that default.
 
+The current architecture decision, measured evidence, rollout blockers, and
+ordered next work are recorded in
+[Canonical Knowledge Architecture Status](../decisions/canonical-knowledge-architecture-status-2026-08-03.md).
+Use this runbook for execution details; do not infer current readiness from an
+older pilot count.
+
 Run it with:
 
 ```bash
@@ -115,6 +121,12 @@ documentation, developer and mobile documentation, Lava prose, and Rock
 community articles. Concepts remain task-oriented facets rather than one copy
 of each source navigation branch. The bundle is a non-default input to the
 canonical shadow and opt-in canary, not to ordinary retrieval or OKF.
+
+At the 2026-08-03 architecture review, the tracked bundle contains five source
+families, 38 articles, 1,488 source units, and 239 reviewed artifacts across 15
+concept facets. These figures supersede the 24-article first-expansion counts
+for current planning, while the dated expansion decision preserves those
+historical results.
 
 Build deterministic private review inputs from the Rockumentation API:
 
@@ -315,7 +327,10 @@ false until review and a separately authorized release.
 Exact claim collapse is also gated. The generated review records every public
 claim ID, concept facet, authority tier, evidence link, independent source work,
 and mirrored source record. A maintainer approval is valid only while its input
-hash and complete group coverage still match.
+hash and complete group coverage still match. A zero-regression retrieval
+report remains `fail` until every generated collapse group has an explicit,
+hash-matching maintainer decision; do not waive this as a cosmetic duplicate
+cleanup.
 
 Use `--skip-worker-build` only when `service/dist/dry-run/index.js` already
 matches the current Worker source:
@@ -438,3 +453,8 @@ shadow, zero exact, authority, no-answer, endpoint, or overall retrieval
 regressions, and the configured external cohort, comparison, category, and
 preference thresholds. Passing the technical half authorizes only continued
 canary testing.
+
+The current versioned policy requires five anonymously opted-in external
+installations, 50 decisive comparisons across all six required categories, and
+a canonical-to-legacy preference ratio of at least 2:1. Maintainer comparisons
+are reported separately and cannot satisfy those thresholds.
