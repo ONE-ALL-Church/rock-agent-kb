@@ -6948,6 +6948,7 @@ const SEARCH_STOP_WORDS = new Set([
   "and",
   "are",
   "bad",
+  "can",
   "for",
   "from",
   "how",

@@ -442,7 +442,12 @@ def load_source_unit_split_rules(
     for line_number, rule in enumerate(rules, start=1):
         if rule.get("schema") != "rock-kb-source-unit-split-rule-v1":
             raise ValueError(f"{path}:{line_number} has an unsupported schema")
-        if rule.get("strategy") not in {"sentence", "contrast_clause"}:
+        if rule.get("strategy") not in {
+            "causal_clause",
+            "sentence",
+            "contrast_clause",
+            "shared_subject_and_clause",
+        }:
             raise ValueError(f"{path}:{line_number} has an unsupported strategy")
         if not str(rule.get("reviewed_by") or "").strip():
             raise ValueError(f"{path}:{line_number} is missing reviewed_by")
@@ -494,17 +499,23 @@ def apply_source_unit_split_rules(
             )
         strategy = str(rule.get("strategy") or "")
         if block.get("kind") == "list_item":
-            split_blocks = (
-                split_list_item_block(block)
-                if strategy == "sentence"
-                else split_list_item_contrast_block(block)
-            )
+            if strategy == "sentence":
+                split_blocks = split_list_item_block(block)
+            elif strategy == "contrast_clause":
+                split_blocks = split_list_item_contrast_block(block)
+            else:
+                raise ValueError(
+                    f"split rule {content_hash} strategy {strategy} requires a paragraph"
+                )
         elif block.get("kind") == "paragraph":
-            split_blocks = (
-                split_paragraph_block(block)
-                if strategy == "sentence"
-                else split_paragraph_contrast_block(block)
-            )
+            if strategy == "sentence":
+                split_blocks = split_paragraph_block(block)
+            elif strategy == "contrast_clause":
+                split_blocks = split_paragraph_contrast_block(block)
+            elif strategy == "shared_subject_and_clause":
+                split_blocks = split_paragraph_shared_subject_and_block(block)
+            else:
+                split_blocks = split_paragraph_causal_clause_block(block)
         else:
             raise ValueError(
                 f"split rule {content_hash} expected a list_item or paragraph"
@@ -637,9 +648,79 @@ def split_paragraph_contrast_block(block: dict[str, Any]) -> list[dict[str, Any]
     ]
 
 
+def split_paragraph_shared_subject_and_block(
+    block: dict[str, Any],
+) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    clauses = split_reviewed_shared_subject_and_clauses(text)
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": clauses[0]},
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:shared-subject-and:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
+def split_paragraph_causal_clause_block(
+    block: dict[str, Any],
+) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    clauses = split_reviewed_causal_clauses(text)
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": clauses[0]},
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:causal:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
 def split_reviewed_contrast_clauses(value: str) -> list[str]:
     depth = 0
     lower = value.lower()
+    if lower.startswith("while "):
+        for index, character in enumerate(value):
+            if character == "(":
+                depth += 1
+            elif character == ")":
+                depth = max(0, depth - 1)
+            if depth or character != ",":
+                continue
+            left = value[6:index].strip()
+            right = value[index + 1 :].strip()
+            if len(left) < 20 or len(right) < 20:
+                continue
+            left = f"{left[0].upper()}{left[1:]}"
+            right = re.sub(r"^(\w+\s+\w+)\s+also\s+", r"\1 ", right)
+            left = left if left.endswith((".", "!", "?")) else f"{left}."
+            right = (
+                right
+                if right.endswith((".", "!", "?"))
+                else f"{right}."
+            )
+            return [left, f"{right[0].upper()}{right[1:]}"]
+        depth = 0
     for index, character in enumerate(value):
         if character == "(":
             depth += 1
@@ -655,6 +736,64 @@ def split_reviewed_contrast_clauses(value: str) -> list[str]:
         if len(left) < 20 or len(right) < 20:
             continue
         left = left if left.endswith((".", "!", "?")) else f"{left}."
+        return [left, f"{right[0].upper()}{right[1:]}"]
+    return [value]
+
+
+def split_reviewed_shared_subject_and_clauses(value: str) -> list[str]:
+    depth = 0
+    lower = value.lower()
+    for index, character in enumerate(value):
+        if character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        if depth or not lower.startswith(" and ", index):
+            continue
+        left = value[:index].rstrip(" ,;")
+        right = value[index + 5 :].strip()
+        subject_match = re.search(
+            r"(?:^|,\s*)(they|it|this|these|those)\s+",
+            left,
+            flags=re.IGNORECASE,
+        )
+        if (
+            subject_match is None
+            or len(left) < 20
+            or len(right) < 10
+            or not re.match(
+                r"^(?:can(?:not|'t)|could(?: not|n't)|is(?: not|n't)|"
+                r"are(?: not|n't)|must(?: not|n't)?|should(?: not|n't)?|"
+                r"will(?: not|n't))\b",
+                right,
+                flags=re.IGNORECASE,
+            )
+        ):
+            continue
+        subject = subject_match.group(1)
+        left = left if left.endswith((".", "!", "?")) else f"{left}."
+        right = f"{subject[0].upper()}{subject[1:]} {right}"
+        right = right if right.endswith((".", "!", "?")) else f"{right}."
+        return [left, right]
+    return [value]
+
+
+def split_reviewed_causal_clauses(value: str) -> list[str]:
+    depth = 0
+    lower = value.lower()
+    for index, character in enumerate(value):
+        if character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        if depth or not lower.startswith(", so ", index):
+            continue
+        left = value[:index].strip()
+        right = value[index + 5 :].strip()
+        if len(left) < 20 or len(right) < 20:
+            continue
+        left = left if left.endswith((".", "!", "?")) else f"{left}."
+        right = right if right.endswith((".", "!", "?")) else f"{right}."
         return [left, f"{right[0].upper()}{right[1:]}"]
     return [value]
 
@@ -1770,7 +1909,6 @@ def promote_source_native_distillation(
         for preserved_name in (
             "evaluation-holdout.jsonl",
             "split-rules.jsonl",
-            VERIFICATION_RESOLUTIONS_NAME,
         ):
             preserved_path = base_dir / preserved_name
             destination_path = destination / preserved_name
@@ -1782,6 +1920,21 @@ def promote_source_native_distillation(
                     destination_path,
                     list(read_jsonl(preserved_path)),
                 )
+        preserved_resolutions_path = base_dir / VERIFICATION_RESOLUTIONS_NAME
+        if preserved_resolutions_path.exists():
+            active_verification_ids = {
+                str(row.get("verification_id") or "")
+                for row in bundle_rows["verification-queue.jsonl"]
+            }
+            write_jsonl(
+                destination / VERIFICATION_RESOLUTIONS_NAME,
+                [
+                    row
+                    for row in read_jsonl(preserved_resolutions_path)
+                    if str(row.get("verification_id") or "")
+                    in active_verification_ids
+                ],
+            )
     manifest = write_source_native_manifest(destination)
     return {
         "schema": "rock-kb-source-native-promotion-v1",
@@ -2237,7 +2390,7 @@ def write_source_native_manifest(
         ),
         file_hashes=file_hashes,
         notes=[
-            "The source-native bundle is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
+            "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
             "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text.",
             "Bounded factual catalogs may preserve reviewed field names, types, settings, and option matrices without reproducing expressive article prose.",
             "Unprocessed product-version scope is exposed separately from the observed documentation revision.",

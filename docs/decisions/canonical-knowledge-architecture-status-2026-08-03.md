@@ -2,7 +2,7 @@
 
 Date: 2026-08-03
 
-Status: accepted architecture, reversible canonical cutover approved
+Status: accepted architecture, canonical active, legacy rollback retained
 
 ## Decision
 
@@ -52,20 +52,30 @@ code disagree.
 ## Current Evidence
 
 The tracked source-native bundle now covers five source families, 38 articles,
-15 concept facets, 1,488 addressable source units, and 239 reviewed artifacts:
-66 claims, 24 recipes, 26 source summaries, 95 structured references, and 28
-task cards. It also contains 77 typed relationships and 265 source-native
-evaluation cases. All 38 generation activities used `gpt-5.6-sol`; the current
-prompt is `source-knowledge-distillation-v2.3` version `2.3.1`.
+15 concept facets, 1,494 addressable source units, and 263 reviewed artifacts:
+81 claims, 25 recipes, 27 source summaries, 94 structured references, and 36
+task cards. It also contains 122 typed relationships and 289 source-native
+evaluation cases. All 38 generation activities use `gpt-5.6-sol`, prompt
+`source-knowledge-distillation-v2.3` version `2.3.1`, and input hash version
+`2`.
 
-The 2026-08-03 canonical retrieval shadow evaluated 430 questions through the
+The final 12 prompt-`2.3.0` documentation records were refreshed before
+reprocessing. Their upstream content hashes were unchanged, so the change
+isolates the extraction method rather than conflating it with source edits. The
+reviewed pass processed 342 units into 100 artifacts, replacing 76 earlier
+artifacts. Six exact-hash split rules separated mixed source units, and
+maintainer review added one missed verification boundary for a release-sensitive
+cache-tag deletion claim.
+
+The 2026-08-04 canonical retrieval shadow evaluated 454 questions through the
 production Worker's local FTS and ranking implementation:
 
-- 267 improved, 163 were unchanged, and none regressed;
+- 291 improved, 163 were unchanged, none regressed, and no failures were shared
+  by both projections;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
 - all ten exact REST and stateless MCP compatibility cases passed; and
-- serialized canonical projection storage increased by 5.402 percent, within
+- serialized canonical projection storage increased by 5.681 percent, within
   the 10 percent gate.
 
 The final isolated service quality gate also passed all 162 tracked questions:
@@ -101,7 +111,7 @@ sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
 The canonical projection still identifies measurable migration debt: 610
-legacy claims and 5,566 legacy source summaries remain alongside 239
+legacy claims and 5,566 legacy source summaries remain alongside 263
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
 
@@ -110,10 +120,13 @@ migration queue, not a reason to discard the working system.
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The three `Configure Email` artifacts were revalidated against the unchanged
-   current Rock article and current official provider evidence. The live audit
-   now reports 69 of 69 resolutions verified, zero unresolved rows, and zero
-   default-cutover verification blockers.
+1. The verification layer now reports 82 of 82 resolutions verified against
+   exact source snapshots, immutable public source, or bounded official API
+   observations, with zero unresolved rows, zero stale evidence, and zero
+   default-cutover blockers. The 2026-08-04 refresh corrected blanket cache-tag
+   immutability, narrowed cache-tag normalization by release, and corrected
+   check-in helper timestamp types from `DateTime` to `DateTimeOffset` where the
+   Rock 19.4 source requires it.
 2. A maintainer approved all seven exact-statement collapse groups against the
    current packet hash. Canonical retrieval retains all source evidence,
    concept facets, and public aliases while removing nine redundant public
@@ -129,11 +142,13 @@ The quantitative readiness report therefore passes every technical check.
 
 ## Cutover Decision
 
-The versioned policy now records a
-`maintainer_approved_reversible_technical_cutover`. The technical gate remains
-strict: zero retrieval, exact-lookup, authority, no-answer, endpoint, or live
-verification regressions are allowed. The release must also preserve a tested
-legacy rollback and expose the active projection plus content hash in health.
+The versioned policy records a
+`maintainer_approved_reversible_technical_cutover`. Canonical was activated on
+2026-08-03 only after the hosted gate passed, and explicit legacy retrieval was
+tested as the rollback. The technical gate remains strict: zero retrieval,
+exact-lookup, authority, no-answer, endpoint, or live-verification regressions
+are allowed. Every release must preserve that rollback and expose the active
+projection plus content hash in health.
 
 The prior external thresholds remain as advisory post-cutover validation goals:
 five opted-in installations, 50 decisive comparisons, all six question
@@ -143,19 +158,17 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-1. Merge and deploy the cutover-capable Worker while preserving the currently
-   selected legacy reader.
-2. Use the guarded projection workflow to activate canonical, verify health,
-   default REST and MCP retrieval, hosted evaluation, and explicit legacy
-   retrieval. Roll back immediately if any strict ranking or availability gate
-   fails.
-3. Continue privacy-bounded outcomes and blind comparisons as post-cutover
+1. Continue privacy-bounded outcomes and blind comparisons as post-cutover
    validation. Do not retain queries, organization identifiers, Rock data, or
    free-form comparison feedback.
-4. Migrate legacy claims and source summaries in
+2. Migrate legacy claims and source summaries in
    bounded source-family batches. Each batch must demonstrate stable identity,
    no retrieval regressions, and rebuildable provenance before replacing its
    legacy projection.
+3. Select each migration batch from measured retrieval value, source freshness,
+   and verification debt rather than bulk-converting the remaining queue.
+4. Re-run the guarded canonical activation checks after each deployed batch and
+   keep legacy available until the new projection and public client are verified.
 
 ## Not Next
 

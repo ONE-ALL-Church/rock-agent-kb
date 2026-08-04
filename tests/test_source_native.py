@@ -436,6 +436,102 @@ def test_reviewed_split_rule_handles_exact_contrast_clause():
     ]
 
 
+def test_reviewed_split_rule_handles_leading_while_contrast_clause():
+    source_record_id = "rock_documentation:article:while-test"
+    paragraph = (
+        "While you can email these errors (see `Admin > Settings`), you can "
+        "also view their history here."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Exceptions",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "contrast_clause",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "You can email these errors (see `Admin > Settings`).",
+        "You can view their history here.",
+    ]
+
+
+def test_reviewed_split_rule_handles_shared_subject_and_clause():
+    source_record_id = "rock_documentation:article:shared-subject-test"
+    paragraph = (
+        "Once created, they are stored as a defined value of the Cache Tag "
+        "Defined Type and can't be deleted."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Cache Tags",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "shared_subject_and_clause",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Once created, they are stored as a defined value of the Cache Tag Defined Type.",
+        "They can't be deleted.",
+    ]
+
+
+def test_reviewed_split_rule_handles_causal_clause():
+    source_record_id = "rock_documentation:article:causal-test"
+    paragraph = (
+        "Enabling statistics restarts Rock, so it is best to do this during "
+        "low site activity."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Statistics",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "causal_clause",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Enabling statistics restarts Rock.",
+        "It is best to do this during low site activity.",
+    ]
+
+
 def test_reviewed_split_rule_preserves_closing_markdown_before_joined_text():
     source_record_id = "rock_documentation:article:markdown-split-test"
     paragraph = "**Where Did It Go?**Each night, the cleanup job runs."
@@ -833,6 +929,7 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     assert len(evaluations) == 3
     assert all(row["expected_result_ids"] for row in evaluations)
     manifest = json.loads((destination / "manifest.json").read_text())
+    assert manifest["status"] == "canonical_input"
     assert manifest["public_retrieval_changed"] is False
     assert manifest["evaluation_case_count"] == 3
 
@@ -921,6 +1018,73 @@ def test_promotion_appends_safely_and_records_review_corrections(tmp_path: Path)
     assert manifest["article_count"] == 1
     assert manifest["verification_request_count"] == 1
     assert manifest["review_changed_article_count"] == 1
+
+
+@pytest.mark.parametrize("in_place", [False, True])
+def test_promotion_drops_resolutions_for_replaced_verification_requests(
+    tmp_path: Path,
+    in_place: bool,
+):
+    input_path = tmp_path / "input.jsonl"
+    reviewed_path = tmp_path / "reviewed.json"
+    base = tmp_path / "base"
+    write_jsonl(input_path, [distillation_input()])
+    reviewed = valid_output()
+    reviewed["articles"][0]["artifacts"][0]["needs_live_verification"] = True
+    reviewed["articles"][0]["verification_requests"] = [
+        {
+            "source_unit_ids": [source_units()[0]["source_unit_id"]],
+            "verification_surface": "public_source_code",
+            "question": "Does current public source retain this behavior?",
+            "why_material": (
+                "The release-sensitive behavior changes the recommended "
+                "implementation."
+            ),
+        }
+    ]
+    reviewed_path.write_text(json.dumps(reviewed), encoding="utf-8")
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=base,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-30T12:00:00+00:00",
+    )
+    queue_row = next(read_jsonl(base / "verification-queue.jsonl"))
+    write_jsonl(
+        base / "verification-resolutions.jsonl",
+        [
+            {
+                "schema": "rock-kb-source-native-verification-resolution-v1",
+                "verification_id": queue_row["verification_id"],
+                "queue_item_hash": "a" * 64,
+                "resolution_state": "not_verified",
+                "finding": "The prior verification request was not resolved.",
+                "reviewer": "test-reviewer",
+                "reviewed_at": "2026-07-30T12:00:00+00:00",
+                "revalidation_policy": "source_hash_change",
+            }
+        ],
+    )
+
+    reviewed_path.write_text(json.dumps(valid_output()), encoding="utf-8")
+    destination = base if in_place else tmp_path / "refreshed"
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=destination,
+        base_dir=base,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-31T12:00:00+00:00",
+    )
+
+    assert list(read_jsonl(destination / "verification-queue.jsonl")) == []
+    assert list(read_jsonl(destination / "verification-resolutions.jsonl")) == []
+    manifest = json.loads((destination / "manifest.json").read_text())
+    assert manifest["verification_request_count"] == 0
+    assert manifest["verification_resolution_count"] == 0
 
 
 def test_manual_holdout_is_hashed_and_loaded_with_generated_evaluations(
@@ -1217,7 +1381,7 @@ def test_merge_can_preserve_split_feedback_for_private_review(tmp_path: Path):
     ]
 
 
-def test_promoted_pilot_compiles_into_canonical_shadow_only(tmp_path: Path):
+def test_promoted_bundle_compiles_into_canonical_projection_input(tmp_path: Path):
     input_path = tmp_path / "input.jsonl"
     output_path = tmp_path / "output.json"
     destination = tmp_path / "canonical" / "source-native" / "v1"

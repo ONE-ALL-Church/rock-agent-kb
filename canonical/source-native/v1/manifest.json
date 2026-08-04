@@ -1,11 +1,11 @@
 {
   "article_count": 38,
   "artifact_type_counts": {
-    "claim": 66,
-    "recipe": 24,
-    "source_summary": 26,
-    "structured_reference": 95,
-    "task_card": 28
+    "claim": 81,
+    "recipe": 25,
+    "source_summary": 27,
+    "structured_reference": 94,
+    "task_card": 36
   },
   "concept_ids": [
     "ai-agents-automation",
@@ -24,34 +24,32 @@
     "system-admin-ops",
     "workflows"
   ],
-  "evaluation_case_count": 265,
+  "evaluation_case_count": 289,
   "file_hashes": {
-    "evaluation-holdout.jsonl": "284bdb748c9eee1944f125a7a52c4549053380f8aa24dacee262c45af0f51891",
-    "evaluation-set.jsonl": "23506e4aa38b9719861db9fe9844ee3e31d52a540f264009b0badc06b2e28231",
-    "generation-activities.jsonl": "af4929742cb80290d8224d809604d54246677b6d2c4f7b825ff5792a91bbca71",
-    "relationships.jsonl": "a15bf7c9e51dc8944125a24354f04a0e50f344fbe7abfe59e4caa6fcb498e53d",
-    "reviewed-artifacts.jsonl": "c440f1253c8a11d0aec7a33dcadce89d5a35f7c2eab66ae462c14ddd6da19f46",
-    "source-snapshots.jsonl": "af86065c0d4c22b3cddc345ac927531dd5fdf7e2935cd41ebdf14de93c54dd0c",
-    "source-units.jsonl": "bb402b5078533c145de6f06cea3e4e4964926a4bd9c1dd7f5ee90507b9e976c4",
-    "split-rules.jsonl": "32ab14d2b4164479944b098b9faa087599be4ea4eb889a7cf5e9df3200e00aa3",
-    "verification-queue.jsonl": "be2a1571f80df77d4131405ecfa32b972fa4af26ab1c4ae739988f899e9a0fdf",
-    "verification-report.json": "0237e6da766e3601135391722fc766df2b99261fbf33ee20b1b5a0e2bb72bafb",
-    "verification-resolutions.jsonl": "da9dc505515d044ce20a40e336ceaff5c7f2f866b96a6de171e66ff3584ee50e"
+    "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
+    "evaluation-set.jsonl": "e43906a971fb8a303bc35956b166fac5676bbaeed96151aea906e29fa8a54bfd",
+    "generation-activities.jsonl": "74674547af7a4684108c0d0f041ee8ef53ce351c880db68beaa7eda7d423347d",
+    "relationships.jsonl": "3647ea98970fb6a85e16447f4f8d6976e8e75ad3a4b4e4b68597985b08f8e297",
+    "reviewed-artifacts.jsonl": "31df69fd76caf292a1ef3644c84c4b44ca41afa6065645ffa8422e2efd48b7b9",
+    "source-snapshots.jsonl": "99fe542d64ccded13a18ad12f056530325a32a0de5ab1c20b7024603ad2a3b22",
+    "source-units.jsonl": "8ff6c03ed035e36a44494e7692006bbc226fc5a1de2280be5f1a5f7b6e7f4d9c",
+    "split-rules.jsonl": "ff473ada5492c4b8a772aa8f6ecdc19a618d3d4169f4158eec29ff5bc5f92d4a",
+    "verification-queue.jsonl": "5f76b6780142c420d2b4be939f25fa5181c5f3686e1cf62bc7ac4c94f50adce4",
+    "verification-report.json": "db480c62d534bd4fe44c9e397ba62cb4d9ffb306ab1bb2041c621db72dce555b",
+    "verification-resolutions.jsonl": "0bcaae0ac98e219cc9322ed37734779cba4401d17fd10eeab0e568235256a250"
   },
   "generation_activity_count": 38,
   "generation_input_hash_versions": {
-    "1": 12,
-    "2": 26
+    "2": 38
   },
   "generation_models": {
     "gpt-5.6-sol": 38
   },
   "generation_prompt_versions": {
-    "2.3.0": 12,
-    "2.3.1": 26
+    "2.3.1": 38
   },
   "notes": [
-    "The source-native bundle is canonical shadow input; default public retrieval remains legacy and any canary access requires a separate opt-in release.",
+    "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
     "Tracked source units contain reviewed paraphrases and locators, never full Rockumentation text.",
     "Bounded factual catalogs may preserve reviewed field names, types, settings, and option matrices without reproducing expressive article prose.",
     "Unprocessed product-version scope is exposed separately from the observed documentation revision."
@@ -59,9 +57,9 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 77,
-  "review_changed_article_count": 5,
-  "reviewed_artifact_count": 239,
+  "relationship_count": 122,
+  "review_changed_article_count": 6,
+  "reviewed_artifact_count": 263,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,
@@ -72,12 +70,12 @@
   },
   "source_refresh_required_for_rebuild": true,
   "source_snapshot_count": 38,
-  "source_unit_count": 1488,
-  "status": "shadow_only",
-  "verification_request_count": 69,
-  "verification_resolution_count": 69,
+  "source_unit_count": 1494,
+  "status": "canonical_input",
+  "verification_request_count": 82,
+  "verification_resolution_count": 82,
   "verification_state_counts": {
-    "verified": 69
+    "verified": 82
   },
   "verification_unresolved_count": 0
 }

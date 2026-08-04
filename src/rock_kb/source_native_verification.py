@@ -343,13 +343,10 @@ def verification_resolutions_by_artifact(
         queue_item = queue.get(resolution.verification_id)
         if queue_item is None:
             continue
-        summary = {
+        common_summary = {
             "verification_id": resolution.verification_id,
             "resolution_state": resolution.resolution_state,
-            "artifact_disposition": resolution.artifact_disposition,
             "finding": resolution.finding,
-            "effective_title": resolution.effective_title,
-            "effective_retrieval_text": resolution.effective_retrieval_text,
             "reviewed_at": resolution.reviewed_at,
             "revalidation_policy": resolution.revalidation_policy,
             "revalidate_after": resolution.revalidate_after,
@@ -370,8 +367,37 @@ def verification_resolutions_by_artifact(
                 for evidence in resolution.evidence
             ],
         }
+        overrides = {
+            row.artifact_id: row
+            for row in resolution.artifact_overrides
+        }
+        if overrides and set(overrides) != set(queue_item.artifact_ids):
+            raise ValueError(
+                "artifact overrides must cover the verification queue artifact IDs "
+                f"exactly: {resolution.verification_id}"
+            )
         for artifact_id in queue_item.artifact_ids:
-            result.setdefault(artifact_id, []).append(summary)
+            override = overrides.get(artifact_id)
+            result.setdefault(artifact_id, []).append(
+                {
+                    **common_summary,
+                    "artifact_disposition": (
+                        override.artifact_disposition
+                        if override
+                        else resolution.artifact_disposition
+                    ),
+                    "effective_title": (
+                        override.effective_title
+                        if override
+                        else resolution.effective_title
+                    ),
+                    "effective_retrieval_text": (
+                        override.effective_retrieval_text
+                        if override
+                        else resolution.effective_retrieval_text
+                    ),
+                }
+            )
     for values in result.values():
         values.sort(key=lambda row: str(row["verification_id"]))
     return result
