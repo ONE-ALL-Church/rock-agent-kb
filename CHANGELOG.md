@@ -6,6 +6,12 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+### Fixed
+
+- Exact canonical results with verified corrections or narrowings now expose a
+  compact effective artifact and a hash-addressed audit reference instead of
+  embedding superseded pre-verification wording in the agent-facing payload.
+
 ## [0.22.0] - 2026-08-03
 
 ### Added

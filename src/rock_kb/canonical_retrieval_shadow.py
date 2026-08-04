@@ -705,7 +705,11 @@ def canonical_search_row(
         ]
     payload = dict(item.payload)
     if item.payload_schema == "rock-kb-source-native-artifact-payload-v1":
-        artifact_payload = item.payload.get("artifact") or {}
+        artifact_payload = (
+            item.payload.get("effective_artifact")
+            or item.payload.get("artifact")
+            or {}
+        )
         verification_payload = item.payload.get("verification") or {}
         payload = {
             **payload,
@@ -806,7 +810,11 @@ def canonical_search_body(item: KnowledgeUnit) -> str:
     values = [item.retrieval_text]
     if item.payload_schema != "rock-kb-source-native-artifact-payload-v1":
         return item.retrieval_text
-    artifact = item.payload.get("artifact") or {}
+    artifact = (
+        item.payload.get("effective_artifact")
+        or item.payload.get("artifact")
+        or {}
+    )
     typed_payload = artifact.get("payload") or {}
     verification = item.payload.get("verification") or {}
     if verification.get("effective_override"):

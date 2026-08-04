@@ -253,6 +253,12 @@ If one verification request covers multiple artifacts and its result affects
 them differently, use `artifact_overrides` to provide one disposition for every
 artifact ID in that queue item. Partial coverage is rejected so a correction
 cannot accidentally replace distinct artifacts with the same public wording.
+For corrected or narrowed records, the public canonical payload exposes a
+compact `effective_artifact` containing only the verified title, retrieval
+text, scope, and identity metadata. It links to the original reviewed artifact
+by content hash and public bundle path, but does not embed pre-verification
+wording in exact-result responses. This preserves the audit trail without
+presenting superseded text as current agent guidance.
 
 After retrieval evaluation, run the quantitative readiness gate:
 

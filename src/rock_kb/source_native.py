@@ -2541,10 +2541,18 @@ def canonical_records_for_source_native_artifacts(
             )
             if effective_rock_versions:
                 effective_version_scope_status = "scoped"
+        reviewed_artifact = artifact.public_dump()
+        reviewed_artifact_content_hash = sha256_text(
+            json.dumps(
+                reviewed_artifact,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        )
         payload = {
             "schema": "rock-kb-source-native-artifact-payload-v1",
             "source_candidate_id": reviewed.source_candidate_id,
-            "artifact": artifact.public_dump(),
             "review": {
                 "review_state": reviewed.review_state,
                 "reviewed_at": reviewed.reviewed_at,
@@ -2553,6 +2561,28 @@ def canonical_records_for_source_native_artifacts(
                 "source_input_hash": reviewed.source_input_hash,
             },
         }
+        if effective_rows:
+            payload["effective_artifact"] = {
+                "artifact_id": reviewed.artifact_id,
+                "artifact_type": artifact.artifact_type,
+                "title": effective_title,
+                "retrieval_text": effective_retrieval_text,
+                "independent_question": artifact.independent_question,
+                "concept_ids": artifact.concept_ids,
+                "rock_versions": effective_rock_versions,
+                "version_scope_status": effective_version_scope_status,
+                "source_unit_ids": artifact.source_unit_ids,
+                "needs_live_verification": artifact.needs_live_verification,
+                "content_state": "verified_effective_override",
+            }
+            payload["reviewed_artifact_ref"] = {
+                "artifact_id": reviewed.artifact_id,
+                "content_hash": reviewed_artifact_content_hash,
+                "path": "canonical/source-native/v1/reviewed-artifacts.jsonl",
+                "content_state": "pre_verification_review_record",
+            }
+        else:
+            payload["artifact"] = reviewed_artifact
         if verification_rows:
             payload["verification"] = {
                 "state": (

@@ -524,6 +524,30 @@ def test_matching_verification_corrections_replace_retrieval_text() -> None:
         "Current browser debugging requires a non-default user-data directory."
     )
     assert units[0].payload["verification"]["effective_override"] is True
+    assert "artifact" not in units[0].payload
+    assert units[0].payload["effective_artifact"] == {
+        "artifact_id": reviewed.artifact_id,
+        "artifact_type": "task_card",
+        "title": "Use an isolated browser profile.",
+        "retrieval_text": (
+            "Current browser debugging requires a non-default user-data directory."
+        ),
+        "independent_question": "How do I configure the debugger shortcut?",
+        "concept_ids": ["obsidian-development"],
+        "rock_versions": [],
+        "version_scope_status": "version_independent",
+        "source_unit_ids": ["source-unit:test"],
+        "needs_live_verification": False,
+        "content_state": "verified_effective_override",
+    }
+    assert units[0].payload["reviewed_artifact_ref"]["artifact_id"] == (
+        reviewed.artifact_id
+    )
+    assert units[0].payload["reviewed_artifact_ref"]["content_state"] == (
+        "pre_verification_review_record"
+    )
+    assert len(units[0].payload["reviewed_artifact_ref"]["content_hash"]) == 64
+    assert "legacy shortcut" not in str(units[0].payload)
     assert units[0].rock_versions == []
     assert units[0].version_scope_status == "version_independent"
     assert {link.relation for link in links} == {"contradicts"}

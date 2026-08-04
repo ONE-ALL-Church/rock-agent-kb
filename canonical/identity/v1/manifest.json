@@ -5,7 +5,7 @@
   "existing_result_id_alias_count": 609,
   "identity_count": 13984,
   "identity_registry_path": "canonical/identity/v1/identity-registry.jsonl",
-  "identity_registry_sha256": "6b664073735c238b162410f7e3c3900a4ad33b46a79576237d91ab06ae5868c9",
+  "identity_registry_sha256": "76d2c78e376ec74e7eb2ab3f11f3db5781e873299c5422a8b469b00c4e36eb2c",
   "knowledge_type_counts": {
     "claim": 692,
     "community_contribution": 72,
