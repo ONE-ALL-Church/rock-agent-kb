@@ -23,16 +23,29 @@ from .knowledge import (
 )
 from .lava_context import LavaContextExtensionManifest
 from .recipe import RecipeRow
-from .rock_issue import RockIssue, RockIssueReleaseNoteRef, RockIssueReviewedEnrichment, RockIssueWorkerResult
+from .rock_issue import (
+    RockIssue,
+    RockIssueReleaseNoteRef,
+    RockIssueReviewedEnrichment,
+    RockIssueWorkerResult,
+)
 from .source_native import (
     ReviewedSourceNativeArtifact,
-    SourceNativeArtifactVerificationOverride,
     SourceNativeArtifactCandidate,
+    SourceNativeArtifactVerificationOverride,
     SourceNativeDistillationOutput,
     SourceNativePilotManifest,
     SourceNativeVerificationEvidence,
     SourceNativeVerificationQueueItem,
     SourceNativeVerificationResolution,
+)
+from .source_native_migration import (
+    ReviewedSourceNativeArtifactMigration,
+    ReviewedSourceNativeLegacyMigration,
+    SourceNativeExistingArtifactDecision,
+    SourceNativeLegacyDecision,
+    SourceNativeLegacyMigrationArticle,
+    SourceNativeLegacyMigrationOutput,
 )
 
 __all__ = [
@@ -58,6 +71,7 @@ __all__ = [
     "RockIssueReviewedEnrichment",
     "RockIssueWorkerResult",
     "ReviewedSourceNativeArtifact",
+    "ReviewedSourceNativeArtifactMigration",
     "SourceNativeArtifactVerificationOverride",
     "SourceNativeArtifactCandidate",
     "SourceNativeDistillationOutput",
@@ -65,6 +79,11 @@ __all__ = [
     "SourceNativeVerificationEvidence",
     "SourceNativeVerificationQueueItem",
     "SourceNativeVerificationResolution",
+    "ReviewedSourceNativeLegacyMigration",
+    "SourceNativeExistingArtifactDecision",
+    "SourceNativeLegacyDecision",
+    "SourceNativeLegacyMigrationArticle",
+    "SourceNativeLegacyMigrationOutput",
     "SourceLocator",
     "SourceSnapshot",
     "SourceUnit",

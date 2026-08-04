@@ -1,10 +1,10 @@
 {
   "article_count": 38,
   "artifact_type_counts": {
-    "claim": 81,
+    "claim": 82,
     "recipe": 25,
-    "source_summary": 27,
-    "structured_reference": 94,
+    "source_summary": 29,
+    "structured_reference": 95,
     "task_card": 36
   },
   "concept_ids": [
@@ -24,19 +24,21 @@
     "system-admin-ops",
     "workflows"
   ],
-  "evaluation_case_count": 289,
+  "evaluation_case_count": 293,
   "file_hashes": {
+    "artifact-migrations.jsonl": "fc818e354b41451ed0245414c2d05f6205561e4129ab696933a53ae702eda03c",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
-    "evaluation-set.jsonl": "e43906a971fb8a303bc35956b166fac5676bbaeed96151aea906e29fa8a54bfd",
-    "generation-activities.jsonl": "74674547af7a4684108c0d0f041ee8ef53ce351c880db68beaa7eda7d423347d",
-    "relationships.jsonl": "3647ea98970fb6a85e16447f4f8d6976e8e75ad3a4b4e4b68597985b08f8e297",
-    "reviewed-artifacts.jsonl": "31df69fd76caf292a1ef3644c84c4b44ca41afa6065645ffa8422e2efd48b7b9",
-    "source-snapshots.jsonl": "99fe542d64ccded13a18ad12f056530325a32a0de5ab1c20b7024603ad2a3b22",
-    "source-units.jsonl": "8ff6c03ed035e36a44494e7692006bbc226fc5a1de2280be5f1a5f7b6e7f4d9c",
+    "evaluation-set.jsonl": "eb488b2c0290a2262d2ab9576a0f18f548750afc1d452186aef0cb889627ac67",
+    "generation-activities.jsonl": "b9727259a917636eadf7f613dcd0afafd5d5c641bee5bcbdd8e519a8272cf205",
+    "legacy-migrations.jsonl": "bc3a610c7a49e6e5ec37b7fa23c9ff24b6cbc39acf7e024cfa3e07590e2eb510",
+    "relationships.jsonl": "1b84a3f592a5020b177ef9aceb2cd72312043e06c6ea4984b7431b835dca4970",
+    "reviewed-artifacts.jsonl": "ad672c681ca2c01f837707c7e651b8f35acace07b0ff266e2ff9f330e8c09187",
+    "source-snapshots.jsonl": "eb841b98e8fd35b91de5780fa7791a9fd971538d72a0b824c55704f67ecdb5b7",
+    "source-units.jsonl": "9100b728ab7f35b10c5242e74e108c3e27fb81d7cc631d63bfc72e1d0b048bbf",
     "split-rules.jsonl": "ff473ada5492c4b8a772aa8f6ecdc19a618d3d4169f4158eec29ff5bc5f92d4a",
-    "verification-queue.jsonl": "5f76b6780142c420d2b4be939f25fa5181c5f3686e1cf62bc7ac4c94f50adce4",
-    "verification-report.json": "db480c62d534bd4fe44c9e397ba62cb4d9ffb306ab1bb2041c621db72dce555b",
-    "verification-resolutions.jsonl": "0bcaae0ac98e219cc9322ed37734779cba4401d17fd10eeab0e568235256a250"
+    "verification-queue.jsonl": "28a2b1dcb71fe99bfd77d59bef39f5fe6d1e4ab19dadc62bb9605c0fd631ffff",
+    "verification-report.json": "1dd8b3fad36d042648fcccb9e88d63427add0b570c90eee086eed297b192fcb0",
+    "verification-resolutions.jsonl": "c617e3f67a358b6ef3574c7dbc56055dfdf822ab75d004fcc96f18b8f2c251e7"
   },
   "generation_activity_count": 38,
   "generation_input_hash_versions": {
@@ -46,7 +48,8 @@
     "gpt-5.6-sol": 38
   },
   "generation_prompt_versions": {
-    "2.3.1": 38
+    "1.2.0": 4,
+    "2.3.1": 34
   },
   "notes": [
     "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
@@ -57,9 +60,11 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 122,
-  "review_changed_article_count": 6,
-  "reviewed_artifact_count": 263,
+  "relationship_count": 144,
+  "review_changed_article_count": 10,
+  "reviewed_artifact_count": 267,
+  "reviewed_artifact_migration_count": 3,
+  "reviewed_legacy_migration_count": 11,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,

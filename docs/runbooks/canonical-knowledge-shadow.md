@@ -126,12 +126,14 @@ of each source navigation branch. The bundle feeds the canonical projection
 used by ordinary retrieval and OKF; the same build also retains the complete
 legacy projection for rollback and controlled comparisons.
 
-After the 2026-08-04 prompt migration, the tracked bundle contains five source
-families, 38 articles, 1,494 source units, and 263 reviewed artifacts across 15
-concept facets. All 38 generation activities use prompt version `2.3.1`, input
-hash version `2`, and `gpt-5.6-sol`. These figures supersede the 24-article
-first-expansion and 239-artifact pre-migration counts, while the dated decision
-records preserve those historical results.
+After the first bounded legacy-migration batch, the tracked bundle contains
+five source families, 38 articles, 1,494 source units, and 267 reviewed
+artifacts across 15 concept facets. All 38 generation activities use
+`gpt-5.6-sol`: 34 use source distillation prompt `2.3.1`, and four use legacy
+migration prompt `1.2.0`. Future migration batches use prompt `1.3.0`, which
+also requires an exact identity decision for every prior source-native
+artifact. The manifest records prompt versions instead of presenting a mixed
+bundle as one generation run.
 
 Build deterministic private review inputs from the Rockumentation API:
 
@@ -216,6 +218,54 @@ are separated, mutable defaults carry verification status, and no split request
 remains. Append mode replaces only refreshed source works, preserves unrelated
 artifacts and holdouts, rejects stale holdout IDs, records model-versus-reviewer
 change counts, and writes unresolved checks to `verification-queue.jsonl`.
+
+### Legacy Migration Compiler
+
+Use the migration compiler only after selecting a bounded set of existing
+source-native candidates. It adds the active legacy claims, legacy source
+summaries, and previously published source-native artifacts for each exact
+source record to the private review input:
+
+```bash
+uv run kb tools source-native-migration-input \
+  --source-native-input data/review/source-native-expansion/distillation-input.jsonl \
+  --destination data/review/source-native-legacy-migration/migration-input.jsonl
+uv run kb tools source-native-migration-schema
+uv run kb tools source-native-migration-prompt \
+  --input data/review/source-native-legacy-migration/migration-input.jsonl \
+  --source-record-id rock_documentation:article:<id>
+uv run kb tools source-native-migration-merge \
+  --input data/review/source-native-legacy-migration/migration-input.jsonl \
+  --batch <model-output-a.json> \
+  --batch <model-output-b.json> \
+  --destination data/review/source-native-legacy-migration/generated-output.json
+uv run kb tools source-native-migration-promote \
+  --input data/review/source-native-legacy-migration/migration-input.jsonl \
+  --output data/review/source-native-legacy-migration/reviewed-output.json \
+  --generated-output data/review/source-native-legacy-migration/generated-output.json \
+  --base canonical/source-native/v1 \
+  --destination canonical/source-native/v1 \
+  --reviewer <reviewer-id> \
+  --model <exact-model-id> \
+  --reviewed-at <iso-8601>
+```
+
+Promotion is fail closed. Every legacy row must be retained or replaced against
+its exact content hash. Every prior source-native artifact must retain its
+durable identity or be explicitly superseded by one complete replacement. The
+compiler stores old public result IDs as exact-lookup aliases, binds every
+replacement to its source snapshot and artifact hash, and turns source-summary
+companions into typed `references` relationships. A legacy claim cannot use
+companions to hide partial coverage. Raw source text, model output, and review
+notes remain in ignored private review data; only approved migration records
+enter the tracked bundle. Input-hash version `2` independently recomputes the
+source candidate hash before binding the legacy and prior-artifact rows, so an
+edited private packet fails rather than inheriting the original approval.
+
+After promotion, rebuild the identity baseline and run the production-worker
+retrieval shadow. A migration batch is not releasable unless verification has
+zero blockers and every strict regression category remains at zero.
+
 Compare refreshes with:
 
 ```bash

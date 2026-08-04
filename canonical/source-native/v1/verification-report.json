@@ -12,7 +12,7 @@
     "official_api": 2,
     "public_source_code": 50
   },
-  "checked_at": "2026-08-04T03:15:00Z",
+  "checked_at": "2026-08-04T07:04:13Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -149,9 +149,9 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-lava-request-object-catalog"
+        "source-native:recipe:rock_documentation:article-983:workflow-webhook-raw-body-inspection-and-parsing"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-04T06:44:36Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:23e811c5cebf5c9ae3d420f7",
@@ -291,10 +291,10 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-attribute-value-templates",
+        "source-native:recipe:rock_documentation:article-983:workflow-webhook-raw-body-inspection-and-parsing",
         "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-name-template"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-04T06:44:36Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:563c6afbbe39d4ee36816e87",
@@ -671,7 +671,7 @@
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-03T21:29:50Z",
+      "reviewed_at": "2026-08-04T07:04:13Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
