@@ -54,6 +54,7 @@ ARTIFACT_SLOT_PREFIXES = ("slots/a", "slots/b")
 LEGACY_ARTIFACT_RETENTION_RULE_ID = "rock-kb-legacy-versions-expiry"
 LEGACY_ARTIFACT_RETENTION_PREFIX = "versions/"
 LEGACY_ARTIFACT_RETENTION_DAYS = 30
+ACTIVE_RETRIEVAL_PROJECTIONS = ("legacy", "canonical")
 
 
 CLAIM_TIER_RANK = {
@@ -85,7 +86,7 @@ class ServiceProjection:
     dist: Path
     sql_path: Path
     artifact_prefix: str = ""
-    active_retrieval_projection: str = "legacy"
+    active_retrieval_projection: str = "runtime_preserved"
     canonical_shadow_hash: str = ""
     canonical_shadow_search_row_count: int = 0
     canonical_shadow_knowledge_unit_count: int = 0
@@ -190,7 +191,7 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         dist=dist,
         sql_path=dist / "d1-seed.sql",
         artifact_prefix=resolved_artifact_prefix,
-        active_retrieval_projection="legacy",
+        active_retrieval_projection="runtime_preserved",
         canonical_shadow_hash=str(canonical_shadow["content_hash"]),
         canonical_shadow_search_row_count=int(
             canonical_shadow["search_row_count"]
@@ -212,7 +213,7 @@ def build_canonical_service_shadow(
     dist: Path,
     legacy_search_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Write the canonical projection beside the unchanged default reader."""
+    """Write canonical artifacts beside the retained legacy rollback."""
 
     from .canonical_knowledge import (
         CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR,
@@ -307,9 +308,12 @@ def build_canonical_service_shadow(
     )
     manifest_core = {
         "schema": "rock-kb-canonical-service-shadow-v1",
-        "mode": "dual_write_shadow",
-        "active_reader": False,
-        "active_retrieval_projection": "legacy",
+        "mode": "dual_projection_runtime_switch",
+        "active_reader": None,
+        "active_retrieval_projection": None,
+        "active_reader_state": "runtime_health_only",
+        "activation_control": "kb_meta.active_retrieval_projection",
+        "initial_retrieval_projection_if_missing": "legacy",
         "canary_reader_available": True,
         "canary_retrieval_projection": "canonical-canary",
         "canary_requires_opt_in": True,
@@ -1814,8 +1818,12 @@ def build_d1_seed_sql(
         ("current_version", version),
         ("generated_at", generated_at),
         ("artifact_prefix", resolved_artifact_prefix),
-        ("active_retrieval_projection", "legacy"),
     ]
+    lines.append(
+        "INSERT INTO kb_meta (key, value) VALUES "
+        "('active_retrieval_projection', 'legacy') "
+        "ON CONFLICT(key) DO NOTHING;"
+    )
     shadow = canonical_shadow or {}
     shadow_hash = str(shadow.get("content_hash") or "")
     if shadow_hash:
@@ -1867,6 +1875,9 @@ def build_d1_seed_sql(
         )
     if shadow_hash:
         lines.append(
+            "UPDATE canonical_projection_history_v1 SET active_reader = 0;"
+        )
+        lines.append(
             "INSERT INTO canonical_projection_history_v1 "
             "(projection_version, generated_at, content_hash, "
             "search_row_count, knowledge_unit_count, source_snapshot_count, "
@@ -1883,7 +1894,9 @@ def build_d1_seed_sql(
                     str(int(shadow.get("source_unit_count") or 0)),
                     str(int(shadow.get("evidence_link_count") or 0)),
                     str(int(shadow.get("relationship_count") or 0)),
-                    "0",
+                    "CASE WHEN (SELECT value FROM kb_meta "
+                    "WHERE key = 'active_retrieval_projection') = 'canonical' "
+                    "THEN 1 ELSE 0 END",
                 ]
             )
             + ") ON CONFLICT(projection_version, generated_at) DO UPDATE SET "
@@ -1894,7 +1907,7 @@ def build_d1_seed_sql(
             "source_unit_count = excluded.source_unit_count, "
             "evidence_link_count = excluded.evidence_link_count, "
             "relationship_count = excluded.relationship_count, "
-            "active_reader = 0;"
+            "active_reader = excluded.active_reader;"
         )
         lines.extend(
             [
@@ -1939,6 +1952,173 @@ def deploy_service_projection(
     apply_projection_to_cloudflare(projection, env=env, bucket=bucket, database=database)
     result["applied"] = True
     return result
+
+
+def retrieval_projection_switch_sql(projection: str) -> str:
+    if projection not in ACTIVE_RETRIEVAL_PROJECTIONS:
+        raise ValueError(
+            "retrieval projection must be legacy or canonical"
+        )
+    # Wrangler maps semicolon-delimited D1 commands into a transactional batch.
+    # Explicit BEGIN/COMMIT statements fail because D1 already owns the batch
+    # transaction.
+    statements = ["UPDATE canonical_projection_history_v1 SET active_reader = 0;"]
+    if projection == "canonical":
+        statements.append(
+            "UPDATE canonical_projection_history_v1 SET active_reader = 1 "
+            "WHERE rowid = (SELECT rowid FROM canonical_projection_history_v1 "
+            "WHERE content_hash = (SELECT value FROM kb_meta WHERE key = "
+            "'canonical_shadow_content_hash') ORDER BY generated_at DESC, "
+            "projection_version DESC LIMIT 1);"
+        )
+    statements.append(
+        "INSERT INTO kb_meta (key, value) VALUES "
+        f"('active_retrieval_projection', '{projection}') "
+        "ON CONFLICT(key) DO UPDATE SET value = excluded.value;"
+    )
+    return "\n".join(statements)
+
+
+def set_active_retrieval_projection(
+    projection: str,
+    *,
+    apply: bool = False,
+    env: str | None = None,
+    database: str | None = None,
+    base_url: str | None = None,
+) -> dict[str, Any]:
+    normalized = projection.strip().lower()
+    sql = retrieval_projection_switch_sql(normalized)
+    resolved_base_url = (
+        base_url or os.getenv("ROCK_KB_BASE_URL", "")
+    ).rstrip("/")
+    if not resolved_base_url:
+        raise RuntimeError(
+            "ROCK_KB_BASE_URL or --base-url is required to validate a "
+            "retrieval projection change."
+        )
+
+    health: dict[str, Any] = {}
+    preflight_error = ""
+    try:
+        health = request_json(f"{resolved_base_url}/health")
+    except Exception as exc:
+        preflight_error = f"{type(exc).__name__}: {exc}"
+    shadow = dict(health.get("canonical_shadow") or {})
+    if normalized == "canonical":
+        if preflight_error:
+            raise RuntimeError(
+                "Canonical activation requires a successful hosted health "
+                f"preflight: {preflight_error}"
+            )
+        if shadow.get("activation_supported") is not True:
+            raise RuntimeError(
+                "The hosted Worker does not advertise guarded canonical "
+                "activation support. Deploy the cutover-capable release first."
+            )
+        if (
+            shadow.get("status") != "ready"
+            or not shadow.get("content_hash")
+            or int(shadow.get("search_row_count") or 0) < 1
+            or int(shadow.get("observation_count") or 0) < 1
+        ):
+            raise RuntimeError(
+                "Canonical activation requires a ready, non-empty projection "
+                "with recorded deployment history."
+            )
+
+    result: dict[str, Any] = {
+        "schema": "rock-kb-retrieval-projection-change-v1",
+        "status": "planned",
+        "requested_projection": normalized,
+        "previous_projection": shadow.get(
+            "active_retrieval_projection", "unknown"
+        ),
+        "base_url": resolved_base_url,
+        "database": database or "rock-agent-kb",
+        "environment": env or "default",
+        "canonical_content_hash": shadow.get("content_hash"),
+        "preflight_status": "unavailable" if preflight_error else "ok",
+        "preflight_error": preflight_error or None,
+        "applied": False,
+    }
+    if not apply:
+        result["next_command"] = (
+            f"uv run kb retrieval-projection {normalized} --apply "
+            f"--base-url {resolved_base_url} --database "
+            f"{database or 'rock-agent-kb'}"
+            + (f" --env {env}" if env else "")
+        )
+        return result
+
+    env_args = ["--env", env] if env else []
+    run(
+        [
+            "npx",
+            "wrangler",
+            "d1",
+            "execute",
+            database or "rock-agent-kb",
+            "--remote",
+            "--command",
+            sql,
+            "--yes",
+            *env_args,
+        ],
+        cwd=SERVICE_DIR,
+    )
+    observed = wait_for_active_retrieval_projection(
+        base_url=resolved_base_url,
+        expected=normalized,
+    )
+    result.update(
+        {
+            "status": "active",
+            "applied": True,
+            "observed_projection": observed.get("retrieval_projection"),
+            "observed_projection_version": observed.get(
+                "retrieval_projection_version"
+            ),
+            "active_reader": dict(
+                observed.get("canonical_shadow") or {}
+            ).get("active_reader"),
+        }
+    )
+    return result
+
+
+def wait_for_active_retrieval_projection(
+    *,
+    base_url: str,
+    expected: str,
+    attempts: int = 12,
+    delay_seconds: float = 2.0,
+) -> dict[str, Any]:
+    last_observed = "unavailable"
+    last_error = ""
+    for attempt in range(attempts):
+        try:
+            health = request_json(f"{base_url.rstrip('/')}/health")
+            shadow = dict(health.get("canonical_shadow") or {})
+            last_observed = str(
+                shadow.get("active_retrieval_projection") or "unknown"
+            )
+            active_reader = shadow.get("active_reader") is True
+            if (
+                last_observed == expected
+                and active_reader == (expected == "canonical")
+                and health.get("retrieval_projection") == expected
+            ):
+                return health
+        except Exception as exc:
+            last_error = f"{type(exc).__name__}: {exc}"
+        if attempt + 1 < attempts:
+            time.sleep(delay_seconds)
+    detail = f"; last health error: {last_error}" if last_error else ""
+    raise RuntimeError(
+        "Retrieval projection change was not observed in hosted health: "
+        f"expected {expected}, saw {last_observed}{detail}"
+    )
 
 
 def apply_projection_to_cloudflare(

@@ -2,9 +2,10 @@
 
 The canonical knowledge shadow tests a shared typed layer across claims,
 recipes, Lava contexts, Rock issues, Rock Ideas, Model Map records, community
-contributions, and source summaries. Legacy retrieval remains the public
-default. A separately authorized, anonymously opted-in canary can read the
-canonical projection without changing that default.
+contributions, and source summaries. Canonical retrieval is the reviewed public
+default after the 2026-08-03 cutover; the complete legacy projection remains a
+runtime rollback. A separately authorized, anonymously opted-in canary remains
+available for blind comparisons.
 
 The current architecture decision, measured evidence, rollout blockers, and
 ordered next work are recorded in
@@ -258,9 +259,11 @@ The versioned policy in `canonical/source-native/promotion-policy-v1.json`
 requires a live verification report and separates technical evidence from real
 external usefulness evidence. Omitting `--verification-report` makes readiness
 perform the live audit itself; a captured non-live report cannot pass the gate.
-Synthetic, evaluation, and maintainer traffic may prove correctness but never counts as
-external evidence. Keep those tests in the `maintainer` cohort and retain
-legacy as the default until the external gate passes.
+Synthetic, evaluation, and maintainer traffic may prove correctness but never
+counts as external evidence. The current policy treats external evidence as an
+advisory post-cutover signal because a maintainer approved a reversible
+technical cutover after every strict technical check passed. That approval does
+not fabricate external outcomes or weaken the technical checks.
 
 ## Reviewed Cross-Source Synthesis
 
@@ -374,10 +377,10 @@ unpublished pilot ID. Active ignored migrations remain in
 `identity-migrations.jsonl`; retired ones remain in the separate private audit
 archive.
 
-## Service Dual Write And Canary
+## Service Dual Write, Active Reader, And Canary
 
-`uv run kb deploy-service` generates the legacy service projection and a
-complete canonical shadow in the same build. Canonical source snapshots, source
+`uv run kb deploy-service` generates the legacy and canonical service
+projections in the same build. Canonical source snapshots, source
 units, generation activities, knowledge units, evidence links, relationships,
 search rows, retrieval documents, and a content-addressed manifest are written
 under `service/dist/canonical-shadow/v1/`. The D1 seed also creates a parallel
@@ -388,9 +391,26 @@ table name.
 An applied deploy stores those files as dedicated R2 shadow objects and records
 the projection hash and bounded counts in `kb_meta` plus
 `canonical_projection_history_v1`. The Worker exposes that summary through
-`/health`. Search, exact retrieval, MCP, CLI, and OKF read the legacy projection
-by default; `active_retrieval_projection` must remain `legacy` and the canonical
-manifest must report `active_reader: false`.
+`/health`. Search, exact retrieval, MCP, and current CLI clients follow
+`kb_meta.active_retrieval_projection` when no override is supplied. Deploys
+preserve that value and initialize it to `legacy` only when it is absent.
+
+Change the active reader only through the guarded manual workflow or its local
+maintainer command:
+
+```bash
+uv run kb retrieval-projection canonical --base-url "$ROCK_KB_BASE_URL"
+uv run kb retrieval-projection canonical --apply --env production \
+  --database rock-agent-kb --base-url "$ROCK_KB_BASE_URL"
+```
+
+Canonical activation requires a capable Worker, ready non-empty canonical
+tables, a content hash, and deployment history. The command updates the active
+history row and marker as one Wrangler D1 transactional batch, then polls hosted
+health. It deliberately omits explicit transaction statements because D1 owns
+the batch transaction. Use the same command with `legacy` for rollback. The manual
+`Set Retrieval Projection` workflow serializes with deployments and verifies
+the selected default, explicit legacy lookup, and hosted retrieval evaluation.
 
 Only a caller with a private anonymous installation marker and the fixed
 `external-test` or `maintainer` cohort can request
@@ -413,8 +433,9 @@ compressed hashes and byte counts.
 The history record exists to compare identity and projection stability across
 source-refresh cycles. It retains the latest 32 timestamped observations, so an
 unchanged projection still records a distinct successful cycle. Health reports
-the bounded observation count. Building or deploying the parallel tables does
-not authorize a default retrieval cutover.
+the bounded observation count, active projection, active projection version,
+activation capability, and rollback projection. Building or deploying the
+parallel tables does not itself change the active reader.
 
 ### Tester Commands
 
@@ -446,10 +467,10 @@ internal paths, and does not retain the question. Review submission
 accepts only the comparison ID, fixed preference, fixed reason codes, and
 consent attestation.
 
-## Promotion Gate
+## Promotion And Rollback Gate
 
-Do not make this projection the default public retrieval input until reviewed
-shadow and canary evidence shows:
+Do not make a candidate projection the default public retrieval input until
+reviewed evidence shows:
 
 - no loss on exact technical lookups;
 - improved duplicate rate without unsupported semantic merges;
@@ -463,20 +484,17 @@ shadow and canary evidence shows:
 
 The versioned identity registry and public compatibility aliases are durable.
 The ignored pilot directory remains the only home for unpublished migration
-history. Promotion still requires explicit review and authorization; the
-baseline itself is not a production retrieval switch. Keep the default on
-legacy until real external opt-in outcomes demonstrate that semantic and
-version-sensitive questions improve without degrading exact technical lookup,
-authority correctness, duplicate rate, no-answer behavior, latency, or public
-safety. Maintainer and evaluation traffic alone cannot satisfy that gate.
-The machine gate also requires the reviewed minimum source-family and article
-coverage, zero unresolved or stale verification blockers, a passing retrieval
-shadow, zero exact, authority, no-answer, endpoint, or overall retrieval
-regressions, and the configured external cohort, comparison, category, and
-preference thresholds. Passing the technical half authorizes only continued
-canary testing.
+history. Promotion requires explicit review and authorization; the baseline
+itself is not a production retrieval switch. The machine gate requires the
+reviewed minimum source-family and article coverage, zero unresolved or stale
+verification blockers, a passing retrieval shadow, and zero exact, authority,
+no-answer, endpoint, or overall retrieval regressions.
 
-The current versioned policy requires five anonymously opted-in external
-installations, 50 decisive comparisons across all six required categories, and
-a canonical-to-legacy preference ratio of at least 2:1. Maintainer comparisons
-are reported separately and cannot satisfy those thresholds.
+The current release additionally requires a tested runtime legacy rollback. It
+uses explicit maintainer authorization because independent external comparison
+volume is unavailable. The prior goals of five anonymously opted-in external
+installations, 50 decisive comparisons across all six categories, and a 2:1
+canonical-to-legacy preference ratio remain advisory post-cutover signals.
+Maintainer comparisons are reported separately and cannot be described as
+external evidence. A strict hosted regression or projection-availability
+failure is sufficient reason to restore `legacy` immediately.

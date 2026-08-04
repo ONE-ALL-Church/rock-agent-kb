@@ -298,7 +298,8 @@ never changes the active reader. It performs live verification when
 `--verification-report` is omitted; an explicit report must come from a
 `--check-live` audit because the policy rejects non-live evidence. Maintainer,
 synthetic, and evaluation traffic cannot satisfy the external gate; use the
-`maintainer` cohort for local tests and keep legacy retrieval as the default.
+`maintainer` cohort for local tests. External results remain distinct from the
+explicitly approved reversible technical cutover.
 
 `kb tools reviewed-cross-source-promote` compiles a maintainer-reviewed
 multi-source decision into source snapshots, addressable units, generation
@@ -308,15 +309,17 @@ preserves issue reports, official release evidence, and immutable code evidence
 as different relation types, and rejects private source text. Follow
 `docs/prompts/cross-source-evidence-synthesis-v1.md`.
 
-`kb deploy-service` dual-writes the active legacy projection and a non-default
-canonical shadow under `service/dist/canonical-shadow/v1/`. Applied deploys put
+`kb deploy-service` dual-writes the legacy and canonical projections under
+`service/dist/canonical-shadow/v1/`. Applied deploys put
 the canonical files in the target R2 slot before that slot is activated and
 record content hash, counts, and bounded projection history in D1. The D1 seed
-also loads separate `canonical_search_*` tables for an explicit, anonymously
-opted-in `canonical-canary` reader. `/health` reports default and canary state.
-Hosted search, MCP, CLI, and OKF remain on legacy retrieval unless an
-`external-test` or `maintainer` caller explicitly requests the canary. A canary
-release does not authorize a default cutover.
+also loads separate `canonical_search_*` tables. It preserves
+`kb_meta.active_retrieval_projection`, initializing legacy only when absent.
+`/health` reports the selected reader and content version. `kb
+retrieval-projection canonical|legacy` plans or applies a guarded runtime switch;
+canonical requires ready hosted data, while legacy is the rollback. Current
+hosted search, MCP, and CLI requests omit an override and follow that active
+reader. The opt-in `canonical-canary` path remains for comparisons.
 
 `kb record-source-freshness` is a hidden CI command. It validates a generated
 freshness report, selects the source rows owned by one workflow, and upserts a
@@ -336,7 +339,7 @@ active entry in `service/shadow-lifecycle.yaml`.
 | Group | Purpose |
 |---|---|
 | `kb status` / `kb build` | Pipeline freshness, dry-run planning, and deterministic rebuild execution. |
-| `kb deploy-service` / `kb service-retention` / `kb eval-service` / `kb quality-gate` / `kb hybrid-shadow` / `kb network-readiness` | Hosted Worker projection, bounded R2 retention, Cloudflare deploy, local and deployed-service regression checks, isolated hybrid retrieval evaluation, and live Agent Knowledge Network milestone gates. |
+| `kb deploy-service` / `kb retrieval-projection` / `kb service-retention` / `kb eval-service` / `kb quality-gate` / `kb hybrid-shadow` / `kb network-readiness` | Hosted Worker projection, guarded canonical activation or legacy rollback, bounded R2 retention, Cloudflare deploy, local and deployed-service regression checks, isolated hybrid retrieval evaluation, and live Agent Knowledge Network milestone gates. |
 | `kb sources ...` | Source registry, discovery, fetch, normalize, summarize, refresh, endpoint probing, and source scans. |
 | `kb extract ...` | Targeted Markdown extraction and extractor diagnostics. |
 | `kb media ...` | Private media discovery, transcription, sidecars, review candidates, promotion, and Gemma enrichment. |

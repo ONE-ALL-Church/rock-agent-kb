@@ -88,8 +88,8 @@ records explicit current permission for them.
 
 ## Canonical Canary
 
-The `external-test` and `maintainer` cohorts may explicitly test the
-non-default canonical retrieval projection:
+The `external-test` and `maintainer` cohorts may explicitly use the
+canonical-canary comparison alias even when canonical is the active default:
 
 ```bash
 uvx rock-kb --projection canonical-canary search "<question>"

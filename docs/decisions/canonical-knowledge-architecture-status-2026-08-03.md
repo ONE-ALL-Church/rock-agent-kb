@@ -2,14 +2,15 @@
 
 Date: 2026-08-03
 
-Status: accepted architecture, shadow and opt-in canary only
+Status: accepted architecture, reversible canonical cutover approved
 
 ## Decision
 
 Continue evolving the current knowledge base. Do not rebuild it from scratch.
 The source-native and canonical-shadow work has now demonstrated the right
-architecture across every major source shape, while preserving the tested
-legacy reader as the production default.
+architecture across every major source shape. Canonical retrieval is approved
+as the production default, with the complete tested legacy projection retained
+as an immediate runtime rollback.
 
 The durable architecture is:
 
@@ -25,9 +26,11 @@ The durable architecture is:
 6. Compile purpose-specific search, MCP, CLI, guide, and OKF projections from
    the same canonical layer.
 
-Legacy retrieval remains the default reader. The canonical projection remains
-dual-written and available only through the explicitly selected canary until
-both technical and external-usefulness gates pass.
+The service continues to dual-write both projections. Omitted REST, MCP, and
+current CLI requests follow the D1-backed active-reader marker. The reviewed
+release changes that marker to `canonical`; explicit `legacy` retrieval remains
+available for diagnostics and the guarded workflow can restore it without a
+code deployment.
 
 ## Source Contracts
 
@@ -65,6 +68,12 @@ production Worker's local FTS and ranking implementation:
 - serialized canonical projection storage increased by 5.402 percent, within
   the 10 percent gate.
 
+The final isolated service quality gate also passed all 162 tracked questions:
+availability, mean reciprocal rank, recall at the target rank, and authority
+correctness were all `1.0`, with zero duplicate results and zero rank-below-first
+cases. This gate exercises the same generated D1 projection and Worker bundle
+used by the deployment workflow.
+
 The default projection now compiles each concept as a compact quickstart plus
 an explicit live-verification boundary instead of concatenating its generated
 source index and reviewer queue. It separately exposes 186 first-class
@@ -85,10 +94,11 @@ database-access claim; the final ranking removes generic concept-route boosts
 from guide sections, and the tracked regression now keeps the claim first while
 still returning and exactly expanding the guide section.
 
-This is strong evidence that the architecture is better than the legacy-only
-projection. It is not enough to make the canary the default. Maintainer tests
-can prove deterministic behavior and catch regressions, but cannot prove that
-unfamiliar agents and churches find the new projection more useful.
+This is strong technical evidence that the canonical architecture is better
+than the legacy-only projection. Independent church outcomes would still add
+useful evidence, but the project does not currently have a realistic external
+sample. The maintainer therefore approved a reversible technical cutover rather
+than leaving the demonstrably better reader in an indefinite canary.
 
 The canonical projection still identifies measurable migration debt: 610
 legacy claims and 5,566 legacy source summaries remain alongside 239
@@ -112,36 +122,37 @@ that were open at the start of the review:
    The exact concept body was truncated and contained generated index tables
    instead of the detailed guide. Compact concept routing plus bounded
    `guide_section` rows fixes that retrieval contract. Two tracked security
-   section evaluations now pass at rank two with official or
+   section evaluations now pass at rank one with official or
    source-code-confirmed authority.
 
 The quantitative readiness report therefore passes every technical check.
 
-## Remaining Gate
+## Cutover Decision
 
-Default cutover remains blocked only by independent external usefulness
-evidence. The canary currently has zero anonymously opted-in external
-installations and zero external paired comparisons. The versioned policy
-requires at least five installations, 50 decisive comparisons, coverage of
-exact lookup, issue, no-answer, normal task, semantic, and version-sensitive
-questions, and at least a 2:1 canonical-to-legacy preference ratio.
+The versioned policy now records a
+`maintainer_approved_reversible_technical_cutover`. The technical gate remains
+strict: zero retrieval, exact-lookup, authority, no-answer, endpoint, or live
+verification regressions are allowed. The release must also preserve a tested
+legacy rollback and expose the active projection plus content hash in health.
 
-Maintainer, evaluation, and synthetic traffic cannot satisfy this gate. The
-current readiness decision is `remain_opt_in_canary`; passing technical checks
-does not authorize a default-reader change or a deployment.
+The prior external thresholds remain as advisory post-cutover validation goals:
+five opted-in installations, 50 decisive comparisons, all six question
+categories, and a 2:1 canonical-to-legacy preference ratio. Maintainer,
+evaluation, and synthetic traffic still do not count as external evidence, and
+no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-1. Review, merge, and deploy the compact concept and guide-section projection
-   through the normal public release workflow. Do not change the default
-   reader during that release.
-2. Run the blind paired canary with consenting external testers until the
-   versioned policy thresholds are met. Do not retain queries, organization
-   identifiers, Rock data, or free-form feedback.
-3. Rerun the canonical retrieval shadow, live verification audit, source-native
-   readiness gate, full tests, and public audits. A passing report still
-   requires an explicit reviewed release to change the default reader.
-4. After the cutover decision, migrate legacy claims and source summaries in
+1. Merge and deploy the cutover-capable Worker while preserving the currently
+   selected legacy reader.
+2. Use the guarded projection workflow to activate canonical, verify health,
+   default REST and MCP retrieval, hosted evaluation, and explicit legacy
+   retrieval. Roll back immediately if any strict ranking or availability gate
+   fails.
+3. Continue privacy-bounded outcomes and blind comparisons as post-cutover
+   validation. Do not retain queries, organization identifiers, Rock data, or
+   free-form comparison feedback.
+4. Migrate legacy claims and source summaries in
    bounded source-family batches. Each batch must demonstrate stable identity,
    no retrieval regressions, and rebuildable provenance before replacing its
    legacy projection.
@@ -158,14 +169,14 @@ does not authorize a default-reader change or a deployment.
 - Do not make OKF the primary online agent interface. It remains the versioned
   portability and bulk-distribution projection; MCP is the primary interactive
   interface and CLI is the local/operator fallback.
-- Do not count maintainer, synthetic, or evaluation traffic toward the external
-  promotion gate.
+- Do not count maintainer, synthetic, or evaluation traffic as independent
+  external evidence.
 
 ## Revalidation
 
-Reassess this decision when the default-cutover gate passes, a source-family
-contract changes, a new source shape cannot be represented without loss, or a
-future retrieval shadow demonstrates a material improvement over the current
-canonical projection. Use the commands and review controls in
+Reassess this decision if hosted canonical retrieval fails a strict regression
+gate, a source-family contract changes, a new source shape cannot be represented
+without loss, or a future retrieval shadow demonstrates a material improvement
+over the current canonical projection. Use the commands and review controls in
 `docs/runbooks/canonical-knowledge-shadow.md`; do not update this status from
 generated counts alone.

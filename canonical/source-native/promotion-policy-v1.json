@@ -1,8 +1,15 @@
 {
+  "cutover_authorization": {
+    "approved_at": "2026-08-03",
+    "mode": "maintainer_approved_reversible_technical_cutover",
+    "requires_legacy_rollback": true,
+    "status": "approved"
+  },
   "external_evidence": {
     "canonical_to_legacy_preference_ratio_min": 2.0,
     "min_decisive_comparisons": 50,
     "min_opted_in_installations": 5,
+    "required_for_default_cutover": false,
     "required_categories": [
       "exact_lookup",
       "issue",

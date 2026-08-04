@@ -12,6 +12,7 @@ def register(app: typer.Typer) -> None:
     app.command("status")(legacy.status_command)
     app.command("build")(legacy.build_command)
     app.command("deploy-service")(deploy_service_command)
+    app.command("retrieval-projection")(retrieval_projection_command)
     app.command("service-retention")(service_retention_command)
     app.command("eval-service")(eval_service_command)
     app.command("record-hosted-eval", hidden=True)(record_hosted_eval_command)
@@ -48,6 +49,48 @@ def deploy_service_command(
 
     result = deploy_service_projection(apply=apply, env=env, bucket=bucket, database=database, base_url=base_url)
     print_json(data=result)
+
+
+def retrieval_projection_command(
+    projection: str = typer.Argument(
+        ...,
+        help="Active default reader: legacy or canonical.",
+    ),
+    apply: bool = typer.Option(
+        False,
+        "--apply",
+        help="Apply the guarded D1 switch and verify hosted health.",
+    ),
+    env: str | None = typer.Option(
+        None,
+        "--env",
+        help="Wrangler environment name.",
+    ),
+    database: str | None = typer.Option(
+        None,
+        "--database",
+        help="D1 database name. Defaults to rock-agent-kb.",
+    ),
+    base_url: str | None = typer.Option(
+        None,
+        "--base-url",
+        help="Hosted service URL used for preflight and readback.",
+    ),
+) -> None:
+    """Plan or apply a reversible active retrieval projection change."""
+    from rich import print_json
+
+    from ..service_projection import set_active_retrieval_projection
+
+    print_json(
+        data=set_active_retrieval_projection(
+            projection,
+            apply=apply,
+            env=env,
+            database=database,
+            base_url=base_url,
+        )
+    )
 
 
 def service_retention_command(

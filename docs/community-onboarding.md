@@ -176,10 +176,11 @@ Use the test's stable result IDs with `rock-kb feedback` for result quality or
 only when the KB itself malfunctions. Never add church names, private records,
 logs, internal URLs, or secrets to any path.
 
-### Optionally Compare Canonical Retrieval
+### Optionally Compare Retrieval
 
-External testers can compare the experimental source-native canonical
-projection without changing the normal service for anyone:
+External testers can compare canonical and retained legacy retrieval without
+changing the normal service for anyone. Canonical is already the reviewed
+active default; this test collects bounded comparative evidence:
 
 ```bash
 uvx rock-kb telemetry enable --cohort external-test --consent-attested

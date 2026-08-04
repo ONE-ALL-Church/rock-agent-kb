@@ -166,7 +166,11 @@ def run_case(case_id: str, category: str, operation: str, manual_prompt: str, ex
 
 def health_case(base: str, get_json: JsonGetter) -> dict[str, Any]:
     payload = get_json(f"{base}/health")
-    version = str(payload.get("version") or "")
+    version = str(
+        payload.get("retrieval_projection_version")
+        or payload.get("version")
+        or ""
+    )
     return {
         "passed": payload.get("status") == "ok" and bool(version),
         "projection_version": version,

@@ -8,6 +8,8 @@ Date: 2026-07-31
 > The current architecture decision, readiness evidence, and ordered next work are
 > in
 > [Canonical Knowledge Architecture Status](canonical-knowledge-architecture-status-2026-08-03.md).
+> Its legacy-default serving decision is superseded by the reviewed reversible
+> canonical cutover recorded there.
 > The historical counts below remain unchanged so the expansion stays
 > auditable.
 

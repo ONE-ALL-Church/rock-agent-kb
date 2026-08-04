@@ -98,8 +98,8 @@ def test_source_family_contract_summary_reports_coverage_and_errors():
 def test_manifest_distinguishes_generated_and_deterministic_typed_sources():
     manifest = source_family_contract_manifest()
 
-    assert manifest["default_retrieval_projection"] == "legacy"
-    assert manifest["canonical_projection_state"] == "shadow_and_opt_in_canary"
+    assert manifest["default_retrieval_projection"] == "canonical"
+    assert manifest["canonical_projection_state"] == "active_with_legacy_rollback"
     assert set(GENERATED_KNOWLEDGE_CONTRACTS) == {
         "approved_claim",
         "official_documentation",

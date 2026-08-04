@@ -120,12 +120,13 @@ implementation plus exact REST and stateless MCP compatibility. The tracked
 previously public compatibility aliases; ignored pilot migration history
 remains private review evidence. Refresh that baseline with
 `uv run kb tools canonical-identity-baseline`, without treating the command as
-a retrieval cutover. Service builds dual-write both projections, store canonical
-files as inactive R2 shadow objects, and load separate canonical D1 tables.
-Normal readers continue to use legacy D1 tables. Only anonymously opted-in
-`external-test` and `maintainer` callers may explicitly request the
-`canonical-canary` projection for search, exact expansion, and structured
-outcomes. See
+a retrieval cutover. Service builds dual-write both projections, stores
+canonical files as R2 projection artifacts, and loads separate canonical D1
+tables. Normal readers follow the runtime active-reader marker; canonical is
+the reviewed default after the 2026-08-03 cutover and legacy remains the
+guarded rollback. Only anonymously opted-in `external-test` and `maintainer`
+callers may explicitly request the `canonical-canary` comparison projection.
+See
 [Canonical Knowledge Shadow](canonical-knowledge-shadow.md).
 
 Public reviewer adjudications live in

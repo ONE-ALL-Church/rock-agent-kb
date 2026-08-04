@@ -227,7 +227,12 @@ def hosted_projection_version(base_url: str, timeout: float) -> str:
             timeout=timeout,
         )
         response.raise_for_status()
-        return str(response.json().get("version") or "")
+        payload = response.json()
+        return str(
+            payload.get("retrieval_projection_version")
+            or payload.get("version")
+            or ""
+        )
     except Exception:
         return ""
 
