@@ -11,11 +11,11 @@ from ..canonical_knowledge import (
     write_canonical_identity_baseline,
     write_canonical_knowledge_shadow,
 )
-from ..paths import REPO_ROOT
 from ..canonical_retrieval_shadow import run_canonical_retrieval_shadow
+from ..paths import REPO_ROOT
 from ..reviewed_cross_source import (
-    REVIEWED_CROSS_SOURCE_RELATIVE_DIR,
     REVIEW_DECISIONS_NAME,
+    REVIEWED_CROSS_SOURCE_RELATIVE_DIR,
     promote_reviewed_cross_source,
 )
 from ..source_family_contracts import (
@@ -34,21 +34,30 @@ from ..source_native import (
     build_source_native_impact_report,
     merge_source_native_distillation_outputs,
     promote_source_native_distillation,
-    write_source_native_manifest,
     write_source_native_distillation_schema,
     write_source_native_generation_prompt,
+    write_source_native_manifest,
 )
-from ..source_native_verification import (
-    VERIFICATION_RESOLUTIONS_NAME,
-    audit_source_native_verifications,
-    build_source_native_verification_packet,
-    promote_source_native_verification_resolutions,
+from ..source_native_migration import (
+    SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR,
+    SOURCE_NATIVE_LEGACY_MIGRATION_SCHEMA_PATH,
+    build_source_native_legacy_migration_inputs,
+    merge_source_native_legacy_migration_outputs,
+    promote_source_native_legacy_migration,
+    write_source_native_legacy_migration_prompt,
+    write_source_native_legacy_migration_schema,
 )
 from ..source_native_readiness import (
     SOURCE_NATIVE_PROMOTION_POLICY_PATH,
     evaluate_source_native_promotion_readiness,
     fetch_operations_dashboard,
     load_json,
+)
+from ..source_native_verification import (
+    VERIFICATION_RESOLUTIONS_NAME,
+    audit_source_native_verifications,
+    build_source_native_verification_packet,
+    promote_source_native_verification_resolutions,
 )
 from . import _legacy as legacy
 
@@ -450,6 +459,189 @@ def source_native_merge(
                 batch_paths=batch,
                 destination=destination,
                 allow_review_blockers=allow_review_blockers,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-input")
+def source_native_migration_input(
+    source_native_input: Path = typer.Option(
+        ...,
+        "--source-native-input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Private v2.3 source-native distillation input JSONL.",
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR / "migration-input.jsonl",
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Bind selected source-native candidates to active legacy projections."""
+
+    typer.echo(
+        json.dumps(
+            build_source_native_legacy_migration_inputs(
+                source_native_input_path=source_native_input,
+                destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-schema")
+def source_native_migration_schema(
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_SCHEMA_PATH,
+        "--destination",
+    ),
+) -> None:
+    """Write the strict legacy-migration model response schema."""
+
+    typer.echo(
+        json.dumps(
+            write_source_native_legacy_migration_schema(destination),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-prompt")
+def source_native_migration_prompt(
+    input_path: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR / "migration-input.jsonl",
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR / "generation-prompt.txt",
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+    source_record_id: str | None = typer.Option(
+        None,
+        "--source-record-id",
+        help="Optionally render one exact source record.",
+    ),
+) -> None:
+    """Render the no-tools, exact-coverage migration prompt."""
+
+    typer.echo(
+        json.dumps(
+            write_source_native_legacy_migration_prompt(
+                input_path=input_path,
+                destination=destination,
+                source_record_id=source_record_id,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-merge")
+def source_native_migration_merge(
+    batch: list[Path] = typer.Option(
+        ...,
+        "--batch",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    input_path: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR / "migration-input.jsonl",
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR / "reviewed-output.json",
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Merge schema-constrained migration batches and enforce full coverage."""
+
+    typer.echo(
+        json.dumps(
+            merge_source_native_legacy_migration_outputs(
+                input_path=input_path,
+                batch_paths=batch,
+                destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-promote")
+def source_native_migration_promote(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    output_path: Path = typer.Option(
+        ...,
+        "--output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+    base_dir: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--base",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    reviewer: str = typer.Option(..., "--reviewer"),
+    model: str = typer.Option(..., "--model"),
+    reviewed_at: str | None = typer.Option(None, "--reviewed-at"),
+    generated_output_path: Path | None = typer.Option(
+        None,
+        "--generated-output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Promote reviewed typed replacements and hash-bound retirement decisions."""
+
+    typer.echo(
+        json.dumps(
+            promote_source_native_legacy_migration(
+                input_path=input_path,
+                output_path=output_path,
+                destination=destination,
+                base_dir=base_dir,
+                reviewer=reviewer,
+                model=model,
+                reviewed_at=reviewed_at,
+                generated_output_path=generated_output_path,
             ),
             ensure_ascii=False,
             indent=2,

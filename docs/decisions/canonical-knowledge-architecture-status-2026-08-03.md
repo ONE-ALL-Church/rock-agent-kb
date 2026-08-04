@@ -158,13 +158,23 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
+The first bounded legacy-migration batch re-distilled four workflow articles
+from their unchanged official source snapshots. It retired 11 fully covered
+legacy rows, retained two partially supported rows, and recorded three reviewed
+source-native artifact identity migrations. The canonical bundle now contains
+267 typed artifacts; 603 legacy claims and 5,562 legacy source summaries remain.
+The 458-question production-worker shadow reported 295 improvements, 163 ties,
+and zero retrieval, exact-lookup, authority, no-answer, or endpoint regressions.
+All 82 verification rows remain resolved with no blocker.
+
 1. Continue privacy-bounded outcomes and blind comparisons as post-cutover
    validation. Do not retain queries, organization identifiers, Rock data, or
    free-form comparison feedback.
 2. Migrate legacy claims and source summaries in
    bounded source-family batches. Each batch must demonstrate stable identity,
-   no retrieval regressions, and rebuildable provenance before replacing its
-   legacy projection.
+   exact hash-bound retirement decisions, no silent loss of previously exposed
+   source-native IDs, no retrieval regressions, and rebuildable provenance
+   before replacing its legacy projection.
 3. Select each migration batch from measured retrieval value, source freshness,
    and verification debt rather than bulk-converting the remaining queue.
 4. Re-run the guarded canonical activation checks after each deployed batch and

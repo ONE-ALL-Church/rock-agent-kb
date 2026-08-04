@@ -1,0 +1,638 @@
+from __future__ import annotations
+
+import copy
+
+import pytest
+
+from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
+from rock_kb.schemas import (
+    GenerationActivity,
+    ReviewedSourceNativeArtifact,
+    ReviewedSourceNativeArtifactMigration,
+    ReviewedSourceNativeLegacyMigration,
+    SourceLocator,
+    SourceNativeArtifactCandidate,
+    SourceSnapshot,
+    SourceUnit,
+)
+from rock_kb.source_native import source_native_model_input_hash
+from rock_kb.source_native_migration import (
+    public_record_hash,
+    source_native_legacy_migration_input_hash,
+    validate_source_native_legacy_migration_output,
+)
+
+
+def rehash_migration_input(row: dict) -> dict:
+    snapshot = SourceSnapshot.model_validate(row["source_snapshot"])
+    row["source_input_hash"] = source_native_model_input_hash(
+        snapshot=snapshot,
+        source_units=[
+            SourceUnit.model_validate(value) for value in row["source_units"]
+        ],
+        concept_ids=row["concept_ids"],
+        existing_claims=row["existing_claims"],
+        documentation_path=row.get("documentation_path"),
+        documentation_branches=row.get("documentation_branches") or [],
+        documentation_current_version=row.get("documentation_current_version"),
+    )
+    row["migration_input_hash_version"] = "2"
+    row["migration_input_hash"] = source_native_legacy_migration_input_hash(row)
+    return row
+
+
+def migration_input() -> dict:
+    return rehash_migration_input(
+        {
+            "schema": "rock-kb-source-native-distillation-input-v1",
+            "candidate_id": "source-native-candidate:test",
+            "source_input_hash": "a" * 64,
+            "migration_input_hash": "b" * 64,
+            "source_snapshot": {
+                "schema": "rock-kb-source-snapshot-v2",
+                "source_snapshot_id": "source-snapshot:test",
+                "source_id": "rock_documentation",
+                "source_record_id": "rock_documentation:article:100",
+                "source_work_id": "documentation-article:100",
+                "canonical_url": "https://community.rockrms.com/documentation/test",
+                "title": "Test Article",
+                "content_hash": "c" * 64,
+                "normalized_content_hash": "c" * 64,
+                "authority_tier": "official",
+                "public_policy": "cite_and_summarize_only",
+                "derivation": {"documentation_article_id": 100},
+            },
+            "source_units": [
+                {
+                    "schema": "rock-kb-source-unit-v2",
+                    "source_unit_id": "source-unit:test",
+                    "source_snapshot_id": "source-snapshot:test",
+                    "unit_kind": "paragraph",
+                    "locator": {
+                        "kind": "paragraph",
+                        "value": "Overview / paragraph-1",
+                        "url": "https://community.rockrms.com/documentation/test",
+                    },
+                    "text": "The feature performs the documented behavior.",
+                    "normalized_content_hash": "d" * 64,
+                    "required_public_handling": "cite_and_summarize_only",
+                }
+            ],
+            "concept_ids": ["workflows"],
+            "existing_claims": [],
+            "legacy_items": [
+                {
+                    "legacy_knowledge_unit_id": "knowledge:claim:legacy",
+                    "legacy_result_ids": ["claim:legacy"],
+                    "legacy_knowledge_type": "claim",
+                    "legacy_ingestion_mode": "legacy_reviewed_claim_projection",
+                    "legacy_content_hash": "e" * 64,
+                    "title": "Legacy behavior",
+                    "retrieval_text": "The feature performs the documented behavior.",
+                    "concept_facets": ["workflows"],
+                    "source_record_ids": ["rock_documentation:article:100"],
+                }
+            ],
+            "existing_source_native_artifacts": [],
+        }
+    )
+
+
+def migration_output() -> dict:
+    input_row = migration_input()
+    return {
+        "schema": "rock-kb-source-native-legacy-migration-output-v1",
+        "variant_id": "source_native_legacy_migration_v1",
+        "articles": [
+            {
+                "candidate_id": "source-native-candidate:test",
+                "source_input_hash": input_row["source_input_hash"],
+                "migration_input_hash_version": "2",
+                "migration_input_hash": input_row["migration_input_hash"],
+                "unit_decisions": [
+                    {
+                        "source_unit_id": "source-unit:test",
+                        "disposition": "claim",
+                        "existing_relation": "novel",
+                        "related_existing_claim_ids": [],
+                        "evidence_summary": "The source states the behavior.",
+                        "decision_reason": "The behavior is independently answerable.",
+                        "mixed_material": False,
+                    }
+                ],
+                "artifacts": [
+                    {
+                        "artifact_key": "feature-behavior",
+                        "artifact_type": "claim",
+                        "source_unit_ids": ["source-unit:test"],
+                        "title": "The feature performs the documented behavior.",
+                        "retrieval_text": "The feature performs the documented behavior.",
+                        "independent_question": "What behavior does the feature perform?",
+                        "rationale": "The source unit directly states this behavior.",
+                        "concept_ids": ["workflows"],
+                        "claim_type": "behavior",
+                        "evidence_class": "current_behavior",
+                        "confidence": "high",
+                        "payload": {
+                            "summary": "The feature performs the documented behavior."
+                        },
+                    }
+                ],
+                "verification_requests": [],
+                "unmatched_routing_terms": [],
+                "review_notes": [
+                    "The source-native claim fully preserves the legacy behavior."
+                ],
+                "coverage_check": {
+                    "material_unit_count": 1,
+                    "captured_source_unit_ids": ["source-unit:test"],
+                    "no_artifact_source_unit_ids": [],
+                    "omitted_source_units": [],
+                },
+                "legacy_decisions": [
+                    {
+                        "legacy_knowledge_unit_id": "knowledge:claim:legacy",
+                        "legacy_content_hash": "e" * 64,
+                        "disposition": "replace",
+                        "coverage": "full",
+                        "replacement_artifact_key": "feature-behavior",
+                        "supporting_replacement_artifact_keys": [],
+                        "rationale": (
+                            "The source-native claim preserves the complete supported "
+                            "behavior in one independently retrievable artifact."
+                        ),
+                    }
+                ],
+                "existing_artifact_decisions": [],
+            }
+        ],
+    }
+
+
+def test_migration_output_requires_exact_legacy_coverage():
+    validated = validate_source_native_legacy_migration_output(
+        migration_output(),
+        inputs=[migration_input()],
+    )
+    assert validated.articles[0].legacy_decisions[0].disposition == "replace"
+
+    missing = migration_output()
+    missing["articles"][0]["legacy_decisions"] = []
+    with pytest.raises(ValueError, match="exact input"):
+        validate_source_native_legacy_migration_output(
+            missing,
+            inputs=[migration_input()],
+        )
+
+
+def test_migration_input_hash_rejects_source_and_legacy_tampering():
+    source_tampered = migration_input()
+    source_tampered["source_units"][0]["text"] += " Tampered."
+    with pytest.raises(ValueError, match="source input hash changed"):
+        validate_source_native_legacy_migration_output(
+            migration_output(),
+            inputs=[source_tampered],
+        )
+
+    legacy_tampered = migration_input()
+    legacy_tampered["legacy_items"][0]["retrieval_text"] += " Tampered."
+    with pytest.raises(ValueError, match="migration input contents changed"):
+        validate_source_native_legacy_migration_output(
+            migration_output(),
+            inputs=[legacy_tampered],
+        )
+
+
+def test_existing_artifact_decisions_require_exact_hash_bound_coverage():
+    input_row = migration_input()
+    existing_id = "source-native:claim:rock_documentation:article-100:feature-behavior"
+    input_row["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": existing_id,
+            "artifact_hash": "1" * 64,
+            "artifact": migration_output()["articles"][0]["artifacts"][0],
+        }
+    ]
+    rehash_migration_input(input_row)
+    output = migration_output()
+    article = output["articles"][0]
+    article["source_input_hash"] = input_row["source_input_hash"]
+    article["migration_input_hash"] = input_row["migration_input_hash"]
+
+    with pytest.raises(ValueError, match="existing artifact decisions"):
+        validate_source_native_legacy_migration_output(
+            output,
+            inputs=[input_row],
+        )
+
+    article["existing_artifact_decisions"] = [
+        {
+            "existing_artifact_id": existing_id,
+            "existing_artifact_hash": "1" * 64,
+            "disposition": "retain_identity",
+            "replacement_artifact_key": "feature-behavior",
+            "rationale": (
+                "The emitted claim retains the same durable source-native "
+                "identity and complete supported meaning."
+            ),
+        }
+    ]
+    assert (
+        validate_source_native_legacy_migration_output(
+            output,
+            inputs=[input_row],
+        )
+        .articles[0]
+        .existing_artifact_decisions[0]
+        .disposition
+        == "retain_identity"
+    )
+
+    article["existing_artifact_decisions"][0]["existing_artifact_hash"] = "2" * 64
+    with pytest.raises(ValueError, match="artifact hash changed"):
+        validate_source_native_legacy_migration_output(
+            output,
+            inputs=[input_row],
+        )
+
+
+def test_source_summary_can_use_companions_but_claims_cannot():
+    source_summary_input = migration_input()
+    reference_unit = copy.deepcopy(source_summary_input["source_units"][0])
+    reference_unit["source_unit_id"] = "source-unit:reference"
+    reference_unit["normalized_content_hash"] = "9" * 64
+    source_summary_input["source_units"].append(reference_unit)
+    source_summary_input["legacy_items"] = [
+        {
+            "legacy_knowledge_unit_id": "source:rock_documentation:article:100",
+            "legacy_result_ids": ["source:rock_documentation:article:100"],
+            "legacy_knowledge_type": "source_summary",
+            "legacy_ingestion_mode": "legacy_summary_projection",
+            "legacy_content_hash": "f" * 64,
+            "title": "Legacy article summary",
+            "retrieval_text": "The article documents the feature behavior.",
+            "concept_facets": ["workflows"],
+            "source_record_ids": ["rock_documentation:article:100"],
+        }
+    ]
+    output = migration_output()
+    article = output["articles"][0]
+    article["unit_decisions"][0]["disposition"] = "source_summary"
+    article["unit_decisions"][0]["existing_relation"] = "not_applicable"
+    article["unit_decisions"].append(
+        {
+            "source_unit_id": "source-unit:reference",
+            "disposition": "structured_reference",
+            "existing_relation": "not_applicable",
+            "related_existing_claim_ids": [],
+            "evidence_summary": "The source supplies the compact reference.",
+            "decision_reason": "The detail is best represented as a reference item.",
+            "mixed_material": False,
+        }
+    )
+    article["coverage_check"] = {
+        "material_unit_count": 2,
+        "captured_source_unit_ids": ["source-unit:test", "source-unit:reference"],
+        "no_artifact_source_unit_ids": [],
+        "omitted_source_units": [],
+    }
+    article["artifacts"] = [
+        {
+            "artifact_key": "feature-summary",
+            "artifact_type": "source_summary",
+            "source_unit_ids": ["source-unit:test"],
+            "title": "The article documents the feature behavior.",
+            "retrieval_text": "The article documents the feature behavior.",
+            "independent_question": "What does the feature article cover?",
+            "rationale": "The source unit establishes the article's documented scope.",
+            "concept_ids": ["workflows"],
+            "confidence": "high",
+            "payload": {"summary": "The article documents the feature behavior."},
+        },
+        {
+            "artifact_key": "feature-reference",
+            "artifact_type": "structured_reference",
+            "source_unit_ids": ["source-unit:reference"],
+            "title": "The feature has a documented behavior reference.",
+            "retrieval_text": "Feature behavior reference.",
+            "independent_question": "Where is the feature behavior summarized?",
+            "rationale": "The source unit directly supports this compact reference.",
+            "concept_ids": ["workflows"],
+            "confidence": "high",
+            "temporal_status": "release_sensitive",
+            "payload": {
+                "summary": "The feature performs the documented behavior.",
+                "reference_items": [
+                    {
+                        "label": "Behavior",
+                        "detail": "The feature performs the documented behavior.",
+                        "value_status": "documented_behavior",
+                        "needs_verification": False,
+                    }
+                ],
+            },
+        },
+    ]
+    article["legacy_decisions"] = [
+        {
+            "legacy_knowledge_unit_id": "source:rock_documentation:article:100",
+            "legacy_content_hash": "f" * 64,
+            "disposition": "replace",
+            "coverage": "full",
+            "replacement_artifact_key": "feature-summary",
+            "supporting_replacement_artifact_keys": ["feature-reference"],
+            "rationale": (
+                "The source summary preserves article scope and the companion "
+                "preserves its independently retrievable operational detail."
+            ),
+        }
+    ]
+    rehash_migration_input(source_summary_input)
+    article["source_input_hash"] = source_summary_input["source_input_hash"]
+    article["migration_input_hash"] = source_summary_input["migration_input_hash"]
+    validated = validate_source_native_legacy_migration_output(
+        output,
+        inputs=[source_summary_input],
+    )
+    assert validated.articles[0].legacy_decisions[
+        0
+    ].supporting_replacement_artifact_keys == ["feature-reference"]
+
+    claim_input = migration_input()
+    claim_reference_unit = copy.deepcopy(claim_input["source_units"][0])
+    claim_reference_unit["source_unit_id"] = "source-unit:reference"
+    claim_reference_unit["normalized_content_hash"] = "9" * 64
+    claim_input["source_units"].append(claim_reference_unit)
+    rehash_migration_input(claim_input)
+    claim_with_companion = migration_output()
+    claim_article = claim_with_companion["articles"][0]
+    claim_article["source_input_hash"] = claim_input["source_input_hash"]
+    claim_article["migration_input_hash"] = claim_input["migration_input_hash"]
+    claim_article["unit_decisions"].append(
+        {
+            "source_unit_id": "source-unit:reference",
+            "disposition": "claim",
+            "existing_relation": "novel",
+            "related_existing_claim_ids": [],
+            "evidence_summary": "The source states another supported behavior.",
+            "decision_reason": "The behavior is independently answerable.",
+            "mixed_material": False,
+        }
+    )
+    companion_claim = copy.deepcopy(claim_article["artifacts"][0])
+    companion_claim["artifact_key"] = "feature-companion"
+    companion_claim["source_unit_ids"] = ["source-unit:reference"]
+    companion_claim["title"] = "The feature also performs a second behavior."
+    companion_claim["retrieval_text"] = (
+        "The feature also performs a second documented behavior."
+    )
+    companion_claim["independent_question"] = (
+        "What second behavior does the feature perform?"
+    )
+    companion_claim["payload"] = {
+        "summary": "The feature also performs a second documented behavior."
+    }
+    claim_article["artifacts"].append(companion_claim)
+    claim_article["coverage_check"] = {
+        "material_unit_count": 2,
+        "captured_source_unit_ids": ["source-unit:test", "source-unit:reference"],
+        "no_artifact_source_unit_ids": [],
+        "omitted_source_units": [],
+    }
+    claim_with_companion["articles"][0]["legacy_decisions"][0][
+        "supporting_replacement_artifact_keys"
+    ] = ["feature-companion"]
+    with pytest.raises(ValueError, match="legacy claims cannot use"):
+        validate_source_native_legacy_migration_output(
+            claim_with_companion,
+            inputs=[claim_input],
+        )
+
+
+def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypatch):
+    claim_row = {
+        "id": "claim:claim:legacy",
+        "kind": "claim",
+        "title": "Legacy behavior",
+        "body": "The feature performs the documented behavior.",
+        "concepts": ["workflows"],
+        "authority_tier": "official",
+        "claim_tier": "answer_pack_approved",
+        "source_id": "rock_documentation",
+        "payload": {
+            "schema": "rock-kb-claim-v1",
+            "claim_id": "claim:legacy",
+            "claim": "The feature performs the documented behavior.",
+            "claim_type": "behavior",
+            "concept_ids": ["workflows"],
+            "source_record_ids": ["rock_documentation:article:100"],
+            "source_refs": [
+                {
+                    "source_id": "rock_documentation",
+                    "title": "Test Article",
+                    "url": "https://community.rockrms.com/documentation/test",
+                }
+            ],
+            "authority_tier": "official",
+            "confidence": "high",
+            "review_status": "approved_for_public_distillation",
+            "license_status": "cite_and_summarize_only",
+            "public_publish_mode": "public_cite_and_summarize_only",
+            "safe_evidence_hash": "1" * 64,
+            "needs_live_verification": False,
+            "created_at": "2026-08-04T00:00:00+00:00",
+            "updated_at": "2026-08-04T00:00:00+00:00",
+            "derived_from": {"type": "test"},
+            "community_derived": False,
+            "primary_concept_id": "workflows",
+            "concept_assignment_reason": "test_fixture",
+            "answer_candidate": True,
+            "operational_priority": 100,
+            "requires_live_instance": False,
+            "claim_tier": "answer_pack_approved",
+        },
+    }
+    legacy_bundle, _summary = build_canonical_knowledge_bundle(
+        search_rows=[claim_row],
+        distilled_claims=[],
+        include_source_native_pilot=False,
+    )
+    legacy = legacy_bundle.knowledge_units[0]
+    snapshot = SourceSnapshot(
+        schema="rock-kb-source-snapshot-v2",
+        source_snapshot_id="source-snapshot:test",
+        source_id="rock_documentation",
+        source_record_id="rock_documentation:article:100",
+        source_work_id="documentation-article:100",
+        canonical_url="https://community.rockrms.com/documentation/test",
+        title="Test Article",
+        content_hash="c" * 64,
+        normalized_content_hash="c" * 64,
+        authority_tier="official",
+        public_policy="cite_and_summarize_only",
+        derivation={"documentation_article_id": 100},
+    )
+    unit = SourceUnit(
+        schema="rock-kb-source-unit-v2",
+        source_unit_id="source-unit:test",
+        source_snapshot_id=snapshot.source_snapshot_id,
+        unit_kind="paragraph",
+        locator=SourceLocator(
+            kind="paragraph",
+            value="Overview / paragraph-1",
+            url=snapshot.canonical_url,
+        ),
+        public_summary="The source states the documented behavior.",
+        normalized_content_hash="d" * 64,
+        required_public_handling="cite_and_summarize_only",
+    )
+    artifact = SourceNativeArtifactCandidate(
+        artifact_key="feature-behavior",
+        artifact_type="claim",
+        source_unit_ids=[unit.source_unit_id],
+        title="The feature performs the documented behavior.",
+        retrieval_text="The feature performs the documented behavior.",
+        independent_question="What behavior does the feature perform?",
+        rationale="The source unit directly states this behavior.",
+        concept_ids=["workflows"],
+        claim_type="behavior",
+        evidence_class="current_behavior",
+        confidence="high",
+        payload={"summary": "The feature performs the documented behavior."},
+    )
+    reviewed = ReviewedSourceNativeArtifact(
+        schema="rock-kb-reviewed-source-native-artifact-v1",
+        artifact_id=(
+            "source-native:claim:rock_documentation:article-100:feature-behavior"
+        ),
+        source_candidate_id="source-native-candidate:test",
+        generation_activity_id="generation:test",
+        artifact=artifact,
+        review_state="reviewer_approved",
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-04T00:00:00+00:00",
+        source_input_hash="a" * 64,
+    )
+    migration = ReviewedSourceNativeLegacyMigration(
+        schema="rock-kb-reviewed-source-native-legacy-migration-v1",
+        migration_id="source-native-legacy-migration:test",
+        source_record_id="rock_documentation:article:100",
+        source_snapshot_id=snapshot.source_snapshot_id,
+        source_snapshot_content_hash=snapshot.content_hash,
+        legacy_knowledge_unit_id=legacy.knowledge_unit_id,
+        legacy_result_ids=sorted({legacy.knowledge_unit_id, *legacy.legacy_ids}),
+        legacy_knowledge_type="claim",
+        legacy_ingestion_mode="legacy_reviewed_claim_projection",
+        legacy_content_hash=legacy.content_hash,
+        migration_input_hash="b" * 64,
+        replacement_artifact_id=reviewed.artifact_id,
+        replacement_artifact_hash=public_record_hash(reviewed.artifact),
+        rationale=(
+            "The replacement preserves the complete supported behavior in one "
+            "source-native claim."
+        ),
+        generation_model="test-model",
+        generation_prompt_id="source-native-legacy-migration-v1",
+        generation_prompt_version="1.2.0",
+        generated_article_hash="2" * 64,
+        reviewed_article_hash="3" * 64,
+        review_correction_count=0,
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-04T00:00:00+00:00",
+    )
+    artifact_migration = ReviewedSourceNativeArtifactMigration(
+        schema="rock-kb-reviewed-source-native-artifact-migration-v1",
+        migration_id="source-native-artifact-migration:test",
+        source_record_id="rock_documentation:article:100",
+        source_snapshot_id=snapshot.source_snapshot_id,
+        source_snapshot_content_hash=snapshot.content_hash,
+        prior_artifact_id="source-native:claim:rock_documentation:article-100:old-key",
+        prior_artifact_hash="4" * 64,
+        replacement_artifact_id=reviewed.artifact_id,
+        replacement_artifact_hash=public_record_hash(reviewed.artifact),
+        migration_input_hash="b" * 64,
+        rationale=(
+            "The reviewed replacement fully supersedes the earlier source-native "
+            "artifact while preserving its exact public lookup ID."
+        ),
+        generation_model="test-model",
+        generation_prompt_id="source-native-legacy-migration-v1",
+        generation_prompt_version="1.2.0",
+        generated_article_hash="2" * 64,
+        reviewed_article_hash="3" * 64,
+        review_correction_count=0,
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-04T00:00:00+00:00",
+    )
+    source_native = {
+        "source_snapshots": [snapshot],
+        "source_units": [unit],
+        "generation_activities": [
+            GenerationActivity(
+                schema="rock-kb-generation-activity-v1",
+                generation_activity_id="generation:test",
+                activity_type="source_distillation",
+                model="test-model",
+                prompt_id="source-native-legacy-migration-v1",
+                prompt_version="1.0.0",
+                source_snapshot_ids=[snapshot.source_snapshot_id],
+                source_unit_ids=[unit.source_unit_id],
+            )
+        ],
+        "reviewed_artifacts": [reviewed],
+        "relationships": [],
+        "verification_queue": [],
+        "verification_resolutions": [],
+        "legacy_migrations": [migration],
+        "artifact_migrations": [artifact_migration],
+    }
+    monkeypatch.setattr(
+        "rock_kb.canonical_knowledge.load_source_native_pilot",
+        lambda _repo_root: source_native,
+    )
+
+    bundle, summary = build_canonical_knowledge_bundle(
+        search_rows=[claim_row],
+        distilled_claims=[],
+        identity_registry=[row.public_dump() for row in legacy_bundle.identities],
+        include_source_native_pilot=True,
+    )
+
+    assert len(bundle.knowledge_units) == 1
+    replacement = bundle.knowledge_units[0]
+    assert replacement.knowledge_unit_id == reviewed.artifact_id
+    assert replacement.ingestion_mode == "source_native_distillation"
+    assert set(migration.legacy_result_ids) <= set(replacement.legacy_ids)
+    assert artifact_migration.prior_artifact_id in replacement.legacy_ids
+    assert summary["input"]["reviewed_legacy_migrations"] == 1
+    assert summary["input"]["reviewed_source_native_artifact_migrations"] == 1
+    assert (
+        summary["output"]["ingestion_modes"].get(
+            "legacy_reviewed_claim_projection",
+            0,
+        )
+        == 0
+    )
+    identity_migration = next(
+        row
+        for row in bundle.identity_migrations
+        if row.from_knowledge_unit_id == legacy.knowledge_unit_id
+    )
+    assert identity_migration.to_knowledge_unit_id == reviewed.artifact_id
+    assert identity_migration.review_state == "reviewer_approved"
+
+    stale_source_native = copy.deepcopy(source_native)
+    stale_source_native["legacy_migrations"][0] = migration.model_copy(
+        update={"legacy_content_hash": "f" * 64}
+    )
+    monkeypatch.setattr(
+        "rock_kb.canonical_knowledge.load_source_native_pilot",
+        lambda _repo_root: stale_source_native,
+    )
+    with pytest.raises(ValueError, match="content hash changed"):
+        build_canonical_knowledge_bundle(
+            search_rows=[claim_row],
+            distilled_claims=[],
+            identity_registry=[row.public_dump() for row in legacy_bundle.identities],
+            include_source_native_pilot=True,
+        )

@@ -4,9 +4,10 @@ import hashlib
 import json
 import re
 from collections import Counter, defaultdict
+from collections.abc import Iterable
 from itertools import combinations
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from .extract import generated_at_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
@@ -37,8 +38,11 @@ from .source_native import (
     canonical_records_for_source_native_artifacts,
     load_source_native_pilot,
 )
+from .source_native_migration import (
+    LegacyMigrationIndex,
+    SourceNativeArtifactMigrationIndex,
+)
 from .source_native_verification import verification_resolutions_by_artifact
-
 
 SHADOW_DIR = REVIEW_DIR / "canonical-knowledge-pilot"
 CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR = Path("canonical/identity/v1")
@@ -97,6 +101,7 @@ def build_canonical_knowledge_bundle(
     identity_migrations: Iterable[dict[str, Any]] | None = None,
     previous_knowledge_units: Iterable[dict[str, Any]] | None = None,
     include_source_native_pilot: bool | None = None,
+    include_legacy_migrations: bool | None = None,
     include_reviewed_cross_source: bool | None = None,
     repo_root: Path = REPO_ROOT,
 ) -> tuple[CanonicalKnowledgeBundle, dict[str, Any]]:
@@ -112,6 +117,11 @@ def build_canonical_knowledge_bundle(
         if include_reviewed_cross_source is None
         else include_reviewed_cross_source
     )
+    use_legacy_migrations = (
+        use_source_native_pilot
+        if include_legacy_migrations is None
+        else include_legacy_migrations
+    )
     all_search_rows = list(search_rows) if search_rows is not None else build_search_rows()
     supported_rows = [row for row in all_search_rows if str(row.get("kind") or "") in SUPPORTED_SEARCH_KINDS]
     distilled_rows = (
@@ -126,14 +136,66 @@ def build_canonical_knowledge_bundle(
     )
     builder = _ProjectionBuilder(resolver)
 
+    source_native = (
+        load_source_native_pilot(repo_root)
+        if use_source_native_pilot
+        else {
+            "source_snapshots": [],
+            "source_units": [],
+            "generation_activities": [],
+            "reviewed_artifacts": [],
+            "relationships": [],
+            "verification_queue": [],
+            "verification_resolutions": [],
+            "legacy_migrations": [],
+            "artifact_migrations": [],
+        }
+    )
+    legacy_migration_index = LegacyMigrationIndex(
+        source_native.get("legacy_migrations") or []
+        if use_legacy_migrations
+        else []
+    )
+    artifact_migration_index = SourceNativeArtifactMigrationIndex(
+        source_native.get("artifact_migrations") or []
+        if use_legacy_migrations
+        else []
+    )
+
     claim_rows = [row for row in supported_rows if row.get("kind") == "claim"]
     for group in canonical_claim_groups(claim_rows, distilled_rows):
+        migration = legacy_migration_index.match(
+            result_ids=claim_group_aliases(
+                group["claim_rows"],
+                group["distilled_rows"],
+            ),
+            knowledge_type="claim",
+            ingestion_mode="legacy_reviewed_claim_projection",
+            content_hash=claim_group_content_hash(group),
+            source_record_ids=claim_group_source_record_ids(group),
+        )
+        if migration is not None:
+            continue
         builder.add_claim_group(group)
 
     for row in supported_rows:
         if row.get("kind") == "claim":
             continue
+        payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+        kind = str(row.get("kind") or "other")
+        contract = source_family_contract(kind, payload)
+        migration = legacy_migration_index.match(
+            result_ids=[str(row.get("id") or ""), *(row.get("legacy_ids") or [])],
+            knowledge_type=kind,
+            ingestion_mode=contract.ingestion_mode,
+            content_hash=sha256_text(canonical_json(payload)),
+            source_record_ids=search_row_source_record_ids(row),
+        )
+        if migration is not None:
+            continue
         builder.add_search_row(row)
+
+    legacy_migration_index.assert_all_applied()
 
     reviewed_cross_source = (
         load_reviewed_cross_source(repo_root)
@@ -148,18 +210,11 @@ def build_canonical_knowledge_bundle(
         }
     )
     builder.add_reviewed_cross_source(reviewed_cross_source)
-    source_native = (
-        load_source_native_pilot(repo_root)
-        if use_source_native_pilot
-        else {
-            "source_snapshots": [],
-            "source_units": [],
-            "generation_activities": [],
-            "reviewed_artifacts": [],
-            "relationships": [],
-        }
+    builder.add_source_native_pilot(
+        source_native,
+        legacy_migration_index=legacy_migration_index,
+        artifact_migration_index=artifact_migration_index,
     )
-    builder.add_source_native_pilot(source_native)
     builder.add_mirror_relationships()
     bundle = builder.bundle()
     summary = projection_summary(
@@ -169,6 +224,10 @@ def build_canonical_knowledge_bundle(
         claim_rows=claim_rows,
         distilled_rows=distilled_rows,
         source_native_artifact_count=len(source_native["reviewed_artifacts"]),
+        legacy_migration_count=len(source_native.get("legacy_migrations") or []),
+        artifact_migration_count=len(
+            source_native.get("artifact_migrations") or []
+        ),
         reviewed_cross_source_artifact_count=len(
             reviewed_cross_source["knowledge_units"]
         ),
@@ -302,11 +361,17 @@ def write_canonical_identity_baseline(
         KnowledgeUnit.model_validate(row)
         for row in read_jsonl(shadow_destination / "knowledge-units.jsonl")
     ]
+    source_native = load_source_native_pilot(repo_root)
+    historical_public_result_ids = sorted(
+        row.prior_artifact_id
+        for row in source_native.get("artifact_migrations") or []
+    )
     public_rows = build_search_rows()
     registry, aliases, metadata = build_public_identity_baseline(
         identities=identities,
         knowledge_units=knowledge_units,
         public_search_rows=public_rows,
+        historical_public_result_ids=historical_public_result_ids,
     )
     baseline_dir = (
         destination
@@ -380,6 +445,7 @@ def build_public_identity_baseline(
     identities: Iterable[KnowledgeIdentity],
     knowledge_units: Iterable[KnowledgeUnit],
     public_search_rows: Iterable[dict[str, Any]],
+    historical_public_result_ids: Iterable[str] = (),
 ) -> tuple[
     list[KnowledgeIdentity],
     list[PublicResultAlias],
@@ -407,6 +473,16 @@ def build_public_identity_baseline(
     )
     public_alias_sources: dict[str, str] = {}
     public_result_ids: set[str] = set()
+    reviewed_historical_ids = sorted(
+        {
+            str(value).strip()
+            for value in historical_public_result_ids
+            if str(value).strip()
+        }
+    )
+    for result_id in reviewed_historical_ids:
+        public_result_ids.add(result_id)
+        public_alias_sources[result_id] = "existing_public_result_id"
     for row in supported_rows:
         row_id = str(row.get("id") or "").strip()
         if not row_id:
@@ -468,16 +544,19 @@ def build_public_identity_baseline(
     knowledge_type_counts = Counter(
         row.knowledge_type for row in sanitized_registry
     )
-    public_projection = [
-        {
-            "id": str(row.get("id") or ""),
-            "kind": str(row.get("kind") or ""),
-            "legacy_ids": sorted(
-                str(value) for value in row.get("legacy_ids") or []
-            ),
-        }
-        for row in supported_rows
-    ]
+    public_projection = {
+        "active_rows": [
+            {
+                "id": str(row.get("id") or ""),
+                "kind": str(row.get("kind") or ""),
+                "legacy_ids": sorted(
+                    str(value) for value in row.get("legacy_ids") or []
+                ),
+            }
+            for row in supported_rows
+        ],
+        "reviewed_historical_result_ids": reviewed_historical_ids,
+    }
     return sanitized_registry, public_aliases, {
         "existing_result_id_alias_count": alias_source_counts[
             "existing_public_result_id"
@@ -636,6 +715,57 @@ def claim_group_aliases(
     return sorted(aliases)
 
 
+def claim_group_payload(group: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "schema": "rock-kb-canonical-claim-payload-v1",
+        "claim_type": group["claim_type"],
+        "approved_claims": sorted(
+            [row.get("payload") or {} for row in group["claim_rows"]],
+            key=lambda row: str(row.get("claim_id") or ""),
+        ),
+        "distillations": sorted(
+            group["distilled_rows"],
+            key=lambda row: str(row.get("id") or ""),
+        ),
+    }
+
+
+def claim_group_content_hash(group: dict[str, Any]) -> str:
+    payload = claim_group_payload(group)
+    assert_public_safe(payload)
+    return sha256_text(canonical_json(payload))
+
+
+def claim_group_source_record_ids(group: dict[str, Any]) -> list[str]:
+    return sorted(
+        {
+            str(value)
+            for row in group["claim_rows"]
+            for value in (row.get("payload") or {}).get("source_record_ids") or []
+            if value
+        }
+        | {
+            str(value)
+            for row in group["distilled_rows"]
+            for value in row.get("source_record_ids") or []
+            if value
+        }
+    )
+
+
+def search_row_source_record_ids(row: dict[str, Any]) -> list[str]:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    values = {
+        str(value)
+        for value in payload.get("source_record_ids") or []
+        if value
+    }
+    source_record_id = search_row_source_record_id(row)
+    if source_record_id:
+        values.add(source_record_id)
+    return sorted(values)
+
+
 def claim_identity_anchor(
     claim_rows: Iterable[dict[str, Any]],
     distilled_rows: Iterable[dict[str, Any]],
@@ -728,6 +858,9 @@ class _IdentityResolver:
         default_identity_key: str,
         default_knowledge_unit_id: str,
         default_basis: str,
+        preferred_registry_id: str | None = None,
+        merge_reason: str | None = None,
+        merge_review_state: str = "generated_needs_reviewer_approval",
     ) -> KnowledgeIdentity:
         current_aliases = {str(value).strip() for value in aliases if str(value).strip()}
         matched_registry_ids = {
@@ -736,10 +869,20 @@ class _IdentityResolver:
             for registry_id in self.alias_index.get(alias, set())
         }
         if matched_registry_ids:
-            survivor_id = sorted(matched_registry_ids)[0]
-            survivor = self.registry[survivor_id]
-            identity_key = survivor.identity_key
-            basis = "registry_merge" if len(matched_registry_ids) > 1 else survivor.identity_basis
+            if preferred_registry_id:
+                survivor_id = preferred_registry_id
+            else:
+                survivor_id = min(matched_registry_ids)
+            survivor = self.registry.get(survivor_id)
+            identity_key = (
+                survivor.identity_key if survivor else default_identity_key
+            )
+            basis = (
+                "registry_merge"
+                if len(matched_registry_ids) > 1
+                or survivor_id not in matched_registry_ids
+                else survivor.identity_basis
+            )
             for registry_id in sorted(matched_registry_ids):
                 current_aliases.update(self.registry[registry_id].aliases)
                 if registry_id != survivor_id:
@@ -747,13 +890,15 @@ class _IdentityResolver:
                         from_id=registry_id,
                         to_id=survivor_id,
                         migration_type="identity_merge",
-                        reason=(
+                        reason=merge_reason
+                        or (
                             "Previously distinct registry identities now share an explicit "
-                            "source or legacy alias; the lexicographically first identity survives."
+                            "source or legacy alias; the selected identity survives."
                         ),
                         matched_aliases=sorted(
                             set(self.registry[registry_id].aliases) & current_aliases
                         ),
+                        review_state=merge_review_state,
                     )
         else:
             survivor_id = default_knowledge_unit_id
@@ -814,6 +959,7 @@ class _IdentityResolver:
         migration_type: str,
         reason: str,
         matched_aliases: list[str],
+        review_state: str = "generated_needs_reviewer_approval",
     ) -> None:
         migration_id = "identity-migration:" + sha256_text(
             f"{from_id}:{to_id}:{migration_type}"
@@ -826,6 +972,7 @@ class _IdentityResolver:
             migration_type=migration_type,
             reason=reason,
             matched_aliases=matched_aliases,
+            review_state=review_state,
         )
 
     def migrations_resolving_to(
@@ -993,6 +1140,9 @@ class _ProjectionBuilder:
     def add_source_native_pilot(
         self,
         records: dict[str, list[Any]],
+        *,
+        legacy_migration_index: LegacyMigrationIndex | None = None,
+        artifact_migration_index: SourceNativeArtifactMigrationIndex | None = None,
     ) -> None:
         for snapshot in records.get("source_snapshots") or []:
             self.store_snapshot(snapshot)
@@ -1027,17 +1177,111 @@ class _ProjectionBuilder:
             records.get("reviewed_artifacts") or [],
             verification_by_artifact=verification_by_artifact,
         )
+        migration_aliases = (
+            legacy_migration_index.aliases_by_replacement()
+            if legacy_migration_index
+            else {}
+        )
+        artifact_migration_aliases = (
+            artifact_migration_index.aliases_by_replacement()
+            if artifact_migration_index
+            else {}
+        )
+        migrations_by_replacement = (
+            legacy_migration_index.migrations_by_replacement()
+            if legacy_migration_index
+            else {}
+        )
+        artifact_migrations_by_replacement = (
+            artifact_migration_index.migrations_by_replacement()
+            if artifact_migration_index
+            else {}
+        )
         canonical_ids: dict[str, str] = {}
         for item in knowledge_units:
+            replacement_migrations = migrations_by_replacement.get(
+                item.knowledge_unit_id,
+                [],
+            )
+            artifact_replacement_migrations = (
+                artifact_migrations_by_replacement.get(
+                    item.knowledge_unit_id,
+                    [],
+                )
+            )
+            updated_payload = (
+                {
+                    **item.payload,
+                    **(
+                        {
+                            "legacy_migrations": [
+                                {
+                                    "migration_id": row.migration_id,
+                                    "legacy_knowledge_unit_id": (
+                                        row.legacy_knowledge_unit_id
+                                    ),
+                                    "coverage": row.coverage,
+                                    "review_state": row.review_state,
+                                    "reviewed_at": row.reviewed_at,
+                                }
+                                for row in replacement_migrations
+                            ]
+                        }
+                        if replacement_migrations
+                        else {}
+                    ),
+                    **(
+                        {
+                            "source_native_artifact_migrations": [
+                                {
+                                    "migration_id": row.migration_id,
+                                    "prior_artifact_id": row.prior_artifact_id,
+                                    "review_state": row.review_state,
+                                    "reviewed_at": row.reviewed_at,
+                                }
+                                for row in artifact_replacement_migrations
+                            ]
+                        }
+                        if artifact_replacement_migrations
+                        else {}
+                    ),
+                }
+                if replacement_migrations or artifact_replacement_migrations
+                else item.payload
+            )
+            updated_content_hash = sha256_text(canonical_json(updated_payload))
             identity = self.identity_resolver.resolve(
                 knowledge_type=item.knowledge_type,
-                aliases=[item.knowledge_unit_id],
-                content_fingerprint=item.content_hash,
+                aliases=[
+                    item.knowledge_unit_id,
+                    *migration_aliases.get(item.knowledge_unit_id, []),
+                    *artifact_migration_aliases.get(
+                        item.knowledge_unit_id,
+                        [],
+                    ),
+                ],
+                content_fingerprint=updated_content_hash,
                 default_identity_key=(
                     f"source_native_artifact:{item.knowledge_unit_id}"
                 ),
                 default_knowledge_unit_id=item.knowledge_unit_id,
                 default_basis="source_identity",
+                preferred_registry_id=(
+                    item.knowledge_unit_id
+                    if replacement_migrations or artifact_replacement_migrations
+                    else None
+                ),
+                merge_reason=(
+                    "A reviewer-approved, hash-bound source-native migration "
+                    "replaced an earlier projection while preserving its public IDs."
+                    if replacement_migrations or artifact_replacement_migrations
+                    else None
+                ),
+                merge_review_state=(
+                    "reviewer_approved"
+                    if replacement_migrations or artifact_replacement_migrations
+                    else "generated_needs_reviewer_approval"
+                ),
             )
             canonical_ids[item.knowledge_unit_id] = identity.knowledge_unit_id
             source_work_ids = sorted(
@@ -1059,6 +1303,8 @@ class _ProjectionBuilder:
                     "ingestion_mode": "source_native_distillation",
                     "source_work_ids": source_work_ids,
                     "legacy_ids": identity.aliases,
+                    "payload": updated_payload,
+                    "content_hash": updated_content_hash,
                 }
             )
             self.knowledge[identity.knowledge_unit_id] = KnowledgeUnit.model_validate(
@@ -1102,6 +1348,8 @@ class _ProjectionBuilder:
                     relationship.to_id,
                 ),
             )
+            if from_id == to_id:
+                continue
             updated = relationship.model_copy(
                 update={
                     "relationship_id": "relationship:"
@@ -1117,6 +1365,51 @@ class _ProjectionBuilder:
                     updated.model_dump(by_alias=True)
                 )
             )
+        required_replacement_ids = set(migrations_by_replacement)
+        required_replacement_ids.update(artifact_migrations_by_replacement)
+        required_replacement_ids.update(
+            row.artifact_id
+            for migrations in migrations_by_replacement.values()
+            for migration in migrations
+            for row in migration.supporting_replacement_artifacts
+        )
+        missing_replacements = sorted(
+            required_replacement_ids - set(canonical_ids)
+        )
+        if missing_replacements:
+            raise ValueError(
+                "reviewed source-native migrations reference artifacts that are not "
+                "active canonical knowledge: "
+                + ", ".join(missing_replacements[:3])
+            )
+        for migrations in migrations_by_replacement.values():
+            for migration in migrations:
+                from_id = canonical_ids[migration.replacement_artifact_id]
+                for supporting in migration.supporting_replacement_artifacts:
+                    to_id = canonical_ids[supporting.artifact_id]
+                    if from_id == to_id:
+                        continue
+                    relationship_id = "relationship:" + sha256_text(
+                        f"{from_id}:references:{to_id}"
+                    )[:24]
+                    self.relationships.setdefault(
+                        relationship_id,
+                        KnowledgeRelationship(
+                        schema="rock-kb-knowledge-relationship-v1",
+                        relationship_id=relationship_id,
+                        from_id=from_id,
+                        to_id=to_id,
+                        relation="references",
+                        decision="accept",
+                        confidence="high",
+                        rationale=(
+                            "A reviewer-approved legacy source-summary migration "
+                            "identified this typed artifact as part of the replacement "
+                            "coverage."
+                        ),
+                        reviewed_at=migration.reviewed_at,
+                        ),
+                    )
 
     def add_claim_group(self, group: dict[str, Any]) -> None:
         statement = str(group["statement"])
@@ -1242,15 +1535,7 @@ class _ProjectionBuilder:
                     source_work_ids.append(work_id)
                     evidence_rows.append((unit_id, work_id, authority))
 
-        payload = {
-            "schema": "rock-kb-canonical-claim-payload-v1",
-            "claim_type": group["claim_type"],
-            "approved_claims": sorted(
-                [row.get("payload") or {} for row in claim_rows],
-                key=lambda row: str(row.get("claim_id") or ""),
-            ),
-            "distillations": sorted(distilled_rows, key=lambda row: str(row.get("id") or "")),
-        }
+        payload = claim_group_payload(group)
         assert_public_safe(payload)
         item = KnowledgeUnit(
             schema="rock-kb-knowledge-unit-v1",
@@ -1601,6 +1886,8 @@ def projection_summary(
     claim_rows: list[dict[str, Any]],
     distilled_rows: list[dict[str, Any]],
     source_native_artifact_count: int = 0,
+    legacy_migration_count: int = 0,
+    artifact_migration_count: int = 0,
     reviewed_cross_source_artifact_count: int = 0,
 ) -> dict[str, Any]:
     distilled_groups = defaultdict(list)
@@ -1644,6 +1931,10 @@ def projection_summary(
             "distilled_claim_groups": len(distilled_groups),
             "distilled_duplicate_rows_removed": len(distilled_rows) - len(distilled_groups),
             "source_native_reviewed_artifacts": source_native_artifact_count,
+            "reviewed_legacy_migrations": legacy_migration_count,
+            "reviewed_source_native_artifact_migrations": (
+                artifact_migration_count
+            ),
             "reviewed_cross_source_artifacts": (
                 reviewed_cross_source_artifact_count
             ),

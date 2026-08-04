@@ -3,9 +3,11 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import shutil
 from collections import Counter
+from collections.abc import Callable, Iterable
 from pathlib import Path
-from typing import Any, Callable, Iterable
+from typing import Any
 
 import httpx
 from markdownify import markdownify as html_to_markdown
@@ -27,6 +29,7 @@ from .schemas import (
     KnowledgeUnit,
     ReviewedSourceNativeArtifact,
     SourceLocator,
+    SourceNativeArtifactCandidate,
     SourceNativeDistillationOutput,
     SourceNativePilotManifest,
     SourceNativeVerificationQueueItem,
@@ -38,9 +41,7 @@ from .source_native_verification import (
     VERIFICATION_REPORT_NAME,
     VERIFICATION_RESOLUTIONS_NAME,
     audit_source_native_verifications,
-    verification_resolutions_by_artifact,
 )
-
 
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
 SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
@@ -90,6 +91,8 @@ PILOT_FILE_NAMES = (
     VERIFICATION_RESOLUTIONS_NAME,
     VERIFICATION_REPORT_NAME,
     "split-rules.jsonl",
+    "legacy-migrations.jsonl",
+    "artifact-migrations.jsonl",
 )
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
 ORDERED_LIST_RE = re.compile(r"^\s*\d+[.)]\s+")
@@ -1617,6 +1620,17 @@ def merge_source_native_distillation_outputs(
     }
 
 
+def source_native_artifact_id(
+    snapshot: SourceSnapshot,
+    artifact: SourceNativeArtifactCandidate,
+) -> str:
+    article_id = int(snapshot.derivation.get("documentation_article_id") or 0)
+    return (
+        f"source-native:{artifact.artifact_type}:"
+        f"{snapshot.source_id}:article-{article_id}:{artifact.artifact_key}"
+    )
+
+
 def promote_source_native_distillation(
     *,
     input_path: Path,
@@ -1627,8 +1641,11 @@ def promote_source_native_distillation(
     reviewed_at: str | None = None,
     generation_prompt_version: str | None = None,
     generated_at: str | None = None,
+    generation_prompt_id: str | None = None,
     base_dir: Path | None = None,
     generated_output_path: Path | None = None,
+    generated_article_payloads: dict[str, dict[str, Any]] | None = None,
+    generation_prompt_path: Path | None = None,
 ) -> dict[str, Any]:
     inputs = list(read_jsonl(input_path))
     output = SourceNativeDistillationOutput.model_validate(
@@ -1639,7 +1656,11 @@ def promote_source_native_distillation(
         inputs=inputs,
         require_promotable=True,
     )
-    generated_articles_by_id: dict[str, dict[str, Any]] = {}
+    if generated_output_path is not None and generated_article_payloads is not None:
+        raise ValueError(
+            "provide generated_output_path or generated_article_payloads, not both"
+        )
+    generated_articles_by_id = dict(generated_article_payloads or {})
     if generated_output_path is not None:
         generated_output = SourceNativeDistillationOutput.model_validate(
             json.loads(generated_output_path.read_text(encoding="utf-8"))
@@ -1648,13 +1669,13 @@ def promote_source_native_distillation(
             article.candidate_id: article.public_dump()
             for article in generated_output.articles
         }
-        if set(generated_articles_by_id) != {
-            article.candidate_id for article in validated.articles
-        }:
-            raise ValueError(
-                "generated output must cover the same source-native candidates "
-                "as the reviewed output"
-            )
+    if generated_articles_by_id and set(generated_articles_by_id) != {
+        article.candidate_id for article in validated.articles
+    }:
+        raise ValueError(
+            "generated output must cover the same source-native candidates "
+            "as the reviewed output"
+        )
     inputs_by_id = {
         str(row["candidate_id"]): row
         for row in inputs
@@ -1664,6 +1685,8 @@ def promote_source_native_distillation(
     generated_with_prompt_version = (
         generation_prompt_version or SOURCE_NATIVE_PROMPT_VERSION
     )
+    generated_with_prompt_id = generation_prompt_id or SOURCE_NATIVE_PROMPT_ID
+    generated_with_prompt_path = generation_prompt_path or SOURCE_NATIVE_PROMPT_PATH
     snapshots: dict[str, SourceSnapshot] = {}
     source_units: dict[str, SourceUnit] = {}
     activities: list[GenerationActivity] = []
@@ -1696,10 +1719,13 @@ def promote_source_native_distillation(
             source_units[source_unit_id] = SourceUnit.model_validate(
                 public_unit.model_dump(by_alias=True)
             )
-        activity_id = "generation:" + sha256_text(
+        activity_identity = (
             f"{article.candidate_id}:{article.source_input_hash}:"
             f"{generated_with_prompt_version}:{model}"
-        )[:24]
+        )
+        if generated_with_prompt_id != SOURCE_NATIVE_PROMPT_ID:
+            activity_identity += f":{generated_with_prompt_id}"
+        activity_id = "generation:" + sha256_text(activity_identity)[:24]
         reviewed_article_payload = article.public_dump()
         generated_article_payload = generated_articles_by_id.get(
             article.candidate_id,
@@ -1715,7 +1741,7 @@ def promote_source_native_distillation(
                 generation_activity_id=activity_id,
                 activity_type="source_distillation",
                 model=model,
-                prompt_id=SOURCE_NATIVE_PROMPT_ID,
+                prompt_id=generated_with_prompt_id,
                 prompt_version=generated_with_prompt_version,
                 source_snapshot_ids=[snapshot.source_snapshot_id],
                 source_unit_ids=sorted(input_units),
@@ -1728,7 +1754,7 @@ def promote_source_native_distillation(
                         source_input.get("source_input_hash_version") or "1"
                     ),
                     "review_contract_version": SOURCE_NATIVE_PROMPT_VERSION,
-                    "prompt_sha256": sha256_file(SOURCE_NATIVE_PROMPT_PATH),
+                    "prompt_sha256": sha256_file(generated_with_prompt_path),
                     "generated_article_sha256": sha256_text(
                         _canonical_json(generated_article_payload)
                     ),
@@ -1741,12 +1767,8 @@ def promote_source_native_distillation(
                 },
             )
         )
-        article_id = int(snapshot.derivation.get("documentation_article_id") or 0)
         artifact_ids_by_key = {
-            artifact.artifact_key: (
-                f"source-native:{artifact.artifact_type}:"
-                f"{snapshot.source_id}:article-{article_id}:{artifact.artifact_key}"
-            )
+            artifact.artifact_key: source_native_artifact_id(snapshot, artifact)
             for artifact in article.artifacts
         }
         for artifact in article.artifacts:
@@ -1909,6 +1931,8 @@ def promote_source_native_distillation(
         for preserved_name in (
             "evaluation-holdout.jsonl",
             "split-rules.jsonl",
+            "legacy-migrations.jsonl",
+            "artifact-migrations.jsonl",
         ):
             preserved_path = base_dir / preserved_name
             destination_path = destination / preserved_name
@@ -1916,10 +1940,8 @@ def promote_source_native_distillation(
                 preserved_path.exists()
                 and preserved_path.resolve() != destination_path.resolve()
             ):
-                write_jsonl(
-                    destination_path,
-                    list(read_jsonl(preserved_path)),
-                )
+                destination_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(preserved_path, destination_path)
         preserved_resolutions_path = base_dir / VERIFICATION_RESOLUTIONS_NAME
         if preserved_resolutions_path.exists():
             active_verification_ids = {
@@ -2234,6 +2256,33 @@ def write_source_native_manifest(
             "source-units.jsonl": source_units,
         }
     )
+    from .source_native_migration import (
+        load_reviewed_source_native_artifact_migrations,
+        load_reviewed_source_native_legacy_migrations,
+    )
+
+    legacy_migrations = load_reviewed_source_native_legacy_migrations(
+        destination,
+        reviewed_artifacts=[
+            ReviewedSourceNativeArtifact.model_validate(row)
+            for row in artifacts
+        ],
+        source_snapshots=[
+            SourceSnapshot.model_validate(row) for row in snapshots
+        ],
+        source_units=[SourceUnit.model_validate(row) for row in source_units],
+    )
+    artifact_migrations = load_reviewed_source_native_artifact_migrations(
+        destination,
+        reviewed_artifacts=[
+            ReviewedSourceNativeArtifact.model_validate(row)
+            for row in artifacts
+        ],
+        source_snapshots=[
+            SourceSnapshot.model_validate(row) for row in snapshots
+        ],
+        source_units=[SourceUnit.model_validate(row) for row in source_units],
+    )
     verification_checked_at = max(
         [
             *(
@@ -2335,6 +2384,8 @@ def write_source_native_manifest(
         verification_unresolved_count=int(
             verification_report["unresolved_count"]
         ),
+        reviewed_legacy_migration_count=len(legacy_migrations),
+        reviewed_artifact_migration_count=len(artifact_migrations),
         verification_state_counts=dict(
             verification_report["by_state"]
         ),
@@ -2408,6 +2459,12 @@ def load_source_native_pilot(
     repo_root: Path = REPO_ROOT,
 ) -> dict[str, list[Any]]:
     destination = repo_root / "canonical" / "source-native" / "v1"
+    return load_source_native_pilot_directory(destination)
+
+
+def load_source_native_pilot_directory(
+    destination: Path,
+) -> dict[str, list[Any]]:
     manifest_path = destination / "manifest.json"
     if not manifest_path.exists():
         return {
@@ -2418,6 +2475,8 @@ def load_source_native_pilot(
             "relationships": [],
             "verification_queue": [],
             "verification_resolutions": [],
+            "legacy_migrations": [],
+            "artifact_migrations": [],
         }
     manifest = SourceNativePilotManifest.model_validate(
         json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -2429,7 +2488,7 @@ def load_source_native_pilot(
                 f"source-native pilot hash mismatch for {name}: "
                 f"expected {expected}, got {actual}"
             )
-    return {
+    records = {
         "source_snapshots": [
             SourceSnapshot.model_validate(row)
             for row in read_jsonl(destination / "source-snapshots.jsonl")
@@ -2461,6 +2520,28 @@ def load_source_native_pilot(
             )
         ],
     }
+    from .source_native_migration import (
+        load_reviewed_source_native_artifact_migrations,
+        load_reviewed_source_native_legacy_migrations,
+    )
+
+    records["legacy_migrations"] = (
+        load_reviewed_source_native_legacy_migrations(
+            destination,
+            reviewed_artifacts=records["reviewed_artifacts"],
+            source_snapshots=records["source_snapshots"],
+            source_units=records["source_units"],
+        )
+    )
+    records["artifact_migrations"] = (
+        load_reviewed_source_native_artifact_migrations(
+            destination,
+            reviewed_artifacts=records["reviewed_artifacts"],
+            source_snapshots=records["source_snapshots"],
+            source_units=records["source_units"],
+        )
+    )
+    return records
 
 
 def source_native_evaluation_rows(
@@ -2832,7 +2913,7 @@ def source_native_dependency_state(destination: Path) -> dict[str, Any]:
         units[key] = row
     dependencies = {
         str(row.get("artifact_id") or ""): list(
-            ((row.get("artifact") or {}).get("source_unit_ids") or [])
+            (row.get("artifact") or {}).get("source_unit_ids") or []
         )
         for row in read_jsonl(destination / "reviewed-artifacts.jsonl")
         if row.get("artifact_id")

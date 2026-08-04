@@ -217,6 +217,11 @@ uv run kb tools source-native-prompt \
   --source-record-id rock_documentation:article:<id>
 uv run kb tools source-native-merge --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-promote --output <reviewed-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
+uv run kb tools source-native-migration-input --source-native-input <distillation-input.jsonl>
+uv run kb tools source-native-migration-schema
+uv run kb tools source-native-migration-prompt --input <migration-input.jsonl> --source-record-id <source-record-id>
+uv run kb tools source-native-migration-merge --input <migration-input.jsonl> --batch <batch-a.json> --batch <batch-b.json>
+uv run kb tools source-native-migration-promote --input <migration-input.jsonl> --output <reviewed-output.json> --generated-output <generated-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
 uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
 uv run kb tools source-native-verification-promote --input <reviewed-resolutions.jsonl> --reviewer <reviewer-id> --reviewed-at <iso-8601>
@@ -283,6 +288,16 @@ requests remain public-safe bundle metadata.
 dependent knowledge and projections that require revalidation. The tracked
 bundle is canonical projection input; promotion does not itself change the
 separately controlled runtime reader marker.
+
+The `source-native-migration-*` commands re-distill a bounded set of official
+articles while making exact, hash-bound decisions for every active legacy row
+and every prior source-native artifact from those records. Promotion retires
+only fully covered legacy knowledge, keeps partial or unsupported rows active,
+and preserves superseded public result IDs as aliases. It also emits typed
+relationships from a replacement source summary to its named companion
+artifacts. Input-hash version `2` recomputes the underlying source candidate
+before review decisions are accepted. Run the identity baseline, live
+verification audit, and strict retrieval shadow after every migration batch.
 
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.

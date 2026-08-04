@@ -642,6 +642,8 @@ class SourceNativePilotManifest(KBRecord):
     verification_request_count: int = Field(default=0, ge=0)
     verification_resolution_count: int = Field(default=0, ge=0)
     verification_unresolved_count: int = Field(default=0, ge=0)
+    reviewed_legacy_migration_count: int = Field(default=0, ge=0)
+    reviewed_artifact_migration_count: int = Field(default=0, ge=0)
     verification_state_counts: dict[str, int] = Field(default_factory=dict)
     artifact_type_counts: dict[str, int] = Field(default_factory=dict)
     generation_prompt_versions: dict[str, int] = Field(default_factory=dict)
