@@ -2297,7 +2297,7 @@
   },
   "approved_media_hash": "084e125ea4ecd6716691fc2165f1b7e75b6e3f5bfbb76c1bfe7cff33dcd27f50",
   "approved_media_path": "knowledge/concepts/platform-configuration/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "platform-configuration",
   "guide_hash": "06739c008ff2ae5a7382d124102f053af1dac356f8abe413ceab98246a6572d7",
   "guide_line_count": 1576,
@@ -2315,12 +2315,30 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "5766c3e192628cb6a0d1870cdf680a33026f6e5ab6eef5bebfd2e1f1331c1ce5",
-      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
+      "content_hash": "7e7895f2ee8c7792dc619cf554142341209d1432be19aa617cd7a417da973175",
+      "excerpt_hash": "214e1184b43c1c7e454fca0071d729d54c1bca400d97d87b85a1312b477262fb",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "4a998a9c471d46bf",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f6e6832eed675774ed4a8a3b7a36f4a94519d262ae7a914f36a7e9bb2f5c5482",
+      "excerpt_hash": "cd781e920e4adbb845602d79fbcd5fcfc5bbded46d75b284cd635ca8bcc2b65d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "430425d6eab34385",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a86b6fff7007d01907bdefaec32c8de284160017023e8064a1fa7152a9b79841",
+      "excerpt_hash": "fb2cee3218005c487f85384a2accc86cf62c2c4ab6c076dea2d80d09ad9a2b85",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4321013717c82b18",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs"
     },
     {
       "authority": "official-developer",
@@ -2342,21 +2360,30 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "f9f88f683f9a30b8d568f032a6666910d08f76a8b5ff9c86c8d78316d80fc78e",
-      "excerpt_hash": "8b54bdf54c24ef5ef156f895771b483ea66e46ee904f2daa68c2238d64d56a0b",
-      "source_id": "rock_rocku",
-      "source_key": "f4d1879d32a182fe",
-      "source_record_id": "rock_rocku:f4d1879d32a182fe",
-      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
-    },
-    {
-      "authority": "official-training",
       "content_hash": "b1fa5eaa6c17f8bbc20e0845384ff621bf1d4004cfed144c2b9c3cc65d267a09",
       "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
       "source_id": "rock_rocku",
       "source_key": "19a30b51edaa7382",
       "source_record_id": "rock_rocku:19a30b51edaa7382",
       "url": "https://community.rockrms.com/rocku/core-concepts"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b73bb7ccfd1a6c0769d3ab160a967c15f97cd2a7dfb2c3effcb10f0ba6a0e0a0",
+      "excerpt_hash": "b105e05dc9ccda1c2980d558fd8a87cd95fa1d3f2023ff5e0293d0788bc5871d",
+      "source_id": "rock_rocku",
+      "source_key": "d8cf5ee5d337dae4",
+      "source_record_id": "rock_rocku:d8cf5ee5d337dae4",
+      "url": "https://community.rockrms.com/rocku/core-concepts/what-is-an-entity"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5661b31654b71fbfeb89db01ef402c8022704b8611de3c28cd5bb2c270010d20",
+      "excerpt_hash": "a886ffe7b325c360e533ca021792e55e6b0ae406884894f91c61a3babe895132",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1ed4907ea2bea87e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/EntityType/EntityTypeService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs"
     },
     {
       "authority": "official-model-map",
@@ -2368,6 +2395,15 @@
       "url": "https://community.rockrms.com/ModelMap"
     },
     {
+      "authority": "source-code",
+      "content_hash": "fd6ddb7e0f7cdeecf26956bea1cacebab158f01a99f93f9b0bf31ea390a63eda",
+      "excerpt_hash": "54c7d7e55a60719cfe92302fb910b9ee884358341df34ee9f72039c7410e1fe1",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3c3de4385bef3407",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "be5f1fca1b08e5d74485c845a8b5c69b07945a4707a166cfb40cccd82f455304",
       "excerpt_hash": "11161b8874197437da86efdf086a4126e919dbe93e6e4c9a95b5cbf4ed2d72ac",
@@ -2375,6 +2411,24 @@
       "source_key": "8a9de81093dfafd1",
       "source_record_id": "rock_developer:8a9de81093dfafd1",
       "url": "https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "19b47a590ce9a26930b0bc774932ed5d9803244780f0a33170b6fce24bed612b",
+      "excerpt_hash": "c93974787025520db21104e6f7abe414cfa613b7251bf0f4c99ab37e2f1d2bc5",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1b429379d91c9a5d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/DefinedValue/DefinedValueService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c385597616e8a231a432f7cd116818e61ec1fd8ad8f317b405f64e6a92f31b2f",
+      "excerpt_hash": "5431d4a85ce1ff839885c246492314b390ad703a40040b54bda5893ded291fc2",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "95fd27b8cee61741",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_DefinedTypeAttributes.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql"
     },
     {
       "authority": "official-release",
@@ -2386,6 +2440,33 @@
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
+      "authority": "official-training",
+      "content_hash": "f9f88f683f9a30b8d568f032a6666910d08f76a8b5ff9c86c8d78316d80fc78e",
+      "excerpt_hash": "8b54bdf54c24ef5ef156f895771b483ea66e46ee904f2daa68c2238d64d56a0b",
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "rock_rocku:f4d1879d32a182fe",
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "1979d9efef7b33f34339e6dde0f74e34002b674563b3064eaabc9b01d517f587",
+      "excerpt_hash": "b053fa9df030f3f5d78cf2a03a4da0add38ada520119c1756ad9f5c0162bb831",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7d1523d6391da8c7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b0c9d2106430710c22cf03dd6d30c8b7c6765e469199a15ef46752cc887091d1",
+      "excerpt_hash": "e0254c50c072d3843027eff62cb2e604aad900313fa1e5678fcdfb83550c688b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "40c779d114db59c8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "3c08795beccd6936933adc881f2f6bcc1cd6dd4e6c33b0a581a02b98df1e8e7d",
       "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
@@ -2393,6 +2474,15 @@
       "source_key": "1c8d2f8448113003",
       "source_record_id": "rock_developer:1c8d2f8448113003",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5766c3e192628cb6a0d1870cdf680a33026f6e5ab6eef5bebfd2e1f1331c1ce5",
+      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official",
@@ -2420,6 +2510,15 @@
       "source_key": "4a743aeb950e2e7d",
       "source_record_id": "rock_recipes:4a743aeb950e2e7d",
       "url": "https://community.rockrms.com/recipes/385"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d11981e50e65f4ae8faf9d1adc2f2926bd9c50a5796992c40f51e4701d40d1f6",
+      "excerpt_hash": "1113effd465736055045d20aff4cf9ad180641f6065f0187a072151dbe80ae0d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "058720926e1f726d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs"
     },
     {
       "authority": "official-developer",
@@ -2456,6 +2555,24 @@
       "source_key": "42ae97c8913020ff",
       "source_record_id": "triumph_resources:42ae97c8913020ff",
       "url": "https://www.triumph.tech/resources/github-spotlight-12202024"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "22a3b80b46f72edd0b7cc03058aee49f00ff6589d8a376ca91b43b5aec8f08d9",
+      "excerpt_hash": "6a2fa94ba43091e5c98028ac130dac0a6bf84d38fe15c5f4b1b06e5bb3ebb33b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b430d89ca289e0ca",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/DefinedType/DefinedTypeService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedType/DefinedTypeService.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c54ec378d47ffbb11710a99f5512936842288244e0fcf92ffd4e882717f280f2",
+      "excerpt_hash": "1cafd3f773c92cb308e84859d74421c17341dc3f7149547b127d84fd74ccac6d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e9e02320b01a5f04",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs"
     },
     {
       "authority": "official-training",
@@ -2521,6 +2638,15 @@
       "url": "https://community.rockrms.com/rocku/core-concepts/categorize-defined-values"
     },
     {
+      "authority": "source-code",
+      "content_hash": "d7c27d619f89fdfd24306e25d6b2394e81dbafaeb4acb8185a33a89f03ee43b2",
+      "excerpt_hash": "b14dde4f0913910ab160b95e49cee7a0539495c2cf95f18dd79c1af390f93834",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "524ff92f62419920",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts"
+    },
+    {
       "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
@@ -2530,6 +2656,42 @@
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
     },
     {
+      "authority": "source-code",
+      "content_hash": "60a6dc3c72a344a9f3629dc8e65534a1d4bb2e597f388b64d6f674d4d904a3d6",
+      "excerpt_hash": "c43f838de31e813762ae49491247b20274d198e178712d45979ad1e118841258",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4f8dc557f8f992d5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5528788433d5b392659a0e5653a91c42dc9f42c524908d7ff02bd8500bc3099b",
+      "excerpt_hash": "dc01ba2c3a9f048ddfc40b940a72fd56c5b9307dae733c75580b2a5cac651051",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2bbbf19304a841d2",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "67693c093741e3315655661246346d6bc48f3098f15096dc88bdf02fcf2d48bb",
+      "excerpt_hash": "37aee8d994fe5624afef823242d7830547b398805d7dadeb122cfbc646404f77",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a4a6c0d71a85b37f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "630a9df6a228db3ce2db594fcae4f58fbb3bd821a7d40eadb9b38a0a98e40f48",
+      "excerpt_hash": "4df9062129187af7047135cf8ad9e008ecc942025ec350303119646dfaeb90c6",
+      "source_id": "rock_rocku",
+      "source_key": "609efb76cbf7086a",
+      "source_record_id": "rock_rocku:609efb76cbf7086a",
+      "url": "https://community.rockrms.com/rocku/core-concepts/jobs"
+    },
+    {
       "authority": "official-training",
       "content_hash": "47b498781feb7483d00e738e82f7d0f99add46670e6114364a03e6c397bfdc3e",
       "excerpt_hash": "e677ea5fb486f47a78d53273e82fdef3208de8e044a626c2d91ef6c8c3e91e5c",
@@ -2537,6 +2699,24 @@
       "source_key": "6612b451bd0ae178",
       "source_record_id": "rock_rocku:6612b451bd0ae178",
       "url": "https://community.rockrms.com/rocku/core-concepts/automations"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c5b1768622434d39e9f480b66d25bbc73b587af9f70732209287217ca3a95522",
+      "excerpt_hash": "78b7d69df197a33d22c8a4872082e9d0ce83aa525e92b88b3a8b58638f5022ab",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "18dc977e69a1b9f5",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "346a7ca9a32c7ecd5834f31b305cb17a1d29597cfa830f3a75fcbed0b4177331",
+      "excerpt_hash": "07715ff2a59bacffbcd45754ad45fdc922796f6747bd3072a593d53774e8697c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46c6581144874c95",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/CodeGen_SystemGuid_EntityType.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_EntityType.sql"
     },
     {
       "authority": "unknown",
@@ -2649,9 +2829,9 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "4a998a9c471d46bf",
+        "430425d6eab34385",
+        "4321013717c82b18",
         "0a1df6eb6e308fc2",
         "6f19b884e4da0469"
       ],
@@ -2664,15 +2844,15 @@
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "f4d1879d32a182fe",
         "19a30b51edaa7382",
-        "d275b5b94a9da833",
+        "d8cf5ee5d337dae4",
+        "1ed4907ea2bea87e",
         "6f19b884e4da0469",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "3c3de4385bef3407",
         "8a9de81093dfafd1",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "1b429379d91c9a5d",
+        "95fd27b8cee61741",
         "776256c424368312",
         "f4d1879d32a182fe",
         "6f19b884e4da0469"
@@ -2686,11 +2866,11 @@
       "needs_live_verification": true,
       "section_id": "3-platform-configuration-mental-model",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "1ed4907ea2bea87e",
+        "7d1523d6391da8c7",
+        "40c779d114db59c8",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "3c3de4385bef3407",
         "1c8d2f8448113003"
       ],
       "start_line": 105
@@ -2707,7 +2887,7 @@
         "8a9de81093dfafd1",
         "6f19b884e4da0469",
         "776256c424368312",
-        "f4d1879d32a182fe",
+        "19a30b51edaa7382",
         "256bfaf3b8f47935",
         "bce31f25cb8a199e",
         "eee9d10d47a9c9cf",
@@ -2722,13 +2902,19 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
-        "d275b5b94a9da833",
+        "1ed4907ea2bea87e",
+        "40c779d114db59c8",
+        "058720926e1f726d",
         "0a1df6eb6e308fc2",
         "4a743aeb950e2e7d",
+        "3c3de4385bef3407",
         "8a9de81093dfafd1",
         "a467324213982116",
         "1c8d2f8448113003",
         "a806e6071c7be5be",
+        "1b429379d91c9a5d",
+        "95fd27b8cee61741",
+        "4a998a9c471d46bf",
         "776256c424368312",
         "256bfaf3b8f47935",
         "ad95479957e39324",
@@ -2745,9 +2931,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entity-types",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "1ed4907ea2bea87e",
+        "40c779d114db59c8",
+        "058720926e1f726d"
       ],
       "start_line": 175
     },
@@ -2770,7 +2956,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-attribute-values",
       "source_keys": [
-        "d275b5b94a9da833"
+        "3c3de4385bef3407"
       ],
       "start_line": 212
     },
@@ -2795,9 +2981,9 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-defined-types-and-defined-values",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "1b429379d91c9a5d",
+        "95fd27b8cee61741",
+        "4a998a9c471d46bf",
         "776256c424368312"
       ],
       "start_line": 246
@@ -2859,7 +3045,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attribute-relationship-map",
       "source_keys": [
-        "d275b5b94a9da833"
+        "3c3de4385bef3407"
       ],
       "start_line": 315
     },
@@ -2870,10 +3056,10 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-defined-type-relationship-map",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "b430d89ca289e0ca",
+        "430425d6eab34385",
+        "430425d6eab34385",
+        "4a998a9c471d46bf",
         "6f19b884e4da0469"
       ],
       "start_line": 337
@@ -2885,7 +3071,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-entity-type-relationship-map",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e9e02320b01a5f04"
       ],
       "start_line": 353
     },
@@ -2924,7 +3110,8 @@
         "103246342712cd75",
         "9cc51ccd39c60247",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "95fd27b8cee61741",
+        "3c3de4385bef3407",
         "eee9d10d47a9c9cf",
         "ad95479957e39324",
         "08c5a24830c0d336",
@@ -2965,9 +3152,9 @@
       "needs_live_verification": false,
       "section_id": "7-common-platform-configuration-workflows-add-attributes-to-defined-values",
       "source_keys": [
-        "d275b5b94a9da833",
+        "95fd27b8cee61741",
         "6f19b884e4da0469",
-        "d275b5b94a9da833"
+        "3c3de4385bef3407"
       ],
       "start_line": 433
     },
@@ -3016,7 +3203,7 @@
         "0a1df6eb6e308fc2",
         "d8d7c232c812383f",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "95fd27b8cee61741",
         "a467324213982116",
         "6f19b884e4da0469",
         "256bfaf3b8f47935",
@@ -3046,7 +3233,7 @@
       "needs_live_verification": true,
       "section_id": "8-attributes-and-attribute-values-deep-dive-qualifiers",
       "source_keys": [
-        "d275b5b94a9da833"
+        "95fd27b8cee61741"
       ],
       "start_line": 519
     },
@@ -3129,7 +3316,7 @@
       "needs_live_verification": true,
       "section_id": "9-defined-types-and-values-deep-dive-defined-type-fields-to-inspect",
       "source_keys": [
-        "d275b5b94a9da833"
+        "b430d89ca289e0ca"
       ],
       "start_line": 618
     },
@@ -3140,7 +3327,7 @@
       "needs_live_verification": true,
       "section_id": "9-defined-types-and-values-deep-dive-defined-value-fields-to-inspect",
       "source_keys": [
-        "d275b5b94a9da833"
+        "1b429379d91c9a5d"
       ],
       "start_line": 637
     },
@@ -3151,7 +3338,7 @@
       "needs_live_verification": false,
       "section_id": "9-defined-types-and-values-deep-dive-deletion-and-reference-safety",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4a998a9c471d46bf"
       ],
       "start_line": 654
     },
@@ -3163,7 +3350,7 @@
       "section_id": "9-defined-types-and-values-deep-dive-defined-value-attributes",
       "source_keys": [
         "6f19b884e4da0469",
-        "d275b5b94a9da833"
+        "3c3de4385bef3407"
       ],
       "start_line": 668
     },
@@ -3186,7 +3373,9 @@
       "section_id": "10-categories-and-entity-types-deep-dive",
       "source_keys": [
         "776256c424368312",
-        "d275b5b94a9da833"
+        "e9e02320b01a5f04",
+        "40c779d114db59c8",
+        "524ff92f62419920"
       ],
       "start_line": 700
     },
@@ -3208,7 +3397,7 @@
       "needs_live_verification": true,
       "section_id": "10-categories-and-entity-types-deep-dive-entity-type-security",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e9e02320b01a5f04"
       ],
       "start_line": 714
     },
@@ -3219,8 +3408,8 @@
       "needs_live_verification": false,
       "section_id": "10-categories-and-entity-types-deep-dive-entity-type-list-and-editing",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "40c779d114db59c8",
+        "524ff92f62419920"
       ],
       "start_line": 725
     },
@@ -3321,9 +3510,12 @@
         "a467324213982116",
         "776256c424368312",
         "08c5a24830c0d336",
-        "d275b5b94a9da833",
+        "e9e02320b01a5f04",
         "6f19b884e4da0469",
-        "19a30b51edaa7382",
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f",
+        "609efb76cbf7086a",
         "6612b451bd0ae178"
       ],
       "start_line": 839
@@ -3384,11 +3576,11 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-security",
       "source_keys": [
-        "d275b5b94a9da833",
+        "e9e02320b01a5f04",
         "6f19b884e4da0469",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f"
       ],
       "start_line": 890
     },
@@ -3399,11 +3591,11 @@
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-data-views",
       "source_keys": [
-        "d275b5b94a9da833",
+        "e9e02320b01a5f04",
         "6f19b884e4da0469",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f"
       ],
       "start_line": 904
     },
@@ -3414,11 +3606,11 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-reports",
       "source_keys": [
-        "d275b5b94a9da833",
+        "e9e02320b01a5f04",
         "6f19b884e4da0469",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f"
       ],
       "start_line": 915
     },
@@ -3429,7 +3621,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-operations",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "6612b451bd0ae178"
       ],
       "start_line": 926
@@ -3441,10 +3633,10 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "6612b451bd0ae178",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "4321013717c82b18",
         "08c5a24830c0d336",
         "6f19b884e4da0469",
         "776256c424368312"
@@ -3458,7 +3650,7 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-naming",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "6612b451bd0ae178"
       ],
       "start_line": 941
@@ -3470,7 +3662,7 @@
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-change-management",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "6612b451bd0ae178"
       ],
       "start_line": 954
@@ -3493,7 +3685,7 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-deletion",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4321013717c82b18"
       ],
       "start_line": 984
     },
@@ -3528,7 +3720,9 @@
         "a806e6071c7be5be",
         "08c5a24830c0d336",
         "ad95479957e39324",
-        "d275b5b94a9da833",
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f",
         "d8d7c232c812383f"
       ],
       "start_line": 1028
@@ -3609,9 +3803,9 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rest-v2",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f"
       ],
       "start_line": 1085
     },
@@ -3634,7 +3828,10 @@
       "section_id": "15-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e",
-        "d275b5b94a9da833"
+        "3c3de4385bef3407",
+        "95fd27b8cee61741",
+        "18dc977e69a1b9f5",
+        "46c6581144874c95"
       ],
       "start_line": 1101
     },
@@ -3656,10 +3853,10 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-sql-relationship-patterns",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3c3de4385bef3407",
+        "95fd27b8cee61741",
+        "18dc977e69a1b9f5",
+        "46c6581144874c95"
       ],
       "start_line": 1107
     },
@@ -3670,8 +3867,8 @@
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-reporting-rules",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3c3de4385bef3407",
+        "95fd27b8cee61741"
       ],
       "start_line": 1115
     },
@@ -3864,7 +4061,8 @@
         "4bd8c9362f206617",
         "0a1df6eb6e308fc2",
         "776256c424368312",
-        "d275b5b94a9da833",
+        "4a998a9c471d46bf",
+        "4321013717c82b18",
         "1c8d2f8448113003",
         "a806e6071c7be5be"
       ],
@@ -3922,7 +4120,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-defined-value-cannot-be-deleted",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4a998a9c471d46bf"
       ],
       "start_line": 1324
     },
@@ -3933,7 +4131,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-entity-type-cannot-be-deleted-or-edited-safely",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4321013717c82b18"
       ],
       "start_line": 1338
     },
@@ -3944,7 +4142,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-campus-filter-shows-wrong-data",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4321013717c82b18"
       ],
       "start_line": 1353
     },
@@ -4097,7 +4295,7 @@
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
       "source_keys": [
-        "f4d1879d32a182fe",
+        "19a30b51edaa7382",
         "0a1df6eb6e308fc2",
         "6f19b884e4da0469",
         "a467324213982116",
@@ -4111,20 +4309,20 @@
         "776256c424368312",
         "256bfaf3b8f47935",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "3c3de4385bef3407",
+        "95fd27b8cee61741",
+        "b430d89ca289e0ca",
+        "1b429379d91c9a5d",
+        "1ed4907ea2bea87e",
+        "430425d6eab34385",
+        "4a998a9c471d46bf",
+        "4321013717c82b18",
+        "e9e02320b01a5f04",
+        "4f8dc557f8f992d5",
+        "2bbbf19304a841d2",
+        "a4a6c0d71a85b37f",
+        "7d1523d6391da8c7",
+        "40c779d114db59c8",
         "eee9d10d47a9c9cf",
         "4a743aeb950e2e7d",
         "42ae97c8913020ff"
@@ -4147,25 +4345,65 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "change_type": null,
-      "content_hash": "5766c3e192628cb6a0d1870cdf680a33026f6e5ab6eef5bebfd2e1f1331c1ce5",
-      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+      "content_hash": "7e7895f2ee8c7792dc619cf554142341209d1432be19aa617cd7a417da973175",
+      "excerpt_hash": "214e1184b43c1c7e454fca0071d729d54c1bca400d97d87b85a1312b477262fb",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined value",
+        "definedvalue",
+        "defined values",
+        "definedvalues"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
+      "path": "Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4a998a9c471d46bf",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs",
+      "title": "Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f6e6832eed675774ed4a8a3b7a36f4a94519d262ae7a914f36a7e9bb2f5c5482",
+      "excerpt_hash": "cd781e920e4adbb845602d79fbcd5fcfc5bbded46d75b284cd635ca8bcc2b65d",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined type",
+        "definedtype",
+        "defined types",
+        "definedtypes"
+      ],
+      "path": "Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "430425d6eab34385",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs",
+      "title": "Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedTypeService.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a86b6fff7007d01907bdefaec32c8de284160017023e8064a1fa7152a9b79841",
+      "excerpt_hash": "fb2cee3218005c487f85384a2accc86cf62c2c4ab6c076dea2d80d09ad9a2b85",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4321013717c82b18",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs",
+      "title": "Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/EntityTypeService.CodeGenerated.cs"
     },
     {
       "authority": "official-developer",
@@ -4220,28 +4458,6 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "f9f88f683f9a30b8d568f032a6666910d08f76a8b5ff9c86c8d78316d80fc78e",
-      "excerpt_hash": "8b54bdf54c24ef5ef156f895771b483ea66e46ee904f2daa68c2238d64d56a0b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "f4d1879d32a182fe",
-      "source_record_id": "rock_rocku:f4d1879d32a182fe",
-      "title": "Campuses",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/core-concepts/campuses",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
       "content_hash": "b1fa5eaa6c17f8bbc20e0845384ff621bf1d4004cfed144c2b9c3cc65d267a09",
       "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
       "hydrated": true,
@@ -4259,6 +4475,49 @@
       ],
       "url": "https://community.rockrms.com/rocku/core-concepts",
       "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "b73bb7ccfd1a6c0769d3ab160a967c15f97cd2a7dfb2c3effcb10f0ba6a0e0a0",
+      "excerpt_hash": "b105e05dc9ccda1c2980d558fd8a87cd95fa1d3f2023ff5e0293d0788bc5871d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d8cf5ee5d337dae4",
+      "source_record_id": "rock_rocku:d8cf5ee5d337dae4",
+      "title": "What is an Entity",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/what-is-an-entity",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5661b31654b71fbfeb89db01ef402c8022704b8611de3c28cd5bb2c270010d20",
+      "excerpt_hash": "a886ffe7b325c360e533ca021792e55e6b0ae406884894f91c61a3babe895132",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock/Model/Core/EntityType/EntityTypeService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1ed4907ea2bea87e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/EntityType/EntityTypeService.cs",
+      "title": "Rock/Model/Core/EntityType/EntityTypeService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/EntityType/EntityTypeService.cs"
     },
     {
       "authority": "official-model-map",
@@ -4285,6 +4544,30 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "fd6ddb7e0f7cdeecf26956bea1cacebab158f01a99f93f9b0bf31ea390a63eda",
+      "excerpt_hash": "54c7d7e55a60719cfe92302fb910b9ee884358341df34ee9f72039c7410e1fe1",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "attribute",
+        "attribute value",
+        "attributevalue",
+        "defined value",
+        "definedvalue",
+        "defined values",
+        "definedvalues"
+      ],
+      "path": "Dev Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3c3de4385bef3407",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql",
+      "title": "Dev Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -4309,6 +4592,48 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "19b47a590ce9a26930b0bc774932ed5d9803244780f0a33170b6fce24bed612b",
+      "excerpt_hash": "c93974787025520db21104e6f7abe414cfa613b7251bf0f4c99ab37e2f1d2bc5",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined value",
+        "definedvalue",
+        "defined values",
+        "definedvalues"
+      ],
+      "path": "Rock/Model/Core/DefinedValue/DefinedValueService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1b429379d91c9a5d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/DefinedValue/DefinedValueService.cs",
+      "title": "Rock/Model/Core/DefinedValue/DefinedValueService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedValue/DefinedValueService.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c385597616e8a231a432f7cd116818e61ec1fd8ad8f317b405f64e6a92f31b2f",
+      "excerpt_hash": "5431d4a85ce1ff839885c246492314b390ad703a40040b54bda5893ded291fc2",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "attribute",
+        "attributes",
+        "defined type",
+        "definedtype"
+      ],
+      "path": "Dev Tools/Sql/Archive/View_DefinedTypeAttributes.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "95fd27b8cee61741",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_DefinedTypeAttributes.sql",
+      "title": "Dev Tools/Sql/Archive/View_DefinedTypeAttributes.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql"
+    },
+    {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
@@ -4329,6 +4654,70 @@
       ],
       "url": "https://www.rockrms.com/releasenotes",
       "version": "19.1"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "f9f88f683f9a30b8d568f032a6666910d08f76a8b5ff9c86c8d78316d80fc78e",
+      "excerpt_hash": "8b54bdf54c24ef5ef156f895771b483ea66e46ee904f2daa68c2238d64d56a0b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "f4d1879d32a182fe",
+      "source_record_id": "rock_rocku:f4d1879d32a182fe",
+      "title": "Campuses",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/campuses",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1979d9efef7b33f34339e6dde0f74e34002b674563b3064eaabc9b01d517f587",
+      "excerpt_hash": "b053fa9df030f3f5d78cf2a03a4da0add38ada520119c1756ad9f5c0162bb831",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7d1523d6391da8c7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs",
+      "title": "Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b0c9d2106430710c22cf03dd6d30c8b7c6765e469199a15ef46752cc887091d1",
+      "excerpt_hash": "e0254c50c072d3843027eff62cb2e604aad900313fa1e5678fcdfb83550c688b",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "40c779d114db59c8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesBag.d.ts"
     },
     {
       "authority": "official-developer",
@@ -4352,6 +4741,29 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "5766c3e192628cb6a0d1870cdf680a33026f6e5ab6eef5bebfd2e1f1331c1ce5",
+      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
     },
     {
@@ -4426,6 +4838,27 @@
       ],
       "url": "https://community.rockrms.com/recipes/385",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d11981e50e65f4ae8faf9d1adc2f2926bd9c50a5796992c40f51e4701d40d1f6",
+      "excerpt_hash": "1113effd465736055045d20aff4cf9ad180641f6065f0187a072151dbe80ae0d",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "058720926e1f726d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/EntityTypes/EntityTypesOptionsBag.cs"
     },
     {
       "authority": "official-developer",
@@ -4527,6 +4960,49 @@
       ],
       "url": "https://www.triumph.tech/resources/github-spotlight-12202024",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "22a3b80b46f72edd0b7cc03058aee49f00ff6589d8a376ca91b43b5aec8f08d9",
+      "excerpt_hash": "6a2fa94ba43091e5c98028ac130dac0a6bf84d38fe15c5f4b1b06e5bb3ebb33b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined type",
+        "definedtype",
+        "defined types",
+        "definedtypes"
+      ],
+      "path": "Rock/Model/Core/DefinedType/DefinedTypeService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "b430d89ca289e0ca",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/DefinedType/DefinedTypeService.cs",
+      "title": "Rock/Model/Core/DefinedType/DefinedTypeService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/DefinedType/DefinedTypeService.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c54ec378d47ffbb11710a99f5512936842288244e0fcf92ffd4e882717f280f2",
+      "excerpt_hash": "1cafd3f773c92cb308e84859d74421c17341dc3f7149547b127d84fd74ccac6d",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "security",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e9e02320b01a5f04",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs",
+      "title": "Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/SecurityGrantRules/EntityTypeSecurityGrantRule.cs"
     },
     {
       "authority": "official-training",
@@ -4690,6 +5166,27 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d7c27d619f89fdfd24306e25d6b2394e81dbafaeb4acb8185a33a89f03ee43b2",
+      "excerpt_hash": "b14dde4f0913910ab160b95e49cee7a0539495c2cf95f18dd79c1af390f93834",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "524ff92f62419920",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/EntityTypes/entityTypesOptionsBag.d.ts"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "kind": "citation_only",
@@ -4698,6 +5195,91 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
       "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "60a6dc3c72a344a9f3629dc8e65534a1d4bb2e597f388b64d6f674d4d904a3d6",
+      "excerpt_hash": "c43f838de31e813762ae49491247b20274d198e178712d45979ad1e118841258",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined type",
+        "definedtype",
+        "defined types",
+        "definedtypes"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4f8dc557f8f992d5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedTypesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5528788433d5b392659a0e5653a91c42dc9f42c524908d7ff02bd8500bc3099b",
+      "excerpt_hash": "dc01ba2c3a9f048ddfc40b940a72fd56c5b9307dae733c75580b2a5cac651051",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "defined value",
+        "definedvalue",
+        "defined values",
+        "definedvalues"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2bbbf19304a841d2",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DefinedValuesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "67693c093741e3315655661246346d6bc48f3098f15096dc88bdf02fcf2d48bb",
+      "excerpt_hash": "37aee8d994fe5624afef823242d7830547b398805d7dadeb122cfbc646404f77",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a4a6c0d71a85b37f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/EntityTypesController.CodeGenerated.cs"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "630a9df6a228db3ce2db594fcae4f58fbb3bd821a7d40eadb9b38a0a98e40f48",
+      "excerpt_hash": "4df9062129187af7047135cf8ad9e008ecc942025ec350303119646dfaeb90c6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "609efb76cbf7086a",
+      "source_record_id": "rock_rocku:609efb76cbf7086a",
+      "title": "Jobs",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/jobs",
+      "version": null
     },
     {
       "authority": "official-training",
@@ -4720,6 +5302,48 @@
       ],
       "url": "https://community.rockrms.com/rocku/core-concepts/automations",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c5b1768622434d39e9f480b66d25bbc73b587af9f70732209287217ca3a95522",
+      "excerpt_hash": "78b7d69df197a33d22c8a4872082e9d0ce83aa525e92b88b3a8b58638f5022ab",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "defined value",
+        "definedvalue",
+        "defined values",
+        "definedvalues"
+      ],
+      "path": "Dev Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "18dc977e69a1b9f5",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql",
+      "title": "Dev Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_DefinedValue.sql"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "346a7ca9a32c7ecd5834f31b305cb17a1d29597cfa830f3a75fcbed0b4177331",
+      "excerpt_hash": "07715ff2a59bacffbcd45754ad45fdc922796f6747bd3072a593d53774e8697c",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "entity type",
+        "entitytype",
+        "entity types",
+        "entitytypes"
+      ],
+      "path": "Dev Tools/Sql/CodeGen_SystemGuid_EntityType.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46c6581144874c95",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/CodeGen_SystemGuid_EntityType.sql",
+      "title": "Dev Tools/Sql/CodeGen_SystemGuid_EntityType.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_SystemGuid_EntityType.sql"
     },
     {
       "authority": "unknown",

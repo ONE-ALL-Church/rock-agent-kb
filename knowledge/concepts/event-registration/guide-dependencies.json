@@ -768,7 +768,7 @@
   },
   "approved_media_hash": "3dd3c9c0ffd05a076381ff06f05211321432515e275a2814f2a9fe3968e54e26",
   "approved_media_path": "knowledge/concepts/event-registration/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "event-registration",
   "guide_hash": "35be86c453276860b3ee0b8e46e18fb0f9b7e247240b56a4e88a3e94903736e1",
   "guide_line_count": 1390,
@@ -795,12 +795,12 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
-      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
+      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
       "source_id": "rock_rocku",
-      "source_key": "cdbd7089fd2af521",
-      "source_record_id": "rock_rocku:cdbd7089fd2af521",
-      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+      "source_key": "f88b0748151b17a6",
+      "source_record_id": "rock_rocku:f88b0748151b17a6",
+      "url": "https://community.rockrms.com/rocku/event-registration"
     },
     {
       "authority": "official-release",
@@ -822,6 +822,15 @@
     },
     {
       "authority": "official-training",
+      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
+      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "source_id": "rock_rocku",
+      "source_key": "cdbd7089fd2af521",
+      "source_record_id": "rock_rocku:cdbd7089fd2af521",
+      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees"
+    },
+    {
+      "authority": "official-training",
       "content_hash": "0c6bcad45a903aef519015c6349bc897a9ad6e14c5a4d91388f0f6360dbe1b76",
       "excerpt_hash": "538136c3fffebbb418e32c37d7a013bc361132b46f461529f7191adc6ad227de",
       "source_id": "rock_rocku",
@@ -831,21 +840,48 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
-      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
+      "content_hash": "8c1dbd956bee07120d0ccda42daa884f3244c63dfab7e5f2297b386ea5359b15",
+      "excerpt_hash": "eeb207dd62c1e7b1b68c40c5ae8b582d4a0b308bc877cece7f96c14c5f60e815",
       "source_id": "rock_rocku",
-      "source_key": "f88b0748151b17a6",
-      "source_record_id": "rock_rocku:f88b0748151b17a6",
-      "url": "https://community.rockrms.com/rocku/event-registration"
+      "source_key": "d70d4595457b2c2a",
+      "source_record_id": "rock_rocku:d70d4595457b2c2a",
+      "url": "https://community.rockrms.com/rocku/event-registration/partial-payments"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "6891da59b636c884397e7376f9baaa58377d7ff35a73ded2c8bdf9b6554e0fde",
+      "excerpt_hash": "3e948d3df2eb4f085979602f6b6544fcb9f845a7da4f017cefaabc2c7f83bbfa",
+      "source_id": "rock_rocku",
+      "source_key": "a76cd4b8d8e0caae",
+      "source_record_id": "rock_rocku:a76cd4b8d8e0caae",
+      "url": "https://community.rockrms.com/rocku/event-registration/payment-plans"
     },
     {
       "authority": "source-code",
-      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
-      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "content_hash": "db54c0a7ab043bbedbbca3ea1815f7529ab0ebbe51faa7441a47c0ea6c8d4645",
+      "excerpt_hash": "1b752a5af55d4f54ed8501cc4bb2a4fe33716d50b6baed7341acf68b9064c10c",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "f648349b1f77e48b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b21c267be3881c036f88e971fc1ae6751243683eb2b203ac514f3d7d0d351c63",
+      "excerpt_hash": "ff3cc223bc066412e775135ab94263d576a07da11e92cfc9f69653b2f770ded4",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "abecf95ae28c242b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "0d03c8f8938cea29cb3087d6bef9bd9b5a547297e271b7d1903b7f226b5bcae3",
+      "excerpt_hash": "ff424e9a4015ecb75109cffff4d3466a04300bfcee69f2012a83142209882e19",
+      "source_id": "rock_rocku",
+      "source_key": "b74fadad450adc57",
+      "source_record_id": "rock_rocku:b74fadad450adc57",
+      "url": "https://community.rockrms.com/rocku/event-registration/linkages"
     },
     {
       "authority": "community-answer",
@@ -902,6 +938,69 @@
       "url": "https://community.rockrms.com/recipes/245"
     },
     {
+      "authority": "official-training",
+      "content_hash": "d1a0fc4ee011c13f131fc57df8554ee36c1ac804a2ce33913a940d88d27cdef9",
+      "excerpt_hash": "4029ca4296e83eb1c7dccc9e17e2603e404e87698e73e40d01d41a7a2e34e126",
+      "source_id": "rock_rocku",
+      "source_key": "e25a6cf1bfd0bcd6",
+      "source_record_id": "rock_rocku:e25a6cf1bfd0bcd6",
+      "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "50c1b610a3ea035a5077fa014765280b78e2e4917a029f9dca84ba5149aa9421",
+      "excerpt_hash": "60712289a7f39858b02ba2736c21defedd31f04286d427a5442f9d6d704b9bde",
+      "source_id": "rock_rocku",
+      "source_key": "96f24c4dfff821c8",
+      "source_record_id": "rock_rocku:96f24c4dfff821c8",
+      "url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "3bfab16fdbaa5a27bf88a6a419bb9e87f99009bf6afa44ae527262e53d562a65",
+      "excerpt_hash": "bf20806029fd2f5bf448b5fc63ce5b50a701c16ed5691996d4e00808681f6c58",
+      "source_id": "rock_rocku",
+      "source_key": "7d14205db336c16b",
+      "source_record_id": "rock_rocku:7d14205db336c16b",
+      "url": "https://community.rockrms.com/rocku/event-registration/event-attributes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "1ff5079c0cec13b6f1c62338faea5e5eafd00eb860a5e4e3d7d273eee8e1daa1",
+      "excerpt_hash": "de9bf202598451a1cadf1e1fcef55a56072dc4653bab189d03f9e691e7b0a1e9",
+      "source_id": "rock_rocku",
+      "source_key": "2acc307b814c2cfc",
+      "source_record_id": "rock_rocku:2acc307b814c2cfc",
+      "url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "ab74f53ea1ee6472947ec3006d4a3be939809c5627a0a14cee85342c8e90f578",
+      "excerpt_hash": "1c86eb73c5e73a9727a9d2d7bb57e4ef63b7d578dcb1b519be97ebe05ee74309",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "23dfb06ca981ffa9",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f888ec9135f1100b5b9a9beedbf273652b71d56ede7f25b9e85db9e488ebd7ec",
+      "excerpt_hash": "f1d52bfc454f3f40d8a4d15043c7556f18c14e8c454784c7e8c233b4e3e11ea1",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5d11784af8a19928",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "140f943cbeabd7ef8c2e4640d06da7474e9d6d5653be67597414f8f1ff39f045",
+      "excerpt_hash": "8239e049f40ad6b347a6bdb93f791b442412c9241a95e0d6ca11509c70be98d8",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "47e116e1a50daa25",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs"
+    },
+    {
       "authority": "community-example",
       "content_hash": "b356d09e41badd9e1425767eb33a4fffbd31e5a9c9105d6745b415cebdbeb968",
       "excerpt_hash": "ee4df77d700e3872a75dc5c2a6af2a7876963a1e490ce30cc464b950a22909a7",
@@ -911,6 +1010,33 @@
       "url": "https://community.rockrms.com/recipes/313"
     },
     {
+      "authority": "source-code",
+      "content_hash": "852c6c9cfe741b0ff0c05a63a0726ac49b338254acc1387003a03eeb8685e2ae",
+      "excerpt_hash": "c78e8ca7f182f31fb66f3c8bd3dcff382ea3b50cc5e4863e156c0eaa18b70cea",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e4460ce699ffe5e8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "70ebf7063e13058fd351fd1b75b381dc05f12a9d485b33cef2225a9950765166",
+      "excerpt_hash": "32a61dddbb065b691245dca4a6b7b561b279ac6d1d142af2c06533e789d5341c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "34f3433423ed7945",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a8d774c598d1cadd421d0e4d69d1bab77821ec570c2fc6b6039c0fa0e53dce39",
+      "excerpt_hash": "229cc2e33788ee8a241965689df9407bbff32f0efd973cdc8b184e564b066e6b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "073203ae56225d5b",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx"
+    },
+    {
       "authority": "official-training",
       "content_hash": "178753b444cfaca0c70d460d054ec21c248b81e2deb7ccad4bfbbd54878be690",
       "excerpt_hash": "6d9bf0c3c97463450edefd993f4840c60227635f6af8b84177d99a3574a05728",
@@ -918,6 +1044,33 @@
       "source_key": "ce8eb086e4ef0cc6",
       "source_record_id": "rock_rocku:ce8eb086e4ef0cc6",
       "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "9e8faf6ce950a88ccd6491875a6b811f5c54a1bbe01e7f2f36323e2f0f322fd6",
+      "excerpt_hash": "fe7bf9235f64d5bb003925aabbb8623ac8cc9e9d95343a129c93ad2425d5b46c",
+      "source_id": "rock_rocku",
+      "source_key": "e1a1b4c6f42afcba",
+      "source_record_id": "rock_rocku:e1a1b4c6f42afcba",
+      "url": "https://community.rockrms.com/rocku/event-registration/group-placement"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c47a18741b8f62b1cdf470c93749484d4c2f41cf2d4b7b21159343edaecbd75e",
+      "excerpt_hash": "667d3a933b810669844d17a3b47748925e8284d489a3296fc785cbd88b58233c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ceffab548d4a2db9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4bdba80d9480beeb0e68fdf0938547329246bb602625616ca29eda3dcd7e74ed",
+      "excerpt_hash": "8c6b1404fe1e5424b458bf18c63f46173af2f1e909175511c73b243b73d393a5",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a6b2a6356c638d9d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts"
     },
     {
       "authority": "community-example",
@@ -947,6 +1100,15 @@
       "url": "https://www.triumph.tech/resources/github-spotlight-182025"
     },
     {
+      "authority": "source-code",
+      "content_hash": "25ccf8b4fb0e1318c5ab0929036eea6af531f1c6ca2912b4cae8de9bc808536e",
+      "excerpt_hash": "bd3934613567cc2be07fcf9e26920c6b0cd0d5659b43156f494eb5b0d64f83ad",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d561de2ded19e1a9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs"
+    },
+    {
       "authority": "official",
       "content_hash": null,
       "excerpt_hash": null,
@@ -972,6 +1134,15 @@
       "source_key": "e4f10f35a86cedbd",
       "source_record_id": "rock_rocku:e4f10f35a86cedbd",
       "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "9509ec86d0f9011ea3408919e5c7f2a0ae53b841c0ff3594f2addfc1fc7253b8",
+      "excerpt_hash": "29b9f0402dccb24fcf7f9ce64ec48218665200081191d12303b45f1760a4815e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5beb47608d1b05a5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs"
     },
     {
       "authority": "official-developer",
@@ -1019,6 +1190,15 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
     },
     {
+      "authority": "official-training",
+      "content_hash": "ef009f8abbfd8f0588db35b33aa939686e4055806139828e500840f23a0cea42",
+      "excerpt_hash": "71c773b181108b41882f0032aa9d8c8cb97c5ad6a145e9527fb2bc5aa2ad2c98",
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "rock_rocku:99161b788cad1f6e",
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures"
+    },
+    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1044,6 +1224,24 @@
       "source_key": "3ac2b7b2e39e37f3",
       "source_record_id": "rock_rocku:3ac2b7b2e39e37f3",
       "url": "https://community.rockrms.com/rocku/event-registration/registration-structure"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "fbee5340a0839d5f51a43ebd702eaed69281f8ce8dc35f24a5966d6780821665",
+      "excerpt_hash": "1f7d56f6d4b144532296a6e1a44576d6951593ce4e83511b97b60af3bccfbed6",
+      "source_id": "rock_rocku",
+      "source_key": "0f3c66f707230237",
+      "source_record_id": "rock_rocku:0f3c66f707230237",
+      "url": "https://community.rockrms.com/rocku/event-registration/wait-lists"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
+      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     }
   ],
   "routing_context_claim_count": 0,
@@ -1067,7 +1265,7 @@
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
         "1b6019ed673610cf",
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "776256c424368312"
       ],
       "start_line": 29
@@ -1084,12 +1282,12 @@
         "5ecfe350fe307663",
         "cdbd7089fd2af521",
         "9f3bc83f6e5fb51b",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
+        "d70d4595457b2c2a",
+        "a76cd4b8d8e0caae",
         "776256c424368312",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "f88b0748151b17a6",
+        "f648349b1f77e48b",
+        "abecf95ae28c242b",
+        "b74fadad450adc57",
         "8b1609730224eb1b"
       ],
       "start_line": 46
@@ -1114,7 +1312,7 @@
       "source_keys": [
         "1b6019ed673610cf",
         "776256c424368312",
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "e9dcfbe00e9392de",
         "1f10c6dc510ad680",
         "ba714c760814915d",
@@ -1131,8 +1329,14 @@
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
         "1b6019ed673610cf",
-        "f88b0748151b17a6",
-        "d275b5b94a9da833",
+        "e25a6cf1bfd0bcd6",
+        "96f24c4dfff821c8",
+        "b74fadad450adc57",
+        "7d14205db336c16b",
+        "2acc307b814c2cfc",
+        "23dfb06ca981ffa9",
+        "5d11784af8a19928",
+        "47e116e1a50daa25",
         "60357b5b8ff0c238"
       ],
       "start_line": 142
@@ -1145,14 +1349,14 @@
       "section_id": "5-core-configuration-and-data-model-configuration-surfaces",
       "source_keys": [
         "1b6019ed673610cf",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e25a6cf1bfd0bcd6",
+        "96f24c4dfff821c8",
+        "b74fadad450adc57",
+        "7d14205db336c16b",
+        "2acc307b814c2cfc",
+        "23dfb06ca981ffa9",
+        "5d11784af8a19928",
+        "47e116e1a50daa25"
       ],
       "start_line": 144
     },
@@ -1176,10 +1380,13 @@
       "source_keys": [
         "84c5de76cca78a1a",
         "1b6019ed673610cf",
-        "d275b5b94a9da833",
+        "e4460ce699ffe5e8",
+        "34f3433423ed7945",
+        "f648349b1f77e48b",
+        "073203ae56225d5b",
         "e9dcfbe00e9392de",
         "ce8eb086e4ef0cc6",
-        "f88b0748151b17a6",
+        "7d14205db336c16b",
         "776256c424368312"
       ],
       "start_line": 217
@@ -1213,8 +1420,8 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-registration",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e4460ce699ffe5e8",
+        "34f3433423ed7945"
       ],
       "start_line": 258
     },
@@ -1225,8 +1432,8 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-registrationregistrant",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "f648349b1f77e48b",
+        "073203ae56225d5b"
       ],
       "start_line": 272
     },
@@ -1249,7 +1456,7 @@
       "section_id": "6-primary-entities-and-relationships-attributes-and-form-fields",
       "source_keys": [
         "ce8eb086e4ef0cc6",
-        "f88b0748151b17a6",
+        "7d14205db336c16b",
         "776256c424368312"
       ],
       "start_line": 306
@@ -1261,15 +1468,21 @@
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows",
       "source_keys": [
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "ce8eb086e4ef0cc6",
         "776256c424368312",
         "5ecfe350fe307663",
+        "cdbd7089fd2af521",
         "9f3bc83f6e5fb51b",
-        "f88b0748151b17a6",
-        "d275b5b94a9da833",
+        "d70d4595457b2c2a",
+        "a76cd4b8d8e0caae",
+        "f648349b1f77e48b",
         "e9dcfbe00e9392de",
-        "1b6019ed673610cf"
+        "e1a1b4c6f42afcba",
+        "1b6019ed673610cf",
+        "ceffab548d4a2db9",
+        "34f3433423ed7945",
+        "a6b2a6356c638d9d"
       ],
       "start_line": 327
     },
@@ -1280,7 +1493,7 @@
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-basic-public-registration",
       "source_keys": [
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "ce8eb086e4ef0cc6",
         "776256c424368312"
       ],
@@ -1307,8 +1520,8 @@
         "5ecfe350fe307663",
         "cdbd7089fd2af521",
         "9f3bc83f6e5fb51b",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6"
+        "d70d4595457b2c2a",
+        "a76cd4b8d8e0caae"
       ],
       "start_line": 363
     },
@@ -1319,7 +1532,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-wait-list-registration",
       "source_keys": [
-        "d275b5b94a9da833",
+        "f648349b1f77e48b",
         "e9dcfbe00e9392de",
         "776256c424368312"
       ],
@@ -1332,7 +1545,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-event-registration-workflows-group-placement",
       "source_keys": [
-        "f88b0748151b17a6",
+        "e1a1b4c6f42afcba",
         "1b6019ed673610cf"
       ],
       "start_line": 398
@@ -1344,9 +1557,9 @@
       "needs_live_verification": false,
       "section_id": "7-common-event-registration-workflows-payment-reminder-workflow",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9",
+        "34f3433423ed7945",
+        "a6b2a6356c638d9d"
       ],
       "start_line": 416
     },
@@ -1430,11 +1643,11 @@
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive",
       "source_keys": [
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "84c5de76cca78a1a",
         "776256c424368312",
         "1b6019ed673610cf",
-        "d275b5b94a9da833",
+        "e4460ce699ffe5e8",
         "c0cf9e3bbb1f6f9b"
       ],
       "start_line": 492
@@ -1446,7 +1659,7 @@
       "needs_live_verification": false,
       "section_id": "9-payments-deep-dive-cost-model",
       "source_keys": [
-        "cdbd7089fd2af521"
+        "f88b0748151b17a6"
       ],
       "start_line": 494
     },
@@ -1470,7 +1683,7 @@
       "needs_live_verification": true,
       "section_id": "9-payments-deep-dive-partial-payments",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e4460ce699ffe5e8"
       ],
       "start_line": 538
     },
@@ -1514,13 +1727,15 @@
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups",
       "source_keys": [
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "1f10c6dc510ad680",
         "ba714c760814915d",
         "f3cc81b84e9a9aa9",
-        "d275b5b94a9da833",
+        "ceffab548d4a2db9",
+        "d561de2ded19e1a9",
+        "a6b2a6356c638d9d",
         "1b6019ed673610cf",
-        "f88b0748151b17a6"
+        "e1a1b4c6f42afcba"
       ],
       "start_line": 597
     },
@@ -1531,7 +1746,7 @@
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-events-and-calendars",
       "source_keys": [
-        "cdbd7089fd2af521"
+        "f88b0748151b17a6"
       ],
       "start_line": 599
     },
@@ -1565,9 +1780,9 @@
       "needs_live_verification": false,
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-communications",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9",
+        "d561de2ded19e1a9",
+        "a6b2a6356c638d9d"
       ],
       "start_line": 650
     },
@@ -1579,7 +1794,7 @@
       "section_id": "10-related-rock-areas-events-finance-workflows-communications-groups-groups",
       "source_keys": [
         "1b6019ed673610cf",
-        "f88b0748151b17a6"
+        "e1a1b4c6f42afcba"
       ],
       "start_line": 676
     },
@@ -1591,7 +1806,7 @@
       "section_id": "11-administration-and-operational-guardrails",
       "source_keys": [
         "1b6019ed673610cf",
-        "f88b0748151b17a6",
+        "e1a1b4c6f42afcba",
         "f9ada88191ace9fa",
         "4df598747f60249c",
         "ad1b70c97442fd41",
@@ -1608,7 +1823,7 @@
       "section_id": "11-administration-and-operational-guardrails-permissions",
       "source_keys": [
         "1b6019ed673610cf",
-        "f88b0748151b17a6"
+        "e1a1b4c6f42afcba"
       ],
       "start_line": 693
     },
@@ -1678,7 +1893,18 @@
       "source_keys": [
         "e9dcfbe00e9392de",
         "8b1609730224eb1b",
-        "d275b5b94a9da833",
+        "23dfb06ca981ffa9",
+        "073203ae56225d5b",
+        "f648349b1f77e48b",
+        "abecf95ae28c242b",
+        "47e116e1a50daa25",
+        "5d11784af8a19928",
+        "e4460ce699ffe5e8",
+        "ceffab548d4a2db9",
+        "d561de2ded19e1a9",
+        "5beb47608d1b05a5",
+        "34f3433423ed7945",
+        "a6b2a6356c638d9d",
         "2a94aef5f83aa079"
       ],
       "start_line": 782
@@ -1712,8 +1938,8 @@
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-internal-registrant-list",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "23dfb06ca981ffa9",
+        "073203ae56225d5b"
       ],
       "start_line": 811
     },
@@ -1724,8 +1950,8 @@
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-registration-list-wait-list-indicator",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "f648349b1f77e48b",
+        "abecf95ae28c242b"
       ],
       "start_line": 823
     },
@@ -1736,8 +1962,8 @@
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-fee-and-payment-list-blocks",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "47e116e1a50daa25",
+        "5d11784af8a19928"
       ],
       "start_line": 827
     },
@@ -1748,12 +1974,12 @@
       "needs_live_verification": false,
       "section_id": "12-developer-api-lava-and-source-code-landmarks-payment-reminder-block",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e4460ce699ffe5e8",
+        "ceffab548d4a2db9",
+        "d561de2ded19e1a9",
+        "5beb47608d1b05a5",
+        "34f3433423ed7945",
+        "a6b2a6356c638d9d"
       ],
       "start_line": 831
     },
@@ -1901,7 +2127,7 @@
         "cdbd7089fd2af521",
         "776256c424368312",
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 957
     },
@@ -1948,7 +2174,7 @@
       "section_id": "15-implementation-playbooks-playbook-d-configure-payment-reminders",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1008
     },
@@ -1960,7 +2186,7 @@
       "section_id": "15-implementation-playbooks-playbook-e-diagnose-a-missing-public-registration-button",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1023
     },
@@ -1972,7 +2198,7 @@
       "section_id": "15-implementation-playbooks-playbook-f-build-a-read-only-registration-dashboard",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1037
     },
@@ -1984,8 +2210,9 @@
       "section_id": "16-troubleshooting-decision-tree",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833",
-        "1b6019ed673610cf"
+        "ceffab548d4a2db9",
+        "1b6019ed673610cf",
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1048
     },
@@ -1997,7 +2224,7 @@
       "section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1050
     },
@@ -2009,7 +2236,7 @@
       "section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1067
     },
@@ -2021,7 +2248,7 @@
       "section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1080
     },
@@ -2033,7 +2260,7 @@
       "section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1090
     },
@@ -2045,7 +2272,7 @@
       "section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
       "source_keys": [
         "ad1b70c97442fd41",
-        "d275b5b94a9da833"
+        "ceffab548d4a2db9"
       ],
       "start_line": 1104
     },
@@ -2089,7 +2316,7 @@
       "needs_live_verification": false,
       "section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1158
     },
@@ -2100,7 +2327,7 @@
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes",
       "source_keys": [
-        "d275b5b94a9da833",
+        "a6b2a6356c638d9d",
         "60357b5b8ff0c238",
         "4df598747f60249c",
         "8b1609730224eb1b"
@@ -2114,7 +2341,7 @@
       "needs_live_verification": false,
       "section_id": "17-agent-task-recipes-recipe-summarize-a-registration-instance",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1174
     },
@@ -2125,7 +2352,7 @@
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-verify-a-public-registration-url",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1192
     },
@@ -2136,7 +2363,7 @@
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-payment-risk",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1208
     },
@@ -2147,7 +2374,7 @@
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-discount-codes",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1224
     },
@@ -2158,7 +2385,7 @@
       "needs_live_verification": true,
       "section_id": "17-agent-task-recipes-recipe-audit-wait-list",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a6b2a6356c638d9d"
       ],
       "start_line": 1238
     },
@@ -2220,12 +2447,12 @@
       "section_id": "approved-media-coverage",
       "source_keys": [
         "cdbd7089fd2af521",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
+        "e25a6cf1bfd0bcd6",
+        "96f24c4dfff821c8",
+        "99161b788cad1f6e",
         "094c98456e80eca2",
         "53507aa08e9095dd",
-        "f88b0748151b17a6",
+        "7d14205db336c16b",
         "ce8eb086e4ef0cc6"
       ],
       "start_line": 1314
@@ -2239,7 +2466,7 @@
       "source_keys": [
         "1b6019ed673610cf",
         "776256c424368312",
-        "cdbd7089fd2af521",
+        "f88b0748151b17a6",
         "e4f10f35a86cedbd",
         "3ac2b7b2e39e37f3",
         "7b16cf34fbbaa021",
@@ -2248,21 +2475,21 @@
         "5ecfe350fe307663",
         "cdbd7089fd2af521",
         "9f3bc83f6e5fb51b",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
-        "f88b0748151b17a6",
+        "d70d4595457b2c2a",
+        "0f3c66f707230237",
+        "99161b788cad1f6e",
+        "a76cd4b8d8e0caae",
+        "e1a1b4c6f42afcba",
         "e9dcfbe00e9392de",
         "2a94aef5f83aa079",
         "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "23dfb06ca981ffa9",
+        "073203ae56225d5b",
+        "f648349b1f77e48b",
+        "e4460ce699ffe5e8",
+        "ceffab548d4a2db9",
+        "34f3433423ed7945",
+        "a6b2a6356c638d9d",
         "1f10c6dc510ad680",
         "ba714c760814915d",
         "60357b5b8ff0c238",
@@ -2314,22 +2541,22 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
-      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
+      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "cdbd7089fd2af521",
-      "source_record_id": "rock_rocku:cdbd7089fd2af521",
-      "title": "Additional Registration Fees",
+      "source_key": "f88b0748151b17a6",
+      "source_record_id": "rock_rocku:f88b0748151b17a6",
+      "title": "Event Registration",
       "topics": [
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+      "url": "https://community.rockrms.com/rocku/event-registration",
       "version": null
     },
     {
@@ -2380,6 +2607,28 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
+      "content_hash": "e7e3f6d4d8e7c2513fab0f082b7fd55174e5a44b9320d3074724a5382af115be",
+      "excerpt_hash": "3fed9cb07b7b406dc7ec0f53ef26ec5ddbe2c6ccde262fab97585cd6426126d0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "cdbd7089fd2af521",
+      "source_record_id": "rock_rocku:cdbd7089fd2af521",
+      "title": "Additional Registration Fees",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/additional-registration-fees",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
       "content_hash": "0c6bcad45a903aef519015c6349bc897a9ad6e14c5a4d91388f0f6360dbe1b76",
       "excerpt_hash": "538136c3fffebbb418e32c37d7a013bc361132b46f461529f7191adc6ad227de",
       "hydrated": true,
@@ -2402,45 +2651,112 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "545621b00972d12a09bfe6792d2f04efdc971b4d6555df7172731d66e484fac3",
-      "excerpt_hash": "c209e065a5dd4a105e083f7b505841c847d60e3000b6d977bb8c0104a864c3fc",
+      "content_hash": "8c1dbd956bee07120d0ccda42daa884f3244c63dfab7e5f2297b386ea5359b15",
+      "excerpt_hash": "eeb207dd62c1e7b1b68c40c5ae8b582d4a0b308bc877cece7f96c14c5f60e815",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "f88b0748151b17a6",
-      "source_record_id": "rock_rocku:f88b0748151b17a6",
-      "title": "Event Registration",
+      "source_key": "d70d4595457b2c2a",
+      "source_record_id": "rock_rocku:d70d4595457b2c2a",
+      "title": "Partial Payments",
       "topics": [
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/event-registration",
+      "url": "https://community.rockrms.com/rocku/event-registration/partial-payments",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "6891da59b636c884397e7376f9baaa58377d7ff35a73ded2c8bdf9b6554e0fde",
+      "excerpt_hash": "3e948d3df2eb4f085979602f6b6544fcb9f845a7da4f017cefaabc2c7f83bbfa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "a76cd4b8d8e0caae",
+      "source_record_id": "rock_rocku:a76cd4b8d8e0caae",
+      "title": "Payment Plans",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/payment-plans",
       "version": null
     },
     {
       "authority": "source-code",
       "authority_score": 84,
+      "content_hash": "db54c0a7ab043bbedbbca3ea1815f7529ab0ebbe51faa7441a47c0ea6c8d4645",
+      "excerpt_hash": "1b752a5af55d4f54ed8501cc4bb2a4fe33716d50b6baed7341acf68b9064c10c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "registrant"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "f648349b1f77e48b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b21c267be3881c036f88e971fc1ae6751243683eb2b203ac514f3d7d0d351c63",
+      "excerpt_hash": "ff3cc223bc066412e775135ab94263d576a07da11e92cfc9f69653b2f770ded4",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "registrant"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "abecf95ae28c242b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
       "change_type": null,
-      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
-      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "content_hash": "0d03c8f8938cea29cb3087d6bef9bd9b5a547297e271b7d1903b7f226b5bcae3",
+      "excerpt_hash": "ff424e9a4015ecb75109cffff4d3466a04300bfcee69f2012a83142209882e19",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
+      "source_id": "rock_rocku",
+      "source_key": "b74fadad450adc57",
+      "source_record_id": "rock_rocku:b74fadad450adc57",
+      "title": "Linkages",
       "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+        "training",
+        "usage",
+        "workflow"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
+      "url": "https://community.rockrms.com/rocku/event-registration/linkages",
       "version": null
     },
     {
@@ -2589,6 +2905,163 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "d1a0fc4ee011c13f131fc57df8554ee36c1ac804a2ce33913a940d88d27cdef9",
+      "excerpt_hash": "4029ca4296e83eb1c7dccc9e17e2603e404e87698e73e40d01d41a7a2e34e126",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e25a6cf1bfd0bcd6",
+      "source_record_id": "rock_rocku:e25a6cf1bfd0bcd6",
+      "title": "Calendar Overview",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/calendar-overview",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "50c1b610a3ea035a5077fa014765280b78e2e4917a029f9dca84ba5149aa9421",
+      "excerpt_hash": "60712289a7f39858b02ba2736c21defedd31f04286d427a5442f9d6d704b9bde",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "96f24c4dfff821c8",
+      "source_record_id": "rock_rocku:96f24c4dfff821c8",
+      "title": "Calendars and Events",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/calendars-and-events",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "3bfab16fdbaa5a27bf88a6a419bb9e87f99009bf6afa44ae527262e53d562a65",
+      "excerpt_hash": "bf20806029fd2f5bf448b5fc63ce5b50a701c16ed5691996d4e00808681f6c58",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "7d14205db336c16b",
+      "source_record_id": "rock_rocku:7d14205db336c16b",
+      "title": "Event Attributes",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/event-attributes",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "1ff5079c0cec13b6f1c62338faea5e5eafd00eb860a5e4e3d7d273eee8e1daa1",
+      "excerpt_hash": "de9bf202598451a1cadf1e1fcef55a56072dc4653bab189d03f9e691e7b0a1e9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2acc307b814c2cfc",
+      "source_record_id": "rock_rocku:2acc307b814c2cfc",
+      "title": "iCalendar Feed",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/icalendar-feed",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "ab74f53ea1ee6472947ec3006d4a3be939809c5627a0a14cee85342c8e90f578",
+      "excerpt_hash": "1c86eb73c5e73a9727a9d2d7bb57e4ef63b7d578dcb1b519be97ebe05ee74309",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "registrant"
+      ],
+      "path": "RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "23dfb06ca981ffa9",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs",
+      "title": "RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f888ec9135f1100b5b9a9beedbf273652b71d56ede7f25b9e85db9e488ebd7ec",
+      "excerpt_hash": "f1d52bfc454f3f40d8a4d15043c7556f18c14e8c454784c7e8c233b4e3e11ea1",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5d11784af8a19928",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "140f943cbeabd7ef8c2e4640d06da7474e9d6d5653be67597414f8f1ff39f045",
+      "excerpt_hash": "8239e049f40ad6b347a6bdb93f791b442412c9241a95e0d6ca11509c70be98d8",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "fee"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "47e116e1a50daa25",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs"
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -2613,6 +3086,75 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "852c6c9cfe741b0ff0c05a63a0726ac49b338254acc1387003a03eeb8685e2ae",
+      "excerpt_hash": "c78e8ca7f182f31fb66f3c8bd3dcff382ea3b50cc5e4863e156c0eaa18b70cea",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e4460ce699ffe5e8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "70ebf7063e13058fd351fd1b75b381dc05f12a9d485b33cef2225a9950765166",
+      "excerpt_hash": "32a61dddbb065b691245dca4a6b7b561b279ac6d1d142af2c06533e789d5341c",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "34f3433423ed7945",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a8d774c598d1cadd421d0e4d69d1bab77821ec570c2fc6b6039c0fa0e53dce39",
+      "excerpt_hash": "229cc2e33788ee8a241965689df9407bbff32f0efd973cdc8b184e564b066e6b",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "registrant"
+      ],
+      "path": "RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "073203ae56225d5b",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx",
+      "title": "RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
@@ -2633,6 +3175,74 @@
       ],
       "url": "https://community.rockrms.com/rocku/event-registration/event-registration-attributes",
       "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "9e8faf6ce950a88ccd6491875a6b811f5c54a1bbe01e7f2f36323e2f0f322fd6",
+      "excerpt_hash": "fe7bf9235f64d5bb003925aabbb8623ac8cc9e9d95343a129c93ad2425d5b46c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e1a1b4c6f42afcba",
+      "source_record_id": "rock_rocku:e1a1b4c6f42afcba",
+      "title": "Group Placement",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/group-placement",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c47a18741b8f62b1cdf470c93749484d4c2f41cf2d4b7b21159343edaecbd75e",
+      "excerpt_hash": "667d3a933b810669844d17a3b47748925e8284d489a3296fc785cbd88b58233c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ceffab548d4a2db9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4bdba80d9480beeb0e68fdf0938547329246bb602625616ca29eda3dcd7e74ed",
+      "excerpt_hash": "8c6b1404fe1e5424b458bf18c63f46173af2f1e909175511c73b243b73d393a5",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a6b2a6356c638d9d",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts"
     },
     {
       "authority": "community-example",
@@ -2714,6 +3324,29 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "25ccf8b4fb0e1318c5ab0929036eea6af531f1c6ca2912b4cae8de9bc808536e",
+      "excerpt_hash": "bd3934613567cc2be07fcf9e26920c6b0cd0d5659b43156f494eb5b0d64f83ad",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d561de2ded19e1a9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs"
+    },
+    {
       "authority": "official",
       "authority_score": 100,
       "kind": "citation_only",
@@ -2754,6 +3387,29 @@
       ],
       "url": "https://community.rockrms.com/rocku/event-registration/registration-walk-through",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "9509ec86d0f9011ea3408919e5c7f2a0ae53b841c0ff3594f2addfc1fc7253b8",
+      "excerpt_hash": "29b9f0402dccb24fcf7f9ce64ec48218665200081191d12303b45f1760a4815e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "registration",
+        "event registration",
+        "eventregistration",
+        "registration instance",
+        "registrationinstance",
+        "payment"
+      ],
+      "path": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5beb47608d1b05a5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs",
+      "title": "Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs"
     },
     {
       "authority": "official-developer",
@@ -2845,6 +3501,28 @@
       "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz"
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "ef009f8abbfd8f0588db35b33aa939686e4055806139828e500840f23a0cea42",
+      "excerpt_hash": "71c773b181108b41882f0032aa9d8c8cb97c5ad6a145e9527fb2bc5aa2ad2c98",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "99161b788cad1f6e",
+      "source_record_id": "rock_rocku:99161b788cad1f6e",
+      "title": "Electronic Signatures",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/electronic-signatures",
+      "version": null
+    },
+    {
       "authority": "unknown",
       "authority_score": 0,
       "kind": "citation_only",
@@ -2884,6 +3562,51 @@
         "workflow"
       ],
       "url": "https://community.rockrms.com/rocku/event-registration/registration-structure",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "fbee5340a0839d5f51a43ebd702eaed69281f8ce8dc35f24a5966d6780821665",
+      "excerpt_hash": "1f7d56f6d4b144532296a6e1a44576d6951593ce4e83511b97b60af3bccfbed6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "0f3c66f707230237",
+      "source_record_id": "rock_rocku:0f3c66f707230237",
+      "title": "Wait Lists",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/event-registration/wait-lists",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "80ab5145f18a2bdc3ccabb320dfe975e194747103ad74a98589e4352735d03b6",
+      "excerpt_hash": "00001d6c095e6541dd6c52a4b4cb2dd47a3c862e6aa41b1f6ae8a1277930cd3b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
     }
   ],

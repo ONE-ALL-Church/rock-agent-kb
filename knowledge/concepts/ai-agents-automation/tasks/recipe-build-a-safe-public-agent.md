@@ -46,11 +46,14 @@ Complete “Build A Safe Public Agent” with evidence-backed checks and a verif
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/ai-agents
 - https://community.rockrms.com/documentation/BookContent/9
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/rocku/core-concepts/automations
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentsController.CodeGenerated.cs
 - https://community.rockrms.com/rocku/individuals-in-rock/data-automation
 - https://community.rockrms.com/rocku/engagement/connection-request-status-automation
 - https://community.rockrms.com/ask/developing/2708
+- https://community.rockrms.com/developer/ai-agents/agents/context-anchors
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools
+- https://community.rockrms.com/developer/ai-agents/skills
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/voice-agent
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools

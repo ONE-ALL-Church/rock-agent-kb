@@ -76,7 +76,7 @@
   "concept_id": "event-registration",
   "contribution_record_count": 0,
   "entity_count": 14,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1390,
   "guide_word_count": 11169,
   "metrics": {
@@ -85,7 +85,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 14,
     "section_count": 95,
-    "source_count": 30,
+    "source_count": 52,
     "substantive_uncited_section_ratio": 0.0192,
     "task_card_count": 8,
     "word_count": 11169
@@ -93,7 +93,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 95,
-  "source_count": 30,
+  "source_count": 52,
   "status": "fail",
   "task_card_count": 8
 }

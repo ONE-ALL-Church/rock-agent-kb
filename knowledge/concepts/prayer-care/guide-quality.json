@@ -73,7 +73,7 @@
   "concept_id": "prayer-care",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1313,
   "guide_word_count": 12998,
   "metrics": {
@@ -82,7 +82,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 12,
     "section_count": 96,
-    "source_count": 32,
+    "source_count": 49,
     "substantive_uncited_section_ratio": 0.0164,
     "task_card_count": 5,
     "word_count": 12998
@@ -90,7 +90,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 96,
-  "source_count": 32,
+  "source_count": 49,
   "status": "fail",
   "task_card_count": 5
 }

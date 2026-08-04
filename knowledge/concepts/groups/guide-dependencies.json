@@ -903,7 +903,7 @@
   },
   "approved_media_hash": "85fbf5272dc375150dd10316d1e2e5ef09bc14bac3869f9515c8191b1a5604e4",
   "approved_media_path": "knowledge/concepts/groups/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "groups",
   "guide_hash": "54f4f15c544da04c7cc878e5a8e0bf4e5fc53da3353655bd92004c7674d5dd0f",
   "guide_line_count": 1268,
@@ -929,13 +929,22 @@
       "url": "https://community.rockrms.com/documentation/bookcontent/7"
     },
     {
+      "authority": "official",
+      "content_hash": "faa4d5fea7134f9939a34cdd3c90f0eed38f35e6333c38552117a81f585db3a8",
+      "excerpt_hash": "cb9b9b64d86e5d40228e5a1d22ac1bb09002cdfd66fe143ff01c54048745b2e8",
+      "source_id": "rock_documentation",
+      "source_key": "324c7412fbbf81eb",
+      "source_record_id": "rock_documentation:324c7412fbbf81eb",
+      "url": "https://community.rockrms.com/documentation/bookcontent/7/296"
+    },
+    {
       "authority": "official-training",
-      "content_hash": "bf859fa86fea825626266d7706ad96407e6f07808e8b4199dedd8037dd06c989",
-      "excerpt_hash": "1d5ecd73d02bca1f3c83a4f92b22a968f15e9716a6ae80e1a2f31a225ebf1809",
+      "content_hash": "7cfd0bbcfae2a9ce38b4d442751783fe49f143b88832cc92094cab8b71dc993b",
+      "excerpt_hash": "fa1ee064c59b09f839865fec4308b7dfb0db05b1cdd0b2ead2b194e7e5012eef",
       "source_id": "rock_rocku",
-      "source_key": "08815cfa0fab37fd",
-      "source_record_id": "rock_rocku:08815cfa0fab37fd",
-      "url": "https://community.rockrms.com/rocku/groups/group-administrator"
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "url": "https://community.rockrms.com/rocku/groups"
     },
     {
       "authority": "official-model-map",
@@ -1254,12 +1263,12 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "0fc799f0c5641d1469c10bbcca5e06280d06d776928685c38f55e8d3cf4dccca",
-      "excerpt_hash": "1d00eaedb8fbc04968dd9c91c9576ec08f2ba730aded8af163ddc3f5ecd21317",
+      "content_hash": "726e7176b6b91a7055bcb7056243be2c77fff50d921dff2b2d56be57045b7c85",
+      "excerpt_hash": "f8d6dda8f7f63fba256d9a169c58716fdf9f70898e072f3583aef87265f3ea88",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "c72ee88036189ee1",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx"
+      "source_key": "9ba8e4cdb53c4c2c",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs"
     },
     {
       "authority": "source-code",
@@ -1481,8 +1490,8 @@
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
         "d6783d9a3170135b",
-        "d6783d9a3170135b",
-        "08815cfa0fab37fd"
+        "324c7412fbbf81eb",
+        "1cfd7942fe8e3344"
       ],
       "start_line": 29
     },
@@ -1499,7 +1508,7 @@
         "d6783d9a3170135b",
         "db21941c572fe3c9",
         "d6783d9a3170135b",
-        "08815cfa0fab37fd",
+        "1cfd7942fe8e3344",
         "bce31f25cb8a199e",
         "1d3d2462a16b8624"
       ],
@@ -1526,7 +1535,7 @@
       "source_keys": [
         "d6783d9a3170135b",
         "776256c424368312",
-        "08815cfa0fab37fd",
+        "1cfd7942fe8e3344",
         "db21941c572fe3c9",
         "860726dc56edc345",
         "5dba4d03818c09a2",
@@ -1548,6 +1557,7 @@
         "bce31f25cb8a199e",
         "6f0f21989434ef17",
         "52de29b9741dc96b",
+        "324c7412fbbf81eb",
         "776256c424368312"
       ],
       "start_line": 104
@@ -1599,7 +1609,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-attributes",
       "source_keys": [
-        "d6783d9a3170135b",
+        "324c7412fbbf81eb",
         "776256c424368312"
       ],
       "start_line": 160
@@ -1800,6 +1810,7 @@
         "c2a9e573bc22ec4f",
         "adc2038fe1eefb8a",
         "84ad25974ba80b60",
+        "324c7412fbbf81eb",
         "6c0f7683dbb3b68a",
         "647b22a8de1e047a",
         "860726dc56edc345"
@@ -1858,7 +1869,7 @@
       "needs_live_verification": false,
       "section_id": "8-group-types-deep-dive-group-member-attributes",
       "source_keys": [
-        "d6783d9a3170135b"
+        "324c7412fbbf81eb"
       ],
       "start_line": 404
     },
@@ -2046,7 +2057,7 @@
         "db21941c572fe3c9",
         "d6783d9a3170135b",
         "62acf4fa5182958b",
-        "c72ee88036189ee1",
+        "9ba8e4cdb53c4c2c",
         "b88624870e795303"
       ],
       "start_line": 598
@@ -2104,7 +2115,7 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-attendance-security-locations-schedules-schedules",
       "source_keys": [
-        "c72ee88036189ee1",
+        "9ba8e4cdb53c4c2c",
         "b88624870e795303"
       ],
       "start_line": 640
@@ -2346,6 +2357,7 @@
       "section_id": "15-version-and-release-caveats",
       "source_keys": [
         "776256c424368312",
+        "324c7412fbbf81eb",
         "d6783d9a3170135b",
         "376fb0e23e71f1af",
         "6ed8a60516b78b29"
@@ -2370,7 +2382,7 @@
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-rock-16",
       "source_keys": [
-        "d6783d9a3170135b"
+        "324c7412fbbf81eb"
       ],
       "start_line": 820
     },
@@ -2431,7 +2443,7 @@
       "section_id": "16-implementation-playbooks",
       "source_keys": [
         "d6783d9a3170135b",
-        "08815cfa0fab37fd",
+        "1cfd7942fe8e3344",
         "9af162570ab9ac58",
         "ae4f7dd44bb15d12",
         "5cbcd01f47b0c44a"
@@ -2456,7 +2468,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-serving-team-scheduling-structure",
       "source_keys": [
-        "08815cfa0fab37fd"
+        "1cfd7942fe8e3344"
       ],
       "start_line": 869
     },
@@ -2467,7 +2479,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-set-up-group-finder",
       "source_keys": [
-        "08815cfa0fab37fd"
+        "1cfd7942fe8e3344"
       ],
       "start_line": 884
     },
@@ -2727,7 +2739,8 @@
       "section_id": "19-source-map-and-dependency-notes",
       "source_keys": [
         "d6783d9a3170135b",
-        "08815cfa0fab37fd",
+        "324c7412fbbf81eb",
+        "1cfd7942fe8e3344",
         "776256c424368312",
         "db21941c572fe3c9",
         "860726dc56edc345",
@@ -2743,7 +2756,7 @@
         "6976a032bbce7fe9",
         "13f9302060d257b5",
         "96f1328d8aafb3b3",
-        "c72ee88036189ee1",
+        "9ba8e4cdb53c4c2c",
         "adc2038fe1eefb8a",
         "8566432524405e49",
         "111d7dcd59cf942b",
@@ -2766,8 +2779,8 @@
       "section_id": "19-source-map-and-dependency-notes-primary-official-sources",
       "source_keys": [
         "d6783d9a3170135b",
-        "d6783d9a3170135b",
-        "08815cfa0fab37fd",
+        "324c7412fbbf81eb",
+        "1cfd7942fe8e3344",
         "776256c424368312"
       ],
       "start_line": 1219
@@ -2803,7 +2816,7 @@
         "6976a032bbce7fe9",
         "13f9302060d257b5",
         "96f1328d8aafb3b3",
-        "c72ee88036189ee1"
+        "9ba8e4cdb53c4c2c"
       ],
       "start_line": 1236
     },
@@ -2879,19 +2892,45 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "faa4d5fea7134f9939a34cdd3c90f0eed38f35e6333c38552117a81f585db3a8",
+      "excerpt_hash": "cb9b9b64d86e5d40228e5a1d22ac1bb09002cdfd66fe143ff01c54048745b2e8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "324c7412fbbf81eb",
+      "source_record_id": "rock_documentation:324c7412fbbf81eb",
+      "title": "Rock Your Groups",
+      "topics": [
+        "admin",
+        "check-in",
+        "lava",
+        "operations",
+        "security",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/7/296",
+      "version": null
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "bf859fa86fea825626266d7706ad96407e6f07808e8b4199dedd8037dd06c989",
-      "excerpt_hash": "1d5ecd73d02bca1f3c83a4f92b22a968f15e9716a6ae80e1a2f31a225ebf1809",
+      "content_hash": "7cfd0bbcfae2a9ce38b4d442751783fe49f143b88832cc92094cab8b71dc993b",
+      "excerpt_hash": "fa1ee064c59b09f839865fec4308b7dfb0db05b1cdd0b2ead2b194e7e5012eef",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "08815cfa0fab37fd",
-      "source_record_id": "rock_rocku:08815cfa0fab37fd",
-      "title": "Group Administrator",
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "title": "Groups",
       "topics": [
         "check-in",
         "security",
@@ -2899,7 +2938,7 @@
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/groups/group-administrator",
+      "url": "https://community.rockrms.com/rocku/groups",
       "version": null
     },
     {
@@ -3737,10 +3776,10 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "0fc799f0c5641d1469c10bbcca5e06280d06d776928685c38f55e8d3cf4dccca",
-      "excerpt_hash": "1d00eaedb8fbc04968dd9c91c9576ec08f2ba730aded8af163ddc3f5ecd21317",
+      "content_hash": "726e7176b6b91a7055bcb7056243be2c77fff50d921dff2b2d56be57045b7c85",
+      "excerpt_hash": "f8d6dda8f7f63fba256d9a169c58716fdf9f70898e072f3583aef87265f3ea88",
       "kind": "github_file",
-      "language": "ASP.NET Web Forms",
+      "language": "C#",
       "matched_terms": [
         "group",
         "groups",
@@ -3748,13 +3787,13 @@
         "groupmember",
         "schedule"
       ],
-      "path": "RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
+      "path": "RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "c72ee88036189ee1",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
-      "title": "RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx"
+      "source_key": "9ba8e4cdb53c4c2c",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs",
+      "title": "RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/GroupScheduling/GroupMemberScheduleTemplateDetail.ascx.cs"
     },
     {
       "authority": "source-code",

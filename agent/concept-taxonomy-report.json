@@ -30,7 +30,7 @@
       "path_constrained": false,
       "routing_context_claim_count": 0,
       "routing_role": "cross_cutting",
-      "selected_official_document_count": 45,
+      "selected_official_document_count": 34,
       "selected_record_count": 80,
       "title": "API And Integrations",
       "warnings": []
@@ -327,7 +327,7 @@
       "documentation_branches": [
         "documentation/engagement/learning-management-system"
       ],
-      "matching_branch_record_count": 33,
+      "matching_branch_record_count": 32,
       "parent_concept_id": "",
       "path_constrained": true,
       "routing_context_claim_count": 0,
@@ -402,7 +402,7 @@
       "path_constrained": false,
       "routing_context_claim_count": 0,
       "routing_role": "cross_cutting",
-      "selected_official_document_count": 31,
+      "selected_official_document_count": 27,
       "selected_record_count": 80,
       "title": "Platform Configuration",
       "warnings": []
@@ -452,7 +452,7 @@
       "path_constrained": false,
       "routing_context_claim_count": 0,
       "routing_role": "cross_cutting",
-      "selected_official_document_count": 48,
+      "selected_official_document_count": 43,
       "selected_record_count": 80,
       "title": "Scheduling And Locations",
       "warnings": []
@@ -486,7 +486,7 @@
       "path_constrained": false,
       "routing_context_claim_count": 0,
       "routing_role": "cross_cutting",
-      "selected_official_document_count": 30,
+      "selected_official_document_count": 28,
       "selected_record_count": 80,
       "title": "Serving And Volunteer Operations",
       "warnings": []
@@ -537,19 +537,19 @@
       "documentation_branches": [
         "documentation/core-concepts/workflows"
       ],
-      "matching_branch_record_count": 60,
+      "matching_branch_record_count": 59,
       "parent_concept_id": "",
       "path_constrained": true,
       "routing_context_claim_count": 0,
       "routing_role": "primary",
-      "selected_official_document_count": 60,
+      "selected_official_document_count": 59,
       "selected_record_count": 80,
       "title": "Workflows",
       "warnings": []
     }
   ],
   "errors": [],
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "highest_overlap_records": [
     {
       "concept_ids": [
@@ -703,14 +703,6 @@
         "scheduling-locations",
         "serving-volunteer-ops"
       ],
-      "source_record_id": "rock_documentation:article:1527"
-    },
-    {
-      "concept_ids": [
-        "groups",
-        "scheduling-locations",
-        "serving-volunteer-ops"
-      ],
       "source_record_id": "rock_documentation:article:1548"
     },
     {
@@ -740,26 +732,33 @@
     {
       "concept_ids": [
         "ai-agents-automation",
-        "api-integrations"
+        "lava"
       ],
-      "source_record_id": "rock_developer:article:1029"
+      "source_record_id": "rock_developer:article:1030"
     },
     {
       "concept_ids": [
         "ai-agents-automation",
-        "lava"
+        "api-integrations"
       ],
-      "source_record_id": "rock_developer:article:1030"
+      "source_record_id": "rock_developer:article:1031"
+    },
+    {
+      "concept_ids": [
+        "apple-tv",
+        "tv-apps"
+      ],
+      "source_record_id": "rock_developer:article:120"
     }
   ],
   "metrics": {
     "explicit_branch_count": 27,
-    "overlapping_selected_official_record_count": 210,
-    "selected_official_record_count": 1172,
+    "overlapping_selected_official_record_count": 193,
+    "selected_official_record_count": 1167,
     "selected_official_record_overlap_distribution": {
-      "1": 962,
-      "2": 187,
-      "3": 21,
+      "1": 974,
+      "2": 171,
+      "3": 20,
       "4": 2
     }
   },

@@ -76,7 +76,7 @@
   "concept_id": "scheduling-locations",
   "contribution_record_count": 0,
   "entity_count": 16,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1144,
   "guide_word_count": 11358,
   "metrics": {
@@ -85,7 +85,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 16,
     "section_count": 91,
-    "source_count": 69,
+    "source_count": 73,
     "substantive_uncited_section_ratio": 0.0167,
     "task_card_count": 6,
     "word_count": 11358
@@ -93,7 +93,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 91,
-  "source_count": 69,
+  "source_count": 73,
   "status": "fail",
   "task_card_count": 6
 }

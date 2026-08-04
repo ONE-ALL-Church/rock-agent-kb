@@ -39,10 +39,15 @@ Complete Determine Whether A Feature Can Be Used with evidence-backed checks and
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
+- https://community.rockrms.com/developer/mobile-docs/developers
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
+- https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
 - https://community.rockrms.com/recipes/402

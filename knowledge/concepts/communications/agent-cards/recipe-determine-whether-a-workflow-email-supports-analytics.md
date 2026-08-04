@@ -39,14 +39,14 @@ Do not promise analytics for workflow emails unless confirmed in the live instan
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/communication
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/8
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
 - https://community.rockrms.com/recipes/435
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-view
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs

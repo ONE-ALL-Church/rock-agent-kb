@@ -48,14 +48,14 @@ Complete Safely Answer “Can We Delete This?” with evidence-backed checks and
 ## Source Links
 
 - https://community.rockrms.com/lava/filters/attribute-filters
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql
 - https://community.rockrms.com/rocku/individuals-in-rock/person-attributes
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/custom-site-attributes
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql
 - https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/rocku/individuals-in-rock/family-attributes
 - https://community.rockrms.com/rocku/individuals-in-rock/bookmarked-attributes
-- https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns

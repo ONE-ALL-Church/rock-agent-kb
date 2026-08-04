@@ -2,7 +2,7 @@
 concept_id: workflows
 generated: true
 artifact_level: media_distillation
-approved_media_count: 19
+approved_media_count: 20
 ---
 
 # Workflows Approved Media
@@ -20,6 +20,7 @@ This generated artifact contains reviewed public media distillations routed to t
 | `media-insight:1db2ecf2b71445df` | Deconstructing a Sample Workflow Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow) |
 | `media-insight:4d696c083d2ec15d` | Form Builder Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/workflows/form-builder) |
 | `media-insight:d78c963e62a82942` | Form Styling Transcript Insight | approved_for_public_distillation | 1 | [source](https://community.rockrms.com/rocku/workflows/form-styling) |
+| `media-insight:9f9e326b3e1fd719` | Group Attendance Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
 | `media-insight:f689bd9a39f18ea8` | Launch Workflow From Grid Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/rocku/workflows/launch-workflow-from-grid) |
 | `media-insight:d19aff0e845956ae` | Media Watch Transcript Insight | approved_for_public_distillation | 3 | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | `media-insight:07b354357a163fa5` | Persisted Workflows Transcript Insight | approved_for_public_distillation | 2 | [source](https://community.rockrms.com/rocku/workflows/persisted-workflows) |

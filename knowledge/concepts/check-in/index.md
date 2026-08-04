@@ -2,7 +2,7 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-07-31T00:30:00+00:00
+last_built: 2026-08-04T17:15:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -191,7 +191,7 @@ Keywords: `label, zpl, printer, next-gen labels`
 | Check-In Manager Person Profile | rock_documentation | There are lots of ways you can get to the *Check-in Manager Person Profile* page. Whether you arrived here from a *Search*, from the *Room Manager* or from *Live Metrics*, there’s a lot to see and do on this page. 1. **Person Information** - You can see the person's photo and campus to the left, as well as their gender, age and grade along the top of the page. 2. **Attendance History** - Clicking this icon will take... | [source](https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile) |
 | Administer Check-Out | rock_documentation | ## Check-Out Manually Out of the box, Rock automatically “checks out” individuals when an event end time has passed (it doesn't actually mark them as checked out, they no longer appear in Check-in Manager). However, you can configure Rock to allow individuals to manually check out and set it up to print a check-out label. To configure manual check-out, follow these steps: 1. Go to `Admin Tools > Check-in > Check-in... | [source](https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/administer-check-out) |
 | Labels | rock_documentation | [Intro to Labels](/documentation/church-management/check-in/labels/intro-to-labels?Version=v19.0) [Use the Label Designer](/documentation/church-management/check-in/labels/use-the-label-designer?Version=v19.0) [Link Labels to Check-in](/documentation/church-management/check-in/labels/link-labels-to-check-in?Version=v19.0) | [source](https://community.rockrms.com/documentation/church-management/check-in/labels) |
-| Cut Labels | rock_documentation | You can easily configure your cutter-enabled label printer to automatically cut at the end of the set of labels. So, if there are a set of three kids checking in, it will automatically cut once after all labels for each child have been printed. As you’ll see later, you can take this to the next level and control cutting to a great extent. Tip **Printers with Cutters**If you’re in the market for a label printer with... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/cut-labels) |
+| Printing | rock_documentation | [Intro to Printing](/documentation/church-management/check-in/printing/intro-to-printing?Version=v19.0) [How to Print Labels](/documentation/church-management/check-in/printing/how-to-print-labels?Version=v19.0) [Reprint a Label](/documentation/church-management/check-in/printing/reprint-a-label?Version=v19.0) [Cut Labels](/documentation/church-management/check-in/printing/cut-labels?Version=v19.0) [Common... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing) |
 
 ### Mobile Check-In
 

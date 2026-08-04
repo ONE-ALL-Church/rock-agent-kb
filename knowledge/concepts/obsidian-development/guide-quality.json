@@ -67,7 +67,7 @@
   "concept_id": "obsidian-development",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1402,
   "guide_word_count": 14813,
   "metrics": {
@@ -76,7 +76,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 11,
     "section_count": 106,
-    "source_count": 29,
+    "source_count": 57,
     "substantive_uncited_section_ratio": 0.0159,
     "task_card_count": 6,
     "word_count": 14813
@@ -84,7 +84,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 90,
   "section_count": 106,
-  "source_count": 29,
+  "source_count": 57,
   "status": "fail",
   "task_card_count": 6
 }

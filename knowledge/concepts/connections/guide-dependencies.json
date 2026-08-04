@@ -1087,7 +1087,7 @@
   },
   "approved_media_hash": "e5e08984be7157ac217a00f44f83ce3a6cc7395b9e17120f82018cd8d7888b7f",
   "approved_media_path": "knowledge/concepts/connections/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "connections",
   "guide_hash": "59dfe73cc0da8175696f1da71476104a328de15849b2b79004fe43d0176e1cb7",
   "guide_line_count": 1358,
@@ -1186,12 +1186,12 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "4c5e6480208deae571bef3449b8c81f0fabed68623b33be6ad16c07ca7f454d5",
-      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "content_hash": "115de13e144454df5e13deca985ee8ff8c8735d9b3affd98f8129c3ce0b064c8",
+      "excerpt_hash": "3b7f070dea32384c36d3a704a8a21894f3da42f9d0ac3da7a9aa73b6873ec0d0",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "8cb2957cfea14989",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs"
     },
     {
       "authority": "official-developer",
@@ -1212,6 +1212,51 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list"
     },
     {
+      "authority": "source-code",
+      "content_hash": "bd11461e41b994b4d3b9494c64efb7f5ca2f99282c8d6dbe3809518d1236722f",
+      "excerpt_hash": "2026c975afd2e4b4aeede83a84457d6428674f15e8563dadede4b4d67b9778e2",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "80a354f021e210bd",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "7d3d4942b9b5a91bbc4131f62a1b66aecdc5b8f7c80e873661b0b65417604670",
+      "excerpt_hash": "f3d9f9ab7f38ae256551e01c937c7347863a6ac1bb3e937820dda910ecfbe442",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2af49295d610b6b4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c0b490ece1ca9eea8fb0bb180aab67e47f4207f618bae36c55026c9753421ce4",
+      "excerpt_hash": "b7ae153ec85fd658936de2d12db1c6119b7cb6939e9b362dca34753a9507fd93",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "624fb7ddd579473c",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b1a42f814b12683ddab3f6b27b14f0d2ef62c775d330d0a8979bd436e4e97d8e",
+      "excerpt_hash": "885b42656b0fe51883bec047e317595d791a2320ca14d63422639ae6204e9126",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fbb6c2ede5d37ba8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "30534e2d2721a4dbd4d44d984b13aa246df2ef4590e504c761387390c8534039",
+      "excerpt_hash": "d1ffe5f8f8c5d3760347fb27fab129154a1ce03a3b2ea9c57ef8f4e5226388c9",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7700ae80fd5b874b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "d5df242a75d681792994df17be1ed0db3e266094264c9f908d2af0bfb49aba65",
       "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
@@ -1230,6 +1275,33 @@
       "url": "https://community.rockrms.com/recipes/446"
     },
     {
+      "authority": "source-code",
+      "content_hash": "0e87088aed1667d851102be7f4f94eba7731098ef416582e151c2d55e5dae234",
+      "excerpt_hash": "3579356fbfb59771b04e2c106dab65657a3cc2613978b29884dce5723dca0891",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "54de66cb47893c1f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "069f3c40e42d0d9adf3c25b2895e540464dfa87b4184ddae0280860ad529a63a",
+      "excerpt_hash": "caf60f466b19da463cf006d5bff1122400c9b09b70af7af1e8cea20d92e1f1b6",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7f3a2b006d1e1930",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "ef0ed92f713ab1e8c2fbda2218dd8bed01f9579361048516f76379fad93899be",
+      "excerpt_hash": "76ac8e9bbbb9654faf316c6d8d5019dca1881efce33efaea28149b3011158c1e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46ab40a0b9ce7ed7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs"
+    },
+    {
       "authority": "official-training",
       "content_hash": "16ad99fb31e1947ad634a904aff54b4fc2d971050eae74fd02698c5698ec8f39",
       "excerpt_hash": "254336987589a1fa3f15a92e1b7747b26decbd3c4e7c2369031af594c449f05a",
@@ -1239,6 +1311,24 @@
       "url": "https://community.rockrms.com/rocku/new"
     },
     {
+      "authority": "source-code",
+      "content_hash": "4c5e6480208deae571bef3449b8c81f0fabed68623b33be6ad16c07ca7f454d5",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "dc492f0af83cd9c373529afcbe8eeddd88e52d85e76ba2efbbec537f165d0c04",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "source_id": "rock_developer",
+      "source_key": "fd42a367d1c9ce17",
+      "source_record_id": "rock_developer:fd42a367d1c9ce17",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection"
+    },
+    {
       "authority": "community-answer",
       "content_hash": "5239732aeed33c782a0100b49877f3fc7a01fadafd179dbf08c48de004914781",
       "excerpt_hash": "340c84ab6878dbada935284a8aee7610c97b55289ed980e2a189d6e1b5294fe5",
@@ -1246,6 +1336,60 @@
       "source_key": "8f6a778d85c0f9ee",
       "source_record_id": "rock_qa:8f6a778d85c0f9ee",
       "url": "https://community.rockrms.com/ask/developing/2645"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f2e1d1e6ae40621573378e5bce3ce77bb64574e2a32ec303a0ebbcb5fac2bd4d",
+      "excerpt_hash": "aab94d90c9cd55a10bf053e47182820c1b9069f874599b4d412dbcf8a6037f53",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "6a1369d25b77488e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "aea0ba8dfb910569bcf95365f22db44da289234303a63df7933a428ffdf6be92",
+      "excerpt_hash": "dbaf47bd5b43ecf911357de9d56f8cd69ac993fb107203a76bb9209cddc94bcc",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3665ced6955e4dc4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8c29a01a76de3992d1fb56e0720b4f3ca08b185ef415b53d74574b93b0cdc080",
+      "excerpt_hash": "f9f009efbd17de2111dd0fb0d238e389fc1d1b4dbb22b26a180d08e5851110c8",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "748794c7b5091518",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "77065d81f103f7655a785ab200cadd402217fd5b7155ccdc776fc5def3cc912c",
+      "excerpt_hash": "400de4358b13275d752e202337f9fe6386a85964a7cbda237009a1a4d64b6efd",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a6da85726c4ca226",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4b6ddfda78ba9d7269fe5097fc4549dbbb2cd836f42153e23431086c9077c906",
+      "excerpt_hash": "5ceb5cbc4d0617dcda4febec3e4c0e864ebd2c09a9ce3fb21a72300811222279",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5c61005ea8752e65",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "69cd2c945e9bf7ee17086c1fca2009e52730436796037539ecdfb22f403547bc",
+      "excerpt_hash": "61c3f6eac2c94cffd34e4ce4edab90028bac40433bc53ec82195c0f29dc9bf0e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9e264faeaac9da40",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs"
     },
     {
       "authority": "official-triumph",
@@ -1352,16 +1496,16 @@
       "source_keys": [
         "256bfaf3b8f47935",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "8cb2957cfea14989",
         "a3c93b37668c6775",
         "2513c4a11db9a79e",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "80a354f021e210bd",
+        "2af49295d610b6b4",
         "776256c424368312",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "624fb7ddd579473c",
+        "fbb6c2ede5d37ba8",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833"
+        "7700ae80fd5b874b"
       ],
       "start_line": 55
     },
@@ -1376,10 +1520,10 @@
         "d053fa2b17b02661",
         "8595bbf975a173fd",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "80a354f021e210bd",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "46ab40a0b9ce7ed7"
       ],
       "start_line": 94
     },
@@ -1396,7 +1540,7 @@
         "776256c424368312",
         "bce31f25cb8a199e",
         "d275b5b94a9da833",
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
@@ -1410,8 +1554,12 @@
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "7700ae80fd5b874b",
+        "80a354f021e210bd",
+        "2af49295d610b6b4",
+        "6a1369d25b77488e",
         "776256c424368312",
+        "8cb2957cfea14989",
         "bce31f25cb8a199e"
       ],
       "start_line": 145
@@ -1434,7 +1582,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-type-configuration",
       "source_keys": [
-        "d275b5b94a9da833",
+        "7700ae80fd5b874b",
         "256bfaf3b8f47935"
       ],
       "start_line": 164
@@ -1446,9 +1594,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-connection-status-configuration",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "80a354f021e210bd",
+        "2af49295d610b6b4",
+        "6a1369d25b77488e"
       ],
       "start_line": 189
     },
@@ -1461,7 +1609,7 @@
       "source_keys": [
         "256bfaf3b8f47935",
         "776256c424368312",
-        "d275b5b94a9da833"
+        "8cb2957cfea14989"
       ],
       "start_line": 220
     },
@@ -1486,9 +1634,11 @@
       "source_keys": [
         "bce31f25cb8a199e",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "3665ced6955e4dc4",
         "8f6a778d85c0f9ee",
-        "2513c4a11db9a79e"
+        "2513c4a11db9a79e",
+        "748794c7b5091518",
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 280
     },
@@ -1511,7 +1661,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectiontype",
       "source_keys": [
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4"
       ],
       "start_line": 323
     },
@@ -1545,7 +1695,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionstatus",
       "source_keys": [
-        "d275b5b94a9da833"
+        "748794c7b5091518"
       ],
       "start_line": 335
     },
@@ -1556,7 +1706,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-connectionopportunityconnectorgroup",
       "source_keys": [
-        "d275b5b94a9da833"
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 339
     },
@@ -1570,8 +1720,10 @@
         "256bfaf3b8f47935",
         "d053fa2b17b02661",
         "776256c424368312",
-        "d275b5b94a9da833",
-        "dd0d53998f998249"
+        "a6da85726c4ca226",
+        "5c61005ea8752e65",
+        "dd0d53998f998249",
+        "9e264faeaac9da40"
       ],
       "start_line": 343
     },
@@ -1616,8 +1768,8 @@
       "needs_live_verification": false,
       "section_id": "7-common-connections-workflows-manager-reviews-pipeline",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "a6da85726c4ca226",
+        "5c61005ea8752e65"
       ],
       "start_line": 391
     },
@@ -1629,7 +1781,7 @@
       "section_id": "7-common-connections-workflows-workflow-automation-runs",
       "source_keys": [
         "dd0d53998f998249",
-        "d275b5b94a9da833"
+        "9e264faeaac9da40"
       ],
       "start_line": 409
     },
@@ -1642,7 +1794,7 @@
       "source_keys": [
         "8db46c9fd330cd62",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "624fb7ddd579473c",
         "a3c93b37668c6775",
         "8f6a778d85c0f9ee",
         "776256c424368312"
@@ -1668,7 +1820,7 @@
       "needs_live_verification": true,
       "section_id": "8-opportunities-deep-dive-key-opportunity-settings-to-inspect",
       "source_keys": [
-        "d275b5b94a9da833"
+        "624fb7ddd579473c"
       ],
       "start_line": 446
     },
@@ -1703,9 +1855,12 @@
       "section_id": "9-requests-and-statuses-deep-dive",
       "source_keys": [
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "80a354f021e210bd",
+        "46ab40a0b9ce7ed7",
+        "5c61005ea8752e65",
         "776256c424368312",
-        "dd0d53998f998249"
+        "dd0d53998f998249",
+        "6a1369d25b77488e"
       ],
       "start_line": 487
     },
@@ -1727,7 +1882,7 @@
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-status-vs-state",
       "source_keys": [
-        "d275b5b94a9da833"
+        "80a354f021e210bd"
       ],
       "start_line": 503
     },
@@ -1738,7 +1893,7 @@
       "needs_live_verification": false,
       "section_id": "9-requests-and-statuses-deep-dive-note-required-on-completion",
       "source_keys": [
-        "d275b5b94a9da833"
+        "80a354f021e210bd"
       ],
       "start_line": 514
     },
@@ -1749,7 +1904,7 @@
       "needs_live_verification": true,
       "section_id": "9-requests-and-statuses-deep-dive-due-dates-and-due-soon-behavior",
       "source_keys": [
-        "d275b5b94a9da833"
+        "80a354f021e210bd"
       ],
       "start_line": 518
     },
@@ -1761,8 +1916,8 @@
       "section_id": "9-requests-and-statuses-deep-dive-future-follow-up",
       "source_keys": [
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "46ab40a0b9ce7ed7",
+        "5c61005ea8752e65",
         "776256c424368312"
       ],
       "start_line": 527
@@ -1775,7 +1930,7 @@
       "section_id": "9-requests-and-statuses-deep-dive-status-automation",
       "source_keys": [
         "dd0d53998f998249",
-        "d275b5b94a9da833"
+        "6a1369d25b77488e"
       ],
       "start_line": 541
     },
@@ -1788,7 +1943,8 @@
       "source_keys": [
         "776256c424368312",
         "256bfaf3b8f47935",
-        "d275b5b94a9da833",
+        "7700ae80fd5b874b",
+        "fd42a367d1c9ce17",
         "a3c93b37668c6775",
         "d053fa2b17b02661",
         "2513c4a11db9a79e"
@@ -1825,7 +1981,7 @@
       "needs_live_verification": true,
       "section_id": "10-boards-and-lists-deep-dive-grid-and-snapshot-views",
       "source_keys": [
-        "d275b5b94a9da833"
+        "7700ae80fd5b874b"
       ],
       "start_line": 589
     },
@@ -1836,7 +1992,7 @@
       "needs_live_verification": false,
       "section_id": "10-boards-and-lists-deep-dive-mobile-views",
       "source_keys": [
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "a3c93b37668c6775",
         "d053fa2b17b02661",
         "2513c4a11db9a79e"
@@ -1850,9 +2006,11 @@
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive",
       "source_keys": [
-        "d275b5b94a9da833",
+        "624fb7ddd579473c",
+        "fbb6c2ede5d37ba8",
         "256bfaf3b8f47935",
-        "8595bbf975a173fd"
+        "8595bbf975a173fd",
+        "46ab40a0b9ce7ed7"
       ],
       "start_line": 601
     },
@@ -1863,8 +2021,8 @@
       "needs_live_verification": true,
       "section_id": "11-assignment-and-follow-up-deep-dive-connector-assignment",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "624fb7ddd579473c",
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 603
     },
@@ -1897,7 +2055,7 @@
       "needs_live_verification": false,
       "section_id": "11-assignment-and-follow-up-deep-dive-future-follow-up-discipline",
       "source_keys": [
-        "d275b5b94a9da833"
+        "46ab40a0b9ce7ed7"
       ],
       "start_line": 649
     },
@@ -1909,8 +2067,11 @@
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting",
       "source_keys": [
         "776256c424368312",
-        "d275b5b94a9da833",
-        "a88d2175a735a712"
+        "6a1369d25b77488e",
+        "a88d2175a735a712",
+        "fbb6c2ede5d37ba8",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 661
     },
@@ -1943,7 +2104,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-groups",
       "source_keys": [
-        "d275b5b94a9da833",
+        "6a1369d25b77488e",
         "a88d2175a735a712"
       ],
       "start_line": 690
@@ -1966,7 +2127,7 @@
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-security",
       "source_keys": [
-        "d275b5b94a9da833"
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 716
     },
@@ -1977,8 +2138,8 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-people-workflows-groups-communications-security-reporting-reporting",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 733
     },
@@ -1989,10 +2150,14 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
-        "d275b5b94a9da833",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989",
         "7c574ae17bbd0ae2",
         "8db46c9fd330cd62",
-        "a520db9e9adc1368"
+        "a520db9e9adc1368",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "46ab40a0b9ce7ed7"
       ],
       "start_line": 751
     },
@@ -2003,8 +2168,8 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-minimum-viable-governance",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 753
     },
@@ -2028,9 +2193,9 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-operational-metrics",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "46ab40a0b9ce7ed7"
       ],
       "start_line": 807
     },
@@ -2041,11 +2206,23 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "d053fa2b17b02661",
+        "a3c93b37668c6775",
         "2513c4a11db9a79e",
         "8f6a778d85c0f9ee",
-        "d275b5b94a9da833"
+        "fbb6c2ede5d37ba8",
+        "7700ae80fd5b874b",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "a6da85726c4ca226",
+        "46ab40a0b9ce7ed7",
+        "5c61005ea8752e65",
+        "80a354f021e210bd",
+        "9e264faeaac9da40",
+        "748794c7b5091518",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 827
     },
@@ -2056,7 +2233,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-mobile-blocks",
       "source_keys": [
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "d053fa2b17b02661",
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
@@ -2093,7 +2270,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rest-api",
       "source_keys": [
-        "d275b5b94a9da833"
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 863
     },
@@ -2104,18 +2281,18 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-source-code-landmarks",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "7700ae80fd5b874b",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "a6da85726c4ca226",
+        "46ab40a0b9ce7ed7",
+        "5c61005ea8752e65",
+        "80a354f021e210bd",
+        "9e264faeaac9da40",
+        "748794c7b5091518",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989",
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 876
     },
@@ -2127,7 +2304,10 @@
       "section_id": "15-reporting-analytics-and-model-map",
       "source_keys": [
         "bce31f25cb8a199e",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930"
       ],
       "start_line": 906
     },
@@ -2149,8 +2329,8 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-built-in-reporting-filters",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 912
     },
@@ -2161,8 +2341,8 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-analytics-dimensions",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 918
     },
@@ -2173,8 +2353,8 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-analytics-measures",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930"
       ],
       "start_line": 939
     },
@@ -2294,7 +2474,9 @@
         "a3c93b37668c6775",
         "8f6a778d85c0f9ee",
         "dd0d53998f998249",
-        "d275b5b94a9da833"
+        "9e264faeaac9da40",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 1009
     },
@@ -2330,7 +2512,7 @@
       "section_id": "17-implementation-playbooks-playbook-add-status-automation",
       "source_keys": [
         "dd0d53998f998249",
-        "d275b5b94a9da833"
+        "9e264faeaac9da40"
       ],
       "start_line": 1046
     },
@@ -2341,8 +2523,8 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-build-a-manager-dashboard",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989"
       ],
       "start_line": 1061
     },
@@ -2355,7 +2537,10 @@
       "source_keys": [
         "776256c424368312",
         "2513c4a11db9a79e",
-        "d275b5b94a9da833"
+        "8cb2957cfea14989",
+        "624fb7ddd579473c",
+        "fbb6c2ede5d37ba8",
+        "80a354f021e210bd"
       ],
       "start_line": 1077
     },
@@ -2388,7 +2573,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-opportunity-missing-from-selector-or-report",
       "source_keys": [
-        "d275b5b94a9da833"
+        "8cb2957cfea14989"
       ],
       "start_line": 1106
     },
@@ -2399,8 +2584,8 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-request-did-not-auto-assign",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "624fb7ddd579473c",
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 1117
     },
@@ -2411,7 +2596,7 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-status-change-did-something-unexpected",
       "source_keys": [
-        "d275b5b94a9da833"
+        "80a354f021e210bd"
       ],
       "start_line": 1130
     },
@@ -2444,7 +2629,9 @@
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
-        "d275b5b94a9da833",
+        "7700ae80fd5b874b",
+        "80a354f021e210bd",
+        "3665ced6955e4dc4",
         "2513c4a11db9a79e",
         "d053fa2b17b02661",
         "776256c424368312",
@@ -2461,9 +2648,9 @@
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes-recipe-audit-one-connection-type",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "7700ae80fd5b874b",
+        "80a354f021e210bd",
+        "3665ced6955e4dc4"
       ],
       "start_line": 1166
     },
@@ -2569,11 +2756,21 @@
         "a19faf4c8934cc5e",
         "a520db9e9adc1368",
         "1bda1c7afae305e7",
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "d053fa2b17b02661",
+        "a3c93b37668c6775",
         "2513c4a11db9a79e",
         "bce31f25cb8a199e",
         "d275b5b94a9da833",
+        "7700ae80fd5b874b",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "46ab40a0b9ce7ed7",
+        "80a354f021e210bd",
+        "9e264faeaac9da40",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989",
+        "fbb6c2ede5d37ba8",
         "8f6a778d85c0f9ee",
         "8595bbf975a173fd"
       ],
@@ -2615,7 +2812,7 @@
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes-developer-and-mobile-docs",
       "source_keys": [
-        "a3c93b37668c6775",
+        "fd42a367d1c9ce17",
         "d053fa2b17b02661",
         "a3c93b37668c6775",
         "2513c4a11db9a79e"
@@ -2631,15 +2828,15 @@
       "source_keys": [
         "bce31f25cb8a199e",
         "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "7700ae80fd5b874b",
+        "54de66cb47893c1f",
+        "7f3a2b006d1e1930",
+        "46ab40a0b9ce7ed7",
+        "80a354f021e210bd",
+        "9e264faeaac9da40",
+        "3665ced6955e4dc4",
+        "8cb2957cfea14989",
+        "fbb6c2ede5d37ba8"
       ],
       "start_line": 1324
     },
@@ -2885,25 +3082,27 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "change_type": null,
-      "content_hash": "4c5e6480208deae571bef3449b8c81f0fabed68623b33be6ad16c07ca7f454d5",
-      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+      "content_hash": "115de13e144454df5e13deca985ee8ff8c8735d9b3affd98f8129c3ce0b064c8",
+      "excerpt_hash": "3b7f070dea32384c36d3a704a8a21894f3da42f9d0ac3da7a9aa73b6873ec0d0",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection opportunity",
+        "connectionopportunity",
+        "connection request",
+        "connectionrequest",
+        "opportunity",
+        "reporting",
+        "request"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
+      "path": "Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "8cb2957cfea14989",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs",
+      "title": "Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs"
     },
     {
       "authority": "official-developer",
@@ -2956,6 +3155,123 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "bd11461e41b994b4d3b9494c64efb7f5ca2f99282c8d6dbe3809518d1236722f",
+      "excerpt_hash": "2026c975afd2e4b4aeede83a84457d6428674f15e8563dadede4b4d67b9778e2",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connections",
+        "connection type",
+        "connectiontype",
+        "connection status",
+        "connectionstatus",
+        "status"
+      ],
+      "path": "Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "80a354f021e210bd",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs",
+      "title": "Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "7d3d4942b9b5a91bbc4131f62a1b66aecdc5b8f7c80e873661b0b65417604670",
+      "excerpt_hash": "f3d9f9ab7f38ae256551e01c937c7347863a6ac1bb3e937820dda910ecfbe442",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "connection",
+        "connections",
+        "connection type",
+        "connectiontype",
+        "connection status",
+        "connectionstatus",
+        "status"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2af49295d610b6b4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c0b490ece1ca9eea8fb0bb180aab67e47f4207f618bae36c55026c9753421ce4",
+      "excerpt_hash": "b7ae153ec85fd658936de2d12db1c6119b7cb6939e9b362dca34753a9507fd93",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection opportunity",
+        "connectionopportunity",
+        "opportunity",
+        "request",
+        "connector"
+      ],
+      "path": "Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "624fb7ddd579473c",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+      "title": "Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b1a42f814b12683ddab3f6b27b14f0d2ef62c775d330d0a8979bd436e4e97d8e",
+      "excerpt_hash": "885b42656b0fe51883bec047e317595d791a2320ca14d63422639ae6204e9126",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection opportunity",
+        "connectionopportunity",
+        "opportunity",
+        "groups",
+        "connector"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fbb6c2ede5d37ba8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "30534e2d2721a4dbd4d44d984b13aa246df2ef4590e504c761387390c8534039",
+      "excerpt_hash": "d1ffe5f8f8c5d3760347fb27fab129154a1ce03a3b2ea9c57ef8f4e5226388c9",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection opportunity",
+        "connectionopportunity",
+        "opportunity"
+      ],
+      "path": "Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7700ae80fd5b874b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs",
+      "title": "Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionTypeSummaryBag.cs"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -3004,6 +3320,80 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "0e87088aed1667d851102be7f4f94eba7731098ef416582e151c2d55e5dae234",
+      "excerpt_hash": "3579356fbfb59771b04e2c106dab65657a3cc2613978b29884dce5723dca0891",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection opportunity",
+        "connectionopportunity",
+        "connection request",
+        "connectionrequest",
+        "opportunity",
+        "request"
+      ],
+      "path": "Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "54de66cb47893c1f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs",
+      "title": "Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Connection/ConnectionOpportunityNavigation/ConnectionRequestCountsPerDayBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "069f3c40e42d0d9adf3c25b2895e540464dfa87b4184ddae0280860ad529a63a",
+      "excerpt_hash": "caf60f466b19da463cf006d5bff1122400c9b09b70af7af1e8cea20d92e1f1b6",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection request",
+        "connectionrequest",
+        "request",
+        "status"
+      ],
+      "path": "Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7f3a2b006d1e1930",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs",
+      "title": "Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestStatusDistribution.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "ef0ed92f713ab1e8c2fbda2218dd8bed01f9579361048516f76379fad93899be",
+      "excerpt_hash": "76ac8e9bbbb9654faf316c6d8d5019dca1881efce33efaea28149b3011158c1e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection request",
+        "connectionrequest",
+        "request",
+        "follow-up",
+        "follow up",
+        "followup"
+      ],
+      "path": "Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "46ab40a0b9ce7ed7",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs",
+      "title": "Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/DTO/ConnectionRequestUpcomingFollowUpWindow.cs"
+    },
+    {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
@@ -3028,6 +3418,57 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "4c5e6480208deae571bef3449b8c81f0fabed68623b33be6ad16c07ca7f454d5",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "dc492f0af83cd9c373529afcbe8eeddd88e52d85e76ba2efbbec537f165d0c04",
+      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "fd42a367d1c9ce17",
+      "source_record_id": "rock_developer:fd42a367d1c9ce17",
+      "title": "Connection",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection",
+      "version": null
+    },
+    {
       "authority": "community-answer",
       "authority_score": 50,
       "change_type": null,
@@ -3049,6 +3490,153 @@
       ],
       "url": "https://community.rockrms.com/ask/developing/2645",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f2e1d1e6ae40621573378e5bce3ce77bb64574e2a32ec303a0ebbcb5fac2bd4d",
+      "excerpt_hash": "aab94d90c9cd55a10bf053e47182820c1b9069f874599b4d412dbcf8a6037f53",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "connection",
+        "connections",
+        "connection type",
+        "connectiontype",
+        "connection status",
+        "connectionstatus",
+        "status"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "6a1369d25b77488e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "aea0ba8dfb910569bcf95365f22db44da289234303a63df7933a428ffdf6be92",
+      "excerpt_hash": "dbaf47bd5b43ecf911357de9d56f8cd69ac993fb107203a76bb9209cddc94bcc",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection request",
+        "connectionrequest",
+        "reporting",
+        "request"
+      ],
+      "path": "Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "3665ced6955e4dc4",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs",
+      "title": "Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8c29a01a76de3992d1fb56e0720b4f3ca08b185ef415b53d74574b93b0cdc080",
+      "excerpt_hash": "f9f009efbd17de2111dd0fb0d238e389fc1d1b4dbb22b26a180d08e5851110c8",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connections",
+        "connection request",
+        "connectionrequest",
+        "connection status",
+        "connectionstatus",
+        "request",
+        "status"
+      ],
+      "path": "Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "748794c7b5091518",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs",
+      "title": "Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionRequest/ConnectionStatusViewModel.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "77065d81f103f7655a785ab200cadd402217fd5b7155ccdc776fc5def3cc912c",
+      "excerpt_hash": "400de4358b13275d752e202337f9fe6386a85964a7cbda237009a1a4d64b6efd",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection request",
+        "connectionrequest",
+        "request",
+        "status"
+      ],
+      "path": "Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a6da85726c4ca226",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs",
+      "title": "Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/Options/ConnectionRequestStatusDistributionQueryOptions.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4b6ddfda78ba9d7269fe5097fc4549dbbb2cd836f42153e23431086c9077c906",
+      "excerpt_hash": "5ceb5cbc4d0617dcda4febec3e4c0e864ebd2c09a9ce3fb21a72300811222279",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connection type",
+        "connectiontype",
+        "connection request",
+        "connectionrequest",
+        "request",
+        "follow-up",
+        "follow up",
+        "followup"
+      ],
+      "path": "Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "5c61005ea8752e65",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs",
+      "title": "Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Connection/ConnectionType/Options/ConnectionRequestUpcomingFollowUpWindowQueryOptions.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "69cd2c945e9bf7ee17086c1fca2009e52730436796037539ecdfb22f403547bc",
+      "excerpt_hash": "61c3f6eac2c94cffd34e4ce4edab90028bac40433bc53ec82195c0f29dc9bf0e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "connection",
+        "connections",
+        "connection type",
+        "connectiontype",
+        "connection status",
+        "connectionstatus",
+        "status"
+      ],
+      "path": "Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9e264faeaac9da40",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs",
+      "title": "Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs"
     },
     {
       "authority": "official-triumph",

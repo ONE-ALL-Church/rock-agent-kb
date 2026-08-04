@@ -39,4 +39,4 @@ Return who is waiting, what data is missing, and what staff action is needed.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts

@@ -74,7 +74,7 @@
   "concept_id": "content-personalization",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1025,
   "guide_word_count": 13534,
   "metrics": {
@@ -83,7 +83,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 12,
     "section_count": 90,
-    "source_count": 13,
+    "source_count": 77,
     "substantive_uncited_section_ratio": 0.0167,
     "task_card_count": 5,
     "word_count": 13534
@@ -91,7 +91,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 90,
-  "source_count": 13,
+  "source_count": 77,
   "status": "fail",
   "task_card_count": 5
 }

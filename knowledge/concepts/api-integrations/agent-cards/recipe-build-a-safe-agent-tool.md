@@ -43,15 +43,15 @@ See Writing Custom Tools, Get Tools, and List Tools.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail/check-scanning
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Rest/Models/Workflows/launchWorkflowOptionsBag.d.ts
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools
 - https://community.rockrms.com/developer/303---blast-off/extending-communication-transports
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app
 - https://community.rockrms.com/developer/roku-docs/getting-started/applications
-- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
-- https://community.rockrms.com/developer/303---blast-off/rock-security
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail

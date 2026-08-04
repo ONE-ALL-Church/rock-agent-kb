@@ -41,4 +41,5 @@ Sources: Apple TV Tips, Apple TV Templates.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates

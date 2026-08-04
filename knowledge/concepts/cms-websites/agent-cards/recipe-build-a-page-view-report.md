@@ -44,15 +44,15 @@ The community page-view recipe provides the basic pattern but should be hardened
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/cms
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/recipes/261
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/recipes/432
-- https://community.rockrms.com/documentation/bookcontent/6
-- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
-- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts
+- https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy
+- https://community.rockrms.com/rocku/cms/page-builder
+- https://community.rockrms.com/rocku/cms/personalization
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts

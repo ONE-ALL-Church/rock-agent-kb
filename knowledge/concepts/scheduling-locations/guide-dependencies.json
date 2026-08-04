@@ -555,7 +555,7 @@
   },
   "approved_media_hash": "aebcaa061fb04d7cb10d9f129006a9537fe6b88c39fabbbed8010a7354aa6976",
   "approved_media_path": "knowledge/concepts/scheduling-locations/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "scheduling-locations",
   "guide_hash": "3ab1004060b037c32ff0c0facef8a94309c70a422cdb05adeaea0e021f99f429",
   "guide_line_count": 1144,
@@ -573,12 +573,12 @@
     },
     {
       "authority": "official",
-      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "content_hash": "bf4b7ea1898455636cc222a49ce46098eb7c495a4084b2ff3053bfcd286768c4",
       "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
       "source_id": "rock_documentation",
-      "source_key": "ca9bd2a7c1a46e9c",
-      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
-      "url": "https://community.rockrms.com/documentation/bookcontent/42"
+      "source_key": "bb4cc2620461dffb",
+      "source_record_id": "rock_documentation:bb4cc2620461dffb",
+      "url": "https://community.rockrms.com/documentation/bookcontent/42/350"
     },
     {
       "authority": "official",
@@ -615,6 +615,15 @@
       "source_key": "eaef6723bbed3067",
       "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
+      "source_id": "rock_documentation",
+      "source_key": "ca9bd2a7c1a46e9c",
+      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
+      "url": "https://community.rockrms.com/documentation/bookcontent/42"
     },
     {
       "authority": "official-release",
@@ -699,12 +708,12 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
-      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
+      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
       "source_id": "rock_rocku",
-      "source_key": "d0d7d71631f3f890",
-      "source_record_id": "rock_rocku:d0d7d71631f3f890",
-      "url": "https://community.rockrms.com/rocku/groups/group-location"
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "url": "https://community.rockrms.com/rocku/groups"
     },
     {
       "authority": "source-code",
@@ -762,12 +771,12 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
-      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
+      "content_hash": "10148858efab7b7c26d953f0589a51d1ea4064aa67491f4c9876ea0bd7c217d3",
+      "excerpt_hash": "c8e3e8c447465870edc1d4fe3ccca799bbf39e27c95e6ad3e6e52364c7334648",
       "source_id": "rock_rocku",
-      "source_key": "1cfd7942fe8e3344",
-      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
-      "url": "https://community.rockrms.com/rocku/groups"
+      "source_key": "7e09b4c6a92264f6",
+      "source_record_id": "rock_rocku:7e09b4c6a92264f6",
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board"
     },
     {
       "authority": "official-training",
@@ -852,12 +861,12 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
-      "excerpt_hash": "a101221394872dcb1b434d81815771e18f60cc30f2a20dd6c78fec89830b53a6",
+      "content_hash": "0501b850c1557508c00960fe2e342c7b0c82c3b5592941e622e431b9af28fe96",
+      "excerpt_hash": "c971bccba5107ad94aacca555e32baf961656652c60b237348ef8121edcb89d6",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "992c0520f63523db",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+      "source_key": "65088766ef47d7c2",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs"
     },
     {
       "authority": "community-example",
@@ -1076,6 +1085,15 @@
       "url": "https://community.rockrms.com/recipes/174"
     },
     {
+      "authority": "official-training",
+      "content_hash": "239ae429bfdc654a730325f55772811b86b67a0da38a877438f4685bad9be435",
+      "excerpt_hash": "1fa8fb54e7bdb43326d51816723ebf4c50c66dc478c96f053480a2fe7273839f",
+      "source_id": "rock_rocku",
+      "source_key": "b835b3a8c5f9d37d",
+      "source_record_id": "rock_rocku:b835b3a8c5f9d37d",
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduling-analytics"
+    },
+    {
       "authority": "community-answer",
       "content_hash": "b00819128b6fe9e4f5a42a5feb7110ce637dea32d2227c64ae70bdbb06f77a17",
       "excerpt_hash": "9388c8cff237ea1e1861c8e7b4a3a52c6b6b8d1e15c0cc59ece176e5009f6c7d",
@@ -1122,6 +1140,15 @@
     },
     {
       "authority": "official-training",
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "url": "https://community.rockrms.com/rocku/groups/group-location"
+    },
+    {
+      "authority": "official-training",
       "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
       "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
       "source_id": "rock_rocku",
@@ -1146,6 +1173,15 @@
       "source_key": "3d0824ff41704b39",
       "source_record_id": "",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "c95e64f0b2701585b032dbdd5eb8a545d38c3177b08e2c27419f0e53041619e0",
+      "excerpt_hash": "d0216e0315610e517a22f000f9f8943992eb598de1cad4d232e4586c6912c013",
+      "source_id": "rock_rocku",
+      "source_key": "1ff0d6de569776fb",
+      "source_record_id": "rock_rocku:1ff0d6de569776fb",
+      "url": "https://community.rockrms.com/rocku/check-in"
     },
     {
       "authority": "source-code",
@@ -1204,7 +1240,7 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "ca9bd2a7c1a46e9c"
+        "bb4cc2620461dffb"
       ],
       "start_line": 29
     },
@@ -1324,9 +1360,9 @@
         "324c7412fbbf81eb",
         "f084b1a654e85a5a",
         "459b95df0ea8e5ee",
-        "d0d7d71631f3f890",
+        "1cfd7942fe8e3344",
         "133163653fa64d1c",
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "e388dcef91a5e571",
         "47d5a6318fb5fef4",
         "e4041265ea398ac0",
@@ -1366,7 +1402,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-grouplocation",
       "source_keys": [
-        "d0d7d71631f3f890"
+        "1cfd7942fe8e3344"
       ],
       "start_line": 238
     },
@@ -1378,7 +1414,7 @@
       "section_id": "6-primary-entities-and-relationships-grouplocationschedule",
       "source_keys": [
         "133163653fa64d1c",
-        "ca9bd2a7c1a46e9c"
+        "bb4cc2620461dffb"
       ],
       "start_line": 251
     },
@@ -1427,11 +1463,11 @@
       "source_keys": [
         "2e737fcc6a7c59c1",
         "b1336a6f5c82cca4",
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "776256c424368312",
         "6acb630b48f2c665",
         "324c7412fbbf81eb",
-        "1cfd7942fe8e3344",
+        "7e09b4c6a92264f6",
         "e25a6cf1bfd0bcd6",
         "e4041265ea398ac0",
         "31045fdc8f468a7e",
@@ -1459,7 +1495,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-scheduling-and-locations-workflows-clone-a-check-in-schedule",
       "source_keys": [
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "776256c424368312"
       ],
       "start_line": 303
@@ -1473,7 +1509,7 @@
       "source_keys": [
         "6acb630b48f2c665",
         "324c7412fbbf81eb",
-        "1cfd7942fe8e3344"
+        "7e09b4c6a92264f6"
       ],
       "start_line": 318
     },
@@ -1611,7 +1647,7 @@
       "needs_live_verification": false,
       "section_id": "9-schedules-deep-dive",
       "source_keys": [
-        "992c0520f63523db",
+        "65088766ef47d7c2",
         "776256c424368312",
         "5bc36db2182cdfa1",
         "2e546ad927545965",
@@ -1626,7 +1662,7 @@
       "needs_live_verification": false,
       "section_id": "9-schedules-deep-dive-schedule-categories",
       "source_keys": [
-        "992c0520f63523db"
+        "65088766ef47d7c2"
       ],
       "start_line": 445
     },
@@ -1650,7 +1686,7 @@
       "needs_live_verification": true,
       "section_id": "9-schedules-deep-dive-check-in-start-offsets",
       "source_keys": [
-        "992c0520f63523db",
+        "65088766ef47d7c2",
         "5bc36db2182cdfa1"
       ],
       "start_line": 469
@@ -1766,9 +1802,9 @@
       "section_id": "11-related-rock-areas-check-in-groups-events-cms",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "776256c424368312",
-        "d0d7d71631f3f890",
+        "1cfd7942fe8e3344",
         "9f528a381335f4db",
         "6800ccf5533f9abd",
         "72a54fed295b6af5",
@@ -1788,7 +1824,7 @@
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-check-in",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "776256c424368312"
       ],
       "start_line": 569
@@ -1800,7 +1836,7 @@
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-check-in-groups-events-cms-groups",
       "source_keys": [
-        "d0d7d71631f3f890",
+        "1cfd7942fe8e3344",
         "776256c424368312"
       ],
       "start_line": 588
@@ -2009,7 +2045,7 @@
         "6f0f21989434ef17",
         "3707a557d81c1137",
         "f2e1024cee9511f5",
-        "1cfd7942fe8e3344",
+        "b835b3a8c5f9d37d",
         "776256c424368312",
         "33223685db3751d9",
         "8ea41a943b81c1d2"
@@ -2046,7 +2082,7 @@
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-scheduling-analytics",
       "source_keys": [
-        "1cfd7942fe8e3344"
+        "b835b3a8c5f9d37d"
       ],
       "start_line": 766
     },
@@ -2103,7 +2139,7 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "b1336a6f5c82cca4",
         "4bcd4d6f854645e8",
         "324c7412fbbf81eb",
@@ -2122,7 +2158,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-new-service-time-for-check-in",
       "source_keys": [
-        "ca9bd2a7c1a46e9c",
+        "bb4cc2620461dffb",
         "b1336a6f5c82cca4",
         "4bcd4d6f854645e8"
       ],
@@ -2376,7 +2412,7 @@
         "5fa353d6f0648800",
         "f4d1879d32a182fe",
         "d0d7d71631f3f890",
-        "1cfd7942fe8e3344",
+        "7e09b4c6a92264f6",
         "90ed168a3283ccaa",
         "2a863471e239f0b9",
         "3d0824ff41704b39"
@@ -2392,9 +2428,9 @@
       "source_keys": [
         "2e737fcc6a7c59c1",
         "ca9bd2a7c1a46e9c",
-        "90ed168a3283ccaa",
+        "1ff0d6de569776fb",
         "324c7412fbbf81eb",
-        "d0d7d71631f3f890",
+        "1cfd7942fe8e3344",
         "e25a6cf1bfd0bcd6",
         "776256c424368312",
         "f8521ff4123c52c4",
@@ -2452,15 +2488,15 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "content_hash": "bf4b7ea1898455636cc222a49ce46098eb7c495a4084b2ff3053bfcd286768c4",
       "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "ca9bd2a7c1a46e9c",
-      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
+      "source_key": "bb4cc2620461dffb",
+      "source_record_id": "rock_documentation:bb4cc2620461dffb",
       "title": "Checking-out Check-in - NextGen",
       "topics": [
         "admin",
@@ -2469,7 +2505,7 @@
         "security",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/bookcontent/42",
+      "url": "https://community.rockrms.com/documentation/bookcontent/42/350",
       "version": null
     },
     {
@@ -2565,6 +2601,30 @@
       "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
       "title": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1339b7ab8fb1366371147bb057629a212c146f556fded76865fb05cd017fcfd2",
+      "excerpt_hash": "e47427867debec45d1728835be211225151e899bb5298238e2586e2c77d0a4d4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ca9bd2a7c1a46e9c",
+      "source_record_id": "rock_documentation:ca9bd2a7c1a46e9c",
+      "title": "Checking-out Check-in - NextGen",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/bookcontent/42",
+      "version": null
     },
     {
       "authority": "official-release",
@@ -2780,16 +2840,16 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
-      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
+      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "d0d7d71631f3f890",
-      "source_record_id": "rock_rocku:d0d7d71631f3f890",
-      "title": "Group Location",
+      "source_key": "1cfd7942fe8e3344",
+      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
+      "title": "Groups",
       "topics": [
         "check-in",
         "security",
@@ -2797,7 +2857,7 @@
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/groups/group-location",
+      "url": "https://community.rockrms.com/rocku/groups",
       "version": null
     },
     {
@@ -2947,16 +3007,16 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "08193be459cdb204fb467f91b45efc7f23a93dcdb1fead7cc8a5f6d82f3eec30",
-      "excerpt_hash": "22ff5a2628d22a52a4eadc8ae2216ac931ef11c80088ec01d6d366182776932f",
+      "content_hash": "10148858efab7b7c26d953f0589a51d1ea4064aa67491f4c9876ea0bd7c217d3",
+      "excerpt_hash": "c8e3e8c447465870edc1d4fe3ccca799bbf39e27c95e6ad3e6e52364c7334648",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "1cfd7942fe8e3344",
-      "source_record_id": "rock_rocku:1cfd7942fe8e3344",
-      "title": "Groups",
+      "source_key": "7e09b4c6a92264f6",
+      "source_record_id": "rock_rocku:7e09b4c6a92264f6",
+      "title": "Group Scheduler and Status Board",
       "topics": [
         "check-in",
         "security",
@@ -2964,7 +3024,7 @@
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/groups",
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduler-and-status-board",
       "version": null
     },
     {
@@ -3179,10 +3239,10 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
-      "excerpt_hash": "a101221394872dcb1b434d81815771e18f60cc30f2a20dd6c78fec89830b53a6",
+      "content_hash": "0501b850c1557508c00960fe2e342c7b0c82c3b5592941e622e431b9af28fe96",
+      "excerpt_hash": "c971bccba5107ad94aacca555e32baf961656652c60b237348ef8121edcb89d6",
       "kind": "github_file",
-      "language": "ASP.NET Web Forms",
+      "language": "C#",
       "matched_terms": [
         "schedule",
         "location",
@@ -3191,13 +3251,13 @@
         "check in",
         "checkin"
       ],
-      "path": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "path": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "992c0520f63523db",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
-      "title": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+      "source_key": "65088766ef47d7c2",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
+      "title": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs"
     },
     {
       "authority": "community-example",
@@ -3772,6 +3832,30 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "239ae429bfdc654a730325f55772811b86b67a0da38a877438f4685bad9be435",
+      "excerpt_hash": "1fa8fb54e7bdb43326d51816723ebf4c50c66dc478c96f053480a2fe7273839f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "b835b3a8c5f9d37d",
+      "source_record_id": "rock_rocku:b835b3a8c5f9d37d",
+      "title": "Group Scheduling - Analytics",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/group-scheduling-analytics",
+      "version": null
+    },
+    {
       "authority": "community-answer",
       "authority_score": 50,
       "change_type": null,
@@ -3838,6 +3922,30 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
+      "content_hash": "543264ca168cecebfabe49b15fd898810c427e8464cff1c2d789002be7d5b2e6",
+      "excerpt_hash": "cb1fd030cd2a64c7441364ea02fc65c5257acb5122251fb1cea2ec0d5a0306e3",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d0d7d71631f3f890",
+      "source_record_id": "rock_rocku:d0d7d71631f3f890",
+      "title": "Group Location",
+      "topics": [
+        "check-in",
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/groups/group-location",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
       "content_hash": "70fe1efe00bb6b0c20575c022cc557a8790a1dd85a2d3c0f317dcf60514e88a8",
       "excerpt_hash": "60e054f43181c1434f9184831da3e34dc040e2abcea08e4dc3b1b5ea341085ff",
       "hydrated": true,
@@ -3892,6 +4000,31 @@
       "source_record_id": "",
       "title": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape",
       "url": "https://shows.acast.com/rock-cast/episodes/episode-205-product-grooming-the-giving-landscape"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "c95e64f0b2701585b032dbdd5eb8a545d38c3177b08e2c27419f0e53041619e0",
+      "excerpt_hash": "d0216e0315610e517a22f000f9f8943992eb598de1cad4d232e4586c6912c013",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "1ff0d6de569776fb",
+      "source_record_id": "rock_rocku:1ff0d6de569776fb",
+      "title": "Check-In",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in",
+      "version": null
     },
     {
       "authority": "source-code",

@@ -1,18 +1,18 @@
 {
   "by_disposition": {
     "confirms": 46,
-    "corrects": 22,
+    "corrects": 23,
     "narrows": 14
   },
   "by_state": {
-    "verified": 82
+    "verified": 83
   },
   "by_surface": {
     "maintainer_review": 30,
     "official_api": 2,
-    "public_source_code": 50
+    "public_source_code": 51
   },
-  "checked_at": "2026-08-04T07:04:13Z",
+  "checked_at": "2026-08-04T18:00:00Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -212,7 +212,7 @@
         "source-native:structured_reference:rock_developer:article-376:reference-chrome-shortcut-remote-debugging-target-suffix",
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-04T16:42:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:38fd03bdeba3529213505e78",
@@ -404,7 +404,7 @@
       "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-04T16:42:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:6e0c8588c863b1e47cd13864",
@@ -455,7 +455,7 @@
       "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-04T16:42:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
@@ -508,7 +508,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
       ],
-      "reviewed_at": "2026-08-03T21:29:50Z",
+      "reviewed_at": "2026-08-04T18:00:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
@@ -569,7 +569,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
       ],
-      "reviewed_at": "2026-08-03T21:29:50Z",
+      "reviewed_at": "2026-08-04T18:00:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
@@ -595,6 +595,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:b18d85261b91f9a680dd7c7a",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-376:reference-rock-workspace-obsidian-debugger-configurations"
+      ],
+      "reviewed_at": "2026-08-04T16:42:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b279de6559ec4cb956371ad9",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -862,10 +872,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 82,
-  "resolution_count": 82,
+  "queue_count": 83,
+  "resolution_count": 83,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 82
+  "verified_count": 83
 }

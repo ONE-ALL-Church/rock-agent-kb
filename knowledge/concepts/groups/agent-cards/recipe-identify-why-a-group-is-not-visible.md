@@ -53,7 +53,7 @@ Complete Identify Why A Group Is Not Visible with evidence-backed checks and a v
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/ModelMap
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs
+- https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/recipes/220
 - https://community.rockrms.com/recipes/329
 - https://community.rockrms.com/recipes/519
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-member-view

@@ -76,7 +76,7 @@
   "concept_id": "connections",
   "contribution_record_count": 0,
   "entity_count": 13,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1358,
   "guide_word_count": 11073,
   "metrics": {
@@ -85,7 +85,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 13,
     "section_count": 105,
-    "source_count": 24,
+    "source_count": 40,
     "substantive_uncited_section_ratio": 0.02,
     "task_card_count": 5,
     "word_count": 11073
@@ -93,7 +93,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 105,
-  "source_count": 24,
+  "source_count": 40,
   "status": "fail",
   "task_card_count": 5
 }

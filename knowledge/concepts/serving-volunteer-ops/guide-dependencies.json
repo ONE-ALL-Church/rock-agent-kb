@@ -701,7 +701,7 @@
   },
   "approved_media_hash": "2cb430aecd8bcf6f9e58efba0e6005e6a3da72dd1f5b01f805f1f2cf010b0253",
   "approved_media_path": "knowledge/concepts/serving-volunteer-ops/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "serving-volunteer-ops",
   "guide_hash": "095ea606b81c2b0a0b8c563a4821e9b5a8cffa6ef3a7b0988a172d2aba47232e",
   "guide_line_count": 2153,
@@ -800,12 +800,39 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "1d1bd35088b550f9ef38238f47da819dfaddca996dceefe5a3df3d25a0c5a778",
-      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
+      "content_hash": "d3de2ca129564d683e14a5f0aff24daadf7a7bf01aee0343aa1b402a79edae4f",
+      "excerpt_hash": "4f14c27e19536ec6b5529ed3486e1a6219e1524591dece11ef70b62d8501e7a9",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "52de29b9741dc96b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "7727ed3007ceae916516f75b2b947519d2b00aded2e318bca8616f1043a986b4",
+      "excerpt_hash": "27fd52667d969d24688eb64c65742aed9873b0eeaa3677c52f72eb48fc4a5e82",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "11ccf00a1742b17b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "9acb2ca3ca9cf52197a21aa2ea5cef2304c66bee40b5f7d72d22a168beb20975",
+      "excerpt_hash": "7f0d3c4493fbabdfe2d98ee14c8fd535b3aa98295150ba96dc92303acfd87ecb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d8e17c7e104b6fc6",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "3887c1f44e3f8d98b4fc9559a7f5455962359c35b19e173df17f3b1e445697b1",
+      "excerpt_hash": "43a49b565dbc0fc2121cf65b126f610f9f555d8d7c8ae28b205bd17a8c335785",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1de61b9958c553bb",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts"
     },
     {
       "authority": "official-developer",
@@ -833,6 +860,15 @@
       "source_key": "24a49ae3079c7335",
       "source_record_id": "rock_rocku:24a49ae3079c7335",
       "url": "https://community.rockrms.com/rocku/groups/group-details"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f569b5416b61a8e7f50fa3715c49f6d1f4768a2cdcb9e722661c5a56e948cb96",
+      "excerpt_hash": "10eef179886c74fee744cb63d8d48740f76cb4011837deb7e00a8508d70b08e7",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4db9b28fb8cc1455",
+      "source_record_id": "SparkDevNetwork/Rock:database/Views/vCheckin_GroupTypeAttendance.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql"
     },
     {
       "authority": "official-training",
@@ -871,13 +907,31 @@
       "url": "https://community.rockrms.com/rocku/groups/group-scheduling-overview"
     },
     {
+      "authority": "source-code",
+      "content_hash": "7250509581ab64991e11eb1cfbf40d90c8ac5a91bbad70ce5f291089e0c43cce",
+      "excerpt_hash": "418b8400dd32bdc1cbe25dca8f0b36b129d331dd0cc7f9fd37a58ad23a3fcfec",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7c7ff5cd3fb09df9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Group/GroupType/CheckinAreaPath.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupType/CheckinAreaPath.cs"
+    },
+    {
       "authority": "community-example",
-      "content_hash": "b5a63035408420adefb0e104699ead2d2c4f247a9988f82c005d910060f7d5a6",
+      "content_hash": "f84eccf46d89abb2da168c08c0f7de70e2ee312232b0aca7132535c8343637c5",
       "excerpt_hash": "756ae95e80db2f5264a0c1c011cdcb18b8d72e19ed2675588c4d3cfedc3c6403",
       "source_id": "rock_recipes",
-      "source_key": "f0adc38f6ecfbe60",
-      "source_record_id": "rock_recipes:f0adc38f6ecfbe60",
-      "url": "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback"
+      "source_key": "f0fc6288e3be5713",
+      "source_record_id": "rock_recipes:f0fc6288e3be5713",
+      "url": "https://community.rockrms.com/recipes/530"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
+      "excerpt_hash": "dabb711c4493039f85c935e8c95d5700201632ccfd040c88c9c0895df3371f5c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "eaef6723bbed3067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
     },
     {
       "authority": "community-example",
@@ -887,6 +941,33 @@
       "source_key": "50e1cbf43152210a",
       "source_record_id": "rock_recipes:50e1cbf43152210a",
       "url": "https://community.rockrms.com/recipes/489"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "d04f4a2b6953637b7026fb6bb8d87af87210d64544287b3fc9d12c21df4aa141",
+      "excerpt_hash": "3c363b1f3d8794d42c0a3aa7e7c2c4c071ace82cc56c9cd98279c17458708fe8",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e190f1d2a903c646",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "48d74ed28cf6be8bbb82a87f9780bf5d3563c857e140a7b7fe245fbd9764fccb",
+      "excerpt_hash": "d223ff9057236f694b76f4bb24a3ff3dbf18c7f93d52abe5f823b20469c2496e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "96f1328d8aafb3b3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "089e8d6894cd54ffbd9cc2d387633283d6cfbcd1616bc5908f83feed224164a1",
+      "excerpt_hash": "2745fe403279469dabed62d2b1e8a2143abb29aa3c6f6a5d0b9c80d2d8e83eb4",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "647b22a8de1e047a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs"
     },
     {
       "authority": "official-training",
@@ -941,6 +1022,24 @@
       "source_key": "78f1e8bbd9d351ff",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
+      "excerpt_hash": "4cbced7ed5d5752c12514ca2089ee0bbfeb8c92cce973038aaf98ca2a11d0881",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "992c0520f63523db",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "adffb47cf8f77aa8406e0ae188c0bed2fc5baeb9203ca1be190e2bbb48d00c48",
+      "excerpt_hash": "03a2848d27b7aa313bb98db15efa0d259e2013b52b5ff96b162012704ffc7fbb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "466cee5c91da8e97",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs"
     },
     {
       "authority": "official-model-map",
@@ -1103,10 +1202,10 @@
         "9986b460da442f0d",
         "2e546ad927545965",
         "2e737fcc6a7c59c1",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "52de29b9741dc96b",
+        "11ccf00a1742b17b",
+        "d8e17c7e104b6fc6",
+        "1de61b9958c553bb",
         "9911e357b58e6a45",
         "776256c424368312",
         "10d9f0934e171ebf"
@@ -1123,9 +1222,11 @@
         "0221e343603bd271",
         "24a49ae3079c7335",
         "6edf38b7cc3a7136",
-        "d275b5b94a9da833",
+        "52de29b9741dc96b",
+        "d8e17c7e104b6fc6",
         "9911e357b58e6a45",
         "776256c424368312",
+        "4db9b28fb8cc1455",
         "b835b3a8c5f9d37d",
         "f25daaa8d7e00a2b",
         "30519022df92306d"
@@ -1152,7 +1253,7 @@
       "needs_live_verification": true,
       "section_id": "3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when",
       "source_keys": [
-        "d275b5b94a9da833"
+        "52de29b9741dc96b"
       ],
       "start_line": 137
     },
@@ -1163,7 +1264,7 @@
       "needs_live_verification": true,
       "section_id": "3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response",
       "source_keys": [
-        "d275b5b94a9da833",
+        "d8e17c7e104b6fc6",
         "9911e357b58e6a45",
         "776256c424368312"
       ],
@@ -1176,7 +1277,7 @@
       "needs_live_verification": true,
       "section_id": "3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance",
       "source_keys": [
-        "d275b5b94a9da833",
+        "4db9b28fb8cc1455",
         "776256c424368312"
       ],
       "start_line": 155
@@ -1238,12 +1339,14 @@
       "source_keys": [
         "6edf38b7cc3a7136",
         "2e737fcc6a7c59c1",
-        "d275b5b94a9da833",
-        "f0adc38f6ecfbe60",
+        "7c7ff5cd3fb09df9",
+        "f0fc6288e3be5713",
         "24a49ae3079c7335",
         "9986b460da442f0d",
         "2941baaf5b955e75",
+        "eaef6723bbed3067",
         "2e546ad927545965",
+        "4db9b28fb8cc1455",
         "776256c424368312",
         "9911e357b58e6a45",
         "f5553b8d321a2971",
@@ -1271,7 +1374,7 @@
       "section_id": "5-core-configuration-and-data-model-group-type-inheritance",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "d275b5b94a9da833"
+        "7c7ff5cd3fb09df9"
       ],
       "start_line": 276
     },
@@ -1282,7 +1385,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-groups",
       "source_keys": [
-        "f0adc38f6ecfbe60"
+        "f0fc6288e3be5713"
       ],
       "start_line": 300
     },
@@ -1317,7 +1420,7 @@
       "section_id": "5-core-configuration-and-data-model-locations",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "d275b5b94a9da833"
+        "eaef6723bbed3067"
       ],
       "start_line": 370
     },
@@ -1339,7 +1442,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-attendanceoccurrence",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 407
     },
@@ -1350,7 +1453,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-attendance",
       "source_keys": [
-        "d275b5b94a9da833",
+        "4db9b28fb8cc1455",
         "776256c424368312"
       ],
       "start_line": 422
@@ -1363,7 +1466,7 @@
       "section_id": "5-core-configuration-and-data-model-communications",
       "source_keys": [
         "9911e357b58e6a45",
-        "f0adc38f6ecfbe60"
+        "f0fc6288e3be5713"
       ],
       "start_line": 440
     },
@@ -1386,11 +1489,18 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
-        "d275b5b94a9da833",
+        "7c7ff5cd3fb09df9",
         "2e737fcc6a7c59c1",
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3",
+        "11ccf00a1742b17b",
         "6edf38b7cc3a7136",
         "24a49ae3079c7335",
+        "4db9b28fb8cc1455",
+        "eaef6723bbed3067",
         "776256c424368312",
+        "52de29b9741dc96b",
+        "647b22a8de1e047a",
         "10d9f0934e171ebf"
       ],
       "start_line": 474
@@ -1402,11 +1512,11 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-relationship-map",
       "source_keys": [
-        "d275b5b94a9da833",
+        "7c7ff5cd3fb09df9",
         "2e737fcc6a7c59c1",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3",
+        "11ccf00a1742b17b"
       ],
       "start_line": 476
     },
@@ -1429,7 +1539,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-group-groupmember-personalias-person",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 529
     },
@@ -1440,7 +1550,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-group-grouplocation-location",
       "source_keys": [
-        "d275b5b94a9da833",
+        "eaef6723bbed3067",
         "776256c424368312"
       ],
       "start_line": 545
@@ -1452,8 +1562,8 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-grouplocation-grouplocationschedule-schedule",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "52de29b9741dc96b",
+        "647b22a8de1e047a"
       ],
       "start_line": 560
     },
@@ -1464,7 +1574,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attendanceoccurrence-attendance",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 574
     },
@@ -1493,9 +1603,10 @@
         "2a863471e239f0b9",
         "2941baaf5b955e75",
         "2e546ad927545965",
-        "d275b5b94a9da833",
-        "f0adc38f6ecfbe60",
+        "11ccf00a1742b17b",
+        "f0fc6288e3be5713",
         "9911e357b58e6a45",
+        "d8e17c7e104b6fc6",
         "e0f6d11f9b208728",
         "50e1cbf43152210a",
         "7e3b55cfb5681227",
@@ -1558,8 +1669,8 @@
       "needs_live_verification": true,
       "section_id": "7-common-serving-and-volunteer-operations-workflows-send-schedule-confirmations",
       "source_keys": [
-        "d275b5b94a9da833",
-        "f0adc38f6ecfbe60"
+        "11ccf00a1742b17b",
+        "f0fc6288e3be5713"
       ],
       "start_line": 722
     },
@@ -1571,7 +1682,7 @@
       "section_id": "7-common-serving-and-volunteer-operations-workflows-volunteer-confirms-or-declines",
       "source_keys": [
         "9911e357b58e6a45",
-        "d275b5b94a9da833"
+        "d8e17c7e104b6fc6"
       ],
       "start_line": 746
     },
@@ -1632,7 +1743,7 @@
         "f2052f77aa3b20e2",
         "5e81d46a81f50c4c",
         "f5553b8d321a2971",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "30519022df92306d"
       ],
       "start_line": 861
@@ -1693,7 +1804,7 @@
       "needs_live_verification": false,
       "section_id": "8-serving-teams-and-roles-deep-dive-team-coordinator-fields",
       "source_keys": [
-        "f0adc38f6ecfbe60"
+        "f0fc6288e3be5713"
       ],
       "start_line": 953
     },
@@ -1717,7 +1828,10 @@
       "source_keys": [
         "f2052f77aa3b20e2",
         "3f24b4e9f0c651f8",
-        "d275b5b94a9da833",
+        "e190f1d2a903c646",
+        "11ccf00a1742b17b",
+        "d8e17c7e104b6fc6",
+        "1de61b9958c553bb",
         "9911e357b58e6a45",
         "776256c424368312"
       ],
@@ -1742,8 +1856,8 @@
       "needs_live_verification": true,
       "section_id": "9-schedules-and-confirmations-deep-dive-scheduler-and-status-board",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e190f1d2a903c646",
+        "11ccf00a1742b17b"
       ],
       "start_line": 1000
     },
@@ -1754,8 +1868,8 @@
       "needs_live_verification": true,
       "section_id": "9-schedules-and-confirmations-deep-dive-confirmation-statuses",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "d8e17c7e104b6fc6",
+        "1de61b9958c553bb"
       ],
       "start_line": 1017
     },
@@ -1873,7 +1987,7 @@
       "needs_live_verification": false,
       "section_id": "11-attendance-and-follow-up-deep-dive",
       "source_keys": [
-        "d275b5b94a9da833",
+        "4db9b28fb8cc1455",
         "776256c424368312",
         "7e3b55cfb5681227",
         "eaf47d2e51a1810d",
@@ -1889,7 +2003,7 @@
       "needs_live_verification": true,
       "section_id": "11-attendance-and-follow-up-deep-dive-attendance-vs-scheduled-assignment",
       "source_keys": [
-        "d275b5b94a9da833",
+        "4db9b28fb8cc1455",
         "776256c424368312"
       ],
       "start_line": 1171
@@ -1964,12 +2078,13 @@
         "f2052f77aa3b20e2",
         "2a863471e239f0b9",
         "f25daaa8d7e00a2b",
-        "d275b5b94a9da833",
+        "eaef6723bbed3067",
         "2e737fcc6a7c59c1",
         "9911e357b58e6a45",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "f5553b8d321a2971",
         "50e1cbf43152210a",
+        "4db9b28fb8cc1455",
         "9986b460da442f0d"
       ],
       "start_line": 1269
@@ -2007,7 +2122,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-groups-scheduling-locations-check-in-communications-workflows-people-security-locations",
       "source_keys": [
-        "d275b5b94a9da833"
+        "eaef6723bbed3067"
       ],
       "start_line": 1279
     },
@@ -2030,7 +2145,7 @@
       "section_id": "12-related-rock-areas-groups-scheduling-locations-check-in-communications-workflows-people-security-communications",
       "source_keys": [
         "9911e357b58e6a45",
-        "f0adc38f6ecfbe60"
+        "f0fc6288e3be5713"
       ],
       "start_line": 1287
     },
@@ -2053,7 +2168,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-groups-scheduling-locations-check-in-communications-workflows-people-security-people",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1295
     },
@@ -2079,7 +2194,7 @@
         "9986b460da442f0d",
         "2e737fcc6a7c59c1",
         "e0f6d11f9b208728",
-        "d275b5b94a9da833",
+        "11ccf00a1742b17b",
         "776256c424368312",
         "50e1cbf43152210a"
       ],
@@ -2115,7 +2230,7 @@
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-communication-guardrails",
       "source_keys": [
-        "d275b5b94a9da833"
+        "11ccf00a1742b17b"
       ],
       "start_line": 1365
     },
@@ -2149,9 +2264,16 @@
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
         "9911e357b58e6a45",
-        "d275b5b94a9da833",
+        "d8e17c7e104b6fc6",
+        "1de61b9958c553bb",
+        "11ccf00a1742b17b",
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3",
+        "992c0520f63523db",
+        "466cee5c91da8e97",
+        "4db9b28fb8cc1455",
         "e0f6d11f9b208728",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "50e1cbf43152210a"
       ],
       "start_line": 1416
@@ -2174,8 +2296,8 @@
       "needs_live_verification": true,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-confirmation-status-enum",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "d8e17c7e104b6fc6",
+        "1de61b9958c553bb"
       ],
       "start_line": 1436
     },
@@ -2186,7 +2308,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-scheduler-send-confirmation-response",
       "source_keys": [
-        "d275b5b94a9da833"
+        "11ccf00a1742b17b"
       ],
       "start_line": 1447
     },
@@ -2197,8 +2319,8 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-group-scheduler-location-bags",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e190f1d2a903c646",
+        "96f1328d8aafb3b3"
       ],
       "start_line": 1459
     },
@@ -2209,8 +2331,8 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-check-in-scheduled-locations",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "992c0520f63523db",
+        "466cee5c91da8e97"
       ],
       "start_line": 1463
     },
@@ -2221,7 +2343,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-attendance-view",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1467
     },
@@ -2233,7 +2355,7 @@
       "section_id": "14-developer-api-lava-and-source-code-landmarks-lava-landmarks",
       "source_keys": [
         "e0f6d11f9b208728",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "50e1cbf43152210a"
       ],
       "start_line": 1471
@@ -2247,7 +2369,7 @@
       "source_keys": [
         "b835b3a8c5f9d37d",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "4db9b28fb8cc1455",
         "2941baaf5b955e75"
       ],
       "start_line": 1491
@@ -2271,7 +2393,7 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-attendance-reporting",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1513
     },
@@ -2282,7 +2404,7 @@
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-schedule-coverage-reporting",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1529
     },
@@ -2293,7 +2415,7 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map-requirement-reporting",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1550
     },
@@ -2399,7 +2521,7 @@
         "9986b460da442f0d",
         "2e546ad927545965",
         "e0f6d11f9b208728",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "f5553b8d321a2971",
         "776256c424368312"
       ],
@@ -2447,7 +2569,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-configure-dynamic-sender-for-scheduling-confirmations",
       "source_keys": [
-        "f0adc38f6ecfbe60"
+        "f0fc6288e3be5713"
       ],
       "start_line": 1695
     },
@@ -2506,9 +2628,11 @@
         "e0f6d11f9b208728",
         "776256c424368312",
         "50e1cbf43152210a",
-        "d275b5b94a9da833",
+        "11ccf00a1742b17b",
+        "52de29b9741dc96b",
         "2e546ad927545965",
         "2e737fcc6a7c59c1",
+        "4db9b28fb8cc1455",
         "2941baaf5b955e75"
       ],
       "start_line": 1769
@@ -2556,7 +2680,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-scheduler-shows-no-eligible-recipients",
       "source_keys": [
-        "d275b5b94a9da833"
+        "11ccf00a1742b17b"
       ],
       "start_line": 1823
     },
@@ -2567,7 +2691,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-schedule-missing-from-group",
       "source_keys": [
-        "d275b5b94a9da833",
+        "52de29b9741dc96b",
         "2e546ad927545965"
       ],
       "start_line": 1840
@@ -2602,7 +2726,7 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-attendance-looks-too-high",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1889
     },
@@ -2636,9 +2760,10 @@
       "section_id": "19-agent-task-recipes",
       "source_keys": [
         "e0f6d11f9b208728",
-        "d275b5b94a9da833",
+        "11ccf00a1742b17b",
         "50e1cbf43152210a",
-        "bce31f25cb8a199e"
+        "bce31f25cb8a199e",
+        "4db9b28fb8cc1455"
       ],
       "start_line": 1938
     },
@@ -2682,7 +2807,7 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-verify-schedule-confirmation-send-health",
       "source_keys": [
-        "d275b5b94a9da833"
+        "11ccf00a1742b17b"
       ],
       "start_line": 1987
     },
@@ -2716,7 +2841,7 @@
       "section_id": "19-agent-task-recipes-recipe-build-a-serving-health-dashboard",
       "source_keys": [
         "bce31f25cb8a199e",
-        "d275b5b94a9da833"
+        "4db9b28fb8cc1455"
       ],
       "start_line": 2032
     },
@@ -2775,11 +2900,15 @@
         "2e737fcc6a7c59c1",
         "776256c424368312",
         "9911e357b58e6a45",
-        "d275b5b94a9da833",
+        "d8e17c7e104b6fc6",
+        "11ccf00a1742b17b",
+        "4db9b28fb8cc1455",
+        "eaef6723bbed3067",
+        "52de29b9741dc96b",
         "e0f6d11f9b208728",
         "2e546ad927545965",
         "2941baaf5b955e75",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "f5553b8d321a2971",
         "50e1cbf43152210a",
         "eaf47d2e51a1810d",
@@ -2804,11 +2933,11 @@
         "2e737fcc6a7c59c1",
         "776256c424368312",
         "9911e357b58e6a45",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "d8e17c7e104b6fc6",
+        "11ccf00a1742b17b",
+        "4db9b28fb8cc1455",
+        "eaef6723bbed3067",
+        "52de29b9741dc96b"
       ],
       "start_line": 2098
     },
@@ -2822,7 +2951,7 @@
         "e0f6d11f9b208728",
         "2e546ad927545965",
         "2941baaf5b955e75",
-        "f0adc38f6ecfbe60",
+        "f0fc6288e3be5713",
         "f5553b8d321a2971",
         "50e1cbf43152210a",
         "eaf47d2e51a1810d",
@@ -3085,25 +3214,86 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "change_type": null,
-      "content_hash": "1d1bd35088b550f9ef38238f47da819dfaddca996dceefe5a3df3d25a0c5a778",
-      "excerpt_hash": "87fd8c89cd5f9bd40b986d779559bce59255e5dec3d70c1068a20b866993a0c3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+      "content_hash": "d3de2ca129564d683e14a5f0aff24daadf7a7bf01aee0343aa1b402a79edae4f",
+      "excerpt_hash": "4f14c27e19536ec6b5529ed3486e1a6219e1524591dece11ef70b62d8501e7a9",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "schedule",
+        "locations",
+        "group type",
+        "grouptype"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
+      "path": "Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "52de29b9741dc96b",
+      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "title": "Dev Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "7727ed3007ceae916516f75b2b947519d2b00aded2e318bca8616f1043a986b4",
+      "excerpt_hash": "27fd52667d969d24688eb64c65742aed9873b0eeaa3677c52f72eb48fc4a5e82",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "scheduling",
+        "confirmation",
+        "groups"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "11ccf00a1742b17b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "9acb2ca3ca9cf52197a21aa2ea5cef2304c66bee40b5f7d72d22a168beb20975",
+      "excerpt_hash": "7f0d3c4493fbabdfe2d98ee14c8fd535b3aa98295150ba96dc92303acfd87ecb",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "scheduling",
+        "confirmation",
+        "groups"
+      ],
+      "path": "Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d8e17c7e104b6fc6",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs",
+      "title": "Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "3887c1f44e3f8d98b4fc9559a7f5455962359c35b19e173df17f3b1e445697b1",
+      "excerpt_hash": "43a49b565dbc0fc2121cf65b126f610f9f555d8d7c8ae28b205bd17a8c335785",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "schedule",
+        "scheduling",
+        "confirmation",
+        "groups"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1de61b9958c553bb",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts"
     },
     {
       "authority": "official-developer",
@@ -3177,6 +3367,29 @@
       ],
       "url": "https://community.rockrms.com/rocku/groups/group-details",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f569b5416b61a8e7f50fa3715c49f6d1f4768a2cdcb9e722661c5a56e948cb96",
+      "excerpt_hash": "10eef179886c74fee744cb63d8d48740f76cb4011837deb7e00a8508d70b08e7",
+      "kind": "github_file",
+      "language": "SQL",
+      "matched_terms": [
+        "attendance",
+        "check-in",
+        "check in",
+        "checkin",
+        "group type",
+        "grouptype"
+      ],
+      "path": "database/Views/vCheckin_GroupTypeAttendance.sql",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4db9b28fb8cc1455",
+      "source_record_id": "SparkDevNetwork/Rock:database/Views/vCheckin_GroupTypeAttendance.sql",
+      "title": "database/Views/vCheckin_GroupTypeAttendance.sql",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql"
     },
     {
       "authority": "official-training",
@@ -3275,18 +3488,40 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "7250509581ab64991e11eb1cfbf40d90c8ac5a91bbad70ce5f291089e0c43cce",
+      "excerpt_hash": "418b8400dd32bdc1cbe25dca8f0b36b129d331dd0cc7f9fd37a58ad23a3fcfec",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "check-in",
+        "check in",
+        "checkin",
+        "group type",
+        "grouptype"
+      ],
+      "path": "Rock/Model/Group/GroupType/CheckinAreaPath.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "7c7ff5cd3fb09df9",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Group/GroupType/CheckinAreaPath.cs",
+      "title": "Rock/Model/Group/GroupType/CheckinAreaPath.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupType/CheckinAreaPath.cs"
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "b5a63035408420adefb0e104699ead2d2c4f247a9988f82c005d910060f7d5a6",
+      "content_hash": "f84eccf46d89abb2da168c08c0f7de70e2ee312232b0aca7132535c8343637c5",
       "excerpt_hash": "756ae95e80db2f5264a0c1c011cdcb18b8d72e19ed2675588c4d3cfedc3c6403",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_recipes",
-      "source_key": "f0adc38f6ecfbe60",
-      "source_record_id": "rock_recipes:f0adc38f6ecfbe60",
+      "source_key": "f0fc6288e3be5713",
+      "source_record_id": "rock_recipes:f0fc6288e3be5713",
       "title": "Dynamic Sender for Group Scheduling Confirmations (Coordinator Fallback)",
       "topics": [
         "check-in",
@@ -3296,8 +3531,30 @@
         "sql",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback",
+      "url": "https://community.rockrms.com/recipes/530",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4fb507ce7577e5059d6b69fb225d935eeff553efd9e58416970d5b0b5d37aa88",
+      "excerpt_hash": "dabb711c4493039f85c935e8c95d5700201632ccfd040c88c9c0895df3371f5c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "eaef6723bbed3067",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs"
     },
     {
       "authority": "community-example",
@@ -3322,6 +3579,69 @@
       ],
       "url": "https://community.rockrms.com/recipes/489",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "d04f4a2b6953637b7026fb6bb8d87af87210d64544287b3fc9d12c21df4aa141",
+      "excerpt_hash": "3c363b1f3d8794d42c0a3aa7e7c2c4c071ace82cc56c9cd98279c17458708fe8",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "scheduling",
+        "groups",
+        "locations"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e190f1d2a903c646",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "48d74ed28cf6be8bbb82a87f9780bf5d3563c857e140a7b7fe245fbd9764fccb",
+      "excerpt_hash": "d223ff9057236f694b76f4bb24a3ff3dbf18c7f93d52abe5f823b20469c2496e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "scheduling",
+        "groups",
+        "locations"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "96f1328d8aafb3b3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "089e8d6894cd54ffbd9cc2d387633283d6cfbcd1616bc5908f83feed224164a1",
+      "excerpt_hash": "2745fe403279469dabed62d2b1e8a2143abb29aa3c6f6a5d0b9c80d2d8e83eb4",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "groups",
+        "group type",
+        "grouptype"
+      ],
+      "path": "Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "647b22a8de1e047a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs",
+      "title": "Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs"
     },
     {
       "authority": "official-training",
@@ -3451,6 +3771,50 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry",
       "url": "https://community.rockrms.com/rocku/check-in/rapid-attendance-entry"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e03e14c889b87404a3d9a44a4dc8a4f982230db8280a37d9d51b77091fac484a",
+      "excerpt_hash": "4cbced7ed5d5752c12514ca2089ee0bbfeb8c92cce973038aaf98ca2a11d0881",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "schedule",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "992c0520f63523db",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "title": "RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "adffb47cf8f77aa8406e0ae188c0bed2fc5baeb9203ca1be190e2bbb48d00c48",
+      "excerpt_hash": "03a2848d27b7aa313bb98db15efa0d259e2013b52b5ff96b162012704ffc7fbb",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "schedule",
+        "locations",
+        "check-in",
+        "check in",
+        "checkin"
+      ],
+      "path": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "466cee5c91da8e97",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs",
+      "title": "Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs"
     },
     {
       "authority": "official-model-map",

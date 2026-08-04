@@ -10,7 +10,7 @@
     "rock_demo_api_docs_v1": 1,
     "rock_demo_api_docs_v2": 1,
     "rock_developer": 361,
-    "rock_documentation": 920,
+    "rock_documentation": 917,
     "rock_lava_docs": 53,
     "rock_mobile_docs": 275,
     "rock_mobile_release_notes": 218,
@@ -25,14 +25,14 @@
     "sparkdevnetwork_slingshot": 1,
     "triumph_resources": 127
   },
-  "eligible_record_count": 5568,
+  "eligible_record_count": 5565,
   "notes": [
     "Rows are generated only from records already eligible for the public agent pack.",
     "Rows that trigger the public secret scanner are excluded from source-summaries.jsonl.",
     "Skipped rows remain available in private/generated normalized data and by following their source URLs."
   ],
   "public_publish_mode": "public_cite_and_summarize_only",
-  "public_summary_count": 5566,
+  "public_summary_count": 5563,
   "public_summary_path": "agent/source-summaries.jsonl",
   "schema": "rock-kb-source-summary-report-v1",
   "skipped_sensitive_by_source": {

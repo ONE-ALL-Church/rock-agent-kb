@@ -51,8 +51,9 @@ Determine whether the missing completion is caused by enrollment, activity compl
 
 - https://www.triumph.tech/resources/github-spotlight-11142025
 - https://community.rockrms.com/ModelMap
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/documentation/bookcontent/39
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataSelect/Person/HasCompletedCourseSelect.cs
 - https://community.rockrms.com/recipes/482
 - https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs
 - https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements

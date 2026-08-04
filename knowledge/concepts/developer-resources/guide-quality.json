@@ -72,7 +72,7 @@
   "concept_id": "developer-resources",
   "contribution_record_count": 0,
   "entity_count": 14,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1607,
   "guide_word_count": 16606,
   "metrics": {
@@ -81,7 +81,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 14,
     "section_count": 162,
-    "source_count": 8,
+    "source_count": 109,
     "substantive_uncited_section_ratio": 0.0127,
     "task_card_count": 5,
     "word_count": 16606
@@ -89,7 +89,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 162,
-  "source_count": 8,
+  "source_count": 109,
   "status": "fail",
   "task_card_count": 5
 }

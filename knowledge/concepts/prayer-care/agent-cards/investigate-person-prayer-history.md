@@ -39,15 +39,15 @@ Complete Investigate Person Prayer History with evidence-backed checks and a ver
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/prayer
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
-- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
+- https://community.rockrms.com/documentation/engagement/prayer
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
 - https://community.rockrms.com/recipes/338
+- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
+- https://community.rockrms.com/rocku/individuals-in-rock
 - https://community.rockrms.com/recipes/135
 - https://community.rockrms.com/recipes/121
-- https://community.rockrms.com/recipes/389
-- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests
-- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Prayer/PrayerRequestDetail/PrayerRequestDetailAddPersonResponseBag.cs

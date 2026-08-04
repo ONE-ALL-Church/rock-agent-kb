@@ -2676,7 +2676,7 @@
   },
   "approved_media_hash": "f311663773e4324e0cdd2ad6f2fbc3e4c21eb7acee5fc2a06ee3df8b4610fb96",
   "approved_media_path": "knowledge/concepts/data-views-reports/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "data-views-reports",
   "guide_hash": "092ac0d364ff46c5238d16a886aeeb1fb78fbdd044527b34c444fb649bbc2309",
   "guide_line_count": 2005,
@@ -2718,6 +2718,15 @@
       "source_key": "b76e00f4cafbfba8",
       "source_record_id": "rock_lava_docs:b76e00f4cafbfba8",
       "url": "https://community.rockrms.com/lava/commands/sql-commands"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "c0430907327d624d6478915c29d3b338c8a66cd121645cf286d97954a7a8d9f7",
+      "excerpt_hash": "f9dba90642a67dfd0635a66ab1ff2e66c0a027a22b725725779d6405c1b7157e",
+      "source_id": "rock_rocku",
+      "source_key": "e05afa39bcf59f97",
+      "source_record_id": "rock_rocku:e05afa39bcf59f97",
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi"
     },
     {
       "authority": "official-training",
@@ -2763,6 +2772,24 @@
       "source_key": "786a1035c8d7111e",
       "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b9fcde76aad77b7e8cb851f3ac59215a50553be4790a88385d8ecadca9bf8bd0",
+      "excerpt_hash": "df54ca1842efccc6c63811ba5b311c6081dfd254691316ad837c65abc527c5c2",
+      "source_id": "rock_rocku",
+      "source_key": "f10f906cba054caf",
+      "source_record_id": "rock_rocku:f10f906cba054caf",
+      "url": "https://community.rockrms.com/rocku/reporting/reports"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "205b711a348fcd2f750820f0b6d23c32064f8a1dc4a083c5b736b565cfa054c2",
+      "excerpt_hash": "6c9ef0b3f90e2866d5ed4d4b0c6664c24106251450a5928967e619517c9064af",
+      "source_id": "rock_rocku",
+      "source_key": "f3ad4769e7043f81",
+      "source_record_id": "rock_rocku:f3ad4769e7043f81",
+      "url": "https://community.rockrms.com/rocku/reporting/dynamic-report-block"
     },
     {
       "authority": "community-example",
@@ -3238,7 +3265,7 @@
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18",
         "b76e00f4cafbfba8",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "c48789f22dbf970d",
         "bce31f25cb8a199e"
       ],
@@ -3267,11 +3294,11 @@
         "ab43821372ff127c",
         "21eb62d70f20f132",
         "786a1035c8d7111e",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "61c4d70cb34c2f18",
         "b76e00f4cafbfba8",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "53d45a055ba960f2",
         "499c26a9b6eee7ac",
         "638bd14421adcd15",
@@ -3435,6 +3462,8 @@
         "21eb62d70f20f132",
         "b76c54ab2f315c82",
         "d5a19275308b631d",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "290e1cb2ac8563dc",
         "41325db2c931ed9e",
         "b76e00f4cafbfba8"
@@ -3488,8 +3517,8 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-report-configuration",
       "source_keys": [
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 345
     },
@@ -3500,7 +3529,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-dynamic-report-block-configuration",
       "source_keys": [
-        "fa937a53da06e8f9",
+        "f3ad4769e7043f81",
         "290e1cb2ac8563dc"
       ],
       "start_line": 363
@@ -3546,7 +3575,7 @@
         "53d45a055ba960f2",
         "499c26a9b6eee7ac",
         "d26a070ba9bc8cae",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "bce31f25cb8a199e"
       ],
       "start_line": 409
@@ -3675,7 +3704,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-analytics-models",
       "source_keys": [
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "bce31f25cb8a199e"
       ],
       "start_line": 594
@@ -3688,6 +3717,8 @@
       "section_id": "7-common-data-views-and-reports-workflows",
       "source_keys": [
         "fa937a53da06e8f9",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "4f8e5e0d0ad869d3",
         "41325db2c931ed9e",
         "08b927e6cd97a5e1",
@@ -3706,8 +3737,8 @@
       "section_id": "7-common-data-views-and-reports-workflows-workflow-1-build-a-staff-list-report",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 617
     },
@@ -3908,7 +3939,9 @@
       "source_keys": [
         "61c4d70cb34c2f18",
         "fa937a53da06e8f9",
+        "f10f906cba054caf",
         "290e1cb2ac8563dc",
+        "f3ad4769e7043f81",
         "4f8e5e0d0ad869d3",
         "08b927e6cd97a5e1"
       ],
@@ -3933,7 +3966,7 @@
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-report-field-design",
       "source_keys": [
-        "fa937a53da06e8f9",
+        "f10f906cba054caf",
         "290e1cb2ac8563dc"
       ],
       "start_line": 956
@@ -3945,7 +3978,7 @@
       "needs_live_verification": false,
       "section_id": "9-reports-deep-dive-data-view-and-report-separation",
       "source_keys": [
-        "fa937a53da06e8f9",
+        "f10f906cba054caf",
         "290e1cb2ac8563dc"
       ],
       "start_line": 971
@@ -3957,7 +3990,7 @@
       "needs_live_verification": true,
       "section_id": "9-reports-deep-dive-dynamic-report-runtime-filters",
       "source_keys": [
-        "fa937a53da06e8f9"
+        "f3ad4769e7043f81"
       ],
       "start_line": 986
     },
@@ -4002,7 +4035,7 @@
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive",
       "source_keys": [
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "94226d7c1f62174e",
         "32ff83664ebc9114",
         "fb5f22127915c464",
@@ -4013,7 +4046,8 @@
         "2617ec7030df84be",
         "d50e9300409bad92",
         "add61f36fc8d2512",
-        "d26a070ba9bc8cae"
+        "d26a070ba9bc8cae",
+        "c48789f22dbf970d"
       ],
       "start_line": 1046
     },
@@ -4024,8 +4058,8 @@
       "needs_live_verification": false,
       "section_id": "10-business-intelligence-deep-dive-what-bi-adds",
       "source_keys": [
-        "c48789f22dbf970d",
-        "c48789f22dbf970d"
+        "e05afa39bcf59f97",
+        "e05afa39bcf59f97"
       ],
       "start_line": 1048
     },
@@ -4439,7 +4473,7 @@
       "section_id": "15-version-and-release-caveats",
       "source_keys": [
         "61c4d70cb34c2f18",
-        "fa937a53da06e8f9",
+        "f3ad4769e7043f81",
         "b76e00f4cafbfba8",
         "5e7b28c13867308a",
         "d5a19275308b631d",
@@ -4466,7 +4500,7 @@
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-dynamic-report-filtering",
       "source_keys": [
-        "fa937a53da06e8f9"
+        "f3ad4769e7043f81"
       ],
       "start_line": 1544
     },
@@ -4535,6 +4569,8 @@
       "section_id": "16-implementation-playbooks",
       "source_keys": [
         "fa937a53da06e8f9",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "53d45a055ba960f2",
         "499c26a9b6eee7ac",
         "786a1035c8d7111e",
@@ -4552,8 +4588,8 @@
       "section_id": "16-implementation-playbooks-playbook-a-create-a-new-data-view-and-report",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 1570
     },
@@ -4565,8 +4601,8 @@
       "section_id": "16-implementation-playbooks-playbook-b-fix-a-data-view-returning-too-many-rows",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 1591
     },
@@ -4578,8 +4614,8 @@
       "section_id": "16-implementation-playbooks-playbook-c-fix-a-data-view-returning-zero-rows",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 1605
     },
@@ -4637,6 +4673,8 @@
       "section_id": "17-troubleshooting-decision-tree",
       "source_keys": [
         "fa937a53da06e8f9",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "29eaffcb0b588e0f",
         "b76e00f4cafbfba8"
       ],
@@ -4650,8 +4688,8 @@
       "section_id": "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 1683
     },
@@ -4663,8 +4701,8 @@
       "section_id": "17-troubleshooting-decision-tree-symptom-report-shows-too-many-rows",
       "source_keys": [
         "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9"
+        "f10f906cba054caf",
+        "f3ad4769e7043f81"
       ],
       "start_line": 1700
     },
@@ -4880,9 +4918,11 @@
       "source_keys": [
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "b76e00f4cafbfba8",
         "fabd5e16d3ed5b89",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "65f5107166511361",
         "ef1e6fc776f40c8b",
         "2617ec7030df84be",
@@ -4890,6 +4930,7 @@
         "d26a070ba9bc8cae",
         "d50e9300409bad92",
         "add61f36fc8d2512",
+        "c48789f22dbf970d",
         "ab43821372ff127c",
         "21eb62d70f20f132",
         "5e7b28c13867308a",
@@ -4934,11 +4975,11 @@
       "source_keys": [
         "fa937a53da06e8f9",
         "61c4d70cb34c2f18",
-        "fa937a53da06e8f9",
-        "fa937a53da06e8f9",
+        "f10f906cba054caf",
+        "f3ad4769e7043f81",
         "b76e00f4cafbfba8",
         "fabd5e16d3ed5b89",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "65f5107166511361",
         "ef1e6fc776f40c8b",
         "2617ec7030df84be",
@@ -5010,7 +5051,7 @@
       "source_keys": [
         "fa937a53da06e8f9",
         "b76e00f4cafbfba8",
-        "c48789f22dbf970d",
+        "e05afa39bcf59f97",
         "bce31f25cb8a199e"
       ],
       "start_line": 1993
@@ -5097,6 +5138,30 @@
         "workflow"
       ],
       "url": "https://community.rockrms.com/lava/commands/sql-commands",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "c0430907327d624d6478915c29d3b338c8a66cd121645cf286d97954a7a8d9f7",
+      "excerpt_hash": "f9dba90642a67dfd0635a66ab1ff2e66c0a027a22b725725779d6405c1b7157e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e05afa39bcf59f97",
+      "source_record_id": "rock_rocku:e05afa39bcf59f97",
+      "title": "Business Intelligence (BI)",
+      "topics": [
+        "check-in",
+        "finance",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/business-intelligence-bi",
       "version": null
     },
     {
@@ -5213,6 +5278,52 @@
       "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
       "title": "Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "b9fcde76aad77b7e8cb851f3ac59215a50553be4790a88385d8ecadca9bf8bd0",
+      "excerpt_hash": "df54ca1842efccc6c63811ba5b311c6081dfd254691316ad837c65abc527c5c2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "f10f906cba054caf",
+      "source_record_id": "rock_rocku:f10f906cba054caf",
+      "title": "Reports",
+      "topics": [
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/reporting/reports",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "205b711a348fcd2f750820f0b6d23c32064f8a1dc4a083c5b736b565cfa054c2",
+      "excerpt_hash": "6c9ef0b3f90e2866d5ed4d4b0c6664c24106251450a5928967e619517c9064af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "f3ad4769e7043f81",
+      "source_record_id": "rock_rocku:f3ad4769e7043f81",
+      "title": "Dynamic Report Block",
+      "topics": [
+        "security",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/reporting/dynamic-report-block",
+      "version": null
     },
     {
       "authority": "community-example",

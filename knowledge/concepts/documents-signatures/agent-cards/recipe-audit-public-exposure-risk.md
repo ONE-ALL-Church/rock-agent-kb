@@ -46,15 +46,15 @@ Complete Audit Public Exposure Risk with evidence-backed checks and a verifiable
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/documents
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/rocku/workflows/electronic-signatures-1
-- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
-- https://community.rockrms.com/rocku/cms/entity-documents
-- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow
-- https://community.rockrms.com/rocku/workflows/workflow-entry
-- https://community.rockrms.com/rocku/workflows/components-of-a-workflow
-- https://community.rockrms.com/rocku/workflows/persisted-workflows
-- https://community.rockrms.com/rocku/workflows/workflow-performance-tips
-- https://community.rockrms.com/rocku/workflows
+- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures
+- https://community.rockrms.com/rocku/workflows/electronic-signatures-1
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents
+- https://community.rockrms.com/rocku/cms/entity-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows

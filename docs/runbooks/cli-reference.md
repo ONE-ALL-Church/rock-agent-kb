@@ -222,6 +222,8 @@ uv run kb tools source-native-migration-schema
 uv run kb tools source-native-migration-prompt --input <migration-input.jsonl> --source-record-id <source-record-id>
 uv run kb tools source-native-migration-merge --input <migration-input.jsonl> --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-migration-promote --input <migration-input.jsonl> --output <reviewed-output.json> --generated-output <generated-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
+uv run kb tools source-native-migration-rebind --previous-input <previous-input.jsonl> --refreshed-input <refreshed-input.jsonl> --output <reviewed-output.json> --destination <rebound-output.json>
+uv run kb tools source-native-migration-priority --as-of <iso-8601> --dashboard <captured-operations-dashboard.json>
 uv run kb tools source-native-impact --previous <prior-bundle>
 uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
 uv run kb tools source-native-verification-promote --input <reviewed-resolutions.jsonl> --reviewer <reviewer-id> --reviewed-at <iso-8601>
@@ -298,6 +300,28 @@ relationships from a replacement source summary to its named companion
 artifacts. Input-hash version `2` recomputes the underlying source candidate
 before review decisions are accepted. Run the identity baseline, live
 verification audit, and strict retrieval shadow after every migration batch.
+`source-native-migration-rebind` is the narrow exception for a deterministic
+metadata-only legacy hash refresh after review. It validates the old input and
+reviewed output first, allows only legacy content and migration hash changes,
+and requires any already materialized artifact to match the reviewed stable ID
+and semantic hash. A content, routing, relationship, or identity change fails
+and must return to review.
+
+`source-native-migration-priority` writes an ignored, deterministic queue for
+the remaining official prose migration debt. Given the same `--as-of`,
+canonical bundle, normalized sources, evaluations, and optional dashboard, it
+produces the same input hash and ranking. The score uses active legacy claim
+count, exact evaluation demand, verification debt, source-native coverage, and
+source freshness. Current reviewed source-native concepts are authoritative;
+otherwise the report combines API branch routing, normalized topics, bounded
+lexical matches, and still-supported legacy facets, with at most three concept
+suggestions. Overdue sources receive `refresh_source_first`, prior
+migration-wrapper records with intentionally retained rows are excluded, and
+same-family legacy hash IDs can reconcile to current article IDs only through
+an exact canonical URL. Unresolved removed or relocated URLs remain explicit.
+Captured outcome signals are result-ID-only and advisory: they never copy raw
+queries, organization identifiers, or private Rock data and do not change the
+score automatically.
 
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.
@@ -307,6 +331,9 @@ text replaces stale model wording only in the canonical projection; superseded
 artifacts are omitted. Run `source-native-verification-audit --check-live`
 before retrieval evaluation so changed source snapshots, mutable public pages,
 and due time-bound evidence reopen instead of passing silently.
+Write live reports under ignored `data/review/`; the command rejects replacing
+the tracked manifest-bound `canonical/source-native/v1/verification-report.json`
+with network-dependent output.
 
 `source-native-readiness` applies the versioned quantitative policy after the
 retrieval shadow. It reports technical and external evidence separately and

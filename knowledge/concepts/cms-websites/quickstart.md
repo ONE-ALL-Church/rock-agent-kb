@@ -13,6 +13,7 @@ Pages, blocks, themes, content channels, personalization, media, and website ope
 - Start with a task card when the user has an operational symptom or implementation request.
 - Use the entity index when the task mentions a table, model, block, source file, or report.
 - Use release caveats before deciding whether behavior is configuration, customization, or version-specific.
+- Inspect the exact live records before changing production behavior; generated guidance does not prove current configuration.
 - Use the long guide only when planning broadly or when the task card points to a section.
 
 ## Primary Tasks

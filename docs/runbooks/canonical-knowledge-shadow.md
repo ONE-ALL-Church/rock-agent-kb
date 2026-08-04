@@ -126,14 +126,32 @@ of each source navigation branch. The bundle feeds the canonical projection
 used by ordinary retrieval and OKF; the same build also retains the complete
 legacy projection for rollback and controlled comparisons.
 
-After the first bounded legacy-migration batch, the tracked bundle contains
-five source families, 38 articles, 1,494 source units, and 267 reviewed
-artifacts across 15 concept facets. All 38 generation activities use
-`gpt-5.6-sol`: 34 use source distillation prompt `2.3.1`, and four use legacy
-migration prompt `1.2.0`. Future migration batches use prompt `1.3.0`, which
-also requires an exact identity decision for every prior source-native
-artifact. The manifest records prompt versions instead of presenting a mixed
-bundle as one generation run.
+The tracked bundle currently contains five source families, 43 articles, 1,624
+source units, and 293 reviewed artifacts across 16 concept facets. All 43
+generation activities use `gpt-5.6-sol`: 33 use source distillation prompt
+`2.3.1`, and ten use legacy migration prompt `1.3.0`. Migration prompt `1.3.0`
+requires an exact identity decision for every prior source-native artifact. The
+manifest records prompt versions instead of presenting a mixed bundle as one
+generation run.
+
+Select a bounded migration batch before building private review inputs:
+
+```bash
+uv run kb tools source-native-migration-priority \
+  --as-of <iso-8601> \
+  --dashboard <captured-operations-dashboard.json> \
+  --destination data/review/source-native-legacy-migration/priority-report.json
+```
+
+Use a fixed `--as-of` when the ranking must be reproduced. The report considers
+only active legacy rows from the five supported official prose families. It
+ranks source records by claim value, exact evaluation coverage, verification
+debt, source-native completion value, and freshness. It does not auto-select or
+promote anything. Refresh records marked `refresh_source_first`, manually
+resolve records under `unresolved_source_records`, and review the proposed
+concept IDs before choosing a coherent source-family batch. Result-ID-only
+outcome signals from an optional captured dashboard are advisory and
+privacy-bounded; stale feedback cannot change the score.
 
 Build deterministic private review inputs from the Rockumentation API:
 
@@ -179,6 +197,12 @@ revision, every source unit and locator, concept facets, existing-claim review
 context, and documentation routing/version metadata. Volatile check timestamps
 are excluded. A context-only change therefore invalidates stale generation
 without forcing re-review when only `last_checked_at` advances.
+
+Canonical source-summary hashes follow the same semantic boundary. They exclude
+only volatile `retrieved_at`; summary text, semantic source content hashes, and
+routing metadata remain hash-significant. This keeps observation time from
+churning identities without allowing a real source or summary change to pass as
+metadata-only.
 
 Merge every schema-constrained model batch and run the semantic gate before
 maintainer review:
@@ -262,6 +286,25 @@ enter the tracked bundle. Input-hash version `2` independently recomputes the
 source candidate hash before binding the legacy and prior-artifact rows, so an
 edited private packet fails rather than inheriting the original approval.
 
+If a deterministic rebuild changes only legacy projection hashes after an
+already reviewed migration, rebind the review instead of rerunning model
+distillation:
+
+```bash
+uv run kb tools source-native-migration-rebind \
+  --previous-input <previous-migration-input.jsonl> \
+  --refreshed-input <refreshed-migration-input.jsonl> \
+  --output <reviewed-output.json> \
+  --destination <rebound-reviewed-output.json>
+```
+
+The command first validates the prior review against its original input. It
+then permits only legacy content-hash and migration-hash refreshes. Previously
+approved artifacts may be materialized only when their stable IDs and semantic
+hashes exactly match the reviewed output. Any source, source-unit, artifact,
+retrieval text, concept, relationship, or identity change fails closed and
+requires a new review.
+
 After promotion, rebuild the identity baseline and run the production-worker
 retrieval shadow. A migration batch is not releasable unless verification has
 zero blockers and every strict regression category remains at zero.
@@ -292,6 +335,12 @@ uv run kb tools source-native-verification-audit \
   --check-live \
   --destination data/review/source-native/verification-report-live.json
 ```
+
+Keep live audit output under ignored `data/review/`. The tracked
+`canonical/source-native/v1/verification-report.json` is part of the signed
+bundle manifest and records the reproducible non-network bundle audit. The CLI
+rejects writing a live audit over that tracked file because doing so would
+invalidate the manifest and mix current network state into the reviewed bundle.
 
 Use immutable GitHub commit evidence for implementation contracts and current
 official documentation or source snapshots for mutable guidance. A resolution

@@ -2,6 +2,8 @@
 
 Date: 2026-08-03
 
+Last updated: 2026-08-04
+
 Status: accepted architecture, canonical active, legacy rollback retained
 
 ## Decision
@@ -51,13 +53,14 @@ code disagree.
 
 ## Current Evidence
 
-The tracked source-native bundle now covers five source families, 38 articles,
-15 concept facets, 1,494 addressable source units, and 263 reviewed artifacts:
-81 claims, 25 recipes, 27 source summaries, 94 structured references, and 36
-task cards. It also contains 122 typed relationships and 289 source-native
-evaluation cases. All 38 generation activities use `gpt-5.6-sol`, prompt
-`source-knowledge-distillation-v2.3` version `2.3.1`, and input hash version
-`2`.
+The tracked source-native bundle now covers five source families, 43 articles,
+16 concept facets, 1,624 addressable source units, and 293 reviewed artifacts:
+88 claims, 25 recipes, 34 source summaries, 109 structured references, and 37
+task cards. It also contains 185 typed relationships and 319 source-native
+evaluation cases. All 43 generation activities use `gpt-5.6-sol` and input
+hash version `2`. The manifest preserves the exact prompt history: 33 initial
+distillations at version `2.3.1` and ten migration activities at wrapper
+version `1.3.0`.
 
 The final 12 prompt-`2.3.0` documentation records were refreshed before
 reprocessing. Their upstream content hashes were unchanged, so the change
@@ -67,10 +70,10 @@ artifacts. Six exact-hash split rules separated mixed source units, and
 maintainer review added one missed verification boundary for a release-sensitive
 cache-tag deletion claim.
 
-The 2026-08-04 canonical retrieval shadow evaluated 454 questions through the
+The final 2026-08-04 canonical retrieval shadow evaluated 484 questions through the
 production Worker's local FTS and ranking implementation:
 
-- 291 improved, 163 were unchanged, none regressed, and no failures were shared
+- 321 improved, 163 were unchanged, none regressed, and no failures were shared
   by both projections;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
@@ -110,23 +113,39 @@ useful evidence, but the project does not currently have a realistic external
 sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
-The canonical projection still identifies measurable migration debt: 610
-legacy claims and 5,566 legacy source summaries remain alongside 263
+The canonical projection still identifies measurable migration debt: 594
+legacy claims and 5,553 legacy source summaries remain alongside 293
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
+
+Semantic source hashes now exclude transport and observation metadata while
+retaining article identity, normalized content, routing, and revision fields.
+Source-summary identity likewise ignores `retrieved_at` but changes when the
+summary, semantic content hash, or routing metadata changes. The refresh was
+propagated through deterministic concept and agent-pack stages without
+regenerating authored guide prose. Guide dependency maps now bind sections to
+individual Rockumentation articles and concrete public source files instead of
+broad parent pages or repository-wide placeholders. The same rebuild
+revalidated the existing mobile selector inventory: 225 source-backed rows
+across 91 source URLs, comprising 200 selectors, 18 setting or x-ray context
+rows, and seven notes, with no missing URL or stale dependency findings.
 
 ## Resolved Technical Gates
 
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The verification layer now reports 82 of 82 resolutions verified against
+1. The verification layer now reports 83 of 83 resolutions verified against
    exact source snapshots, immutable public source, or bounded official API
    observations, with zero unresolved rows, zero stale evidence, and zero
    default-cutover blockers. The 2026-08-04 refresh corrected blanket cache-tag
    immutability, narrowed cache-tag normalization by release, and corrected
    check-in helper timestamp types from `DateTime` to `DateTimeOffset` where the
-   Rock 19.4 source requires it.
+   Rock 19.4 source requires it. It also reconciled the current Rock workspace
+   debugger configuration against immutable public source and kept mutable web
+   evidence bound to semantic article content rather than volatile page chrome.
+   The final live pass also rebound two unchanged Mailgun SMTP conclusions to
+   the current official page hash without changing their reviewed wording.
 2. A maintainer approved all seven exact-statement collapse groups against the
    current packet hash. Canonical retrieval retains all source evidence,
    concept facets, and public aliases while removing nine redundant public
@@ -158,14 +177,21 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-The first bounded legacy-migration batch re-distilled four workflow articles
-from their unchanged official source snapshots. It retired 11 fully covered
-legacy rows, retained two partially supported rows, and recorded three reviewed
-source-native artifact identity migrations. The canonical bundle now contains
-267 typed artifacts; 603 legacy claims and 5,562 legacy source summaries remain.
-The 458-question production-worker shadow reported 295 improvements, 163 ties,
+Two bounded legacy-migration batches now cover four workflow articles, five
+Engagement Steps articles, and the refreshed developer debugger article. Across
+the reviewed bundle, 26 exact legacy retirement or retention decisions and
+three source-native identity migrations are recorded. The final projection has
+293 typed artifacts; 594 legacy claims and 5,553 legacy source summaries remain.
+The 484-question production-worker shadow reported 321 improvements, 163 ties,
 and zero retrieval, exact-lookup, authority, no-answer, or endpoint regressions.
-All 82 verification rows remain resolved with no blocker.
+All 83 verification rows remain resolved with no blocker.
+
+The deterministic migration-priority compiler currently identifies 1,618
+actionable official-prose source records: 1,265 are migration-ready, 351 require
+a source refresh first, and two require concept-routing review. Three prior
+records are deliberately retained, two same-family legacy IDs resolve through
+exact canonical-URL aliases, and no source identity remains unresolved. A fixed
+`--as-of` run reproduced the same input and report hashes on consecutive builds.
 
 1. Continue privacy-bounded outcomes and blind comparisons as post-cutover
    validation. Do not retain queries, organization identifiers, Rock data, or

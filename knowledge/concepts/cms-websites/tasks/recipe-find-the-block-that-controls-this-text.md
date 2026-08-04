@@ -41,15 +41,15 @@ Complete “Find The Block That Controls This Text” with evidence-backed check
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/cms
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/261
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
+- https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy
+- https://community.rockrms.com/rocku/cms/page-builder
 - https://community.rockrms.com/lava/commands
-- https://community.rockrms.com/recipes/432
-- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
-- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts
+- https://community.rockrms.com/rocku/cms/tabler-icons
+- https://community.rockrms.com/rocku/cms/font-awesome-5-1

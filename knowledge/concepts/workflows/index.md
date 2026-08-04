@@ -2,7 +2,7 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-07-31T00:30:00+00:00
+last_built: 2026-08-04T17:15:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -79,6 +79,9 @@ Workflow types, actions, triggers, forms, automation, jobs, and operational proc
 | Media Watch Transcript Insight | workflow orchestration | 02:45 | When a content process depends on slow background work, a Rock workflow can own the orchestration and communicate status instead of blocking the user interface. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | Media Watch Transcript Insight | video rendering | 03:15 | Video rendering or similar background tasks should be modeled with explicit workflow states, retries, and completion checks before linking the output into public pages or apps. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
 | Media Watch Transcript Insight | wait states | 03:20 | Wait-state design is useful when the system needs to pause while an external or long-running process finishes, but the workflow should still surface failure and timeout conditions. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr) |
+| Group Attendance Transcript Insight | Rock operations | 02:16 | The Group Attendance RockU lesson provides training context for Rock operations and administration; use the canonical lesson page as the citation and verify local configuration before implementation. | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
+| Group Attendance Transcript Insight | AI and automation | 01:51 | For AI, automation, and responsible tool use, Group Attendance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
+| Group Attendance Transcript Insight | staff training | 02:16 | For staff training and operational readiness, Group Attendance should be treated as a training reference that helps route agents to the right Rock area, not as a substitute for official documentation or live checks. | [source](https://community.rockrms.com/rocku/groups/group-attendance) |
 | Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | AI and automation | 00:00 | AI should be treated as an assistive ministry operations layer: useful for drafting, summarizing, classifying, and routing work, but still requiring human judgment and local policy before action. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
 | Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | staff training | 03:12 | Public guidance should frame AI adoption around responsible enablement, including data boundaries, staff training, review expectations, and clear ownership of final decisions. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
 | Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight | data and reporting | 03:36 | For Rock-adjacent automation, agents should verify source data and system state rather than treating generated AI output as an authoritative record. | [source](https://www.triumph.tech/resources/ai-in-digital-ministry) |
@@ -113,10 +116,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 ## Source Coverage
 
 - `rock_community_hubs`: 1
-- `rock_documentation`: 60
+- `rock_documentation`: 59
 - `rock_model_map`: 12
 - `rock_recipes`: 1
-- `rock_rocku`: 17
+- `rock_rocku`: 18
 - `triumph_resources`: 1
 
 ## Highest Signal Sources

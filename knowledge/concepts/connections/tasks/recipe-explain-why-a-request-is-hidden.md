@@ -47,8 +47,9 @@ Cite mobile connected-state exclusion if relevant (Connection Request List mobil
 ## Source Links
 
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
@@ -57,4 +58,3 @@ Cite mobile connected-state exclusion if relevant (Connection Request List mobil
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm

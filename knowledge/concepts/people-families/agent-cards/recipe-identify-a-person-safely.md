@@ -54,15 +54,15 @@ Then verify whether any referenced workflow, attendance, communication, registra
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/documentation/bookcontent/7/296
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindFamilies.cs
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/lava/filters/person-filters
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindRelationships.cs
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
-- https://community.rockrms.com/rocku/individuals-in-rock
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/EditFamilyResponseBag.cs
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
-- https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager

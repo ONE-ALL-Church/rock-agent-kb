@@ -42,4 +42,7 @@ References: Codex coding standards, peer review, compatibility, testing (Coding 
 
 ## Source Links
 
-- https://community.rockrms.com/developer
+- https://community.rockrms.com/developer/developer-codex/coding-standards/testing
+- https://community.rockrms.com/developer/developer-codex/coding-standards
+- https://community.rockrms.com/developer/developer-codex/coding-standards/maintaining-compatibility/tips-for-maintaining-compatibility
+- https://community.rockrms.com/developer/developer-codex/coding-standards/peer-reviews/suggestions-on-how-to-peer-review

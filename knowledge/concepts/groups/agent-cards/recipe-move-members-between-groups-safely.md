@@ -52,6 +52,7 @@ Complete Move Members Between Groups Safely with evidence-backed checks and a ve
 - https://community.rockrms.com/documentation/bookcontent/7
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/ask/developing/2801
+- https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
 - https://community.rockrms.com/ModelMap
@@ -60,4 +61,3 @@ Complete Move Members Between Groups Safely with evidence-backed checks and a ve
 - https://community.rockrms.com/recipes/329
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs

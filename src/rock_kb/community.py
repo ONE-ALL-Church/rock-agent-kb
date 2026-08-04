@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime
@@ -232,13 +233,14 @@ def fetch_community_pages(urls: Iterable[str], workers: int = 8, source: Optiona
                 if payload:
                     content = payload.get("initialContent") or ""
                     configuration = payload.get("configurationValues") or {}
+                    payload_url = rockumentation_payload_url(url, configuration)
                     return {
                         "requested_url": url,
-                        "url": rockumentation_payload_url(url, configuration),
+                        "url": payload_url,
                         "status_code": 200,
                         "content_type": "application/json; rockumentation=1",
                         "retrieved_at": now_iso(),
-                        "content_hash": sha256_text(json.dumps(payload, sort_keys=True)),
+                        "content_hash": rockumentation_content_hash(payload, payload_url),
                         "content": content,
                         "rockumentation_payload": payload,
                         "extraction_tool": ROCKUMENTATION_API_TOOL,
@@ -268,7 +270,11 @@ def source_uses_rockumentation_api(source: Source) -> bool:
     return ROCKUMENTATION_API_TOOL in source.preferred_tooling
 
 
-def fetch_rockumentation_payload(client: httpx.Client, url: str) -> Optional[dict[str, Any]]:
+def fetch_rockumentation_payload(
+    client: httpx.Client,
+    url: str,
+    attempts: int = 3,
+) -> Optional[dict[str, Any]]:
     parsed = urlparse(clean_url_for_fetch(url))
     if parsed.netloc.lower() != COMMUNITY_HOST:
         return None
@@ -280,24 +286,25 @@ def fetch_rockumentation_payload(client: httpx.Client, url: str) -> Optional[dic
         if not slug:
             return None
         api_url = rockumentation_book_api_url(slug)
-    try:
-        response = client.post(api_url, headers={"Accept": "application/json"})
-    except httpx.HTTPError:
-        return None
-    if response.status_code >= 400 or "json" not in response.headers.get("content-type", ""):
-        return None
-    try:
-        payload = response.json()
-    except json.JSONDecodeError:
-        return None
-    if not isinstance(payload, dict):
-        return None
-    content = payload.get("initialContent") or ""
-    configuration = payload.get("configurationValues") or {}
-    if path == "/documentation":
-        return payload if "topic-card" in content else None
-    if configuration.get("slug") or "rockumentation-article" in content:
-        return payload
+    for attempt in range(max(1, attempts)):
+        try:
+            response = client.post(api_url, headers={"Accept": "application/json"})
+        except httpx.HTTPError:
+            response = None
+        if response is not None and response.status_code < 400 and "json" in response.headers.get("content-type", ""):
+            try:
+                payload = response.json()
+            except json.JSONDecodeError:
+                payload = None
+            if isinstance(payload, dict):
+                content = payload.get("initialContent") or ""
+                configuration = payload.get("configurationValues") or {}
+                if path == "/documentation" and "topic-card" in content:
+                    return payload
+                if path != "/documentation" and (configuration.get("slug") or "rockumentation-article" in content):
+                    return payload
+        if attempt + 1 < max(1, attempts):
+            time.sleep(0.15 * (attempt + 1))
     return None
 
 
@@ -379,7 +386,11 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "updated_at": None,
         "license_status": source.license_status,
         "allowed_extraction_mode": source.allowed_extraction_mode,
-        "content_hash": fetched.get("content_hash") or sha256_text(text),
+        "content_hash": (
+            rockumentation_content_hash(rockumentation_payload, source_url)
+            if rockumentation_payload
+            else community_content_hash(source_url, title or source.name, text)
+        ),
         "extraction_tool": fetched.get("extraction_tool") or "community_static_discovery",
         "extraction_mode": source.allowed_extraction_mode,
         "summary_model": None,
@@ -418,6 +429,39 @@ def rockumentation_readable_text(payload: Any) -> str:
     markdown = html_to_markdown(str(article), heading_style="ATX").strip()
     markdown = clean_rockumentation_markdown(markdown)
     return " ".join(markdown.split())
+
+
+def rockumentation_content_hash(payload: Any, source_url: str) -> str:
+    """Hash stable upstream article content, excluding Obsidian request metadata."""
+    configuration = payload.get("configurationValues") if isinstance(payload, dict) else {}
+    configuration = configuration if isinstance(configuration, dict) else {}
+    article = rockumentation_article_soup(payload)
+    raw_article_id = article.get("data-article-id") if article else None
+    article_id = int(raw_article_id) if raw_article_id and str(raw_article_id).isdigit() else None
+    stable_payload = {
+        "source_url": clean_url_for_fetch(source_url),
+        "title": rockumentation_title(payload),
+        "text": rockumentation_readable_text(payload),
+        "article_id": article_id,
+        "current_version": configuration.get("currentVersion"),
+        "version_id": configuration.get("versionId"),
+        "versions": configuration.get("versions") or [],
+        "page_id": configuration.get("pageId"),
+        "entity_guid": configuration.get("entityGuid"),
+        "entity_type_guid": configuration.get("entityTypeGuid"),
+        "is_searchable": configuration.get("isSearchable"),
+    }
+    return sha256_text(json.dumps(stable_payload, ensure_ascii=False, sort_keys=True))
+
+
+def community_content_hash(source_url: str, title: str, text: str) -> str:
+    """Hash normalized public content instead of volatile rendered page chrome."""
+    stable_payload = {
+        "source_url": clean_url_for_fetch(source_url),
+        "title": " ".join(title.split()),
+        "text": " ".join(text.split()),
+    }
+    return sha256_text(json.dumps(stable_payload, ensure_ascii=False, sort_keys=True))
 
 
 def clean_rockumentation_markdown(markdown: str) -> str:

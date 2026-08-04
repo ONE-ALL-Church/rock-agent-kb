@@ -47,6 +47,6 @@ Flag if the list is one of Rock's shipped lists and no sync path exists, because
 ## Source Links
 
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
-- https://community.rockrms.com/rocku/communication
+- https://community.rockrms.com/rocku/communication/communication-lists--segments
 - https://community.rockrms.com/recipes/370
 - https://community.rockrms.com/recipes/132

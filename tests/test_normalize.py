@@ -1,12 +1,14 @@
 from pathlib import Path
 
 from rock_kb.community import (
+    community_content_hash,
     discover_community_urls,
     developer_slug_from_url,
     fetch_rockumentation_payload,
     documentation_slug_from_url,
     is_html_candidate,
     normalize_community_fetch,
+    rockumentation_content_hash,
     rockumentation_readable_text,
     rockumentation_book_api_url,
 )
@@ -207,6 +209,39 @@ def test_rockumentation_slug_and_api_url_helpers():
     assert "slug=core-concepts%2Fworkflows%2Fworkflow-actions%2Fpeople" in api_url
 
 
+def test_rockumentation_payload_retries_a_transient_invalid_response(monkeypatch):
+    class Response:
+        status_code = 200
+
+        def __init__(self, valid: bool):
+            self.headers = {"content-type": "application/json" if valid else "text/html"}
+            self.valid = valid
+
+        def json(self):
+            return {
+                "configurationValues": {"slug": "engagement/steps"},
+                "initialContent": '<article class="rockumentation-article">Steps</article>',
+            }
+
+    class Client:
+        calls = 0
+
+        def post(self, url, headers=None):
+            self.calls += 1
+            return Response(valid=self.calls > 1)
+
+    monkeypatch.setattr("rock_kb.community.time.sleep", lambda _seconds: None)
+    client = Client()
+
+    payload = fetch_rockumentation_payload(
+        client,
+        "https://community.rockrms.com/documentation/engagement/steps",
+    )
+
+    assert payload is not None
+    assert client.calls == 2
+
+
 def test_mobile_docs_deep_article_url_can_use_rockumentation_payload():
     class Response:
         status_code = 200
@@ -328,6 +363,62 @@ def test_rock_documentation_normalizes_rockumentation_payload():
     assert record["documentation_table_of_contents_links"][1]["depth"] == 1
     assert "Inactivates a given person's entire family" in record["excerpt"]
     assert "Core Concepts" not in record["excerpt"]
+
+
+def test_rockumentation_content_hash_ignores_volatile_obsidian_metadata():
+    source_url = "https://community.rockrms.com/documentation/core-concepts/workflows"
+    base_payload = {
+        "configurationValues": {
+            "title": "Workflows",
+            "currentVersion": "v19.0",
+            "versionId": 32,
+            "versions": [{"text": "v19.0", "value": "/documentation/core-concepts/workflows"}],
+            "pageId": 3803,
+            "entityGuid": "7dc9d697-b973-443e-adcf-785db4ae33ad",
+            "entityTypeGuid": "8ca33e3f-60f5-4d29-977c-325b824c43a4",
+            "isSearchable": True,
+        },
+        "initialContent": """
+            <article class="rockumentation-article" data-main-article="true" data-article-id="850">
+              <h1>Workflows</h1><p>Configure a workflow type.</p>
+            </article>
+        """,
+        "parentTrace": "00-first-trace",
+        "preferences": {"timeStamp": 1, "values": []},
+    }
+    repeated_payload = {
+        **base_payload,
+        "parentTrace": "00-second-trace",
+        "preferences": {"timeStamp": 2, "values": []},
+    }
+    changed_payload = {
+        **repeated_payload,
+        "initialContent": base_payload["initialContent"].replace(
+            "Configure a workflow type.", "Configure and activate a workflow type."
+        ),
+    }
+
+    first_hash = rockumentation_content_hash(base_payload, source_url)
+
+    assert rockumentation_content_hash(repeated_payload, source_url) == first_hash
+    assert rockumentation_content_hash(changed_payload, source_url) != first_hash
+
+
+def test_community_content_hash_ignores_render_shell_metadata():
+    source_url = "https://community.rockrms.com/documentation/bookcontent/1"
+    title = "Rock Solid Internal Hosting"
+    text = "Configure a supported Rock hosting environment."
+
+    assert community_content_hash(source_url, title, text) == community_content_hash(
+        source_url,
+        f"  {title} ",
+        "Configure a supported  Rock hosting environment.",
+    )
+    assert community_content_hash(source_url, title, text) != community_content_hash(
+        source_url,
+        title,
+        "Configure a supported Rock hosting environment and backups.",
+    )
 
 
 def test_rock_developer_normalizes_rockumentation_payload():

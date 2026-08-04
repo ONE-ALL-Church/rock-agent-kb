@@ -54,15 +54,15 @@ Primary sources: Edit Step Programs, Edit Step Types.
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/steps
-- https://community.rockrms.com/documentation/engagement/assessments
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
+- https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs
+- https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools
-- https://community.rockrms.com/recipes/233
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://community.rockrms.com/ask/using/2824
-- https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts

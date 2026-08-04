@@ -49,7 +49,7 @@ Complete Answer "Can I Change This Data View?" with evidence-backed checks and a
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/reporting
+- https://community.rockrms.com/rocku/reporting/dynamic-report-block
 - https://community.rockrms.com/recipes/264
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
 - https://community.rockrms.com/documentation/bookcontent/6/331
@@ -57,7 +57,7 @@ Complete Answer "Can I Change This Data View?" with evidence-backed checks and a
 - https://community.rockrms.com/recipes/397
 - https://community.rockrms.com/rocku/business-intelligence-bi/bi-template
 - https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report
+- https://community.rockrms.com/rocku/reporting/reports
+- https://community.rockrms.com/rocku/reporting
 - https://community.rockrms.com/recipes/262
 - https://community.rockrms.com/recipes/240
-- https://community.rockrms.com/recipes/349
-- https://community.rockrms.com/recipes/109

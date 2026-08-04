@@ -39,5 +39,5 @@ The deprecation basis is the On Device Platform doc (On Device Platform).
 
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/on-device-platform
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
-- https://community.rockrms.com/developer/mobile-docs
 - https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view

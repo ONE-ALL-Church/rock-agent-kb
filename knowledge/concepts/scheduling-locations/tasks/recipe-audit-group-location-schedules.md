@@ -50,11 +50,11 @@ The source query shape is documented in `View_GroupLocationSchedules.sql` (sourc
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/documentation/bookcontent/10/266
-- https://community.rockrms.com/documentation/bookcontent/42
+- https://community.rockrms.com/documentation/bookcontent/42/350
 - https://community.rockrms.com/lava/commands/calendar-events
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx
-- https://community.rockrms.com/rocku/groups/group-location
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs
+- https://community.rockrms.com/rocku/groups
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/LocationStatusItemBag.cs

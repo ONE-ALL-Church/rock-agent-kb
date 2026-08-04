@@ -75,7 +75,7 @@
   "concept_id": "platform-configuration",
   "contribution_record_count": 0,
   "entity_count": 17,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1576,
   "guide_word_count": 14144,
   "metrics": {
@@ -84,7 +84,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 17,
     "section_count": 116,
-    "source_count": 36,
+    "source_count": 56,
     "substantive_uncited_section_ratio": 0.0164,
     "task_card_count": 7,
     "word_count": 14144
@@ -92,7 +92,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 116,
-  "source_count": 36,
+  "source_count": 56,
   "status": "fail",
   "task_card_count": 7
 }

@@ -43,12 +43,15 @@ generated: true
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration
 - https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view
 - https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
+- https://community.rockrms.com/developer/mobile-docs/developers
 - https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
 - https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts
+- https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements
 - https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
-- https://community.rockrms.com/recipes/402
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app

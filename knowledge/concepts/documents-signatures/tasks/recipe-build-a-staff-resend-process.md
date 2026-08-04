@@ -39,15 +39,15 @@ Prefer supported UI actions first. Manage Signature Documents notes that signed 
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/documents
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures
 - https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents
 - https://community.rockrms.com/rocku/workflows/electronic-signatures-1
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents
+- https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents
 - https://community.rockrms.com/rocku/cms/entity-documents
 - https://community.rockrms.com/recipes/482
-- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows
-- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow
-- https://community.rockrms.com/rocku/workflows/workflow-person-entry
-- https://community.rockrms.com/rocku/workflows/workflow-entry
-- https://community.rockrms.com/rocku/workflows/components-of-a-workflow
-- https://community.rockrms.com/rocku/workflows/persisted-workflows
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume

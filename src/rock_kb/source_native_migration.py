@@ -16,6 +16,7 @@ from .schemas import (
     ReviewedSourceNativeArtifact,
     ReviewedSourceNativeArtifactMigration,
     ReviewedSourceNativeLegacyMigration,
+    SourceNativeArtifactCandidate,
     SourceNativeDistillationOutput,
     SourceNativeLegacyMigrationOutput,
     SourceSnapshot,
@@ -142,13 +143,13 @@ def build_source_native_legacy_migration_inputs(
     if not candidates:
         raise ValueError("source-native migration input requires source candidates")
 
-    identity_path = (
-        repo_root / "canonical" / "identity" / "v1" / "identity-registry.jsonl"
-    )
-    identity_registry = list(read_jsonl(identity_path))
+    # Reconstruct the pre-retirement surface. The persisted identity baseline may
+    # already transfer legacy aliases to source-native survivors, so it cannot be
+    # used to refresh the hash-bound migration that authorized that transfer.
     bundle, _summary = build_canonical_knowledge_bundle(
-        identity_registry=identity_registry,
-        include_source_native_pilot=True,
+        identity_registry=[],
+        include_source_native_pilot=False,
+        include_legacy_migrations=False,
         include_reviewed_cross_source=True,
         repo_root=repo_root,
     )
@@ -519,6 +520,154 @@ def merge_source_native_legacy_migration_outputs(
         ),
         "destination": str(destination),
     }
+
+
+def rebind_source_native_legacy_migration_output(
+    *,
+    previous_input_path: Path,
+    refreshed_input_path: Path,
+    output_path: Path,
+    destination: Path,
+) -> dict[str, Any]:
+    """Rebind a reviewed decision when only legacy content hashes changed."""
+
+    from .source_native import source_native_artifact_id
+
+    previous_inputs = list(read_jsonl(previous_input_path))
+    refreshed_inputs = list(read_jsonl(refreshed_input_path))
+    reviewed_output = validate_source_native_legacy_migration_output(
+        json.loads(output_path.read_text(encoding="utf-8")),
+        inputs=previous_inputs,
+    )
+    previous_by_id = {str(row["candidate_id"]): row for row in previous_inputs}
+    refreshed_by_id = {str(row["candidate_id"]): row for row in refreshed_inputs}
+    if list(previous_by_id) != list(refreshed_by_id):
+        raise ValueError(
+            "refreshed migration input must preserve candidate IDs and order"
+        )
+
+    rebound = reviewed_output.public_dump()
+    changed_legacy_hash_count = 0
+    materialized_artifact_count = 0
+    for article in rebound["articles"]:
+        candidate_id = str(article["candidate_id"])
+        previous = previous_by_id[candidate_id]
+        refreshed = refreshed_by_id[candidate_id]
+        if _migration_rebind_stable_payload(previous) != (
+            _migration_rebind_stable_payload(refreshed)
+        ):
+            raise ValueError(
+                "refreshed migration input changed more than hash bindings for "
+                f"{candidate_id}"
+            )
+
+        refreshed_legacy = {
+            str(row["legacy_knowledge_unit_id"]): row
+            for row in refreshed.get("legacy_items") or []
+        }
+        article["migration_input_hash_version"] = str(
+            refreshed.get("migration_input_hash_version") or "1"
+        )
+        article["migration_input_hash"] = str(
+            refreshed.get("migration_input_hash") or ""
+        )
+        for decision in article.get("legacy_decisions") or []:
+            legacy_id = str(decision["legacy_knowledge_unit_id"])
+            refreshed_hash = str(
+                refreshed_legacy[legacy_id].get("legacy_content_hash") or ""
+            )
+            if decision.get("legacy_content_hash") != refreshed_hash:
+                changed_legacy_hash_count += 1
+            decision["legacy_content_hash"] = refreshed_hash
+
+        previous_existing = previous.get("existing_source_native_artifacts") or []
+        refreshed_existing = refreshed.get("existing_source_native_artifacts") or []
+        if previous_existing != refreshed_existing:
+            snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+            reviewed_artifacts = {
+                source_native_artifact_id(
+                    snapshot,
+                    SourceNativeArtifactCandidate.model_validate(artifact),
+                ): artifact
+                for artifact in article.get("artifacts") or []
+            }
+            refreshed_existing_by_id = {
+                str(row["artifact_id"]): row for row in refreshed_existing
+            }
+            if set(refreshed_existing_by_id) != set(reviewed_artifacts):
+                raise ValueError(
+                    "refreshed migration input contains artifacts outside the "
+                    f"reviewed output for {candidate_id}"
+                )
+            decisions = []
+            for artifact_id, artifact in sorted(reviewed_artifacts.items()):
+                expected_hash = public_record_hash(artifact)
+                existing = refreshed_existing_by_id[artifact_id]
+                if existing.get("artifact_hash") != expected_hash:
+                    raise ValueError(
+                        "materialized source-native artifact hash changed for "
+                        f"{artifact_id}"
+                    )
+                materialized_artifact_count += 1
+                decisions.append(
+                    {
+                        "existing_artifact_id": artifact_id,
+                        "existing_artifact_hash": expected_hash,
+                        "disposition": "retain_identity",
+                        "replacement_artifact_key": artifact["artifact_key"],
+                        "rationale": (
+                            "The current source-native artifact exactly matches the "
+                            "reviewed output, so its stable identity is retained."
+                        ),
+                    }
+                )
+            article["existing_artifact_decisions"] = decisions
+
+    validated = validate_source_native_legacy_migration_output(
+        rebound,
+        inputs=refreshed_inputs,
+    )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        json.dumps(
+            validated.public_dump(),
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return {
+        "schema": "rock-kb-source-native-legacy-migration-rebind-v1",
+        "status": "ok",
+        "article_count": len(validated.articles),
+        "changed_legacy_hash_count": changed_legacy_hash_count,
+        "materialized_artifact_count": materialized_artifact_count,
+        "destination": str(destination),
+    }
+
+
+def _migration_rebind_stable_payload(row: dict[str, Any]) -> str:
+    payload = {
+        key: value
+        for key, value in row.items()
+        if key
+        not in {
+            "existing_source_native_artifacts",
+            "migration_input_hash",
+            "migration_input_hash_version",
+        }
+    }
+    payload["legacy_items"] = [
+        {
+            key: value
+            for key, value in legacy.items()
+            if key != "legacy_content_hash"
+        }
+        for legacy in row.get("legacy_items") or []
+    ]
+    return canonical_json(payload)
 
 
 def load_reviewed_source_native_legacy_migrations(

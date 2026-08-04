@@ -44,10 +44,15 @@ Sources: Send Requests, Retake Assessments, View Assessment History.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
-- https://community.rockrms.com/documentation/engagement/assessments
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history
 - https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/spiritual-gifts
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/retake-assessments
 - https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/send-requests
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Attribute/StepProgramStepTypeFieldAttribute.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs
