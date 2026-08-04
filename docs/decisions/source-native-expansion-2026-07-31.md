@@ -2,6 +2,17 @@
 
 Date: 2026-07-31
 
+> **Updated status, 2026-08-03:** This document records the first expansion and
+> its point-in-time evidence. The reviewed bundle has since expanded to five
+> source families, 38 articles, 1,488 source units, and 239 reviewed artifacts.
+> The current architecture decision, readiness evidence, and ordered next work are
+> in
+> [Canonical Knowledge Architecture Status](canonical-knowledge-architecture-status-2026-08-03.md).
+> Its legacy-default serving decision is superseded by the reviewed reversible
+> canonical cutover recorded there.
+> The historical counts below remain unchanged so the expansion stays
+> auditable.
+
 ## Decision
 
 Expand the reviewed source-native documentation bundle from the original

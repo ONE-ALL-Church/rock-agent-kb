@@ -254,6 +254,73 @@ def test_readiness_requires_live_verification_when_policy_enables_it():
     assert report["ready_for_default_cutover"] is False
 
 
+def test_readiness_allows_explicit_reversible_technical_cutover():
+    report = evaluate_source_native_promotion_readiness(
+        manifest={
+            "article_count": 40,
+            "source_family_counts": {
+                "rock_documentation": 24,
+                "rock_developer": 6,
+                "rock_mobile_docs": 6,
+                "rock_lava_docs": 4,
+            },
+        },
+        verification_report={
+            "default_cutover_blocker_count": 0,
+            "live_check_performed": True,
+        },
+        retrieval_report={
+            "summary": {
+                "regressed": 0,
+                "exact_lookup_regressions": 0,
+                "authority_regressions": 0,
+                "no_answer_regressions": 0,
+                "endpoint_compatibility_regressions": 0,
+            },
+            "promotion_gate": {"passed": True},
+        },
+        dashboard={"retrieval_comparisons": {}},
+        policy={
+            "schema": "rock-kb-source-native-promotion-policy-v1",
+            "policy_id": "technical-cutover-policy",
+            "technical_evidence": {
+                "min_source_family_count": 4,
+                "min_article_count": 36,
+                "max_default_cutover_verification_blockers": 0,
+                "require_live_verification_report": True,
+                "require_retrieval_shadow_pass": True,
+                "max_retrieval_regressions": 0,
+                "max_exact_lookup_regressions": 0,
+                "max_authority_regressions": 0,
+                "max_no_answer_regressions": 0,
+                "max_endpoint_compatibility_regressions": 0,
+            },
+            "external_evidence": {
+                "required_for_default_cutover": False,
+                "min_opted_in_installations": 5,
+                "min_decisive_comparisons": 50,
+                "canonical_to_legacy_preference_ratio_min": 2,
+                "required_categories": ["semantic"],
+            },
+            "cutover_authorization": {
+                "status": "approved",
+                "mode": "maintainer_approved_reversible_technical_cutover",
+                "approved_at": "2026-08-03",
+                "requires_legacy_rollback": True,
+            },
+        },
+        evaluated_at="2026-08-03T12:00:00+00:00",
+    )
+
+    assert report["technical_evidence"]["passed"] is True
+    assert report["external_evidence"]["passed"] is False
+    assert report["external_evidence"]["gate_satisfied"] is True
+    assert report["cutover_authorization"]["passed"] is True
+    assert report["ready_for_default_cutover"] is True
+    assert report["production_change_authorized"] is True
+    assert report["decision"] == "maintainer_approved_reversible_cutover"
+
+
 def test_corrected_verification_requires_effective_retrieval_text() -> None:
     queue = queue_row()
     payload = resolution_row(queue)

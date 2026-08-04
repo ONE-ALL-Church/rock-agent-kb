@@ -465,7 +465,7 @@ def test_client_search_uses_compact_results_by_default(monkeypatch, capsys):
     assert cli.main(["--url", "https://example.test", "search", "check in labels"]) == 0
     assert urls == [
         "https://example.test/search?q=check%20in%20labels&limit=10"
-        "&min_claim_tier=source_backed&detail=compact&projection=legacy"
+        "&min_claim_tier=source_backed&detail=compact"
     ]
     assert "rock-kb-search-result-v3" in capsys.readouterr().out
 
@@ -521,6 +521,35 @@ def test_client_canonical_canary_requires_opt_in_and_sets_projection(
         ])
     assert exc.value.code == 2
     assert "requires anonymous opt-in" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("projection", ["legacy", "canonical"])
+def test_client_allows_explicit_active_projection_overrides(
+    monkeypatch,
+    capsys,
+    projection,
+):
+    cli = load_client_cli()
+    urls: list[str] = []
+    monkeypatch.setattr(
+        cli,
+        "get_json",
+        lambda url: (
+            urls.append(url)
+            or {"schema": "rock-kb-search-result-v3", "results": []}
+        ),
+    )
+
+    assert cli.main([
+        "--url",
+        "https://example.test",
+        "--projection",
+        projection,
+        "search",
+        "content channel authorization",
+    ]) == 0
+    assert urls[0].endswith(f"&projection={projection}")
+    capsys.readouterr()
 
 
 def test_client_version_is_available_without_a_subcommand(monkeypatch, capsys):
@@ -663,8 +692,7 @@ def test_client_exact_result_and_claim_commands(monkeypatch, capsys):
     assert cli.main(["--url", "https://example.test", "result", "claim:claim:abc:check-in"]) == 0
     assert cli.main(["--url", "https://example.test", "claim", "claim:abc"]) == 0
     assert urls == [
-        "https://example.test/results/claim%3Aclaim%3Aabc%3Acheck-in"
-        "?projection=legacy",
+        "https://example.test/results/claim%3Aclaim%3Aabc%3Acheck-in",
         "https://example.test/claims/id/claim%3Aabc",
     ]
     capsys.readouterr()
@@ -1596,7 +1624,6 @@ def test_client_outcome_posts_only_fixed_structured_fields(monkeypatch, capsys):
             "outcome": "partially_useful",
             "reason_codes": ["incomplete", "version_gap"],
             "consent_attested": True,
-            "retrieval_projection": "legacy",
         },
     }
     assert "recorded" in capsys.readouterr().out

@@ -53,7 +53,7 @@ AUTHORITY_TIER_VALUES = (
     "live-verified",
 )
 TEST_ROUND_COHORT_VALUES = ("external-test", "maintainer")
-RETRIEVAL_PROJECTION_VALUES = ("legacy", "canonical-canary")
+RETRIEVAL_PROJECTION_VALUES = ("legacy", "canonical", "canonical-canary")
 CANARY_COMMANDS = {"search", "result", "outcome", "compare"}
 PASSIVE_SKILL_CHECK_COMMANDS = {
     "search",
@@ -141,8 +141,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--projection",
         choices=RETRIEVAL_PROJECTION_VALUES,
-        default=os.environ.get("ROCK_KB_PROJECTION", "legacy"),
-        help="Retrieval projection for search, result, and outcome. Defaults to legacy; canonical-canary requires an opted-in external-test or maintainer cohort.",
+        default=os.environ.get("ROCK_KB_PROJECTION") or None,
+        help="Optional retrieval projection override. Normal use follows the service default; canonical-canary requires an opted-in external-test or maintainer cohort.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -457,17 +457,20 @@ def main(argv: list[str] | None = None) -> int:
             params.append(f"kind={quote(args.kind)}")
         if args.debug:
             params.append("debug=true")
-        params.append(f"projection={quote(args.projection)}")
+        if args.projection:
+            params.append(f"projection={quote(args.projection)}")
         return print_json(get_json(f"{base_url}/search?{'&'.join(params)}"))
     if args.command == "result":
+        suffix = f"?projection={quote(args.projection)}" if args.projection else ""
         return print_json(
             get_json(
                 f"{base_url}/results/{quote(args.result_id)}"
-                f"?projection={quote(args.projection)}"
+                f"{suffix}"
             )
         )
     if args.command == "claim":
-        return print_json(get_json(f"{base_url}/claims/id/{quote(args.claim_id)}"))
+        suffix = f"?projection={quote(args.projection)}" if args.projection else ""
+        return print_json(get_json(f"{base_url}/claims/id/{quote(args.claim_id)}{suffix}"))
     if args.command == "concepts":
         return print_json(get_json(f"{base_url}/concepts"))
     if args.command == "get":
@@ -486,6 +489,8 @@ def main(argv: list[str] | None = None) -> int:
             params.append(f"min_authority_tier={quote(args.min_authority_tier)}")
         if args.rock_version:
             params.append(f"rock_version={quote(args.rock_version)}")
+        if args.projection:
+            params.append(f"projection={quote(args.projection)}")
         suffix = f"?{'&'.join(params)}"
         return print_json(get_json(f"{base_url}/claims/{quote(args.concept_id)}{suffix}"))
     if args.command == "model":
@@ -541,12 +546,14 @@ def main(argv: list[str] | None = None) -> int:
             suffix = f"?concept={quote(args.concept)}" if args.concept else ""
             return print_json(get_json(f"{base_url}/recipes{suffix}"))
         if args.recipes_command == "search":
-            return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier=routing_context_only&kind=recipe&detail=compact"))
+            projection = f"&projection={quote(args.projection)}" if args.projection else ""
+            return print_json(get_json(f"{base_url}/search?q={quote(args.query)}&limit={args.limit}&min_tier=routing_context_only&kind=recipe&detail=compact{projection}"))
     if args.command == "issue":
         return print_json(get_json(f"{base_url}/rock-issues/{quote(args.issue_ref)}"))
     if args.command == "issues":
         if args.issues_command == "search":
-            return print_json(get_json(f"{base_url}/rock-issues/search?q={quote(args.query)}&limit={args.limit}"))
+            projection = f"&projection={quote(args.projection)}" if args.projection else ""
+            return print_json(get_json(f"{base_url}/rock-issues/search?q={quote(args.query)}&limit={args.limit}{projection}"))
         if args.issues_command == "list":
             params = [f"limit={args.limit}", f"offset={args.offset}"]
             for key in ["repository", "state", "concept", "version"]:
@@ -585,7 +592,8 @@ def main(argv: list[str] | None = None) -> int:
         return print_json(get_json(f"{base_url}/rock-ideas/{quote(args.idea_ref)}"))
     if args.command == "ideas":
         if args.ideas_command == "search":
-            return print_json(get_json(f"{base_url}/rock-ideas/search?q={quote(args.query)}&limit={args.limit}"))
+            projection = f"&projection={quote(args.projection)}" if args.projection else ""
+            return print_json(get_json(f"{base_url}/rock-ideas/search?q={quote(args.query)}&limit={args.limit}{projection}"))
         if args.ideas_command == "list":
             params = [f"limit={args.limit}", f"offset={args.offset}"]
             for argument, parameter in [
@@ -673,7 +681,10 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         return 0
     if args.command == "feedback":
-        return print_json(post_json(f"{base_url}/feedback", {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}))
+        payload = {"result_id": args.result_id, "rating": args.rating, "reason": args.reason}
+        if args.projection:
+            payload["retrieval_projection"] = args.projection
+        return print_json(post_json(f"{base_url}/feedback", payload))
     if args.command == "outcome":
         if len(args.reason) > 3:
             parser.error("outcome accepts at most three --reason values")
@@ -682,13 +693,15 @@ def main(argv: list[str] | None = None) -> int:
         invalid_reasons = sorted(set(args.reason) - set(OUTCOME_REASON_CODES[args.outcome]))
         if invalid_reasons:
             parser.error(f"outcome reason values are incompatible with {args.outcome}: {', '.join(invalid_reasons)}")
-        return print_json(post_json(f"{base_url}/outcomes", {
+        payload = {
             "result_id": args.result_id,
             "outcome": args.outcome,
             "reason_codes": args.reason,
             "consent_attested": bool(args.consent_attested),
-            "retrieval_projection": args.projection,
-        }))
+        }
+        if args.projection:
+            payload["retrieval_projection"] = args.projection
+        return print_json(post_json(f"{base_url}/outcomes", payload))
     if args.command == "report-issue":
         payload = {
             "failure_type": args.failure_type,

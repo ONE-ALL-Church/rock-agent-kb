@@ -1,0 +1,91 @@
+name: Set Retrieval Projection
+
+on:
+  workflow_dispatch:
+    inputs:
+      projection:
+        description: Active default retrieval projection
+        required: true
+        default: canonical
+        type: choice
+        options:
+          - canonical
+          - legacy
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rock-kb-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  set-retrieval-projection:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ROCK_KB_BASE_URL: ${{ vars.ROCK_KB_BASE_URL }}
+      ROCK_KB_D1_DATABASE: ${{ vars.ROCK_KB_D1_DATABASE }}
+      ROCK_KB_D1_DATABASE_ID: ${{ vars.ROCK_KB_D1_DATABASE_ID }}
+      EXPECTED_PROJECTION: ${{ inputs.projection }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v9.0.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: service/package-lock.json
+      - name: Require production configuration
+        run: |
+          test -n "${CLOUDFLARE_API_TOKEN}"
+          test -n "${CLOUDFLARE_ACCOUNT_ID}"
+          test -n "${ROCK_KB_BASE_URL}"
+          test -n "${ROCK_KB_D1_DATABASE_ID}"
+      - name: Install Wrangler
+        working-directory: service
+        run: npm ci
+      - name: Configure production Cloudflare bindings
+        run: >
+          python3 scripts/configure_service_bindings.py --env production
+          --d1-database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --d1-database-id "${ROCK_KB_D1_DATABASE_ID}"
+      - name: Validate projection change
+        run: >
+          uv run kb retrieval-projection "${EXPECTED_PROJECTION}"
+          --env production
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --base-url "${ROCK_KB_BASE_URL}"
+      - name: Apply projection change
+        run: >
+          uv run kb retrieval-projection "${EXPECTED_PROJECTION}" --apply
+          --env production
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --base-url "${ROCK_KB_BASE_URL}"
+      - name: Verify active and rollback readers
+        run: |
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health" >/tmp/health.json
+          curl --fail --silent --show-error --retry 6 --retry-all-errors --retry-delay 3 "${ROCK_KB_BASE_URL}/search?q=Group%20model%20map&limit=3" >/tmp/active-search.json
+          curl --fail --silent --show-error --retry 6 --retry-all-errors --retry-delay 3 "${ROCK_KB_BASE_URL}/search?q=Group%20model%20map&limit=3&projection=legacy" >/tmp/legacy-search.json
+          uv run python - <<'PY'
+          import json
+          import os
+
+          expected = os.environ["EXPECTED_PROJECTION"]
+          health = json.load(open("/tmp/health.json", encoding="utf-8"))
+          shadow = health.get("canonical_shadow") or {}
+          active = json.load(open("/tmp/active-search.json", encoding="utf-8"))
+          legacy = json.load(open("/tmp/legacy-search.json", encoding="utf-8"))
+          assert shadow.get("activation_supported") is True
+          assert shadow.get("active_retrieval_projection") == expected
+          assert shadow.get("active_reader") is (expected == "canonical")
+          assert health.get("retrieval_projection") == expected
+          assert active.get("retrieval_projection") == expected
+          assert active.get("results")
+          assert legacy.get("retrieval_projection") == "legacy"
+          assert legacy.get("results")
+          PY
+      - name: Run hosted retrieval evaluation
+        run: uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5

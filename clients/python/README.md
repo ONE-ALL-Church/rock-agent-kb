@@ -120,8 +120,10 @@ with `uvx rock-kb telemetry disable`, rerun `install-agent`, and restart the
 host. Treat user-scoped agent configuration as private. Project-scoped MCP
 configuration never receives the marker.
 
-The same opt-in enables the experimental canonical retrieval canary. Legacy
-retrieval remains the default:
+The same opt-in enables controlled canonical-canary comparisons. Normal client
+requests omit `--projection` and follow the hosted active reader; canonical is
+the reviewed default after the 2026-08-03 cutover, while legacy remains the
+rollback projection:
 
 ```bash
 uvx rock-kb --projection canonical-canary search "content channel item permissions"
@@ -136,11 +138,13 @@ uvx rock-kb compare "content channel item permissions" --category version_sensit
 ```
 
 `--projection` is a global option and therefore appears before the command.
-Only `search`, `result`, and `outcome` accept the global canary option. Use the
-same projection for all three so an outcome is attached to the exact projection
-that produced the result. `compare` instead queries both projections, randomizes
-them as A/B choices, and never labels either option. The service rejects canary
-or comparison requests without a private anonymous marker and the fixed
+Omit it during normal use. Explicit `legacy`, `canonical`, or
+`canonical-canary` overrides apply to retrieval commands, feedback, and
+outcomes; preserve the same explicit projection so a result and its outcome are
+attached to the same projection. `canonical` is accepted only while it is the
+active reader. `compare` queries both projections, randomizes them as A/B
+choices, and never labels either option. The service rejects canary or
+comparison requests without a private anonymous marker and the fixed
 `external-test` or `maintainer` cohort.
 
 MCP clients use the installed private headers and pass

@@ -185,8 +185,8 @@ def source_family_contract_manifest() -> dict[str, Any]:
             "source observation -> deterministic source unit -> reviewed "
             "knowledge unit -> rebuildable projections"
         ),
-        "default_retrieval_projection": "legacy",
-        "canonical_projection_state": "shadow_and_opt_in_canary",
+        "default_retrieval_projection": "canonical",
+        "canonical_projection_state": "active_with_legacy_rollback",
         "generated_knowledge_contracts": [
             asdict(GENERATED_KNOWLEDGE_CONTRACTS[key])
             for key in sorted(GENERATED_KNOWLEDGE_CONTRACTS)

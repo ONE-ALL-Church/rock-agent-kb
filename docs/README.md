@@ -22,6 +22,8 @@
 
 ## Decisions
 
+- [Canonical Knowledge Architecture Status](decisions/canonical-knowledge-architecture-status-2026-08-03.md) - current canonical/source-native architecture decision, measured evidence, rollout gates, and ordered next work.
+- [Source-Native Documentation Expansion](decisions/source-native-expansion-2026-07-31.md) - historical first expansion evidence and pointer to current architecture status.
 - [Agent Knowledge Network Goal](decisions/agent-knowledge-network-goal.md) - north-star networked KB, hosted service, and autonomous contribution goal.
 - [Incremental Architecture Refactor Goal](decisions/incremental-architecture-refactor-goal.md) - retired historical Milestone 0 plan.
 - [Project Goal](decisions/project-goal.md) - durable project goal and readiness framing.

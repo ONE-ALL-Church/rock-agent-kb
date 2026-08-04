@@ -56,8 +56,8 @@ metadata, while automatically retaining stateless compatibility for ordinary
 2025 MCP clients on the same URL. No MCP session ID or configuration change is
 required.
 
-An experimental read-only Cloudflare Code Mode endpoint remains on the legacy
-MCP SDK for agents that need to compose several dependent KB calls, loops, or
+An experimental read-only Cloudflare Code Mode endpoint remains on the MCP SDK
+v1 compatibility handler for agents that need to compose several dependent KB calls, loops, or
 filters in one operation:
 
 ```bash
@@ -71,19 +71,22 @@ does not have better knowledge and should not replace direct MCP for single
 searches or exact lookups. Do not download an OKF bundle merely to answer an
 ordinary online question.
 
-### Opt-In Canonical Retrieval Test
+### Retrieval Projection And Comparison
 
-Normal MCP and CLI requests use the reviewed legacy projection. A separate
-`canonical-canary` reader lets consenting external testers and maintainers
-compare the source-native canonical architecture without changing that default.
-It is experimental evidence collection, not a higher trust tier.
+Normal MCP and current CLI requests omit a projection override and follow the
+hosted active reader. Canonical is the reviewed default after the 2026-08-03
+cutover; the complete legacy projection remains available for immediate
+rollback and maintainer diagnostics. A projection changes retrieval shape, not
+the trust tier of its evidence.
+
+Consenting external testers and maintainers can still compare canonical and
+legacy through the privacy-bounded blind comparison:
 
 After accepting the privacy notice, enable an anonymous test marker:
 
 ```bash
 uvx rock-kb telemetry enable --cohort external-test --consent-attested
 uvx rock-kb install-agent
-uvx rock-kb --projection canonical-canary search "content channel item permissions"
 uvx rock-kb compare "content channel item permissions" --category version_sensitive
 ```
 
@@ -91,16 +94,17 @@ uvx rock-kb compare "content channel item permissions" --category version_sensit
 explicit reviewed submission it stores only a temporary one-way installation
 hash, fixed category/cohort, paired public result IDs, projection versions, and
 fixed preference/reason codes. The question is used for the two searches but is
-never stored. Legacy retrieval remains the default until real external outcomes
-satisfy the promotion gate.
+never stored. External outcomes remain useful post-cutover validation and are
+never inferred from maintainer or evaluation traffic.
 
-Pass `--projection canonical-canary` again when expanding a result or reporting
-its outcome. MCP clients pass `projection: "canonical-canary"` to `kb_search`,
-`kb_get_result`, and `kb_outcome`. The service stores bounded daily canary
+Omit `--projection` for normal search, expansion, feedback, and outcomes. The
+response records the active projection used. Maintainers may explicitly pass
+`--projection legacy` to reproduce a rollback result; agents must not silently
+retry there after an unsatisfactory canonical answer. A controlled direct
+canary test may still pass `canonical-canary` consistently across search,
+expansion, feedback, and outcomes. The service stores bounded daily canary
 counts and structured outcomes, never the query, raw marker, organization,
-person, IP address, logs, secrets, or Rock data. The canary cannot change the
-default reader, and no default cutover is allowed without real external
-usefulness evidence and a separate reviewed release.
+person, IP address, logs, secrets, or Rock data.
 
 ## Portable OKF Distribution
 

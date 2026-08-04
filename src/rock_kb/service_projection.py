@@ -19,6 +19,7 @@ import yaml
 
 from .contribution_sources import public_contribution_records
 from .extract import generated_at_iso, sha256_text
+from .guide_intel.sections import high_signal_section_rows
 from .jsonl import read_jsonl, write_jsonl
 from .paths import REPO_ROOT
 from .publish import public_export_manifest, public_export_text_for_public_path
@@ -44,11 +45,16 @@ SERVICE_RETRIEVAL_CHANGE_REPORT_PATH = SERVICE_DIST_DIR / "retrieval-change-repo
 SERVICE_CANONICAL_SHADOW_RELATIVE_DIR = Path("canonical-shadow/v1")
 ORG_REGISTRY_PATH = SERVICE_DIST_DIR / "org-registry.json"
 D1_SEARCH_BODY_CHAR_LIMIT = 75_000
+CONCEPT_LIVE_VERIFICATION_BOUNDARY = (
+    "Inspect the exact live records before changing production behavior; "
+    "generated guidance does not prove current configuration."
+)
 ARTIFACT_SHARD_PREFIX_LENGTH = 2
 ARTIFACT_SLOT_PREFIXES = ("slots/a", "slots/b")
 LEGACY_ARTIFACT_RETENTION_RULE_ID = "rock-kb-legacy-versions-expiry"
 LEGACY_ARTIFACT_RETENTION_PREFIX = "versions/"
 LEGACY_ARTIFACT_RETENTION_DAYS = 30
+ACTIVE_RETRIEVAL_PROJECTIONS = ("legacy", "canonical")
 
 
 CLAIM_TIER_RANK = {
@@ -80,7 +86,7 @@ class ServiceProjection:
     dist: Path
     sql_path: Path
     artifact_prefix: str = ""
-    active_retrieval_projection: str = "legacy"
+    active_retrieval_projection: str = "runtime_preserved"
     canonical_shadow_hash: str = ""
     canonical_shadow_search_row_count: int = 0
     canonical_shadow_knowledge_unit_count: int = 0
@@ -185,7 +191,7 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         dist=dist,
         sql_path=dist / "d1-seed.sql",
         artifact_prefix=resolved_artifact_prefix,
-        active_retrieval_projection="legacy",
+        active_retrieval_projection="runtime_preserved",
         canonical_shadow_hash=str(canonical_shadow["content_hash"]),
         canonical_shadow_search_row_count=int(
             canonical_shadow["search_row_count"]
@@ -207,7 +213,7 @@ def build_canonical_service_shadow(
     dist: Path,
     legacy_search_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Write the canonical projection beside the unchanged default reader."""
+    """Write canonical artifacts beside the retained legacy rollback."""
 
     from .canonical_knowledge import (
         CANONICAL_IDENTITY_BASELINE_RELATIVE_DIR,
@@ -302,9 +308,12 @@ def build_canonical_service_shadow(
     )
     manifest_core = {
         "schema": "rock-kb-canonical-service-shadow-v1",
-        "mode": "dual_write_shadow",
-        "active_reader": False,
-        "active_retrieval_projection": "legacy",
+        "mode": "dual_projection_runtime_switch",
+        "active_reader": None,
+        "active_retrieval_projection": None,
+        "active_reader_state": "runtime_health_only",
+        "activation_control": "kb_meta.active_retrieval_projection",
+        "initial_retrieval_projection_if_missing": "legacy",
         "canary_reader_available": True,
         "canary_retrieval_projection": "canonical-canary",
         "canary_requires_opt_in": True,
@@ -347,6 +356,7 @@ def build_canonical_service_shadow(
 def build_search_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     rows.extend(concept_search_rows())
+    rows.extend(guide_section_search_rows())
     rows.extend(answer_search_rows())
     rows.extend(task_card_search_rows())
     rows.extend(troubleshooting_node_search_rows())
@@ -546,18 +556,14 @@ def concept_search_rows() -> list[dict[str, Any]]:
         if not concept_id:
             continue
         concept_dir = REPO_ROOT / "knowledge" / "concepts" / concept_id
-        body_parts = [
-            read_text(concept_dir / "quickstart.md"),
-            read_text(concept_dir / "index.md"),
-            read_text(concept_dir / "open-questions.md"),
-        ]
+        body = concept_search_body(read_text(concept_dir / "quickstart.md"))
         rows.append(
             {
                 "id": f"concept:{concept_id}",
                 "kind": "concept",
                 "title": concept.get("title") or concept_id,
-                "body": "\n\n".join(part for part in body_parts if part),
-                "path": f"knowledge/concepts/{concept_id}/index.md",
+                "body": body,
+                "path": f"knowledge/concepts/{concept_id}/quickstart.md",
                 "url": "",
                 "concept": concept_id,
                 "authority_tier": "official",
@@ -567,6 +573,165 @@ def concept_search_rows() -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def concept_search_body(quickstart: str) -> str:
+    if not quickstart or CONCEPT_LIVE_VERIFICATION_BOUNDARY in quickstart:
+        return quickstart
+    return (
+        quickstart.rstrip()
+        + "\n\n## Verification Boundary\n\n- "
+        + CONCEPT_LIVE_VERIFICATION_BOUNDARY
+        + "\n"
+    )
+
+
+def guide_section_search_rows() -> list[dict[str, Any]]:
+    concepts = {
+        str(row.get("concept_id") or ""): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "concept-index.jsonl")
+        if row.get("concept_id")
+    }
+    source_rows_by_concept: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in read_jsonl(REPO_ROOT / "agent" / "section-source-map.jsonl"):
+        concept_id = str(row.get("concept_id") or "")
+        if concept_id:
+            source_rows_by_concept[concept_id].append(row)
+    status_by_section = {
+        (str(row.get("concept_id") or ""), str(row.get("section_id") or "")): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "section-status.jsonl")
+        if row.get("concept_id") and row.get("section_id")
+    }
+    public_sources_by_url = {
+        normalized_public_url(row.get("source_url") or row.get("url")): row
+        for row in read_jsonl(REPO_ROOT / "agent" / "source-summaries.jsonl")
+        if normalized_public_url(row.get("source_url") or row.get("url"))
+    }
+
+    rows: list[dict[str, Any]] = []
+    for concept_id in sorted(source_rows_by_concept):
+        guide_path = REPO_ROOT / "knowledge" / "concepts" / concept_id / "guide.md"
+        guide_lines = read_text(guide_path).splitlines()
+        if not guide_lines:
+            continue
+        concept_title = str(concepts.get(concept_id, {}).get("title") or concept_id)
+        for section in high_signal_section_rows(source_rows_by_concept[concept_id]):
+            section_id = str(section.get("section_id") or "")
+            start_line = int(section.get("start_line") or 0)
+            end_line = int(section.get("end_line") or 0)
+            if not section_id or start_line < 1 or end_line < start_line or end_line > len(guide_lines):
+                continue
+            body = "\n".join(guide_lines[start_line - 1 : end_line]).strip()
+            if not body:
+                continue
+            status = status_by_section.get((concept_id, section_id), {})
+            citation_sources = [
+                public_sources_by_url[normalized_public_url(citation.get("url"))]
+                for citation in section.get("citations") or []
+                if isinstance(citation, dict)
+                and normalized_public_url(citation.get("url")) in public_sources_by_url
+            ]
+            source_ids = normalize_concept_ids(
+                [
+                    *(section.get("source_ids") or []),
+                    *(source.get("source_id") for source in citation_sources),
+                ]
+            )
+            source_record_ids = normalize_concept_ids(
+                [
+                    *(section.get("source_record_ids") or []),
+                    *(source.get("source_record_id") for source in citation_sources),
+                ]
+            )
+            source_fingerprints = {
+                (
+                    str(dependency.get("source_record_id") or ""),
+                    str(dependency.get("content_hash") or ""),
+                )
+                for dependency in status.get("depends_on_sources") or []
+                if isinstance(dependency, dict)
+                and (dependency.get("source_record_id") or dependency.get("content_hash"))
+            }
+            source_fingerprints.update(
+                (
+                    str(source.get("source_record_id") or ""),
+                    str(source.get("content_hash") or ""),
+                )
+                for source in citation_sources
+                if source.get("source_record_id") or source.get("content_hash")
+            )
+            source_content_hash = (
+                sha256_text(
+                    json.dumps(
+                        sorted(source_fingerprints),
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    )
+                )
+                if source_fingerprints
+                else ""
+            )
+            payload = {
+                "schema": "rock-kb-guide-section-search-v1",
+                "concept_id": concept_id,
+                "section_id": section_id,
+                "heading": section.get("heading") or section_id,
+                "parent": section.get("parent") or "",
+                "level": int(section.get("level") or 0),
+                "start_line": start_line,
+                "end_line": end_line,
+                "word_count": int(section.get("word_count") or 0),
+                "citation_count": int(section.get("citation_count") or 0),
+                "citations": section.get("citations") or [],
+                "source_ids": source_ids,
+                "source_record_ids": source_record_ids,
+                "authorities": normalize_concept_ids(section.get("authorities") or []),
+                "trace_mode": section.get("trace_mode") or "none",
+                "confidence": section.get("confidence") or "",
+                "needs_live_verification": bool(section.get("needs_live_verification")),
+                "section_status": status.get("status") or "untracked",
+                "status_reasons": normalize_concept_ids(status.get("reasons") or []),
+                "needs_review": bool(status and status.get("status") != "current"),
+                "content_hash": sha256_text(body),
+                "source_content_hash": source_content_hash,
+            }
+            rows.append(
+                {
+                    "id": f"guide_section:{concept_id}:{section_id}",
+                    "kind": "guide_section",
+                    "title": f"{concept_title}: {section.get('heading') or section_id}",
+                    "body": body,
+                    "path": f"knowledge/concepts/{concept_id}/guide.md",
+                    "url": "",
+                    "concept": concept_id,
+                    "authority_tier": guide_section_authority_tier(
+                        section.get("authorities") or []
+                    ),
+                    "claim_tier": "source_backed",
+                    "source_id": source_ids[0] if len(source_ids) == 1 else "",
+                    "payload": payload,
+                }
+            )
+    return rows
+
+
+def normalized_public_url(value: Any) -> str:
+    return str(value or "").strip().rstrip("/")
+
+
+def guide_section_authority_tier(authorities: Iterable[Any]) -> str:
+    values = {
+        str(value or "").strip()
+        for value in authorities
+        if str(value or "").strip()
+    }
+    if "source-code" in values:
+        return "source-code-confirmed"
+    if "official-release" in values:
+        return "release-note-confirmed"
+    if any(value.startswith("official") for value in values):
+        return "official"
+    return "community-reviewed"
 
 
 def answer_search_rows() -> list[dict[str, Any]]:
@@ -1653,8 +1818,12 @@ def build_d1_seed_sql(
         ("current_version", version),
         ("generated_at", generated_at),
         ("artifact_prefix", resolved_artifact_prefix),
-        ("active_retrieval_projection", "legacy"),
     ]
+    lines.append(
+        "INSERT INTO kb_meta (key, value) VALUES "
+        "('active_retrieval_projection', 'legacy') "
+        "ON CONFLICT(key) DO NOTHING;"
+    )
     shadow = canonical_shadow or {}
     shadow_hash = str(shadow.get("content_hash") or "")
     if shadow_hash:
@@ -1706,6 +1875,9 @@ def build_d1_seed_sql(
         )
     if shadow_hash:
         lines.append(
+            "UPDATE canonical_projection_history_v1 SET active_reader = 0;"
+        )
+        lines.append(
             "INSERT INTO canonical_projection_history_v1 "
             "(projection_version, generated_at, content_hash, "
             "search_row_count, knowledge_unit_count, source_snapshot_count, "
@@ -1722,7 +1894,9 @@ def build_d1_seed_sql(
                     str(int(shadow.get("source_unit_count") or 0)),
                     str(int(shadow.get("evidence_link_count") or 0)),
                     str(int(shadow.get("relationship_count") or 0)),
-                    "0",
+                    "CASE WHEN (SELECT value FROM kb_meta "
+                    "WHERE key = 'active_retrieval_projection') = 'canonical' "
+                    "THEN 1 ELSE 0 END",
                 ]
             )
             + ") ON CONFLICT(projection_version, generated_at) DO UPDATE SET "
@@ -1733,7 +1907,7 @@ def build_d1_seed_sql(
             "source_unit_count = excluded.source_unit_count, "
             "evidence_link_count = excluded.evidence_link_count, "
             "relationship_count = excluded.relationship_count, "
-            "active_reader = 0;"
+            "active_reader = excluded.active_reader;"
         )
         lines.extend(
             [
@@ -1778,6 +1952,173 @@ def deploy_service_projection(
     apply_projection_to_cloudflare(projection, env=env, bucket=bucket, database=database)
     result["applied"] = True
     return result
+
+
+def retrieval_projection_switch_sql(projection: str) -> str:
+    if projection not in ACTIVE_RETRIEVAL_PROJECTIONS:
+        raise ValueError(
+            "retrieval projection must be legacy or canonical"
+        )
+    # Wrangler maps semicolon-delimited D1 commands into a transactional batch.
+    # Explicit BEGIN/COMMIT statements fail because D1 already owns the batch
+    # transaction.
+    statements = ["UPDATE canonical_projection_history_v1 SET active_reader = 0;"]
+    if projection == "canonical":
+        statements.append(
+            "UPDATE canonical_projection_history_v1 SET active_reader = 1 "
+            "WHERE rowid = (SELECT rowid FROM canonical_projection_history_v1 "
+            "WHERE content_hash = (SELECT value FROM kb_meta WHERE key = "
+            "'canonical_shadow_content_hash') ORDER BY generated_at DESC, "
+            "projection_version DESC LIMIT 1);"
+        )
+    statements.append(
+        "INSERT INTO kb_meta (key, value) VALUES "
+        f"('active_retrieval_projection', '{projection}') "
+        "ON CONFLICT(key) DO UPDATE SET value = excluded.value;"
+    )
+    return "\n".join(statements)
+
+
+def set_active_retrieval_projection(
+    projection: str,
+    *,
+    apply: bool = False,
+    env: str | None = None,
+    database: str | None = None,
+    base_url: str | None = None,
+) -> dict[str, Any]:
+    normalized = projection.strip().lower()
+    sql = retrieval_projection_switch_sql(normalized)
+    resolved_base_url = (
+        base_url or os.getenv("ROCK_KB_BASE_URL", "")
+    ).rstrip("/")
+    if not resolved_base_url:
+        raise RuntimeError(
+            "ROCK_KB_BASE_URL or --base-url is required to validate a "
+            "retrieval projection change."
+        )
+
+    health: dict[str, Any] = {}
+    preflight_error = ""
+    try:
+        health = request_json(f"{resolved_base_url}/health")
+    except Exception as exc:
+        preflight_error = f"{type(exc).__name__}: {exc}"
+    shadow = dict(health.get("canonical_shadow") or {})
+    if normalized == "canonical":
+        if preflight_error:
+            raise RuntimeError(
+                "Canonical activation requires a successful hosted health "
+                f"preflight: {preflight_error}"
+            )
+        if shadow.get("activation_supported") is not True:
+            raise RuntimeError(
+                "The hosted Worker does not advertise guarded canonical "
+                "activation support. Deploy the cutover-capable release first."
+            )
+        if (
+            shadow.get("status") != "ready"
+            or not shadow.get("content_hash")
+            or int(shadow.get("search_row_count") or 0) < 1
+            or int(shadow.get("observation_count") or 0) < 1
+        ):
+            raise RuntimeError(
+                "Canonical activation requires a ready, non-empty projection "
+                "with recorded deployment history."
+            )
+
+    result: dict[str, Any] = {
+        "schema": "rock-kb-retrieval-projection-change-v1",
+        "status": "planned",
+        "requested_projection": normalized,
+        "previous_projection": shadow.get(
+            "active_retrieval_projection", "unknown"
+        ),
+        "base_url": resolved_base_url,
+        "database": database or "rock-agent-kb",
+        "environment": env or "default",
+        "canonical_content_hash": shadow.get("content_hash"),
+        "preflight_status": "unavailable" if preflight_error else "ok",
+        "preflight_error": preflight_error or None,
+        "applied": False,
+    }
+    if not apply:
+        result["next_command"] = (
+            f"uv run kb retrieval-projection {normalized} --apply "
+            f"--base-url {resolved_base_url} --database "
+            f"{database or 'rock-agent-kb'}"
+            + (f" --env {env}" if env else "")
+        )
+        return result
+
+    env_args = ["--env", env] if env else []
+    run(
+        [
+            "npx",
+            "wrangler",
+            "d1",
+            "execute",
+            database or "rock-agent-kb",
+            "--remote",
+            "--command",
+            sql,
+            "--yes",
+            *env_args,
+        ],
+        cwd=SERVICE_DIR,
+    )
+    observed = wait_for_active_retrieval_projection(
+        base_url=resolved_base_url,
+        expected=normalized,
+    )
+    result.update(
+        {
+            "status": "active",
+            "applied": True,
+            "observed_projection": observed.get("retrieval_projection"),
+            "observed_projection_version": observed.get(
+                "retrieval_projection_version"
+            ),
+            "active_reader": dict(
+                observed.get("canonical_shadow") or {}
+            ).get("active_reader"),
+        }
+    )
+    return result
+
+
+def wait_for_active_retrieval_projection(
+    *,
+    base_url: str,
+    expected: str,
+    attempts: int = 12,
+    delay_seconds: float = 2.0,
+) -> dict[str, Any]:
+    last_observed = "unavailable"
+    last_error = ""
+    for attempt in range(attempts):
+        try:
+            health = request_json(f"{base_url.rstrip('/')}/health")
+            shadow = dict(health.get("canonical_shadow") or {})
+            last_observed = str(
+                shadow.get("active_retrieval_projection") or "unknown"
+            )
+            active_reader = shadow.get("active_reader") is True
+            if (
+                last_observed == expected
+                and active_reader == (expected == "canonical")
+                and health.get("retrieval_projection") == expected
+            ):
+                return health
+        except Exception as exc:
+            last_error = f"{type(exc).__name__}: {exc}"
+        if attempt + 1 < attempts:
+            time.sleep(delay_seconds)
+    detail = f"; last health error: {last_error}" if last_error else ""
+    raise RuntimeError(
+        "Retrieval projection change was not observed in hosted health: "
+        f"expected {expected}, saw {last_observed}{detail}"
+    )
 
 
 def apply_projection_to_cloudflare(

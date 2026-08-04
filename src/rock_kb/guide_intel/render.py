@@ -45,11 +45,7 @@ def render_quickstart(
     release_rows: list[dict[str, Any]],
 ) -> str:
     concept = get_concept(concept_id)
-    high_signal_sections = [
-        row
-        for row in section_rows
-        if row.get("confidence") in {"high", "normal"} and int(row.get("word_count") or 0) >= 75
-    ][:6]
+    high_signal_sections = high_signal_section_rows(section_rows)
     lines = [
         "---",
         f"concept_id: {concept_id}",
@@ -66,6 +62,7 @@ def render_quickstart(
         "- Start with a task card when the user has an operational symptom or implementation request.",
         "- Use the entity index when the task mentions a table, model, block, source file, or report.",
         "- Use release caveats before deciding whether behavior is configuration, customization, or version-specific.",
+        "- Inspect the exact live records before changing production behavior; generated guidance does not prove current configuration.",
         "- Use the long guide only when planning broadly or when the task card points to a section.",
         "",
         "## Primary Tasks",

@@ -405,6 +405,129 @@ test("canonical canary is explicit, opt-in, isolated, and outcome-aware", async 
   }
 });
 
+test("canonical can be the default reader and legacy remains an immediate rollback", async () => {
+  const canonicalHash = "e".repeat(64);
+  const canonicalId = "source-native:claim:rock_documentation:article-1:check-in-labels";
+  const mf = await buildWorker({
+    activeProjection: "canonical",
+    canonicalShadow: {
+      status: "ready",
+      contentHash: canonicalHash,
+      searchRowCount: 1,
+      knowledgeUnitCount: 1,
+      artifactCount: 8,
+      observationCount: 2,
+    },
+  });
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `INSERT INTO canonical_search_rows (
+         id, kind, title, body, path, url, concept, authority_tier,
+         claim_tier, claim_tier_rank, source_id, concepts_json,
+         topics_json, payload_json
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(
+      canonicalId,
+      "claim",
+      "Canonical check-in labels",
+      "Canonical check-in label printing guidance.",
+      "canonical/source-native/v1/reviewed-artifacts.jsonl",
+      "https://example.test/canonical-labels",
+      "check-in",
+      "official",
+      "source_backed",
+      1,
+      "rock_documentation",
+      JSON.stringify(["check-in"]),
+      JSON.stringify(["labels"]),
+      JSON.stringify({ claim_id: "claim:canonical-labels" }),
+    ).run();
+    await db.prepare(
+      "INSERT INTO canonical_search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+    ).bind(
+      canonicalId,
+      "Canonical check-in labels",
+      "Canonical check-in label printing guidance.",
+      "check-in labels",
+    ).run();
+    await db.prepare(
+      "INSERT INTO canonical_search_row_concepts (row_id, concept) VALUES (?, ?)",
+    ).bind(canonicalId, "check-in").run();
+    await db.prepare(
+      "INSERT INTO canonical_search_row_aliases (alias_id, canonical_id) VALUES (?, ?)",
+    ).bind("claim:claim:abc123", canonicalId).run();
+
+    const defaultSearch = await (
+      await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20label%20printing&limit=1")
+    ).json();
+    assert.equal(defaultSearch.retrieval_projection, "canonical");
+    assert.equal(defaultSearch.results[0].id, canonicalId);
+
+    const explicitLegacy = await (
+      await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20label%20printing&limit=1&projection=legacy")
+    ).json();
+    assert.equal(explicitLegacy.retrieval_projection, "legacy");
+    assert.equal(explicitLegacy.results[0].id, "claim:claim:abc123");
+
+    const claim = await (
+      await mf.dispatchFetch("https://kb.example.test/claims/id/claim%3Aabc123")
+    ).json();
+    assert.equal(claim.status, "ok");
+    assert.equal(claim.retrieval_projection, "canonical");
+    assert.equal(claim.result_ids[0], canonicalId);
+
+    const claims = await (
+      await mf.dispatchFetch("https://kb.example.test/claims/check-in")
+    ).json();
+    assert.equal(claims.retrieval_projection, "canonical");
+    assert.equal(claims.total_count, 1);
+
+    const mcpSearch = await mcp(mf, "tools/call", {
+      name: "kb_search",
+      arguments: { query: "check-in label printing", limit: 1 },
+    });
+    assert.equal(mcpSearch.result.structuredContent.results[0].id, canonicalId);
+
+    const feedbackResponse = await mf.dispatchFetch("https://kb.example.test/feedback", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ result_id: canonicalId, rating: 1, reason: "helpful" }),
+    });
+    const feedback = await feedbackResponse.json();
+    assert.equal(feedback.retrieval_projection, "canonical");
+    assert.equal(feedback.projection_version, canonicalHash);
+
+    const health = await (
+      await mf.dispatchFetch("https://kb.example.test/health")
+    ).json();
+    assert.equal(health.retrieval_projection, "canonical");
+    assert.equal(health.retrieval_projection_version, canonicalHash);
+    assert.equal(health.canonical_shadow.active_reader, true);
+    assert.equal(health.canonical_shadow.activation_supported, true);
+
+    await db.prepare(
+      "UPDATE kb_meta SET value = 'legacy' WHERE key = 'active_retrieval_projection'",
+    ).run();
+    const rolledBack = await (
+      await mf.dispatchFetch("https://kb.example.test/search?q=check-in%20label%20printing&limit=1")
+    ).json();
+    assert.equal(rolledBack.retrieval_projection, "legacy");
+    assert.equal(rolledBack.results[0].id, "claim:claim:abc123");
+
+    const inactiveCanonical = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=check-in%20label%20printing&projection=canonical",
+    );
+    assert.equal(inactiveCanonical.status, 409);
+    assert.equal(
+      (await inactiveCanonical.json()).error_code,
+      "canonical_projection_not_active",
+    );
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("full search, exact claim lookup, and MCP progressive tools work", async () => {
   const mf = await buildWorker();
   try {
@@ -1060,13 +1183,20 @@ test("health reports the active bounded artifact slot and artifact reads use it"
     const healthResponse = await mf.dispatchFetch("https://kb.example.test/health");
     const health = await healthResponse.json();
     assert.equal(health.status, "ok");
+    assert.equal(health.retrieval_projection, "legacy");
+    assert.equal(health.retrieval_projection_version, "test-version");
     assert.equal(health.artifact_prefix, "slots/b");
     assert.equal(health.artifact_storage, "bounded_two_slot");
     assert.deepEqual(health.canonical_shadow, {
       status: "ready",
-      mode: "dual_write_shadow",
+      mode: "dual_projection_runtime_switch",
+      activation_supported: true,
+      activation_control: "kb_meta.active_retrieval_projection",
+      supported_retrieval_projections: ["legacy", "canonical", "canonical-canary"],
+      rollback_projection: "legacy",
       active_reader: false,
       active_retrieval_projection: "legacy",
+      active_retrieval_projection_configuration_status: "valid",
       canary_reader_available: true,
       canary_retrieval_projection: "canonical-canary",
       canary_requires_opt_in: true,
@@ -1116,6 +1246,30 @@ test("exact concept routing injects authored answers outside the FTS candidate s
 test("search normalizes model intent, plurals, and common check-in misspellings", async () => {
   const mf = await buildWorker();
   try {
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(`INSERT INTO search_rows
+      (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+      "concept:groups",
+      "concept",
+      "Groups",
+      "Groups, group types, members, attendance, and placement.",
+      "knowledge/concepts/groups/index.md",
+      "",
+      "groups",
+      "official",
+      "answer_pack_approved",
+      2,
+      "",
+      "{}",
+    ).run();
+    await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+      .bind("concept:groups", "Groups", "Groups, group types, members, attendance, and placement.", "groups").run();
+
+    const broadResponse = await mf.dispatchFetch("https://kb.example.test/search?q=groups&limit=3");
+    const broadPayload = await broadResponse.json();
+    assert.equal(broadPayload.results[0].id, "concept:groups");
+
     const modelResponse = await mf.dispatchFetch("https://kb.example.test/search?q=In%20the%20Group%20model%20show%20the%20Members%20property&limit=3");
     const modelPayload = await modelResponse.json();
     assert.equal(modelPayload.results[0].id, "model_map:stable:group");
@@ -1747,6 +1901,23 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
         source_id: "oneall",
         payload_json: JSON.stringify({ recipe_id: "oneall:registration-transfer" }),
       },
+      {
+        id: "guide_section:hosting-infrastructure:database-and-persistence",
+        kind: "guide_section",
+        title: "Hosting And Infrastructure: Database And Persistence",
+        body: "Rock agents can inspect database and persistence infrastructure, including direct database access, backups, SQL Server, and data operations. Keep access bounded to the required operational task.",
+        path: "knowledge/concepts/hosting-infrastructure/guide.md",
+        url: "",
+        concept: "hosting-infrastructure",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({
+          section_id: "database-and-persistence",
+          heading: "Database And Persistence",
+        }),
+      },
     ];
     for (const row of rows) {
       await db.prepare(`INSERT INTO search_rows
@@ -1770,9 +1941,41 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
     }
 
     const paraphrase = encodeURIComponent("Can Rock agents use direct database access?");
-    const paraphraseResponse = await mf.dispatchFetch(`https://kb.example.test/search?q=${paraphrase}&min_tier=answer_pack_approved&limit=3`);
+    const paraphraseResponse = await mf.dispatchFetch(`https://kb.example.test/search?q=${paraphrase}&limit=3&debug=true`);
     const paraphrasePayload = await paraphraseResponse.json();
-    assert.equal(paraphrasePayload.results[0].id, "claim:claim:direct-access:security-permissions");
+    assert.equal(
+      paraphrasePayload.results[0].id,
+      "claim:claim:direct-access:security-permissions",
+      JSON.stringify(
+        paraphrasePayload.results.map((row) => ({ id: row.id, score: row.score, signals: row.signals })),
+      ),
+    );
+    assert.ok(
+      paraphrasePayload.results.some(
+        (row) => row.id === "guide_section:hosting-infrastructure:database-and-persistence",
+      ),
+    );
+
+    const guideQuery = encodeURIComponent(
+      "hosting infrastructure database and persistence guide section",
+    );
+    const guideResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${guideQuery}&limit=3&debug=true`,
+    );
+    const guidePayload = await guideResponse.json();
+    assert.equal(
+      guidePayload.results[0].id,
+      "guide_section:hosting-infrastructure:database-and-persistence",
+    );
+    assert.ok(guidePayload.results[0].signals.exact_lookup_boost >= 100);
+
+    const exactGuideResponse = await mf.dispatchFetch(
+      "https://kb.example.test/results/guide_section%3Ahosting-infrastructure%3Adatabase-and-persistence",
+    );
+    const exactGuide = await exactGuideResponse.json();
+    assert.equal(exactGuide.status, "ok");
+    assert.equal(exactGuide.result.kind, "guide_section");
+    assert.equal(exactGuide.result.payload.section_id, "database-and-persistence");
   } finally {
     await mf.dispose();
   }
@@ -2523,7 +2726,7 @@ async function buildWorker(options = {}) {
     if (options.canonicalShadow) {
       const shadow = options.canonicalShadow;
       const metadata = {
-        active_retrieval_projection: "legacy",
+        active_retrieval_projection: options.activeProjection || "legacy",
         canonical_shadow_status: shadow.status,
         canonical_shadow_content_hash: shadow.contentHash,
         canonical_shadow_search_row_count: String(shadow.searchRowCount),

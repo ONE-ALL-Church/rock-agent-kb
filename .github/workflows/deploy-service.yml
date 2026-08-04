@@ -124,7 +124,22 @@ jobs:
         if: ${{ env.ROCK_KB_BASE_URL != '' }}
         run: |
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health" >/tmp/health.json
-          uv run python -c 'import json; payload=json.load(open("/tmp/health.json")); shadow=payload.get("canonical_shadow") or {}; assert shadow.get("status") == "ready"; assert shadow.get("active_reader") is False; assert shadow.get("active_retrieval_projection") == "legacy"'
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/search?q=Group%20model%20map&limit=3" >/tmp/default-search.json
+          uv run python - <<'PY'
+          import json
+
+          payload = json.load(open("/tmp/health.json", encoding="utf-8"))
+          shadow = payload.get("canonical_shadow") or {}
+          active = shadow.get("active_retrieval_projection")
+          search = json.load(open("/tmp/default-search.json", encoding="utf-8"))
+          assert shadow.get("status") == "ready"
+          assert shadow.get("activation_supported") is True
+          assert active in {"legacy", "canonical"}
+          assert shadow.get("active_reader") is (active == "canonical")
+          assert payload.get("retrieval_projection") == active
+          assert search.get("retrieval_projection") == active
+          assert search.get("results")
+          PY
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/skill/manifest.json" >/tmp/skill-manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/manifest.json" >/tmp/manifest.json
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/operations/dashboard" >/tmp/operations-dashboard.json

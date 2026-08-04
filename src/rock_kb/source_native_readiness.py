@@ -51,6 +51,7 @@ def evaluate_source_native_promotion_readiness(
         raise ValueError("unsupported source-native promotion policy")
     technical_policy = dict(policy.get("technical_evidence") or {})
     external_policy = dict(policy.get("external_evidence") or {})
+    authorization_policy = dict(policy.get("cutover_authorization") or {})
     retrieval_summary = dict(retrieval_report.get("summary") or {})
     retrieval_gate = dict(retrieval_report.get("promotion_gate") or {})
 
@@ -158,6 +159,18 @@ def evaluate_source_native_promotion_readiness(
     }
     technical_passed = all(technical_checks.values())
     external_passed = all(external_checks.values())
+    external_required = bool(
+        external_policy.get("required_for_default_cutover", True)
+    )
+    external_gate_satisfied = external_passed or not external_required
+    ready_for_default_cutover = technical_passed and external_gate_satisfied
+    maintainer_authorized = (
+        authorization_policy.get("status") == "approved"
+        and authorization_policy.get("requires_legacy_rollback") is True
+    )
+    production_change_authorized = (
+        ready_for_default_cutover and maintainer_authorized
+    )
     return {
         "schema": "rock-kb-source-native-promotion-readiness-v1",
         "policy_id": policy["policy_id"],
@@ -180,6 +193,8 @@ def evaluate_source_native_promotion_readiness(
         },
         "external_evidence": {
             "passed": external_passed,
+            "required_for_default_cutover": external_required,
+            "gate_satisfied": external_gate_satisfied,
             "checks": external_checks,
             "opted_in_installation_count": opted_in_installations,
             "decisive_comparison_count": decisive_count,
@@ -193,15 +208,32 @@ def evaluate_source_native_promotion_readiness(
                 required_categories - observed_categories
             ),
         },
-        "ready_for_default_cutover": technical_passed and external_passed,
-        "production_change_authorized": False,
+        "cutover_authorization": {
+            "status": authorization_policy.get("status", "not_recorded"),
+            "mode": authorization_policy.get("mode", "separate_review"),
+            "approved_at": authorization_policy.get("approved_at"),
+            "requires_legacy_rollback": authorization_policy.get(
+                "requires_legacy_rollback", False
+            ),
+            "passed": maintainer_authorized,
+        },
+        "ready_for_default_cutover": ready_for_default_cutover,
+        "production_change_authorized": production_change_authorized,
         "decision": (
-            "eligible_for_separate_review"
-            if technical_passed and external_passed
-            else "remain_opt_in_canary"
+            "maintainer_approved_reversible_cutover"
+            if production_change_authorized
+            else (
+                "eligible_for_separate_review"
+                if ready_for_default_cutover
+                else "remain_opt_in_canary"
+            )
         ),
         "notes": [
-            "Maintainer, evaluation, and synthetic traffic cannot satisfy the external evidence gate.",
+            (
+                "Independent external evidence is a required pre-cutover gate."
+                if external_required
+                else "Independent external evidence remains an advisory post-cutover validation signal."
+            ),
             "Passing this report never changes the default reader; a separate reviewed release is required.",
         ],
     }

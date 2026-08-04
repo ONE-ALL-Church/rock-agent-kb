@@ -263,12 +263,21 @@ storage scales with the small set of observed bucket combinations rather than
 request volume. D1 still bills each upsert as row-write activity; monitor the
 shared D1 row metrics when traffic grows.
 
-### Canonical Retrieval Canary
+### Canonical Retrieval And Rollback
 
-The production default remains the legacy search projection. Deployment also
-loads a parallel canonical row, concept, alias, and FTS projection for bounded
-field testing. REST `GET /search` and `GET /results/<id>`, plus MCP `kb_search`
-and `kb_get_result`, accept `projection: canonical-canary`.
+Deployment loads parallel legacy and canonical row, concept, alias, and FTS
+projections. Normal REST, MCP, and current CLI requests omit `projection` and
+follow `kb_meta.active_retrieval_projection`. Canonical is the reviewed
+production default after the 2026-08-03 cutover. Deploys preserve the active
+value and initialize it to legacy only when missing.
+
+The guarded `Set Retrieval Projection` workflow changes the active reader
+without deploying code and verifies health, default search, explicit legacy
+search, and hosted evaluation. Its local equivalent is `uv run kb
+retrieval-projection canonical|legacy`; canonical preflight requires a capable,
+ready, non-empty projection with history. Explicit `legacy` remains available
+for diagnostics and rollback, but agents must not silently use it to hide a
+canonical ranking failure.
 
 Canary access requires both a valid anonymous installation marker and the fixed
 `external-test` or `maintainer` cohort. These values express consent and
@@ -284,11 +293,11 @@ organization, person, IP address, user agent, prompt, arguments, logs, secrets,
 or Rock data. The regular consented outcome row retains the public result ID and
 canonical projection hash for usefulness review.
 
-Health reports both `active_retrieval_projection: legacy` and the bounded
-canary readiness fields. A ready canary is not an active/default reader and does
-not authorize a cutover. Do not make canonical retrieval the default until
-external opt-in outcomes pass the reviewed promotion gate in
-[Canonical Knowledge Shadow](canonical-knowledge-shadow.md).
+Health reports the active projection, active projection version, activation
+capability, rollback projection, and bounded canary readiness fields. A canary
+request does not alter the active reader. Independent outcomes remain useful
+post-cutover evidence; they are not fabricated from maintainer or evaluation
+traffic. See [Canonical Knowledge Shadow](canonical-knowledge-shadow.md).
 
 When a reviewed public bundle under `community-contributions/<org-id>/` merges to `main`, the deploy workflow revalidates orgs and bundles, rebuilds the service projection, and includes those rows in hosted search as `kind: community_contribution`, `authority_tier: community-unreviewed`, and `claim_tier: routing_context_only`. Default search and claim listing exclude these routing-only rows; request `min_claim_tier=routing_context_only` explicitly for source-discovery or contribution-review work. `GET /concepts/<concept-id>.md` and `kb_get_concept` continue to serve reviewed guide artifacts only. Recipe intake is the exception: after a recipe is promoted under `recipes/<org-id>/` with the same `contribution_id`, serving indexes only the canonical recipe and suppresses the older intake summary. Canonical recipes may also name exact older rows in `supersedes_contribution_ids`; only those rows are omitted. Claims, recipes, Lava contexts, and contributions each use one canonical search row with concept facets in `search_row_concepts`; legacy concept-specific result IDs resolve through `search_row_aliases` so saved links and feedback remain compatible.
 

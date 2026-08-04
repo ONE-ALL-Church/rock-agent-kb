@@ -1,7 +1,7 @@
 {
   "architecture": "source observation -> deterministic source unit -> reviewed knowledge unit -> rebuildable projections",
-  "canonical_projection_state": "shadow_and_opt_in_canary",
-  "default_retrieval_projection": "legacy",
+  "canonical_projection_state": "active_with_legacy_rollback",
+  "default_retrieval_projection": "canonical",
   "generated_knowledge_contracts": [
     {
       "change_policy": "legacy_path_pending_source_native_or_typed_migration",

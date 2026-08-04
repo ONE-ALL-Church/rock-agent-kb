@@ -8,7 +8,16 @@ from pathlib import Path
 import pytest
 
 from rock_kb import service_projection
-from rock_kb.service_projection import build_d1_seed_sql, build_retrieval_documents, build_search_rows, build_service_projection, retrieval_projection_diff
+from rock_kb.guide_intel.sections import HIGH_SIGNAL_SECTION_LIMIT
+from rock_kb.service_projection import (
+    build_d1_seed_sql,
+    build_retrieval_documents,
+    build_search_rows,
+    build_service_projection,
+    retrieval_projection_diff,
+    retrieval_projection_switch_sql,
+    set_active_retrieval_projection,
+)
 
 
 def load_update_bindings():
@@ -24,6 +33,10 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
     rows = build_search_rows()
 
     assert any(row["kind"] == "concept" and row["concept"] == "check-in" for row in rows)
+    assert any(
+        row["id"] == "guide_section:security-permissions:1-executive-summary-for-agents"
+        for row in rows
+    )
     assert any(row["kind"] == "claim" and row["claim_tier"] for row in rows)
     assert any(
         row["id"] == "task_card:check-in:diagnose-labels-not-printing"
@@ -46,6 +59,63 @@ def test_build_search_rows_includes_tiered_claims_and_concepts():
     ]
     assert corroborating_claims
     assert all(row["title"] == row["body"] for row in corroborating_claims)
+
+
+def test_concept_search_rows_are_compact_routing_summaries():
+    row = next(
+        row
+        for row in service_projection.concept_search_rows()
+        if row["id"] == "concept:security-permissions"
+    )
+    quickstart = (
+        Path(__file__).resolve().parents[1]
+        / "knowledge"
+        / "concepts"
+        / "security-permissions"
+        / "quickstart.md"
+    ).read_text(encoding="utf-8")
+
+    assert row["body"].startswith(quickstart.rstrip())
+    assert row["path"].endswith("/quickstart.md")
+    assert len(row["body"]) < service_projection.D1_SEARCH_BODY_CHAR_LIMIT
+    assert "Security And Permissions Quickstart" in row["body"]
+    assert service_projection.CONCEPT_LIVE_VERIFICATION_BOUNDARY in row["body"]
+    assert "This file is for human reviewers and future agents" not in row["body"]
+
+
+def test_guide_section_search_rows_expose_bounded_source_backed_detail():
+    rows = service_projection.guide_section_search_rows()
+    counts: dict[str, int] = {}
+    for row in rows:
+        counts[row["concept"]] = counts.get(row["concept"], 0) + 1
+
+    assert rows
+    assert max(counts.values()) <= HIGH_SIGNAL_SECTION_LIMIT
+    assert len({row["id"] for row in rows}) == len(rows)
+    assert all(row["kind"] == "guide_section" for row in rows)
+    assert all(row["claim_tier"] == "source_backed" for row in rows)
+    assert all(row["payload"]["source_record_ids"] for row in rows)
+    assert all(len(row["payload"]["source_content_hash"]) == 64 for row in rows)
+
+    row = next(
+        row
+        for row in rows
+        if row["id"]
+        == "guide_section:security-permissions:1-executive-summary-for-agents"
+    )
+    payload = row["payload"]
+
+    assert row["path"] == "knowledge/concepts/security-permissions/guide.md"
+    assert row["body"].startswith("## 1. Executive Summary For Agents")
+    assert "Authorization.cs" in row["body"]
+    assert row["authority_tier"] == "source-code-confirmed"
+    assert payload["schema"] == "rock-kb-guide-section-search-v1"
+    assert payload["section_status"] == "current"
+    assert payload["confidence"] == "normal"
+    assert payload["source_record_ids"]
+    assert payload["citations"]
+    assert len(payload["content_hash"]) == 64
+    assert len(payload["source_content_hash"]) == 64
 
 
 def test_build_search_rows_includes_public_community_contributions(monkeypatch):
@@ -488,7 +558,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     sql = projection.sql_path.read_text(encoding="utf-8")
     assert projection.artifact_count > 100
     assert projection.search_row_count > 100
-    assert projection.active_retrieval_projection == "legacy"
+    assert projection.active_retrieval_projection == "runtime_preserved"
     assert projection.canonical_shadow_hash
     assert projection.canonical_shadow_search_row_count > 100
     assert projection.canonical_shadow_knowledge_unit_count > 100
@@ -514,8 +584,11 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
         (shadow_dir / "manifest.json").read_text(encoding="utf-8")
     )
     assert shadow_manifest["content_hash"] == projection.canonical_shadow_hash
-    assert shadow_manifest["active_reader"] is False
-    assert shadow_manifest["active_retrieval_projection"] == "legacy"
+    assert shadow_manifest["active_reader"] is None
+    assert shadow_manifest["active_retrieval_projection"] is None
+    assert shadow_manifest["active_reader_state"] == "runtime_health_only"
+    assert shadow_manifest["activation_control"] == "kb_meta.active_retrieval_projection"
+    assert shadow_manifest["initial_retrieval_projection_if_missing"] == "legacy"
     assert shadow_manifest["canary_reader_available"] is True
     assert shadow_manifest["canary_retrieval_projection"] == "canonical-canary"
     assert shadow_manifest["canary_requires_opt_in"] is True
@@ -546,7 +619,7 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.10.0"
+    assert skill_manifest["skill_version"] == "1.11.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
@@ -759,6 +832,167 @@ def test_canonical_shadow_history_preserves_unchanged_refresh_cycles(
         ("same-version", "2026-07-31T00:00:00Z", "b" * 64, 0),
     ]
     assert observation_count == ("2",)
+
+
+def test_d1_refresh_preserves_active_canonical_reader(monkeypatch, tmp_path):
+    monkeypatch.setattr(service_projection, "REPO_ROOT", tmp_path)
+    shadow = {
+        "content_hash": "b" * 64,
+        "search_row_count": 10,
+        "knowledge_unit_count": 9,
+        "source_snapshot_count": 8,
+        "source_unit_count": 9,
+        "evidence_link_count": 9,
+        "relationship_count": 1,
+        "artifact_count": 8,
+    }
+    connection = sqlite3.connect(":memory:")
+    connection.executescript(
+        build_d1_seed_sql(
+            version="first-version",
+            generated_at="2026-08-03T10:00:00Z",
+            search_rows=[],
+            org_rows=[],
+            canonical_shadow=shadow,
+        )
+    )
+    connection.executescript(retrieval_projection_switch_sql("canonical"))
+    connection.executescript(
+        build_d1_seed_sql(
+            version="second-version",
+            generated_at="2026-08-03T11:00:00Z",
+            search_rows=[],
+            org_rows=[],
+            canonical_shadow={**shadow, "content_hash": "c" * 64},
+        )
+    )
+
+    assert connection.execute(
+        "SELECT value FROM kb_meta WHERE key = 'active_retrieval_projection'"
+    ).fetchone() == ("canonical",)
+    assert connection.execute(
+        "SELECT projection_version, active_reader "
+        "FROM canonical_projection_history_v1 ORDER BY generated_at"
+    ).fetchall() == [
+        ("first-version", 0),
+        ("second-version", 1),
+    ]
+
+
+def test_retrieval_projection_switch_sql_supports_reversible_reader():
+    connection = sqlite3.connect(":memory:")
+    connection.executescript(
+        "CREATE TABLE kb_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);"
+        "CREATE TABLE canonical_projection_history_v1 ("
+        "projection_version TEXT, generated_at TEXT, content_hash TEXT, "
+        "active_reader INTEGER);"
+        "INSERT INTO kb_meta VALUES "
+        "('canonical_shadow_content_hash', 'hash-a'), "
+        "('active_retrieval_projection', 'legacy');"
+        "INSERT INTO canonical_projection_history_v1 VALUES "
+        "('v1', '2026-08-03T10:00:00Z', 'hash-a', 0);"
+    )
+
+    canonical_sql = retrieval_projection_switch_sql("canonical")
+    assert "BEGIN TRANSACTION" not in canonical_sql
+    assert "COMMIT" not in canonical_sql
+    connection.executescript(canonical_sql)
+    assert connection.execute(
+        "SELECT value FROM kb_meta WHERE key = 'active_retrieval_projection'"
+    ).fetchone() == ("canonical",)
+    assert connection.execute(
+        "SELECT active_reader FROM canonical_projection_history_v1"
+    ).fetchone() == (1,)
+
+    connection.executescript(retrieval_projection_switch_sql("legacy"))
+    assert connection.execute(
+        "SELECT value FROM kb_meta WHERE key = 'active_retrieval_projection'"
+    ).fetchone() == ("legacy",)
+    assert connection.execute(
+        "SELECT active_reader FROM canonical_projection_history_v1"
+    ).fetchone() == (0,)
+
+
+def test_set_active_retrieval_projection_requires_capable_ready_service(
+    monkeypatch,
+):
+    monkeypatch.setattr(
+        service_projection,
+        "request_json",
+        lambda _url: {
+            "status": "ok",
+            "canonical_shadow": {
+                "status": "ready",
+                "activation_supported": True,
+                "active_retrieval_projection": "legacy",
+                "content_hash": "d" * 64,
+                "search_row_count": 100,
+                "observation_count": 2,
+            },
+        },
+    )
+
+    result = set_active_retrieval_projection(
+        "canonical",
+        base_url="https://kb.test",
+    )
+
+    assert result["status"] == "planned"
+    assert result["previous_projection"] == "legacy"
+    assert result["canonical_content_hash"] == "d" * 64
+    assert result["applied"] is False
+
+
+def test_set_active_retrieval_projection_applies_one_d1_batch(monkeypatch):
+    commands = []
+    monkeypatch.setattr(
+        service_projection,
+        "request_json",
+        lambda _url: {
+            "status": "ok",
+            "canonical_shadow": {
+                "status": "ready",
+                "activation_supported": True,
+                "active_retrieval_projection": "legacy",
+                "content_hash": "d" * 64,
+                "search_row_count": 100,
+                "observation_count": 2,
+            },
+        },
+    )
+    monkeypatch.setattr(
+        service_projection,
+        "run",
+        lambda command, **_kwargs: commands.append(command),
+    )
+    monkeypatch.setattr(
+        service_projection,
+        "wait_for_active_retrieval_projection",
+        lambda **_kwargs: {
+            "retrieval_projection": "canonical",
+            "retrieval_projection_version": "canonical-hash",
+            "canonical_shadow": {"active_reader": True},
+        },
+    )
+
+    result = set_active_retrieval_projection(
+        "canonical",
+        apply=True,
+        env="production",
+        database="rock-agent-kb",
+        base_url="https://kb.test",
+    )
+
+    assert result["status"] == "active"
+    assert result["observed_projection"] == "canonical"
+    assert len(commands) == 1
+    command = commands[0]
+    assert command[:5] == ["npx", "wrangler", "d1", "execute", "rock-agent-kb"]
+    assert command[-2:] == ["--env", "production"]
+    sql = command[command.index("--command") + 1]
+    assert "BEGIN TRANSACTION" not in sql
+    assert "COMMIT" not in sql
+    assert "active_retrieval_projection', 'canonical'" in sql
 
 
 def test_build_d1_seed_sql_records_issue_projection_content_hashes():
