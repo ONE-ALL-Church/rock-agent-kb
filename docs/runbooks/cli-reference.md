@@ -254,8 +254,8 @@ are never copied into the baseline. This command does not switch retrieval.
 ingestion contracts for generated knowledge and deterministic typed records.
 The manifest distinguishes source-native documentation, reviewed cross-source
 synthesis, API-derived records, source-code-derived records, reviewed typed
-records, and remaining legacy projections. It also records that legacy
-retrieval is still the default and canonical retrieval is shadow/canary only.
+records, and remaining legacy projections. It records canonical as the active
+default while preserving legacy as the explicit rollback projection.
 
 `kb tools source-native-candidates` accepts official documentation, developer
 and mobile documentation, Lava prose, and Rock community articles.
@@ -281,7 +281,8 @@ existing approval. Reviewed hash-bound split rules and unresolved verification
 requests remain public-safe bundle metadata.
 `source-native-impact` compares two reviewed bundles and reports only the
 dependent knowledge and projections that require revalidation. The tracked
-bundle remains an inactive canonical shadow input.
+bundle is canonical projection input; promotion does not itself change the
+separately controlled runtime reader marker.
 
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.

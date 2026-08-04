@@ -110,24 +110,28 @@ public serialization.
 - Defined Value options in Model Map diffs are compared by portable option name
   and description, not instance-local numeric IDs.
 - The complete generated review shadow remains ignored. The deployment build
-  writes a public-safe copy to dedicated service artifacts and separate D1
-  canary tables. Default readers do not use it.
-- Existing claims, answer packs, lexical retrieval, MCP behavior, CLI behavior,
-  and OKF exports remain the default authoritative interface.
+  writes public-safe legacy and canonical service artifacts to separate D1
+  tables. The active-reader marker selects canonical by default and preserves
+  legacy as an explicit rollback.
+- MCP remains the primary interactive interface, CLI is the local/operator
+  fallback, and OKF is the portability projection. All read from the selected
+  service projection rather than maintaining separate knowledge copies.
 
 ## Source-Native Documentation Bundle
 
 The tracked `canonical/source-native/v1/` bundle contains reviewed official
 documentation, developer and mobile documentation, Lava prose, and Rock
 community articles. Concepts remain task-oriented facets rather than one copy
-of each source navigation branch. The bundle is a non-default input to the
-canonical shadow and opt-in canary, not to ordinary retrieval or OKF.
+of each source navigation branch. The bundle feeds the canonical projection
+used by ordinary retrieval and OKF; the same build also retains the complete
+legacy projection for rollback and controlled comparisons.
 
-At the 2026-08-03 architecture review, the tracked bundle contains five source
-families, 38 articles, 1,488 source units, and 239 reviewed artifacts across 15
-concept facets. These figures supersede the 24-article first-expansion counts
-for current planning, while the dated expansion decision preserves those
-historical results.
+After the 2026-08-04 prompt migration, the tracked bundle contains five source
+families, 38 articles, 1,494 source units, and 263 reviewed artifacts across 15
+concept facets. All 38 generation activities use prompt version `2.3.1`, input
+hash version `2`, and `gpt-5.6-sol`. These figures supersede the 24-article
+first-expansion and 239-artifact pre-migration counts, while the dated decision
+records preserve those historical results.
 
 Build deterministic private review inputs from the Rockumentation API:
 
@@ -245,6 +249,10 @@ may confirm, narrow, correct, or supersede an artifact. Narrowing and correction
 must provide effective title and retrieval text; canonical retrieval uses that
 reviewed text instead of the stale model wording. Superseded artifacts are
 excluded. Source-hash and time-bound evidence reopen automatically when stale.
+If one verification request covers multiple artifacts and its result affects
+them differently, use `artifact_overrides` to provide one disposition for every
+artifact ID in that queue item. Partial coverage is rejected so a correction
+cannot accidentally replace distinct artifacts with the same public wording.
 
 After retrieval evaluation, run the quantitative readiness gate:
 

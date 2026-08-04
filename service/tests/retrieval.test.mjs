@@ -1981,6 +1981,75 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
   }
 });
 
+test("generic title overlap does not displace more complete troubleshooting", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "claim:claim:damaged-checkin-label",
+        kind: "claim",
+        title: "A damaged check-in label can obscure a child's name",
+        body: "A damaged check-in label can obscure a child's name or security pickup code.",
+        path: "claims/approved-claims.jsonl",
+        url: "https://example.test/damaged-label",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ claim_id: "claim:damaged-checkin-label" }),
+      },
+      {
+        id: "troubleshooting_node:check-in:child-present-no-rooms",
+        kind: "troubleshooting_node",
+        title: "Symptom: Child Present, No Rooms Available",
+        body: "Inspect group and location availability, active schedules, capacity, campus, and eligibility rules.",
+        path: "knowledge/concepts/check-in/troubleshooting-tree.json",
+        url: "",
+        concept: "check-in",
+        authority_tier: "community-reviewed",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "",
+        payload_json: JSON.stringify({
+          id: "child-present-no-rooms",
+          concept_id: "check-in",
+        }),
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(...Object.values(row)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(row.id, row.title, row.body, row.concept).run();
+    }
+
+    const query = encodeURIComponent(
+      "A child qualifies for check-in, but no destination can be selected. What availability layers should I inspect?",
+    );
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${query}&limit=5&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    const resultIds = payload.results.map((result) => result.id);
+    assert.ok(
+      resultIds.indexOf("troubleshooting_node:check-in:child-present-no-rooms")
+        < resultIds.indexOf(rows[0].id),
+      JSON.stringify(payload.results.map((result) => ({
+        id: result.id,
+        score: result.score,
+        signals: result.signals,
+      }))),
+    );
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("telemetry separates evaluation traffic and records structured feedback without query text", async () => {
   const mf = await buildWorker();
   try {

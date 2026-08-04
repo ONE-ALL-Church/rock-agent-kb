@@ -26,6 +26,7 @@ from .recipe import RecipeRow
 from .rock_issue import RockIssue, RockIssueReleaseNoteRef, RockIssueReviewedEnrichment, RockIssueWorkerResult
 from .source_native import (
     ReviewedSourceNativeArtifact,
+    SourceNativeArtifactVerificationOverride,
     SourceNativeArtifactCandidate,
     SourceNativeDistillationOutput,
     SourceNativePilotManifest,
@@ -57,6 +58,7 @@ __all__ = [
     "RockIssueReviewedEnrichment",
     "RockIssueWorkerResult",
     "ReviewedSourceNativeArtifact",
+    "SourceNativeArtifactVerificationOverride",
     "SourceNativeArtifactCandidate",
     "SourceNativeDistillationOutput",
     "SourceNativePilotManifest",

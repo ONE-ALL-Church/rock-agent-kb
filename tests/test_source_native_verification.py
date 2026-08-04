@@ -22,6 +22,7 @@ from rock_kb.source_native_verification import (
     hash_live_evidence_with_timeout_retry,
     promote_source_native_verification_resolutions,
     source_native_verification_queue_hash,
+    verification_resolutions_by_artifact,
 )
 
 
@@ -328,6 +329,52 @@ def test_corrected_verification_requires_effective_retrieval_text() -> None:
 
     with pytest.raises(ValueError, match="effective retrieval text"):
         SourceNativeVerificationResolution.model_validate(payload)
+
+
+def test_multi_artifact_verification_supports_distinct_overrides() -> None:
+    queue = queue_row()
+    queue["artifact_ids"] = [
+        "source-native:structured_reference:test:catalog",
+        "source-native:structured_reference:test:helper-schema",
+    ]
+    payload = resolution_row(queue)
+    payload["queue_item_hash"] = source_native_verification_queue_hash(queue)
+    payload["artifact_disposition"] = "corrects"
+    payload["artifact_overrides"] = [
+        {
+            "artifact_id": queue["artifact_ids"][0],
+            "artifact_disposition": "confirms",
+        },
+        {
+            "artifact_id": queue["artifact_ids"][1],
+            "artifact_disposition": "corrects",
+            "effective_title": "Corrected helper schema",
+            "effective_retrieval_text": (
+                "The verified helper schema uses the corrected field types."
+            ),
+        },
+    ]
+
+    resolution = SourceNativeVerificationResolution.model_validate(payload)
+    by_artifact = verification_resolutions_by_artifact(
+        queue_rows=[queue],
+        resolution_rows=[resolution.public_dump()],
+    )
+
+    catalog = by_artifact[queue["artifact_ids"][0]][0]
+    helper = by_artifact[queue["artifact_ids"][1]][0]
+    assert catalog["artifact_disposition"] == "confirms"
+    assert catalog["effective_title"] is None
+    assert helper["artifact_disposition"] == "corrects"
+    assert helper["effective_title"] == "Corrected helper schema"
+
+    incomplete = payload.copy()
+    incomplete["artifact_overrides"] = payload["artifact_overrides"][1:]
+    with pytest.raises(ValueError, match="cover.*exactly"):
+        verification_resolutions_by_artifact(
+            queue_rows=[queue],
+            resolution_rows=[incomplete],
+        )
 
 
 def test_article_scoped_hash_ignores_dynamic_page_chrome() -> None:

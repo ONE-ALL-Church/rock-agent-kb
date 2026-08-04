@@ -365,6 +365,39 @@ class SourceNativeVerificationEvidence(KBRecord):
         return self
 
 
+class SourceNativeArtifactVerificationOverride(KBRecord):
+    artifact_id: str = Field(min_length=3, max_length=240)
+    artifact_disposition: Literal[
+        "confirms",
+        "narrows",
+        "corrects",
+        "supersedes",
+    ] = "confirms"
+    effective_title: str | None = Field(default=None, min_length=3, max_length=500)
+    effective_retrieval_text: str | None = Field(
+        default=None,
+        min_length=10,
+        max_length=100_000,
+    )
+
+    @model_validator(mode="after")
+    def validate_override_contract(
+        self,
+    ) -> "SourceNativeArtifactVerificationOverride":
+        if self.artifact_disposition in {"narrows", "corrects"}:
+            if not self.effective_title or not self.effective_retrieval_text:
+                raise ValueError(
+                    "narrowed or corrected artifact overrides require effective "
+                    "retrieval text"
+                )
+        elif self.effective_title or self.effective_retrieval_text:
+            raise ValueError(
+                "effective retrieval text is only valid for narrowed or corrected "
+                "artifact overrides"
+            )
+        return self
+
+
 class SourceNativeVerificationResolution(KBRecord):
     schema_: Literal[
         "rock-kb-source-native-verification-resolution-v1"
@@ -389,6 +422,10 @@ class SourceNativeVerificationResolution(KBRecord):
         default=None,
         min_length=10,
         max_length=100_000,
+    )
+    artifact_overrides: list[SourceNativeArtifactVerificationOverride] = Field(
+        default_factory=list,
+        max_length=20,
     )
     evidence: list[SourceNativeVerificationEvidence] = Field(
         default_factory=list,
@@ -429,7 +466,40 @@ class SourceNativeVerificationResolution(KBRecord):
             raise ValueError("scoped resolutions require rock_versions")
         if len(self.rock_versions) != len(set(self.rock_versions)):
             raise ValueError("rock_versions values must be unique")
-        if self.artifact_disposition in {"narrows", "corrects"}:
+        if len(self.artifact_overrides) != len(
+            {row.artifact_id for row in self.artifact_overrides}
+        ):
+            raise ValueError("artifact override IDs must be unique")
+        if self.artifact_overrides:
+            if self.effective_title or self.effective_retrieval_text:
+                raise ValueError(
+                    "resolution-level effective text cannot be combined with "
+                    "artifact overrides"
+                )
+            disposition_rank = {
+                "confirms": 0,
+                "narrows": 1,
+                "corrects": 2,
+                "supersedes": 3,
+            }
+            aggregate_disposition = max(
+                self.artifact_overrides,
+                key=lambda row: disposition_rank[row.artifact_disposition],
+            ).artifact_disposition
+            if self.artifact_disposition != aggregate_disposition:
+                raise ValueError(
+                    "resolution disposition must match the strongest artifact "
+                    "override disposition"
+                )
+            if any(
+                row.artifact_disposition in {"narrows", "corrects", "supersedes"}
+                for row in self.artifact_overrides
+            ) and self.resolution_state != "verified":
+                raise ValueError(
+                    "artifact overrides that change public knowledge require a "
+                    "verified resolution"
+                )
+        elif self.artifact_disposition in {"narrows", "corrects"}:
             if self.resolution_state != "verified":
                 raise ValueError(
                     "artifact corrections require a verified resolution"
@@ -557,7 +627,7 @@ class SourceNativePilotManifest(KBRecord):
     schema_: Literal["rock-kb-source-native-pilot-manifest-v1"] = Field(
         alias="schema"
     )
-    status: Literal["shadow_only"] = "shadow_only"
+    status: Literal["shadow_only", "canonical_input"] = "canonical_input"
     public_retrieval_changed: Literal[False] = False
     prompt_id: Literal["source-knowledge-distillation-v2.3"]
     prompt_version: str = Field(min_length=1, max_length=80)

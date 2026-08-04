@@ -6,6 +6,35 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.22.0] - 2026-08-03
+
+### Added
+
+- Reviewed source-native coverage for the final 12 architecture-pilot
+  documentation records, including artifact-specific verification corrections
+  when one source check applies to several distinct knowledge artifacts.
+
+### Changed
+
+- Canonical retrieval is now the reviewed hosted default for REST, MCP, and the
+  current CLI. The complete legacy projection remains available as an explicit,
+  immediate rollback without a code deployment.
+- All 38 source-native records now use `gpt-5.6-sol`, prompt version `2.3.1`,
+  and input-hash version `2`; the canonical bundle contains 263 reviewed typed
+  artifacts and 289 source-native evaluation cases.
+- Search ignores the modal word `can` when measuring query overlap, preventing
+  broad capability statements from displacing exact troubleshooting guidance.
+- The agent skill is version `1.11.0` and requires client `0.22.0`.
+
+### Fixed
+
+- Canonical evaluation resolves retained legacy result IDs through public
+  aliases, allowing strict hosted gates and automatic rollback to evaluate the
+  active projection correctly.
+- Source-native append promotion now removes stale verification resolutions,
+  and multi-artifact verification rows retain distinct titles, text, and
+  dispositions instead of flattening every artifact to one summary.
+
 ## [0.21.1] - 2026-08-01
 
 ### Fixed
