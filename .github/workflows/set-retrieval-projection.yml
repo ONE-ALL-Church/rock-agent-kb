@@ -89,3 +89,23 @@ jobs:
           PY
       - name: Run hosted retrieval evaluation
         run: uv run kb eval-service --base-url "${ROCK_KB_BASE_URL}" --limit 5
+      - name: Roll back failed canonical activation
+        if: ${{ failure() && inputs.projection == 'canonical' }}
+        run: >
+          uv run kb retrieval-projection legacy --apply
+          --env production
+          --database "${ROCK_KB_D1_DATABASE:-rock-agent-kb}"
+          --base-url "${ROCK_KB_BASE_URL}"
+      - name: Verify automatic rollback
+        if: ${{ failure() && inputs.projection == 'canonical' }}
+        run: |
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 "${ROCK_KB_BASE_URL}/health" >/tmp/rollback-health.json
+          uv run python - <<'PY'
+          import json
+
+          health = json.load(open("/tmp/rollback-health.json", encoding="utf-8"))
+          shadow = health.get("canonical_shadow") or {}
+          assert health.get("retrieval_projection") == "legacy"
+          assert shadow.get("active_retrieval_projection") == "legacy"
+          assert shadow.get("active_reader") is False
+          PY
