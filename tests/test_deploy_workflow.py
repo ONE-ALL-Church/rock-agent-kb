@@ -50,3 +50,7 @@ def test_projection_workflow_is_guarded_reversible_and_serialized_with_deploys()
     assert 'retrieval-projection "${EXPECTED_PROJECTION}" --apply' in workflow
     assert "projection=legacy" in workflow
     assert "Run hosted retrieval evaluation" in workflow
+    assert "Roll back failed canonical activation" in workflow
+    assert "Verify automatic rollback" in workflow
+    assert workflow.count("failure() && inputs.projection == 'canonical'") == 2
+    assert "retrieval-projection legacy --apply" in workflow

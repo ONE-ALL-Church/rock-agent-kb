@@ -16,6 +16,9 @@ from .paths import REPO_ROOT
 
 
 EVALUATION_SET_PATH = REPO_ROOT / "agent" / "evaluation-set.jsonl"
+PUBLIC_RESULT_ALIASES_PATH = (
+    REPO_ROOT / "canonical" / "identity" / "v1" / "public-result-aliases.jsonl"
+)
 
 
 @dataclass(frozen=True)
@@ -26,6 +29,7 @@ class ServiceEvalResult:
     results: list[dict[str, Any]]
     metrics: dict[str, Any]
     projection_version: str = ""
+    retrieval_projection: str = ""
     evaluated_at: str = ""
 
     def as_dict(self) -> dict[str, Any]:
@@ -36,6 +40,7 @@ class ServiceEvalResult:
             "fail_count": self.fail_count,
             "metrics": self.metrics,
             "projection_version": self.projection_version,
+            "retrieval_projection": self.retrieval_projection,
             "evaluated_at": self.evaluated_at,
             "results": self.results,
         }
@@ -50,12 +55,31 @@ def evaluate_service(
 ) -> ServiceEvalResult:
     base = base_url.rstrip("/")
     evaluated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    projection_version = hosted_projection_version(base, timeout)
+    projection_version, retrieval_projection = hosted_projection_identity(
+        base, timeout
+    )
+    result_aliases = (
+        canonical_result_aliases()
+        if retrieval_projection in {"canonical", "canonical-canary"}
+        else {}
+    )
     rows = list(read_jsonl(EVALUATION_SET_PATH))
     worker_count = max(1, min(concurrency, len(rows) or 1))
     max_allowed_rank = max(1, min(target_rank, limit))
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
-        results = list(executor.map(lambda row: evaluate_row(base, row, limit, timeout, max_allowed_rank), rows))
+        results = list(
+            executor.map(
+                lambda row: evaluate_row(
+                    base,
+                    row,
+                    limit,
+                    timeout,
+                    max_allowed_rank,
+                    result_aliases=result_aliases,
+                ),
+                rows,
+            )
+        )
     fail_count = sum(1 for row in results if row["status"] == "fail")
     return ServiceEvalResult(
         status="fail" if fail_count else "ok",
@@ -64,11 +88,20 @@ def evaluate_service(
         results=results,
         metrics=evaluation_metrics(results),
         projection_version=projection_version,
+        retrieval_projection=retrieval_projection,
         evaluated_at=evaluated_at,
     )
 
 
-def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float, max_allowed_rank: int = 2) -> dict[str, Any]:
+def evaluate_row(
+    base_url: str,
+    row: dict[str, Any],
+    limit: int,
+    timeout: float,
+    max_allowed_rank: int = 2,
+    *,
+    result_aliases: dict[str, str] | None = None,
+) -> dict[str, Any]:
     question = str(row.get("question") or "")
     expected_concept = str(row.get("concept_id") or "")
     row_max_rank = max(
@@ -136,9 +169,18 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     ordered_kinds = [str(hit.get("kind") or "") for hit in hits if isinstance(hit, dict)]
     ordered_authorities = [str(hit.get("authority_tier") or "") for hit in hits if isinstance(hit, dict)]
     expect_no_results = bool(row.get("expect_no_results"))
-    expected_ids = [str(value) for value in row.get("expected_result_ids") or []]
+    aliases = result_aliases or {}
+    original_expected_ids = [
+        str(value) for value in row.get("expected_result_ids") or []
+    ]
+    expected_ids = [aliases.get(value, value) for value in original_expected_ids]
     expected_kinds = [str(value) for value in row.get("expected_result_kinds") or []]
-    forbidden_ids = [str(value) for value in row.get("forbidden_result_ids") or []]
+    original_forbidden_ids = [
+        str(value) for value in row.get("forbidden_result_ids") or []
+    ]
+    forbidden_ids = [
+        aliases.get(value, value) for value in original_forbidden_ids
+    ]
     required_authorities = [str(value) for value in row.get("required_authority_tiers") or []]
     expected_id_rank = next((index + 1 for index, result_id in enumerate(ordered_ids) if result_id in expected_ids), None)
     expected_kind_rank = next((index + 1 for index, kind in enumerate(ordered_kinds) if kind in expected_kinds), None)
@@ -194,10 +236,12 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
         "duplicate_result_ids": duplicate_ids,
         "duplicate_count": len(ordered_ids) - len(set(ordered_ids)),
         "expected_result_ids": expected_ids,
+        "original_expected_result_ids": original_expected_ids,
         "expected_result_kinds": expected_kinds,
         "expected_result_id_rank": expected_id_rank,
         "expected_result_kind_rank": expected_kind_rank,
         "forbidden_result_ids": forbidden_ids,
+        "original_forbidden_result_ids": original_forbidden_ids,
         "forbidden_result_id_rank": forbidden_id_rank,
         "forbidden_max_rank": forbidden_max_rank,
         "required_authority_tiers": required_authorities,
@@ -219,7 +263,9 @@ def evaluate_row(base_url: str, row: dict[str, Any], limit: int, timeout: float,
     }
 
 
-def hosted_projection_version(base_url: str, timeout: float) -> str:
+def hosted_projection_identity(
+    base_url: str, timeout: float
+) -> tuple[str, str]:
     try:
         response = httpx.get(
             f"{base_url.rstrip('/')}/health",
@@ -228,13 +274,38 @@ def hosted_projection_version(base_url: str, timeout: float) -> str:
         )
         response.raise_for_status()
         payload = response.json()
-        return str(
-            payload.get("retrieval_projection_version")
-            or payload.get("version")
-            or ""
+        return (
+            str(
+                payload.get("retrieval_projection_version")
+                or payload.get("version")
+                or ""
+            ),
+            str(payload.get("retrieval_projection") or ""),
         )
     except Exception:
-        return ""
+        return "", ""
+
+
+def hosted_projection_version(base_url: str, timeout: float) -> str:
+    return hosted_projection_identity(base_url, timeout)[0]
+
+
+def canonical_result_aliases() -> dict[str, str]:
+    aliases: dict[str, str] = {}
+    for row in read_jsonl(PUBLIC_RESULT_ALIASES_PATH):
+        alias_id = str(row.get("alias_id") or "").strip()
+        canonical_id = str(
+            row.get("canonical_knowledge_unit_id") or ""
+        ).strip()
+        if not alias_id or not canonical_id:
+            raise ValueError("Canonical result alias is missing an identity")
+        existing = aliases.get(alias_id)
+        if existing and existing != canonical_id:
+            raise ValueError(
+                f"Canonical result alias maps to multiple results: {alias_id}"
+            )
+        aliases[alias_id] = canonical_id
+    return aliases
 
 
 def hit_concepts(hit: dict[str, Any]) -> list[str]:

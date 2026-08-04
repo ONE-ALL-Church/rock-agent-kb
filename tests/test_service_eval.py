@@ -5,14 +5,117 @@ import httpx
 
 
 class FakeResponse:
-    def __init__(self, results: list[dict]):
+    def __init__(self, results: list[dict], **payload):
         self._results = results
+        self._payload = payload
 
     def raise_for_status(self) -> None:
         return None
 
     def json(self) -> dict:
-        return {"results": self._results}
+        return {"results": self._results, **self._payload}
+
+
+def test_canonical_result_aliases_reject_conflicts(tmp_path, monkeypatch):
+    aliases = tmp_path / "aliases.jsonl"
+    aliases.write_text(
+        '\n'.join(
+            [
+                '{"alias_id":"claim:legacy","canonical_knowledge_unit_id":"knowledge:claim:one"}',
+                '{"alias_id":"claim:legacy","canonical_knowledge_unit_id":"knowledge:claim:two"}',
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(service_eval, "PUBLIC_RESULT_ALIASES_PATH", aliases)
+
+    try:
+        service_eval.canonical_result_aliases()
+    except ValueError as exc:
+        assert "maps to multiple results" in str(exc)
+    else:
+        raise AssertionError("conflicting aliases must fail closed")
+
+
+def test_evaluate_row_resolves_canonical_identity_aliases(monkeypatch):
+    monkeypatch.setattr(
+        service_eval.httpx,
+        "get",
+        lambda *args, **kwargs: FakeResponse(
+            [
+                {
+                    "id": "knowledge:claim:stable",
+                    "kind": "claim",
+                    "concept": "security-permissions",
+                    "authority_tier": "official",
+                    "body": "Direct database access requires authorization.",
+                }
+            ]
+        ),
+    )
+
+    result = service_eval.evaluate_row(
+        "https://example.test",
+        {
+            "id": "eval:canonical-alias",
+            "question": "Should an agent have direct database access?",
+            "concept_id": "security-permissions",
+            "expected_result_ids": ["claim:claim:legacy"],
+            "expected_result_kinds": ["claim"],
+            "required_authority_tiers": ["official"],
+        },
+        limit=5,
+        timeout=1,
+        max_allowed_rank=1,
+        result_aliases={
+            "claim:claim:legacy": "knowledge:claim:stable"
+        },
+    )
+
+    assert result["original_expected_result_ids"] == ["claim:claim:legacy"]
+    assert result["expected_result_ids"] == ["knowledge:claim:stable"]
+    assert result["expected_result_id_rank"] == 1
+    assert result["authority_passed"] is True
+    assert result["status"] == "pass"
+
+
+def test_evaluate_service_uses_aliases_only_for_canonical_projection(
+    monkeypatch,
+):
+    rows = [
+        {
+            "id": "eval:projection-aware",
+            "question": "Direct access",
+            "expected_result_ids": ["claim:legacy"],
+        }
+    ]
+    monkeypatch.setattr(service_eval, "read_jsonl", lambda path: iter(rows))
+    monkeypatch.setattr(
+        service_eval,
+        "hosted_projection_identity",
+        lambda *args: ("projection-v1", "canonical"),
+    )
+    monkeypatch.setattr(
+        service_eval,
+        "canonical_result_aliases",
+        lambda: {"claim:legacy": "knowledge:claim:stable"},
+    )
+    monkeypatch.setattr(
+        service_eval.httpx,
+        "get",
+        lambda *args, **kwargs: FakeResponse(
+            [{"id": "knowledge:claim:stable", "kind": "claim"}]
+        ),
+    )
+
+    result = service_eval.evaluate_service(
+        "https://example.test", limit=1, concurrency=1, target_rank=1
+    )
+
+    assert result.retrieval_projection == "canonical"
+    assert result.status == "ok"
+    assert result.results[0]["expected_result_id_rank"] == 1
 
 
 def test_evaluate_row_requires_expected_concept_in_top_two(monkeypatch):
