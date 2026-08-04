@@ -39,12 +39,12 @@ Example: For a missing content channel item attribute category, cite the release
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/303---blast-off/attributes
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/availableattributes-tools
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedValuesAttributeValues.sql
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
 - https://community.rockrms.com/developer/mobile-docs/essentials/controls/form-fields/attribute-value-editor
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_DefinedTypeAttributes.sql
 - https://community.rockrms.com/documentation/bookcontent/39
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/ModelMap
-- https://community.rockrms.com/rocku/individuals-in-rock/person-attributes

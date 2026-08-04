@@ -44,8 +44,7 @@ Complete Validate Azure Hosting with evidence-backed checks and a verifiable out
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting
-- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
 - https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/AccountEntry/AccountEntryStep.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Security/Login/PasswordlessLoginStep.cs

@@ -70,6 +70,23 @@ workflows cache the previous observation file, upload the
 freshness and scan reports, and fail when a required source is failed, missing,
 or overdue.
 
+Rockumentation API records use a semantic article hash rather than the complete
+Obsidian initialization response. The hash includes normalized article text,
+canonical URL, article identity, documentation revision metadata, and stable
+configuration fields; it excludes request traces, preference timestamps, and
+render-shell metadata. Static fallback pages likewise hash normalized title and
+content rather than volatile HTML. Hydration uses the same rule. The API client
+retries a bounded transient invalid response before falling back, which prevents
+one failed request from silently changing an article's canonical identity. A
+source-parser change touching these rules should be tested with two complete
+refreshes whose sorted `(record ID, content hash)` sets are identical.
+Canonical source-summary identity also excludes only volatile `retrieved_at`;
+summary text, semantic source hashes, and routing metadata remain significant.
+If that boundary changes hashes for an already reviewed migration without any
+semantic change, use the fail-closed `source-native-migration-rebind` command.
+Do not reuse the prior review when source text, routing, relationships, artifact
+content, or identity changed.
+
 After validation, each scheduled workflow publishes its owned rows to the
 hosted D1 operations projection with `kb record-source-freshness`. This is the
 authoritative public snapshot used by `/operations/freshness`, the operations

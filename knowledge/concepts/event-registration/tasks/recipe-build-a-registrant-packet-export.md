@@ -45,12 +45,11 @@ Complete Build A Registrant Packet Export with evidence-backed checks and a veri
 
 ## Source Links
 
+- https://community.rockrms.com/rocku/event-registration/event-attributes
 - https://community.rockrms.com/rocku/event-registration/event-registration-attributes
 - https://www.triumph.tech/resources/github-spotlight-182025
 - https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/rocku/event-registration/event-attributes
-- https://community.rockrms.com/rocku/event-registration
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs
 - https://community.rockrms.com/recipes/313
 - https://community.rockrms.com/recipes/361

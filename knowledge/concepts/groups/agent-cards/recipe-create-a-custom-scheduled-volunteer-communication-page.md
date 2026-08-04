@@ -55,7 +55,7 @@ generated: true
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
 - https://community.rockrms.com/ModelMap
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
+- https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/recipes/220
 - https://community.rockrms.com/recipes/519
 - https://community.rockrms.com/recipes/329
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry

@@ -2122,7 +2122,7 @@
   },
   "approved_media_hash": "3bdaa3f81aedd25505090095d795a16dbf7f2dd1e8a58bf4786c0c386bf87b75",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "cms-websites",
   "guide_hash": "ae9e9926bcb93414b0e5c28dd6ecddd236ff7908b3a0a6de5510ccf98f09d3ce",
   "guide_line_count": 1583,
@@ -2157,6 +2157,42 @@
       "url": "https://community.rockrms.com/recipes/261"
     },
     {
+      "authority": "official-training",
+      "content_hash": "da1bfeda49ddd6145f08457a85d9cf1c9ccf0e345da7383595a35911f32c784b",
+      "excerpt_hash": "bae6208a03f0cc4a3840e314fee4854a92d31e831cb9a2e1770f71d3b2925a81",
+      "source_id": "rock_rocku",
+      "source_key": "c67fe29c0ec0384f",
+      "source_record_id": "rock_rocku:c67fe29c0ec0384f",
+      "url": "https://community.rockrms.com/rocku/cms/font-awesome-5-1"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "346c763054bc8f7a5a1851f25d7bb90e186b5de5bed0fcca7ab25f6485b661d1",
+      "excerpt_hash": "1c849560e4d7e48d32a200cda7b7339bdebb3e03b5f21c64cff298047b3bd5d8",
+      "source_id": "rock_rocku",
+      "source_key": "beced54c25df1aa9",
+      "source_record_id": "rock_rocku:beced54c25df1aa9",
+      "url": "https://community.rockrms.com/rocku/cms/tabler-icons"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "418d8a073d951567eba0d68dc2ddf9c114d95fe04d10f40e9d18d49983e38322",
+      "excerpt_hash": "97a1e9a29feda06910d8536e403f4c08756a67dd84dabd6306618a7d7df89d9e",
+      "source_id": "rock_rocku",
+      "source_key": "bb00c039f16af55d",
+      "source_record_id": "rock_rocku:bb00c039f16af55d",
+      "url": "https://community.rockrms.com/rocku/cms/html-block"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "07868246b037dc35153722d121c23a8d96daec7735a20341ccb14a301bdbe6e5",
+      "excerpt_hash": "149153ba0784bec2b56e3ee4a47705e72ad0849376b36908f729fe8cb3b5c706",
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "rock_rocku:9ae5804fa3a0ac7d",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "0f3d7f5c0e732108c787af227d9f134211e6735bf79004a2528327afb2f597bd",
       "excerpt_hash": "2b50a82e8164b2fac69f0a518f77f56d2d0926acc7191ae0fb68131df430c9d2",
@@ -2167,12 +2203,57 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
+      "content_hash": "3e4668ebf0e638d0106471af818e754ddcf0416847208625402eaa387da1b7f5",
+      "excerpt_hash": "d08a524f68e90d0b2318e3d6995c69b7eb8a40dbd875f68177bb88d9e9abcd59",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "61f3aed131f8bff8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "ab58fbfec3364cccc03e78a180684b64851ac0d2dd954055a349fa74e940037b",
+      "excerpt_hash": "cf3c896e9dab52d231cb7a08966179b52b40b479aa285b0c2940970c049f1fa6",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "06bcb0153237c9a3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "2579e654c5fbb6e04b7e793e26349b86d4ec829cd582d90998d4ccaf912b437a",
+      "excerpt_hash": "8e9043f4c58c42d8ea574ef5f9787f4888c3ba95669133a96c2fc04c40b843a9",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1ebbaa4483d1ef62",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "46a72a110901ef416a5bc7c81531fde3ea4cac1a867970f8b8fb01d246faf417",
+      "excerpt_hash": "16b37acd66224b56c1eb4a6debb427e4a19d785b5331f86b8f489f665fbd9f54",
+      "source_id": "rock_rocku",
+      "source_key": "11cdf9c3e9ac92ed",
+      "source_record_id": "rock_rocku:11cdf9c3e9ac92ed",
+      "url": "https://community.rockrms.com/rocku/cms/personalization"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "62c8711d95d611ea134926b73007252c758ef320b4da35469af1391d7f3169b3",
+      "excerpt_hash": "081fc308a111e5052f26b9dc993c753b9759c7081e17e03669c690d75e4e1b24",
+      "source_id": "rock_rocku",
+      "source_key": "e4bb4304ab76f3f9",
+      "source_record_id": "rock_rocku:e4bb4304ab76f3f9",
+      "url": "https://community.rockrms.com/rocku/cms/asset-manager"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "550f6ec2b817222e602f86f27ca05ae23b67c4fd4933bffe6350af73c3f0883f",
+      "excerpt_hash": "41f556d5cbf50c0074563fb0b3a92d49550826031fdfb1fe1709ef4907e521d5",
+      "source_id": "rock_rocku",
+      "source_key": "2000146157764196",
+      "source_record_id": "rock_rocku:2000146157764196",
+      "url": "https://community.rockrms.com/rocku/cms/entity-documents"
     },
     {
       "authority": "official-release",
@@ -2184,6 +2265,15 @@
       "url": "https://www.rockrms.com/releasenotes"
     },
     {
+      "authority": "official-training",
+      "content_hash": "d3c821f9405fc3c703215c4321a87dec8af3996d5a39a9ca7272118eb198e344",
+      "excerpt_hash": "704dc5360f0dddd49c92ea4650fa29783908c576f72a20a62d9b7a095ae83295",
+      "source_id": "rock_rocku",
+      "source_key": "805340549055ac6c",
+      "source_record_id": "rock_rocku:805340549055ac6c",
+      "url": "https://community.rockrms.com/rocku/cms/short-links"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "1a18d3fd6e650568418a3d36412666f6fb8bc1df98a07710d9471659cb7c7460",
       "excerpt_hash": "34144da9163fc2491cc316f229bd5828d68e030a8e502a46d1169e92854ed17f",
@@ -2191,6 +2281,24 @@
       "source_key": "688f7051e9eaa0b1",
       "source_record_id": "rock_developer:688f7051e9eaa0b1",
       "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "7aad408e46b960402eeea86861962d29aada424b50f33ad10a7cfc62c81ced6a",
+      "excerpt_hash": "4a20116627ddcc9d8a324d23589d79c7d9ef93580457dc62347f50306825473b",
+      "source_id": "rock_rocku",
+      "source_key": "0343f1e6031032b4",
+      "source_record_id": "rock_rocku:0343f1e6031032b4",
+      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "1b3eee0317cc56b32d6d7e71f4eb48f3aad196d490f38f7b586b0d899aae7c38",
+      "excerpt_hash": "cd7820e9228b8b683f2502ac53acfd849c184fd5d5b1c8db330178ea424e5dd6",
+      "source_id": "rock_rocku",
+      "source_key": "d0f7a4f0dd8c84bc",
+      "source_record_id": "rock_rocku:d0f7a4f0dd8c84bc",
+      "url": "https://community.rockrms.com/rocku/cms/rock-media-required-watching"
     },
     {
       "authority": "official-developer",
@@ -2211,6 +2319,15 @@
       "url": "https://community.rockrms.com/recipes/432"
     },
     {
+      "authority": "source-code",
+      "content_hash": "0902719388e4ff2a1b05c45117914cd59e23a4e2c3873db06b8d0f63b9e07e76",
+      "excerpt_hash": "6cfd42da3e7c1dc71bf5d665a2dad650d3ebf5a4be063a97cba5f691fa7f1fee",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "115115cf94e6e0c0",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "6734f1062768fbefd5fa97a14cf734254dd9080a2abcf6f5397ee6d348218da4",
       "excerpt_hash": "95d59b38f71a8a93bb420db1563f38a8480084ebe8c60cb3f289efa057fe17c3",
@@ -2220,6 +2337,96 @@
       "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes"
     },
     {
+      "authority": "source-code",
+      "content_hash": "92a51684fffc3fe995e1ce58f3e69d643c4debd8d01580d6bf44ec26b6e23610",
+      "excerpt_hash": "ab09ea6326901fd745000e95aa16112df5009d5057e6c6076de18b21ed66a53a",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e0adff021dcba420",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "e6065dd96c1988146d7fff833a332badd90b210a3451bae1f6af474d88f5f406",
+      "excerpt_hash": "99f768c54fddca3ef8ae102653eef263a7d63d9f0aefb4f7fd1c4bc3e0ab6f22",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9df9ca539eea0fc5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "e6788fc06af37ad2687999015897bf4f094e606433b0d7676812b421a9493527",
+      "excerpt_hash": "f8de3c145d4a4a2440eb363b0ed7d35f75b7090ed176265c7e9a1efb63a7b06e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ad357405a230b4ef",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "b109cbd74fb22e72b1faba86c153e44964ff0f72a52d8904225949cc68eaf62f",
+      "excerpt_hash": "69b1eb9b41084ef317f3d1d6a79809a35292d9937f2518b10a7a37721cff27ed",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4de6560c6a663d54",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "f44007a53f5307871b43371af6353e0ff7ccc5f354fd9811cd2ca5fbff08ccea",
+      "excerpt_hash": "218a4312581a0dcf13d44cdb745fb41e115c2d8f07f662ede7d0a761d98a18b4",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4972354351b13eea",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "87ddac85fe014235a1e72960a2e69e29cb557d70e1b8bb962ea2712ed8a69e8d",
+      "excerpt_hash": "476ee7d236d76d6da8c98e7d86d456394121a472812f8d29a4ab525c1fb61db5",
+      "source_id": "rock_rocku",
+      "source_key": "abe6ddf5dad7eb7c",
+      "source_record_id": "rock_rocku:abe6ddf5dad7eb7c",
+      "url": "https://community.rockrms.com/rocku/cms/publishing-rock-media"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b99a24ba6f596b05f7ed417c9c162082b3ad4f8bd3506057246647085bce9f2b",
+      "excerpt_hash": "92c85f59698de08ffc71bc49c1425c3f717cccb593a328f136995a1a6953dae4",
+      "source_id": "rock_rocku",
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "rock_rocku:2c6dd9ebf7d3f598",
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "4c0b4c4135c23cdc00b57cdb78a558e88111ece796d9f7e3a942d5a527e3f5bc",
+      "excerpt_hash": "db8905ebbd02b29aed5d63643c37f3ca0a9b38ab35232e3a79b82536ce4946b6",
+      "source_id": "rock_rocku",
+      "source_key": "379c5b8830e79dbf",
+      "source_record_id": "rock_rocku:379c5b8830e79dbf",
+      "url": "https://community.rockrms.com/rocku/cms/page-builder"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "fd00702cd58067c1055ca28c8cb5903ec5fd31d06ef01748db5e94a363c92d8b",
+      "excerpt_hash": "92093997dbfa8119493903255e088d12cddcdb6051a946507ec81a433a828240",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "efda15d5517b0a38",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "1fb0b312a3a9cebe5752eaf877b635a300986c87b249b3d820b4047f0e32e982",
+      "excerpt_hash": "6022a70ace89d5bac2fa1348ea514d85ec2e76e7fcfd90b7b86db740e0f2f90e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ecd2e14ade74500f",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx"
+    },
+    {
       "authority": "community-example",
       "content_hash": "e488783aa2a9ebe812fed52ea0a4c77a9ca35b1b8774c4f0cdfc6d762b2c2116",
       "excerpt_hash": "4901ab878c9546f84e2fe3c7b9f0fcd28275aedfdc0a4684d6c3270373909e30",
@@ -2227,6 +2434,24 @@
       "source_key": "950d01229b6a2dfc",
       "source_record_id": "rock_recipes:950d01229b6a2dfc",
       "url": "https://community.rockrms.com/recipes/535"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5ddad5ffce5ee4643688aec8defd4eb4b25775ef4777eeee23cfc33b19504c6a",
+      "excerpt_hash": "1ac5c34cdd2b22a9f9a38b2200b477c9c6638392de1bac50adc327cc1a00778c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "16938e2c718a767b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "a9bc54d3371a9c44e3c93b31d39ed7b64cfe27e50b57af44495209ad4ba6ff14",
+      "excerpt_hash": "374dc601812383729f6d2a68584383abd234db4f76ba268451fd4c00c72e348d",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e589fab4db59b97a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts"
     },
     {
       "authority": "official-training",
@@ -2245,6 +2470,33 @@
       "source_key": "d3956fe7fabc25d7",
       "source_record_id": "rock_documentation:d3956fe7fabc25d7",
       "url": "https://community.rockrms.com/documentation/bookcontent/6"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "e5bd84bcd24fe3e3019796ccc3643253dfc41a47fdd33d32d7292e63aab61db5",
+      "excerpt_hash": "448cf83a4b7882adff3466d4b5426dfcfd956037b66969fa57c8293b0d94e4d4",
+      "source_id": "rock_rocku",
+      "source_key": "6c1db4d1bec69cfb",
+      "source_record_id": "rock_rocku:6c1db4d1bec69cfb",
+      "url": "https://community.rockrms.com/rocku/cms/cms-components"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "64536f0dba200195d85e27cbf62da9409a235aaed049ecbfd78e8969f0043114",
+      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
+      "source_id": "rock_rocku",
+      "source_key": "96f179b05ec9a0dc",
+      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
+      "url": "https://community.rockrms.com/rocku/cms/cache-tags"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
+      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     },
     {
       "authority": "official-training",
@@ -2387,21 +2639,21 @@
       "section_id": "2-scope-and-terminology",
       "source_keys": [
         "7ca0c3010644f891",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9",
+        "bb00c039f16af55d",
+        "9ae5804fa3a0ac7d",
+        "9ae5804fa3a0ac7d",
         "30be60a23d3d0317",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "35633587d4819f55",
+        "61f3aed131f8bff8",
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "11cdf9c3e9ac92ed",
+        "61f3aed131f8bff8",
+        "e4bb4304ab76f3f9",
+        "2000146157764196",
         "776256c424368312",
-        "35633587d4819f55"
+        "805340549055ac6c"
       ],
       "start_line": 60
     },
@@ -2413,11 +2665,11 @@
       "section_id": "3-cms-and-websites-mental-model",
       "source_keys": [
         "688f7051e9eaa0b1",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "61f3aed131f8bff8",
+        "06bcb0153237c9a3",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc",
+        "11cdf9c3e9ac92ed"
       ],
       "start_line": 125
     },
@@ -2431,7 +2683,7 @@
         "35633587d4819f55",
         "688f7051e9eaa0b1",
         "b6101e209d895fc3",
-        "d275b5b94a9da833",
+        "06bcb0153237c9a3",
         "776256c424368312",
         "776256c424368312",
         "776256c424368312",
@@ -2450,9 +2702,17 @@
       "source_keys": [
         "7ca0c3010644f891",
         "08d28c7142d649ae",
-        "d275b5b94a9da833",
+        "115115cf94e6e0c0",
         "8a4a79ea31348a1e",
-        "35633587d4819f55"
+        "e0adff021dcba420",
+        "61f3aed131f8bff8",
+        "9df9ca539eea0fc5",
+        "ad357405a230b4ef",
+        "4de6560c6a663d54",
+        "4972354351b13eea",
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 170
     },
@@ -2485,7 +2745,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-blocks",
       "source_keys": [
-        "d275b5b94a9da833"
+        "115115cf94e6e0c0"
       ],
       "start_line": 202
     },
@@ -2496,7 +2756,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-layouts-and-zones",
       "source_keys": [
-        "d275b5b94a9da833"
+        "115115cf94e6e0c0"
       ],
       "start_line": 220
     },
@@ -2518,7 +2778,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-content-channel-types",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e0adff021dcba420"
       ],
       "start_line": 246
     },
@@ -2529,7 +2789,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-content-channels",
       "source_keys": [
-        "d275b5b94a9da833"
+        "61f3aed131f8bff8"
       ],
       "start_line": 259
     },
@@ -2540,7 +2800,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-content-channel-items",
       "source_keys": [
-        "d275b5b94a9da833"
+        "9df9ca539eea0fc5"
       ],
       "start_line": 288
     },
@@ -2551,12 +2811,12 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-media-and-linked-media-elements",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "ad357405a230b4ef",
+        "4de6560c6a663d54",
+        "4972354351b13eea",
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 309
     },
@@ -2567,11 +2827,14 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
-        "35633587d4819f55",
+        "2c6dd9ebf7d3f598",
         "776256c424368312",
         "30be60a23d3d0317",
-        "d275b5b94a9da833",
-        "7ca0c3010644f891"
+        "06bcb0153237c9a3",
+        "ad357405a230b4ef",
+        "4de6560c6a663d54",
+        "7ca0c3010644f891",
+        "1ebbaa4483d1ef62"
       ],
       "start_line": 315
     },
@@ -2582,7 +2845,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-site-to-page",
       "source_keys": [
-        "35633587d4819f55"
+        "2c6dd9ebf7d3f598"
       ],
       "start_line": 319
     },
@@ -2593,7 +2856,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-to-layout-to-zone-to-block",
       "source_keys": [
-        "35633587d4819f55"
+        "2c6dd9ebf7d3f598"
       ],
       "start_line": 332
     },
@@ -2626,7 +2889,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-content-channel-type-to-channel-to-item",
       "source_keys": [
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3"
       ],
       "start_line": 353
     },
@@ -2637,8 +2900,8 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-content-channel-item-to-media",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "ad357405a230b4ef",
+        "4de6560c6a663d54"
       ],
       "start_line": 370
     },
@@ -2650,8 +2913,8 @@
       "section_id": "6-primary-entities-and-relationships-page-and-content-to-interactions",
       "source_keys": [
         "7ca0c3010644f891",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62"
       ],
       "start_line": 383
     },
@@ -2673,9 +2936,16 @@
       "needs_live_verification": false,
       "section_id": "7-common-cms-and-websites-workflows",
       "source_keys": [
-        "35633587d4819f55",
+        "2c6dd9ebf7d3f598",
+        "379c5b8830e79dbf",
+        "bb00c039f16af55d",
+        "9ae5804fa3a0ac7d",
         "776256c424368312",
-        "d275b5b94a9da833",
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc",
+        "61f3aed131f8bff8",
+        "11cdf9c3e9ac92ed",
         "08d28c7142d649ae",
         "7ca0c3010644f891"
       ],
@@ -2688,8 +2958,8 @@
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-create-a-new-public-page",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "2c6dd9ebf7d3f598",
+        "379c5b8830e79dbf"
       ],
       "start_line": 411
     },
@@ -2700,8 +2970,8 @@
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-add-or-edit-an-html-content-block",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "bb00c039f16af55d",
+        "9ae5804fa3a0ac7d"
       ],
       "start_line": 430
     },
@@ -2723,9 +2993,9 @@
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-publish-media-through-cms",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 467
     },
@@ -2736,8 +3006,8 @@
       "needs_live_verification": true,
       "section_id": "7-common-cms-and-websites-workflows-add-personalization-to-a-page-or-channel",
       "source_keys": [
-        "d275b5b94a9da833",
-        "35633587d4819f55"
+        "61f3aed131f8bff8",
+        "11cdf9c3e9ac92ed"
       ],
       "start_line": 481
     },
@@ -2772,10 +3042,13 @@
       "source_keys": [
         "7ca0c3010644f891",
         "08d28c7142d649ae",
-        "d275b5b94a9da833",
+        "efda15d5517b0a38",
+        "06bcb0153237c9a3",
         "688f7051e9eaa0b1",
+        "ecd2e14ade74500f",
+        "115115cf94e6e0c0",
         "776256c424368312",
-        "35633587d4819f55"
+        "379c5b8830e79dbf"
       ],
       "start_line": 516
     },
@@ -2808,8 +3081,8 @@
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-page-parameters",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "efda15d5517b0a38",
+        "06bcb0153237c9a3"
       ],
       "start_line": 547
     },
@@ -2821,8 +3094,8 @@
       "section_id": "8-pages-and-blocks-deep-dive-block-types-and-implementation-generations",
       "source_keys": [
         "688f7051e9eaa0b1",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "ecd2e14ade74500f",
+        "115115cf94e6e0c0"
       ],
       "start_line": 572
     },
@@ -2833,7 +3106,7 @@
       "needs_live_verification": true,
       "section_id": "8-pages-and-blocks-deep-dive-block-settings",
       "source_keys": [
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3"
       ],
       "start_line": 583
     },
@@ -2867,7 +3140,7 @@
       "needs_live_verification": false,
       "section_id": "8-pages-and-blocks-deep-dive-page-builder",
       "source_keys": [
-        "35633587d4819f55"
+        "379c5b8830e79dbf"
       ],
       "start_line": 630
     },
@@ -2879,6 +3152,9 @@
       "section_id": "9-themes-deep-dive",
       "source_keys": [
         "35633587d4819f55",
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9",
+        "e4bb4304ab76f3f9",
         "950d01229b6a2dfc"
       ],
       "start_line": 642
@@ -2912,8 +3188,8 @@
       "needs_live_verification": true,
       "section_id": "9-themes-deep-dive-icon-systems",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 674
     },
@@ -2924,7 +3200,7 @@
       "needs_live_verification": false,
       "section_id": "9-themes-deep-dive-asset-manager-and-theme-assets",
       "source_keys": [
-        "35633587d4819f55"
+        "e4bb4304ab76f3f9"
       ],
       "start_line": 687
     },
@@ -2947,9 +3223,15 @@
       "section_id": "10-content-channels-deep-dive",
       "source_keys": [
         "950d01229b6a2dfc",
-        "d275b5b94a9da833",
+        "61f3aed131f8bff8",
+        "06bcb0153237c9a3",
+        "9df9ca539eea0fc5",
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a",
         "b51b24ed7912d814",
-        "776256c424368312"
+        "776256c424368312",
+        "e0adff021dcba420"
       ],
       "start_line": 721
     },
@@ -2971,7 +3253,7 @@
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-design",
       "source_keys": [
-        "d275b5b94a9da833"
+        "61f3aed131f8bff8"
       ],
       "start_line": 741
     },
@@ -2982,7 +3264,7 @@
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-item-statuses",
       "source_keys": [
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3"
       ],
       "start_line": 761
     },
@@ -2993,7 +3275,7 @@
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-dates-and-ordering",
       "source_keys": [
-        "d275b5b94a9da833"
+        "9df9ca539eea0fc5"
       ],
       "start_line": 765
     },
@@ -3004,9 +3286,9 @@
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-categories-and-navigation",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a"
       ],
       "start_line": 780
     },
@@ -3017,7 +3299,7 @@
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-content-channel-item-view",
       "source_keys": [
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3"
       ],
       "start_line": 790
     },
@@ -3028,7 +3310,7 @@
       "needs_live_verification": true,
       "section_id": "10-content-channels-deep-dive-content-channel-item-list",
       "source_keys": [
-        "d275b5b94a9da833",
+        "9df9ca539eea0fc5",
         "b51b24ed7912d814",
         "776256c424368312"
       ],
@@ -3041,8 +3323,8 @@
       "needs_live_verification": false,
       "section_id": "10-content-channels-deep-dive-content-channel-detail",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e0adff021dcba420",
+        "61f3aed131f8bff8"
       ],
       "start_line": 836
     },
@@ -3055,8 +3337,11 @@
       "source_keys": [
         "30be60a23d3d0317",
         "d3956fe7fabc25d7",
-        "35633587d4819f55",
-        "d275b5b94a9da833"
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc",
+        "11cdf9c3e9ac92ed",
+        "61f3aed131f8bff8"
       ],
       "start_line": 847
     },
@@ -3089,9 +3374,9 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-media",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 887
     },
@@ -3102,9 +3387,9 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-content",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "abe6ddf5dad7eb7c",
+        "0343f1e6031032b4",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 902
     },
@@ -3115,8 +3400,8 @@
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-lava-security-media-content-personalization-personalization",
       "source_keys": [
-        "35633587d4819f55",
-        "d275b5b94a9da833",
+        "11cdf9c3e9ac92ed",
+        "61f3aed131f8bff8",
         "30be60a23d3d0317"
       ],
       "start_line": 921
@@ -3128,8 +3413,9 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
-        "35633587d4819f55",
-        "d275b5b94a9da833",
+        "6c1db4d1bec69cfb",
+        "96f179b05ec9a0dc",
+        "06bcb0153237c9a3",
         "776256c424368312",
         "08d28c7142d649ae",
         "7ca0c3010644f891",
@@ -3144,8 +3430,8 @@
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-production-change-protocol",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "6c1db4d1bec69cfb",
+        "96f179b05ec9a0dc"
       ],
       "start_line": 937
     },
@@ -3156,8 +3442,8 @@
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-cache-guardrails",
       "source_keys": [
-        "35633587d4819f55",
-        "d275b5b94a9da833"
+        "96f179b05ec9a0dc",
+        "06bcb0153237c9a3"
       ],
       "start_line": 955
     },
@@ -3215,6 +3501,15 @@
       "source_keys": [
         "d275b5b94a9da833",
         "688f7051e9eaa0b1",
+        "61f3aed131f8bff8",
+        "e0adff021dcba420",
+        "9df9ca539eea0fc5",
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a",
+        "115115cf94e6e0c0",
         "b6101e209d895fc3",
         "30be60a23d3d0317"
       ],
@@ -3249,14 +3544,14 @@
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-content-channel-source-landmarks",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "61f3aed131f8bff8",
+        "e0adff021dcba420",
+        "9df9ca539eea0fc5",
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a"
       ],
       "start_line": 1036
     },
@@ -3267,7 +3562,7 @@
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-web-forms-cms-block-landmark",
       "source_keys": [
-        "d275b5b94a9da833"
+        "115115cf94e6e0c0"
       ],
       "start_line": 1047
     },
@@ -3301,8 +3596,9 @@
       "section_id": "14-reporting-analytics-and-model-map",
       "source_keys": [
         "7ca0c3010644f891",
-        "d275b5b94a9da833",
-        "35633587d4819f55"
+        "1ebbaa4483d1ef62",
+        "06bcb0153237c9a3",
+        "0343f1e6031032b4"
       ],
       "start_line": 1059
     },
@@ -3324,8 +3620,8 @@
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-content-item-analytics",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "1ebbaa4483d1ef62",
+        "06bcb0153237c9a3"
       ],
       "start_line": 1076
     },
@@ -3336,7 +3632,7 @@
       "needs_live_verification": false,
       "section_id": "14-reporting-analytics-and-model-map-media-analytics",
       "source_keys": [
-        "35633587d4819f55"
+        "0343f1e6031032b4"
       ],
       "start_line": 1091
     },
@@ -3347,7 +3643,7 @@
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
       "source_keys": [
-        "35633587d4819f55"
+        "0343f1e6031032b4"
       ],
       "start_line": 1102
     },
@@ -3359,7 +3655,8 @@
       "section_id": "15-version-and-release-caveats",
       "source_keys": [
         "776256c424368312",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1130
     },
@@ -3425,8 +3722,8 @@
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-icon-version-caveats",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1162
     },
@@ -3437,8 +3734,8 @@
       "needs_live_verification": true,
       "section_id": "15-version-and-release-caveats-source-branch-caveat",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1166
     },
@@ -3449,7 +3746,8 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
-        "35633587d4819f55",
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9",
         "2875911abf284e79",
         "87a5ab006404f4af",
         "30be60a23d3d0317"
@@ -3463,8 +3761,8 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-a-missing-page",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1172
     },
@@ -3475,8 +3773,8 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-a-block-that-does-not-render",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1186
     },
@@ -3487,8 +3785,8 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-safely-modify-advanced-html",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1201
     },
@@ -3544,10 +3842,13 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
       "source_keys": [
-        "35633587d4819f55",
+        "805340549055ac6c",
         "776256c424368312",
         "7ca0c3010644f891",
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1278
     },
@@ -3558,7 +3859,7 @@
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-the-page-returns-not-found",
       "source_keys": [
-        "35633587d4819f55",
+        "805340549055ac6c",
         "776256c424368312"
       ],
       "start_line": 1280
@@ -3570,7 +3871,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
       "source_keys": [
-        "35633587d4819f55",
+        "805340549055ac6c",
         "776256c424368312"
       ],
       "start_line": 1289
@@ -3582,7 +3883,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-the-wrong-content-shows",
       "source_keys": [
-        "35633587d4819f55",
+        "805340549055ac6c",
         "776256c424368312"
       ],
       "start_line": 1302
@@ -3617,8 +3918,8 @@
       "section_id": "17-troubleshooting-decision-tree-analytics-are-empty",
       "source_keys": [
         "7ca0c3010644f891",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62"
       ],
       "start_line": 1333
     },
@@ -3640,8 +3941,8 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1353
     },
@@ -3652,11 +3953,13 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
       "source_keys": [
-        "35633587d4819f55",
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9",
         "30be60a23d3d0317",
         "b51b24ed7912d814",
         "08d28c7142d649ae",
-        "7ca0c3010644f891"
+        "7ca0c3010644f891",
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 1362
     },
@@ -3667,8 +3970,8 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-the-block-that-controls-this-text",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1364
     },
@@ -3679,8 +3982,8 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-why-is-this-content-item-not-public",
       "source_keys": [
-        "35633587d4819f55",
-        "35633587d4819f55"
+        "c67fe29c0ec0384f",
+        "beced54c25df1aa9"
       ],
       "start_line": 1375
     },
@@ -3735,7 +4038,7 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-troubleshoot-required-watching",
       "source_keys": [
-        "35633587d4819f55"
+        "d0f7a4f0dd8c84bc"
       ],
       "start_line": 1455
     },
@@ -3769,11 +4072,11 @@
       "section_id": "approved-media-coverage",
       "source_keys": [
         "87a5ab006404f4af",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
+        "2c6dd9ebf7d3f598",
+        "9ae5804fa3a0ac7d",
+        "e4bb4304ab76f3f9",
+        "6c1db4d1bec69cfb",
+        "96f179b05ec9a0dc",
         "2875911abf284e79",
         "b51b24ed7912d814"
       ],
@@ -3787,10 +4090,27 @@
       "section_id": "19-source-map-and-dependency-notes",
       "source_keys": [
         "35633587d4819f55",
+        "bb00c039f16af55d",
+        "9ae5804fa3a0ac7d",
+        "379c5b8830e79dbf",
+        "2c6dd9ebf7d3f598",
         "30be60a23d3d0317",
         "688f7051e9eaa0b1",
         "776256c424368312",
         "d275b5b94a9da833",
+        "61f3aed131f8bff8",
+        "e0adff021dcba420",
+        "9df9ca539eea0fc5",
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "ad357405a230b4ef",
+        "4de6560c6a663d54",
+        "4972354351b13eea",
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a",
+        "ecd2e14ade74500f",
+        "115115cf94e6e0c0",
         "08d28c7142d649ae",
         "7ca0c3010644f891",
         "950d01229b6a2dfc",
@@ -3806,10 +4126,10 @@
       "section_id": "19-source-map-and-dependency-notes-primary-official-core-sources",
       "source_keys": [
         "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
-        "35633587d4819f55",
+        "bb00c039f16af55d",
+        "9ae5804fa3a0ac7d",
+        "379c5b8830e79dbf",
+        "2c6dd9ebf7d3f598",
         "30be60a23d3d0317",
         "688f7051e9eaa0b1",
         "776256c424368312",
@@ -3824,19 +4144,19 @@
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-source-code-landmarks-used",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "61f3aed131f8bff8",
+        "e0adff021dcba420",
+        "9df9ca539eea0fc5",
+        "06bcb0153237c9a3",
+        "1ebbaa4483d1ef62",
+        "ad357405a230b4ef",
+        "4de6560c6a663d54",
+        "4972354351b13eea",
+        "efda15d5517b0a38",
+        "16938e2c718a767b",
+        "e589fab4db59b97a",
+        "ecd2e14ade74500f",
+        "115115cf94e6e0c0"
       ],
       "start_line": 1529
     },
@@ -3925,6 +4245,94 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "da1bfeda49ddd6145f08457a85d9cf1c9ccf0e345da7383595a35911f32c784b",
+      "excerpt_hash": "bae6208a03f0cc4a3840e314fee4854a92d31e831cb9a2e1770f71d3b2925a81",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "c67fe29c0ec0384f",
+      "source_record_id": "rock_rocku:c67fe29c0ec0384f",
+      "title": "Font Awesome 5 [Legacy]",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/font-awesome-5-1",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "346c763054bc8f7a5a1851f25d7bb90e186b5de5bed0fcca7ab25f6485b661d1",
+      "excerpt_hash": "1c849560e4d7e48d32a200cda7b7339bdebb3e03b5f21c64cff298047b3bd5d8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "beced54c25df1aa9",
+      "source_record_id": "rock_rocku:beced54c25df1aa9",
+      "title": "Tabler Icons",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/tabler-icons",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "418d8a073d951567eba0d68dc2ddf9c114d95fe04d10f40e9d18d49983e38322",
+      "excerpt_hash": "97a1e9a29feda06910d8536e403f4c08756a67dd84dabd6306618a7d7df89d9e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "bb00c039f16af55d",
+      "source_record_id": "rock_rocku:bb00c039f16af55d",
+      "title": "HTML Block",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/html-block",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "07868246b037dc35153722d121c23a8d96daec7735a20341ccb14a301bdbe6e5",
+      "excerpt_hash": "149153ba0784bec2b56e3ee4a47705e72ad0849376b36908f729fe8cb3b5c706",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "rock_rocku:9ae5804fa3a0ac7d",
+      "title": "Advanced HTML Block",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -3951,24 +4359,133 @@
     {
       "authority": "source-code",
       "authority_score": 84,
+      "content_hash": "3e4668ebf0e638d0106471af818e754ddcf0416847208625402eaa387da1b7f5",
+      "excerpt_hash": "d08a524f68e90d0b2318e3d6995c69b7eb8a40dbd875f68177bb88d9e9abcd59",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "61f3aed131f8bff8",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "ab58fbfec3364cccc03e78a180684b64851ac0d2dd954055a349fa74e940037b",
+      "excerpt_hash": "cf3c896e9dab52d231cb7a08966179b52b40b479aa285b0c2940970c049f1fa6",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "06bcb0153237c9a3",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "2579e654c5fbb6e04b7e793e26349b86d4ec829cd582d90998d4ccaf912b437a",
+      "excerpt_hash": "8e9043f4c58c42d8ea574ef5f9787f4888c3ba95669133a96c2fc04c40b843a9",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "1ebbaa4483d1ef62",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
       "change_type": null,
-      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
+      "content_hash": "46a72a110901ef416a5bc7c81531fde3ea4cac1a867970f8b8fb01d246faf417",
+      "excerpt_hash": "16b37acd66224b56c1eb4a6debb427e4a19d785b5331f86b8f489f665fbd9f54",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
+      "source_id": "rock_rocku",
+      "source_key": "11cdf9c3e9ac92ed",
+      "source_record_id": "rock_rocku:11cdf9c3e9ac92ed",
+      "title": "Personalization",
       "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+        "training",
+        "usage",
+        "workflow"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
+      "url": "https://community.rockrms.com/rocku/cms/personalization",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "62c8711d95d611ea134926b73007252c758ef320b4da35469af1391d7f3169b3",
+      "excerpt_hash": "081fc308a111e5052f26b9dc993c753b9759c7081e17e03669c690d75e4e1b24",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e4bb4304ab76f3f9",
+      "source_record_id": "rock_rocku:e4bb4304ab76f3f9",
+      "title": "Asset Manager",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/asset-manager",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "550f6ec2b817222e602f86f27ca05ae23b67c4fd4933bffe6350af73c3f0883f",
+      "excerpt_hash": "41f556d5cbf50c0074563fb0b3a92d49550826031fdfb1fe1709ef4907e521d5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2000146157764196",
+      "source_record_id": "rock_rocku:2000146157764196",
+      "title": "Entity Documents",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/entity-documents",
       "version": null
     },
     {
@@ -3994,6 +4511,28 @@
       "version": "17.1"
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "d3c821f9405fc3c703215c4321a87dec8af3996d5a39a9ca7272118eb198e344",
+      "excerpt_hash": "704dc5360f0dddd49c92ea4650fa29783908c576f72a20a62d9b7a095ae83295",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "805340549055ac6c",
+      "source_record_id": "rock_rocku:805340549055ac6c",
+      "title": "Short Links",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/short-links",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -4015,6 +4554,50 @@
         "sql"
       ],
       "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "7aad408e46b960402eeea86861962d29aada424b50f33ad10a7cfc62c81ced6a",
+      "excerpt_hash": "4a20116627ddcc9d8a324d23589d79c7d9ef93580457dc62347f50306825473b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "0343f1e6031032b4",
+      "source_record_id": "rock_rocku:0343f1e6031032b4",
+      "title": "Rock Media Analytics",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "1b3eee0317cc56b32d6d7e71f4eb48f3aad196d490f38f7b586b0d899aae7c38",
+      "excerpt_hash": "cd7820e9228b8b683f2502ac53acfd849c184fd5d5b1c8db330178ea424e5dd6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d0f7a4f0dd8c84bc",
+      "source_record_id": "rock_rocku:d0f7a4f0dd8c84bc",
+      "title": "Rock Media Required Watching",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/rock-media-required-watching",
       "version": null
     },
     {
@@ -4067,6 +4650,29 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "0902719388e4ff2a1b05c45117914cd59e23a4e2c3873db06b8d0f63b9e07e76",
+      "excerpt_hash": "6cfd42da3e7c1dc71bf5d665a2dad650d3ebf5a4be063a97cba5f691fa7f1fee",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "lava",
+        "content"
+      ],
+      "path": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "115115cf94e6e0c0",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
+      "title": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -4088,6 +4694,230 @@
       ],
       "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "92a51684fffc3fe995e1ce58f3e69d643c4debd8d01580d6bf44ec26b6e23610",
+      "excerpt_hash": "ab09ea6326901fd745000e95aa16112df5009d5057e6c6076de18b21ed66a53a",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e0adff021dcba420",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e6065dd96c1988146d7fff833a332badd90b210a3451bae1f6af474d88f5f406",
+      "excerpt_hash": "99f768c54fddca3ef8ae102653eef263a7d63d9f0aefb4f7fd1c4bc3e0ab6f22",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "9df9ca539eea0fc5",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e6788fc06af37ad2687999015897bf4f094e606433b0d7676812b421a9493527",
+      "excerpt_hash": "f8de3c145d4a4a2440eb363b0ed7d35f75b7090ed176265c7e9a1efb63a7b06e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "media",
+        "content"
+      ],
+      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ad357405a230b4ef",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "b109cbd74fb22e72b1faba86c153e44964ff0f72a52d8904225949cc68eaf62f",
+      "excerpt_hash": "69b1eb9b41084ef317f3d1d6a79809a35292d9937f2518b10a7a37721cff27ed",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "media",
+        "content"
+      ],
+      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4de6560c6a663d54",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
+      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "f44007a53f5307871b43371af6353e0ff7ccc5f354fd9811cd2ca5fbff08ccea",
+      "excerpt_hash": "218a4312581a0dcf13d44cdb745fb41e115c2d8f07f662ede7d0a761d98a18b4",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "media",
+        "content"
+      ],
+      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4972354351b13eea",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
+      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "87ddac85fe014235a1e72960a2e69e29cb557d70e1b8bb962ea2712ed8a69e8d",
+      "excerpt_hash": "476ee7d236d76d6da8c98e7d86d456394121a472812f8d29a4ab525c1fb61db5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "abe6ddf5dad7eb7c",
+      "source_record_id": "rock_rocku:abe6ddf5dad7eb7c",
+      "title": "Publishing Rock Media",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/publishing-rock-media",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "b99a24ba6f596b05f7ed417c9c162082b3ad4f8bd3506057246647085bce9f2b",
+      "excerpt_hash": "92c85f59698de08ffc71bc49c1425c3f717cccb593a328f136995a1a6953dae4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "rock_rocku:2c6dd9ebf7d3f598",
+      "title": "Adding Pages and Blocks",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "4c0b4c4135c23cdc00b57cdb78a558e88111ece796d9f7e3a942d5a527e3f5bc",
+      "excerpt_hash": "db8905ebbd02b29aed5d63643c37f3ca0a9b38ab35232e3a79b82536ce4946b6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "379c5b8830e79dbf",
+      "source_record_id": "rock_rocku:379c5b8830e79dbf",
+      "title": "Page Builder",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/page-builder",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "fd00702cd58067c1055ca28c8cb5903ec5fd31d06ef01748db5e94a363c92d8b",
+      "excerpt_hash": "92093997dbfa8119493903255e088d12cddcdb6051a946507ec81a433a828240",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "efda15d5517b0a38",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1fb0b312a3a9cebe5752eaf877b635a300986c87b249b3d820b4047f0e32e982",
+      "excerpt_hash": "6022a70ace89d5bac2fa1348ea514d85ec2e76e7fcfd90b7b86db740e0f2f90e",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "lava",
+        "content"
+      ],
+      "path": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "ecd2e14ade74500f",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
+      "title": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx"
     },
     {
       "authority": "community-example",
@@ -4113,6 +4943,50 @@
       ],
       "url": "https://community.rockrms.com/recipes/535",
       "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5ddad5ffce5ee4643688aec8defd4eb4b25775ef4777eeee23cfc33b19504c6a",
+      "excerpt_hash": "1ac5c34cdd2b22a9f9a38b2200b477c9c6638392de1bac50adc327cc1a00778c",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "16938e2c718a767b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a9bc54d3371a9c44e3c93b31d39ed7b64cfe27e50b57af44495209ad4ba6ff14",
+      "excerpt_hash": "374dc601812383729f6d2a68584383abd234db4f76ba268451fd4c00c72e348d",
+      "kind": "github_file",
+      "language": "TypeScript",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "content"
+      ],
+      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e589fab4db59b97a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
+      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts"
     },
     {
       "authority": "official-training",
@@ -4145,6 +5019,73 @@
         "usage"
       ],
       "url": "https://community.rockrms.com/documentation/bookcontent/6",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "e5bd84bcd24fe3e3019796ccc3643253dfc41a47fdd33d32d7292e63aab61db5",
+      "excerpt_hash": "448cf83a4b7882adff3466d4b5426dfcfd956037b66969fa57c8293b0d94e4d4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "6c1db4d1bec69cfb",
+      "source_record_id": "rock_rocku:6c1db4d1bec69cfb",
+      "title": "CMS Components",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/cms-components",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "64536f0dba200195d85e27cbf62da9409a235aaed049ecbfd78e8969f0043114",
+      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "96f179b05ec9a0dc",
+      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
+      "title": "Cache Tags",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/cache-tags",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
+      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
     },
     {

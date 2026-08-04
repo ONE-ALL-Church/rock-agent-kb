@@ -48,5 +48,6 @@ Complete Verify A Person Has A Valid Signed Waiver with evidence-backed checks a
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/documents
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents
 - https://community.rockrms.com/rocku/workflows/workflow-person-entry

@@ -42,4 +42,5 @@ Complete Review Web Farm with evidence-backed checks and a verifiable outcome.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock
+- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm
+- https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster

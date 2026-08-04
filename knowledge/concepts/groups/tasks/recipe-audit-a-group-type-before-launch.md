@@ -65,6 +65,7 @@ Complete Audit A Group Type Before Launch with evidence-backed checks and a veri
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder
 - https://community.rockrms.com/ask/developing/2801
+- https://community.rockrms.com/documentation/bookcontent/7/296
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm/group-members
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-registration
@@ -72,4 +73,3 @@ Complete Audit A Group Type Before Launch with evidence-backed checks and a veri
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
 - https://community.rockrms.com/recipes/519
 - https://community.rockrms.com/recipes/220
-- https://community.rockrms.com/recipes/329

@@ -50,5 +50,7 @@ Complete Statement Eligibility Explanation with evidence-backed checks and a ver
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql
 - https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes

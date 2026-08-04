@@ -75,7 +75,7 @@
   "concept_id": "system-admin-ops",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1669,
   "guide_word_count": 12190,
   "metrics": {
@@ -84,7 +84,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 11,
     "section_count": 131,
-    "source_count": 28,
+    "source_count": 46,
     "substantive_uncited_section_ratio": 0.0164,
     "task_card_count": 6,
     "word_count": 12190
@@ -92,7 +92,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 131,
-  "source_count": 28,
+  "source_count": 46,
   "status": "fail",
   "task_card_count": 6
 }

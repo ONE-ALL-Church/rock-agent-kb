@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import copy
+import json
+from types import SimpleNamespace
 
 import pytest
 
 from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
+from rock_kb.jsonl import read_jsonl, write_jsonl
 from rock_kb.schemas import (
     GenerationActivity,
     ReviewedSourceNativeArtifact,
@@ -15,9 +18,11 @@ from rock_kb.schemas import (
     SourceSnapshot,
     SourceUnit,
 )
-from rock_kb.source_native import source_native_model_input_hash
+from rock_kb.source_native import source_native_artifact_id, source_native_model_input_hash
 from rock_kb.source_native_migration import (
+    build_source_native_legacy_migration_inputs,
     public_record_hash,
+    rebind_source_native_legacy_migration_output,
     source_native_legacy_migration_input_hash,
     validate_source_native_legacy_migration_output,
 )
@@ -167,6 +172,125 @@ def migration_output() -> dict:
             }
         ],
     }
+
+
+def test_migration_input_rebuild_projects_legacy_rows_before_retirement(
+    monkeypatch,
+    tmp_path,
+):
+    candidate = migration_input()
+    source_snapshot = SourceSnapshot.model_validate(candidate["source_snapshot"])
+    source_unit = SourceUnit.model_validate(candidate["source_units"][0])
+    legacy = SimpleNamespace(
+        ingestion_mode="legacy_summary_projection",
+        knowledge_type="source_summary",
+        source_unit_ids=[source_unit.source_unit_id],
+        knowledge_unit_id="source:rock_documentation:article:100",
+        legacy_ids=["knowledge:source_summary:test"],
+        content_hash="9" * 64,
+        title="Test Article",
+        retrieval_text="The article documents the feature behavior.",
+        concept_facets=["workflows"],
+    )
+
+    def fake_build_canonical_knowledge_bundle(**kwargs):
+        assert kwargs["identity_registry"] == []
+        assert kwargs["include_source_native_pilot"] is False
+        assert kwargs["include_legacy_migrations"] is False
+        return (
+            SimpleNamespace(
+                source_snapshots=[source_snapshot],
+                source_units=[source_unit],
+                knowledge_units=[legacy],
+            ),
+            {},
+        )
+
+    monkeypatch.setattr(
+        "rock_kb.canonical_knowledge.build_canonical_knowledge_bundle",
+        fake_build_canonical_knowledge_bundle,
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native.load_source_native_pilot",
+        lambda _repo_root: {
+            "source_snapshots": [source_snapshot],
+            "source_units": [source_unit],
+            "reviewed_artifacts": [],
+        },
+    )
+    input_path = tmp_path / "source-native-input.jsonl"
+    destination = tmp_path / "migration-input.jsonl"
+    write_jsonl(input_path, [candidate])
+
+    result = build_source_native_legacy_migration_inputs(
+        source_native_input_path=input_path,
+        destination=destination,
+        repo_root=tmp_path,
+    )
+
+    output = list(read_jsonl(destination))
+    assert result["legacy_item_count"] == 1
+    assert output[0]["legacy_items"][0]["legacy_content_hash"] == "9" * 64
+
+
+def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
+    previous = migration_input()
+    refreshed = copy.deepcopy(previous)
+    refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+    artifact = SourceNativeArtifactCandidate.model_validate(
+        migration_output()["articles"][0]["artifacts"][0]
+    )
+    snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+    artifact_id = source_native_artifact_id(snapshot, artifact)
+    refreshed["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": artifact_id,
+            "artifact_hash": public_record_hash(artifact),
+            "artifact": artifact.public_dump(),
+        }
+    ]
+    rehash_migration_input(refreshed)
+    previous_path = tmp_path / "previous.jsonl"
+    refreshed_path = tmp_path / "refreshed.jsonl"
+    output_path = tmp_path / "reviewed-output.json"
+    destination = tmp_path / "rebound-output.json"
+    write_jsonl(previous_path, [previous])
+    write_jsonl(refreshed_path, [refreshed])
+    output_path.write_text(
+        json.dumps(migration_output(), indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    result = rebind_source_native_legacy_migration_output(
+        previous_input_path=previous_path,
+        refreshed_input_path=refreshed_path,
+        output_path=output_path,
+        destination=destination,
+    )
+    rebound = json.loads(destination.read_text(encoding="utf-8"))
+    assert result["changed_legacy_hash_count"] == 1
+    assert result["materialized_artifact_count"] == 1
+    assert rebound["articles"][0]["migration_input_hash"] == (
+        refreshed["migration_input_hash"]
+    )
+    assert rebound["articles"][0]["legacy_decisions"][0][
+        "legacy_content_hash"
+    ] == "f" * 64
+    assert rebound["articles"][0]["existing_artifact_decisions"][0][
+        "disposition"
+    ] == "retain_identity"
+
+    changed_meaning = copy.deepcopy(refreshed)
+    changed_meaning["legacy_items"][0]["retrieval_text"] += " Changed."
+    rehash_migration_input(changed_meaning)
+    write_jsonl(refreshed_path, [changed_meaning])
+    with pytest.raises(ValueError, match="more than hash bindings"):
+        rebind_source_native_legacy_migration_output(
+            previous_input_path=previous_path,
+            refreshed_input_path=refreshed_path,
+            output_path=output_path,
+            destination=destination,
+        )
 
 
 def test_migration_output_requires_exact_legacy_coverage():

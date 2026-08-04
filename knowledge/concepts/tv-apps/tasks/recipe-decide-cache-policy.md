@@ -45,15 +45,15 @@ Verify actual headers and CDN behavior in the live environment.
 
 ## Source Links
 
-- https://community.rockrms.com/developer/roku-docs
-- https://community.rockrms.com/developer/apple-tv-docs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
-- https://community.rockrms.com/lava/lava-api
 - https://community.rockrms.com/developer/roku-docs/getting-started/pages
 - https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
+- https://community.rockrms.com/developer/roku-docs/getting-started/applications
+- https://community.rockrms.com/developer/roku-docs/commands/navigation
 - https://community.rockrms.com/developer/roku-docs/commands/personal
 - https://community.rockrms.com/developer/roku-docs/resources/controls/page
-- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/RemoteAuthenticationSession.cs
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/RemoteAuthenticationSession/RemoteAuthenticationSession.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs
+- https://community.rockrms.com/developer/roku-docs/commands/media
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips

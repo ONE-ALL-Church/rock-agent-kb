@@ -42,6 +42,7 @@ Complete Build Opportunity Cards with evidence-backed checks and a verifiable ou
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
@@ -50,4 +51,3 @@ Complete Build Opportunity Cards with evidence-backed checks and a verifiable ou
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance

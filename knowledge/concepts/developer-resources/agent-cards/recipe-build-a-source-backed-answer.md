@@ -37,5 +37,6 @@ Complete Build a source-backed answer with evidence-backed checks and a verifiab
 
 ## Source Links
 
-- https://community.rockrms.com/developer
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/helix/overview/security
+- https://community.rockrms.com/developer/303---blast-off/rock-security

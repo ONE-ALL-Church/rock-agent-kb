@@ -37,12 +37,15 @@ generated: true
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Jobs/UpdatePersistedDataviews.cs
 - https://community.rockrms.com/documentation/bookcontent/32
 - https://community.rockrms.com/lava/commands/cache-commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs
 - https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list
 - https://community.rockrms.com/developer/303---blast-off/exception-handling
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/ScheduledJobHistoryList.cs
 - https://community.rockrms.com/rocku/cms/cache-tags
-- https://community.rockrms.com/lava/lava-api
-- https://community.rockrms.com/recipes/503

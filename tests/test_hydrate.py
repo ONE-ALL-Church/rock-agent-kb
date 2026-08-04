@@ -116,6 +116,35 @@ def test_hydrate_source_record_prefers_rockumentation_api(monkeypatch):
     assert "execute configured behavior" in row["excerpt"]
 
 
+def test_hydrated_rockumentation_hash_ignores_request_metadata(monkeypatch):
+    payload = {
+        "configurationValues": {
+            "title": "Workflow Actions",
+            "slug": "core-concepts/workflows/workflow-actions",
+            "currentVersion": "v19.0",
+        },
+        "initialContent": (
+            '<article class="rockumentation-article" data-main-article="true" '
+            'data-article-id="2647"><h1>Workflow Actions</h1>'
+            "<p>Workflow actions execute configured behavior.</p></article>"
+        ),
+        "parentTrace": "first-request",
+    }
+    monkeypatch.setattr("rock_kb.hydrate.fetch_rockumentation_payload", lambda client, url: payload)
+    record = {
+        "id": "rock_documentation:article:2647",
+        "source_id": "rock_documentation",
+        "source_url": "https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions",
+        "source_title": "Workflow Actions",
+    }
+
+    first = hydrate_source_record(object(), record, ["workflow"])
+    payload["parentTrace"] = "second-request"
+    second = hydrate_source_record(object(), record, ["workflow"])
+
+    assert first["content_hash"] == second["content_hash"]
+
+
 def test_github_source_hydration_pins_immutable_commit_ref():
     class Response:
         def __init__(self, *, payload=None, text="", status_code=200):

@@ -2842,6 +2842,23 @@
     },
     {
       "approved_concept_ids": [
+        "check-in",
+        "groups",
+        "workflows"
+      ],
+      "content_hash": "c940445bb9c694dc64d29963c490efade6837c741be6190be5be2bf87242377f",
+      "key_insight_count": 3,
+      "mentioned_in_guide": true,
+      "public_promotion_candidate_id": "media-public-candidate:9f9e326b3e1fd719",
+      "public_promotion_id": "media-public-promotion:c940445bb9c694dc",
+      "review_status": "approved_for_public_distillation",
+      "source_id": "rock_rocku",
+      "source_record_id": "media-insight:9f9e326b3e1fd719",
+      "source_title": "Group Attendance Transcript Insight",
+      "source_url": "https://community.rockrms.com/rocku/groups/group-attendance"
+    },
+    {
+      "approved_concept_ids": [
         "api-integrations",
         "data-views-reports",
         "workflows"
@@ -2869,6 +2886,7 @@
     "media-insight:67d51eb23c3957c6": "ce69c459f755588b8d620b75a8fa524eea06fe4a8d968a8e1662d55f29a015f8",
     "media-insight:71a849bba3bf0283": "40958d4aa8154bf093c3d6406d952ff06ee85f72ff2d266d53cdc48bd11f91f8",
     "media-insight:8a313536a2a7f5bf": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
+    "media-insight:9f9e326b3e1fd719": "c940445bb9c694dc64d29963c490efade6837c741be6190be5be2bf87242377f",
     "media-insight:bc984ec6248f28f0": "76c7dfac6c7ae33fdbbdbf6d16391be57a4766f686e30cdffe6474a5ee974c6b",
     "media-insight:d19aff0e845956ae": "bf4686d6f8384e9d94a62455ff0ac88d7a48a749cc0647680a4675595bca2c6e",
     "media-insight:d78c963e62a82942": "2bae1e672c72e87f19366609eea3ec8ab9e6fd5206e68c0d6f65b68a71b1be1f",
@@ -2879,11 +2897,11 @@
     "media-insight:f9fcce8a9fccefbb": "eee8a9430d24413fe27806bae9b8310dd779880fb8abc92cdb4da46dfcdd23bf",
     "media-insight:fb53d5a069768847": "0e57ddd80835515e8300f3a7dca355b6214f50b0497e043061c3d611185d0d79"
   },
-  "approved_media_hash": "fe1c77231575a1d748818e94695e22f2b936e8c00b66b10305049e1b358de39f",
+  "approved_media_hash": "1011405327a737f6d2c5c30dfab818ce11a1d2f6f005155bf424b339b6dab8ab",
   "approved_media_path": "knowledge/concepts/workflows/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "workflows",
-  "guide_hash": "4e5cac7a194b58fa4c368e7cdff16792e8e9eb82aca73f787a1e1e169cde7f91",
+  "guide_hash": "764105f4554aa24356103f52cdf89604fdf65cd4d178d0df2f12ef4fd18cf2de",
   "guide_line_count": 636,
   "guide_path": "knowledge/concepts/workflows/guide.md",
   "guide_word_count": 7601,

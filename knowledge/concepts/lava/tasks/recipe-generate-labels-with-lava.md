@@ -41,7 +41,7 @@ Source: Print ZPL.
 
 ## Source Links
 
-- https://community.rockrms.com/lava
+- https://community.rockrms.com/lava/commands/print-zpl
 - https://community.rockrms.com/recipes/386
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupPlacement/PersonFiltersBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Group/GroupPlacement/personFiltersBag.d.ts

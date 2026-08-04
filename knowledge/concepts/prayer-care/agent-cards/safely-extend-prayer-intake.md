@@ -50,15 +50,15 @@ generated: true
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/prayer
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/create-group-prayer-requests
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/PrayerRequestAdd.cs
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-team-power-tools/prayer-request-comments-communication
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/pray-for-group-prayer-requests
 - https://community.rockrms.com/recipes/135
+- https://community.rockrms.com/documentation/engagement/prayer/prayer-requests/enter-prayer-requests
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/recipes/338
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/PrayerRequestsController.CodeGenerated.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/PrayerRequest/ContainsPeopleFilter.cs
-- https://community.rockrms.com/rocku/individuals-in-rock/prayer-requests
 - https://community.rockrms.com/recipes/121
 - https://community.rockrms.com/recipes/389
-- https://community.rockrms.com/recipes/350
-- https://community.rockrms.com/recipes/157

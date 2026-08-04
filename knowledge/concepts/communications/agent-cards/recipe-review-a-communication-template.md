@@ -47,4 +47,4 @@ Complete Review a communication template with evidence-backed checks and a verif
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/communication
+- https://community.rockrms.com/rocku/communication/communication-lists--segments

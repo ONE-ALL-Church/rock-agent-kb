@@ -44,11 +44,15 @@ Sources: Streak Type Detail, Rebuild Streak Type.
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/engagement/assessments
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
+- https://community.rockrms.com/documentation/engagement/streaks/streak-types/rebuild-streak-type
 - https://www.triumph.tech/resources/sparks-top-8-personality-assessments
+- https://community.rockrms.com/documentation/engagement/streaks/streak-types/streak-type-detail
+- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments/view-assessment-history
 - https://community.rockrms.com/documentation/engagement/assessments/available-assessments/disc-personality-assessment
-- https://community.rockrms.com/documentation/engagement/assessments/administer-assessments
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/conflict-profile
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type
+- https://community.rockrms.com/documentation/engagement/streaks/overview/streaks-maps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
+- https://community.rockrms.com/documentation/engagement/assessments/available-assessments/emotional-intelligence
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/achievement-type-advanced-settings

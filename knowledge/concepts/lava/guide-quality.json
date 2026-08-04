@@ -74,7 +74,7 @@
   "concept_id": "lava",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 2027,
   "guide_word_count": 14996,
   "metrics": {
@@ -83,7 +83,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 12,
     "section_count": 140,
-    "source_count": 54,
+    "source_count": 82,
     "substantive_uncited_section_ratio": 0.0122,
     "task_card_count": 8,
     "word_count": 14996
@@ -91,7 +91,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 140,
-  "source_count": 54,
+  "source_count": 82,
   "status": "fail",
   "task_card_count": 8
 }

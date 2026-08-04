@@ -42,15 +42,15 @@ Complete Inspect A Person Attribute with evidence-backed checks and a verifiable
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/attribute-values
 - https://community.rockrms.com/lava/commands/entity-commands
 - https://community.rockrms.com/lava/workflows
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_PersonAttributeValues.sql
 - https://community.rockrms.com/rocku/individuals-in-rock/family-attributes
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/People/SetPersonAttribute.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/CodeGen_AddUpdatePersonAttributes.sql
 - https://community.rockrms.com/documentation/bookcontent/7/296
 - https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/developer/303---blast-off/extending-rock-even-further
-- https://community.rockrms.com/rocku/lava/entity-commands

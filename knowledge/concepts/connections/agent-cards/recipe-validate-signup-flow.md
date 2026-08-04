@@ -50,6 +50,7 @@ Cite Add Request mobile docs for parameter behavior and v17.2/v18.1 release note
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
@@ -57,4 +58,3 @@ Cite Add Request mobile docs for parameter behavior and v17.2/v18.1 release note
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm

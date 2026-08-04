@@ -44,8 +44,14 @@ from ..source_native_migration import (
     build_source_native_legacy_migration_inputs,
     merge_source_native_legacy_migration_outputs,
     promote_source_native_legacy_migration,
+    rebind_source_native_legacy_migration_output,
     write_source_native_legacy_migration_prompt,
     write_source_native_legacy_migration_schema,
+)
+from ..source_native_priority import (
+    SOURCE_NATIVE_MIGRATION_PRIORITY_PATH,
+    build_source_native_migration_priority_report,
+    parse_utc,
 )
 from ..source_native_readiness import (
     SOURCE_NATIVE_PROMOTION_POLICY_PATH,
@@ -54,6 +60,7 @@ from ..source_native_readiness import (
     load_json,
 )
 from ..source_native_verification import (
+    VERIFICATION_REPORT_NAME,
     VERIFICATION_RESOLUTIONS_NAME,
     audit_source_native_verifications,
     build_source_native_verification_packet,
@@ -649,6 +656,101 @@ def source_native_migration_promote(
     )
 
 
+@app.command("source-native-migration-rebind")
+def source_native_migration_rebind(
+    previous_input: Path = typer.Option(
+        ...,
+        "--previous-input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    refreshed_input: Path = typer.Option(
+        ...,
+        "--refreshed-input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    output_path: Path = typer.Option(
+        ...,
+        "--output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Previously reviewed migration output.",
+    ),
+    destination: Path = typer.Option(
+        ...,
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Rebind reviewed decisions after a metadata-only legacy hash refresh."""
+
+    typer.echo(
+        json.dumps(
+            rebind_source_native_legacy_migration_output(
+                previous_input_path=previous_input,
+                refreshed_input_path=refreshed_input,
+                output_path=output_path,
+                destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-priority")
+def source_native_migration_priority(
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_MIGRATION_PRIORITY_PATH,
+        "--destination",
+        file_okay=True,
+        dir_okay=False,
+        help="Ignored deterministic migration queue report.",
+    ),
+    as_of: str | None = typer.Option(
+        None,
+        "--as-of",
+        help="UTC ISO-8601 ranking time; defaults to now.",
+    ),
+    limit: int = typer.Option(200, "--limit", min=1, max=2000),
+    dashboard_path: Path | None = typer.Option(
+        None,
+        "--dashboard",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Optional captured operations dashboard for bounded advisory signals.",
+    ),
+) -> None:
+    """Rank active, unreviewed legacy prose records for bounded migration."""
+
+    as_of_value = parse_utc(as_of)
+    if as_of and as_of_value is None:
+        raise typer.BadParameter("--as-of must be a valid ISO-8601 timestamp")
+    dashboard = None
+    if dashboard_path is not None:
+        dashboard = json.loads(dashboard_path.read_text(encoding="utf-8"))
+        if not isinstance(dashboard, dict):
+            raise typer.BadParameter("--dashboard must contain a JSON object")
+    typer.echo(
+        json.dumps(
+            build_source_native_migration_priority_report(
+                destination=destination,
+                as_of=as_of_value,
+                limit=limit,
+                dashboard=dashboard,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
 @app.command("source-native-verification-packet")
 def source_native_verification_packet(
     queue_path: Path = typer.Option(
@@ -749,6 +851,17 @@ def source_native_verification_audit(
 ) -> None:
     """Report unresolved, stale, and default-cutover-blocking verification rows."""
 
+    tracked_report = SOURCE_NATIVE_PILOT_DIR / VERIFICATION_REPORT_NAME
+    if (
+        check_live
+        and destination is not None
+        and destination.resolve() == tracked_report.resolve()
+    ):
+        raise typer.BadParameter(
+            "live verification reports are ephemeral readiness evidence; "
+            "write them under ignored data/review instead of the manifest-bound "
+            "canonical bundle"
+        )
     report = audit_source_native_verifications(
         queue_path=queue_path,
         resolution_path=resolution_path,

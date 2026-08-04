@@ -5,6 +5,8 @@ from typer.testing import CliRunner
 
 from rock_kb.cli import app
 from rock_kb.cli import audit_cmds
+from rock_kb.source_native import SOURCE_NATIVE_PILOT_DIR
+from rock_kb.source_native_verification import VERIFICATION_REPORT_NAME
 
 
 FINAL_COMMANDS = [
@@ -138,3 +140,19 @@ def test_audit_all_passes_concrete_rockumentation_options(monkeypatch):
         {"probe_static": False, "max_static_probes": None},
         {"public_only": True},
     ]
+
+
+def test_live_verification_audit_rejects_manifest_bound_report_destination():
+    result = CliRunner().invoke(
+        app,
+        [
+            "tools",
+            "source-native-verification-audit",
+            "--check-live",
+            "--destination",
+            str(SOURCE_NATIVE_PILOT_DIR / VERIFICATION_REPORT_NAME),
+        ],
+    )
+
+    assert result.exit_code != 0
+    assert "ephemeral readiness evidence" in result.output

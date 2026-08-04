@@ -47,15 +47,15 @@ The external schedule recipe demonstrates why copied pages may be necessary when
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/documentation/bookcontent/10/266
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql
 - https://community.rockrms.com/rocku/groups/group-types
 - https://community.rockrms.com/rocku/groups/group-scheduling-overview
 - https://community.rockrms.com/recipes/459
 - https://community.rockrms.com/rocku/groups/group-details
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
 - https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule
-- https://community.rockrms.com/rocku/groups/group-requirements
-- https://community.rockrms.com/rocku/groups/group-security
-- https://community.rockrms.com/recipes/530/dynamic-sender-for-group-scheduling-confirmations-coordinator-fallback

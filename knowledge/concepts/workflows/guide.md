@@ -618,7 +618,7 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `19`
+- Approved media records routed to this concept: `20`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
@@ -631,6 +631,6 @@ This generated summary links the long-form guide to reviewed media distillations
 | [Data Automation Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/data-automation) | approved_for_public_distillation | 3 | media-insight:e7c8cb97245bec8d |
 | [Deconstructing a Sample Workflow Transcript Insight](https://community.rockrms.com/rocku/workflows/deconstructing-a-sample-workflow) | approved_for_public_distillation | 3 | media-insight:1db2ecf2b71445df |
 | [Form Builder Transcript Insight](https://community.rockrms.com/rocku/workflows/form-builder) | approved_for_public_distillation | 2 | media-insight:4d696c083d2ec15d |
-| More |  | 11 additional reviewed media records are tracked in `approved-media.md`. |  |
+| More |  | 12 additional reviewed media records are tracked in `approved-media.md`. |  |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->

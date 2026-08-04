@@ -848,7 +848,7 @@
   },
   "approved_media_hash": "ec35b8de14526a2c289432c0f16466114551322d087df88c30bf64aab1c26c0f",
   "approved_media_path": "knowledge/concepts/api-integrations/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "api-integrations",
   "guide_hash": "39aefabf2e9956e81e2cbe5a9866c7fb32f40637ea68170a896232e8bec230e3",
   "guide_line_count": 1571,
@@ -920,12 +920,12 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
-      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "content_hash": "b7ba4b22d2c434ead8469cd17efcb552abb146b88bdf40f766cc6704b2122d25",
+      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
       "source_id": "rock_developer",
-      "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
+      "source_key": "366c62c0274cf5af",
+      "source_record_id": "rock_developer:366c62c0274cf5af",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications"
     },
     {
       "authority": "official-developer",
@@ -935,6 +935,15 @@
       "source_key": "8f9847f0880303e0",
       "source_record_id": "rock_developer:8f9847f0880303e0",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/applications"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
+      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
     },
     {
       "authority": "official-developer",
@@ -1037,12 +1046,12 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "d1862dde11f9a186a16d4b4febb4b0fb8bb8fb85a21000d903dede331dc30816",
+      "content_hash": "dfa75869152c9220c2ff2282ccb938370fd49e6ae92972a7178a7fc3dcde90ad",
       "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
       "source_id": "rock_developer",
-      "source_key": "62524909bcc2f18b",
-      "source_record_id": "rock_developer:62524909bcc2f18b",
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards"
+      "source_key": "9c6602ae13ab291c",
+      "source_record_id": "rock_developer:9c6602ae13ab291c",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture"
     },
     {
       "authority": "official-developer",
@@ -1073,12 +1082,39 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "89277beaa9f87f9b775238a92513415fc3d0d31dc3e9bc84fab02851c05f5bbc",
+      "excerpt_hash": "7f81c1a0fcbf3e81c5bbf59f48f7128de08cb21e707a1ba756277ad6271e646e",
+      "source_id": "rock_developer",
+      "source_key": "4da60cf32b65caa5",
+      "source_record_id": "rock_developer:4da60cf32b65caa5",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
       "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
       "source_id": "rock_developer",
       "source_key": "9d82300fec33a358",
       "source_record_id": "rock_developer:9d82300fec33a358",
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "85141766fba1ddcad4373a7a25b285acf495bb1df99536bfd5280a1422c47726",
+      "excerpt_hash": "9375d9415fcd5ab3b43101d4323afbc7664ba4b6e8ece1fc5163b78eb019b010",
+      "source_id": "rock_developer",
+      "source_key": "2a056e99824af72b",
+      "source_record_id": "rock_developer:2a056e99824af72b",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9d48706e117a374d09c31d2559537860d16c6cea3a6fc93dbe296ae6f91bd87a",
+      "excerpt_hash": "2b552ccbc5456376f4813a48d6f5b5a6450881c140e23883e175479b05f599ae",
+      "source_id": "rock_developer",
+      "source_key": "074a2b271eca8da5",
+      "source_record_id": "rock_developer:074a2b271eca8da5",
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools"
     },
     {
       "authority": "community-reference",
@@ -1117,13 +1153,22 @@
       "url": "https://community.rockrms.com/developer/303---blast-off/rock-security"
     },
     {
-      "authority": "community-reference",
-      "content_hash": "7a41590012845df7334e597c6fc794cb5ae82fcd5814dd4f9a966455e82f979f",
+      "authority": "official-developer",
+      "content_hash": "90cdfc8caff8c59bb66c7ec82168b44329a4e3036cc1e6f1ec4b65fa3f85eb37",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "source_id": "rock_developer",
+      "source_key": "82a780f161ffcf0a",
+      "source_record_id": "rock_developer:82a780f161ffcf0a",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/code-security"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "bfe719d3749b7682ac79fcd94ea3d7092937b38c2b99f4299dfa837bbd18caaa",
       "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
-      "source_id": "rock_community_site",
-      "source_key": "06156bb3a5401956",
-      "source_record_id": "rock_community_site:06156bb3a5401956",
-      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file"
+      "source_id": "rock_recipes",
+      "source_key": "07e7de2629271fcc",
+      "source_record_id": "rock_recipes:07e7de2629271fcc",
+      "url": "https://community.rockrms.com/recipes/540"
     },
     {
       "authority": "community-example",
@@ -1151,6 +1196,15 @@
       "source_key": "f76e5d37a4b67cbe",
       "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "bb68920d6fe3ff6e9cbe817fdd942d6546573a1759546ed48f86c1e13f1a7502",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "b298af2cf3202cfb",
+      "source_record_id": "rock_developer:b298af2cf3202cfb",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail"
     },
     {
       "authority": "official-developer",
@@ -1277,6 +1331,15 @@
       "source_key": "0dccb7f3384b930a",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Security/ApiKeyPurpose.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "db9a403014678df2ef8f7f484593e0538fa6f2eeb2fb0078ccdfa0d847ae5b3a",
+      "excerpt_hash": "bb46d337ed247b7871c1e147b2e11d1834b3829fc5238c77cc3551578e7f2174",
+      "source_id": "rock_developer",
+      "source_key": "dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
+      "url": "https://community.rockrms.com/developer/helix/overview/security"
     },
     {
       "authority": "official-developer",
@@ -1414,6 +1477,15 @@
       "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
     },
     {
+      "authority": "official-developer",
+      "content_hash": "df4200bab82058f2c3110a4280a83aa9acb4a89d0debb8ec82857ec361f5507f",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "source_id": "rock_developer",
+      "source_key": "28c9add99f6b608f",
+      "source_record_id": "rock_developer:28c9add99f6b608f",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/service-layers"
+    },
+    {
       "authority": "unknown",
       "content_hash": null,
       "excerpt_hash": null,
@@ -1521,7 +1593,7 @@
         "22092085266102c5",
         "53ad1133e1cb2d0a",
         "1a7cdd8d2a7f15eb",
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "8f9847f0880303e0",
         "6a9eebe7a077d89a",
         "379b8b3e079b94e5",
@@ -1540,7 +1612,7 @@
       "source_keys": [
         "547b1337a6e19cf7",
         "acd6d42ca9f08d83",
-        "6a9eebe7a077d89a"
+        "366c62c0274cf5af"
       ],
       "start_line": 64
     },
@@ -1644,7 +1716,7 @@
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology-lava-application-lava-endpoint",
       "source_keys": [
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "8f9847f0880303e0",
         "6a9eebe7a077d89a",
         "f146552f6ffaa13a"
@@ -1697,15 +1769,15 @@
       "source_keys": [
         "1a7cdd8d2a7f15eb",
         "547b1337a6e19cf7",
-        "62524909bcc2f18b",
+        "9c6602ae13ab291c",
         "fe094e82abfc4adf",
         "9cff0c87fd8eab29",
         "66cd0caee02b1e4b",
         "4f0249164a4754aa",
+        "4da60cf32b65caa5",
         "9d82300fec33a358",
-        "9d82300fec33a358",
-        "9d82300fec33a358",
-        "9d82300fec33a358"
+        "2a056e99824af72b",
+        "074a2b271eca8da5"
       ],
       "start_line": 148
     },
@@ -1738,8 +1810,8 @@
         "427e5301d593e4bc",
         "eb2b5509786a6895",
         "f807acb8c3c3d207",
-        "62524909bcc2f18b",
-        "9d82300fec33a358"
+        "82a780f161ffcf0a",
+        "4da60cf32b65caa5"
       ],
       "start_line": 182
     },
@@ -1750,7 +1822,7 @@
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
-        "06156bb3a5401956",
+        "07e7de2629271fcc",
         "4f209a87e662fefd",
         "8cdec880af451ef9"
       ],
@@ -1769,7 +1841,7 @@
         "46476aa8453a8245",
         "027cede393b38974",
         "53ad1133e1cb2d0a",
-        "06156bb3a5401956",
+        "07e7de2629271fcc",
         "4f209a87e662fefd",
         "8f9847f0880303e0",
         "6a9eebe7a077d89a",
@@ -1777,6 +1849,7 @@
         "427e5301d593e4bc",
         "776256c424368312",
         "f76e5d37a4b67cbe",
+        "b298af2cf3202cfb",
         "d81b99f44bb58799",
         "9cff0c87fd8eab29",
         "66cd0caee02b1e4b",
@@ -1829,7 +1902,7 @@
       "section_id": "5-core-configuration-and-data-model-lava-webhook-defined-type",
       "source_keys": [
         "53ad1133e1cb2d0a",
-        "06156bb3a5401956"
+        "07e7de2629271fcc"
       ],
       "start_line": 281
     },
@@ -1878,7 +1951,7 @@
       "source_keys": [
         "776256c424368312",
         "f76e5d37a4b67cbe",
-        "d81b99f44bb58799",
+        "b298af2cf3202cfb",
         "d81b99f44bb58799",
         "9cff0c87fd8eab29",
         "66cd0caee02b1e4b",
@@ -1895,7 +1968,7 @@
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
         "bce31f25cb8a199e",
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "379b8b3e079b94e5",
         "f146552f6ffaa13a",
         "8cdec880af451ef9",
@@ -1930,7 +2003,7 @@
       "section_id": "6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint",
       "source_keys": [
         "bce31f25cb8a199e",
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "379b8b3e079b94e5",
         "f146552f6ffaa13a"
       ],
@@ -2277,7 +2350,7 @@
         "4f0249164a4754aa",
         "9cff0c87fd8eab29",
         "53ad1133e1cb2d0a",
-        "06156bb3a5401956",
+        "07e7de2629271fcc",
         "4f209a87e662fefd",
         "776256c424368312",
         "f76e5d37a4b67cbe",
@@ -2315,7 +2388,7 @@
       "needs_live_verification": false,
       "section_id": "10-webhooks-deep-dive-response-content-types",
       "source_keys": [
-        "06156bb3a5401956"
+        "07e7de2629271fcc"
       ],
       "start_line": 814
     },
@@ -2362,8 +2435,8 @@
       "source_keys": [
         "eb2b5509786a6895",
         "f807acb8c3c3d207",
-        "62524909bcc2f18b",
-        "802567c280193bd0",
+        "82a780f161ffcf0a",
+        "dfd0cdc56d97fa7f",
         "3c3c83e2437f3933",
         "46476aa8453a8245",
         "4f209a87e662fefd",
@@ -2386,8 +2459,8 @@
       "source_keys": [
         "eb2b5509786a6895",
         "f807acb8c3c3d207",
-        "62524909bcc2f18b",
-        "802567c280193bd0"
+        "82a780f161ffcf0a",
+        "dfd0cdc56d97fa7f"
       ],
       "start_line": 879
     },
@@ -2415,7 +2488,7 @@
         "1a7cdd8d2a7f15eb",
         "fe094e82abfc4adf",
         "789454b4b23d582c",
-        "802567c280193bd0"
+        "dfd0cdc56d97fa7f"
       ],
       "start_line": 916
     },
@@ -2443,7 +2516,7 @@
         "e1caa5870d162bcc",
         "e395e8db6cce68d7",
         "554e0dda0bc287c2",
-        "802567c280193bd0",
+        "dfd0cdc56d97fa7f",
         "f146552f6ffaa13a",
         "379b8b3e079b94e5"
       ],
@@ -2493,7 +2566,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-method-semantics",
       "source_keys": [
-        "802567c280193bd0"
+        "dfd0cdc56d97fa7f"
       ],
       "start_line": 1010
     },
@@ -2504,7 +2577,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-caching",
       "source_keys": [
-        "802567c280193bd0"
+        "dfd0cdc56d97fa7f"
       ],
       "start_line": 1022
     },
@@ -2681,10 +2754,11 @@
         "776256c424368312",
         "f76e5d37a4b67cbe",
         "802567c280193bd0",
+        "366c62c0274cf5af",
         "6a9eebe7a077d89a",
         "f99ba5bb3222f37e",
         "275f4eda54018f53",
-        "d81b99f44bb58799",
+        "b298af2cf3202cfb",
         "6920f6e860c4b936"
       ],
       "start_line": 1154
@@ -2742,7 +2816,7 @@
       "section_id": "15-version-and-release-caveats-helix-and-lava-applications",
       "source_keys": [
         "802567c280193bd0",
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "6a9eebe7a077d89a"
       ],
       "start_line": 1180
@@ -2756,7 +2830,7 @@
       "source_keys": [
         "f99ba5bb3222f37e",
         "275f4eda54018f53",
-        "d81b99f44bb58799",
+        "b298af2cf3202cfb",
         "6920f6e860c4b936"
       ],
       "start_line": 1186
@@ -2773,8 +2847,10 @@
         "6a9eebe7a077d89a",
         "379b8b3e079b94e5",
         "c6c618a8406c7343",
-        "62524909bcc2f18b",
-        "9d82300fec33a358"
+        "28c9add99f6b608f",
+        "9d82300fec33a358",
+        "4da60cf32b65caa5",
+        "074a2b271eca8da5"
       ],
       "start_line": 1192
     },
@@ -2831,7 +2907,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-e-custom-rest-v2-endpoint",
       "source_keys": [
-        "62524909bcc2f18b"
+        "28c9add99f6b608f"
       ],
       "start_line": 1260
     },
@@ -2843,8 +2919,8 @@
       "section_id": "16-implementation-playbooks-playbook-f-agent-tool-for-rock-data",
       "source_keys": [
         "9d82300fec33a358",
-        "9d82300fec33a358",
-        "9d82300fec33a358"
+        "4da60cf32b65caa5",
+        "074a2b271eca8da5"
       ],
       "start_line": 1276
     },
@@ -2966,7 +3042,9 @@
       "section_id": "18-agent-task-recipes",
       "source_keys": [
         "776256c424368312",
-        "9d82300fec33a358"
+        "4da60cf32b65caa5",
+        "2a056e99824af72b",
+        "074a2b271eca8da5"
       ],
       "start_line": 1416
     },
@@ -3021,9 +3099,9 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-build-a-safe-agent-tool",
       "source_keys": [
-        "9d82300fec33a358",
-        "9d82300fec33a358",
-        "9d82300fec33a358"
+        "4da60cf32b65caa5",
+        "2a056e99824af72b",
+        "074a2b271eca8da5"
       ],
       "start_line": 1462
     },
@@ -3080,14 +3158,14 @@
         "53ad1133e1cb2d0a",
         "1a7cdd8d2a7f15eb",
         "fe094e82abfc4adf",
-        "6a9eebe7a077d89a",
+        "366c62c0274cf5af",
         "8f9847f0880303e0",
         "6a9eebe7a077d89a",
         "379b8b3e079b94e5",
-        "802567c280193bd0",
+        "dfd0cdc56d97fa7f",
         "eb2b5509786a6895",
         "f807acb8c3c3d207",
-        "62524909bcc2f18b",
+        "82a780f161ffcf0a",
         "3c3c83e2437f3933",
         "0a1df6eb6e308fc2",
         "bce31f25cb8a199e",
@@ -3102,7 +3180,7 @@
         "e395e8db6cce68d7",
         "f76e5d37a4b67cbe",
         "b62f52dbefd1a36d",
-        "06156bb3a5401956",
+        "07e7de2629271fcc",
         "4f209a87e662fefd",
         "8cdec880af451ef9",
         "470797c964770153",
@@ -3271,16 +3349,16 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
-      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "content_hash": "b7ba4b22d2c434ead8469cd17efcb552abb146b88bdf40f766cc6704b2122d25",
+      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
-      "title": "Endpoints",
+      "source_key": "366c62c0274cf5af",
+      "source_record_id": "rock_developer:366c62c0274cf5af",
+      "title": "Lava Applications",
       "topics": [
         "api",
         "development",
@@ -3288,7 +3366,7 @@
         "obsidian",
         "security"
       ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications",
       "version": null
     },
     {
@@ -3313,6 +3391,30 @@
         "security"
       ],
       "url": "https://community.rockrms.com/developer/helix/lava-applications/applications",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c6fcd411840d29d436fe415c8df022743a584f6238fc5893091eccdb1ef80a51",
+      "excerpt_hash": "e516b23c34137764433307f156d22656aefb824d4be146499940ee3e49767697",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "title": "Endpoints",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
       "version": null
     },
     {
@@ -3561,25 +3663,24 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "d1862dde11f9a186a16d4b4febb4b0fb8bb8fb85a21000d903dede331dc30816",
+      "content_hash": "dfa75869152c9220c2ff2282ccb938370fd49e6ae92972a7178a7fc3dcde90ad",
       "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "62524909bcc2f18b",
-      "source_record_id": "rock_developer:62524909bcc2f18b",
-      "title": "Coding Standards",
+      "source_key": "9c6602ae13ab291c",
+      "source_record_id": "rock_developer:9c6602ae13ab291c",
+      "title": "Rock Architecture",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian",
-        "security",
-        "sql"
+        "security"
       ],
-      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture",
       "version": null
     },
     {
@@ -3659,6 +3760,30 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "89277beaa9f87f9b775238a92513415fc3d0d31dc3e9bc84fab02851c05f5bbc",
+      "excerpt_hash": "7f81c1a0fcbf3e81c5bbf59f48f7128de08cb21e707a1ba756277ad6271e646e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "4da60cf32b65caa5",
+      "source_record_id": "rock_developer:4da60cf32b65caa5",
+      "title": "Writing Custom Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "afc1c56245533b9407aa216909882a123f43d25f84c3c0e751a325f7440d5874",
       "excerpt_hash": "ab2033068920acb93b3e831243d369f977f20ce8af0c6c20f0bc67f0f9e76e07",
       "hydrated": true,
@@ -3678,6 +3803,55 @@
         "sql"
       ],
       "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "85141766fba1ddcad4373a7a25b285acf495bb1df99536bfd5280a1422c47726",
+      "excerpt_hash": "9375d9415fcd5ab3b43101d4323afbc7664ba4b6e8ece1fc5163b78eb019b010",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "2a056e99824af72b",
+      "source_record_id": "rock_developer:2a056e99824af72b",
+      "title": "Get Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/get-tools",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9d48706e117a374d09c31d2559537860d16c6cea3a6fc93dbe296ae6f91bd87a",
+      "excerpt_hash": "2b552ccbc5456376f4813a48d6f5b5a6450881c140e23883e175479b05f599ae",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "074a2b271eca8da5",
+      "source_record_id": "rock_developer:074a2b271eca8da5",
+      "title": "List Tools",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools",
       "version": null
     },
     {
@@ -3773,28 +3947,52 @@
       "version": null
     },
     {
-      "authority": "community-reference",
-      "authority_score": 45,
+      "authority": "official-developer",
+      "authority_score": 90,
       "change_type": null,
-      "content_hash": "7a41590012845df7334e597c6fc794cb5ae82fcd5814dd4f9a966455e82f979f",
+      "content_hash": "90cdfc8caff8c59bb66c7ec82168b44329a4e3036cc1e6f1ec4b65fa3f85eb37",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "82a780f161ffcf0a",
+      "source_record_id": "rock_developer:82a780f161ffcf0a",
+      "title": "Code Security",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/code-security",
+      "version": null
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "bfe719d3749b7682ac79fcd94ea3d7092937b38c2b99f4299dfa837bbd18caaa",
       "excerpt_hash": "ebbbec530bff83346e8c601ead090819f8cd2f0b818e280cd0825373d31e870c",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_community_site",
-      "source_key": "06156bb3a5401956",
-      "source_record_id": "rock_community_site:06156bb3a5401956",
+      "source_id": "rock_recipes",
+      "source_key": "07e7de2629271fcc",
+      "source_record_id": "rock_recipes:07e7de2629271fcc",
       "title": "Lava Webhook to Create an iCal (.ics) File",
       "topics": [
         "api",
-        "community",
-        "development",
-        "documentation",
+        "integrations",
         "lava",
-        "usage"
+        "recipes",
+        "sql",
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file",
+      "url": "https://community.rockrms.com/recipes/540",
       "version": null
     },
     {
@@ -3865,6 +4063,32 @@
       "source_record_id": "SparkDevNetwork/Rock:Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
       "title": "Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/192_MailgunCopyApiKeyToHttpWebhookSigningKey.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "bb68920d6fe3ff6e9cbe817fdd942d6546573a1759546ed48f86c1e13f1a7502",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b298af2cf3202cfb",
+      "source_record_id": "rock_developer:b298af2cf3202cfb",
+      "title": "Financial Batch Detail",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+      "version": null
     },
     {
       "authority": "official-developer",
@@ -4193,6 +4417,31 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "db9a403014678df2ef8f7f484593e0538fa6f2eeb2fb0078ccdfa0d847ae5b3a",
+      "excerpt_hash": "bb46d337ed247b7871c1e147b2e11d1834b3829fc5238c77cc3551578e7f2174",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
+      "title": "Security",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview/security",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "3241668b7a0eca443a7c6c95fc75346540d8ce29afe50b9ed8ab75f9f6f8b0d2",
       "excerpt_hash": "2914be9e52a6478b9091e23ab54820db977820a268c65d1750058cd4ae491990",
       "hydrated": true,
@@ -4492,6 +4741,31 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow",
       "url": "https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/configure-a-webhook-to-a-workflow"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "df4200bab82058f2c3110a4280a83aa9acb4a89d0debb8ec82857ec361f5507f",
+      "excerpt_hash": "293bbbece8d1556a78c4f8f8637dcf2474dab2252be204b42c0550d017fee6a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "28c9add99f6b608f",
+      "source_record_id": "rock_developer:28c9add99f6b608f",
+      "title": "Service Layers",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/service-layers",
+      "version": null
     },
     {
       "authority": "unknown",

@@ -1542,6 +1542,15 @@ test("Rock issue REST and MCP surfaces keep reports separate and assess versions
     const general = await generalResponse.json();
     assert.equal(general.results.some((row) => row.kind === "rock_issue"), false);
 
+    const ambiguousAffectedResponse = await mf.dispatchFetch(
+      "https://kb.example.test/search?q=Which%20operations%20are%20affected%20by%20Azure%20blob%20CPU%20configuration%3F&limit=5",
+    );
+    const ambiguousAffected = await ambiguousAffectedResponse.json();
+    assert.equal(
+      ambiguousAffected.results.some((row) => row.kind === "rock_issue"),
+      false,
+    );
+
     const searchResponse = await mf.dispatchFetch("https://kb.example.test/rock-issues/search?q=Azure%20blob%20CPU%20issue&limit=5");
     const search = await searchResponse.json();
     assert.equal(search.results[0].id, "rock_issue:SparkDevNetwork/Rock#6919");

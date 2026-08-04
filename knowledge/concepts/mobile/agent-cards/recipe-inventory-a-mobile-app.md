@@ -49,15 +49,15 @@ Complete Inventory A Mobile App with evidence-backed checks and a verifiable out
 
 ## Source Links
 
-- https://community.rockrms.com/developer/mobile-docs
 - https://www.rockrms.com/mobilereleasenotes
-- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/creating-an-app
+- https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
+- https://community.rockrms.com/developer/mobile-docs/developers
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
-- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu
-- https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events
-- https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page
+- https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm

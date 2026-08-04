@@ -2,7 +2,7 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-07-31T00:30:00+00:00
+last_built: 2026-08-04T17:15:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -192,12 +192,12 @@ Keywords: `batch, deposit, reconciliation`
 | --- | --- | --- | --- |
 | Use Batches for Online Giving | rock_documentation | Unlike processing on-site transactions, which are manually entered, the creation of online transactions in Rock is an automated process. The steps differ a bit depending on whether the transaction is a one-time transaction or a scheduled recurring transaction. ## One-Time Transactions When a one-time transaction is created online, it's immediately sent to the payment gateway and processed. If the gateway accepts the... | [source](https://community.rockrms.com/documentation/church-management/finance/online-giving/use-batches-for-online-giving) |
 | Batches | rock_documentation | Transactions that occur in a similar date range are grouped together into batches. These batches help organize the transactions. They also play a key role in integrating to your General Ledger accounting system. Instead of re-entering every transaction into your General Ledger, you can enter the batch totals knowing that Rock will keep the historical details for you to reference later if you need them. In our... | [source](https://community.rockrms.com/documentation/church-management/finance/financial-components/batches) |
+| Intro to On-Site Collection | rock_documentation | Online giving keeps climbing, but cash and checks still come in every weekend, and Rock records them right alongside online gifts. On-site collection is how you enter those in-person donations, cash, checks and even credit cards, in the context of weekly giving. A typical weekend flow looks like this: * **Gather**- Collect the cash, checks and envelopes from the service. * **Enter**- Record them in Rock as a batch... | [source](https://community.rockrms.com/documentation/church-management/finance/on-site-collection/intro-to-on-site-collection) |
 | Scan Checks | rock_documentation | When you're ready you'll be at the home page. Here you can start scanning checks to a current batch listed or create a new batch right from this window by pressing the icon next to the batches panel. Now press the Scan button pictured below to start scanning and advance to the *Scan Settings* page. The *Scan Settings* page (pictured below) lets you select which tender type you'll be scanning into Rock. In most cases... | [source](https://community.rockrms.com/documentation/church-management/finance/check-scanning/scan-checks) |
 | Rock Core Release Notes | rock_core_release_notes | Added Financial Batch Detail block to support check scanning, creation of batch, batch detail viewing, and batch modifications. Also added Financial Batch List to view available batches. | [source](https://www.rockrms.com/releasenotes) |
 | Rock Mobile Release Notes | rock_mobile_release_notes | Added the new Financial Batch Detail and Financial Batch List blocks, giving finance teams a way to scan checks, create batches, and view, review, or modify batch details from the app. | [source](https://www.rockrms.com/mobilereleasenotes) |
 | Financial Batch | rock_model_map | Financial Batch is a Rock model in the Finance category. | [source](https://community.rockrms.com/ModelMap) |
 | Analytics Dim Financial Batch | rock_model_map | Analytics Dim Financial Batch is a Rock model in the Reporting category. | [source](https://community.rockrms.com/ModelMap) |
-| Rock Shop Preview | rock_shop_plugins | This plugin is only available on the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Batch to Financial Edge by Kingdom First Solutions Inc. (KFS) $499 Note: plugin details are provided here only as a reference for what is available in the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Required Rock Version 16.0... | [source](https://www.rockrms.com/rockshop/plugin/96) |
 
 
 ## Rebuild Dependencies

@@ -42,15 +42,15 @@ RockU identifies Required Watching as part of the CMS/media learning path (Rock 
 
 ## Source Links
 
-- https://community.rockrms.com/rocku/cms
-- https://github.com/SparkDevNetwork/Rock
 - https://community.rockrms.com/lava/commands
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/obsidian/blocks/creating-blocks
-- https://community.rockrms.com/documentation/bookcontent/6
-- https://community.rockrms.com/recipes/261
-- https://community.rockrms.com/recipes/432
-- https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration
-- https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts
+- https://community.rockrms.com/rocku/cms/personalization
+- https://community.rockrms.com/rocku/cms/rock-media-required-watching
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts
+- https://community.rockrms.com/rocku/cms/rock-media-analytics
+- https://community.rockrms.com/rocku/cms/publishing-rock-media

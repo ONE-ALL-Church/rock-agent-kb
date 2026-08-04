@@ -937,7 +937,7 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "c30805988027af70524bdf4a04caa952875350055c6b882e8b0943f1f85981b3",
   "approved_media_path": "knowledge/concepts/mobile/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "mobile",
   "guide_hash": "d071ab770c61999ea8a0c2c8df395a47ed1fdb0eeb193396aed6afcf6684ce27",
   "guide_line_count": 1497,
@@ -955,21 +955,21 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "source_id": "rock_developer",
-      "source_key": "b2bd874c41f3be1c",
-      "source_record_id": "rock_developer:b2bd874c41f3be1c",
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page"
-    },
-    {
-      "authority": "official-developer",
       "content_hash": "0b4d886af43e6d70e426c0c3749ba966e2e5cb1d97bb3f1207f7973a604474de",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_developer",
       "source_key": "7151c6037ac8c7a3",
       "source_record_id": "rock_developer:7151c6037ac8c7a3",
       "url": "https://community.rockrms.com/developer/mobile-docs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "289d23ce934a3a44ad3db6fb3441aa25709ee1265f99053c67d2466f3814e729",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "c4e03e5116856543",
+      "source_record_id": "rock_developer:c4e03e5116856543",
+      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app"
     },
     {
       "authority": "official-developer",
@@ -982,12 +982,57 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "759a518a18cb0f306df5835261e82d22fa6e682d47861a2c94954bc887ccdc3e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d750e214c15d336f",
+      "source_record_id": "rock_developer:d750e214c15d336f",
+      "url": "https://community.rockrms.com/developer/mobile-docs/lexicon"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1df8d49e9f1e2e8df358277a9304bda0f03b6ca6586c25ed241c901cbc2e4091",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "96807cec6618e288",
+      "source_record_id": "rock_developer:96807cec6618e288",
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f3081fe63031a73ed225abe13a8b40b7ed31b2eaa4e1755eba4f8c966f6305ac",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "2aebfbd90f616482",
+      "source_record_id": "rock_developer:2aebfbd90f616482",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "c82769c587565cf7e33d0a4a7e340feeee15fe0262d343dcbdfc4497d49bc8aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "f7002493e6fe0527",
+      "source_record_id": "rock_developer:f7002493e6fe0527",
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "075b4d02804b22552b0fc67b9f4e97173ee8d8dad840bc07889fb01ca2838592",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_developer",
       "source_key": "427b1530c85cfeda",
       "source_record_id": "rock_developer:427b1530c85cfeda",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ce6d4dc72dee7e8d5dbf655793dfa3f775ee004e3b2ac1713b003f642ff39aa1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "687960a012290876",
+      "source_record_id": "rock_developer:687960a012290876",
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers"
     },
     {
       "authority": "official-developer",
@@ -1000,12 +1045,30 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "911baf8bff3375e983b0ae65e51b76e43ba6e0d5995d2c0b622ceb3c9c360b80",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_mobile_docs",
+      "source_key": "c6de358ae1d5157b",
+      "source_record_id": "rock_mobile_docs:c6de358ae1d5157b",
+      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "c326936969251a6a84aac17b46908f2ff1003512e0932a84d93feb6523db8e24",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_developer",
       "source_key": "52b1e0e2f1c51a91",
       "source_record_id": "rock_developer:52b1e0e2f1c51a91",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3a552b848534aa8ea16cfcf45e05f632c61f1defcb0df034c422b194b84a874c",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "b688a305b25bb667",
+      "source_record_id": "rock_developer:b688a305b25bb667",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view"
     },
     {
       "authority": "official-developer",
@@ -1051,6 +1114,15 @@
       "source_key": "4725293a0044fb8b",
       "source_record_id": "rock_developer:4725293a0044fb8b",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7b58db49c265ea51e0d84b0f54ae6ca2a3fe4fa5612d05d8bed144d4e19182d3",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "cb26ebb0411493fd",
+      "source_record_id": "rock_developer:cb26ebb0411493fd",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security"
     },
     {
       "authority": "source-code",
@@ -1180,6 +1252,24 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "7902e06bd04f0bb7f9310e218afdf3ccc7024895135c94f477136b4ae910080b",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "c8682e1082f5f91b",
+      "source_record_id": "rock_developer:c8682e1082f5f91b",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "19a481805d469e017f6c302320b33b7ae636940fbcd41b315ff7508c21713c57",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "38f659081e23c0d5",
+      "source_record_id": "rock_developer:38f659081e23c0d5",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "f95ccec778d3b133b82727fbb52f679c0bf6b7307550d453835ed26e75f964ef",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_developer",
@@ -1189,12 +1279,30 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "b2bd874c41f3be1c",
+      "source_record_id": "rock_developer:b2bd874c41f3be1c",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "519c446d8155376d15e838c5947e0034d016abf07740c8919e04b2b1cb1e10f8",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "source_id": "rock_developer",
       "source_key": "2b29c6766ad7c0c1",
       "source_record_id": "rock_developer:2b29c6766ad7c0c1",
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "5670202bf1a89e39017570a3d6c97873b68f498ebc32ab7f9b0ae95a3879ebf1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "e1c6e91a2341a6ca",
+      "source_record_id": "rock_developer:e1c6e91a2341a6ca",
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins"
     },
     {
       "authority": "official-developer",
@@ -1231,6 +1339,69 @@
       "source_key": "8789a75933cc6915",
       "source_record_id": "rock_developer:8789a75933cc6915",
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/developer-controls/execute-command"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "00a2aa58378632c410dd19bf77450d32ece8695119516720578c2cbd94739aef",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "a9debef64d842881",
+      "source_record_id": "rock_developer:a9debef64d842881",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/elements-of-a-card"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "acb2438a6a0db01d87b3672a795fbef42b49a51831be731bed3416ea489bd275",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "86dcfaf230044fcd",
+      "source_record_id": "rock_developer:86dcfaf230044fcd",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/styling-cards-with-css"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "51a219c12e24ec90508431ef20f87b7beb4f0717286dc6c7f44239f25a7a60bf",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "a0529e5342ad7824",
+      "source_record_id": "rock_developer:a0529e5342ad7824",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "33dcda345a45e254c9295489c5c43e80ebcb33cd12d77aa3a8780e512983f5a6",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d6a02efc5fdd060c",
+      "source_record_id": "rock_developer:d6a02efc5fdd060c",
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components/form-fields"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "41222956728627f38fab8f0a62ef2f31a6c50a1d3103619217cf66d2a9dc1c85",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "a8767845d48266a4",
+      "source_record_id": "rock_developer:a8767845d48266a4",
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e66ce92d0accc5b8d3465145dc42712fdfdaac07a7a307afab77e27066d3345f",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "268810958e755db4",
+      "source_record_id": "rock_developer:268810958e755db4",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "82d7841cde8359ab111d691a5550e5ce764dced3044d8544e103dd1c304eb639",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "c29e6072da46b367",
+      "source_record_id": "rock_developer:c29e6072da46b367",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms"
     },
     {
       "authority": "source-code",
@@ -1276,6 +1447,87 @@
       "source_key": "d7a4121f91c3b42b",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "36b28a417edbbb18488fe79702a79750006dd5bcbc1d21741dc9a7ab06653b90",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "6dc3320b1b9cdede",
+      "source_record_id": "rock_developer:6dc3320b1b9cdede",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "81e928291b8127843c484287646fc081114a892f3d442ef69f14b597bccec22d",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "fd42a367d1c9ce17",
+      "source_record_id": "rock_developer:fd42a367d1c9ce17",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "6714e3558c1d0cec1b4eeb28d9a2477237311c3be3df14a0f3574fa41f08f381",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "f1f1a3a0763afe1b",
+      "source_record_id": "rock_developer:f1f1a3a0763afe1b",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1da67a756375b19c321a5ec4125087bccb5daf6396fb0bf7192dd4e9fa1095aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d632e4bc8eb60dec",
+      "source_record_id": "rock_developer:d632e4bc8eb60dec",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3cf88eebf3689e5abd733192991b4eda67cfb6978afdd67c045e064471a60d3a",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "8424de202e9081d2",
+      "source_record_id": "rock_developer:8424de202e9081d2",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "cd0e2c8dd2d0a1ce2f6c2a863a078ef0fb1f24d8760f682e8a45bf9ace551539",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "d771653059529c1f",
+      "source_record_id": "rock_developer:d771653059529c1f",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2c3ae701874e2f7a261affcb83462a4791d8f61d2c04d832aa9b1aca3e8fca25",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "cd867ef41c19fe2f",
+      "source_record_id": "rock_developer:cd867ef41c19fe2f",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8080e30ee78ce3efa1a1d3dbee295de2a340d215531249ec1866d726d4893cb6",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "dad4ee6a4ca3b1f3",
+      "source_record_id": "rock_developer:dad4ee6a4ca3b1f3",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/prayer"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "057d0db5c3fcc4c387ea922d29b3a0b88cc1e7f98d7b1b0eb0c359e123f4b901",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "source_id": "rock_developer",
+      "source_key": "05fdce4b44a83151",
+      "source_record_id": "rock_developer:05fdce4b44a83151",
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders"
     }
   ],
   "routing_context_claim_count": 0,
@@ -1298,8 +1550,8 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "b2bd874c41f3be1c",
         "7151c6037ac8c7a3",
+        "c4e03e5116856543",
         "6920f6e860c4b936"
       ],
       "start_line": 29
@@ -1311,16 +1563,16 @@
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "b2bd874c41f3be1c",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "d750e214c15d336f",
+        "d750e214c15d336f",
+        "96807cec6618e288",
+        "2aebfbd90f616482",
+        "c4e03e5116856543",
+        "d750e214c15d336f",
+        "f7002493e6fe0527",
         "427b1530c85cfeda",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "687960a012290876",
+        "c4e03e5116856543"
       ],
       "start_line": 55
     },
@@ -1332,8 +1584,11 @@
       "section_id": "3-rock-mobile-mental-model",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
+        "c6de358ae1d5157b",
+        "c4e03e5116856543",
+        "96807cec6618e288",
         "52b1e0e2f1c51a91",
+        "b688a305b25bb667",
         "9201fe8635986015"
       ],
       "start_line": 96
@@ -1346,8 +1601,8 @@
       "section_id": "3-rock-mobile-mental-model-rock-core-configuration",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b",
+        "c4e03e5116856543"
       ],
       "start_line": 100
     },
@@ -1358,7 +1613,7 @@
       "needs_live_verification": false,
       "section_id": "3-rock-mobile-mental-model-native-shell-runtime",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "96807cec6618e288"
       ],
       "start_line": 123
     },
@@ -1370,7 +1625,7 @@
       "section_id": "3-rock-mobile-mental-model-device-and-platform-environment",
       "source_keys": [
         "52b1e0e2f1c51a91",
-        "7151c6037ac8c7a3",
+        "b688a305b25bb667",
         "9201fe8635986015"
       ],
       "start_line": 134
@@ -1382,7 +1637,7 @@
       "needs_live_verification": true,
       "section_id": "3-rock-mobile-mental-model-deployment-flow",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c4e03e5116856543"
       ],
       "start_line": 140
     },
@@ -1406,9 +1661,11 @@
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
+        "c4e03e5116856543",
+        "c6de358ae1d5157b",
         "18a10aca58c2b1f1",
-        "4725293a0044fb8b"
+        "4725293a0044fb8b",
+        "f7002493e6fe0527"
       ],
       "start_line": 203
     },
@@ -1420,7 +1677,7 @@
       "section_id": "5-core-configuration-and-data-model-creating-the-mobile-application",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3"
+        "c4e03e5116856543"
       ],
       "start_line": 205
     },
@@ -1431,7 +1688,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-application-type",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c6de358ae1d5157b",
         "18a10aca58c2b1f1"
       ],
       "start_line": 221
@@ -1443,7 +1700,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-lock-orientation",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b"
       ],
       "start_line": 237
     },
@@ -1454,7 +1711,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-application-pages",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c6de358ae1d5157b",
         "18a10aca58c2b1f1"
       ],
       "start_line": 247
@@ -1466,8 +1723,8 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-api-key",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b",
+        "c4e03e5116856543"
       ],
       "start_line": 266
     },
@@ -1478,7 +1735,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-flyout-xaml",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b"
       ],
       "start_line": 278
     },
@@ -1489,7 +1746,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-homepage-routing-logic",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b"
       ],
       "start_line": 291
     },
@@ -1501,8 +1758,8 @@
       "section_id": "5-core-configuration-and-data-model-palette-colors-and-styling-values",
       "source_keys": [
         "4725293a0044fb8b",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "f7002493e6fe0527",
+        "f7002493e6fe0527",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
@@ -1516,8 +1773,8 @@
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
         "4725293a0044fb8b",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "f7002493e6fe0527",
+        "f7002493e6fe0527",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
@@ -1530,7 +1787,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-mobile-application-relationship-map",
       "source_keys": [
-        "b2bd874c41f3be1c",
+        "7151c6037ac8c7a3",
         "18a10aca58c2b1f1"
       ],
       "start_line": 324
@@ -1542,8 +1799,8 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-page-block-and-security-relationships",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "cb26ebb0411493fd",
+        "687960a012290876"
       ],
       "start_line": 343
     },
@@ -1579,12 +1836,18 @@
       "section_id": "7-common-rock-mobile-workflows",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
+        "c6de358ae1d5157b",
+        "c4e03e5116856543",
+        "b688a305b25bb667",
+        "c8682e1082f5f91b",
         "362ccb41c9d64b1f",
+        "38f659081e23c0d5",
         "18a10aca58c2b1f1",
-        "b2bd874c41f3be1c",
+        "2aebfbd90f616482",
         "6ec62a1509d61113",
+        "b2bd874c41f3be1c",
         "2b29c6766ad7c0c1",
+        "e1c6e91a2341a6ca",
         "a54f0299534eff0b",
         "9201fe8635986015",
         "d973648867411aa4"
@@ -1599,8 +1862,8 @@
       "section_id": "7-common-rock-mobile-workflows-build-a-first-app",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b",
+        "c4e03e5116856543"
       ],
       "start_line": 377
     },
@@ -1612,8 +1875,8 @@
       "section_id": "7-common-rock-mobile-workflows-change-a-page-or-block",
       "source_keys": [
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c6de358ae1d5157b",
+        "c4e03e5116856543"
       ],
       "start_line": 389
     },
@@ -1624,9 +1887,9 @@
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-add-a-webview-integration",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "b688a305b25bb667",
+        "b688a305b25bb667",
+        "c8682e1082f5f91b",
         "362ccb41c9d64b1f"
       ],
       "start_line": 403
@@ -1638,8 +1901,8 @@
       "needs_live_verification": true,
       "section_id": "7-common-rock-mobile-workflows-configure-push-notifications",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "38f659081e23c0d5",
+        "38f659081e23c0d5",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1"
       ],
@@ -1652,14 +1915,14 @@
       "needs_live_verification": false,
       "section_id": "7-common-rock-mobile-workflows-publish-or-update-through-app-factory",
       "source_keys": [
-        "b2bd874c41f3be1c",
+        "2aebfbd90f616482",
         "6ec62a1509d61113",
         "6ec62a1509d61113",
         "b2bd874c41f3be1c",
         "2b29c6766ad7c0c1",
-        "7151c6037ac8c7a3",
+        "e1c6e91a2341a6ca",
         "a54f0299534eff0b",
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b"
       ],
       "start_line": 440
     },
@@ -1774,7 +2037,7 @@
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-webview",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 592
     },
@@ -1818,8 +2081,8 @@
       "needs_live_verification": true,
       "section_id": "9-controls-deep-dive-cards-and-styling",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "a9debef64d842881",
+        "86dcfaf230044fcd"
       ],
       "start_line": 663
     },
@@ -1830,7 +2093,7 @@
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive-behaviors",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "a0529e5342ad7824",
         "18a10aca58c2b1f1"
       ],
       "start_line": 676
@@ -1858,7 +2121,7 @@
       "needs_live_verification": false,
       "section_id": "9-controls-deep-dive-form-fields-and-responsive-inputs",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "d6a02efc5fdd060c",
         "18a10aca58c2b1f1"
       ],
       "start_line": 705
@@ -1870,7 +2133,7 @@
       "needs_live_verification": false,
       "section_id": "10-mobile-releases-deep-dive",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "a8767845d48266a4",
         "6920f6e860c4b936",
         "18a10aca58c2b1f1",
         "9201fe8635986015"
@@ -1884,7 +2147,7 @@
       "needs_live_verification": true,
       "section_id": "10-mobile-releases-deep-dive-release-version-table",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "a8767845d48266a4",
         "6920f6e860c4b936"
       ],
       "start_line": 718
@@ -1897,7 +2160,7 @@
       "section_id": "10-mobile-releases-deep-dive-v7-0",
       "source_keys": [
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3"
+        "a8767845d48266a4"
       ],
       "start_line": 737
     },
@@ -1964,11 +2227,15 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-api-check-in-cms-security",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c4e03e5116856543",
+        "c6de358ae1d5157b",
+        "268810958e755db4",
         "18a10aca58c2b1f1",
         "cff63e93f4ad7264",
         "73db35ed860fc868",
+        "c29e6072da46b367",
         "2b29c6766ad7c0c1",
+        "e1c6e91a2341a6ca",
         "6ec62a1509d61113"
       ],
       "start_line": 813
@@ -1980,8 +2247,8 @@
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-api",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c4e03e5116856543",
+        "c6de358ae1d5157b"
       ],
       "start_line": 815
     },
@@ -1992,7 +2259,7 @@
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-check-in",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "268810958e755db4",
         "18a10aca58c2b1f1",
         "cff63e93f4ad7264",
         "73db35ed860fc868"
@@ -2006,7 +2273,7 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-api-check-in-cms-security-cms",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c29e6072da46b367",
         "18a10aca58c2b1f1"
       ],
       "start_line": 852
@@ -2019,7 +2286,7 @@
       "section_id": "11-related-rock-areas-api-check-in-cms-security-security",
       "source_keys": [
         "2b29c6766ad7c0c1",
-        "7151c6037ac8c7a3",
+        "e1c6e91a2341a6ca",
         "6ec62a1509d61113"
       ],
       "start_line": 867
@@ -2031,12 +2298,13 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c4e03e5116856543",
         "6920f6e860c4b936",
         "b2bd874c41f3be1c",
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1",
-        "a54f0299534eff0b"
+        "a54f0299534eff0b",
+        "c8682e1082f5f91b"
       ],
       "start_line": 885
     },
@@ -2047,7 +2315,7 @@
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-deployment-guardrails",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c4e03e5116856543"
       ],
       "start_line": 887
     },
@@ -2113,8 +2381,8 @@
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-in-app-giving-guardrails",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b",
+        "c8682e1082f5f91b"
       ],
       "start_line": 973
     },
@@ -2126,7 +2394,7 @@
       "section_id": "13-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
         "459b95df0ea8e5ee",
-        "7151c6037ac8c7a3",
+        "f7002493e6fe0527",
         "cff63e93f4ad7264",
         "c70939d34520dfa2",
         "d0dfe0fc7ec041b9",
@@ -2160,7 +2428,7 @@
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-styling",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "f7002493e6fe0527"
       ],
       "start_line": 1003
     },
@@ -2194,7 +2462,7 @@
       "section_id": "14-reporting-analytics-and-model-map",
       "source_keys": [
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3",
+        "38f659081e23c0d5",
         "6af2b36afe8d95e0",
         "981b3ac7fdde6d7f",
         "043ee0dda2027021"
@@ -2230,7 +2498,7 @@
       "needs_live_verification": true,
       "section_id": "14-reporting-analytics-and-model-map-communication-reporting",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "38f659081e23c0d5"
       ],
       "start_line": 1051
     },
@@ -2267,12 +2535,14 @@
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "96807cec6618e288",
         "8789a75933cc6915",
         "070471cfc7c5bacc",
         "18a10aca58c2b1f1",
+        "c8682e1082f5f91b",
         "9201fe8635986015",
         "52b1e0e2f1c51a91",
+        "a8767845d48266a4",
         "6920f6e860c4b936"
       ],
       "start_line": 1095
@@ -2284,12 +2554,12 @@
       "needs_live_verification": false,
       "section_id": "15-version-and-release-caveats-core-and-shell-tags",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "96807cec6618e288",
         "8789a75933cc6915",
         "070471cfc7c5bacc",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b"
       ],
       "start_line": 1097
     },
@@ -2314,7 +2584,7 @@
         "52b1e0e2f1c51a91",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3",
+        "a8767845d48266a4",
         "6920f6e860c4b936"
       ],
       "start_line": 1123
@@ -2328,8 +2598,11 @@
       "source_keys": [
         "52b1e0e2f1c51a91",
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3",
-        "6920f6e860c4b936"
+        "a8767845d48266a4",
+        "6920f6e860c4b936",
+        "38f659081e23c0d5",
+        "c8682e1082f5f91b",
+        "b688a305b25bb667"
       ],
       "start_line": 1131
     },
@@ -2343,7 +2616,7 @@
         "52b1e0e2f1c51a91",
         "18a10aca58c2b1f1",
         "18a10aca58c2b1f1",
-        "7151c6037ac8c7a3",
+        "a8767845d48266a4",
         "6920f6e860c4b936"
       ],
       "start_line": 1133
@@ -2355,7 +2628,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-a-push-notification-campaign",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "38f659081e23c0d5"
       ],
       "start_line": 1147
     },
@@ -2366,7 +2639,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-in-app-giving",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b"
       ],
       "start_line": 1159
     },
@@ -2377,7 +2650,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-prepare-for-shell-update",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b"
       ],
       "start_line": 1171
     },
@@ -2388,7 +2661,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-change-not-showing",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "c8682e1082f5f91b"
       ],
       "start_line": 1185
     },
@@ -2399,7 +2672,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-diagnose-webview-blank-screen",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1197
     },
@@ -2410,7 +2683,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "b688a305b25bb667",
         "18a10aca58c2b1f1"
       ],
       "start_line": 1208
@@ -2422,7 +2695,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-app-does-not-launch",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1210
     },
@@ -2433,7 +2706,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1220
     },
@@ -2444,7 +2717,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-page-is-blank",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1229
     },
@@ -2455,7 +2728,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-button-or-action-does-nothing",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1241
     },
@@ -2466,7 +2739,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-push-notification-not-received",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1252
     },
@@ -2477,7 +2750,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-push-opens-wrong-page",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1265
     },
@@ -2488,7 +2761,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-webview-looks-wrong",
       "source_keys": [
-        "7151c6037ac8c7a3"
+        "b688a305b25bb667"
       ],
       "start_line": 1274
     },
@@ -2526,7 +2799,7 @@
         "18a10aca58c2b1f1",
         "d973648867411aa4",
         "b2bd874c41f3be1c",
-        "7151c6037ac8c7a3",
+        "e1c6e91a2341a6ca",
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1"
       ],
@@ -2586,7 +2859,7 @@
       "section_id": "18-agent-task-recipes-recipe-review-app-store-readiness",
       "source_keys": [
         "b2bd874c41f3be1c",
-        "7151c6037ac8c7a3",
+        "e1c6e91a2341a6ca",
         "6ec62a1509d61113",
         "2b29c6766ad7c0c1"
       ],
@@ -2599,11 +2872,11 @@
       "needs_live_verification": true,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c29e6072da46b367",
         "7151c6037ac8c7a3",
         "a56a73c5681795bd",
         "1c59cd336e8baae0",
-        "7151c6037ac8c7a3",
+        "96807cec6618e288",
         "a56a73c5681795bd",
         "9201fe8635986015",
         "a56a73c5681795bd",
@@ -2621,11 +2894,11 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "7151c6037ac8c7a3",
+        "c29e6072da46b367",
         "7151c6037ac8c7a3",
         "a56a73c5681795bd",
         "1c59cd336e8baae0",
-        "7151c6037ac8c7a3",
+        "96807cec6618e288",
         "a56a73c5681795bd",
         "9201fe8635986015",
         "a56a73c5681795bd",
@@ -2643,20 +2916,46 @@
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes",
       "source_keys": [
-        "b2bd874c41f3be1c",
         "7151c6037ac8c7a3",
+        "d750e214c15d336f",
         "b6629f8b91a753ec",
+        "c6de358ae1d5157b",
+        "c4e03e5116856543",
+        "96807cec6618e288",
+        "a8767845d48266a4",
         "9201fe8635986015",
         "427b1530c85cfeda",
         "070471cfc7c5bacc",
         "8789a75933cc6915",
         "52b1e0e2f1c51a91",
+        "b688a305b25bb667",
         "4725293a0044fb8b",
         "d973648867411aa4",
+        "f7002493e6fe0527",
+        "a9debef64d842881",
+        "86dcfaf230044fcd",
+        "687960a012290876",
+        "c29e6072da46b367",
+        "268810958e755db4",
+        "6dc3320b1b9cdede",
+        "fd42a367d1c9ce17",
+        "f1f1a3a0763afe1b",
+        "d632e4bc8eb60dec",
+        "8424de202e9081d2",
+        "d771653059529c1f",
+        "cd867ef41c19fe2f",
+        "dad4ee6a4ca3b1f3",
+        "05fdce4b44a83151",
+        "cb26ebb0411493fd",
+        "2aebfbd90f616482",
         "6ec62a1509d61113",
         "6920f6e860c4b936",
+        "b2bd874c41f3be1c",
         "2b29c6766ad7c0c1",
         "a54f0299534eff0b",
+        "38f659081e23c0d5",
+        "e1c6e91a2341a6ca",
+        "c8682e1082f5f91b",
         "18a10aca58c2b1f1",
         "cff63e93f4ad7264",
         "d0dfe0fc7ec041b9",
@@ -2684,13 +2983,13 @@
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes-primary-official-mobile-docs",
       "source_keys": [
-        "b2bd874c41f3be1c",
         "7151c6037ac8c7a3",
+        "d750e214c15d336f",
         "b6629f8b91a753ec",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
+        "c6de358ae1d5157b",
+        "c4e03e5116856543",
+        "96807cec6618e288",
+        "a8767845d48266a4",
         "9201fe8635986015"
       ],
       "start_line": 1418
@@ -2706,12 +3005,12 @@
         "070471cfc7c5bacc",
         "8789a75933cc6915",
         "52b1e0e2f1c51a91",
-        "7151c6037ac8c7a3",
+        "b688a305b25bb667",
         "4725293a0044fb8b",
         "d973648867411aa4",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "f7002493e6fe0527",
+        "a9debef64d842881",
+        "86dcfaf230044fcd"
       ],
       "start_line": 1429
     },
@@ -2722,19 +3021,19 @@
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-blocks",
       "source_keys": [
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "687960a012290876",
+        "c29e6072da46b367",
+        "268810958e755db4",
+        "6dc3320b1b9cdede",
+        "fd42a367d1c9ce17",
+        "f1f1a3a0763afe1b",
+        "d632e4bc8eb60dec",
+        "8424de202e9081d2",
+        "d771653059529c1f",
+        "cd867ef41c19fe2f",
+        "dad4ee6a4ca3b1f3",
+        "05fdce4b44a83151",
+        "cb26ebb0411493fd"
       ],
       "start_line": 1443
     },
@@ -2745,15 +3044,15 @@
       "needs_live_verification": false,
       "section_id": "19-source-map-and-dependency-notes-app-factory-and-store-operations",
       "source_keys": [
-        "b2bd874c41f3be1c",
+        "2aebfbd90f616482",
         "6ec62a1509d61113",
         "6920f6e860c4b936",
         "b2bd874c41f3be1c",
         "2b29c6766ad7c0c1",
         "a54f0299534eff0b",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3",
-        "7151c6037ac8c7a3"
+        "38f659081e23c0d5",
+        "e1c6e91a2341a6ca",
+        "c8682e1082f5f91b"
       ],
       "start_line": 1459
     },
@@ -2821,30 +3120,6 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
-      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b2bd874c41f3be1c",
-      "source_record_id": "rock_developer:b2bd874c41f3be1c",
-      "title": "App Store Product Page",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
       "content_hash": "0b4d886af43e6d70e426c0c3749ba966e2e5cb1d97bb3f1207f7973a604474de",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
@@ -2863,6 +3138,30 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "289d23ce934a3a44ad3db6fb3441aa25709ee1265f99053c67d2466f3814e729",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c4e03e5116856543",
+      "source_record_id": "rock_developer:c4e03e5116856543",
+      "title": "Deploying Your App",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app",
       "version": null
     },
     {
@@ -2893,6 +3192,102 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "759a518a18cb0f306df5835261e82d22fa6e682d47861a2c94954bc887ccdc3e",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d750e214c15d336f",
+      "source_record_id": "rock_developer:d750e214c15d336f",
+      "title": "📖 Lexicon",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/lexicon",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1df8d49e9f1e2e8df358277a9304bda0f03b6ca6586c25ed241c901cbc2e4091",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "96807cec6618e288",
+      "source_record_id": "rock_developer:96807cec6618e288",
+      "title": "Core & Shell Dependencies",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f3081fe63031a73ed225abe13a8b40b7ed31b2eaa4e1755eba4f8c966f6305ac",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "2aebfbd90f616482",
+      "source_record_id": "rock_developer:2aebfbd90f616482",
+      "title": "🏭 App Factory",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "c82769c587565cf7e33d0a4a7e340feeee15fe0262d343dcbdfc4497d49bc8aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f7002493e6fe0527",
+      "source_record_id": "rock_developer:f7002493e6fe0527",
+      "title": "🎨 Styling",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "075b4d02804b22552b0fc67b9f4e97173ee8d8dad840bc07889fb01ca2838592",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
@@ -2911,6 +3306,34 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ce6d4dc72dee7e8d5dbf655793dfa3f775ee004e3b2ac1713b003f642ff39aa1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "687960a012290876",
+      "source_record_id": "rock_developer:687960a012290876",
+      "title": "👨‍💻 Developers",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers",
       "version": null
     },
     {
@@ -2941,6 +3364,31 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "911baf8bff3375e983b0ae65e51b76e43ba6e0d5995d2c0b622ceb3c9c360b80",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_mobile_docs",
+      "source_key": "c6de358ae1d5157b",
+      "source_record_id": "rock_mobile_docs:c6de358ae1d5157b",
+      "title": "App Configuration",
+      "topics": [
+        "mobile",
+        "maui",
+        "xaml",
+        "commands",
+        "controls",
+        "blocks"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "c326936969251a6a84aac17b46908f2ff1003512e0932a84d93feb6523db8e24",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
@@ -2959,6 +3407,30 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3a552b848534aa8ea16cfcf45e05f632c61f1defcb0df034c422b194b84a874c",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b688a305b25bb667",
+      "source_record_id": "rock_developer:b688a305b25bb667",
+      "title": "Web View",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view",
       "version": null
     },
     {
@@ -3079,6 +3551,34 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/xaml-extensions/palette-color",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7b58db49c265ea51e0d84b0f54ae6ca2a3fe4fa5612d05d8bed144d4e19182d3",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "cb26ebb0411493fd",
+      "source_record_id": "rock_developer:cb26ebb0411493fd",
+      "title": "Security",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/security",
       "version": null
     },
     {
@@ -3393,6 +3893,56 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "7902e06bd04f0bb7f9310e218afdf3ccc7024895135c94f477136b4ae910080b",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c8682e1082f5f91b",
+      "source_record_id": "rock_developer:c8682e1082f5f91b",
+      "title": "In-App Giving",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/in-app-giving",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "19a481805d469e017f6c302320b33b7ae636940fbcd41b315ff7508c21713c57",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "38f659081e23c0d5",
+      "source_record_id": "rock_developer:38f659081e23c0d5",
+      "title": "Push Notifications",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "f95ccec778d3b133b82727fbb52f679c0bf6b7307550d453835ed26e75f964ef",
       "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
       "hydrated": true,
@@ -3411,6 +3961,30 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/developer-accounts",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "df9e1d6e0b56d93021a5d78479496ebf9fc50ff579497004b4aac67d9a746f52",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b2bd874c41f3be1c",
+      "source_record_id": "rock_developer:b2bd874c41f3be1c",
+      "title": "App Store Product Page",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/app-store-product-page",
       "version": null
     },
     {
@@ -3436,6 +4010,31 @@
         "security"
       ],
       "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5670202bf1a89e39017570a3d6c97873b68f498ebc32ab7f9b0ae95a3879ebf1",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e1c6e91a2341a6ca",
+      "source_record_id": "rock_developer:e1c6e91a2341a6ca",
+      "title": "Rock Logins",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins",
       "version": null
     },
     {
@@ -3535,6 +4134,198 @@
       "version": null
     },
     {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "00a2aa58378632c410dd19bf77450d32ece8695119516720578c2cbd94739aef",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a9debef64d842881",
+      "source_record_id": "rock_developer:a9debef64d842881",
+      "title": "Elements of a Card",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/elements-of-a-card",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "acb2438a6a0db01d87b3672a795fbef42b49a51831be731bed3416ea489bd275",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "86dcfaf230044fcd",
+      "source_record_id": "rock_developer:86dcfaf230044fcd",
+      "title": "Styling Cards With CSS",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/cards/styling-cards-with-css",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "51a219c12e24ec90508431ef20f87b7beb4f0717286dc6c7f44239f25a7a60bf",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a0529e5342ad7824",
+      "source_record_id": "rock_developer:a0529e5342ad7824",
+      "title": "Behaviors",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/controls/behaviors",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "33dcda345a45e254c9295489c5c43e80ebcb33cd12d77aa3a8780e512983f5a6",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d6a02efc5fdd060c",
+      "source_record_id": "rock_developer:d6a02efc5fdd060c",
+      "title": "Form Fields",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/styling/legacy/styling-components/form-fields",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "41222956728627f38fab8f0a62ef2f31a6c50a1d3103619217cf66d2a9dc1c85",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a8767845d48266a4",
+      "source_record_id": "rock_developer:a8767845d48266a4",
+      "title": "OS Version Requirements",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/developers/os-version-requirements",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e66ce92d0accc5b8d3465145dc42712fdfdaac07a7a307afab77e27066d3345f",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "268810958e755db4",
+      "source_record_id": "rock_developer:268810958e755db4",
+      "title": "Check-in",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "82d7841cde8359ab111d691a5550e5ce764dced3044d8544e103dd1c304eb639",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c29e6072da46b367",
+      "source_record_id": "rock_developer:c29e6072da46b367",
+      "title": "CMS",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms",
+      "version": null
+    },
+    {
       "authority": "source-code",
       "authority_score": 84,
       "content_hash": "cb3fa0d2a7cf53a1da5872192cdb1250409eb17fe990552fbf14fa34515d6309",
@@ -3595,6 +4386,258 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
       "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "36b28a417edbbb18488fe79702a79750006dd5bcbc1d21741dc9a7ab06653b90",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6dc3320b1b9cdede",
+      "source_record_id": "rock_developer:6dc3320b1b9cdede",
+      "title": "Communication",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "81e928291b8127843c484287646fc081114a892f3d442ef69f14b597bccec22d",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "fd42a367d1c9ce17",
+      "source_record_id": "rock_developer:fd42a367d1c9ce17",
+      "title": "Connection",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "6714e3558c1d0cec1b4eeb28d9a2477237311c3be3df14a0f3574fa41f08f381",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f1f1a3a0763afe1b",
+      "source_record_id": "rock_developer:f1f1a3a0763afe1b",
+      "title": "Core",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1da67a756375b19c321a5ec4125087bccb5daf6396fb0bf7192dd4e9fa1095aa",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d632e4bc8eb60dec",
+      "source_record_id": "rock_developer:d632e4bc8eb60dec",
+      "title": "CRM",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/crm",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3cf88eebf3689e5abd733192991b4eda67cfb6978afdd67c045e064471a60d3a",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8424de202e9081d2",
+      "source_record_id": "rock_developer:8424de202e9081d2",
+      "title": "Events",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "cd0e2c8dd2d0a1ce2f6c2a863a078ef0fb1f24d8760f682e8a45bf9ace551539",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d771653059529c1f",
+      "source_record_id": "rock_developer:d771653059529c1f",
+      "title": "Finance",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2c3ae701874e2f7a261affcb83462a4791d8f61d2c04d832aa9b1aca3e8fca25",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "cd867ef41c19fe2f",
+      "source_record_id": "rock_developer:cd867ef41c19fe2f",
+      "title": "Groups",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8080e30ee78ce3efa1a1d3dbee295de2a340d215531249ec1866d726d4893cb6",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "dad4ee6a4ca3b1f3",
+      "source_record_id": "rock_developer:dad4ee6a4ca3b1f3",
+      "title": "Prayer",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/prayer",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "057d0db5c3fcc4c387ea922d29b3a0b88cc1e7f98d7b1b0eb0c359e123f4b901",
+      "excerpt_hash": "9d0c9ccac6430ff887007661f1943d27322caf26b18b97eaea0e1efda99d05a2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "05fdce4b44a83151",
+      "source_record_id": "rock_developer:05fdce4b44a83151",
+      "title": "Reminders",
+      "topics": [
+        "api",
+        "check-in",
+        "development",
+        "finance",
+        "lava",
+        "mobile",
+        "obsidian",
+        "security",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders",
+      "version": null
     }
   ],
   "synthesis_profile": "comprehensive",

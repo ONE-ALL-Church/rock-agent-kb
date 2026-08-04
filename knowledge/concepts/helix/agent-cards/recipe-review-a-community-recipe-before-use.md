@@ -45,10 +45,10 @@ Complete Review A Community Recipe Before Use with evidence-backed checks and a 
 
 ## Source Links
 
+- https://community.rockrms.com/developer/helix/lava-applications/content-block
+- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
 - https://community.rockrms.com/developer/helix/lava-applications
 - https://community.rockrms.com/developer/helix/lava-applications/observability
-- https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix
-- https://community.rockrms.com/developer/helix/lava-applications/content-block
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationDetailOptionsBag.d.ts

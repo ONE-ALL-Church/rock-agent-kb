@@ -41,5 +41,5 @@ Complete “Draft A Communication” with evidence-backed checks and a verifiabl
 
 ## Source Links
 
-- https://community.rockrms.com/developer/ai-agents
+- https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/insight-tools
 - https://community.rockrms.com/ask/developing/2708

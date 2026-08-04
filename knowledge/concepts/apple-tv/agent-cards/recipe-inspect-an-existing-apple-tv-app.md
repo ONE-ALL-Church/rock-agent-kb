@@ -45,12 +45,15 @@ Complete Inspect An Existing Apple TV App with evidence-backed checks and a veri
 
 ## Source Links
 
-- https://community.rockrms.com/developer/apple-tv-docs
-- https://community.rockrms.com/developer/apple-tv-docs/javascript
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
-- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content
 - https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageDetailOptionsBag.d.ts
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/navigation-commands
+- https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageList/appleTvPageListOptionsBag.d.ts
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Tv/AppleTvPageDetail/appleTvPageBag.d.ts
+- https://community.rockrms.com/developer/apple-tv-docs/styling/getting-started
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/catalog-template
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/div-template
+- https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/product-template

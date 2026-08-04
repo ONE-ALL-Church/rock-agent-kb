@@ -108,6 +108,62 @@ def test_source_specific_payload_is_preserved_inside_common_envelope(tmp_path):
     assert written["payload"]["custom_recipe_field"] == {"kept": True}
 
 
+def test_source_summary_content_hash_ignores_only_refresh_timestamp():
+    def source_summary_row(*, retrieved_at: str, summary: str) -> dict:
+        return {
+            "id": "source:rock_documentation:article:100",
+            "kind": "source_summary",
+            "title": "Test Article",
+            "body": summary,
+            "url": "https://community.rockrms.com/documentation/test",
+            "concepts": ["workflows"],
+            "topics": [],
+            "authority_tier": "official",
+            "source_id": "rock_documentation",
+            "payload": {
+                "schema": "rock-kb-public-source-summary-v1",
+                "source_id": "rock_documentation",
+                "source_record_id": "rock_documentation:article:100",
+                "source_title": "Test Article",
+                "source_url": "https://community.rockrms.com/documentation/test",
+                "summary": summary,
+                "content_hash": "a" * 64,
+                "retrieved_at": retrieved_at,
+            },
+        }
+
+    first, _summary = build_canonical_knowledge_bundle(
+        search_rows=[
+            source_summary_row(
+                retrieved_at="2026-08-03T00:00:00+00:00",
+                summary="The article documents a workflow behavior.",
+            )
+        ],
+        distilled_claims=[],
+    )
+    refreshed, _summary = build_canonical_knowledge_bundle(
+        search_rows=[
+            source_summary_row(
+                retrieved_at="2026-08-04T00:00:00+00:00",
+                summary="The article documents a workflow behavior.",
+            )
+        ],
+        distilled_claims=[],
+    )
+    changed, _summary = build_canonical_knowledge_bundle(
+        search_rows=[
+            source_summary_row(
+                retrieved_at="2026-08-04T00:00:00+00:00",
+                summary="The article documents a changed workflow behavior.",
+            )
+        ],
+        distilled_claims=[],
+    )
+
+    assert first.knowledge_units[0].content_hash == refreshed.knowledge_units[0].content_hash
+    assert first.knowledge_units[0].content_hash != changed.knowledge_units[0].content_hash
+
+
 def test_existing_knowledge_projection_cannot_be_primary_evidence():
     snapshot = SourceSnapshot(
         schema="rock-kb-source-snapshot-v1",
@@ -459,3 +515,59 @@ def test_persistent_and_private_identity_registries_merge_alias_history():
         "knowledge:claim:unpublished-pilot",
     ]
     assert merged[0]["content_fingerprint"] == "1" * 64
+
+
+def test_reviewed_alias_transfer_reassigns_only_the_shared_alias():
+    old_id = "knowledge:claim:legacy"
+    new_id = "source-native:claim:article-1668:replacement"
+    public_alias = "claim:claim:8b0b2a744134ed2e4959"
+    base = {
+        "schema": "rock-kb-knowledge-identity-v1",
+        "knowledge_unit_id": old_id,
+        "knowledge_type": "claim",
+        "identity_key": "claim_alias:legacy",
+        "identity_basis": "legacy_anchor",
+        "aliases": [public_alias, "claim:legacy-only"],
+        "content_fingerprint": "0" * 64,
+    }
+    replacement = {
+        "schema": "rock-kb-knowledge-identity-v1",
+        "knowledge_unit_id": new_id,
+        "knowledge_type": "structured_reference",
+        "identity_key": f"source_native_artifact:{new_id}",
+        "identity_basis": "registry_merge",
+        "aliases": [old_id, public_alias],
+        "content_fingerprint": "1" * 64,
+    }
+
+    merged = merge_identity_registry_rows(
+        [base],
+        [replacement],
+        reviewed_alias_transfers={public_alias: (old_id, new_id)},
+    )
+    by_id = {row["knowledge_unit_id"]: row for row in merged}
+
+    assert by_id[old_id]["aliases"] == ["claim:legacy-only"]
+    assert by_id[new_id]["aliases"] == sorted([old_id, public_alias])
+
+
+def test_unreviewed_alias_transfer_remains_a_hard_failure():
+    shared_alias = "claim:claim:shared"
+    rows = [
+        {
+            "schema": "rock-kb-knowledge-identity-v1",
+            "knowledge_unit_id": f"knowledge:claim:{suffix}",
+            "knowledge_type": "claim",
+            "identity_key": f"claim_alias:{suffix}",
+            "identity_basis": "legacy_anchor",
+            "aliases": [shared_alias],
+            "content_fingerprint": suffix * 64,
+        }
+        for suffix in ("a", "b")
+    ]
+
+    with pytest.raises(
+        ValueError,
+        match="identity registry alias has multiple owners",
+    ):
+        merge_identity_registry_rows([rows[0]], [rows[1]])

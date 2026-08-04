@@ -38,9 +38,11 @@ generated: true
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/github-spotlight-422025
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
+- https://www.triumph.tech/resources/github-spotlight-422025
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
 - https://community.rockrms.com/recipes/446

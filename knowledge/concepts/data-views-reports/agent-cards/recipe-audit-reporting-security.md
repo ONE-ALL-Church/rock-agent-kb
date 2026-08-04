@@ -57,5 +57,5 @@ Complete Audit Reporting Security with evidence-backed checks and a verifiable o
 - https://community.rockrms.com/ModelMap
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
 - https://community.rockrms.com/recipes/264
+- https://community.rockrms.com/rocku/reporting/dynamic-report-block
 - https://community.rockrms.com/rocku/lava/sql-command
-- https://community.rockrms.com/recipes/397

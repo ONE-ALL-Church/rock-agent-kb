@@ -858,7 +858,7 @@
   },
   "approved_media_hash": "71b364a129ef2f9cb6278001ae88ae80408a5faf9d221f0c6b4190cb27e4c2cf",
   "approved_media_path": "knowledge/concepts/documents-signatures/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "documents-signatures",
   "guide_hash": "d80b0ec366905aec34bb7a8f9fcf05cab498da252a14ee7de4cef3f7e2b07bc9",
   "guide_line_count": 1389,
@@ -876,6 +876,141 @@
     },
     {
       "authority": "official",
+      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "44c48fbb00fd6286",
+      "source_record_id": "rock_documentation:article:852",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d43496d0d11eac79d825edcaa28efe9f41b93415091cfb8738b761f06dac6400",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "78a1616603d19339",
+      "source_record_id": "rock_documentation:article:2066",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "88da5cbc33211a0cc314f1d6db44f221c7b2139296fcc1e746a70b07646f8cb4",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "fdd60a02728922f1",
+      "source_record_id": "rock_documentation:article:1002",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "7d442b7a282fe42e4a4056f286b4c55b79da3fdc4c288e3911ed6214b55fe7f0",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "eed5ec59886a5637",
+      "source_record_id": "rock_documentation:article:1792",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1221535bf452e702f8e98fe5b272c613b0dc90331d336ae31cfc26139872c8b8",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "009d2d5a9a58e27d",
+      "source_record_id": "rock_documentation:article:1791",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "76be35d9de42a13b9e5573296e136d5fef66a8e097214b6666a064a7ab4a5653",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "ea25fdaf3ca6d95a",
+      "source_record_id": "rock_documentation:article:1793",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows"
+    },
+    {
+      "authority": "official",
+      "content_hash": "f8421a39c3e07bb775dad4443c8f3168dee05c18c045290107f4b32fcb1eb975",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "d3188f462123438a",
+      "source_record_id": "rock_documentation:article:1790",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "27dff02fefed6054a768d429025327dee7822535e4461530fb84e3103c5fce45",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "cd037db8203ba8ca",
+      "source_record_id": "rock_documentation:article:1794",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "088e6f88e47194f5dd6961952f8e4e6bbac67cab0b4754343d5bf680e8a522c6",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "a404c3b63bdc4fa7",
+      "source_record_id": "rock_documentation:article:999",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates"
+    },
+    {
+      "authority": "official",
+      "content_hash": "2ae9b059f7803e68caf2402173222ff4ba7c348266e9d828138d588e1e295742",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "d3320b414311cfc5",
+      "source_record_id": "rock_documentation:article:1000",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9d87406a0c609dbc2fb0cdd6ecdbac89f7bc09a0c5466d2f79e887ac8ff80757",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "6acc458f24b001e7",
+      "source_record_id": "rock_documentation:article:1001",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1fea87f451af65db75ccca73c180b9315419615cf423ccf0237267faff754ab0",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "a6483a2997e256f2",
+      "source_record_id": "rock_documentation:article:2068",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures"
+    },
+    {
+      "authority": "official",
+      "content_hash": "bd038ae5ac93df9097ba8ca316f7aae45788042559c69a81bd0d09b4d77c512c",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "0d2d7572294232a0",
+      "source_record_id": "rock_documentation:article:1006",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures"
+    },
+    {
+      "authority": "official",
+      "content_hash": "29799f2165ed4d8af277ebe8c5185005b4a28c7cad18924cb7046dcd8f5bdcbc",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "f0d82abf12c3d539",
+      "source_record_id": "rock_documentation:article:1004",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9a6ab4ae10c9b831d854674b98e3e104031e8f5014882274eae91ffba6cc358a",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "source_id": "rock_documentation",
+      "source_key": "6574dbdfe17fcdc5",
+      "source_record_id": "rock_documentation:article:1005",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati"
+    },
+    {
+      "authority": "official",
       "content_hash": "e653a8776911996c7fc0f73b3cf4f7b99f8882610dbd8e6ed2fa3fb0b9a4fdf3",
       "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
@@ -885,12 +1020,12 @@
     },
     {
       "authority": "official",
-      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "content_hash": "6919e2842e322f34189240a3dcbb4e0c9795b35e057b6755d2392063f24464e1",
       "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "source_id": "rock_documentation",
-      "source_key": "44c48fbb00fd6286",
-      "source_record_id": "rock_documentation:article:852",
-      "url": "https://community.rockrms.com/documentation/core-concepts/documents"
+      "source_key": "41740a6da0b39cb2",
+      "source_record_id": "rock_documentation:article:1007",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume"
     },
     {
       "authority": "official-release",
@@ -911,13 +1046,31 @@
       "url": "https://community.rockrms.com/ModelMap"
     },
     {
+      "authority": "official",
+      "content_hash": "776bb272dce1fba400efc7231ee378ae33b64291ffed19e79153557a1fd2562d",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "ca85e7ade1361ce0",
+      "source_record_id": "rock_documentation:article:1789",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents"
+    },
+    {
+      "authority": "official",
+      "content_hash": "50fb2da7310fc4b2164c15441ca2d4096004648d57646efb5ab33c037586e39c",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "766a474a44be77af",
+      "source_record_id": "rock_documentation:article:997",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures"
+    },
+    {
       "authority": "source-code",
-      "content_hash": "59429960a8bbc3ef22e2d99072bbce0509f980dead792c2ebc5a1768acee5bc6",
-      "excerpt_hash": "465d0359d0570158527633c2f2a9b9fb7100437db9540f95619935b3fcdfed32",
+      "content_hash": "a70ee4a07dc532b3126d8bc2e1627cd833279e44cbc89fdddae9b763dfaf1851",
+      "excerpt_hash": "917df4421e5597624587e49748f018237bce2f35e298732fe456fbe192307716",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "dd7b53cda13d5059",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts"
+      "source_key": "a2ce7472fd4230b2",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Core/SignatureDocumentStatus.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Core/SignatureDocumentStatus.cs"
     },
     {
       "authority": "official-training",
@@ -1001,6 +1154,15 @@
       "url": "https://www.triumph.tech/resources/github-spotlight-1042024"
     },
     {
+      "authority": "official",
+      "content_hash": "afa800fa7e89c21ed6b55e6b1b267346200e45616d1e88defc46d56333b42657",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "source_id": "rock_documentation",
+      "source_key": "b17d2eb5b76ffc9d",
+      "source_record_id": "rock_documentation:article:2067",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents"
+    },
+    {
       "authority": "official-triumph",
       "content_hash": "0ee2403006bfe11ea2c70152dae5c6638fd9da8e8de4853ffde535ecf7757341",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -1030,23 +1192,23 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
+        "44c48fbb00fd6286",
+        "78a1616603d19339",
+        "fdd60a02728922f1",
+        "eed5ec59886a5637",
+        "009d2d5a9a58e27d",
+        "ea25fdaf3ca6d95a",
+        "d3188f462123438a",
+        "cd037db8203ba8ca",
+        "a404c3b63bdc4fa7",
+        "d3320b414311cfc5",
+        "6acc458f24b001e7",
+        "a6483a2997e256f2",
+        "0d2d7572294232a0",
+        "f0d82abf12c3d539",
+        "6574dbdfe17fcdc5",
         "ba453d3167752790",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "ba453d3167752790",
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 29
     },
@@ -1057,12 +1219,12 @@
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "fdd60a02728922f1",
         "776256c424368312",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "a404c3b63bdc4fa7",
+        "cd037db8203ba8ca",
         "bce31f25cb8a199e",
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 47
     },
@@ -1073,12 +1235,12 @@
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "fdd60a02728922f1",
         "776256c424368312",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "a404c3b63bdc4fa7",
+        "cd037db8203ba8ca",
         "bce31f25cb8a199e",
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 86
     },
@@ -1089,7 +1251,7 @@
       "needs_live_verification": true,
       "section_id": "3-documents-and-signatures-mental-model-entity-documents",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "ea25fdaf3ca6d95a"
       ],
       "start_line": 90
     },
@@ -1100,8 +1262,8 @@
       "needs_live_verification": true,
       "section_id": "3-documents-and-signatures-mental-model-merge-documents",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "cd037db8203ba8ca",
+        "a404c3b63bdc4fa7"
       ],
       "start_line": 103
     },
@@ -1112,8 +1274,8 @@
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model-electronic-signatures",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0",
+        "a6483a2997e256f2"
       ],
       "start_line": 118
     },
@@ -1124,7 +1286,7 @@
       "needs_live_verification": false,
       "section_id": "3-documents-and-signatures-mental-model-generated-pdfs",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 135
     },
@@ -1135,11 +1297,11 @@
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
-        "ba453d3167752790",
         "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "ba453d3167752790",
-        "dd7b53cda13d5059",
+        "ca85e7ade1361ce0",
+        "d3188f462123438a",
+        "766a474a44be77af",
+        "a2ce7472fd4230b2",
         "776256c424368312",
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9",
@@ -1157,8 +1319,13 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
+        "fdd60a02728922f1",
+        "009d2d5a9a58e27d",
+        "ea25fdaf3ca6d95a",
+        "a404c3b63bdc4fa7",
+        "6acc458f24b001e7",
+        "0d2d7572294232a0",
         "44c48fbb00fd6286",
-        "ba453d3167752790",
         "3ac90be5dca1c39b"
       ],
       "start_line": 161
@@ -1170,9 +1337,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entity-document-configuration",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "fdd60a02728922f1",
+        "009d2d5a9a58e27d",
+        "ea25fdaf3ca6d95a"
       ],
       "start_line": 163
     },
@@ -1183,9 +1350,9 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-merge-template-configuration",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "a404c3b63bdc4fa7",
+        "6acc458f24b001e7",
+        "6acc458f24b001e7"
       ],
       "start_line": 186
     },
@@ -1196,7 +1363,7 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-signature-document-template-configuration",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 201
     },
@@ -1207,7 +1374,7 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-signature-document-instance-data",
       "source_keys": [
-        "ba453d3167752790",
+        "44c48fbb00fd6286",
         "3ac90be5dca1c39b"
       ],
       "start_line": 226
@@ -1219,7 +1386,8 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "eed5ec59886a5637",
+        "6acc458f24b001e7",
         "776256c424368312",
         "badab030c195b30e"
       ],
@@ -1232,7 +1400,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-entity-document-relationships",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "eed5ec59886a5637"
       ],
       "start_line": 265
     },
@@ -1243,7 +1411,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-merge-document-relationships",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6acc458f24b001e7"
       ],
       "start_line": 284
     },
@@ -1266,8 +1434,12 @@
       "needs_live_verification": false,
       "section_id": "7-common-documents-and-signatures-workflows",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "776256c424368312"
+        "009d2d5a9a58e27d",
+        "eed5ec59886a5637",
+        "776256c424368312",
+        "cd037db8203ba8ca",
+        "f0d82abf12c3d539",
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 313
     },
@@ -1278,7 +1450,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-add-a-document-to-a-person",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "009d2d5a9a58e27d"
       ],
       "start_line": 315
     },
@@ -1289,7 +1461,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-add-documents-to-groups-or-other-entities",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "eed5ec59886a5637"
       ],
       "start_line": 335
     },
@@ -1311,7 +1483,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-generate-a-merge-document-from-a-grid",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "cd037db8203ba8ca"
       ],
       "start_line": 365
     },
@@ -1322,7 +1494,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-collect-a-signature-in-a-workflow",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "f0d82abf12c3d539"
       ],
       "start_line": 384
     },
@@ -1333,7 +1505,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-documents-and-signatures-workflows-collect-a-signature-in-event-registration",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "6574dbdfe17fcdc5",
         "776256c424368312"
       ],
       "start_line": 403
@@ -1345,7 +1517,7 @@
       "needs_live_verification": false,
       "section_id": "8-document-templates-deep-dive",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "6574dbdfe17fcdc5",
         "776256c424368312"
       ],
       "start_line": 421
@@ -1357,8 +1529,8 @@
       "needs_live_verification": true,
       "section_id": "8-document-templates-deep-dive-merge-templates",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "d3320b414311cfc5",
+        "6acc458f24b001e7"
       ],
       "start_line": 430
     },
@@ -1369,8 +1541,8 @@
       "needs_live_verification": true,
       "section_id": "8-document-templates-deep-dive-signature-document-templates",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "0d2d7572294232a0",
+        "0d2d7572294232a0",
         "776256c424368312",
         "c0cf9e3bbb1f6f9b"
       ],
@@ -1394,7 +1566,10 @@
       "needs_live_verification": false,
       "section_id": "9-electronic-signatures-deep-dive",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "a6483a2997e256f2",
+        "0d2d7572294232a0",
+        "6574dbdfe17fcdc5",
+        "f0d82abf12c3d539",
         "ba453d3167752790"
       ],
       "start_line": 489
@@ -1406,7 +1581,7 @@
       "needs_live_verification": false,
       "section_id": "9-electronic-signatures-deep-dive-anatomy-of-a-rock-electronic-signature",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "a6483a2997e256f2"
       ],
       "start_line": 491
     },
@@ -1417,7 +1592,7 @@
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-typed-versus-drawn-signatures",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 506
     },
@@ -1428,7 +1603,7 @@
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-validity-and-reuse",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 518
     },
@@ -1439,7 +1614,7 @@
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-workflows",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "f0d82abf12c3d539"
       ],
       "start_line": 534
     },
@@ -1450,7 +1625,7 @@
       "needs_live_verification": true,
       "section_id": "9-electronic-signatures-deep-dive-event-registrations",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 555
     },
@@ -1472,7 +1647,7 @@
       "needs_live_verification": false,
       "section_id": "10-generated-pdfs-deep-dive",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 587
     },
@@ -1483,7 +1658,7 @@
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-what-the-pdf-represents",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 589
     },
@@ -1494,7 +1669,7 @@
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-pdf-preview-versus-signed-pdf",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 595
     },
@@ -1505,7 +1680,7 @@
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-performance-and-offloading",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 605
     },
@@ -1516,7 +1691,7 @@
       "needs_live_verification": true,
       "section_id": "10-generated-pdfs-deep-dive-pdf-troubleshooting",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 621
     },
@@ -1527,10 +1702,13 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "6574dbdfe17fcdc5",
         "9ca73fb85a7d51b9",
+        "f0d82abf12c3d539",
         "ba453d3167752790",
+        "0d2d7572294232a0",
         "776256c424368312",
+        "eed5ec59886a5637",
         "2000146157764196"
       ],
       "start_line": 649
@@ -1542,7 +1720,7 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-people",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 651
     },
@@ -1554,7 +1732,7 @@
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-workflows",
       "source_keys": [
         "9ca73fb85a7d51b9",
-        "44c48fbb00fd6286"
+        "f0d82abf12c3d539"
       ],
       "start_line": 663
     },
@@ -1576,7 +1754,7 @@
       "needs_live_verification": true,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-security",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "0d2d7572294232a0",
         "776256c424368312"
       ],
       "start_line": 694
@@ -1588,7 +1766,7 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-platform-configuration",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "0d2d7572294232a0",
         "776256c424368312"
       ],
       "start_line": 711
@@ -1600,8 +1778,8 @@
       "needs_live_verification": false,
       "section_id": "11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-cms",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "6574dbdfe17fcdc5",
+        "eed5ec59886a5637",
         "2000146157764196"
       ],
       "start_line": 726
@@ -1613,9 +1791,9 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails",
       "source_keys": [
-        "ba453d3167752790",
-        "2000146157764196",
         "44c48fbb00fd6286",
+        "2000146157764196",
+        "0d2d7572294232a0",
         "badab030c195b30e"
       ],
       "start_line": 741
@@ -1627,7 +1805,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-document-type",
       "source_keys": [
-        "ba453d3167752790",
+        "44c48fbb00fd6286",
         "2000146157764196"
       ],
       "start_line": 743
@@ -1639,7 +1817,7 @@
       "needs_live_verification": true,
       "section_id": "12-administration-and-operational-guardrails-before-creating-a-new-signature-template",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 762
     },
@@ -1650,7 +1828,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-naming-standards",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 782
     },
@@ -1661,7 +1839,7 @@
       "needs_live_verification": false,
       "section_id": "12-administration-and-operational-guardrails-security-guardrails",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 791
     },
@@ -1685,7 +1863,8 @@
       "source_keys": [
         "badab030c195b30e",
         "3ac90be5dca1c39b",
-        "44c48fbb00fd6286"
+        "6acc458f24b001e7",
+        "0d2d7572294232a0"
       ],
       "start_line": 810
     },
@@ -1720,7 +1899,7 @@
       "needs_live_verification": false,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-merge-documents",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6acc458f24b001e7"
       ],
       "start_line": 847
     },
@@ -1731,7 +1910,7 @@
       "needs_live_verification": true,
       "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 856
     },
@@ -1878,7 +2057,10 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5",
+        "d3188f462123438a",
+        "6acc458f24b001e7",
+        "0d2d7572294232a0"
       ],
       "start_line": 960
     },
@@ -1889,7 +2071,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-new-event-waiver",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 962
     },
@@ -1900,7 +2082,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-add-documents-to-a-group-page",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "6574dbdfe17fcdc5"
       ],
       "start_line": 988
     },
@@ -1911,8 +2093,8 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-build-a-merge-letter-template",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "d3188f462123438a",
+        "6acc458f24b001e7"
       ],
       "start_line": 1000
     },
@@ -1923,7 +2105,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 1017
     },
@@ -1934,7 +2116,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-audit-document-security-after-upgrade",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 1035
     },
@@ -1945,8 +2127,11 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "776256c424368312"
+        "0d2d7572294232a0",
+        "776256c424368312",
+        "cd037db8203ba8ca",
+        "f0d82abf12c3d539",
+        "41740a6da0b39cb2"
       ],
       "start_line": 1050
     },
@@ -1957,7 +2142,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-start-here-what-kind-of-document-is-broken",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "0d2d7572294232a0"
       ],
       "start_line": 1052
     },
@@ -1979,7 +2164,7 @@
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-merge-documents",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "cd037db8203ba8ca"
       ],
       "start_line": 1088
     },
@@ -1990,7 +2175,7 @@
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-electronic-signatures",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "f0d82abf12c3d539"
       ],
       "start_line": 1116
     },
@@ -2001,7 +2186,7 @@
       "needs_live_verification": true,
       "section_id": "17-troubleshooting-decision-tree-generated-pdfs",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 1163
     },
@@ -2012,7 +2197,7 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
       "source_keys": [
-        "44c48fbb00fd6286",
+        "41740a6da0b39cb2",
         "ba453d3167752790",
         "badab030c195b30e",
         "9af162570ab9ac58"
@@ -2026,7 +2211,7 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 1193
     },
@@ -2037,7 +2222,7 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 1213
     },
@@ -2048,7 +2233,7 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 1236
     },
@@ -2059,7 +2244,7 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-audit-public-exposure-risk",
       "source_keys": [
-        "44c48fbb00fd6286"
+        "41740a6da0b39cb2"
       ],
       "start_line": 1258
     },
@@ -2083,18 +2268,18 @@
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286"
+        "b17d2eb5b76ffc9d",
+        "6574dbdfe17fcdc5",
+        "a6483a2997e256f2",
+        "cd037db8203ba8ca",
+        "009d2d5a9a58e27d",
+        "78a1616603d19339",
+        "6acc458f24b001e7",
+        "41740a6da0b39cb2",
+        "009d2d5a9a58e27d",
+        "a404c3b63bdc4fa7",
+        "d3188f462123438a",
+        "f0d82abf12c3d539"
       ],
       "start_line": 1295
     },
@@ -2117,22 +2302,22 @@
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
       "source_keys": [
-        "ba453d3167752790",
         "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
-        "44c48fbb00fd6286",
+        "78a1616603d19339",
+        "fdd60a02728922f1",
+        "eed5ec59886a5637",
+        "009d2d5a9a58e27d",
+        "ea25fdaf3ca6d95a",
+        "b17d2eb5b76ffc9d",
+        "cd037db8203ba8ca",
+        "a404c3b63bdc4fa7",
+        "d3320b414311cfc5",
+        "6acc458f24b001e7",
+        "a6483a2997e256f2",
+        "0d2d7572294232a0",
+        "f0d82abf12c3d539",
+        "6574dbdfe17fcdc5",
+        "41740a6da0b39cb2",
         "ba453d3167752790",
         "99161b788cad1f6e",
         "9ca73fb85a7d51b9",
@@ -2165,6 +2350,344 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
+      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "44c48fbb00fd6286",
+      "source_record_id": "rock_documentation:article:852",
+      "title": "Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d43496d0d11eac79d825edcaa28efe9f41b93415091cfb8738b761f06dac6400",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "78a1616603d19339",
+      "source_record_id": "rock_documentation:article:2066",
+      "title": "Intro to Entity Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "88da5cbc33211a0cc314f1d6db44f221c7b2139296fcc1e746a70b07646f8cb4",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "fdd60a02728922f1",
+      "source_record_id": "rock_documentation:article:1002",
+      "title": "Configure Entity Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "7d442b7a282fe42e4a4056f286b4c55b79da3fdc4c288e3911ed6214b55fe7f0",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "eed5ec59886a5637",
+      "source_record_id": "rock_documentation:article:1792",
+      "title": "Add the Block",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1221535bf452e702f8e98fe5b272c613b0dc90331d336ae31cfc26139872c8b8",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "009d2d5a9a58e27d",
+      "source_record_id": "rock_documentation:article:1791",
+      "title": "Manage Entity Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "76be35d9de42a13b9e5573296e136d5fef66a8e097214b6666a064a7ab4a5653",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ea25fdaf3ca6d95a",
+      "source_record_id": "rock_documentation:article:1793",
+      "title": "Add Documents Using Workflows",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "f8421a39c3e07bb775dad4443c8f3168dee05c18c045290107f4b32fcb1eb975",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d3188f462123438a",
+      "source_record_id": "rock_documentation:article:1790",
+      "title": "Merge Documents",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "27dff02fefed6054a768d429025327dee7822535e4461530fb84e3103c5fce45",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "cd037db8203ba8ca",
+      "source_record_id": "rock_documentation:article:1794",
+      "title": "Use Merge Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "088e6f88e47194f5dd6961952f8e4e6bbac67cab0b4754343d5bf680e8a522c6",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a404c3b63bdc4fa7",
+      "source_record_id": "rock_documentation:article:999",
+      "title": "Administrate Merge Templates",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2ae9b059f7803e68caf2402173222ff4ba7c348266e9d828138d588e1e295742",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d3320b414311cfc5",
+      "source_record_id": "rock_documentation:article:1000",
+      "title": "Creating a Merge Document",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9d87406a0c609dbc2fb0cdd6ecdbac89f7bc09a0c5466d2f79e887ac8ff80757",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6acc458f24b001e7",
+      "source_record_id": "rock_documentation:article:1001",
+      "title": "Using Lava with Merge Documents",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1fea87f451af65db75ccca73c180b9315419615cf423ccf0237267faff754ab0",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "a6483a2997e256f2",
+      "source_record_id": "rock_documentation:article:2068",
+      "title": "Intro to Electronic Signatures",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "bd038ae5ac93df9097ba8ca316f7aae45788042559c69a81bd0d09b4d77c512c",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "0d2d7572294232a0",
+      "source_record_id": "rock_documentation:article:1006",
+      "title": "Set Up Electronic Signatures",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "29799f2165ed4d8af277ebe8c5185005b4a28c7cad18924cb7046dcd8f5bdcbc",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "f0d82abf12c3d539",
+      "source_record_id": "rock_documentation:article:1004",
+      "title": "Use Electronic Signatures in a Workflow",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9a6ab4ae10c9b831d854674b98e3e104031e8f5014882274eae91ffba6cc358a",
+      "excerpt_hash": "c188e6dadd63e2eb09a69af145c377df3a6412dba76cf824401e8a84032fe957",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6574dbdfe17fcdc5",
+      "source_record_id": "rock_documentation:article:1005",
+      "title": "Use Electronic Signatures in Event Registrations",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
       "content_hash": "e653a8776911996c7fc0f73b3cf4f7b99f8882610dbd8e6ed2fa3fb0b9a4fdf3",
       "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
@@ -2189,22 +2712,22 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "1b8ddd3cc6d23eb1de2a6b9f45b77e7a84495474801bbc51ca618bf639dfd72e",
+      "content_hash": "6919e2842e322f34189240a3dcbb4e0c9795b35e057b6755d2392063f24464e1",
       "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "44c48fbb00fd6286",
-      "source_record_id": "rock_documentation:article:852",
-      "title": "Documents",
+      "source_key": "41740a6da0b39cb2",
+      "source_record_id": "rock_documentation:article:1007",
+      "title": "Generate PDFs for Electronic Signature Documents",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/core-concepts/documents",
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume",
       "version": null
     },
     {
@@ -2254,30 +2777,72 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "776bb272dce1fba400efc7231ee378ae33b64291ffed19e79153557a1fd2562d",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ca85e7ade1361ce0",
+      "source_record_id": "rock_documentation:article:1789",
+      "title": "Entity Documents",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/entity-documents",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "50fb2da7310fc4b2164c15441ca2d4096004648d57646efb5ab33c037586e39c",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "766a474a44be77af",
+      "source_record_id": "rock_documentation:article:997",
+      "title": "Electronic Signatures",
+      "topics": [
+        "admin",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures",
+      "version": null
+    },
+    {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "59429960a8bbc3ef22e2d99072bbce0509f980dead792c2ebc5a1768acee5bc6",
-      "excerpt_hash": "465d0359d0570158527633c2f2a9b9fb7100437db9540f95619935b3fcdfed32",
+      "content_hash": "a70ee4a07dc532b3126d8bc2e1627cd833279e44cbc89fdddae9b763dfaf1851",
+      "excerpt_hash": "917df4421e5597624587e49748f018237bce2f35e298732fe456fbe192307716",
       "kind": "github_file",
-      "language": "TypeScript",
+      "language": "C#",
       "matched_terms": [
         "document",
+        "documents",
         "signature",
         "e-signature",
         "e signature",
-        "esignature",
-        "pdf",
-        "document template",
-        "documenttemplate",
-        "template"
+        "esignature"
       ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts",
+      "path": "Rock.Enums/Core/SignatureDocumentStatus.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "dd7b53cda13d5059",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts"
+      "source_key": "a2ce7472fd4230b2",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Core/SignatureDocumentStatus.cs",
+      "title": "Rock.Enums/Core/SignatureDocumentStatus.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Core/SignatureDocumentStatus.cs"
     },
     {
       "authority": "official-training",
@@ -2494,6 +3059,29 @@
         "triumph"
       ],
       "url": "https://www.triumph.tech/resources/github-spotlight-1042024",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "afa800fa7e89c21ed6b55e6b1b267346200e45616d1e88defc46d56333b42657",
+      "excerpt_hash": "240b4f9d6c373e78d72c796927105466f076042c7a5c5c4fedc0155c3fc2b65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b17d2eb5b76ffc9d",
+      "source_record_id": "rock_documentation:article:2067",
+      "title": "Intro to Merge Documents",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents",
       "version": null
     },
     {

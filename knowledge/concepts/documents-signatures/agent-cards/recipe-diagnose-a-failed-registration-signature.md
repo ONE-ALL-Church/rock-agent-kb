@@ -49,7 +49,8 @@ Complete Diagnose A Failed Registration Signature with evidence-backed checks an
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/core-concepts/documents
+- https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume
+- https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents
 - https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentDetail/signatureDocumentBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/SignatureDocumentTemplateDetailOptionsBag.cs
@@ -60,4 +61,3 @@ Complete Diagnose A Failed Registration Signature with evidence-backed checks an
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/SignatureDocumentTemplateDetail.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/signatureDocumentTemplateBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/getPdfPreviewUrlRequestBag.d.ts

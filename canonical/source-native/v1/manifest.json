@@ -1,17 +1,18 @@
 {
-  "article_count": 38,
+  "article_count": 43,
   "artifact_type_counts": {
-    "claim": 82,
+    "claim": 88,
     "recipe": 25,
-    "source_summary": 29,
-    "structured_reference": 95,
-    "task_card": 36
+    "source_summary": 34,
+    "structured_reference": 109,
+    "task_card": 37
   },
   "concept_ids": [
     "ai-agents-automation",
     "check-in",
     "communications",
     "connections",
+    "engagement-tracking",
     "event-registration",
     "lava",
     "mobile",
@@ -24,32 +25,32 @@
     "system-admin-ops",
     "workflows"
   ],
-  "evaluation_case_count": 293,
+  "evaluation_case_count": 319,
   "file_hashes": {
-    "artifact-migrations.jsonl": "fc818e354b41451ed0245414c2d05f6205561e4129ab696933a53ae702eda03c",
+    "artifact-migrations.jsonl": "ac361d12063f22c9f050a68b91565255bd0794f6e29240ee140f5c5c3e58f7e3",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
-    "evaluation-set.jsonl": "eb488b2c0290a2262d2ab9576a0f18f548750afc1d452186aef0cb889627ac67",
-    "generation-activities.jsonl": "b9727259a917636eadf7f613dcd0afafd5d5c641bee5bcbdd8e519a8272cf205",
-    "legacy-migrations.jsonl": "bc3a610c7a49e6e5ec37b7fa23c9ff24b6cbc39acf7e024cfa3e07590e2eb510",
-    "relationships.jsonl": "1b84a3f592a5020b177ef9aceb2cd72312043e06c6ea4984b7431b835dca4970",
-    "reviewed-artifacts.jsonl": "ad672c681ca2c01f837707c7e651b8f35acace07b0ff266e2ff9f330e8c09187",
-    "source-snapshots.jsonl": "eb841b98e8fd35b91de5780fa7791a9fd971538d72a0b824c55704f67ecdb5b7",
-    "source-units.jsonl": "9100b728ab7f35b10c5242e74e108c3e27fb81d7cc631d63bfc72e1d0b048bbf",
+    "evaluation-set.jsonl": "28fd7abab9ff32919f631beda5863fe4d26afdc25cbbe1e514887e5472774d3d",
+    "generation-activities.jsonl": "6be085501443ef601d600ee90a20967c4293d24aeb72967576ebec0e11f6d9e8",
+    "legacy-migrations.jsonl": "0a78adf94cbd9ce13b42a70fc44177216630d1c3617841de74a3cafacd904b10",
+    "relationships.jsonl": "7f8cfc55e0e3b5a7f203b40cb1883dbc79c632e29df0a8f11ab1f8409d4b1aef",
+    "reviewed-artifacts.jsonl": "8ef2806a50c82a1184555105200549a99fb201ab53b0255a4771428bab4029a5",
+    "source-snapshots.jsonl": "50c42d2b35053a05b86df409713e676c01c4d1a4d25126ba17d9674ba1ce513d",
+    "source-units.jsonl": "3b2a1168ae93f308e8ff4186a8b2943f1f5b53d3fc2d1f059b72a74c9b2dd21b",
     "split-rules.jsonl": "ff473ada5492c4b8a772aa8f6ecdc19a618d3d4169f4158eec29ff5bc5f92d4a",
-    "verification-queue.jsonl": "28a2b1dcb71fe99bfd77d59bef39f5fe6d1e4ab19dadc62bb9605c0fd631ffff",
-    "verification-report.json": "1dd8b3fad36d042648fcccb9e88d63427add0b570c90eee086eed297b192fcb0",
-    "verification-resolutions.jsonl": "c617e3f67a358b6ef3574c7dbc56055dfdf822ab75d004fcc96f18b8f2c251e7"
+    "verification-queue.jsonl": "31bb209145720c9f8d095f67f476478d98a29f0558a596f60c3a473a20fdb355",
+    "verification-report.json": "d44a29ae08843a07741490177e80a3964825553efb5abb35e078b117288253c1",
+    "verification-resolutions.jsonl": "d3569ed49c3005bd2a53ce18ade94f3ed0e6d086e10e9cae380a635f13e5437d"
   },
-  "generation_activity_count": 38,
+  "generation_activity_count": 43,
   "generation_input_hash_versions": {
-    "2": 38
+    "2": 43
   },
   "generation_models": {
-    "gpt-5.6-sol": 38
+    "gpt-5.6-sol": 43
   },
   "generation_prompt_versions": {
-    "1.2.0": 4,
-    "2.3.1": 34
+    "1.3.0": 10,
+    "2.3.1": 33
   },
   "notes": [
     "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
@@ -60,27 +61,27 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 144,
-  "review_changed_article_count": 10,
-  "reviewed_artifact_count": 267,
+  "relationship_count": 185,
+  "review_changed_article_count": 11,
+  "reviewed_artifact_count": 293,
   "reviewed_artifact_migration_count": 3,
-  "reviewed_legacy_migration_count": 11,
+  "reviewed_legacy_migration_count": 26,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,
     "rock_developer": 3,
-    "rock_documentation": 24,
+    "rock_documentation": 29,
     "rock_lava_docs": 3,
     "rock_mobile_docs": 4
   },
   "source_refresh_required_for_rebuild": true,
-  "source_snapshot_count": 38,
-  "source_unit_count": 1494,
+  "source_snapshot_count": 43,
+  "source_unit_count": 1624,
   "status": "canonical_input",
-  "verification_request_count": 82,
-  "verification_resolution_count": 82,
+  "verification_request_count": 83,
+  "verification_resolution_count": 83,
   "verification_state_counts": {
-    "verified": 82
+    "verified": 83
   },
   "verification_unresolved_count": 0
 }

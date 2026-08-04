@@ -90,7 +90,7 @@
   },
   "approved_media_hash": "600da2ee7abf72e40a1075d20f946aa600daa2c5c6eb17e6c2f7e6280a4b6e3a",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "system-admin-ops",
   "guide_hash": "7f96773219c91faf1f1a2b8d4509bd014f728d197d27ad65eb1363b84b696c1c",
   "guide_line_count": 1669,
@@ -108,21 +108,39 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "e20dede781921db48fae9bda6e3512c71ff288c410fbb8500fb63bafe3384775",
-      "excerpt_hash": "e677ea5fb486f47a78d53273e82fdef3208de8e044a626c2d91ef6c8c3e91e5c",
-      "source_id": "rock_rocku",
-      "source_key": "6612b451bd0ae178",
-      "source_record_id": "rock_rocku:6612b451bd0ae178",
-      "url": "https://community.rockrms.com/rocku/core-concepts/automations"
-    },
-    {
-      "authority": "official-training",
       "content_hash": "7e9a080961f8420a066f75519a2b6075add111fc1876acc495e5a36a339236b3",
       "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
       "source_id": "rock_rocku",
       "source_key": "19a30b51edaa7382",
       "source_record_id": "rock_rocku:19a30b51edaa7382",
       "url": "https://community.rockrms.com/rocku/core-concepts"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "6ca98b6ea7cc320df3cf86a1c9b6ffa947a45e4a11e702a80dce5dcd9c6bf915",
+      "excerpt_hash": "b105e05dc9ccda1c2980d558fd8a87cd95fa1d3f2023ff5e0293d0788bc5871d",
+      "source_id": "rock_rocku",
+      "source_key": "d8cf5ee5d337dae4",
+      "source_record_id": "rock_rocku:d8cf5ee5d337dae4",
+      "url": "https://community.rockrms.com/rocku/core-concepts/what-is-an-entity"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "3c5614a20af3741fb70795d885275ed4df5a68aff99b6765d6cbee87dda5b851",
+      "excerpt_hash": "01b79726a768efa36ed5884fd37d4cf9a07b5190a88929ff811c4e51fa2442b7",
+      "source_id": "rock_rocku",
+      "source_key": "024eb74f4a287a6c",
+      "source_record_id": "rock_rocku:024eb74f4a287a6c",
+      "url": "https://community.rockrms.com/rocku/core-concepts/properties-and-attributes"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "6957ac96eabcf0ff6d46ab4a1979ee1410fedfa5d27249dd19a22b421c5f4fe4",
+      "excerpt_hash": "7046672db36fe34e19ef2c65bfc61c0a42adc2646d01f5ae30f9c35ffdba0370",
+      "source_id": "rock_rocku",
+      "source_key": "e4749ab0a7b76611",
+      "source_record_id": "rock_rocku:e4749ab0a7b76611",
+      "url": "https://community.rockrms.com/rocku/core-concepts/custom-attributes"
     },
     {
       "authority": "official-developer",
@@ -134,13 +152,40 @@
       "url": "https://community.rockrms.com/developer/developer-codex/coding-standards"
     },
     {
+      "authority": "official-training",
+      "content_hash": "aea89f5f9c20df77452d4841fe27a2eb85ee361bd64d9e36a4ac5765500d12f3",
+      "excerpt_hash": "2f479740d5ff0385e08617f31869a37113f32427bf3d1c5cc69c4caa910ebe06",
+      "source_id": "rock_rocku",
+      "source_key": "b9c29bb6c693e539",
+      "source_record_id": "rock_rocku:b9c29bb6c693e539",
+      "url": "https://community.rockrms.com/rocku/core-concepts/defined-types"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "b989777f692f83a08d156df47681ecf297ae416fcdf529986f767f07ebb5068e",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "source_id": "rock_developer",
+      "source_key": "b9d509de407322c7",
+      "source_record_id": "rock_developer:b9d509de407322c7",
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/defined-types-defined-values"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "519468f6a87512b3077ab4cde325f99fa73e8c89916105d35e0b726f666a71f0",
+      "excerpt_hash": "4df9062129187af7047135cf8ad9e008ecc942025ec350303119646dfaeb90c6",
+      "source_id": "rock_rocku",
+      "source_key": "609efb76cbf7086a",
+      "source_record_id": "rock_rocku:609efb76cbf7086a",
+      "url": "https://community.rockrms.com/rocku/core-concepts/jobs"
+    },
+    {
       "authority": "source-code",
-      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
-      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "content_hash": "8db70061c837a7d5d75c8c5fa8cec65987d854455137ba985b269acfdc17542c",
+      "excerpt_hash": "ceb2c01b47a926cb29047efdba0d2f90836fe2f7b67896ca73e8e141e22cc53c",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "source_key": "a741c7b6c6067414",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs"
     },
     {
       "authority": "official-model-map",
@@ -179,6 +224,15 @@
       "url": "https://community.rockrms.com/documentation/bookcontent/32"
     },
     {
+      "authority": "source-code",
+      "content_hash": "a1a9f267fa84287d13876b353f7687cb3d924c880bd874fb59f45e77e677949d",
+      "excerpt_hash": "0259ef1f33ef46b63f645aeb216a59f24dacdabd7e0d61da18c8e9f175c88bea",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e22380f96031c6ba",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Jobs/UpdatePersistedDataviews.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Jobs/UpdatePersistedDataviews.cs"
+    },
+    {
       "authority": "official-release",
       "content_hash": "5b99b8e29707fd6ba61808ee908b6e44862a0da5b439f9e8054a9703273544fe",
       "excerpt_hash": "9b39ba68a5a8ed452535232bab57eb5f7f2cd70d8797d3354e4155faf5cb3823",
@@ -215,6 +269,24 @@
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search"
     },
     {
+      "authority": "source-code",
+      "content_hash": "c89b1075fa6513098f315a7ec1b98fd2b9fcfcaf71ee3bcbfe0485a3620f87e4",
+      "excerpt_hash": "00feb34b1cd475c9e27444ca9ede0844525727640f8d48edc2a5547d0fa64702",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a0741457f652d830",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "67558c21265b84ca8ad4a8e4ba85984d1611a4e2a93096f9ade09f2cd7bd109c",
+      "excerpt_hash": "45fd68bdeb7ae81b8544d040c292688d13d62cac4a427ad2455677eaebabe7a7",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "59e3a29668bd865f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "ee3cf3cb9fe1754f323285bf87ef21a7bf8d1816d0f5d304cfc09f779c633c79",
       "excerpt_hash": "b5cb141ca3783880fd33069a0288a4096b3e101cda3d2e7131471c77825b46c5",
@@ -233,6 +305,15 @@
       "url": "https://community.rockrms.com/recipes/522"
     },
     {
+      "authority": "source-code",
+      "content_hash": "1172c50e1809f0675b4cd8433952e82609ca24f481022d0ad5675fff1bce161c",
+      "excerpt_hash": "695006ad54d9d5b6aee394da168fca51bb06fa08590c8c67e30a06e636ce5244",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e72072660ea7a0eb",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Core/ScheduledJobHistoryList.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/ScheduledJobHistoryList.cs"
+    },
+    {
       "authority": "official-developer",
       "content_hash": "1bd8c896d1ee8b275759aab45985509b0f01368fb0206484f61cf632d9c5b6f5",
       "excerpt_hash": "5268d9fa982b98b124e8d31eec172cfef60b61213eb8832feb640e3e41b907ed",
@@ -240,6 +321,60 @@
       "source_key": "53ad1133e1cb2d0a",
       "source_record_id": "rock_developer:53ad1133e1cb2d0a",
       "url": "https://community.rockrms.com/lava/lava-api"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "e4a038dee766f9498efb0bbc22c6b8502e4cd6c1e127377248114c881afb841e",
+      "excerpt_hash": "7c4c21c2ed0c3e010261a020a9881170f4099385a70dd141bb5f21343cef3224",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "49b6e2a4a562d8bf",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/ServiceJobHistory.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/ServiceJobHistory.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "3bf411f2ac5b44bbe20b36f2e51e4109462848cdd4b09b0fa7f3c3dc5c3df01a",
+      "excerpt_hash": "15bff35611e6f8d695716e7016f13e030f3f91bb5bd6f99b7a4950c2a015d766",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0cf18ceabf70b7dd",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "922e1bae3d43a4a569257cbfe8a1b40c7fbc1428cd02ce9896f8bf0352bc34d3",
+      "excerpt_hash": "a83ece7f3651672113c0b174299e2d94d3c70ff91c81255c9b5bbaa196aa104b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2e8921056fa12b3f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "7e80253dae427470043f315e22dbdd06bd0d9cf7625b8c2c6d302a5fbfa2cd03",
+      "excerpt_hash": "b105bb182b296ebb42dd35b98633ee3d66456bc083e68163c7e0c02e0c2f524f",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fcfe5e65457da552",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "5ee408c159ee8c7858998188abbf2cb1589bd1e35ee6d9fa36c38f733c3ebf43",
+      "excerpt_hash": "0102fe832d34e94d0794c71537db81041afcca0b45633180d854f6c2a6db3827",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4bef41c379a0f42e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "54f98fec8b626ecbb4824a1d53b6218385a24b6583e45977e1e4acddba92f0ee",
+      "excerpt_hash": "a9628df080811f29396101a82dfc2cf8c291ae1cba5e0b6690e8aa65762597a2",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a66dd46ab41fd46b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs"
     },
     {
       "authority": "official",
@@ -251,6 +386,15 @@
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
     },
     {
+      "authority": "source-code",
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
+    },
+    {
       "authority": "official-developer",
       "content_hash": null,
       "excerpt_hash": null,
@@ -258,6 +402,15 @@
       "source_key": "71eda8132276825c",
       "source_record_id": "",
       "url": "https://community.rockrms.com/developer/303---blast-off/exception-handling"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "17512a4140187fe27a0a0e5732a7e70de1bec9d8a4de498b4410950c40ae085a",
+      "excerpt_hash": "6cca4b4f9d36215b64b8912ca9178606c6baceecd9c5b49e42a85230ec73a61c",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "43631999f784261f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs"
     },
     {
       "authority": "community-example",
@@ -294,6 +447,15 @@
       "source_key": "c680a16482a4af12",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "b8e877da2f369cc80ffdcb0c18a26e99df2635c4bcab7dbbdb0bec146bc654aa",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "source_id": "rock_developer",
+      "source_key": "8bab24b3f0599a81",
+      "source_record_id": "rock_developer:8bab24b3f0599a81",
+      "url": "https://community.rockrms.com/developer/developer-codex"
     },
     {
       "authority": "official-developer",
@@ -370,7 +532,7 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "6612b451bd0ae178"
+        "19a30b51edaa7382"
       ],
       "start_line": 29
     },
@@ -381,20 +543,20 @@
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "19a30b51edaa7382",
-        "19a30b51edaa7382",
-        "19a30b51edaa7382",
+        "d8cf5ee5d337dae4",
+        "024eb74f4a287a6c",
+        "e4749ab0a7b76611",
         "62524909bcc2f18b",
-        "19a30b51edaa7382",
-        "62524909bcc2f18b",
-        "19a30b51edaa7382",
-        "d275b5b94a9da833",
+        "b9c29bb6c693e539",
+        "b9d509de407322c7",
+        "609efb76cbf7086a",
+        "a741c7b6c6067414",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
         "78b1a0a9975427ba",
         "96f179b05ec9a0dc",
         "befb5c4701d20849",
-        "d275b5b94a9da833",
+        "e22380f96031c6ba",
         "776256c424368312"
       ],
       "start_line": 55
@@ -409,8 +571,11 @@
         "b90e041125dcd87b",
         "11ecb461f64ef932",
         "0a2575398341f4b9",
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
+        "a0741457f652d830",
         "befb5c4701d20849",
+        "e22380f96031c6ba",
+        "59e3a29668bd865f",
         "d522a2bab06881e5",
         "776256c424368312"
       ],
@@ -436,8 +601,8 @@
       "needs_live_verification": false,
       "section_id": "3-system-administration-and-operations-mental-model-layer-2-runtime-execution",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "a741c7b6c6067414",
+        "a0741457f652d830"
       ],
       "start_line": 120
     },
@@ -449,7 +614,7 @@
       "section_id": "3-system-administration-and-operations-mental-model-layer-3-derived-state",
       "source_keys": [
         "befb5c4701d20849",
-        "d275b5b94a9da833"
+        "e22380f96031c6ba"
       ],
       "start_line": 126
     },
@@ -460,7 +625,7 @@
       "needs_live_verification": true,
       "section_id": "3-system-administration-and-operations-mental-model-layer-4-security-and-authorization",
       "source_keys": [
-        "d275b5b94a9da833",
+        "59e3a29668bd865f",
         "d522a2bab06881e5"
       ],
       "start_line": 132
@@ -486,12 +651,12 @@
       "source_keys": [
         "e8988031b9975c3b",
         "776256c424368312",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "6612b451bd0ae178"
+        "a741c7b6c6067414",
+        "a0741457f652d830",
+        "e72072660ea7a0eb",
+        "e22380f96031c6ba",
+        "59e3a29668bd865f",
+        "19a30b51edaa7382"
       ],
       "start_line": 142
     },
@@ -502,12 +667,22 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
-        "6612b451bd0ae178",
         "19a30b51edaa7382",
-        "62524909bcc2f18b",
+        "024eb74f4a287a6c",
+        "e4749ab0a7b76611",
+        "b9c29bb6c693e539",
+        "b9d509de407322c7",
         "53ad1133e1cb2d0a",
+        "609efb76cbf7086a",
         "befb5c4701d20849",
-        "d275b5b94a9da833",
+        "e72072660ea7a0eb",
+        "a741c7b6c6067414",
+        "49b6e2a4a562d8bf",
+        "a0741457f652d830",
+        "0cf18ceabf70b7dd",
+        "2e8921056fa12b3f",
+        "fcfe5e65457da552",
+        "59e3a29668bd865f",
         "78b1a0a9975427ba",
         "96f179b05ec9a0dc",
         "e8988031b9975c3b"
@@ -521,9 +696,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-entities-properties-and-attributes",
       "source_keys": [
-        "6612b451bd0ae178",
         "19a30b51edaa7382",
-        "19a30b51edaa7382"
+        "024eb74f4a287a6c",
+        "e4749ab0a7b76611"
       ],
       "start_line": 175
     },
@@ -534,8 +709,8 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-defined-types-and-defined-values",
       "source_keys": [
-        "19a30b51edaa7382",
-        "62524909bcc2f18b",
+        "b9c29bb6c693e539",
+        "b9d509de407322c7",
         "53ad1133e1cb2d0a"
       ],
       "start_line": 192
@@ -547,9 +722,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-service-jobs",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "befb5c4701d20849",
-        "d275b5b94a9da833"
+        "e72072660ea7a0eb"
       ],
       "start_line": 207
     },
@@ -560,10 +735,10 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-job-history",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "a741c7b6c6067414",
+        "49b6e2a4a562d8bf",
+        "a0741457f652d830",
+        "a0741457f652d830"
       ],
       "start_line": 228
     },
@@ -574,10 +749,10 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-data-views",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "0cf18ceabf70b7dd",
+        "2e8921056fa12b3f",
+        "fcfe5e65457da552",
+        "59e3a29668bd865f"
       ],
       "start_line": 246
     },
@@ -624,9 +799,16 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
+        "4bef41c379a0f42e",
+        "a66dd46ab41fd46b",
+        "49b6e2a4a562d8bf",
+        "e22380f96031c6ba",
+        "59e3a29668bd865f",
+        "2e8921056fa12b3f",
         "a030fe9b96bb7878",
-        "19a30b51edaa7382",
+        "d275b5b94a9da833",
+        "e4749ab0a7b76611",
         "62524909bcc2f18b",
         "776256c424368312",
         "e8988031b9975c3b"
@@ -640,9 +822,9 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-servicejob-and-servicejobhistory",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "a741c7b6c6067414",
+        "4bef41c379a0f42e",
+        "a66dd46ab41fd46b"
       ],
       "start_line": 287
     },
@@ -653,7 +835,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-servicejobhistory-fields-to-inspect",
       "source_keys": [
-        "d275b5b94a9da833"
+        "49b6e2a4a562d8bf"
       ],
       "start_line": 314
     },
@@ -664,9 +846,9 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-dataview-and-persisted-data-view-state",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e22380f96031c6ba",
+        "59e3a29668bd865f",
+        "2e8921056fa12b3f"
       ],
       "start_line": 344
     },
@@ -690,7 +872,7 @@
       "needs_live_verification": false,
       "section_id": "6-primary-entities-and-relationships-attribute-and-attributevalue",
       "source_keys": [
-        "19a30b51edaa7382",
+        "e4749ab0a7b76611",
         "62524909bcc2f18b",
         "776256c424368312"
       ],
@@ -715,9 +897,11 @@
       "needs_live_verification": false,
       "section_id": "7-common-system-administration-and-operations-workflows",
       "source_keys": [
-        "d275b5b94a9da833",
+        "e72072660ea7a0eb",
+        "a0741457f652d830",
         "776256c424368312",
         "befb5c4701d20849",
+        "e22380f96031c6ba",
         "78b1a0a9975427ba",
         "a030fe9b96bb7878",
         "71eda8132276825c"
@@ -731,7 +915,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-a-failed-service-job",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e72072660ea7a0eb"
       ],
       "start_line": 420
     },
@@ -742,7 +926,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-confirm-whether-a-job-actually-ran",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a0741457f652d830"
       ],
       "start_line": 437
     },
@@ -775,7 +959,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-system-administration-and-operations-workflows-workflow-investigate-stale-persisted-data-view-results",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e22380f96031c6ba"
       ],
       "start_line": 491
     },
@@ -820,9 +1004,13 @@
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "befb5c4701d20849",
-        "d275b5b94a9da833",
+        "a0741457f652d830",
+        "e72072660ea7a0eb",
+        "43631999f784261f",
+        "4bef41c379a0f42e",
+        "e22380f96031c6ba",
         "f0b9a2a5b041884c"
       ],
       "start_line": 552
@@ -834,7 +1022,7 @@
       "needs_live_verification": false,
       "section_id": "8-jobs-and-scheduling-deep-dive-what-jobs-are-for",
       "source_keys": [
-        "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "befb5c4701d20849"
       ],
       "start_line": 554
@@ -846,7 +1034,7 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-configuration-fields-to-inspect",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a0741457f652d830"
       ],
       "start_line": 560
     },
@@ -857,7 +1045,7 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-interpretation",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a0741457f652d830"
       ],
       "start_line": 581
     },
@@ -868,8 +1056,8 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-ui-behavior",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "e72072660ea7a0eb",
+        "43631999f784261f"
       ],
       "start_line": 596
     },
@@ -880,7 +1068,7 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-history-security",
       "source_keys": [
-        "d275b5b94a9da833"
+        "4bef41c379a0f42e"
       ],
       "start_line": 610
     },
@@ -891,7 +1079,7 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-job-retention",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a0741457f652d830"
       ],
       "start_line": 616
     },
@@ -902,7 +1090,7 @@
       "needs_live_verification": true,
       "section_id": "8-jobs-and-scheduling-deep-dive-update-persisted-dataviews-job",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e22380f96031c6ba"
       ],
       "start_line": 629
     },
@@ -970,7 +1158,8 @@
       "section_id": "9-diagnostics-and-exceptions-deep-dive-exception-investigation-branches",
       "source_keys": [
         "53ad1133e1cb2d0a",
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
+        "59e3a29668bd865f",
         "befb5c4701d20849",
         "776256c424368312"
       ],
@@ -994,7 +1183,7 @@
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-job-time-exception",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a741c7b6c6067414"
       ],
       "start_line": 733
     },
@@ -1005,7 +1194,7 @@
       "needs_live_verification": true,
       "section_id": "exception-investigation-branches-dataview-exception",
       "source_keys": [
-        "d275b5b94a9da833"
+        "59e3a29668bd865f"
       ],
       "start_line": 748
     },
@@ -1146,9 +1335,10 @@
       "source_keys": [
         "8d8c28f726e09218",
         "c680a16482a4af12",
-        "d275b5b94a9da833",
+        "a0741457f652d830",
         "776256c424368312",
         "e8988031b9975c3b",
+        "59e3a29668bd865f",
         "f0b9a2a5b041884c"
       ],
       "start_line": 919
@@ -1172,7 +1362,7 @@
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-service-job-history-cleanup",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a0741457f652d830"
       ],
       "start_line": 938
     },
@@ -1216,7 +1406,7 @@
       "needs_live_verification": true,
       "section_id": "11-cleanup-and-data-integrity-deep-dive-data-view-integrity",
       "source_keys": [
-        "d275b5b94a9da833"
+        "59e3a29668bd865f"
       ],
       "start_line": 995
     },
@@ -1238,11 +1428,14 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes",
       "source_keys": [
-        "d275b5b94a9da833",
+        "59e3a29668bd865f",
         "befb5c4701d20849",
         "776256c424368312",
+        "0cf18ceabf70b7dd",
+        "e22380f96031c6ba",
         "78b1a0a9975427ba",
-        "96f179b05ec9a0dc"
+        "96f179b05ec9a0dc",
+        "a741c7b6c6067414"
       ],
       "start_line": 1032
     },
@@ -1253,7 +1446,7 @@
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-security",
       "source_keys": [
-        "d275b5b94a9da833",
+        "59e3a29668bd865f",
         "befb5c4701d20849"
       ],
       "start_line": 1034
@@ -1276,9 +1469,9 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-data-views",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "0cf18ceabf70b7dd",
+        "59e3a29668bd865f",
+        "e22380f96031c6ba"
       ],
       "start_line": 1065
     },
@@ -1289,9 +1482,9 @@
       "needs_live_verification": true,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-reports",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "0cf18ceabf70b7dd",
+        "59e3a29668bd865f",
+        "e22380f96031c6ba"
       ],
       "start_line": 1069
     },
@@ -1314,7 +1507,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-security-workflows-data-views-reports-cache-jobs-release-notes-jobs",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a741c7b6c6067414"
       ],
       "start_line": 1086
     },
@@ -1441,8 +1634,18 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
+        "8bab24b3f0599a81",
         "62524909bcc2f18b",
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
+        "4bef41c379a0f42e",
+        "a0741457f652d830",
+        "e72072660ea7a0eb",
+        "43631999f784261f",
+        "0cf18ceabf70b7dd",
+        "e22380f96031c6ba",
+        "fcfe5e65457da552",
+        "59e3a29668bd865f",
+        "2e8921056fa12b3f",
         "78b1a0a9975427ba",
         "53ad1133e1cb2d0a",
         "802567c280193bd0",
@@ -1457,7 +1660,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-developer-codex",
       "source_keys": [
-        "62524909bcc2f18b",
+        "8bab24b3f0599a81",
         "62524909bcc2f18b"
       ],
       "start_line": 1158
@@ -1469,11 +1672,11 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-servicejobhistory-source",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "a741c7b6c6067414",
+        "4bef41c379a0f42e",
+        "a0741457f652d830",
+        "e72072660ea7a0eb",
+        "43631999f784261f"
       ],
       "start_line": 1170
     },
@@ -1484,11 +1687,11 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-data-view-source",
       "source_keys": [
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833"
+        "0cf18ceabf70b7dd",
+        "e22380f96031c6ba",
+        "fcfe5e65457da552",
+        "59e3a29668bd865f",
+        "2e8921056fa12b3f"
       ],
       "start_line": 1180
     },
@@ -1647,8 +1850,9 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
         "befb5c4701d20849",
+        "e22380f96031c6ba",
         "78b1a0a9975427ba",
         "53ad1133e1cb2d0a",
         "e8988031b9975c3b"
@@ -1662,7 +1866,7 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks-playbook-build-a-job-health-review",
       "source_keys": [
-        "d275b5b94a9da833"
+        "a741c7b6c6067414"
       ],
       "start_line": 1303
     },
@@ -1684,7 +1888,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-validate-persisted-data-views",
       "source_keys": [
-        "d275b5b94a9da833"
+        "e22380f96031c6ba"
       ],
       "start_line": 1341
     },
@@ -1731,7 +1935,7 @@
         "e8988031b9975c3b",
         "befb5c4701d20849",
         "776256c424368312",
-        "d275b5b94a9da833",
+        "59e3a29668bd865f",
         "53ad1133e1cb2d0a"
       ],
       "start_line": 1415
@@ -1809,7 +2013,7 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
       "source_keys": [
-        "d275b5b94a9da833"
+        "59e3a29668bd865f"
       ],
       "start_line": 1509
     },
@@ -1932,19 +2136,19 @@
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
       "source_keys": [
-        "6612b451bd0ae178",
         "19a30b51edaa7382",
+        "609efb76cbf7086a",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
-        "d275b5b94a9da833",
+        "a741c7b6c6067414",
+        "a0741457f652d830",
+        "e72072660ea7a0eb",
+        "e22380f96031c6ba",
         "befb5c4701d20849",
         "78b1a0a9975427ba",
         "53ad1133e1cb2d0a",
+        "8bab24b3f0599a81",
         "62524909bcc2f18b",
-        "62524909bcc2f18b",
-        "62524909bcc2f18b",
+        "b9d509de407322c7",
         "d522a2bab06881e5",
         "802567c280193bd0",
         "776256c424368312",
@@ -1970,28 +2174,6 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "e20dede781921db48fae9bda6e3512c71ff288c410fbb8500fb63bafe3384775",
-      "excerpt_hash": "e677ea5fb486f47a78d53273e82fdef3208de8e044a626c2d91ef6c8c3e91e5c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "6612b451bd0ae178",
-      "source_record_id": "rock_rocku:6612b451bd0ae178",
-      "title": "Automations",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/core-concepts/automations",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
       "content_hash": "7e9a080961f8420a066f75519a2b6075add111fc1876acc495e5a36a339236b3",
       "excerpt_hash": "f05ecd09340ecda5a9351f23924eef3f753081c3c575d869c779d49d9935497a",
       "hydrated": true,
@@ -2008,6 +2190,72 @@
         "workflow"
       ],
       "url": "https://community.rockrms.com/rocku/core-concepts",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "6ca98b6ea7cc320df3cf86a1c9b6ffa947a45e4a11e702a80dce5dcd9c6bf915",
+      "excerpt_hash": "b105e05dc9ccda1c2980d558fd8a87cd95fa1d3f2023ff5e0293d0788bc5871d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d8cf5ee5d337dae4",
+      "source_record_id": "rock_rocku:d8cf5ee5d337dae4",
+      "title": "What is an Entity",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/what-is-an-entity",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "3c5614a20af3741fb70795d885275ed4df5a68aff99b6765d6cbee87dda5b851",
+      "excerpt_hash": "01b79726a768efa36ed5884fd37d4cf9a07b5190a88929ff811c4e51fa2442b7",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "024eb74f4a287a6c",
+      "source_record_id": "rock_rocku:024eb74f4a287a6c",
+      "title": "Properties and Attributes",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/properties-and-attributes",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "6957ac96eabcf0ff6d46ab4a1979ee1410fedfa5d27249dd19a22b421c5f4fe4",
+      "excerpt_hash": "7046672db36fe34e19ef2c65bfc61c0a42adc2646d01f5ae30f9c35ffdba0370",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "e4749ab0a7b76611",
+      "source_record_id": "rock_rocku:e4749ab0a7b76611",
+      "title": "Custom Attributes",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/custom-attributes",
       "version": null
     },
     {
@@ -2036,27 +2284,92 @@
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
+      "authority": "official-training",
+      "authority_score": 75,
       "change_type": null,
-      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
-      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "content_hash": "aea89f5f9c20df77452d4841fe27a2eb85ee361bd64d9e36a4ac5765500d12f3",
+      "excerpt_hash": "2f479740d5ff0385e08617f31869a37113f32427bf3d1c5cc69c4caa910ebe06",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
+      "source_id": "rock_rocku",
+      "source_key": "b9c29bb6c693e539",
+      "source_record_id": "rock_rocku:b9c29bb6c693e539",
+      "title": "Defined Types",
       "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
+        "training",
+        "usage",
+        "workflow"
       ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
+      "url": "https://community.rockrms.com/rocku/core-concepts/defined-types",
       "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b989777f692f83a08d156df47681ecf297ae416fcdf529986f767f07ebb5068e",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b9d509de407322c7",
+      "source_record_id": "rock_developer:b9d509de407322c7",
+      "title": "Defined Types & Defined Values",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex/coding-standards/defined-types-defined-values",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "519468f6a87512b3077ab4cde325f99fa73e8c89916105d35e0b726f666a71f0",
+      "excerpt_hash": "4df9062129187af7047135cf8ad9e008ecc942025ec350303119646dfaeb90c6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "609efb76cbf7086a",
+      "source_record_id": "rock_rocku:609efb76cbf7086a",
+      "title": "Jobs",
+      "topics": [
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/core-concepts/jobs",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "8db70061c837a7d5d75c8c5fa8cec65987d854455137ba985b269acfdc17542c",
+      "excerpt_hash": "ceb2c01b47a926cb29047efdba0d2f90836fe2f7b67896ca73e8e141e22cc53c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "service job",
+        "servicejob",
+        "job history",
+        "jobhistory"
+      ],
+      "path": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a741c7b6c6067414",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
+      "title": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.cs"
     },
     {
       "authority": "official-model-map",
@@ -2151,6 +2464,27 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "a1a9f267fa84287d13876b353f7687cb3d924c880bd874fb59f45e77e677949d",
+      "excerpt_hash": "0259ef1f33ef46b63f645aeb216a59f24dacdabd7e0d61da18c8e9f175c88bea",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "data-views",
+        "data views",
+        "dataviews",
+        "jobs"
+      ],
+      "path": "Rock/Jobs/UpdatePersistedDataviews.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e22380f96031c6ba",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Jobs/UpdatePersistedDataviews.cs",
+      "title": "Rock/Jobs/UpdatePersistedDataviews.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Jobs/UpdatePersistedDataviews.cs"
+    },
+    {
       "authority": "official-release",
       "authority_score": 95,
       "change_type": "bug_fix",
@@ -2203,6 +2537,47 @@
       "url": "https://community.rockrms.com/documentation/core-concepts/search/universal-search"
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c89b1075fa6513098f315a7ec1b98fd2b9fcfcaf71ee3bcbfe0485a3620f87e4",
+      "excerpt_hash": "00feb34b1cd475c9e27444ca9ede0844525727640f8d48edc2a5547d0fa64702",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "service job",
+        "servicejob",
+        "job history",
+        "jobhistory"
+      ],
+      "path": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a0741457f652d830",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
+      "title": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistoryService.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "67558c21265b84ca8ad4a8e4ba85984d1611a4e2a93096f9ade09f2cd7bd109c",
+      "excerpt_hash": "45fd68bdeb7ae81b8544d040c292688d13d62cac4a427ad2455677eaebabe7a7",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "data-views",
+        "data views",
+        "dataviews"
+      ],
+      "path": "Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "59e3a29668bd865f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs",
+      "title": "Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -2253,6 +2628,27 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "1172c50e1809f0675b4cd8433952e82609ca24f481022d0ad5675fff1bce161c",
+      "excerpt_hash": "695006ad54d9d5b6aee394da168fca51bb06fa08590c8c67e30a06e636ce5244",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "job history",
+        "jobhistory",
+        "scheduled job",
+        "scheduledjob"
+      ],
+      "path": "Rock.Blocks/Core/ScheduledJobHistoryList.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "e72072660ea7a0eb",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Blocks/Core/ScheduledJobHistoryList.cs",
+      "title": "Rock.Blocks/Core/ScheduledJobHistoryList.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Core/ScheduledJobHistoryList.cs"
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
@@ -2277,6 +2673,130 @@
       "version": null
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e4a038dee766f9498efb0bbc22c6b8502e4cd6c1e127377248114c881afb841e",
+      "excerpt_hash": "7c4c21c2ed0c3e010261a020a9881170f4099385a70dd141bb5f21343cef3224",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "service job",
+        "servicejob",
+        "job history",
+        "jobhistory"
+      ],
+      "path": "Rock.Client/CodeGenerated/ServiceJobHistory.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "49b6e2a4a562d8bf",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/ServiceJobHistory.cs",
+      "title": "Rock.Client/CodeGenerated/ServiceJobHistory.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/ServiceJobHistory.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "3bf411f2ac5b44bbe20b36f2e51e4109462848cdd4b09b0fa7f3c3dc5c3df01a",
+      "excerpt_hash": "15bff35611e6f8d695716e7016f13e030f3f91bb5bd6f99b7a4950c2a015d766",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "data-views",
+        "data views",
+        "dataviews",
+        "search"
+      ],
+      "path": "RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "0cf18ceabf70b7dd",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs",
+      "title": "RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Reporting/DataViewSearch.ascx.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "922e1bae3d43a4a569257cbfe8a1b40c7fbc1428cd02ce9896f8bf0352bc34d3",
+      "excerpt_hash": "a83ece7f3651672113c0b174299e2d94d3c70ff91c81255c9b5bbaa196aa104b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "data-views",
+        "data views",
+        "dataviews"
+      ],
+      "path": "Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2e8921056fa12b3f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationFlowDetail/CommunicationFlowDetailEnteredDataViewSettingsBag.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "7e80253dae427470043f315e22dbdd06bd0d9cf7625b8c2c6d302a5fbfa2cd03",
+      "excerpt_hash": "b105bb182b296ebb42dd35b98633ee3d66456bc083e68163c7e0c02e0c2f524f",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "data-views",
+        "data views",
+        "dataviews"
+      ],
+      "path": "Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "fcfe5e65457da552",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs",
+      "title": "Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/DataViewsController.CodeGenerated.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "5ee408c159ee8c7858998188abbf2cb1589bd1e35ee6d9fa36c38f733c3ebf43",
+      "excerpt_hash": "0102fe832d34e94d0794c71537db81041afcca0b45633180d854f6c2a6db3827",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "service job",
+        "servicejob",
+        "job history",
+        "jobhistory"
+      ],
+      "path": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "4bef41c379a0f42e",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs",
+      "title": "Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/ServiceJobHistory/ServiceJobHistory.Logic.cs"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "54f98fec8b626ecbb4824a1d53b6218385a24b6583e45977e1e4acddba92f0ee",
+      "excerpt_hash": "a9628df080811f29396101a82dfc2cf8c291ae1cba5e0b6690e8aa65762597a2",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "service job",
+        "servicejob",
+        "job history",
+        "jobhistory"
+      ],
+      "path": "Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "a66dd46ab41fd46b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs",
+      "title": "Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/ServiceJobHistoryService.CodeGenerated.cs"
+    },
+    {
       "authority": "official",
       "authority_score": 100,
       "kind": "citation_only",
@@ -2287,6 +2807,29 @@
       "url": "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
     },
     {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "f97a001b2ae41f2a01e613e69d2380978a16dc4fbfc0e7b524ef0a5e0051894a",
+      "excerpt_hash": "bfa6c6a2408d4c5618d7cd0b02556a2da027399dd08a67d16ce4640ab79b6339",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
+      "version": null
+    },
+    {
       "authority": "official-developer",
       "authority_score": 90,
       "kind": "citation_only",
@@ -2295,6 +2838,27 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/developer/303---blast-off/exception-handling",
       "url": "https://community.rockrms.com/developer/303---blast-off/exception-handling"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "17512a4140187fe27a0a0e5732a7e70de1bec9d8a4de498b4410950c40ae085a",
+      "excerpt_hash": "6cca4b4f9d36215b64b8912ca9178606c6baceecd9c5b49e42a85230ec73a61c",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "job history",
+        "jobhistory",
+        "scheduled job",
+        "scheduledjob"
+      ],
+      "path": "Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "43631999f784261f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs",
+      "title": "Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Core/ScheduledJobHistoryList/ScheduledJobHistoryListOptionsBag.cs"
     },
     {
       "authority": "community-example",
@@ -2350,6 +2914,33 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1",
       "url": "https://community.rockrms.com/rocku/individuals-in-rock/data-integrity-1"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b8e877da2f369cc80ffdcb0c18a26e99df2635c4bcab7dbbdb0bec146bc654aa",
+      "excerpt_hash": "9ee57d0434302e8c8fe9ebdc88f8d0c2cd8476a5e436bee2516fed2cfcde9547",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8bab24b3f0599a81",
+      "source_record_id": "rock_developer:8bab24b3f0599a81",
+      "title": "Developer Codex",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/developer/developer-codex",
+      "version": null
     },
     {
       "authority": "official-developer",

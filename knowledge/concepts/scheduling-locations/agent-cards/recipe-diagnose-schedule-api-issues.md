@@ -39,14 +39,14 @@ The provided Q&A mentions a v12.8 browser exception involving `FriendlyScheduleT
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/ScheduledLocationBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/View_GroupLocationSchedules.sql
 - https://community.rockrms.com/recipes/280
 - https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots
 - https://www.triumph.tech/resources/github-spotlight-262025
 - https://community.rockrms.com/documentation/bookcontent/7/296
-- https://community.rockrms.com/documentation/bookcontent/42
+- https://community.rockrms.com/documentation/bookcontent/42/350
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs

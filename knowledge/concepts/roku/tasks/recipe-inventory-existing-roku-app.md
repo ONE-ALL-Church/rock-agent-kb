@@ -43,15 +43,15 @@ Complete Inventory Existing Roku App with evidence-backed checks and a verifiabl
 
 ## Source Links
 
-- https://community.rockrms.com/developer/roku-docs
-- https://community.rockrms.com/lava/commands
 - https://community.rockrms.com/developer/roku-docs/getting-started/pages
-- https://community.rockrms.com/lava/commands/personalize-commands
-- https://community.rockrms.com/lava/filters/attribute-filters
-- https://community.rockrms.com/developer/roku-docs/commands/personal
 - https://community.rockrms.com/developer/roku-docs/resources/controls/page
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/PersonalizationSegmentDetail/pageViewSegmentFilterBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/RockCloudPrint/Rock.CloudPrint.Desktop/Pages/DashboardPage.xaml.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/CheckScannerUtility/CheckScannerUtility/LoginPage.xaml.cs
+- https://community.rockrms.com/developer/roku-docs/commands/personal
+- https://community.rockrms.com/developer/roku-docs/commands/navigation
+- https://community.rockrms.com/developer/roku-docs
+- https://community.rockrms.com/lava/commands/interaction-write
+- https://community.rockrms.com/developer/roku-docs/getting-started/applications
+- https://community.rockrms.com/lava/commands/personalize-commands
+- https://community.rockrms.com/lava/commands
+- https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group
+- https://community.rockrms.com/lava/filters/attribute-filters
+- https://community.rockrms.com/lava/commands/adaptivemessage-commands

@@ -43,13 +43,12 @@ Add a room without breaking eligibility, labels, printer routing, capacity, or r
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs
 - https://community.rockrms.com/documentation/bookcontent/10/266
 - https://community.rockrms.com/ask/using/2804
-- https://community.rockrms.com/rocku/check-in
-- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
-- https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql
 - https://community.rockrms.com/rocku/check-in/locations
 - https://community.rockrms.com/rocku/check-in/schedules
-- https://community.rockrms.com/rocku/check-in/attendance-analytics
+- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
+- https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql
+- https://community.rockrms.com/rocku/check-in
 - https://community.rockrms.com/recipes/424

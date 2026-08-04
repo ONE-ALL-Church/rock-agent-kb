@@ -71,7 +71,7 @@
   "concept_id": "check-in",
   "contribution_record_count": 0,
   "entity_count": 24,
-  "generated_at": "2026-07-31T00:30:00+00:00",
+  "generated_at": "2026-08-04T17:15:00+00:00",
   "guide_line_count": 1640,
   "guide_word_count": 13430,
   "metrics": {
@@ -80,7 +80,7 @@
     "answer_claim_reference_count": 0,
     "entity_count": 24,
     "section_count": 112,
-    "source_count": 37,
+    "source_count": 55,
     "substantive_uncited_section_ratio": 0.0161,
     "task_card_count": 5,
     "word_count": 13430
@@ -88,7 +88,7 @@
   "private_draft_contribution_record_count": 0,
   "score": 90,
   "section_count": 112,
-  "source_count": 37,
+  "source_count": 55,
   "status": "fail",
   "task_card_count": 5
 }

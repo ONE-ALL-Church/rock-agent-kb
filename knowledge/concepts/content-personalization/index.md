@@ -2,7 +2,7 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-07-31T00:30:00+00:00
+last_built: 2026-08-04T17:15:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -34,7 +34,7 @@ Content channels, assets, structured content, adaptive messages, personalization
 
 - `Content And Personalization` spans cms, lava, security, communications, media, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_documentation, rock_rocku, rock_lava_docs, rock_recipes, rock_core_release_notes, triumph_resources.
-- Related tags found in source records: operations, usage, admin, lava, workflow, api, development, sql.
+- Related tags found in source records: operations, usage, admin, lava, workflow, api, development, finance.
 - Source detail types include: documentation_article, recipe, rock_lava_docs, training, triumph_resources.
 
 ## Approved Claims

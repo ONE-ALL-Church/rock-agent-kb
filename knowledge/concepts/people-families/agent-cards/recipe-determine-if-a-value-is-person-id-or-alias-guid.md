@@ -42,15 +42,15 @@ Complete Determine If A Value Is Person Id Or Alias Guid with evidence-backed ch
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/developer/101---launchpad/using-personalias-vs-person
 - https://community.rockrms.com/developer/202---ignition/advanced-entity-guide
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FindFamilies.cs
 - https://community.rockrms.com/lava/filters/attribute-filters
 - https://community.rockrms.com/lava/commands/entity-commands
 - https://community.rockrms.com/lava/filters/person-filters
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/EditFamilyResponseBag.cs
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/core/smart-search
-- https://community.rockrms.com/rocku/individuals-in-rock
 - https://community.rockrms.com/developer/303---blast-off/attributes
 - https://community.rockrms.com/rocku/individuals-in-rock/family-attributes

@@ -42,15 +42,15 @@ Return whether the URL targets the intended registration and why it is open, clo
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/registrationInstanceSendPaymentReminderInitializationBox.d.ts
-- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs
+- https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view
+- https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/resolvePreviewRequestBag.d.ts

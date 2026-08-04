@@ -48,6 +48,7 @@ Complete Answer "What Does This Report Actually Show?" with evidence-backed chec
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.cs
 - https://community.rockrms.com/documentation/bookcontent/6/331
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/DataViewFilter/DataViewFilter.Logic.cs
+- https://community.rockrms.com/rocku/reporting/dynamic-report-block
 - https://community.rockrms.com/recipes/264
 - https://community.rockrms.com/recipes/240
 - https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/dynamic-report-block
@@ -56,4 +57,3 @@ Complete Answer "What Does This Report Actually Show?" with evidence-backed chec
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Reporting/DataViewFilterBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Person/AttendanceDataViewFilter.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Reporting/DataFilter/Group/LocationDataViewDataFilterTests.cs
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/Group/LocationDataViewFilter.cs

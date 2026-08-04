@@ -2309,7 +2309,7 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "f768e9a71799adfa685a6d1e9f212cff4a00b0eef2b1cd554f5c1fa1a1b517cd",
   "approved_media_path": "knowledge/concepts/obsidian-development/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "obsidian-development",
   "guide_hash": "f39d6936758294abe2b569c81e3377886169fffc8c9f8bf54105746872c795a1",
   "guide_line_count": 1402,
@@ -2327,12 +2327,21 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
-      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
+      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
       "source_id": "rock_developer",
-      "source_key": "9eb572eefcc91592",
-      "source_record_id": "rock_developer:article:384",
-      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns"
+      "source_key": "8b36a3bb6cf452c1",
+      "source_record_id": "rock_developer:article:185",
+      "url": "https://community.rockrms.com/developer/obsidian"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a573a19b79cf51f81df7ad19356e5ffb77fdc44fe05918f52cee8dca94e7b41f",
+      "excerpt_hash": "4542a29023c701216636a6d8a6ff793fb3ef4046b0ec9405fbf3a9b617149435",
+      "source_id": "rock_developer",
+      "source_key": "47c5fb17bdb2125c",
+      "source_record_id": "rock_developer:article:367",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks"
     },
     {
       "authority": "official-developer",
@@ -2363,12 +2372,12 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
-      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "content_hash": "3759d9c616c22e664baaf158c9f1a4061cb494aac7b29f95f5dc90d9e232437e",
+      "excerpt_hash": "7670c10a7bc208e18c188a7a66eeb1970c5f2d7e4f4039a8f63bf5f94ea238ed",
       "source_id": "rock_developer",
-      "source_key": "d126ee444c6d1662",
-      "source_record_id": "rock_developer:article:381",
-      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns"
+      "source_key": "40df415c37fda601",
+      "source_record_id": "rock_developer:article:369",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types"
     },
     {
       "authority": "official-developer",
@@ -2435,6 +2444,15 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
+      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "source_id": "rock_developer",
+      "source_key": "9eb572eefcc91592",
+      "source_record_id": "rock_developer:article:384",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "76bc477b8b014d1252cdce0b339038c6df5db644f8bb530078ffe9fb9cbe0945",
       "excerpt_hash": "60a569273cc6f371dea8638178057f8f67eb15da2aa9068b7a342853f1397c61",
       "source_id": "rock_developer",
@@ -2462,12 +2480,12 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
-      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
+      "content_hash": "406c251612238eedf24386c179265a5c9c354aab7d2b860560840d5dbf979421",
+      "excerpt_hash": "3b1a5a7ac74b2bee078b9e7637529a53e303bcf748a72333ca5a7cf67292381e",
       "source_id": "rock_developer",
-      "source_key": "8b36a3bb6cf452c1",
-      "source_record_id": "rock_developer:article:185",
-      "url": "https://community.rockrms.com/developer/obsidian"
+      "source_key": "ca1899ce6394130b",
+      "source_record_id": "rock_developer:article:363",
+      "url": "https://community.rockrms.com/developer/obsidian/plugin-development"
     },
     {
       "authority": "official-api",
@@ -2489,12 +2507,66 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
-      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "content_hash": "b71f557817f6c64e8edf06fb5e221fb9222da631d339396ca4298a6c9611152a",
+      "excerpt_hash": "28b97185a5f2970c4db0c147d5dc0225f419fbead5e4d0589c69c4fe0e23294d",
       "source_id": "rock_developer",
-      "source_key": "553bda51c1d439cb",
-      "source_record_id": "rock_developer:article:373",
-      "url": "https://community.rockrms.com/developer/obsidian/grid-reference"
+      "source_key": "f243d90e0a0dff6e",
+      "source_record_id": "rock_developer:article:383",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/grid"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7d1b916e8492d106bc772b4ee3df783fc237e18e49bde0996d40a40006f39d54",
+      "excerpt_hash": "bb3902bbf800058394e26e3b396f0da8a6d9cf4810051d9587db36f4589608fa",
+      "source_id": "rock_developer",
+      "source_key": "d3637bd6759cc965",
+      "source_record_id": "rock_developer:article:403",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "31705f6b14d8ac7fc4007b9de086a3ac540625da0f7f69867efdfd0ad47a04ec",
+      "excerpt_hash": "e07dd2b3376742ed5737d76c45a95bec3b9f155cad0732a4204789be82fb7797",
+      "source_id": "rock_developer",
+      "source_key": "15b3cb4c85a240f2",
+      "source_record_id": "rock_developer:article:387",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "f0e35daec356d87b83cab02c4a692821e04e6b7c364821a5e667a5b2e2188fba",
+      "excerpt_hash": "ec10d114d4b6a9abebfe81d7861cfb03355e7677032ebe5c7d7ccda7d1a53af8",
+      "source_id": "rock_developer",
+      "source_key": "266975d1209cb12e",
+      "source_record_id": "rock_developer:article:402",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1b5d0fc421f267823fbddefe53a31d7be4f5f75ea4ac39d9cb4c4b6e20bea740",
+      "excerpt_hash": "998898e7d65a2101782170c5c984780e31bea87c2c2e4b0200919ab5f829258f",
+      "source_id": "rock_developer",
+      "source_key": "f0ffc1107bafa4c4",
+      "source_record_id": "rock_developer:article:386",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/standard-columns"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "25885bd9f6fecbe9c0bbe9727b8c32f64d4f3c8e2919dd1ad14f9cbfc8e20e48",
+      "excerpt_hash": "b4fec73e36cb89782e5e74a722b40d9542b8a1cd079b4eb01883f189bbc507c5",
+      "source_id": "rock_developer",
+      "source_key": "3efcc5109de6462f",
+      "source_record_id": "rock_developer:article:399",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "51a50cd0bcbbfe874b9221f07e49d5ef3451928a4325a68ad717cc27fffaaa39",
+      "excerpt_hash": "fe77eca8c6444819d6982aa0aa031a899e4dde353e2da4354ad467ffaefb0eac",
+      "source_id": "rock_developer",
+      "source_key": "f7d7d9b0f1d2118c",
+      "source_record_id": "rock_developer:article:385",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/filters"
     },
     {
       "authority": "official-developer",
@@ -2507,12 +2579,174 @@
     },
     {
       "authority": "official-developer",
+      "content_hash": "ac733232633c9899df732ce180b83918866a2840b6ef960b756d237604f876e1",
+      "excerpt_hash": "9e71adfbdf3bcc06e71a187a255fe100e3d3d2ad9d18853fe82e69c6c99bbbd1",
+      "source_id": "rock_developer",
+      "source_key": "860ab7567cba7d01",
+      "source_record_id": "rock_developer:article:405",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/textcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "75dd9ac367bd0b3d00162571ba51e25d6fc6b401b20c22b903f3cb6be62623a7",
+      "excerpt_hash": "4f0521acc0ae15276b984f8b27246ec84f0428ca166c6c004a72e9c49234c667",
+      "source_id": "rock_developer",
+      "source_key": "cca9af4352856f79",
+      "source_record_id": "rock_developer:article:388",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9b005c9e479133cbe3a8897827a7d3dd7e0d58ebd0c4b86b586238bb86b005c7",
+      "excerpt_hash": "d96eac649f20439b94396fd0fbb69e6a273a0b08baebc2671e17f445d3340a9b",
+      "source_id": "rock_developer",
+      "source_key": "6f4fc3cd38356a49",
+      "source_record_id": "rock_developer:article:393",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datecolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "796e7ecbb950e386867336996c709fee29d11471b2f8fb68298b18db3530e487",
+      "excerpt_hash": "73240f4ef1baeb5e820dbadbe4f62247d848f88387c54db786b3286da06cd499",
+      "source_id": "rock_developer",
+      "source_key": "f487015c12249eef",
+      "source_record_id": "rock_developer:article:394",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datetimecolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9af267c679ff8145fb6733d262fc8a65488b23f6b33e4f2a22b79648ea1874d7",
+      "excerpt_hash": "31a5f76540a1e3a438d483eeb0cf0b8dc8859bc52671a0234495085217ccc056",
+      "source_id": "rock_developer",
+      "source_key": "f3f50e1275e7a57f",
+      "source_record_id": "rock_developer:article:400",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numbercolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "323e66dbf6f349912a041dea793d7436821afeecc5f96328453ccda9d7785076",
+      "excerpt_hash": "6687d0527a0565e4c849fd49e4076e25cf3ef66c9e4d9011bab0534317ed7914",
+      "source_id": "rock_developer",
+      "source_key": "7153484cb03d2513",
+      "source_record_id": "rock_developer:article:392",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/currencycolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e12adfe70c159d9cfb97c54daed36f2a6e1b93e44e273a1b6058a79f13a69a39",
+      "excerpt_hash": "e21ef27490dc2ce7e4866e078a4438d7690443c150e6e145f4d3cb9d012aa8ba",
+      "source_id": "rock_developer",
+      "source_key": "e8bc2937124a4079",
+      "source_record_id": "rock_developer:article:398",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "406ef5383ee18830a04493c4cdce02789e7428c13d90da21838213b796e3b723",
+      "excerpt_hash": "73ad1ca76fdd705cea1878fd58ea24572498f80360c2f672ba98eb3e2ad3eeff",
+      "source_id": "rock_developer",
+      "source_key": "9293fedbe2734a30",
+      "source_record_id": "rock_developer:article:397",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/labelcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "921360c4053becedbb77836305034be66bb8fc5c00ac9f2663a3baf004d51e91",
+      "excerpt_hash": "c52348ac61fa064466cff4b17fa008431a7795439502ca6e2243d00035f4fad4",
+      "source_id": "rock_developer",
+      "source_key": "b3866351de8f73eb",
+      "source_record_id": "rock_developer:article:1024",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a1944393924c56c0ba0e512a0b32362c1dbb11248a2dc74d56479016b815f144",
+      "excerpt_hash": "b09592dd0e00216c211c1cc93eea2f2d280072e86e029a0d7e686e8d7c9a5aa0",
+      "source_id": "rock_developer",
+      "source_key": "62fab0c436ae7d8b",
+      "source_record_id": "rock_developer:article:389",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/buttoncolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ca87223b449437be2770f0de4a43c7f8eeee267b69f4074a33c370266fb37083",
+      "excerpt_hash": "4136d13bbcf45cb3717712944dd3003cc829e5f910444fcd23b919a63399183c",
+      "source_id": "rock_developer",
+      "source_key": "64598889eb9e220a",
+      "source_record_id": "rock_developer:article:396",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ff66baf6c9fdfbcaceb035eb18f3b22d63f147e8e3998a7ad3f7be948d06c2d7",
+      "excerpt_hash": "04a51b548ca00a2280b704a2ea27a51b1e97fc3b701003de89d6f1062cd8496a",
+      "source_id": "rock_developer",
+      "source_key": "a17c27ae44e270f4",
+      "source_record_id": "rock_developer:article:395",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "3170faf05efc2833200213a89c9a6f2d452fbf3f87ba28384da659ccc02afd9b",
+      "excerpt_hash": "06592016234d466055e98e66566ae6a6fb84182d6927091db8c9d42eb20156b0",
+      "source_id": "rock_developer",
+      "source_key": "8f72574d00259cdc",
+      "source_record_id": "rock_developer:article:391",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/copycolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "29501d90f98516a81682ac2117029aa545db4a2028aeab58fcb7c8ab5e7c2b1d",
+      "excerpt_hash": "ed5c45d7c330aeaa3fd4ada3c43e8998ebe03e44b2d5bfec79b8892d0ae015d0",
+      "source_id": "rock_developer",
+      "source_key": "75782737bf9accdd",
+      "source_record_id": "rock_developer:article:404",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/selectcolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "088f7a7ef87ee05554164dfa25830c23328bef93bdef8301ff0cdc294a426ff5",
+      "excerpt_hash": "a7313436e4a06fc6c8c774fa64cebe0bbfccbe94059b5c0ff80303ffab9dcade",
+      "source_id": "rock_developer",
+      "source_key": "3bd95b0b0e78da56",
+      "source_record_id": "rock_developer:article:401",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/reordercolumn"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "5f2ddb28ce298cc398e7ca6857072b2f305c1cf279d6147833bbf8018ab9ce34",
+      "excerpt_hash": "b7bb6e0ecea60c3e11b2ed9c9cb1dd36553a91cc7c7654d502cfb5978f74617a",
+      "source_id": "rock_developer",
+      "source_key": "ae3abc783a1ea427",
+      "source_record_id": "rock_developer:article:390",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/column"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
+      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "source_id": "rock_developer",
+      "source_key": "d126ee444c6d1662",
+      "source_record_id": "rock_developer:article:381",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": "a1f17a09dc5ecf7a73ff056b6105b0e735ffbeaed115f17d69a09b199afb0fc1",
       "excerpt_hash": "4d581ac1932cb73bee132ee8e1288c768a57a837efb1035cf1b6a3343a56233e",
       "source_id": "rock_developer",
       "source_key": "9633cce6873cff38",
       "source_record_id": "rock_developer:article:380",
       "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "4d06d5c705254b0ee8288a868ac6a85df90c361955b7a317c3bf229392bff428",
+      "excerpt_hash": "1312e159126bac4d2800ac04a9c324d82e8f685684566a029b1470e467a0e887",
+      "source_id": "rock_developer",
+      "source_key": "d7d6d5ce1737848d",
+      "source_record_id": "rock_developer:article:362",
+      "url": "https://community.rockrms.com/developer/obsidian/core-development-environment"
     },
     {
       "authority": "official-developer",
@@ -2549,6 +2783,24 @@
       "source_key": "a9c1cee2ea409fb9",
       "source_record_id": "rock_developer:article:371",
       "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
+      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "source_id": "rock_developer",
+      "source_key": "553bda51c1d439cb",
+      "source_record_id": "rock_developer:article:373",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "1e3add1ab5e9032350c17c723cc56ada3853292320e135f5dbd9ab2fd053e728",
+      "excerpt_hash": "4a1a91e1036716be63ff6f5453107f3dac6de35b89a1f02003e09001a3f389a8",
+      "source_id": "rock_developer",
+      "source_key": "8c3917152dcc0534",
+      "source_record_id": "rock_developer:article:374",
+      "url": "https://community.rockrms.com/developer/obsidian/misc-notes"
     },
     {
       "authority": "official-triumph",
@@ -2598,12 +2850,12 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "9eb572eefcc91592",
-        "688f7051e9eaa0b1",
+        "8b36a3bb6cf452c1",
+        "47c5fb17bdb2125c",
         "688f7051e9eaa0b1",
         "5b8aa0c453e855f4",
         "11bfad701dd44b19",
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "75b846ec4ce0aab8",
         "16b69950a994d9e5",
         "776256c424368312"
@@ -2617,13 +2869,13 @@
       "needs_live_verification": false,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "9eb572eefcc91592",
-        "688f7051e9eaa0b1",
+        "8b36a3bb6cf452c1",
+        "47c5fb17bdb2125c",
         "688f7051e9eaa0b1",
         "d275b5b94a9da833",
         "b168f80a45ce8a1c",
         "095fcaaf294bf490",
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "bce31f25cb8a199e",
         "75b846ec4ce0aab8",
         "9eb572eefcc91592",
@@ -2653,11 +2905,11 @@
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "36c3d697c2cf3359",
         "d275b5b94a9da833",
         "d275b5b94a9da833",
-        "8b36a3bb6cf452c1",
+        "ca1899ce6394130b",
         "776256c424368312",
         "bce31f25cb8a199e",
         "14e4b0253d1428ca"
@@ -2674,12 +2926,12 @@
         "776256c424368312",
         "6a44a9e1765b521b",
         "776256c424368312",
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "d275b5b94a9da833",
         "776256c424368312",
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "36c3d697c2cf3359",
-        "9eb572eefcc91592",
+        "d3637bd6759cc965",
         "688f7051e9eaa0b1",
         "d275b5b94a9da833"
       ],
@@ -2693,15 +2945,15 @@
       "section_id": "6-primary-entities-and-relationships",
       "source_keys": [
         "6a44a9e1765b521b",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "d126ee444c6d1662",
+        "15b3cb4c85a240f2",
+        "266975d1209cb12e",
+        "40df415c37fda601",
         "bce31f25cb8a199e",
         "d275b5b94a9da833",
-        "9eb572eefcc91592",
+        "f0ffc1107bafa4c4",
         "776256c424368312",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "3efcc5109de6462f",
+        "d3637bd6759cc965"
       ],
       "start_line": 151
     },
@@ -2713,8 +2965,9 @@
       "section_id": "7-common-obsidian-development-workflows",
       "source_keys": [
         "095fcaaf294bf490",
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
+        "f7d7d9b0f1d2118c",
         "11bfad701dd44b19",
         "776256c424368312",
         "b168f80a45ce8a1c",
@@ -2722,7 +2975,8 @@
         "6a44a9e1765b521b",
         "75b846ec4ce0aab8",
         "16b69950a994d9e5",
-        "6d390930ff8b14a8"
+        "6d390930ff8b14a8",
+        "8b36a3bb6cf452c1"
       ],
       "start_line": 169
     },
@@ -2734,9 +2988,9 @@
       "section_id": "7-common-obsidian-development-workflows-build-a-new-core-list-block",
       "source_keys": [
         "095fcaaf294bf490",
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "553bda51c1d439cb",
+        "f7d7d9b0f1d2118c",
         "11bfad701dd44b19",
         "776256c424368312"
       ],
@@ -2788,7 +3042,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-obsidian-development-workflows-troubleshoot-an-existing-obsidian-screen",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "6d390930ff8b14a8",
         "75b846ec4ce0aab8"
       ],
@@ -2801,7 +3055,7 @@
       "needs_live_verification": false,
       "section_id": "8-blocks-deep-dive",
       "source_keys": [
-        "688f7051e9eaa0b1"
+        "47c5fb17bdb2125c"
       ],
       "start_line": 265
     },
@@ -2924,8 +3178,8 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-grid-architecture",
       "source_keys": [
-        "553bda51c1d439cb",
-        "553bda51c1d439cb"
+        "f243d90e0a0dff6e",
+        "f243d90e0a0dff6e"
       ],
       "start_line": 392
     },
@@ -2936,7 +3190,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-standard-column-properties",
       "source_keys": [
-        "9eb572eefcc91592"
+        "f0ffc1107bafa4c4"
       ],
       "start_line": 406
     },
@@ -2947,7 +3201,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-textcolumn",
       "source_keys": [
-        "9eb572eefcc91592",
+        "860ab7567cba7d01",
         "776256c424368312"
       ],
       "start_line": 418
@@ -2959,7 +3213,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-booleancolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "cca9af4352856f79"
       ],
       "start_line": 428
     },
@@ -2970,8 +3224,8 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-datecolumn-and-datetimecolumn",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "6f4fc3cd38356a49",
+        "f487015c12249eef"
       ],
       "start_line": 432
     },
@@ -2982,9 +3236,9 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-numbercolumn-currencycolumn-and-numberbadgecolumn",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "f3f50e1275e7a57f",
+        "7153484cb03d2513",
+        "e8bc2937124a4079"
       ],
       "start_line": 443
     },
@@ -2995,7 +3249,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-labelcolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "9293fedbe2734a30"
       ],
       "start_line": 455
     },
@@ -3006,7 +3260,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-highlightdetailcolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "b3866351de8f73eb"
       ],
       "start_line": 466
     },
@@ -3017,8 +3271,8 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-personcolumn",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "3efcc5109de6462f",
+        "3efcc5109de6462f"
       ],
       "start_line": 470
     },
@@ -3029,10 +3283,10 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-buttoncolumn-editcolumn-deletecolumn-copycolumn",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "62fab0c436ae7d8b",
+        "64598889eb9e220a",
+        "a17c27ae44e270f4",
+        "8f72574d00259cdc"
       ],
       "start_line": 476
     },
@@ -3043,7 +3297,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-selectcolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "75782737bf9accdd"
       ],
       "start_line": 488
     },
@@ -3054,7 +3308,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-reordercolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "3bd95b0b0e78da56"
       ],
       "start_line": 492
     },
@@ -3065,7 +3319,7 @@
       "needs_live_verification": true,
       "section_id": "9-grid-reference-deep-dive-securitycolumn",
       "source_keys": [
-        "9eb572eefcc91592"
+        "d3637bd6759cc965"
       ],
       "start_line": 505
     },
@@ -3076,8 +3330,8 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-attributecolumns-and-rockfieldcolumn",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "15b3cb4c85a240f2",
+        "266975d1209cb12e"
       ],
       "start_line": 509
     },
@@ -3088,7 +3342,7 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-generic-column",
       "source_keys": [
-        "9eb572eefcc91592"
+        "ae3abc783a1ea427"
       ],
       "start_line": 515
     },
@@ -3099,7 +3353,7 @@
       "needs_live_verification": false,
       "section_id": "9-grid-reference-deep-dive-filters",
       "source_keys": [
-        "553bda51c1d439cb"
+        "f7d7d9b0f1d2118c"
       ],
       "start_line": 519
     },
@@ -3110,7 +3364,7 @@
       "needs_live_verification": false,
       "section_id": "10-field-types-deep-dive",
       "source_keys": [
-        "d126ee444c6d1662"
+        "40df415c37fda601"
       ],
       "start_line": 531
     },
@@ -3178,7 +3432,7 @@
       "needs_live_verification": false,
       "section_id": "10-field-types-deep-dive-configuration-values",
       "source_keys": [
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "d275b5b94a9da833"
       ],
       "start_line": 598
@@ -3203,7 +3457,7 @@
       "needs_live_verification": false,
       "section_id": "11-development-environment-deep-dive",
       "source_keys": [
-        "5966214bad72bdf7"
+        "d7d6d5ce1737848d"
       ],
       "start_line": 653
     },
@@ -3237,7 +3491,7 @@
       "needs_live_verification": true,
       "section_id": "11-development-environment-deep-dive-plugin-development-setup",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "ca1899ce6394130b"
       ],
       "start_line": 686
     },
@@ -3271,9 +3525,10 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "14e4b0253d1428ca",
         "36c3d697c2cf3359",
+        "d3637bd6759cc965",
         "776256c424368312",
         "9d0ccce785ef64bb"
       ],
@@ -3286,7 +3541,7 @@
       "needs_live_verification": false,
       "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-developer-resources",
       "source_keys": [
-        "9eb572eefcc91592"
+        "8b36a3bb6cf452c1"
       ],
       "start_line": 713
     },
@@ -3309,7 +3564,7 @@
       "section_id": "12-related-rock-areas-developer-resources-api-integrations-security-cms-platform-configuration-workflows-security",
       "source_keys": [
         "36c3d697c2cf3359",
-        "9eb572eefcc91592",
+        "d3637bd6759cc965",
         "776256c424368312"
       ],
       "start_line": 729
@@ -3438,31 +3693,31 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks",
       "source_keys": [
-        "9eb572eefcc91592",
-        "5966214bad72bdf7",
-        "5966214bad72bdf7",
         "8b36a3bb6cf452c1",
+        "d7d6d5ce1737848d",
+        "5966214bad72bdf7",
+        "ca1899ce6394130b",
         "6d390930ff8b14a8",
         "5b8aa0c453e855f4",
         "17e45cec6ac45c65",
-        "688f7051e9eaa0b1",
+        "47c5fb17bdb2125c",
         "688f7051e9eaa0b1",
         "b168f80a45ce8a1c",
         "095fcaaf294bf490",
         "6a44a9e1765b521b",
         "36c3d697c2cf3359",
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "d126ee444c6d1662",
         "9633cce6873cff38",
         "75b846ec4ce0aab8",
         "e39ba57a3615907c",
         "a9c1cee2ea409fb9",
         "11bfad701dd44b19",
-        "9eb572eefcc91592",
         "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "553bda51c1d439cb",
-        "8b36a3bb6cf452c1",
+        "f7d7d9b0f1d2118c",
+        "8c3917152dcc0534",
         "eeb549b0d1c823a2",
         "d275b5b94a9da833",
         "d275b5b94a9da833",
@@ -3483,31 +3738,31 @@
       "needs_live_verification": false,
       "section_id": "15-reporting-analytics-and-model-map",
       "source_keys": [
-        "9eb572eefcc91592",
-        "5966214bad72bdf7",
-        "5966214bad72bdf7",
         "8b36a3bb6cf452c1",
+        "d7d6d5ce1737848d",
+        "5966214bad72bdf7",
+        "ca1899ce6394130b",
         "6d390930ff8b14a8",
         "5b8aa0c453e855f4",
         "17e45cec6ac45c65",
-        "688f7051e9eaa0b1",
+        "47c5fb17bdb2125c",
         "688f7051e9eaa0b1",
         "b168f80a45ce8a1c",
         "095fcaaf294bf490",
         "6a44a9e1765b521b",
         "36c3d697c2cf3359",
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "d126ee444c6d1662",
         "9633cce6873cff38",
         "75b846ec4ce0aab8",
         "e39ba57a3615907c",
         "a9c1cee2ea409fb9",
         "11bfad701dd44b19",
-        "9eb572eefcc91592",
         "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "553bda51c1d439cb",
-        "8b36a3bb6cf452c1",
+        "f7d7d9b0f1d2118c",
+        "8c3917152dcc0534",
         "eeb549b0d1c823a2",
         "d275b5b94a9da833",
         "d275b5b94a9da833",
@@ -3539,7 +3794,7 @@
       "needs_live_verification": true,
       "section_id": "15-reporting-analytics-and-model-map-field-types-and-filtering",
       "source_keys": [
-        "d126ee444c6d1662"
+        "40df415c37fda601"
       ],
       "start_line": 930
     },
@@ -3592,12 +3847,16 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "d126ee444c6d1662",
+        "f7d7d9b0f1d2118c",
+        "3efcc5109de6462f",
+        "15b3cb4c85a240f2",
+        "266975d1209cb12e",
+        "40df415c37fda601",
         "9633cce6873cff38",
         "d275b5b94a9da833",
-        "8b36a3bb6cf452c1",
+        "8c3917152dcc0534",
         "776256c424368312",
         "e39ba57a3615907c",
         "a9c1cee2ea409fb9"
@@ -3611,9 +3870,9 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-create-a-safe-obsidian-list-block",
       "source_keys": [
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "553bda51c1d439cb"
+        "f7d7d9b0f1d2118c"
       ],
       "start_line": 983
     },
@@ -3624,7 +3883,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-a-person-column-correctly",
       "source_keys": [
-        "9eb572eefcc91592"
+        "3efcc5109de6462f"
       ],
       "start_line": 1004
     },
@@ -3635,8 +3894,8 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-dynamic-attribute-columns",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "15b3cb4c85a240f2",
+        "266975d1209cb12e"
       ],
       "start_line": 1016
     },
@@ -3647,7 +3906,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-field-type-edit-component",
       "source_keys": [
-        "d126ee444c6d1662",
+        "40df415c37fda601",
         "9633cce6873cff38",
         "d275b5b94a9da833"
       ],
@@ -3660,7 +3919,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-diagnose-a-broken-picker",
       "source_keys": [
-        "8b36a3bb6cf452c1",
+        "8c3917152dcc0534",
         "776256c424368312"
       ],
       "start_line": 1050
@@ -3698,9 +3957,9 @@
         "6d390930ff8b14a8",
         "17e45cec6ac45c65",
         "11bfad701dd44b19",
-        "8b36a3bb6cf452c1",
+        "8c3917152dcc0534",
         "16b69950a994d9e5",
-        "9eb572eefcc91592"
+        "d3637bd6759cc965"
       ],
       "start_line": 1095
     },
@@ -3799,7 +4058,7 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
       "source_keys": [
-        "8b36a3bb6cf452c1"
+        "8c3917152dcc0534"
       ],
       "start_line": 1205
     },
@@ -3821,7 +4080,7 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
       "source_keys": [
-        "9eb572eefcc91592"
+        "d3637bd6759cc965"
       ],
       "start_line": 1222
     },
@@ -3832,7 +4091,7 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
       "source_keys": [
-        "9eb572eefcc91592"
+        "d3637bd6759cc965"
       ],
       "start_line": 1234
     },
@@ -3843,6 +4102,7 @@
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
+        "8b36a3bb6cf452c1",
         "9eb572eefcc91592",
         "776256c424368312",
         "6d390930ff8b14a8",
@@ -3857,7 +4117,7 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "9eb572eefcc91592"
       ],
       "start_line": 1249
@@ -3880,7 +4140,7 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-review-an-obsidian-pull-request",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "6d390930ff8b14a8",
         "776256c424368312"
       ],
@@ -3893,7 +4153,7 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-audit-a-block-for-security",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "6d390930ff8b14a8",
         "776256c424368312"
       ],
@@ -3906,7 +4166,7 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-audit-a-grid-for-operational-readiness",
       "source_keys": [
-        "9eb572eefcc91592",
+        "8b36a3bb6cf452c1",
         "6d390930ff8b14a8",
         "776256c424368312"
       ],
@@ -3930,18 +4190,18 @@
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
+        "8f72574d00259cdc",
+        "75782737bf9accdd",
+        "6f4fc3cd38356a49",
         "e39ba57a3615907c",
-        "8b36a3bb6cf452c1",
-        "688f7051e9eaa0b1",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "ca1899ce6394130b",
+        "47c5fb17bdb2125c",
+        "e8bc2937124a4079",
+        "d3637bd6759cc965",
+        "64598889eb9e220a",
+        "b3866351de8f73eb",
+        "cca9af4352856f79",
+        "a17c27ae44e270f4"
       ],
       "start_line": 1342
     },
@@ -3952,18 +4212,18 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
+        "8f72574d00259cdc",
+        "75782737bf9accdd",
+        "6f4fc3cd38356a49",
         "e39ba57a3615907c",
-        "8b36a3bb6cf452c1",
-        "688f7051e9eaa0b1",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592",
-        "9eb572eefcc91592"
+        "ca1899ce6394130b",
+        "47c5fb17bdb2125c",
+        "e8bc2937124a4079",
+        "d3637bd6759cc965",
+        "64598889eb9e220a",
+        "b3866351de8f73eb",
+        "cca9af4352856f79",
+        "a17c27ae44e270f4"
       ],
       "start_line": 1368
     },
@@ -3974,22 +4234,22 @@
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
       "source_keys": [
-        "9eb572eefcc91592",
-        "688f7051e9eaa0b1",
+        "8b36a3bb6cf452c1",
+        "47c5fb17bdb2125c",
         "688f7051e9eaa0b1",
         "b168f80a45ce8a1c",
         "095fcaaf294bf490",
         "11bfad701dd44b19",
-        "553bda51c1d439cb",
+        "f243d90e0a0dff6e",
         "9eb572eefcc91592",
-        "553bda51c1d439cb",
-        "d126ee444c6d1662",
+        "f7d7d9b0f1d2118c",
+        "40df415c37fda601",
         "75b846ec4ce0aab8",
         "36c3d697c2cf3359",
         "17e45cec6ac45c65",
         "e39ba57a3615907c",
         "16b69950a994d9e5",
-        "8b36a3bb6cf452c1",
+        "ca1899ce6394130b",
         "776256c424368312"
       ],
       "start_line": 1375
@@ -4011,23 +4271,47 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
-      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
+      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "9eb572eefcc91592",
-      "source_record_id": "rock_developer:article:384",
-      "title": "Columns",
+      "source_key": "8b36a3bb6cf452c1",
+      "source_record_id": "rock_developer:article:185",
+      "title": "Obsidian",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+      "url": "https://community.rockrms.com/developer/obsidian",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a573a19b79cf51f81df7ad19356e5ffb77fdc44fe05918f52cee8dca94e7b41f",
+      "excerpt_hash": "4542a29023c701216636a6d8a6ff793fb3ef4046b0ec9405fbf3a9b617149435",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "47c5fb17bdb2125c",
+      "source_record_id": "rock_developer:article:367",
+      "title": "Blocks",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/blocks",
       "version": null
     },
     {
@@ -4104,23 +4388,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
-      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "content_hash": "3759d9c616c22e664baaf158c9f1a4061cb494aac7b29f95f5dc90d9e232437e",
+      "excerpt_hash": "7670c10a7bc208e18c188a7a66eeb1970c5f2d7e4f4039a8f63bf5f94ea238ed",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "d126ee444c6d1662",
-      "source_record_id": "rock_developer:article:381",
-      "title": "Core Field Type Patterns",
+      "source_key": "40df415c37fda601",
+      "source_record_id": "rock_developer:article:369",
+      "title": "Creating Field Types",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types",
       "version": null
     },
     {
@@ -4288,6 +4572,29 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "f09e950ee48c43b84ded674aea348ebc62ced7f4d67c112d293b5640eec79eec",
+      "excerpt_hash": "5ffba8dc1aca784fdbfe32f3cf41209d57519d1519881c12bd3056fddc70b146",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9eb572eefcc91592",
+      "source_record_id": "rock_developer:article:384",
+      "title": "Columns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "76bc477b8b014d1252cdce0b339038c6df5db644f8bb530078ffe9fb9cbe0945",
       "excerpt_hash": "60a569273cc6f371dea8638178057f8f67eb15da2aa9068b7a342853f1397c61",
       "hydrated": true,
@@ -4357,23 +4664,23 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "61190960a130b00b794fcb48efc92b3b3cf894a81922012724e8ce4161d31f59",
-      "excerpt_hash": "570c32f4ee1d7a2ed94e860eeb3b293cb2cf53cbdcd4cc0b558544ca8b4cecbc",
+      "content_hash": "406c251612238eedf24386c179265a5c9c354aab7d2b860560840d5dbf979421",
+      "excerpt_hash": "3b1a5a7ac74b2bee078b9e7637529a53e303bcf748a72333ca5a7cf67292381e",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "8b36a3bb6cf452c1",
-      "source_record_id": "rock_developer:article:185",
-      "title": "Obsidian",
+      "source_key": "ca1899ce6394130b",
+      "source_record_id": "rock_developer:article:363",
+      "title": "Plugin Development",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/obsidian",
+      "url": "https://community.rockrms.com/developer/obsidian/plugin-development",
       "version": null
     },
     {
@@ -4427,23 +4734,162 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
-      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "content_hash": "b71f557817f6c64e8edf06fb5e221fb9222da631d339396ca4298a6c9611152a",
+      "excerpt_hash": "28b97185a5f2970c4db0c147d5dc0225f419fbead5e4d0589c69c4fe0e23294d",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "553bda51c1d439cb",
-      "source_record_id": "rock_developer:article:373",
-      "title": "Grid Reference",
+      "source_key": "f243d90e0a0dff6e",
+      "source_record_id": "rock_developer:article:383",
+      "title": "Grid",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/obsidian/grid-reference",
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/grid",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7d1b916e8492d106bc772b4ee3df783fc237e18e49bde0996d40a40006f39d54",
+      "excerpt_hash": "bb3902bbf800058394e26e3b396f0da8a6d9cf4810051d9587db36f4589608fa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d3637bd6759cc965",
+      "source_record_id": "rock_developer:article:403",
+      "title": "SecurityColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "31705f6b14d8ac7fc4007b9de086a3ac540625da0f7f69867efdfd0ad47a04ec",
+      "excerpt_hash": "e07dd2b3376742ed5737d76c45a95bec3b9f155cad0732a4204789be82fb7797",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "15b3cb4c85a240f2",
+      "source_record_id": "rock_developer:article:387",
+      "title": "AttributeColumns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "f0e35daec356d87b83cab02c4a692821e04e6b7c364821a5e667a5b2e2188fba",
+      "excerpt_hash": "ec10d114d4b6a9abebfe81d7861cfb03355e7677032ebe5c7d7ccda7d1a53af8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "266975d1209cb12e",
+      "source_record_id": "rock_developer:article:402",
+      "title": "RockFieldColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/rockfieldcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1b5d0fc421f267823fbddefe53a31d7be4f5f75ea4ac39d9cb4c4b6e20bea740",
+      "excerpt_hash": "998898e7d65a2101782170c5c984780e31bea87c2c2e4b0200919ab5f829258f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f0ffc1107bafa4c4",
+      "source_record_id": "rock_developer:article:386",
+      "title": "Standard Columns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/standard-columns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "25885bd9f6fecbe9c0bbe9727b8c32f64d4f3c8e2919dd1ad14f9cbfc8e20e48",
+      "excerpt_hash": "b4fec73e36cb89782e5e74a722b40d9542b8a1cd079b4eb01883f189bbc507c5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "3efcc5109de6462f",
+      "source_record_id": "rock_developer:article:399",
+      "title": "PersonColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "51a50cd0bcbbfe874b9221f07e49d5ef3451928a4325a68ad717cc27fffaaa39",
+      "excerpt_hash": "fe77eca8c6444819d6982aa0aa031a899e4dde353e2da4354ad467ffaefb0eac",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f7d7d9b0f1d2118c",
+      "source_record_id": "rock_developer:article:385",
+      "title": "Filters",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/filters",
       "version": null
     },
     {
@@ -4473,6 +4919,398 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
+      "content_hash": "ac733232633c9899df732ce180b83918866a2840b6ef960b756d237604f876e1",
+      "excerpt_hash": "9e71adfbdf3bcc06e71a187a255fe100e3d3d2ad9d18853fe82e69c6c99bbbd1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "860ab7567cba7d01",
+      "source_record_id": "rock_developer:article:405",
+      "title": "TextColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/textcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "75dd9ac367bd0b3d00162571ba51e25d6fc6b401b20c22b903f3cb6be62623a7",
+      "excerpt_hash": "4f0521acc0ae15276b984f8b27246ec84f0428ca166c6c004a72e9c49234c667",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "cca9af4352856f79",
+      "source_record_id": "rock_developer:article:388",
+      "title": "BooleanColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/booleancolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9b005c9e479133cbe3a8897827a7d3dd7e0d58ebd0c4b86b586238bb86b005c7",
+      "excerpt_hash": "d96eac649f20439b94396fd0fbb69e6a273a0b08baebc2671e17f445d3340a9b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6f4fc3cd38356a49",
+      "source_record_id": "rock_developer:article:393",
+      "title": "DateColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datecolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "796e7ecbb950e386867336996c709fee29d11471b2f8fb68298b18db3530e487",
+      "excerpt_hash": "73240f4ef1baeb5e820dbadbe4f62247d848f88387c54db786b3286da06cd499",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f487015c12249eef",
+      "source_record_id": "rock_developer:article:394",
+      "title": "DateTimeColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/datetimecolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9af267c679ff8145fb6733d262fc8a65488b23f6b33e4f2a22b79648ea1874d7",
+      "excerpt_hash": "31a5f76540a1e3a438d483eeb0cf0b8dc8859bc52671a0234495085217ccc056",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f3f50e1275e7a57f",
+      "source_record_id": "rock_developer:article:400",
+      "title": "NumberColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numbercolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "323e66dbf6f349912a041dea793d7436821afeecc5f96328453ccda9d7785076",
+      "excerpt_hash": "6687d0527a0565e4c849fd49e4076e25cf3ef66c9e4d9011bab0534317ed7914",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "7153484cb03d2513",
+      "source_record_id": "rock_developer:article:392",
+      "title": "CurrencyColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/currencycolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "e12adfe70c159d9cfb97c54daed36f2a6e1b93e44e273a1b6058a79f13a69a39",
+      "excerpt_hash": "e21ef27490dc2ce7e4866e078a4438d7690443c150e6e145f4d3cb9d012aa8ba",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e8bc2937124a4079",
+      "source_record_id": "rock_developer:article:398",
+      "title": "NumberBadgeColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/numberbadgecolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "406ef5383ee18830a04493c4cdce02789e7428c13d90da21838213b796e3b723",
+      "excerpt_hash": "73ad1ca76fdd705cea1878fd58ea24572498f80360c2f672ba98eb3e2ad3eeff",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9293fedbe2734a30",
+      "source_record_id": "rock_developer:article:397",
+      "title": "LabelColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/labelcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "921360c4053becedbb77836305034be66bb8fc5c00ac9f2663a3baf004d51e91",
+      "excerpt_hash": "c52348ac61fa064466cff4b17fa008431a7795439502ca6e2243d00035f4fad4",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b3866351de8f73eb",
+      "source_record_id": "rock_developer:article:1024",
+      "title": "HighlightDetailColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/highlightdetailcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a1944393924c56c0ba0e512a0b32362c1dbb11248a2dc74d56479016b815f144",
+      "excerpt_hash": "b09592dd0e00216c211c1cc93eea2f2d280072e86e029a0d7e686e8d7c9a5aa0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "62fab0c436ae7d8b",
+      "source_record_id": "rock_developer:article:389",
+      "title": "ButtonColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/buttoncolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ca87223b449437be2770f0de4a43c7f8eeee267b69f4074a33c370266fb37083",
+      "excerpt_hash": "4136d13bbcf45cb3717712944dd3003cc829e5f910444fcd23b919a63399183c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "64598889eb9e220a",
+      "source_record_id": "rock_developer:article:396",
+      "title": "EditColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/editcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ff66baf6c9fdfbcaceb035eb18f3b22d63f147e8e3998a7ad3f7be948d06c2d7",
+      "excerpt_hash": "04a51b548ca00a2280b704a2ea27a51b1e97fc3b701003de89d6f1062cd8496a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "a17c27ae44e270f4",
+      "source_record_id": "rock_developer:article:395",
+      "title": "DeleteColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/deletecolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "3170faf05efc2833200213a89c9a6f2d452fbf3f87ba28384da659ccc02afd9b",
+      "excerpt_hash": "06592016234d466055e98e66566ae6a6fb84182d6927091db8c9d42eb20156b0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8f72574d00259cdc",
+      "source_record_id": "rock_developer:article:391",
+      "title": "CopyColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/copycolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "29501d90f98516a81682ac2117029aa545db4a2028aeab58fcb7c8ab5e7c2b1d",
+      "excerpt_hash": "ed5c45d7c330aeaa3fd4ada3c43e8998ebe03e44b2d5bfec79b8892d0ae015d0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "75782737bf9accdd",
+      "source_record_id": "rock_developer:article:404",
+      "title": "SelectColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/selectcolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "088f7a7ef87ee05554164dfa25830c23328bef93bdef8301ff0cdc294a426ff5",
+      "excerpt_hash": "a7313436e4a06fc6c8c774fa64cebe0bbfccbe94059b5c0ff80303ffab9dcade",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "3bd95b0b0e78da56",
+      "source_record_id": "rock_developer:article:401",
+      "title": "ReorderColumn",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/reordercolumn",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5f2ddb28ce298cc398e7ca6857072b2f305c1cf279d6147833bbf8018ab9ce34",
+      "excerpt_hash": "b7bb6e0ecea60c3e11b2ed9c9cb1dd36553a91cc7c7654d502cfb5978f74617a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "ae3abc783a1ea427",
+      "source_record_id": "rock_developer:article:390",
+      "title": "Column",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference/columns/column",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a84bd10a728ef83714d9f3b5b5c690f0d6f4bab4161428e1e8e9b516196305cb",
+      "excerpt_hash": "01ce9281812921ae18dbfbb479a8060369781df769d072a5286014f88c0e9743",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d126ee444c6d1662",
+      "source_record_id": "rock_developer:article:381",
+      "title": "Core Field Type Patterns",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/core-field-type-patterns",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
       "content_hash": "a1f17a09dc5ecf7a73ff056b6105b0e735ffbeaed115f17d69a09b199afb0fc1",
       "excerpt_hash": "4d581ac1932cb73bee132ee8e1288c768a57a837efb1035cf1b6a3343a56233e",
       "hydrated": true,
@@ -4490,6 +5328,29 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "4d06d5c705254b0ee8288a868ac6a85df90c361955b7a317c3bf229392bff428",
+      "excerpt_hash": "1312e159126bac4d2800ac04a9c324d82e8f685684566a029b1470e467a0e887",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "d7d6d5ce1737848d",
+      "source_record_id": "rock_developer:article:362",
+      "title": "Core Development Environment",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/core-development-environment",
       "version": null
     },
     {
@@ -4587,6 +5448,52 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/obsidian/caching-api-calls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "d1b197081109bc7ebdd1729bf9f64be604915ea46718451cf6c25b504651fc3e",
+      "excerpt_hash": "68d3bd4611eeaab795187f7ef59a8f560e487a3b7dbe07084a409ec5a39657aa",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "553bda51c1d439cb",
+      "source_record_id": "rock_developer:article:373",
+      "title": "Grid Reference",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/grid-reference",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "1e3add1ab5e9032350c17c723cc56ada3853292320e135f5dbd9ab2fd053e728",
+      "excerpt_hash": "4a1a91e1036716be63ff6f5453107f3dac6de35b89a1f02003e09001a3f389a8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8c3917152dcc0534",
+      "source_record_id": "rock_developer:article:374",
+      "title": "Misc Notes",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/obsidian/misc-notes",
       "version": null
     },
     {

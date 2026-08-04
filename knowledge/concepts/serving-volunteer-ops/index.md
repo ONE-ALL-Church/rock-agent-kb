@@ -2,7 +2,7 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-07-31T00:30:00+00:00
+last_built: 2026-08-04T17:15:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -36,7 +36,7 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 - `Serving And Volunteer Operations` spans groups, scheduling, locations, check-in, communications, workflows. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_podcast_rss, rock_community_hubs, rock_youtube, rock_documentation, rock_recipes, rock_rocku.
-- Related tags found in source records: usage, check-in, workflow, operations, admin, security, training, sql.
+- Related tags found in source records: usage, check-in, workflow, operations, security, admin, training, sql.
 - Source detail types include: developer_doc, documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
@@ -102,13 +102,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_community_hubs`: 8
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 29
+- `rock_documentation`: 27
 - `rock_mobile_docs`: 1
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 1
 - `rock_qa`: 1
 - `rock_recipes`: 8
-- `rock_rocku`: 25
+- `rock_rocku`: 27
 - `rock_youtube`: 2
 - `sparkdevnetwork_rock`: 1
 - `triumph_resources`: 1
@@ -124,7 +124,7 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Attendance Self Entry | rock_documentation | With the advancement of online services, getting accurate engagement data can be a challenge. To address this need, Rock lets attendees report their own attendance from your external site. All a person needs to do is check a few boxes to indicate who’s watching the service with them. Pictured above, Ted is watching the service at home with Cindy and Alex. Noah is at grandma’s house this weekend, so isn’t selected.... | [source](https://community.rockrms.com/documentation/church-management/check-in/attendance/attendance-self-entry) |
 | Configure Attendance Reminders | rock_documentation | You can also configure Rock to send a communication to the group leader on the day that their group meets to remind them to take attendance. This communication will include a link to take them straight to the attendance detail screen. Since each group leader gets an individual communication, we have enabled this link to not require a login to help simplify the process (either the *Manage Members* or the *Edit*... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-attendance-reminders) |
 | Configure Group Attendance | rock_documentation | Before a group can take attendance, its group type must first be configured to enable attendance tracking under `Admin Tools > Settings > General > Group Types`. From here you should select the group type you'd like to configure check-in for. Under the *Attendance / Check-in* tab enable the setting *Takes Attendance*. While this one setting is all you need to enable the attendance features, there are a couple of... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance) |
-| Configure Group Schedule | rock_documentation | This article delves into the administrative setup and management capabilities of the Group Scheduling feature. We’ll show you how that all gets set up, and what Group Scheduling looks like on the administrative side. Before starting to scheduling volunteers, you’ll need to configure things like locations and schedules. Locations ensure volunteers know where they're needed, while Schedules pinpoint when their help is... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) |
+| Configure Group Schedule | rock_documentation | This article delves into the administrative setup and management capabilities of the Group Scheduling feature. We’ll show you how that all gets set up, and what Group Scheduling looks like on the administrative side. Before starting to schedule volunteers, you’ll need to configure things like locations and schedules. Locations ensure volunteers know where they're needed, while Schedules pinpoint when their help is... | [source](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) |
 | Configure RSVP Reminder Job | rock_documentation | The *Send Rsvp Reminders* job will send a reminder to people who have accepted an RSVP invitation. Those who have declined or who haven’t responded won’t receive a reminder. The job is ready for you to use out of the box, but it must be manually configured and is intended to be run daily. It will use the *RSVP Reminder System Communication* for the content, as configured at either the group or group type level. If... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/configure-rsvp-reminder-job) |
 | Enable Group RSVP | rock_documentation | The RSVP function is enabled in group type settings, making RSVP features available to any groups within that type. All RSVP features are tied directly to a group. That means you must have a group created before you can use RSVP. The group doesn't need to have any members, but it needs to exist so individuals who accept your RSVP can be added to it. To enable RSVP for a group type, navigate to `Admin Tools > General... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp) |
 | Entering Attendance | rock_documentation | ## Internal Attendance Features There are several ways to collect group attendance. The first is to use the internal attendance features built into the Group Viewer under `People > Group Viewer`. You'll notice an attendance button on the group details block for groups that are configured to take attendance. Selecting this option will bring up the group attendance grid. This grid lists the previously entered... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance) |
@@ -206,7 +206,7 @@ Keywords: `serving team, serve team, group type, group role, team member, volunt
 | Enable Group RSVP | rock_documentation | The RSVP function is enabled in group type settings, making RSVP features available to any groups within that type. All RSVP features are tied directly to a group. That means you must have a group created before you can use RSVP. The group doesn't need to have any members, but it needs to exist so individuals who accept your RSVP can be added to it. To enable RSVP for a group type, navigate to `Admin Tools > General... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp) |
 | Problem to Solve | rock_recipes | 2 View Serving Schedule on External Page Shared by Aiden Bailey , Mosaic Christian Church one year ago 14.4 Group, Serving Intermediate Problem to Solve Viewing the serving schedule isn't very accessible on the external page. You have to go to the internal site, have access to the schedule status board, navigate to the team you're trying to view, and then look at it. To do that, every volunteer needs the proper... | [source](https://community.rockrms.com/recipes/459) |
 | Use the Group Viewer with RSVP | rock_documentation | After you’ve enabled RSVP for a group type, you’ll see a couple of changes when viewing groups of that type from the *Group Viewer* page. First, you’ll notice the addition of a new icon that will take you to the *Group RSVP List* page, where you can view or add occurrences. We’ll talk more about occurrences in the [RSVP Occurrences](/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) article. Second,... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp) |
-| Volunteer Generosity | rock_documentation | This report is used to compare and capture insights on your volunteer team and their giving. It shows which volunteers have donated within a specific time range and lets you filter by Attendance Date Ranges, Campuses, and Teams. This helps you understand how volunteering relates to financial giving. Note **Just a Note**This tool tracks the connection between volunteers' giving and their service, not their exact... | [source](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity) |
+| Group Member Schedule Templates - adding 5th week and using Auto Schedule | rock_recipes | 1 Group Member Schedule Templates - adding 5th week and using Auto Schedule Shared by Cecillia Fountain , Centerpoint Church 3 years ago 9.0 Serving, Group Beginner The main reason to create Group Member Schedule Templates is to use the "Auto-Schedule" button in the Group Scheduler . The solutions below are designed to work with Auto-Scheduling and (for the most part) will not need to be maintained. Rock Core does... | [source](https://community.rockrms.com/recipes/356) |
 
 ### Schedules And Confirmations
 

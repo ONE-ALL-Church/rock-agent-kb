@@ -2098,7 +2098,7 @@
   },
   "approved_media_hash": "10583ac2d6c548664ac36be4593009027572001302109af1c73195ea87cc0cd4",
   "approved_media_path": "knowledge/concepts/check-in/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "check-in",
   "guide_hash": "0b2f2f381521c1c8846e54584aa2eea0d5e7ddef66cb5fa54b7265f2b8839d19",
   "guide_line_count": 1640,
@@ -2125,12 +2125,12 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "38315a491406090de4c692e4637c3475537f38b7711a458a32b150e020cff03f",
-      "excerpt_hash": "5769fa51d3183afa83a62a10fa673657da02532eec83f4b0b1a492ab13725dec",
+      "content_hash": "1c655a3214e5ecbaa9e8336d103eed9d11f1ca212afc19c18274247dd3dbc472",
+      "excerpt_hash": "7062b12767fae49bb2fdf08373154249ec3c02ad16334fa1e1721268646b7359",
       "source_id": "rock_rocku",
-      "source_key": "ee9796ce7f9afea9",
-      "source_record_id": "rock_rocku:ee9796ce7f9afea9",
-      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
+      "source_key": "1ff0d6de569776fb",
+      "source_record_id": "rock_rocku:1ff0d6de569776fb",
+      "url": "https://community.rockrms.com/rocku/check-in"
     },
     {
       "authority": "source-code",
@@ -2152,30 +2152,48 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "af2a859fe74f09ada748492dc7423142800cc8ba0695085b4f93d5c1005b6f61",
-      "excerpt_hash": "143a00f339ced4afcdb79542ce6ce9a4610972748e5c2f109a0028f1a68f8e42",
+      "content_hash": "61fd4ecf6dd09e0eab502b8953bdbdc9c84aa127b3c288a1b0ad4ccc98d95f28",
+      "excerpt_hash": "4a09fc46b1b3c0e09e1e25f6bcead7eb1288fbd9f880553caf0431c799ca5202",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "05e25d68371f3c79",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx"
+      "source_key": "4a1bdaae421b3a34",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs"
     },
     {
       "authority": "source-code",
-      "content_hash": "9a6a44d374d61c4a266570ed6e00a5f59da3c3c1f6b7d2ddae6fa4b55c04774e",
-      "excerpt_hash": "5fad0223da6860e38cabfb15f2bfa07113132202732117900dc9e94d5c42d735",
+      "content_hash": "c13b074327ccf2c10ea8c0eef7cd2f9a0edc47636b7d854fff31c3b4e33c775e",
+      "excerpt_hash": "04a0ddd007b010505a08ce041c90fc50f63742607ba6fd51cc7c3a9706b6a41c",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "227fd73082caf0ef",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx"
+      "source_key": "d83bfedd4da78320",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs"
     },
     {
       "authority": "official-training",
-      "content_hash": "1c655a3214e5ecbaa9e8336d103eed9d11f1ca212afc19c18274247dd3dbc472",
-      "excerpt_hash": "7062b12767fae49bb2fdf08373154249ec3c02ad16334fa1e1721268646b7359",
+      "content_hash": "876539dea4b792cfa41f0daef0dc111dff4ed4b84270d6515fab5ca1ac7a8122",
+      "excerpt_hash": "845be22c922eb9ba4a0798f104be20a7974b338e5f7fcf628767dabc8a075960",
       "source_id": "rock_rocku",
-      "source_key": "1ff0d6de569776fb",
-      "source_record_id": "rock_rocku:1ff0d6de569776fb",
-      "url": "https://community.rockrms.com/rocku/check-in"
+      "source_key": "e728f23e59096203",
+      "source_record_id": "rock_rocku:e728f23e59096203",
+      "url": "https://community.rockrms.com/rocku/check-in/types-and-groups"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "171bdcd52749365eb21312ed5c0435687b99cb7caa7789e57b817532615dca38",
+      "excerpt_hash": "02ca52b190bb949c6767764b8f765460a6fd2464d1986f1402b92d9dfa0262bf",
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "url": "https://community.rockrms.com/rocku/check-in/locations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "a980d841d72c6d673c8675bd5c6b267a7b8757be9efaaeea401a6f5b80b6ae91",
+      "excerpt_hash": "0dfb015b3ff57d6ac6b47dc50c9875d132a3a617fb479787f605a252d0b56186",
+      "source_id": "rock_rocku",
+      "source_key": "aa94e8b3d8886a7a",
+      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
+      "url": "https://community.rockrms.com/rocku/check-in/schedules"
     },
     {
       "authority": "community-example",
@@ -2194,6 +2212,24 @@
       "source_key": "6821ea88a529e9ee",
       "source_record_id": "SparkDevNetwork/Rock:database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "9a62d3ad55fd1ef70ce4dcef71007b078979b778623ba531d29c694a2ea98fbe",
+      "excerpt_hash": "fface12a64d91b8b651444f86a884db6a8a5f190fa42d81e57097a2127b7aafd",
+      "source_id": "rock_rocku",
+      "source_key": "c311029355d195cf",
+      "source_record_id": "rock_rocku:c311029355d195cf",
+      "url": "https://community.rockrms.com/rocku/check-in/devices"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "699d18d169f70b335de0aa56b893d6e00c97627fd923ab42c2c22706f1fb78ea",
+      "excerpt_hash": "1de9af99a3aae290158fdb5a4d7c26782681b35d59ea66ba256cda2e8e6897cd",
+      "source_id": "rock_rocku",
+      "source_key": "6c0184b4e7ec7558",
+      "source_record_id": "rock_rocku:6c0184b4e7ec7558",
+      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
     },
     {
       "authority": "source-code",
@@ -2305,6 +2341,42 @@
     },
     {
       "authority": "official-training",
+      "content_hash": "389cd44f5a8cc0bb73fa18e11e7fd05deca87300549887d4daf95e8f4c7de8ca",
+      "excerpt_hash": "9d30a4e2d2c85115ac664fa81f903344a95c1fa13ffa3c383fe6ed208c44210d",
+      "source_id": "rock_rocku",
+      "source_key": "dad0e7b67e4bcfb5",
+      "source_record_id": "rock_rocku:dad0e7b67e4bcfb5",
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-manager"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "6ab9b25ef0b46f7d65d52c64e7fa4630079466d3a726165f447860a3592d6a4d",
+      "excerpt_hash": "d5105d20cda7b2e6ea86187e07add0af37cdc695c989947b24086461cf85e678",
+      "source_id": "rock_rocku",
+      "source_key": "27924570b9b51caa",
+      "source_record_id": "rock_rocku:27924570b9b51caa",
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-manager-1"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "9ea3778673591ac581a91c0a095dda98863c0dee4bdd47bc26698ae12ea1cb37",
+      "excerpt_hash": "3cc98677653a1684bc3d47af1b6c197306ef50cd9ed5e1e222b8102c0499096c",
+      "source_id": "rock_rocku",
+      "source_key": "0a3e0444a99bc227",
+      "source_record_id": "rock_rocku:0a3e0444a99bc227",
+      "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "af2a859fe74f09ada748492dc7423142800cc8ba0695085b4f93d5c1005b6f61",
+      "excerpt_hash": "143a00f339ced4afcdb79542ce6ce9a4610972748e5c2f109a0028f1a68f8e42",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "05e25d68371f3c79",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx"
+    },
+    {
+      "authority": "official-training",
       "content_hash": "0c3a2f597a58a48429279d9bb85556f39a5a595ee780027bb8fe3aac083baa15",
       "excerpt_hash": "2e59b6453739efb0fab63b468194e21c22a6d4b4377b29ff0b1b08ffbb992c21",
       "source_id": "rock_rocku",
@@ -2340,6 +2412,33 @@
       "url": "https://community.rockrms.com/rocku/check-in/attendance-self-entry"
     },
     {
+      "authority": "official-training",
+      "content_hash": "a4a48af85a34587995d5c7da2cf9664715824f031262aa6f1720c6e6645026cb",
+      "excerpt_hash": "474a6f3ef37a4606bcf2b8b4960401fb52a204e1ef5fa6f5366984c4ee9e7d82",
+      "source_id": "rock_rocku",
+      "source_key": "281ea075e1d0d1ab",
+      "source_record_id": "rock_rocku:281ea075e1d0d1ab",
+      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "5e2fc0c43169da6cbb7a83c607626c72a4d3e937ef7a75fc1784bbf340eaca7b",
+      "excerpt_hash": "2385d498be625f93177d3130b71de81dbdb0f1868f1209f7bd378d4d54739aa7",
+      "source_id": "rock_rocku",
+      "source_key": "7736adb56296311e",
+      "source_record_id": "rock_rocku:7736adb56296311e",
+      "url": "https://community.rockrms.com/rocku/check-in/labels-legacy"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "8462290d5c91725706eca176af2af51b0b96775f15a4f25df23940bd428fcdba",
+      "excerpt_hash": "e9ae743e8d6edfb40d68b977393a6f44a8f5508d4054f4205e229717685b9a2f",
+      "source_id": "rock_rocku",
+      "source_key": "5a17eb5fad2389af",
+      "source_record_id": "rock_rocku:5a17eb5fad2389af",
+      "url": "https://community.rockrms.com/rocku/check-in/next-gen-labels"
+    },
+    {
       "authority": "community-example",
       "content_hash": "f3bc4115ef7f1109c0dcbf7a49c3d8bf850349b85919648452ae43d12adbab53",
       "excerpt_hash": "f2ffa2536433a244623334231c691e193e55d348d7f9bb54017b96168222f3db",
@@ -2359,12 +2458,30 @@
     },
     {
       "authority": "source-code",
+      "content_hash": "9a6a44d374d61c4a266570ed6e00a5f59da3c3c1f6b7d2ddae6fa4b55c04774e",
+      "excerpt_hash": "5fad0223da6860e38cabfb15f2bfa07113132202732117900dc9e94d5c42d735",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "227fd73082caf0ef",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx"
+    },
+    {
+      "authority": "source-code",
       "content_hash": "d744e4c7597c7d7fc079c2e3870e62024a87aac2b8e51806fe8173ff25775496",
       "excerpt_hash": "60c69eff847761ce2e7af0752e3d2e937792d77e2f33022a2f3b3b2135770fe7",
       "source_id": "sparkdevnetwork_rock",
       "source_key": "ef8191843bd12cec",
       "source_record_id": "SparkDevNetwork/Rock:database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "b12f37e7cc2d3e7748ac3ea295c4e8a6a2d04d44247957b3b7114c760b2a2d7e",
+      "excerpt_hash": "94bc144153c107361f34e2dfa9695afe75244b5c4a0e9caac44884c358c4f946",
+      "source_id": "rock_rocku",
+      "source_key": "ffdb983ef31e7bea",
+      "source_record_id": "rock_rocku:ffdb983ef31e7bea",
+      "url": "https://community.rockrms.com/rocku/check-in/running-check-in"
     },
     {
       "authority": "source-code",
@@ -2413,12 +2530,57 @@
     },
     {
       "authority": "official-training",
+      "content_hash": "7563f2d8963b6ef2c5b1e96b3251f5bd8c052780fbfbdfba7e4c72ac678bb071",
+      "excerpt_hash": "5176998522c7b138bd4c35730bbe91c0d493808cf077e2968503986a2d8ae6b0",
+      "source_id": "rock_rocku",
+      "source_key": "d7a4121f91c3b42b",
+      "source_record_id": "rock_rocku:d7a4121f91c3b42b",
+      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "4fd18e9a4207d5af45b4fb7039c95d3b642c895aab512a50b89dd7cc2e528f99",
+      "excerpt_hash": "b6690e00491443ae3a5c4cea8733a8d0144d533a7eca17f68990595cad1e771a",
+      "source_id": "rock_rocku",
+      "source_key": "2c5859d3528bc78b",
+      "source_record_id": "rock_rocku:2c5859d3528bc78b",
+      "url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "38315a491406090de4c692e4637c3475537f38b7711a458a32b150e020cff03f",
+      "excerpt_hash": "5769fa51d3183afa83a62a10fa673657da02532eec83f4b0b1a492ab13725dec",
+      "source_id": "rock_rocku",
+      "source_key": "ee9796ce7f9afea9",
+      "source_record_id": "rock_rocku:ee9796ce7f9afea9",
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics"
+    },
+    {
+      "authority": "official-training",
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "rock_rocku",
       "source_key": "d50e9300409bad92",
       "source_record_id": "",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "fd91857f586d53666701450ca7d4784bd70243da901aeff77eb6c83b015e4da8",
+      "excerpt_hash": "2e86fca0d7692ed1091b33a909f3e4ae7f5f18ab339aa05858bebdf41ac72d39",
+      "source_id": "rock_rocku",
+      "source_key": "a1d2277fcf136679",
+      "source_record_id": "rock_rocku:a1d2277fcf136679",
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "981c817104c12528b8340293dcc06141dfbece4627cba2afa17b0dd7ed82d0fd",
+      "excerpt_hash": "ed3baa6a2df595da0220bec90f5af0d6902184d20df905d99325fdd67bc6e782",
+      "source_id": "rock_rocku",
+      "source_key": "12d9719408f9414f",
+      "source_record_id": "rock_rocku:12d9719408f9414f",
+      "url": "https://community.rockrms.com/rocku/check-in/settings"
     },
     {
       "authority": "official-release",
@@ -2460,11 +2622,11 @@
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
         "d8f903417f626234",
         "05931c3044950e72",
-        "05e25d68371f3c79",
-        "227fd73082caf0ef"
+        "4a1bdaae421b3a34",
+        "d83bfedd4da78320"
       ],
       "start_line": 29
     },
@@ -2476,18 +2638,18 @@
       "section_id": "2-scope-and-terminology",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a",
         "b4bc4b7b0ac7c9d8",
         "2e737fcc6a7c59c1",
         "6821ea88a529e9ee",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "c311029355d195cf",
+        "6c0184b4e7ec7558",
         "6fdcb49f4724035c",
         "efc424486a7fa99e",
         "049b32750234e772",
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "d8f903417f626234",
         "cd0ee42000651ed5"
       ],
@@ -2517,11 +2679,11 @@
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "ee9796ce7f9afea9",
+        "1ff0d6de569776fb",
         "d8f903417f626234",
         "05931c3044950e72",
-        "05e25d68371f3c79",
-        "227fd73082caf0ef",
+        "4a1bdaae421b3a34",
+        "d83bfedd4da78320",
         "6fdcb49f4724035c",
         "414b493c09253a66",
         "efc424486a7fa99e",
@@ -2542,7 +2704,8 @@
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "1ff0d6de569776fb",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a",
         "6821ea88a529e9ee"
       ],
       "start_line": 166
@@ -2599,7 +2762,7 @@
       "section_id": "5-core-configuration-and-data-model-locations",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "1ff0d6de569776fb"
+        "90ed168a3283ccaa"
       ],
       "start_line": 217
     },
@@ -2610,7 +2773,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-schedules",
       "source_keys": [
-        "1ff0d6de569776fb",
+        "aa94e8b3d8886a7a",
         "6821ea88a529e9ee"
       ],
       "start_line": 233
@@ -2690,8 +2853,8 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-device-and-kiosk",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "c311029355d195cf",
+        "6c0184b4e7ec7558"
       ],
       "start_line": 325
     },
@@ -2728,13 +2891,18 @@
       "source_keys": [
         "2e737fcc6a7c59c1",
         "c06f9da9030c4f0f",
-        "1ff0d6de569776fb",
+        "dad0e7b67e4bcfb5",
+        "27924570b9b51caa",
+        "0a3e0444a99bc227",
+        "4a1bdaae421b3a34",
         "05e25d68371f3c79",
         "78f1e8bbd9d351ff",
         "3d0666ed2045fabc",
         "7e3b55cfb5681227",
         "5dba4d03818c09a2",
         "bef4da01164a18bd",
+        "281ea075e1d0d1ab",
+        "6c0184b4e7ec7558",
         "d8f903417f626234",
         "05931c3044950e72",
         "cd0ee42000651ed5"
@@ -2781,10 +2949,10 @@
       "needs_live_verification": true,
       "section_id": "7-common-check-in-workflows-check-in-manager",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "dad0e7b67e4bcfb5",
+        "27924570b9b51caa",
         "2e737fcc6a7c59c1",
-        "1ff0d6de569776fb"
+        "0a3e0444a99bc227"
       ],
       "start_line": 421
     },
@@ -2795,7 +2963,7 @@
       "needs_live_verification": true,
       "section_id": "7-common-check-in-workflows-rapid-attendance-entry",
       "source_keys": [
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "05e25d68371f3c79",
         "78f1e8bbd9d351ff",
         "3d0666ed2045fabc"
@@ -2832,8 +3000,8 @@
       "needs_live_verification": false,
       "section_id": "7-common-check-in-workflows-mobile-check-in",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "281ea075e1d0d1ab",
+        "6c0184b4e7ec7558",
         "d8f903417f626234",
         "05931c3044950e72"
       ],
@@ -2868,8 +3036,8 @@
       "needs_live_verification": true,
       "section_id": "8-labels-deep-dive-legacy-labels-and-next-gen-labels",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "7736adb56296311e",
+        "5a17eb5fad2389af",
         "2f979070f84c5b4e"
       ],
       "start_line": 512
@@ -2961,7 +3129,7 @@
       "needs_live_verification": true,
       "section_id": "9-mobile-check-in-deep-dive-configuration-checklist",
       "source_keys": [
-        "1ff0d6de569776fb"
+        "6c0184b4e7ec7558"
       ],
       "start_line": 633
     },
@@ -2972,7 +3140,7 @@
       "needs_live_verification": false,
       "section_id": "9-mobile-check-in-deep-dive-qr-label-handoff",
       "source_keys": [
-        "1ff0d6de569776fb"
+        "281ea075e1d0d1ab"
       ],
       "start_line": 648
     },
@@ -3050,7 +3218,7 @@
       "needs_live_verification": true,
       "section_id": "10-attendance-deep-dive-attendance-analytics-block",
       "source_keys": [
-        "227fd73082caf0ef",
+        "d83bfedd4da78320",
         "227fd73082caf0ef"
       ],
       "start_line": 740
@@ -3087,7 +3255,7 @@
       "section_id": "11-troubleshooting-deep-dive",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "3d0666ed2045fabc"
       ],
       "start_line": 786
@@ -3122,7 +3290,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-family-found-child-missing",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 821
     },
@@ -3134,7 +3302,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-child-present-no-rooms-available",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 834
     },
@@ -3146,7 +3314,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-wrong-room-selected",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 850
     },
@@ -3158,7 +3326,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-attendance-saved-but-label-did-not-print",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 863
     },
@@ -3170,7 +3338,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-label-printed-but-data-wrong",
       "source_keys": [
         "2e737fcc6a7c59c1",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 878
     },
@@ -3193,7 +3361,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 903
     },
@@ -3205,7 +3373,7 @@
       "section_id": "11-troubleshooting-deep-dive-symptom-analytics-do-not-match-headcount",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 916
     },
@@ -3217,7 +3385,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "d8f903417f626234",
         "2e737fcc6a7c59c1"
       ],
@@ -3231,7 +3399,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-attendance",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 933
     },
@@ -3243,7 +3411,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-groups",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 937
     },
@@ -3255,7 +3423,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-locations",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 941
     },
@@ -3267,7 +3435,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-schedules",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 945
     },
@@ -3279,7 +3447,7 @@
       "section_id": "12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-labels",
       "source_keys": [
         "3d0666ed2045fabc",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 949
     },
@@ -3312,8 +3480,8 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 961
     },
@@ -3324,8 +3492,8 @@
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-pre-service-checklist",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 963
     },
@@ -3336,8 +3504,8 @@
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-configuration-change-control",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 982
     },
@@ -3348,8 +3516,8 @@
       "needs_live_verification": true,
       "section_id": "13-administration-and-operational-guardrails-label-safety",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 997
     },
@@ -3360,8 +3528,8 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-data-hygiene",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 1009
     },
@@ -3372,8 +3540,8 @@
       "needs_live_verification": false,
       "section_id": "13-administration-and-operational-guardrails-observability",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "ee9796ce7f9afea9"
+        "ffdb983ef31e7bea",
+        "1ff0d6de569776fb"
       ],
       "start_line": 1023
     },
@@ -3386,8 +3554,10 @@
       "source_keys": [
         "05931c3044950e72",
         "d8f903417f626234",
+        "4a1bdaae421b3a34",
         "05e25d68371f3c79",
         "f9a37b4abc893028",
+        "d83bfedd4da78320",
         "227fd73082caf0ef",
         "6fdcb49f4724035c",
         "414b493c09253a66",
@@ -3434,7 +3604,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-rapid-attendance-entry",
       "source_keys": [
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "05e25d68371f3c79",
         "f9a37b4abc893028"
       ],
@@ -3447,7 +3617,7 @@
       "needs_live_verification": false,
       "section_id": "14-developer-api-lava-and-source-code-landmarks-attendance-analytics",
       "source_keys": [
-        "227fd73082caf0ef",
+        "d83bfedd4da78320",
         "227fd73082caf0ef"
       ],
       "start_line": 1080
@@ -3558,8 +3728,8 @@
         "2e737fcc6a7c59c1",
         "cd0ee42000651ed5",
         "c06f9da9030c4f0f",
-        "ee9796ce7f9afea9",
-        "1ff0d6de569776fb"
+        "1ff0d6de569776fb",
+        "5a17eb5fad2389af"
       ],
       "start_line": 1178
     },
@@ -3570,10 +3740,13 @@
       "needs_live_verification": false,
       "section_id": "17-implementation-playbooks",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a",
+        "6c0184b4e7ec7558",
         "78f1e8bbd9d351ff",
-        "05e25d68371f3c79",
+        "4a1bdaae421b3a34",
         "28470b74e5c0cd42",
         "ab384b1a2bd7a807"
       ],
@@ -3586,10 +3759,10 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-build-a-basic-family-check-in-area",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1205
     },
@@ -3600,8 +3773,8 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-add-a-new-room",
       "source_keys": [
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1230
     },
@@ -3612,7 +3785,7 @@
       "needs_live_verification": true,
       "section_id": "17-implementation-playbooks-playbook-configure-mobile-check-in",
       "source_keys": [
-        "1ff0d6de569776fb"
+        "6c0184b4e7ec7558"
       ],
       "start_line": 1247
     },
@@ -3624,7 +3797,7 @@
       "section_id": "17-implementation-playbooks-playbook-configure-rapid-attendance-entry",
       "source_keys": [
         "78f1e8bbd9d351ff",
-        "05e25d68371f3c79"
+        "4a1bdaae421b3a34"
       ],
       "start_line": 1264
     },
@@ -3657,8 +3830,10 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree",
       "source_keys": [
-        "ee9796ce7f9afea9",
-        "1ff0d6de569776fb"
+        "1ff0d6de569776fb",
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1313
     },
@@ -3669,10 +3844,10 @@
       "needs_live_verification": false,
       "section_id": "18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1317
     },
@@ -3683,10 +3858,10 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-b-was-attendance-saved",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1365
     },
@@ -3697,10 +3872,10 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-c-is-the-problem-labels",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1379
     },
@@ -3711,10 +3886,10 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1399
     },
@@ -3725,10 +3900,10 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-e-is-the-problem-analytics",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1410
     },
@@ -3739,10 +3914,10 @@
       "needs_live_verification": true,
       "section_id": "18-troubleshooting-decision-tree-f-is-the-problem-mobile",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "e728f23e59096203",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1421
     },
@@ -3753,8 +3928,9 @@
       "needs_live_verification": false,
       "section_id": "19-agent-task-recipes",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a",
         "78f1e8bbd9d351ff",
         "28470b74e5c0cd42",
         "ab384b1a2bd7a807"
@@ -3768,9 +3944,9 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1434
     },
@@ -3781,9 +3957,9 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1459
     },
@@ -3794,9 +3970,9 @@
       "needs_live_verification": true,
       "section_id": "19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows",
       "source_keys": [
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a"
       ],
       "start_line": 1479
     },
@@ -3838,13 +4014,13 @@
         "5fa353d6f0648800",
         "58a92984acbd2344",
         "5fa353d6f0648800",
-        "1ff0d6de569776fb",
+        "6c0184b4e7ec7558",
         "78f1e8bbd9d351ff",
-        "1ff0d6de569776fb",
+        "d7a4121f91c3b42b",
         "78f1e8bbd9d351ff",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "5a17eb5fad2389af",
+        "6c0184b4e7ec7558",
+        "5a17eb5fad2389af"
       ],
       "start_line": 1549
     },
@@ -3855,14 +4031,14 @@
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "1ff0d6de569776fb",
+        "2c5859d3528bc78b",
         "ee9796ce7f9afea9",
         "bef4da01164a18bd",
         "d50e9300409bad92",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb"
+        "27924570b9b51caa",
+        "a1d2277fcf136679",
+        "dad0e7b67e4bcfb5",
+        "12d9719408f9414f"
       ],
       "start_line": 1575
     },
@@ -3876,28 +4052,28 @@
         "2e737fcc6a7c59c1",
         "776256c424368312",
         "18a10aca58c2b1f1",
-        "ee9796ce7f9afea9",
         "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "90ed168a3283ccaa",
+        "aa94e8b3d8886a7a",
+        "e728f23e59096203",
+        "12d9719408f9414f",
+        "c311029355d195cf",
+        "ffdb983ef31e7bea",
+        "dad0e7b67e4bcfb5",
+        "27924570b9b51caa",
         "ee9796ce7f9afea9",
         "78f1e8bbd9d351ff",
         "bef4da01164a18bd",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
-        "1ff0d6de569776fb",
+        "281ea075e1d0d1ab",
+        "6c0184b4e7ec7558",
+        "d7a4121f91c3b42b",
+        "7736adb56296311e",
+        "5a17eb5fad2389af",
         "d8f903417f626234",
         "05931c3044950e72",
+        "4a1bdaae421b3a34",
         "05e25d68371f3c79",
-        "05e25d68371f3c79",
-        "227fd73082caf0ef",
+        "d83bfedd4da78320",
         "227fd73082caf0ef",
         "6fdcb49f4724035c",
         "414b493c09253a66",
@@ -3962,16 +4138,16 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "38315a491406090de4c692e4637c3475537f38b7711a458a32b150e020cff03f",
-      "excerpt_hash": "5769fa51d3183afa83a62a10fa673657da02532eec83f4b0b1a492ab13725dec",
+      "content_hash": "1c655a3214e5ecbaa9e8336d103eed9d11f1ca212afc19c18274247dd3dbc472",
+      "excerpt_hash": "7062b12767fae49bb2fdf08373154249ec3c02ad16334fa1e1721268646b7359",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "ee9796ce7f9afea9",
-      "source_record_id": "rock_rocku:ee9796ce7f9afea9",
-      "title": "Attendance Analytics",
+      "source_key": "1ff0d6de569776fb",
+      "source_record_id": "rock_rocku:1ff0d6de569776fb",
+      "title": "Check-In",
       "topics": [
         "api",
         "check-in",
@@ -3980,7 +4156,7 @@
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
+      "url": "https://community.rockrms.com/rocku/check-in",
       "version": null
     },
     {
@@ -4036,10 +4212,10 @@
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "af2a859fe74f09ada748492dc7423142800cc8ba0695085b4f93d5c1005b6f61",
-      "excerpt_hash": "143a00f339ced4afcdb79542ce6ce9a4610972748e5c2f109a0028f1a68f8e42",
+      "content_hash": "61fd4ecf6dd09e0eab502b8953bdbdc9c84aa127b3c288a1b0ad4ccc98d95f28",
+      "excerpt_hash": "4a09fc46b1b3c0e09e1e25f6bcead7eb1288fbd9f880553caf0431c799ca5202",
       "kind": "github_file",
-      "language": "ASP.NET Web Forms",
+      "language": "C#",
       "matched_terms": [
         "check-in",
         "check in",
@@ -4048,21 +4224,21 @@
         "rapid attendance",
         "rapidattendance"
       ],
-      "path": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+      "path": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "05e25d68371f3c79",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
-      "title": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx"
+      "source_key": "4a1bdaae421b3a34",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs",
+      "title": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs"
     },
     {
       "authority": "source-code",
       "authority_score": 84,
-      "content_hash": "9a6a44d374d61c4a266570ed6e00a5f59da3c3c1f6b7d2ddae6fa4b55c04774e",
-      "excerpt_hash": "5fad0223da6860e38cabfb15f2bfa07113132202732117900dc9e94d5c42d735",
+      "content_hash": "c13b074327ccf2c10ea8c0eef7cd2f9a0edc47636b7d854fff31c3b4e33c775e",
+      "excerpt_hash": "04a0ddd007b010505a08ce041c90fc50f63742607ba6fd51cc7c3a9706b6a41c",
       "kind": "github_file",
-      "language": "ASP.NET Web Forms",
+      "language": "C#",
       "matched_terms": [
         "check-in",
         "check in",
@@ -4070,28 +4246,28 @@
         "attendance",
         "analytics"
       ],
-      "path": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+      "path": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "227fd73082caf0ef",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
-      "title": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx"
+      "source_key": "d83bfedd4da78320",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs",
+      "title": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx.cs"
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "1c655a3214e5ecbaa9e8336d103eed9d11f1ca212afc19c18274247dd3dbc472",
-      "excerpt_hash": "7062b12767fae49bb2fdf08373154249ec3c02ad16334fa1e1721268646b7359",
+      "content_hash": "876539dea4b792cfa41f0daef0dc111dff4ed4b84270d6515fab5ca1ac7a8122",
+      "excerpt_hash": "845be22c922eb9ba4a0798f104be20a7974b338e5f7fcf628767dabc8a075960",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "1ff0d6de569776fb",
-      "source_record_id": "rock_rocku:1ff0d6de569776fb",
-      "title": "Check-In",
+      "source_key": "e728f23e59096203",
+      "source_record_id": "rock_rocku:e728f23e59096203",
+      "title": "Types and Groups",
       "topics": [
         "api",
         "check-in",
@@ -4100,7 +4276,57 @@
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/check-in",
+      "url": "https://community.rockrms.com/rocku/check-in/types-and-groups",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "171bdcd52749365eb21312ed5c0435687b99cb7caa7789e57b817532615dca38",
+      "excerpt_hash": "02ca52b190bb949c6767764b8f765460a6fd2464d1986f1402b92d9dfa0262bf",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "90ed168a3283ccaa",
+      "source_record_id": "rock_rocku:90ed168a3283ccaa",
+      "title": "Locations",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/locations",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "a980d841d72c6d673c8675bd5c6b267a7b8757be9efaaeea401a6f5b80b6ae91",
+      "excerpt_hash": "0dfb015b3ff57d6ac6b47dc50c9875d132a3a617fb479787f605a252d0b56186",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "aa94e8b3d8886a7a",
+      "source_record_id": "rock_rocku:aa94e8b3d8886a7a",
+      "title": "Schedules",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/schedules",
       "version": null
     },
     {
@@ -4149,6 +4375,56 @@
       "source_record_id": "SparkDevNetwork/Rock:database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
       "title": "database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeDates.sql"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "9a62d3ad55fd1ef70ce4dcef71007b078979b778623ba531d29c694a2ea98fbe",
+      "excerpt_hash": "fface12a64d91b8b651444f86a884db6a8a5f190fa42d81e57097a2127b7aafd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "c311029355d195cf",
+      "source_record_id": "rock_rocku:c311029355d195cf",
+      "title": "Devices",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/devices",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "699d18d169f70b335de0aa56b893d6e00c97627fd923ab42c2c22706f1fb78ea",
+      "excerpt_hash": "1de9af99a3aae290158fdb5a4d7c26782681b35d59ea66ba256cda2e8e6897cd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "6c0184b4e7ec7558",
+      "source_record_id": "rock_rocku:6c0184b4e7ec7558",
+      "title": "Mobile Check-in Configuration",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
+      "version": null
     },
     {
       "authority": "source-code",
@@ -4445,6 +4721,104 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
+      "content_hash": "389cd44f5a8cc0bb73fa18e11e7fd05deca87300549887d4daf95e8f4c7de8ca",
+      "excerpt_hash": "9d30a4e2d2c85115ac664fa81f903344a95c1fa13ffa3c383fe6ed208c44210d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "dad0e7b67e4bcfb5",
+      "source_record_id": "rock_rocku:dad0e7b67e4bcfb5",
+      "title": "Check-in Manager",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-manager",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "6ab9b25ef0b46f7d65d52c64e7fa4630079466d3a726165f447860a3592d6a4d",
+      "excerpt_hash": "d5105d20cda7b2e6ea86187e07add0af37cdc695c989947b24086461cf85e678",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "27924570b9b51caa",
+      "source_record_id": "rock_rocku:27924570b9b51caa",
+      "title": "Check-In Manager",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-manager-1",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "9ea3778673591ac581a91c0a095dda98863c0dee4bdd47bc26698ae12ea1cb37",
+      "excerpt_hash": "3cc98677653a1684bc3d47af1b6c197306ef50cd9ed5e1e222b8102c0499096c",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "0a3e0444a99bc227",
+      "source_record_id": "rock_rocku:0a3e0444a99bc227",
+      "title": "Person Attributes - Check-In Manager",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/person-attributes-check-in-manager",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "af2a859fe74f09ada748492dc7423142800cc8ba0695085b4f93d5c1005b6f61",
+      "excerpt_hash": "143a00f339ced4afcdb79542ce6ce9a4610972748e5c2f109a0028f1a68f8e42",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "check-in",
+        "check in",
+        "checkin",
+        "attendance",
+        "rapid attendance",
+        "rapidattendance"
+      ],
+      "path": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "05e25d68371f3c79",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+      "title": "RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
       "content_hash": "0c3a2f597a58a48429279d9bb85556f39a5a595ee780027bb8fe3aac083baa15",
       "excerpt_hash": "2e59b6453739efb0fab63b468194e21c22a6d4b4377b29ff0b1b08ffbb992c21",
       "hydrated": true,
@@ -4541,6 +4915,81 @@
       "version": null
     },
     {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "a4a48af85a34587995d5c7da2cf9664715824f031262aa6f1720c6e6645026cb",
+      "excerpt_hash": "474a6f3ef37a4606bcf2b8b4960401fb52a204e1ef5fa6f5366984c4ee9e7d82",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "281ea075e1d0d1ab",
+      "source_record_id": "rock_rocku:281ea075e1d0d1ab",
+      "title": "Mobile Check-in Overview",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/mobile-check-in-overview",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "5e2fc0c43169da6cbb7a83c607626c72a4d3e937ef7a75fc1784bbf340eaca7b",
+      "excerpt_hash": "2385d498be625f93177d3130b71de81dbdb0f1868f1209f7bd378d4d54739aa7",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "7736adb56296311e",
+      "source_record_id": "rock_rocku:7736adb56296311e",
+      "title": "Labels [Legacy]",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/labels-legacy",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "8462290d5c91725706eca176af2af51b0b96775f15a4f25df23940bd428fcdba",
+      "excerpt_hash": "e9ae743e8d6edfb40d68b977393a6f44a8f5508d4054f4205e229717685b9a2f",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "5a17eb5fad2389af",
+      "source_record_id": "rock_rocku:5a17eb5fad2389af",
+      "title": "Next-Gen Labels",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/next-gen-labels",
+      "version": null
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -4593,6 +5042,28 @@
     {
       "authority": "source-code",
       "authority_score": 84,
+      "content_hash": "9a6a44d374d61c4a266570ed6e00a5f59da3c3c1f6b7d2ddae6fa4b55c04774e",
+      "excerpt_hash": "5fad0223da6860e38cabfb15f2bfa07113132202732117900dc9e94d5c42d735",
+      "kind": "github_file",
+      "language": "ASP.NET Web Forms",
+      "matched_terms": [
+        "check-in",
+        "check in",
+        "checkin",
+        "attendance",
+        "analytics"
+      ],
+      "path": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "227fd73082caf0ef",
+      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+      "title": "RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/AttendanceAnalytics.ascx"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
       "content_hash": "d744e4c7597c7d7fc079c2e3870e62024a87aac2b8e51806fe8173ff25775496",
       "excerpt_hash": "60c69eff847761ce2e7af0752e3d2e937792d77e2f33022a2f3b3b2135770fe7",
       "kind": "github_file",
@@ -4611,6 +5082,31 @@
       "source_record_id": "SparkDevNetwork/Rock:database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql",
       "title": "database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql",
       "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Procedures/spCheckin_AttendanceAnalyticsQuery_AttendeeFirstDates.sql"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "b12f37e7cc2d3e7748ac3ea295c4e8a6a2d04d44247957b3b7114c760b2a2d7e",
+      "excerpt_hash": "94bc144153c107361f34e2dfa9695afe75244b5c4a0e9caac44884c358c4f946",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "ffdb983ef31e7bea",
+      "source_record_id": "rock_rocku:ffdb983ef31e7bea",
+      "title": "Running Check-in",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/running-check-in",
+      "version": null
     },
     {
       "authority": "source-code",
@@ -4706,12 +5202,137 @@
     {
       "authority": "official-training",
       "authority_score": 75,
+      "change_type": null,
+      "content_hash": "7563f2d8963b6ef2c5b1e96b3251f5bd8c052780fbfbdfba7e4c72ac678bb071",
+      "excerpt_hash": "5176998522c7b138bd4c35730bbe91c0d493808cf077e2968503986a2d8ae6b0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "d7a4121f91c3b42b",
+      "source_record_id": "rock_rocku:d7a4121f91c3b42b",
+      "title": "Using Mobile Check-in",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/using-mobile-check-in",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "4fd18e9a4207d5af45b4fb7039c95d3b642c895aab512a50b89dd7cc2e528f99",
+      "excerpt_hash": "b6690e00491443ae3a5c4cea8733a8d0144d533a7eca17f68990595cad1e771a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "2c5859d3528bc78b",
+      "source_record_id": "rock_rocku:2c5859d3528bc78b",
+      "title": "Aero Check-in Theme",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/aero-check-in-theme",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "38315a491406090de4c692e4637c3475537f38b7711a458a32b150e020cff03f",
+      "excerpt_hash": "5769fa51d3183afa83a62a10fa673657da02532eec83f4b0b1a492ab13725dec",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "ee9796ce7f9afea9",
+      "source_record_id": "rock_rocku:ee9796ce7f9afea9",
+      "title": "Attendance Analytics",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/attendance-analytics",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
       "kind": "citation_only",
       "source_id": "rock_rocku",
       "source_key": "d50e9300409bad92",
       "source_record_id": "",
       "title": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report",
       "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-attendance-report"
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "fd91857f586d53666701450ca7d4784bd70243da901aeff77eb6c83b015e4da8",
+      "excerpt_hash": "2e86fca0d7692ed1091b33a909f3e4ae7f5f18ab339aa05858bebdf41ac72d39",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "a1d2277fcf136679",
+      "source_record_id": "rock_rocku:a1d2277fcf136679",
+      "title": "Check-in Celebrations",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/check-in-celebrations",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "981c817104c12528b8340293dcc06141dfbece4627cba2afa17b0dd7ed82d0fd",
+      "excerpt_hash": "ed3baa6a2df595da0220bec90f5af0d6902184d20df905d99325fdd67bc6e782",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "12d9719408f9414f",
+      "source_record_id": "rock_rocku:12d9719408f9414f",
+      "title": "Check-in Settings",
+      "topics": [
+        "api",
+        "check-in",
+        "mobile",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/check-in/settings",
+      "version": null
     },
     {
       "authority": "official-release",

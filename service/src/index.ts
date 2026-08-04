@@ -6988,8 +6988,6 @@ const RECIPE_QUERY_INTENT_TERMS = new Set([
 ]);
 
 const ROCK_ISSUE_QUERY_INTENT_TERMS = new Set([
-  "affect",
-  "affected",
   "bug",
   "bugs",
   "fixed",

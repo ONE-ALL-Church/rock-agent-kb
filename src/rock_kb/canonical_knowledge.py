@@ -60,6 +60,7 @@ SUPPORTED_SEARCH_KINDS = {
     "rock_issue",
     "rock_idea",
 }
+VOLATILE_SOURCE_SUMMARY_FIELDS = {"retrieved_at"}
 CLAIM_TIER_RANK = {
     "routing_context_only": 0,
     "source_backed": 1,
@@ -188,7 +189,7 @@ def build_canonical_knowledge_bundle(
             result_ids=[str(row.get("id") or ""), *(row.get("legacy_ids") or [])],
             knowledge_type=kind,
             ingestion_mode=contract.ingestion_mode,
-            content_hash=sha256_text(canonical_json(payload)),
+            content_hash=search_row_payload_content_hash(kind, payload),
             source_record_ids=search_row_source_record_ids(row),
         )
         if migration is not None:
@@ -246,6 +247,7 @@ def write_canonical_knowledge_shadow(
     local_identity_registry = list(
         read_jsonl(destination / CANONICAL_IDENTITY_REGISTRY_NAME)
     )
+    use_repository_projection = search_rows is None and distilled_claims is None
     persistent_identity_registry = (
         list(
             read_jsonl(
@@ -254,12 +256,20 @@ def write_canonical_knowledge_shadow(
                 / CANONICAL_IDENTITY_REGISTRY_NAME
             )
         )
-        if search_rows is None and distilled_claims is None
+        if use_repository_projection
         else []
+    )
+    reviewed_alias_transfers = (
+        source_native_reviewed_alias_transfers(
+            load_source_native_pilot(repo_root)
+        )
+        if use_repository_projection
+        else {}
     )
     identity_registry = merge_identity_registry_rows(
         persistent_identity_registry,
         local_identity_registry,
+        reviewed_alias_transfers=reviewed_alias_transfers,
     )
     identity_migrations = list(read_jsonl(destination / "identity-migrations.jsonl"))
     retired_identity_migrations = list(
@@ -581,7 +591,10 @@ def build_public_identity_baseline(
 
 def merge_identity_registry_rows(
     *registries: Iterable[dict[str, Any]],
+    reviewed_alias_transfers: dict[str, tuple[str, str]] | None = None,
 ) -> list[dict[str, Any]]:
+    """Merge identity history, allowing only reviewed alias ownership transfers."""
+
     merged: dict[str, KnowledgeIdentity] = {}
     for registry in registries:
         for raw in registry:
@@ -607,22 +620,85 @@ def merge_identity_registry_rows(
                     }
                 ).model_dump(by_alias=True)
             )
-    alias_owners: dict[str, str] = {}
+    aliases_by_owner = {
+        identity.knowledge_unit_id: set(identity.aliases)
+        for identity in merged.values()
+    }
+    owners_by_alias: dict[str, set[str]] = defaultdict(set)
     for identity in merged.values():
         for alias in identity.aliases:
+            owners_by_alias[alias].add(identity.knowledge_unit_id)
+    allowed_transfers = reviewed_alias_transfers or {}
+    for alias, owners in owners_by_alias.items():
+        if len(owners) <= 1:
+            continue
+        transfer = allowed_transfers.get(alias)
+        if transfer is None or owners != set(transfer):
+            raise ValueError(
+                f"identity registry alias has multiple owners: {alias}"
+            )
+        from_id, to_id = transfer
+        if from_id not in merged or to_id not in merged:
+            raise ValueError(
+                f"reviewed identity alias transfer is incompatible: {alias}"
+            )
+        aliases_by_owner[from_id].discard(alias)
+
+    normalized: list[KnowledgeIdentity] = []
+    alias_owners: dict[str, str] = {}
+    for identity in merged.values():
+        updated = KnowledgeIdentity.model_validate(
+            identity.model_copy(
+                update={"aliases": sorted(aliases_by_owner[identity.knowledge_unit_id])}
+            ).model_dump(by_alias=True)
+        )
+        for alias in updated.aliases:
             owner = alias_owners.get(alias)
-            if owner and owner != identity.knowledge_unit_id:
+            if owner and owner != updated.knowledge_unit_id:
                 raise ValueError(
                     f"identity registry alias has multiple owners: {alias}"
                 )
-            alias_owners[alias] = identity.knowledge_unit_id
+            alias_owners[alias] = updated.knowledge_unit_id
+        normalized.append(updated)
     return [
         row.public_dump()
         for row in sorted(
-            merged.values(),
+            normalized,
             key=lambda row: row.knowledge_unit_id,
         )
     ]
+
+
+def source_native_reviewed_alias_transfers(
+    source_native: dict[str, list[Any]],
+) -> dict[str, tuple[str, str]]:
+    """Return exact alias reassignments authorized by reviewed migrations."""
+
+    transfers: dict[str, tuple[str, str]] = {}
+    migration_rows = [
+        *source_native.get("legacy_migrations", []),
+        *source_native.get("artifact_migrations", []),
+    ]
+    for migration in migration_rows:
+        if hasattr(migration, "legacy_knowledge_unit_id"):
+            from_id = migration.legacy_knowledge_unit_id
+            aliases = {
+                from_id,
+                *migration.legacy_result_ids,
+            }
+        else:
+            from_id = migration.prior_artifact_id
+            aliases = {from_id}
+        to_id = migration.replacement_artifact_id
+        for alias in aliases:
+            transfer = (from_id, to_id)
+            existing = transfers.get(alias)
+            if existing is not None and existing != transfer:
+                raise ValueError(
+                    f"reviewed migrations assign an alias to multiple targets: {alias}"
+                )
+            transfers[alias] = transfer
+    return transfers
 
 
 def repository_relative_or_name(path: Path, repo_root: Path) -> str:
@@ -734,6 +810,16 @@ def claim_group_content_hash(group: dict[str, Any]) -> str:
     payload = claim_group_payload(group)
     assert_public_safe(payload)
     return sha256_text(canonical_json(payload))
+
+
+def search_row_payload_content_hash(kind: str, payload: dict[str, Any]) -> str:
+    """Hash answer-bearing payload content without source-check timestamps."""
+
+    stable_payload = dict(payload)
+    if kind == "source_summary":
+        for field in VOLATILE_SOURCE_SUMMARY_FIELDS:
+            stable_payload.pop(field, None)
+    return sha256_text(canonical_json(stable_payload))
 
 
 def claim_group_source_record_ids(group: dict[str, Any]) -> list[str]:
@@ -1649,7 +1735,7 @@ class _ProjectionBuilder:
             legacy_ids=identity.aliases,
             payload_schema=str(payload.get("schema") or "") or None,
             payload=payload,
-            content_hash=sha256_text(canonical_json(payload)),
+            content_hash=search_row_payload_content_hash(kind, payload),
         )
         self.knowledge[item.knowledge_unit_id] = item
         for source_unit_id, work_id in sorted(set(evidence_rows)):

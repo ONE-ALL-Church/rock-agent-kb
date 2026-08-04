@@ -1012,7 +1012,7 @@
   },
   "approved_media_hash": "422b7d6fc1300601bff1d1f08385501fbd284276d00641a8c6e2f1960ee65f85",
   "approved_media_path": "knowledge/concepts/hosting-infrastructure/approved-media.md",
-  "built_at": "2026-07-31T00:30:00+00:00",
+  "built_at": "2026-08-04T17:15:00+00:00",
   "concept_id": "hosting-infrastructure",
   "guide_hash": "a9fea847231256b89bb7baf28704f655a112fe08e498c5bccd208fab8e65747c",
   "guide_line_count": 1323,
@@ -1027,6 +1027,15 @@
       "source_key": "ed6551d38c7e2b18",
       "source_record_id": "rock_model_map:stable-demo-scrape",
       "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "content_hash": "033e3fa9c53c7b4cbac224dd95f0d284502c4bd84ad1bd06792fa376acf092ac",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "1be800c4d1d14b38",
+      "source_record_id": "rock_documentation:article:1038",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting"
     },
     {
       "authority": "official",
@@ -1048,12 +1057,12 @@
     },
     {
       "authority": "official",
-      "content_hash": "ab03c9238b6cce64c1f90da3b602340e7fb459602f32f5b61976a26b824a9032",
+      "content_hash": "80ec2108774f7fe8b4af6e6ae1d45ab5292e0fc9ac76c0239eb2f414487ccf4e",
       "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
       "source_id": "rock_documentation",
-      "source_key": "67d6aea706833a8c",
-      "source_record_id": "rock_documentation:article:2137",
-      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting"
+      "source_key": "5f585bb5dc925abb",
+      "source_record_id": "rock_documentation:article:2136",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting"
     },
     {
       "authority": "official",
@@ -1063,6 +1072,51 @@
       "source_key": "41282deb68221b2f",
       "source_record_id": "rock_documentation:article:1042",
       "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ab03c9238b6cce64c1f90da3b602340e7fb459602f32f5b61976a26b824a9032",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "67d6aea706833a8c",
+      "source_record_id": "rock_documentation:article:2137",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting/intro-to-saas-hosting"
+    },
+    {
+      "authority": "official",
+      "content_hash": "df54c471f0625b91f0296b3249309f581ae8603f24e612ff02ca80c13775df46",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "c183f8b375552375",
+      "source_record_id": "rock_documentation:article:1053",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
+    },
+    {
+      "authority": "official",
+      "content_hash": "fad3618700f100ab7882118f6f7b6c85080b85f5303e8c7ca8c5f6b178a26c95",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "7a21aef449d1f166",
+      "source_record_id": "rock_documentation:article:1054",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"
+    },
+    {
+      "authority": "official",
+      "content_hash": "06a4573aed116b938240dd94b42e351f27f3a3c7300135b8aac9aec2c08a192c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "6d992f080d56f7de",
+      "source_record_id": "rock_documentation:article:1056",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6d61c36864d65817e8cb0dace7b739aa0930f6e148ce43b9e0f29c613a1134f8",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "502b57045475ec0e",
+      "source_record_id": "rock_documentation:article:1050",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options"
     },
     {
       "authority": "official-triumph",
@@ -1083,6 +1137,42 @@
       "url": "https://www.triumph.tech/resources/introducing-imperator-proactive-azure-monitoring-and-alerting-for-rock-rms"
     },
     {
+      "authority": "official",
+      "content_hash": "fbdfde6c13ba5ab5bda45f3734e2f7cc2f1cf8a0410c48b27f0b099f4156ab2b",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "93c68e100a197bf9",
+      "source_record_id": "rock_documentation:article:1047",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server"
+    },
+    {
+      "authority": "official",
+      "content_hash": "cef5c5583885ffe66c7e4e2b0dc06e5f0f1c0bff2c7824322fd7e2e2046523c5",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "ece0e5ad7f52f100",
+      "source_record_id": "rock_documentation:article:2123",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting"
+    },
+    {
+      "authority": "official",
+      "content_hash": "1c3aead11b18b5b27c369b7cc45b9140e76d9062ceb3f6155a7c11a1dc62beb9",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "0560c8e3e61be071",
+      "source_record_id": "rock_documentation:article:2124",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting"
+    },
+    {
+      "authority": "official",
+      "content_hash": "df44c19dbf484c1dd7786a364074ac7ad2bf5999cd295df1de3220497178bf60",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "16c062a4ac69d11e",
+      "source_record_id": "rock_documentation:article:1045",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis"
+    },
+    {
       "authority": "community-example",
       "content_hash": "af18954dc8203e58b63dd011cfa6df1a6e7c8aa5faef1c69066588669f3bece6",
       "excerpt_hash": "e2528be846306ba3acaa8fb7b75ee94a9f8978e1c59c46a48b05c9d836c1b780",
@@ -1090,6 +1180,24 @@
       "source_key": "2dfb9f2f4d2b5a77",
       "source_record_id": "rock_recipes:2dfb9f2f4d2b5a77",
       "url": "https://community.rockrms.com/recipes/176"
+    },
+    {
+      "authority": "official",
+      "content_hash": "3e8d38472f1834cb3d7db8492fcafc7c6d0778f085a4a71368d5fa59e6b5cf92",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "4c21d36a9b4fec00",
+      "source_record_id": "rock_documentation:article:1046",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server"
+    },
+    {
+      "authority": "official",
+      "content_hash": "16d05aa0266aa97b6f3b31d1832d816253aeb077d7cdcf38b1a49941eadcdddd",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "3a04884a88e9dd9a",
+      "source_record_id": "rock_documentation:article:1048",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock"
     },
     {
       "authority": "community-example",
@@ -1155,6 +1263,24 @@
       "url": "https://community.rockrms.com/ask/using/2832"
     },
     {
+      "authority": "official",
+      "content_hash": "38b1801133e63425435e898f2baec0132895a61ee1b0b5cd00431ca590bcd11c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "6eedb88cb0febcc5",
+      "source_record_id": "rock_documentation:article:1044",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d33af04605d4cd395b65dff2604118c25ce6af90ed3d75757106d08ba608f885",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "418252f275d1c50e",
+      "source_record_id": "rock_documentation:article:1052",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting"
+    },
+    {
       "authority": "community-example",
       "content_hash": "600ba9cb7fc63eac1f891e6d6818c4ec9c86763a39e9c12e7804de3843d57059",
       "excerpt_hash": "cdf311604e1e6f9d8c230cbc05ca1276bbfd527b4f6c63f2b46de20705abc03d",
@@ -1165,12 +1291,12 @@
     },
     {
       "authority": "official-training",
-      "content_hash": "bad2e990a46b565cf34ee91edaee7d2420b344b1a6ae7b46126d1926ae34ed63",
-      "excerpt_hash": "966cbbc976b301f8ef24b1146a3317a5c331341ba6672f500bf2742f4a0bbfce",
+      "content_hash": "c2f841cca373d8763c907bed889c68f80c9e27855542840c7f30e8c472ac1673",
+      "excerpt_hash": "125bd03de627278240aa5d856395059047337b0e77bb01241a5f4377ed1101b2",
       "source_id": "rock_rocku",
-      "source_key": "738e729c11ee15d9",
-      "source_record_id": "rock_rocku:738e729c11ee15d9",
-      "url": "https://community.rockrms.com/rocku/workflows/text-to-workflow-performance"
+      "source_key": "390a990a15a512ec",
+      "source_record_id": "rock_rocku:390a990a15a512ec",
+      "url": "https://community.rockrms.com/rocku/workflows"
     },
     {
       "authority": "official-training",
@@ -1209,6 +1335,15 @@
       "url": "https://community.rockrms.com/recipes/91"
     },
     {
+      "authority": "official",
+      "content_hash": "b696e13aaf4c7b4998571dfe43474396d92a5176cee000a13663d6f0daabbc2c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "fd2283f7d9501b68",
+      "source_record_id": "rock_documentation:article:1051",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit"
+    },
+    {
       "authority": "community-example",
       "content_hash": "76c6b0152ac6b568d63a10c4329efc2b4e2abfdafb4a25d269a6e7b064b090d0",
       "excerpt_hash": "daac2303e3e465ff1cf96539a502005977f242af6adc171b4eae740dc43bbdaa",
@@ -1216,6 +1351,15 @@
       "source_key": "ef2a6648ec0aa0de",
       "source_record_id": "rock_recipes:ef2a6648ec0aa0de",
       "url": "https://community.rockrms.com/recipes/202"
+    },
+    {
+      "authority": "official",
+      "content_hash": "e1126ffba009efb3fdc3b236c88503b9c8e56f958ebd61763b3f7ee175cb8ae8",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "17353a1279176642",
+      "source_record_id": "rock_documentation:article:1049",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment"
     },
     {
       "authority": "official-triumph",
@@ -1317,6 +1461,15 @@
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
     },
     {
+      "authority": "official",
+      "content_hash": "5732b4e64377c397220fc586a74c03a747acc2f7742118e0b09f6d8ee50e0224",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "source_id": "rock_documentation",
+      "source_key": "86e8c56e40fd6a8f",
+      "source_record_id": "rock_documentation:article:2125",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/intro-to-scaling-rock"
+    },
+    {
       "authority": "official-triumph",
       "content_hash": "50745843c5da6d4851ce1ce699ef2baf2ce2c089e61aacb3b25fc366333149ae",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -1355,16 +1508,16 @@
       "needs_live_verification": true,
       "section_id": "1-executive-summary-for-agents",
       "source_keys": [
-        "e60d5759c6472cc6",
+        "1be800c4d1d14b38",
         "e60d5759c6472cc6",
         "9a56101f501ad2b0",
-        "67d6aea706833a8c",
+        "5f585bb5dc925abb",
         "41282deb68221b2f",
         "67d6aea706833a8c",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "e60d5759c6472cc6",
+        "c183f8b375552375",
+        "7a21aef449d1f166",
+        "6d992f080d56f7de",
+        "502b57045475ec0e",
         "0fcd2ac23fd69b6f",
         "37d73f4bb8f370d1"
       ],
@@ -1377,13 +1530,13 @@
       "needs_live_verification": true,
       "section_id": "2-scope-and-terminology",
       "source_keys": [
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "e60d5759c6472cc6",
+        "93c68e100a197bf9",
+        "ece0e5ad7f52f100",
+        "0560c8e3e61be071",
         "67d6aea706833a8c",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "c183f8b375552375",
+        "7a21aef449d1f166",
+        "6d992f080d56f7de"
       ],
       "start_line": 50
     },
@@ -1394,9 +1547,12 @@
       "needs_live_verification": false,
       "section_id": "3-hosting-and-infrastructure-mental-model",
       "source_keys": [
-        "41282deb68221b2f",
-        "9a56101f501ad2b0",
+        "c183f8b375552375",
+        "16c062a4ac69d11e",
         "2dfb9f2f4d2b5a77",
+        "4c21d36a9b4fec00",
+        "93c68e100a197bf9",
+        "3a04884a88e9dd9a",
         "9c0f2b67a14e49e7",
         "776256c424368312",
         "67d6aea706833a8c"
@@ -1410,7 +1566,7 @@
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-1-request-entry",
       "source_keys": [
-        "41282deb68221b2f"
+        "c183f8b375552375"
       ],
       "start_line": 84
     },
@@ -1421,7 +1577,7 @@
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-2-web-runtime",
       "source_keys": [
-        "9a56101f501ad2b0",
+        "16c062a4ac69d11e",
         "2dfb9f2f4d2b5a77"
       ],
       "start_line": 97
@@ -1433,9 +1589,9 @@
       "needs_live_verification": true,
       "section_id": "3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence",
       "source_keys": [
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
+        "4c21d36a9b4fec00",
+        "93c68e100a197bf9",
+        "3a04884a88e9dd9a",
         "9c0f2b67a14e49e7"
       ],
       "start_line": 113
@@ -1469,7 +1625,7 @@
       "needs_live_verification": true,
       "section_id": "4-source-authority-and-how-to-use-this-guide",
       "source_keys": [
-        "e60d5759c6472cc6",
+        "1be800c4d1d14b38",
         "776256c424368312",
         "d275b5b94a9da833",
         "b8c26e21c3c8c4d2",
@@ -1485,7 +1641,7 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model",
       "source_keys": [
-        "e60d5759c6472cc6",
+        "1be800c4d1d14b38",
         "776256c424368312",
         "d275b5b94a9da833",
         "b8c26e21c3c8c4d2",
@@ -1501,7 +1657,7 @@
       "needs_live_verification": false,
       "section_id": "5-core-configuration-and-data-model-file-based-configuration",
       "source_keys": [
-        "9a56101f501ad2b0",
+        "3a04884a88e9dd9a",
         "764c3704f9a5e2d7",
         "3f080bbdd436b2c2"
       ],
@@ -1514,9 +1670,9 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-iis-and-windows-configuration",
       "source_keys": [
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0"
+        "6eedb88cb0febcc5",
+        "16c062a4ac69d11e",
+        "16c062a4ac69d11e"
       ],
       "start_line": 200
     },
@@ -1527,7 +1683,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-sql-configuration",
       "source_keys": [
-        "9a56101f501ad2b0",
+        "93c68e100a197bf9",
         "776256c424368312",
         "776256c424368312"
       ],
@@ -1552,7 +1708,7 @@
       "needs_live_verification": true,
       "section_id": "5-core-configuration-and-data-model-azure-resource-configuration",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "418252f275d1c50e"
       ],
       "start_line": 264
     },
@@ -1567,9 +1723,9 @@
         "776256c424368312",
         "14ccd9891ccb509b",
         "cef09f72b9bb29cf",
-        "738e729c11ee15d9",
+        "390a990a15a512ec",
         "2ba569f45e9e56e6",
-        "41282deb68221b2f",
+        "7a21aef449d1f166",
         "a8cd8e65dd3fb6eb",
         "9987fbde44f24f8a",
         "04cd045d09d8c6fd"
@@ -1618,7 +1774,7 @@
       "section_id": "6-primary-entities-and-relationships-jobs-and-background-processing",
       "source_keys": [
         "cef09f72b9bb29cf",
-        "738e729c11ee15d9",
+        "390a990a15a512ec",
         "2ba569f45e9e56e6"
       ],
       "start_line": 332
@@ -1630,7 +1786,7 @@
       "needs_live_verification": true,
       "section_id": "6-primary-entities-and-relationships-web-farm-nodes-and-message-bus",
       "source_keys": [
-        "41282deb68221b2f",
+        "7a21aef449d1f166",
         "a8cd8e65dd3fb6eb"
       ],
       "start_line": 352
@@ -1656,10 +1812,19 @@
       "section_id": "7-common-hosting-and-infrastructure-workflows",
       "source_keys": [
         "67d6aea706833a8c",
-        "e60d5759c6472cc6",
+        "0560c8e3e61be071",
         "9a56101f501ad2b0",
-        "41282deb68221b2f",
+        "c183f8b375552375",
+        "fd2283f7d9501b68",
+        "418252f275d1c50e",
         "ef2a6648ec0aa0de",
+        "ece0e5ad7f52f100",
+        "6eedb88cb0febcc5",
+        "16c062a4ac69d11e",
+        "4c21d36a9b4fec00",
+        "93c68e100a197bf9",
+        "3a04884a88e9dd9a",
+        "17353a1279176642",
         "764c3704f9a5e2d7",
         "b8c26e21c3c8c4d2"
       ],
@@ -1673,9 +1838,9 @@
       "section_id": "7-common-hosting-and-infrastructure-workflows-new-hosting-selection",
       "source_keys": [
         "67d6aea706833a8c",
-        "e60d5759c6472cc6",
+        "0560c8e3e61be071",
         "9a56101f501ad2b0",
-        "41282deb68221b2f"
+        "c183f8b375552375"
       ],
       "start_line": 388
     },
@@ -1686,8 +1851,8 @@
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows-provision-azure-hosting",
       "source_keys": [
-        "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
+        "fd2283f7d9501b68",
+        "418252f275d1c50e",
         "ef2a6648ec0aa0de"
       ],
       "start_line": 400
@@ -1699,14 +1864,14 @@
       "needs_live_verification": false,
       "section_id": "7-common-hosting-and-infrastructure-workflows-install-internally",
       "source_keys": [
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0"
+        "ece0e5ad7f52f100",
+        "6eedb88cb0febcc5",
+        "16c062a4ac69d11e",
+        "4c21d36a9b4fec00",
+        "93c68e100a197bf9",
+        "3a04884a88e9dd9a",
+        "17353a1279176642",
+        "17353a1279176642"
       ],
       "start_line": 418
     },
@@ -1730,7 +1895,7 @@
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "502b57045475ec0e"
       ],
       "start_line": 453
     },
@@ -1741,7 +1906,7 @@
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-workload-drivers",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "502b57045475ec0e"
       ],
       "start_line": 457
     },
@@ -1752,7 +1917,7 @@
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-small-install-pattern",
       "source_keys": [
-        "9a56101f501ad2b0"
+        "ece0e5ad7f52f100"
       ],
       "start_line": 481
     },
@@ -1763,7 +1928,7 @@
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-medium-pattern",
       "source_keys": [
-        "9a56101f501ad2b0"
+        "17353a1279176642"
       ],
       "start_line": 492
     },
@@ -1785,8 +1950,8 @@
       "needs_live_verification": false,
       "section_id": "8-sizing-and-service-options-deep-dive-extra-large-and-cluster-pattern",
       "source_keys": [
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "c183f8b375552375",
+        "7a21aef449d1f166"
       ],
       "start_line": 522
     },
@@ -1797,7 +1962,7 @@
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "0560c8e3e61be071"
       ],
       "start_line": 534
     },
@@ -1808,7 +1973,7 @@
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-resource-group",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "418252f275d1c50e"
       ],
       "start_line": 538
     },
@@ -1831,7 +1996,7 @@
       "needs_live_verification": false,
       "section_id": "9-azure-hosting-deep-dive-azure-sql-database",
       "source_keys": [
-        "9a56101f501ad2b0",
+        "93c68e100a197bf9",
         "776256c424368312",
         "9c0f2b67a14e49e7"
       ],
@@ -1942,7 +2107,7 @@
         "0fcd2ac23fd69b6f",
         "776256c424368312",
         "b8c26e21c3c8c4d2",
-        "41282deb68221b2f",
+        "7a21aef449d1f166",
         "d275b5b94a9da833"
       ],
       "start_line": 702
@@ -1988,7 +2153,7 @@
       "section_id": "11-related-rock-areas-operations-security-jobs-cache-search-cms-api-integrations-cache",
       "source_keys": [
         "b8c26e21c3c8c4d2",
-        "41282deb68221b2f"
+        "7a21aef449d1f166"
       ],
       "start_line": 716
     },
@@ -2298,9 +2463,10 @@
       "section_id": "16-implementation-playbooks",
       "source_keys": [
         "67d6aea706833a8c",
-        "e60d5759c6472cc6",
-        "9a56101f501ad2b0",
-        "41282deb68221b2f",
+        "0560c8e3e61be071",
+        "ece0e5ad7f52f100",
+        "502b57045475ec0e",
+        "7a21aef449d1f166",
         "776256c424368312"
       ],
       "start_line": 928
@@ -2313,8 +2479,8 @@
       "section_id": "16-implementation-playbooks-playbook-choose-hosting-model",
       "source_keys": [
         "67d6aea706833a8c",
-        "e60d5759c6472cc6",
-        "9a56101f501ad2b0"
+        "0560c8e3e61be071",
+        "ece0e5ad7f52f100"
       ],
       "start_line": 930
     },
@@ -2326,8 +2492,8 @@
       "section_id": "16-implementation-playbooks-playbook-production-readiness-review",
       "source_keys": [
         "67d6aea706833a8c",
-        "e60d5759c6472cc6",
-        "9a56101f501ad2b0"
+        "0560c8e3e61be071",
+        "ece0e5ad7f52f100"
       ],
       "start_line": 947
     },
@@ -2338,7 +2504,7 @@
       "needs_live_verification": true,
       "section_id": "16-implementation-playbooks-playbook-azure-cost-and-capacity-review",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "502b57045475ec0e"
       ],
       "start_line": 975
     },
@@ -2349,7 +2515,7 @@
       "needs_live_verification": false,
       "section_id": "16-implementation-playbooks-playbook-web-farm-readiness",
       "source_keys": [
-        "41282deb68221b2f"
+        "7a21aef449d1f166"
       ],
       "start_line": 992
     },
@@ -2376,7 +2542,7 @@
         "776256c424368312",
         "b8c26e21c3c8c4d2",
         "764c3704f9a5e2d7",
-        "41282deb68221b2f"
+        "7a21aef449d1f166"
       ],
       "start_line": 1030
     },
@@ -2443,7 +2609,7 @@
       "needs_live_verification": false,
       "section_id": "17-troubleshooting-decision-tree-web-farm-node-behaves-differently",
       "source_keys": [
-        "41282deb68221b2f"
+        "7a21aef449d1f166"
       ],
       "start_line": 1099
     },
@@ -2454,9 +2620,10 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes",
       "source_keys": [
-        "41282deb68221b2f",
-        "e60d5759c6472cc6",
-        "776256c424368312"
+        "7a21aef449d1f166",
+        "418252f275d1c50e",
+        "776256c424368312",
+        "c183f8b375552375"
       ],
       "start_line": 1114
     },
@@ -2467,7 +2634,7 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-inventory-hosting",
       "source_keys": [
-        "41282deb68221b2f"
+        "7a21aef449d1f166"
       ],
       "start_line": 1116
     },
@@ -2478,7 +2645,7 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-validate-azure-hosting",
       "source_keys": [
-        "e60d5759c6472cc6"
+        "418252f275d1c50e"
       ],
       "start_line": 1133
     },
@@ -2511,8 +2678,8 @@
       "needs_live_verification": false,
       "section_id": "18-agent-task-recipes-recipe-review-web-farm",
       "source_keys": [
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "c183f8b375552375",
+        "7a21aef449d1f166"
       ],
       "start_line": 1179
     },
@@ -2523,8 +2690,8 @@
       "needs_live_verification": true,
       "section_id": "18-agent-task-recipes-recipe-public-launch-hosting-gate",
       "source_keys": [
-        "41282deb68221b2f",
-        "41282deb68221b2f"
+        "c183f8b375552375",
+        "7a21aef449d1f166"
       ],
       "start_line": 1197
     },
@@ -2535,18 +2702,18 @@
       "needs_live_verification": false,
       "section_id": "approved-claim-coverage",
       "source_keys": [
-        "41282deb68221b2f",
-        "9a56101f501ad2b0",
-        "41282deb68221b2f",
+        "6d992f080d56f7de",
+        "4c21d36a9b4fec00",
+        "7a21aef449d1f166",
         "67d6aea706833a8c",
-        "9a56101f501ad2b0",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "9a56101f501ad2b0",
-        "e60d5759c6472cc6",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "e60d5759c6472cc6"
+        "6eedb88cb0febcc5",
+        "c183f8b375552375",
+        "6d992f080d56f7de",
+        "16c062a4ac69d11e",
+        "502b57045475ec0e",
+        "3a04884a88e9dd9a",
+        "16c062a4ac69d11e",
+        "418252f275d1c50e"
       ],
       "start_line": 1217
     },
@@ -2570,30 +2737,30 @@
       "needs_live_verification": true,
       "section_id": "19-source-map-and-dependency-notes",
       "source_keys": [
+        "1be800c4d1d14b38",
         "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
-        "e60d5759c6472cc6",
+        "0560c8e3e61be071",
+        "502b57045475ec0e",
+        "fd2283f7d9501b68",
+        "418252f275d1c50e",
         "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
-        "9a56101f501ad2b0",
+        "ece0e5ad7f52f100",
+        "6eedb88cb0febcc5",
+        "16c062a4ac69d11e",
+        "4c21d36a9b4fec00",
+        "93c68e100a197bf9",
+        "3a04884a88e9dd9a",
+        "17353a1279176642",
+        "5f585bb5dc925abb",
         "67d6aea706833a8c",
-        "67d6aea706833a8c",
         "41282deb68221b2f",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
-        "41282deb68221b2f",
+        "86e8c56e40fd6a8f",
+        "c183f8b375552375",
+        "7a21aef449d1f166",
+        "6d992f080d56f7de",
         "776256c424368312",
         "d275b5b94a9da833",
-        "738e729c11ee15d9",
+        "390a990a15a512ec",
         "2ba569f45e9e56e6",
         "37d73f4bb8f370d1",
         "0fcd2ac23fd69b6f",
@@ -2627,6 +2794,28 @@
       "source_record_id": "rock_model_map:stable-demo-scrape",
       "title": "Stable Rock Model Map scrape",
       "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "033e3fa9c53c7b4cbac224dd95f0d284502c4bd84ad1bd06792fa376acf092ac",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1be800c4d1d14b38",
+      "source_record_id": "rock_documentation:article:1038",
+      "title": "Hosting",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting",
+      "version": null
     },
     {
       "authority": "official",
@@ -2677,6 +2866,50 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
+      "content_hash": "80ec2108774f7fe8b4af6e6ae1d45ab5292e0fc9ac76c0239eb2f414487ccf4e",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "5f585bb5dc925abb",
+      "source_record_id": "rock_documentation:article:2136",
+      "title": "SaaS Hosting",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/saas-hosting",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "4540ba4a55c2bf9447389ba626587b08368aab65e93cb32d01fa9c0b3daaf1f0",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "41282deb68221b2f",
+      "source_record_id": "rock_documentation:article:1042",
+      "title": "Scale Rock",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
       "content_hash": "ab03c9238b6cce64c1f90da3b602340e7fb459602f32f5b61976a26b824a9032",
       "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
       "hydrated": true,
@@ -2701,22 +2934,92 @@
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "4540ba4a55c2bf9447389ba626587b08368aab65e93cb32d01fa9c0b3daaf1f0",
+      "content_hash": "df54c471f0625b91f0296b3249309f581ae8603f24e612ff02ca80c13775df46",
       "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "41282deb68221b2f",
-      "source_record_id": "rock_documentation:article:1042",
-      "title": "Scale Rock",
+      "source_key": "c183f8b375552375",
+      "source_record_id": "rock_documentation:article:1053",
+      "title": "Architect a Server Cluster",
       "topics": [
         "admin",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "fad3618700f100ab7882118f6f7b6c85080b85f5303e8c7ca8c5f6b178a26c95",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "7a21aef449d1f166",
+      "source_record_id": "rock_documentation:article:1054",
+      "title": "Configure a Rock Web Farm",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "06a4573aed116b938240dd94b42e351f27f3a3c7300135b8aac9aec2c08a192c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6d992f080d56f7de",
+      "source_record_id": "rock_documentation:article:1056",
+      "title": "Configure Your Rock Context",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6d61c36864d65817e8cb0dace7b739aa0930f6e148ce43b9e0f29c613a1134f8",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "502b57045475ec0e",
+      "source_record_id": "rock_documentation:article:1050",
+      "title": "Compare Sizing and Service Options",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/compare-sizing-and-service-options",
       "version": null
     },
     {
@@ -2772,6 +3075,99 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "fbdfde6c13ba5ab5bda45f3734e2f7cc2f1cf8a0410c48b27f0b099f4156ab2b",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "93c68e100a197bf9",
+      "source_record_id": "rock_documentation:article:1047",
+      "title": "Configure SQL Server",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "cef5c5583885ffe66c7e4e2b0dc06e5f0f1c0bff2c7824322fd7e2e2046523c5",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ece0e5ad7f52f100",
+      "source_record_id": "rock_documentation:article:2123",
+      "title": "Intro to Internal Hosting",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1c3aead11b18b5b27c369b7cc45b9140e76d9062ceb3f6155a7c11a1dc62beb9",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "0560c8e3e61be071",
+      "source_record_id": "rock_documentation:article:2124",
+      "title": "Intro to Azure Hosting",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/intro-to-azure-hosting",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "df44c19dbf484c1dd7786a364074ac7ad2bf5999cd295df1de3220497178bf60",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "16c062a4ac69d11e",
+      "source_record_id": "rock_documentation:article:1045",
+      "title": "Configure Internet Information Services (IIS)",
+      "topics": [
+        "admin",
+        "api",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis",
+      "version": null
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -2794,6 +3190,53 @@
         "workflow"
       ],
       "url": "https://community.rockrms.com/recipes/176",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3e8d38472f1834cb3d7db8492fcafc7c6d0778f085a4a71368d5fa59e6b5cf92",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "4c21d36a9b4fec00",
+      "source_record_id": "rock_documentation:article:1046",
+      "title": "Install SQL Server",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-sql-server",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "16d05aa0266aa97b6f3b31d1832d816253aeb077d7cdcf38b1a49941eadcdddd",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "3a04884a88e9dd9a",
+      "source_record_id": "rock_documentation:article:1048",
+      "title": "Install Rock",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock",
       "version": null
     },
     {
@@ -2965,6 +3408,51 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "38b1801133e63425435e898f2baec0132895a61ee1b0b5cd00431ca590bcd11c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6eedb88cb0febcc5",
+      "source_record_id": "rock_documentation:article:1044",
+      "title": "Install Server Roles and Features",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d33af04605d4cd395b65dff2604118c25ce6af90ed3d75757106d08ba608f885",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "418252f275d1c50e",
+      "source_record_id": "rock_documentation:article:1052",
+      "title": "Next Steps for Azure Hosting",
+      "topics": [
+        "admin",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting",
+      "version": null
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -2992,22 +3480,22 @@
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "bad2e990a46b565cf34ee91edaee7d2420b344b1a6ae7b46126d1926ae34ed63",
-      "excerpt_hash": "966cbbc976b301f8ef24b1146a3317a5c331341ba6672f500bf2742f4a0bbfce",
+      "content_hash": "c2f841cca373d8763c907bed889c68f80c9e27855542840c7f30e8c472ac1673",
+      "excerpt_hash": "125bd03de627278240aa5d856395059047337b0e77bb01241a5f4377ed1101b2",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "738e729c11ee15d9",
-      "source_record_id": "rock_rocku:738e729c11ee15d9",
-      "title": "Text to Workflow Performance [Legacy]",
+      "source_key": "390a990a15a512ec",
+      "source_record_id": "rock_rocku:390a990a15a512ec",
+      "title": "Workflows",
       "topics": [
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/workflows/text-to-workflow-performance",
+      "url": "https://community.rockrms.com/rocku/workflows",
       "version": null
     },
     {
@@ -3109,6 +3597,28 @@
       "version": null
     },
     {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b696e13aaf4c7b4998571dfe43474396d92a5176cee000a13663d6f0daabbc2c",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "fd2283f7d9501b68",
+      "source_record_id": "rock_documentation:article:1051",
+      "title": "Register for Credits as a Non-Profit",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/register-for-credits-as-a-non-profit",
+      "version": null
+    },
+    {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
@@ -3130,6 +3640,30 @@
         "workflow"
       ],
       "url": "https://community.rockrms.com/recipes/202",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "e1126ffba009efb3fdc3b236c88503b9c8e56f958ebd61763b3f7ee175cb8ae8",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "17353a1279176642",
+      "source_record_id": "rock_documentation:article:1049",
+      "title": "Configure a Two-Server Environment",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment",
       "version": null
     },
     {
@@ -3375,6 +3909,28 @@
       "source_record_id": "",
       "title": "https://www.youtube.com/watch?v=pvgZLvcfmFQ",
       "url": "https://www.youtube.com/watch?v=pvgZLvcfmFQ"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "5732b4e64377c397220fc586a74c03a747acc2f7742118e0b09f6d8ee50e0224",
+      "excerpt_hash": "a108187cd598994c3be51e1803296d7463019e122c16340da54870a193425c87",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "86e8c56e40fd6a8f",
+      "source_record_id": "rock_documentation:article:2125",
+      "title": "Intro to Scaling Rock",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/intro-to-scaling-rock",
+      "version": null
     },
     {
       "authority": "official-triumph",

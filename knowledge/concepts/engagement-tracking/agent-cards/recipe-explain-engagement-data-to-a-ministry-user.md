@@ -38,15 +38,15 @@ Then ask for the operational decision they need to make. That determines the cor
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals
-- https://community.rockrms.com/documentation/engagement/steps
-- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements
-- https://community.rockrms.com/documentation/engagement/streaks
-- https://www.rockrms.com/releasenotes
-- https://community.rockrms.com/recipes/233
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-types
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps
-- https://community.rockrms.com/documentation/engagement/steps/fundamentals/about-step-programs
+- https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs
+- https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-types
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges
+- https://community.rockrms.com/documentation/engagement/additional-engagement-tools/achievements/configure-steps-in-achievement-types
 - https://community.rockrms.com/documentation/engagement/steps/fundamentals/move-a-step-type
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-bulk-entry-with-steps
+- https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps
+- https://community.rockrms.com/documentation/engagement/steps/steps-charts/chart-types
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Web/UI/Controls/Pickers/StepProgramStepTypePicker.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.Logic.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Engagement/StepProgramCompletion/StepProgramCompletion.cs

@@ -49,15 +49,15 @@ Complete Audit One Connection Type with evidence-backed checks and a verifiable 
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock
 - https://www.rockrms.com/releasenotes
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/add-connection-request
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs
 - https://community.rockrms.com/documentation/bookcontent/39
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionTypeFilter.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Engagement/ConnectionTypeDetail/connectionStatusAutomationBag.d.ts
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusAutomationBag.cs
 - https://www.triumph.tech/resources/github-spotlight-422025
 - https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list
-- https://community.rockrms.com/rocku/engagement/connection-request-status-automation
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/reminders
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/check-in
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-opportunity-list
+- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import re
 from pathlib import Path
 from typing import Any, Iterable, Optional
@@ -11,8 +10,10 @@ from bs4 import BeautifulSoup
 
 from .community import (
     ROCKUMENTATION_API_TOOL,
+    community_content_hash,
     extract_rockumentation_fields,
     fetch_rockumentation_payload,
+    rockumentation_content_hash,
     rockumentation_readable_text,
 )
 from .concepts import (
@@ -171,7 +172,7 @@ def hydrate_source_record(
                 "status_code": 200,
                 "final_url": url,
                 "content_type": "application/json; rockumentation=1",
-                "content_hash": sha256_text(json.dumps(rockumentation_payload, ensure_ascii=False, sort_keys=True)),
+                "content_hash": rockumentation_content_hash(rockumentation_payload, url),
                 "page_title": fields.get("source_title") or record.get("source_title"),
                 "headings": extract_headings(soup),
                 "excerpt": excerpt,
@@ -193,7 +194,7 @@ def hydrate_source_record(
             "status_code": response.status_code,
             "final_url": str(response.url),
             "content_type": response.headers.get("content-type", ""),
-            "content_hash": sha256_text(html),
+            "content_hash": community_content_hash(str(response.url), page_title(html), markdown),
             "page_title": page_title(html),
             "headings": headings,
             "excerpt": excerpt,
