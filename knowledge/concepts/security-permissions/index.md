@@ -2,10 +2,15 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:22+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:01:42+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 4/43
+legacy_summary_retirement_coverage: 0/43
 depends_on_topics:
   - people
   - groups
@@ -262,6 +267,16 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Safety matrix: [../lava/lava-safety-matrix.md](../lava/lava-safety-matrix.md)
 - Agent usage examples: [../lava/lava-agent-usage-examples.md](../lava/lava-agent-usage-examples.md)
 - Machine-readable rows: [agent/lava-capabilities.jsonl](../../../agent/lava-capabilities.jsonl)
+
+## Source Lifecycle
+
+- Official article records routed here: `43`
+- Upstream check range: `2026-08-04T15:01:39+00:00` through `2026-08-04T15:01:42+00:00`
+- Source-native typed articles: `4` of `43`
+- Legacy source summaries retired: `0`; still active: `43`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

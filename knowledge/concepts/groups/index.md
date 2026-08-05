@@ -2,10 +2,15 @@
 id: concept-groups
 title: Groups
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:07+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:02:15+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/89
+legacy_summary_retirement_coverage: 0/89
 depends_on_topics:
   - people
   - attendance
@@ -186,6 +191,16 @@ Keywords: `attendance, meeting, schedule`
 | Group Attendance | rock_documentation | [Intro to Group Attendance](/documentation/engagement/groups/group-attendance/intro-to-group-attendance?Version=v19.0) [Configure Group Attendance](/documentation/engagement/groups/group-attendance/configure-group-attendance?Version=v19.0) [Entering Attendance](/documentation/engagement/groups/group-attendance/entering-attendance?Version=v19.0) [Configure Attendance... | [source](https://community.rockrms.com/documentation/engagement/groups/group-attendance) |
 | View Group Attendance Reports | rock_documentation | This job will create new Person attributes to track a person's *First Attended Date*, *Last Attended Date*, *Times Attended in Last 12 Months* and/or *Times Attended in Last 16 Weeks* for groups specified by a Data View. These attributes can be manually assigned categories and security as needed. This job considers all attendance in the specified groups, regardless of whether the person is currently an active member... | [source](https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/view-group-attendance-reports) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `89`
+- Upstream check range: `2026-08-04T15:02:07+00:00` through `2026-08-04T15:02:15+00:00`
+- Source-native typed articles: `0` of `89`
+- Legacy source summaries retired: `0`; still active: `89`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

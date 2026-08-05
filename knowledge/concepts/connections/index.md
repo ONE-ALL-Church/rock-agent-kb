@@ -2,10 +2,15 @@
 id: concept-connections
 title: Connections
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:02:07+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/21
+legacy_summary_retirement_coverage: 0/21
 depends_on_topics:
   - people
   - workflows
@@ -315,6 +320,16 @@ Keywords: `assignment, assigned, follow-up, follow up, connector`
 | Media Watch Transcript Insight | rock_community_hubs | This Digital Strategy Hub session is a strong public-safe source for family preregistration and check-in readiness. It describes using Rock preregistration to capture family information before arrival, prepare for check-in, and design follow-up around new families, while making clear that preregistration should be tested as part of the real family and check-in data flow. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
 | Connection Request Connector Report with Unavailability Workflow | rock_recipes | 0 Connection Request Connector Report with Unavailability Workflow Shared by Christine Ronk , Trinity Fellowship Church one year ago 15.0 Connection, Operations, Reporting Intermediate Description : This short workflow and report help us to better manage assigning Connectors to Connection Requests. For the following process, our primary focus is on our “New Connections” connection type which we catch brand new... | [source](https://community.rockrms.com/recipes/446) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `21`
+- Upstream check range: `2026-08-04T15:02:05+00:00` through `2026-08-04T15:02:07+00:00`
+- Source-native typed articles: `0` of `21`
+- Legacy source summaries retired: `0`; still active: `21`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

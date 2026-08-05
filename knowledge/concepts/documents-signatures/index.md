@@ -2,10 +2,15 @@
 id: concept-documents-signatures
 title: Documents And Signatures
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:17+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:01:33+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/20
+legacy_summary_retirement_coverage: 0/20
 depends_on_topics:
   - people
   - workflows
@@ -196,6 +201,16 @@ Keywords: `pdf, generated pdf, document pdf`
 | Merge Documents | rock_documentation | [Intro to Merge Documents](/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents?Version=v19.0) [Use Merge Documents](/documentation/core-concepts/documents/merge-documents/use-merge-documents?Version=v19.0) [Administrate Merge Templates](/documentation/core-concepts/documents/merge-documents/administrate-merge-templates?Version=v19.0) [Create a Merge... | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents) |
 | Entity Documents | rock_documentation | [Intro to Entity Documents](/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents?Version=v19.0) [Configure Entity Documents](/documentation/core-concepts/documents/entity-documents/configure-entity-documents?Version=v19.0) [Add the Block](/documentation/core-concepts/documents/entity-documents/add-the-block?Version=v19.0) [Manage Entity... | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `20`
+- Upstream check range: `2026-08-04T15:01:31+00:00` through `2026-08-04T15:01:33+00:00`
+- Source-native typed articles: `0` of `20`
+- Legacy source summaries retired: `0`; still active: `20`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

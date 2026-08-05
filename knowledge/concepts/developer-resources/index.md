@@ -2,10 +2,15 @@
 id: concept-developer-resources
 title: Rock Developer Resources
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:26+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 120
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T16:19:35+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 0/845
+legacy_summary_retirement_coverage: 3/845
 depends_on_topics:
   - api-integrations
   - lava
@@ -341,6 +346,16 @@ Keywords: `design system, dynamic linq, pulled pre-alpha, realtime visualizer, r
 | Technical Release Notes | rock_developer | Technical Release Notes While we make a huge effort to not break things during updates, when something can't be avoided we will document it here. Rock 20.0 Developers — starting with v20.0 v15 and Earlier Obsolete Methods/Properties Removed Properties, classes, methods, and interfaces that were obsoleted in v15 and earlier have been removed from the code. Extension Methods Moved to Rock.Common If your projects use... | [source](https://community.rockrms.com/developer/changelog) |
 | Pulled From Pre-Alpha | rock_developer | Just Pulled From pre-alpha-release Thanks for taking 10 seconds to let us know you pulled from that branch. We just want to be able to notify the right people should a situation arise with a data migration. | [source](https://community.rockrms.com/developer/pulled-prealpha) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `845`
+- Upstream check range: `2026-07-10T17:16:07+00:00` through `2026-08-04T16:19:35+00:00`
+- Source-native typed articles: `0` of `845`
+- Legacy source summaries retired: `3`; still active: `842`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

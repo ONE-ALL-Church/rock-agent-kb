@@ -2,10 +2,15 @@
 id: concept-event-registration
 title: Event Registration
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:20+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:01:18+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/19
+legacy_summary_retirement_coverage: 0/19
 depends_on_topics:
   - events
   - finance
@@ -240,6 +245,16 @@ Keywords: `event calendar, calendar, event item, event occurrence, occurrence`
 | Secure Events and Calendars | rock_documentation | There are two security roles that help secure the management of calendars and events. Let's look at each. # Securing Calendars While those in the *RSR - Staff Workers* and *RSR - Staff Like Workers* roles can view and add new events, only those in the *RSR - Calendar Administration* can approve events and create new calendars. # Securing Event Registrations Like calendars, those in the *RSR - Staff Workers* and *RSR... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars) |
 | Link Events to Calendars | rock_documentation | Hopefully you're starting to see the symbiotic relationship between event registrations and calendar events. The fact that they share the same guide should tell you that they go together like peas and carrots (or steak and potatoes). We've also seen that groups can be linked to registrations, and that content channels also have a role with calendar events. You might be wondering how you're going to manage all these... | [source](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `19`
+- Upstream check range: `2026-08-04T15:01:17+00:00` through `2026-08-04T15:01:18+00:00`
+- Source-native typed articles: `0` of `19`
+- Legacy source summaries retired: `0`; still active: `19`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

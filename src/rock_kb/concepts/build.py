@@ -86,6 +86,11 @@ def build_concept_guide(
     stale_reason = stale_reason_for(previous, source_hashes)
     built_at = generated_at_iso()
     guide_path = relative_concept_path(concept)
+    source_lifecycle = concept_source_lifecycle_metadata(
+        concept,
+        matched,
+        selected_records=selected,
+    )
     dependency = {
         "concept_id": concept.id,
         "title": concept.title,
@@ -113,11 +118,169 @@ def build_concept_guide(
         "routing_role": concept.routing_role,
         "parent_concept_id": concept.parent_concept_id,
         "documentation_branches": record_constraint_values(concept.raw, "documentation_branches"),
+        "source_freshness": source_lifecycle["source_freshness"],
+        "source_native_migration": source_lifecycle["source_native_migration"],
         "guide_hash": "",
     }
     guide = render_concept_guide(concept, selected, matched, dependency)
     dependency["guide_hash"] = sha256_text(guide)
     return guide, dependency
+
+
+def concept_source_lifecycle_metadata(
+    concept: Concept,
+    matched_records: list[dict[str, Any]],
+    selected_records: list[dict[str, Any]] | None = None,
+    source_native_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Separate upstream article freshness from reviewed typed migration coverage."""
+    source_native_dir = source_native_dir or (
+        REPO_ROOT / "canonical" / "source-native" / "v1"
+    )
+
+    def source_native_rows(filename: str) -> list[dict[str, Any]]:
+        path = source_native_dir / filename
+        return list(read_jsonl(path)) if path.exists() else []
+
+    uses_explicit_routing = bool(concept_has_path_constraints(concept))
+    lifecycle_records = (
+        matched_records
+        if uses_explicit_routing or selected_records is None
+        else selected_records
+    )
+    article_records = {
+        str(record.get("id")): record
+        for record in lifecycle_records
+        if record.get("id") and record.get("documentation_article_id")
+    }
+    eligible_ids = set(article_records)
+
+    snapshots = source_native_rows("source-snapshots.jsonl")
+    snapshots_by_id = {
+        str(row.get("source_snapshot_id")): row
+        for row in snapshots
+        if row.get("source_snapshot_id")
+    }
+    snapshot_checks_by_record: dict[str, list[str]] = {}
+    snapshot_changes_by_record: dict[str, list[str]] = {}
+    for snapshot in snapshots:
+        source_record_id = str(snapshot.get("source_record_id") or "")
+        if source_record_id not in eligible_ids:
+            continue
+        checked_at = str(snapshot.get("last_checked_at") or "")
+        changed_at = str(snapshot.get("content_changed_at") or "")
+        if checked_at:
+            snapshot_checks_by_record.setdefault(source_record_id, []).append(
+                checked_at
+            )
+        if changed_at:
+            snapshot_changes_by_record.setdefault(source_record_id, []).append(
+                changed_at
+            )
+
+    checked_values: list[str] = []
+    changed_values: list[str] = []
+    unknown_checked_count = 0
+    for source_record_id, record in article_records.items():
+        record_checks = [
+            str(value)
+            for value in (
+                record.get("last_checked_at"),
+                record.get("retrieved_at"),
+            )
+            if value
+        ]
+        record_checks.extend(snapshot_checks_by_record.get(source_record_id, []))
+        if record_checks:
+            checked_values.append(max(record_checks))
+        else:
+            unknown_checked_count += 1
+        record_changes = [
+            str(value)
+            for value in (record.get("content_changed_at"),)
+            if value
+        ]
+        record_changes.extend(snapshot_changes_by_record.get(source_record_id, []))
+        if record_changes:
+            changed_values.append(max(record_changes))
+
+    activities = {
+        str(row.get("generation_activity_id")): row
+        for row in source_native_rows("generation-activities.jsonl")
+        if row.get("generation_activity_id")
+    }
+    typed_article_ids: set[str] = set()
+    reviewed_artifacts = source_native_rows("reviewed-artifacts.jsonl")
+    for reviewed in reviewed_artifacts:
+        artifact = reviewed.get("artifact") or {}
+        if concept.id not in {
+            str(value) for value in artifact.get("concept_ids") or []
+        }:
+            continue
+        activity = activities.get(str(reviewed.get("generation_activity_id") or ""))
+        if not activity:
+            continue
+        for source_snapshot_id in activity.get("source_snapshot_ids") or []:
+            snapshot = snapshots_by_id.get(str(source_snapshot_id))
+            source_record_id = str((snapshot or {}).get("source_record_id") or "")
+            if source_record_id in eligible_ids:
+                typed_article_ids.add(source_record_id)
+
+    retired_legacy_summary_ids = {
+        str(row.get("source_record_id"))
+        for row in source_native_rows("legacy-migrations.jsonl")
+        if row.get("source_record_id") in eligible_ids
+        and row.get("legacy_knowledge_type") == "source_summary"
+        and row.get("coverage") == "full"
+        and row.get("review_state") == "reviewer_approved"
+    }
+
+    eligible_count = len(eligible_ids)
+    typed_count = len(typed_article_ids)
+    retired_count = len(retired_legacy_summary_ids)
+    if eligible_count == 0:
+        migration_status = "not_applicable"
+    elif typed_count == 0 and retired_count == 0:
+        migration_status = "not_started"
+    elif typed_count >= eligible_count and retired_count >= eligible_count:
+        migration_status = "complete"
+    else:
+        migration_status = "partial"
+    freshness_status = (
+        "not_applicable"
+        if eligible_count == 0
+        else "complete"
+        if unknown_checked_count == 0
+        else "partial"
+    )
+    def coverage_ratio(value: int) -> float:
+        return round(value / eligible_count, 4) if eligible_count else 0.0
+
+    return {
+        "source_freshness": {
+            "status": freshness_status,
+            "article_count": eligible_count,
+            "oldest_last_checked_at": min(checked_values) if checked_values else None,
+            "newest_last_checked_at": max(checked_values) if checked_values else None,
+            "newest_content_changed_at": max(changed_values) if changed_values else None,
+            "unknown_last_checked_count": unknown_checked_count,
+            "basis": "official_article_last_checked_or_retrieved_at",
+            "coverage_scope": (
+                "explicit_concept_path_routing"
+                if uses_explicit_routing
+                else "bounded_concept_guide_selection"
+            ),
+        },
+        "source_native_migration": {
+            "status": migration_status,
+            "eligible_article_count": eligible_count,
+            "typed_article_count": typed_count,
+            "typed_coverage_ratio": coverage_ratio(typed_count),
+            "retired_legacy_summary_count": retired_count,
+            "active_legacy_summary_count": max(eligible_count - retired_count, 0),
+            "legacy_summary_retirement_ratio": coverage_ratio(retired_count),
+        },
+    }
 
 def render_concept_guide(
     concept: Concept,
@@ -137,6 +300,16 @@ def render_concept_guide(
     subguide_sections = render_subguides(concept, all_matches, selected)
     reviewed_media_section = render_reviewed_media_insights(selected)
     approved_claim_section = render_approved_claims_section(dependency.get("approved_claim_dependencies") or [])
+    source_freshness = dependency.get("source_freshness") or {
+        "status": "not_applicable",
+        "newest_last_checked_at": None,
+    }
+    source_native_migration = dependency.get("source_native_migration") or {
+        "status": "not_applicable",
+        "typed_article_count": 0,
+        "retired_legacy_summary_count": 0,
+        "eligible_article_count": 0,
+    }
 
     lines = [
         "---",
@@ -147,6 +320,11 @@ def render_concept_guide(
         f"guide_status: {concept.guide_status}",
         f"rebuild_policy: {concept.rebuild_policy}",
         f"source_count: {len(selected)}",
+        f"source_freshness_status: {source_freshness['status']}",
+        f"source_last_checked_at: {source_freshness.get('newest_last_checked_at') or ''}",
+        f"source_native_migration_status: {source_native_migration['status']}",
+        f"source_native_article_coverage: {source_native_migration['typed_article_count']}/{source_native_migration['eligible_article_count']}",
+        f"legacy_summary_retirement_coverage: {source_native_migration['retired_legacy_summary_count']}/{source_native_migration['eligible_article_count']}",
         "depends_on_topics:",
     ]
     lines.extend([f"  - {topic}" for topic in concept.depends_on_topics])
@@ -264,6 +442,7 @@ def render_concept_guide(
             )
     lines.extend(subguide_sections)
     lines.extend(render_lava_capability_reference_section(concept, dependency))
+    lines.extend(render_source_lifecycle_section(dependency))
     lines.extend(["", "## Rebuild Dependencies", "", f"- Source records: `{len(dependency['source_record_ids'])}`"])
     if dependency.get("lava_capability_record_count"):
         lines.append(f"- Lava capability source records: `{dependency.get('lava_capability_record_count', 0)}`")
@@ -277,6 +456,32 @@ def render_concept_guide(
         ]
     )
     return "\n".join(lines)
+
+
+def render_source_lifecycle_section(dependency: dict[str, Any]) -> list[str]:
+    freshness = dependency.get("source_freshness") or {}
+    migration = dependency.get("source_native_migration") or {}
+    if not freshness.get("article_count"):
+        return []
+    oldest = freshness.get("oldest_last_checked_at") or "unknown"
+    newest = freshness.get("newest_last_checked_at") or "unknown"
+    article_scope = (
+        "routed here"
+        if freshness.get("coverage_scope") == "explicit_concept_path_routing"
+        else "in the bounded guide selection"
+    )
+    return [
+        "",
+        "## Source Lifecycle",
+        "",
+        f"- Official article records {article_scope}: `{freshness.get('article_count', 0)}`",
+        f"- Upstream check range: `{oldest}` through `{newest}`",
+        f"- Source-native typed articles: `{migration.get('typed_article_count', 0)}` of `{migration.get('eligible_article_count', 0)}`",
+        f"- Legacy source summaries retired: `{migration.get('retired_legacy_summary_count', 0)}`; still active: `{migration.get('active_legacy_summary_count', 0)}`",
+        f"- Migration status: `{migration.get('status') or 'not_applicable'}`",
+        "",
+        "A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.",
+    ]
 
 def render_lava_capability_reference_section(concept: Concept, dependency: dict[str, Any]) -> list[str]:
     if not dependency.get("lava_capability_record_count"):
@@ -906,6 +1111,8 @@ def concept_index_rows(dependencies: list[dict[str, Any]]) -> list[dict[str, Any
                 "routing_role": row.get("routing_role") or "primary",
                 "parent_concept_id": row.get("parent_concept_id") or "",
                 "documentation_branches": row.get("documentation_branches") or [],
+                "source_freshness": row.get("source_freshness") or {},
+                "source_native_migration": row.get("source_native_migration") or {},
             }
         )
     return rows

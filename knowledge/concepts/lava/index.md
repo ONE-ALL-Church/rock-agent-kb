@@ -2,10 +2,15 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:09+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T16:17:34+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/13
+legacy_summary_retirement_coverage: 0/13
 depends_on_topics:
   - cms
   - workflows
@@ -274,6 +279,16 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Safety matrix: [lava-safety-matrix.md](lava-safety-matrix.md)
 - Agent usage examples: [lava-agent-usage-examples.md](lava-agent-usage-examples.md)
 - Machine-readable rows: [agent/lava-capabilities.jsonl](../../../agent/lava-capabilities.jsonl)
+
+## Source Lifecycle
+
+- Official article records in the bounded guide selection: `13`
+- Upstream check range: `2026-07-10T17:16:17+00:00` through `2026-08-04T16:17:34+00:00`
+- Source-native typed articles: `0` of `13`
+- Legacy source summaries retired: `0`; still active: `13`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

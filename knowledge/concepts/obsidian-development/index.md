@@ -2,10 +2,15 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:20+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T16:19:35+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 3/47
+legacy_summary_retirement_coverage: 1/47
 depends_on_topics:
   - developer-resources
   - api-integrations
@@ -191,6 +196,16 @@ Keywords: `development environment, debugging, vscode, typescript`
 | Debugging Obsidian in VS Code | rock_developer | *Using VS Code's debugger with Obsidian, and setting up to attach it to an existing Chrome instance.* ## Running VS Code's Debugger Visual Studio Code (VS Code) has some debugging tools built into it that are very similar to some of the developer tools built into your browser. By using these debugging tools, you gain access to breakpoints within the editor, making debugging that little bit easier. To run the debug... | [source](https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code) |
 | Core Development Environment | rock_developer | This page discusses things you should have configured in your environment for core development. Before you begin writing Obsidian code you will want to configure your development environment. Many things will be enforced by ESLint once it is enabled, but a few things you will want to configure in your editor. ### Visual Studio Code VS Code provides a rich development experience for Obsidian. While you can't work... | [source](https://community.rockrms.com/developer/obsidian/core-development-environment) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `47`
+- Upstream check range: `2026-08-04T16:17:32+00:00` through `2026-08-04T16:19:35+00:00`
+- Source-native typed articles: `3` of `47`
+- Legacy source summaries retired: `1`; still active: `46`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

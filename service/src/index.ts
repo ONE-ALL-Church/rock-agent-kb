@@ -7015,8 +7015,16 @@ function searchTerms(query: string): string[] {
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
 }
 
-function inferSearchIntent(query: string): "symptom" | "how_to" | "reference" | "roadmap" {
+function inferSearchIntent(query: string): "symptom" | "how_to" | "overview" | "reference" | "roadmap" {
   const normalized = normalizeSearchText(query);
+  if (
+    /\b(from scratch|getting started|starting point)\b/.test(normalized)
+    || /\bwhere should\b.{0,80}\bstart\b/.test(normalized)
+    || /\bwhat should (?:i|we) configure\b/.test(normalized)
+    || /\b(?:set up|setup|configure)\b.{0,80}\b(?:overview|overall|complete|full)\b/.test(normalized)
+  ) {
+    return "overview";
+  }
   if (/\b(idea|roadmap|planned|planning|feature request|upcoming)\b/.test(normalized)) {
     return "roadmap";
   }
@@ -7210,12 +7218,20 @@ function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): 
   if (row.kind === "task_card") {
     if (intent === "symptom") return 180;
     if (intent === "how_to") return 80;
+    if (intent === "overview") return 20;
     return 12;
   }
   if (row.kind === "troubleshooting_node") {
     if (intent === "symptom") return 160;
     if (intent === "how_to") return 20;
+    if (intent === "overview") return -20;
     return 10;
+  }
+  if (row.kind === "source_summary") {
+    return intent === "overview" ? 90 : 2;
+  }
+  if (row.kind === "structured_reference") {
+    return intent === "overview" ? 70 : 2;
   }
   if (row.kind === "recipe") {
     return queryTerms.some((term) => RECIPE_QUERY_INTENT_TERMS.has(term)) ? 30 : 4;
@@ -7233,8 +7249,8 @@ function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): 
   if (row.kind === "rock_idea") {
     return hasRockIdeaQueryIntent(queryTerms, queryTerms.join(" ")) ? 28 : -30;
   }
-  if (row.kind === "answer") return 14;
-  if (row.kind === "concept") return 10;
+  if (row.kind === "answer") return intent === "overview" ? 40 : 14;
+  if (row.kind === "concept") return intent === "overview" ? 24 : 10;
   if (row.kind === "claim") return 6;
   return 2;
 }

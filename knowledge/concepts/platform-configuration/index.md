@@ -2,10 +2,15 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:12+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T16:17:16+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/27
+legacy_summary_retirement_coverage: 0/27
 depends_on_topics:
   - people
   - groups
@@ -336,6 +341,16 @@ Keywords: `campus, campuses, global attribute, system setting, configuration`
 | Add Attributes to Campuses | rock_documentation | You can add attributes to your campuses to track information about them beyond the other settings described in this section. To do that, just follow these steps: 1. Go to `Admin Tools > Settings > Entity Attributes`. 2. Click the button to add a new attribute. 3. Select the *Entity Type* of "Campus" and set up the attribute information. You don't need to add a value for the *Qualifier Field* or *Qualifier Value*... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses/add-attributes-to-campuses) |
 | Campuses | rock_documentation | [Intro to Campuses](/documentation/core-concepts/rock-fundamentals/campuses/intro-to-campuses?Version=v19.0) [Manage Campuses](/documentation/core-concepts/rock-fundamentals/campuses/manage-campuses?Version=v19.0) [Handle Campus Teams](/documentation/core-concepts/rock-fundamentals/campuses/handle-campus-teams?Version=v19.0) [Add Attributes to... | [source](https://community.rockrms.com/documentation/core-concepts/rock-fundamentals/campuses) |
 
+
+## Source Lifecycle
+
+- Official article records in the bounded guide selection: `27`
+- Upstream check range: `2026-07-10T17:16:10+00:00` through `2026-08-04T16:17:16+00:00`
+- Source-native typed articles: `0` of `27`
+- Legacy source summaries retired: `0`; still active: `27`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 
