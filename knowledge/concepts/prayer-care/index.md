@@ -2,10 +2,15 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:18+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:02:43+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/17
+legacy_summary_retirement_coverage: 0/17
 depends_on_topics:
   - people
   - groups
@@ -225,6 +230,16 @@ Keywords: `follow-up, communication, notification, pastoral care`
 | The Problem | rock_recipes | 6 Automated Follow Up Shared by Randy Aufrecht , ONE&ALL Church 5 years ago 11.0 Communications Advanced MOVE FROM PAPERWORK TO RELATIONSHIPS Stop clicking your screen and start clicking with people by creating a custom automated system in Rock. All of the details from the RX2021 presentation are located at https://oneandall.church/rx2021takeaway The Problem How do we connect new guests effectively? Lost physical... | [source](https://community.rockrms.com/recipes/244) |
 | Rock Shop Preview | rock_shop_plugins | This plugin is only available on the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Pastoral Care by Southeast Christian Church Free Note: plugin details are provided here only as a reference for what is available in the Rock Shop. To install this plugin, select Admin Tools > Rock Shop from your own instance of Rock. Required Rock Version 14.0 Documentation... | [source](https://www.rockrms.com/rockshop/plugin/84) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `17`
+- Upstream check range: `2026-08-04T15:02:18+00:00` through `2026-08-04T15:02:43+00:00`
+- Source-native typed articles: `0` of `17`
+- Legacy source summaries retired: `0`; still active: `17`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

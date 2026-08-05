@@ -2,10 +2,15 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:06+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T22:27:07+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 17/76
+legacy_summary_retirement_coverage: 11/76
 depends_on_topics:
   - attendance
   - groups
@@ -287,6 +292,16 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 | Define Printers in Rock | rock_documentation | Note **For Simplified Printing**If you are using the simplified printer setup where you are printing from the client and specifying the printer in the iPad or Windows application, you do not need to define the printers in Rock. To add printers in Rock for selection when configuring locations, group-types or kiosks, follow the steps below: 1. Navigate to the Devices page under `Admin Tools > Check-in > Devices`. 2.... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/define-printers-in-rock) |
 | Episode 47: Special Edition Lee Peterson Transcript Insight | rock_podcast_rss | This RockCast profile adds public-safe context for check-in implementation work: real deployments can require long troubleshooting cycles, church-specific process mapping, and low-level label-printing knowledge such as ZPL. It is useful routing evidence for check-in, implementation, and developer troubleshooting topics. | [source](https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `76`
+- Upstream check range: `2026-08-04T15:01:10+00:00` through `2026-08-04T22:27:07+00:00`
+- Source-native typed articles: `17` of `76`
+- Legacy source summaries retired: `11`; still active: `65`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

@@ -28,6 +28,7 @@ from rock_kb.concepts import (
     record_table_rows,
     render_reviewed_media_insights,
 )
+from rock_kb.concepts.build import concept_source_lifecycle_metadata
 from rock_kb.indexes import all_normalized_records
 from rock_kb.jsonl import read_jsonl, write_jsonl
 
@@ -141,7 +142,202 @@ def test_render_single_concept_guide():
     text, dependency = build_concept_guide(concept, all_normalized_records(), {})
     assert "# Check-In" in text
     assert "Rebuild Dependencies" in text
+    assert "A recent source check or concept rebuild does not imply" in text
     assert dependency["concept_id"] == "check-in"
+    assert dependency["source_freshness"]["article_count"] > 0
+    assert dependency["source_native_migration"]["status"] == "partial"
+
+
+def test_concept_source_lifecycle_separates_freshness_from_migration(tmp_path):
+    concept = Concept(
+        id="check-in",
+        title="Check-In",
+        description="Check-In",
+        keywords=["check-in"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+    records = [
+        {
+            "id": "rock_documentation:article:1",
+            "documentation_article_id": 1,
+            "retrieved_at": "2026-08-01T00:00:00+00:00",
+        },
+        {
+            "id": "rock_documentation:article:2",
+            "documentation_article_id": 2,
+            "retrieved_at": "2026-08-02T00:00:00+00:00",
+        },
+    ]
+    write_jsonl(
+        tmp_path / "source-snapshots.jsonl",
+        [
+            {
+                "source_snapshot_id": "snapshot:1",
+                "source_record_id": "rock_documentation:article:1",
+                "last_checked_at": "2026-08-04T00:00:00+00:00",
+                "content_changed_at": "2026-08-03T00:00:00+00:00",
+            }
+        ],
+    )
+    write_jsonl(
+        tmp_path / "generation-activities.jsonl",
+        [
+            {
+                "generation_activity_id": "generation:1",
+                "source_snapshot_ids": ["snapshot:1"],
+            }
+        ],
+    )
+    write_jsonl(
+        tmp_path / "reviewed-artifacts.jsonl",
+        [
+            {
+                "generation_activity_id": "generation:1",
+                "artifact": {"concept_ids": ["check-in"]},
+            }
+        ],
+    )
+    write_jsonl(
+        tmp_path / "legacy-migrations.jsonl",
+        [
+            {
+                "source_record_id": "rock_documentation:article:1",
+                "legacy_knowledge_type": "source_summary",
+                "coverage": "full",
+                "review_state": "reviewer_approved",
+            }
+        ],
+    )
+
+    lifecycle = concept_source_lifecycle_metadata(
+        concept,
+        records,
+        source_native_dir=tmp_path,
+    )
+
+    assert lifecycle["source_freshness"] == {
+        "status": "complete",
+        "article_count": 2,
+        "oldest_last_checked_at": "2026-08-02T00:00:00+00:00",
+        "newest_last_checked_at": "2026-08-04T00:00:00+00:00",
+        "newest_content_changed_at": "2026-08-03T00:00:00+00:00",
+        "unknown_last_checked_count": 0,
+        "basis": "official_article_last_checked_or_retrieved_at",
+        "coverage_scope": "bounded_concept_guide_selection",
+    }
+    assert lifecycle["source_native_migration"] == {
+        "status": "partial",
+        "eligible_article_count": 2,
+        "typed_article_count": 1,
+        "typed_coverage_ratio": 0.5,
+        "retired_legacy_summary_count": 1,
+        "active_legacy_summary_count": 1,
+        "legacy_summary_retirement_ratio": 0.5,
+    }
+
+
+def test_concept_source_lifecycle_marks_unretired_typed_work_partial(tmp_path):
+    concept = Concept(
+        id="check-in",
+        title="Check-In",
+        description="Check-In",
+        keywords=["check-in"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+    records = [
+        {
+            "id": "rock_documentation:article:1",
+            "documentation_article_id": 1,
+            "retrieved_at": "2026-08-04T00:00:00+00:00",
+        }
+    ]
+    write_jsonl(
+        tmp_path / "source-snapshots.jsonl",
+        [
+            {
+                "source_snapshot_id": "snapshot:1",
+                "source_record_id": "rock_documentation:article:1",
+            }
+        ],
+    )
+    write_jsonl(
+        tmp_path / "generation-activities.jsonl",
+        [
+            {
+                "generation_activity_id": "generation:1",
+                "source_snapshot_ids": ["snapshot:1"],
+            }
+        ],
+    )
+    write_jsonl(
+        tmp_path / "reviewed-artifacts.jsonl",
+        [
+            {
+                "generation_activity_id": "generation:1",
+                "artifact": {"concept_ids": ["check-in"]},
+            }
+        ],
+    )
+
+    migration = concept_source_lifecycle_metadata(
+        concept,
+        records,
+        source_native_dir=tmp_path,
+    )["source_native_migration"]
+
+    assert migration["status"] == "partial"
+    assert migration["typed_article_count"] == 1
+    assert migration["retired_legacy_summary_count"] == 0
+
+
+def test_concept_source_lifecycle_uses_all_explicitly_routed_articles(tmp_path):
+    concept = Concept(
+        id="check-in",
+        title="Check-In",
+        description="Check-In",
+        keywords=["check-in"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=1,
+        raw={
+            "documentation_branches": [
+                "documentation/church-management/check-in"
+            ]
+        },
+    )
+    records = [
+        {
+            "id": f"rock_documentation:article:{article_id}",
+            "documentation_article_id": article_id,
+            "retrieved_at": "2026-08-04T00:00:00+00:00",
+        }
+        for article_id in (1, 2)
+    ]
+
+    freshness = concept_source_lifecycle_metadata(
+        concept,
+        records,
+        selected_records=records[:1],
+        source_native_dir=tmp_path,
+    )["source_freshness"]
+
+    assert freshness["article_count"] == 2
+    assert freshness["coverage_scope"] == "explicit_concept_path_routing"
 
 
 def test_weighted_source_coverage_keeps_release_records():

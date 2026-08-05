@@ -85,6 +85,10 @@ STAGES: list[Stage] = [
             "community-contributions/**/*.jsonl",
             "knowledge/model-map/**/*.jsonl",
             "agent/model-map*.json*",
+            "canonical/source-native/v1/generation-activities.jsonl",
+            "canonical/source-native/v1/legacy-migrations.jsonl",
+            "canonical/source-native/v1/reviewed-artifacts.jsonl",
+            "canonical/source-native/v1/source-snapshots.jsonl",
         ],
         outputs=[
             "agent/concept-dependencies.jsonl",

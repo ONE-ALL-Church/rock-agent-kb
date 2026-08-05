@@ -175,6 +175,11 @@ def quality_gate_command(
     maximum_duplicate_rate: float = typer.Option(0.0, "--maximum-duplicate-rate", min=0, max=1),
     minimum_authority_pass_rate: float = typer.Option(1.0, "--minimum-authority-pass-rate", min=0, max=1),
     concurrency: int = typer.Option(6, "--concurrency", min=1, max=12),
+    projection: str | None = typer.Option(
+        None,
+        "--projection",
+        help="Reader to test. Defaults to the tracked cutover policy.",
+    ),
 ) -> None:
     """Run the full lexical retrieval gate against an isolated local Worker and D1 database."""
     from rich import print_json
@@ -189,6 +194,7 @@ def quality_gate_command(
             minimum_authority_pass_rate=minimum_authority_pass_rate,
         ),
         concurrency=concurrency,
+        retrieval_projection=projection,
     )
     print_json(data=result)
     if result["status"] != "ok":

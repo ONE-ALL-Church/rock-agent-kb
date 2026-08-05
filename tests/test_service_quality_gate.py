@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from rock_kb.service_quality_gate import QualityThresholds, quality_failures
+import json
+
+import pytest
+
+from rock_kb.service_quality_gate import (
+    QualityThresholds,
+    normalize_quality_gate_projection,
+    quality_failures,
+)
 
 
 def test_quality_failures_accepts_corrected_lexical_baseline():
@@ -77,3 +85,52 @@ def test_quality_failures_does_not_invent_ranking_failures_when_every_request_is
     )
 
     assert failures == ["2 evaluation requests unavailable"]
+
+
+def test_quality_gate_projection_follows_approved_cutover_policy(tmp_path):
+    policy_path = tmp_path / "promotion-policy.json"
+    policy_path.write_text(
+        json.dumps(
+            {
+                "cutover_authorization": {
+                    "status": "approved",
+                    "mode": "maintainer_approved_reversible_technical_cutover",
+                    "requires_legacy_rollback": True,
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert normalize_quality_gate_projection(None, policy_path=policy_path) == "canonical"
+
+
+@pytest.mark.parametrize(
+    "authorization",
+    [
+        {},
+        {"status": "pending"},
+        {
+            "status": "approved",
+            "mode": "maintainer_approved_reversible_technical_cutover",
+            "requires_legacy_rollback": False,
+        },
+    ],
+)
+def test_quality_gate_projection_fails_closed_to_legacy(tmp_path, authorization):
+    policy_path = tmp_path / "promotion-policy.json"
+    policy_path.write_text(
+        json.dumps({"cutover_authorization": authorization}),
+        encoding="utf-8",
+    )
+
+    assert normalize_quality_gate_projection(None, policy_path=policy_path) == "legacy"
+
+
+def test_quality_gate_projection_accepts_explicit_diagnostics_override(tmp_path):
+    missing_policy = tmp_path / "missing.json"
+
+    assert normalize_quality_gate_projection("canonical", policy_path=missing_policy) == "canonical"
+    assert normalize_quality_gate_projection("legacy", policy_path=missing_policy) == "legacy"
+    with pytest.raises(ValueError, match="legacy or canonical"):
+        normalize_quality_gate_projection("canary", policy_path=missing_policy)

@@ -710,6 +710,70 @@ test("symptom search routes to task cards and troubleshooting nodes before field
   }
 });
 
+test("broad setup searches prefer overviews over narrow task cards", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "source-native:source_summary:check-in-plan",
+        kind: "source_summary",
+        title: "Plan a Rock Check-In configuration before setup",
+        body: "Start a new Rock Check-In setup by planning groups, areas, locations, schedules, events, and campus differences before configuration.",
+      },
+      {
+        id: "source-native:structured_reference:check-in-components",
+        kind: "structured_reference",
+        title: "Rock Check-In setup planning checklist",
+        body: "Review Check-In areas, groups, locations, schedules, kiosks, labels, and printers as part of the complete configuration.",
+      },
+      {
+        id: "source-native:task_card:check-in-client-printer",
+        kind: "task_card",
+        title: "Configure one Check-In client printer",
+        body: "Set up one Rock Check-In kiosk to use a client-selected printer.",
+      },
+    ];
+    for (const row of rows) {
+      const values = {
+        ...row,
+        path: "shadow/canonical/check-in.jsonl",
+        url: "https://example.test/check-in",
+        concept: "check-in",
+        authority_tier: "official",
+        claim_tier: "source_backed",
+        claim_tier_rank: 1,
+        source_id: "rock_documentation",
+        payload_json: JSON.stringify({ version_scope_status: "unprocessed" }),
+      };
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+        .bind(...Object.values(values)).run();
+      await db.prepare("INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)")
+        .bind(values.id, values.title, values.body, values.concept).run();
+    }
+
+    const fromScratch = await (
+      await mf.dispatchFetch(
+        "https://kb.example.test/search?q=How%20do%20I%20set%20up%20Check-In%20in%20Rock%20from%20scratch%3F&limit=5",
+      )
+    ).json();
+    assert.equal(fromScratch.intent, "overview");
+    assert.equal(fromScratch.results[0].kind, "source_summary");
+
+    const components = await (
+      await mf.dispatchFetch(
+        "https://kb.example.test/search?q=What%20should%20I%20configure%20for%20Check-In%20areas%2C%20groups%2C%20locations%2C%20schedules%2C%20kiosks%2C%20labels%2C%20and%20printers%3F&limit=5",
+      )
+    ).json();
+    assert.equal(components.intent, "overview");
+    assert.equal(components.results[0].kind, "structured_reference");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("Rock version filtering excludes conflicting scoped rows and labels uncertain rows", async () => {
   const mf = await buildWorker();
   try {

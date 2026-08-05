@@ -15,7 +15,7 @@
     },
     "check-in": {
       "pass": 4,
-      "pending_service": 7
+      "pending_service": 10
     },
     "cms-websites": {
       "pass": 4
@@ -118,10 +118,10 @@
   },
   "evaluation_modes": {
     "answer_structure": 124,
-    "retrieval": 38
+    "retrieval": 41
   },
   "fail_count": 0,
-  "generated_at": "2026-08-04T17:15:00+00:00",
+  "generated_at": "2026-08-04T23:53:41+00:00",
   "near_misses": [
     {
       "answer_id": "answer:ai-agents-automation:risks-caveats",
@@ -216,8 +216,8 @@
   ],
   "pass_count": 124,
   "pass_rate": 1.0,
-  "pending_service_count": 38,
-  "question_count": 162,
+  "pending_service_count": 41,
+  "question_count": 165,
   "question_sources": {
     "curated_adversarial_question_set": 4,
     "curated_architecture_retrieval": 2,
@@ -233,9 +233,10 @@
     "curated_observed_wrong_ranking": 1,
     "curated_observed_zero_result": 1,
     "curated_real_world_question_set": 16,
+    "curated_source_native_broad_setup_regression": 3,
     "generated_realistic_question_set": 124
   },
-  "result_count": 162,
+  "result_count": 165,
   "schema": "rock-kb-evaluation-report-v1",
   "scored_count": 124,
   "term_miss_count": 9

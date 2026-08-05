@@ -2,10 +2,15 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:11+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:02:27+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 6/69
+legacy_summary_retirement_coverage: 0/69
 depends_on_topics:
   - security
   - workflows
@@ -227,6 +232,16 @@ Keywords: `search, universal search, indexing, index, search components`
 | Installing Elasticsearch | rock_documentation | To install Elasticsearch you will need to follow the steps below. Detailed instructions for installing and running ElasticSearch can also be found on the [elastic.co](https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html) website. Note **Windows Service**If you want to install and run Elasticsearch as a service on Windows, follow the instructions found... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch) |
 | Intro to Universal Search | rock_documentation | The basic search capability in Rock is quite powerful, but sometimes you may need more. That's where Universal Search comes in. Universal Search allows you to search multiple types of data at once in a full-text manner. In a sense, it's like Google for Rock. With this great power comes some additional technical knowledge, but don't worry we'll unpack it all here in this guide. # Overview The first thing that you'll... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/intro-to-universal-search) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `69`
+- Upstream check range: `2026-08-04T15:01:37+00:00` through `2026-08-04T15:02:27+00:00`
+- Source-native typed articles: `6` of `69`
+- Legacy source summaries retired: `0`; still active: `69`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

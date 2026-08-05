@@ -2,10 +2,15 @@
 id: concept-giving-finance
 title: Giving And Finance
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:10+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:01:24+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/70
+legacy_summary_retirement_coverage: 0/70
 depends_on_topics:
   - people
   - groups
@@ -199,6 +204,16 @@ Keywords: `batch, deposit, reconciliation`
 | Financial Batch | rock_model_map | Financial Batch is a Rock model in the Finance category. | [source](https://community.rockrms.com/ModelMap) |
 | Analytics Dim Financial Batch | rock_model_map | Analytics Dim Financial Batch is a Rock model in the Reporting category. | [source](https://community.rockrms.com/ModelMap) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `70`
+- Upstream check range: `2026-08-04T15:01:18+00:00` through `2026-08-04T15:01:24+00:00`
+- Source-native typed articles: `0` of `70`
+- Legacy source summaries retired: `0`; still active: `70`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

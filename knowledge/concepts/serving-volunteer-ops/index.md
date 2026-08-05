@@ -2,10 +2,15 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:13+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T22:27:07+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 0/28
+legacy_summary_retirement_coverage: 1/28
 depends_on_topics:
   - groups
   - scheduling
@@ -289,6 +294,16 @@ Keywords: `attendance, check-in, follow-up, no show, serving attendance`
 | Volunteer Generosity | rock_documentation | This report is used to compare and capture insights on your volunteer team and their giving. It shows which volunteers have donated within a specific time range and lets you filter by Attendance Date Ranges, Campuses, and Teams. This helps you understand how volunteering relates to financial giving. Note **Just a Note**This tool tracks the connection between volunteers' giving and their service, not their exact... | [source](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity) |
 | Add RSVP Occurrences | rock_documentation | Let’s look at how to add an occurrence to the RSVP List. You'll need to have at least one occurrence set up for the group before you can start sending your RSVP emails. 1. **Name** - You can optionally set a unique name for an occurrence. This applies only to the occurrence being viewed. Invitees will see the name you provide on the external website when they *Accept* or *Decline*. 2. **Date** - Set the date of the... | [source](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) |
 
+
+## Source Lifecycle
+
+- Official article records in the bounded guide selection: `28`
+- Upstream check range: `2026-07-10T17:16:12+00:00` through `2026-08-04T22:27:07+00:00`
+- Source-native typed articles: `0` of `28`
+- Legacy source summaries retired: `1`; still active: `27`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

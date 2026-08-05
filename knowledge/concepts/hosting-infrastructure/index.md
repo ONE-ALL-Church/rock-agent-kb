@@ -2,10 +2,15 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:17+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:02:29+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/21
+legacy_summary_retirement_coverage: 0/21
 depends_on_topics:
   - operations
   - security
@@ -204,6 +209,16 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 | How to Maintain your Azure SQL Database | rock_recipes | 5 How to Maintain your Azure SQL Database Shared by Brent Pirolli , CedarCreek Church 4 years ago Administration / Finance, General Intermediate How to Maintain your Azure SQL Database Maintaining your SQL database can be crucial to the performance of your Rock install. Rock's "Database Maintenance" job runs nightly and is set to cover most of what you need. But, there are further times you can and should take... | [source](https://community.rockrms.com/recipes/259) |
 | Get Notified of ACME SSL Certificate Renewal | rock_recipes | 4 Get Notified of ACME SSL Certificate Renewal Shared by Victor Garcia , Pillars 4 years ago 11.0 Operations Beginner If you are using Protect My Ministry or Active Screening, this will be a helpful tool in automatically notifying them when your SSL certificate gets renewed! Get set up to receive a notification whenever an SSL certificate is automatically renewed with these few steps: 1. First, run the following SQL... | [source](https://community.rockrms.com/recipes/263) |
 
+
+## Source Lifecycle
+
+- Official article records routed here: `21`
+- Upstream check range: `2026-08-04T15:02:27+00:00` through `2026-08-04T15:02:29+00:00`
+- Source-native typed articles: `0` of `21`
+- Legacy source summaries retired: `0`; still active: `21`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

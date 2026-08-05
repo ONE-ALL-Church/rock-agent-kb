@@ -368,6 +368,13 @@ local Worker and production-size D1 projection:
 uv run kb quality-gate
 ```
 
+The isolated gate follows the tracked source-native cutover policy so it tests
+the same default reader as production. Before cutover it fails closed to
+`legacy`; after an approved reversible cutover it activates `canonical` in the
+temporary D1 database. Use `--projection legacy` only for an explicit rollback
+diagnostic. The report records both the expected and observed reader and fails
+if they differ.
+
 Each evaluation request receives one bounded retry only when the HTTP transport
 times out. Connection failures, HTTP errors, malformed responses, and ranking
 failures are never retried. The report separates availability from retrieval

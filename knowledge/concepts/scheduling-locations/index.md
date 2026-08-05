@@ -2,10 +2,15 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:30+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T22:27:07+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 0/43
+legacy_summary_retirement_coverage: 4/43
 depends_on_topics:
   - check-in
   - groups
@@ -219,6 +224,16 @@ Keywords: `reservation, resource`
 | Create Web App | rock_recipes | 3 Draft Deploying Rock RMS as an Azure App Service Shared by Jeff Sanders , iChurch 5 years ago General Beginner Overview Rock RMS is an ASP.Net application that uses a SQL Database. This app can be deployed as an Azure App Service quickly and easily. Here is a simple walkthrough. Deployment Steps Create Web App In your Azure Portal, create a new Resource Group to contain your Rock RMS related resources. A resource... | [source](https://community.rockrms.com/recipes/202) |
 | Next Steps for Azure Hosting | rock_documentation | Whether or not you qualify for Microsoft's non-profit credit, your next steps will be about the same. Azure hosting includes Windows Server and Azure SQL Server, so you don’t need to worry about obtaining separate licenses. Once your account is set up with Azure, you're ready to start provisioning. # Provision Your Services First, create the *resource group* that you'll use to group all of your Rock services. A... | [source](https://community.rockrms.com/documentation/supporting-rock/hosting/azure-hosting/next-steps-for-azure-hosting) |
 
+
+## Source Lifecycle
+
+- Official article records in the bounded guide selection: `43`
+- Upstream check range: `2026-08-04T15:01:11+00:00` through `2026-08-04T22:27:07+00:00`
+- Source-native typed articles: `0` of `43`
+- Legacy source summaries retired: `4`; still active: `39`
+- Migration status: `partial`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

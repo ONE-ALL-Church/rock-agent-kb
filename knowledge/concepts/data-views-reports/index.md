@@ -2,10 +2,15 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-08-04T17:15:00+00:00
+last_built: 2026-08-04T23:51:23+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
+source_freshness_status: complete
+source_last_checked_at: 2026-08-04T15:01:31+00:00
+source_native_migration_status: not_started
+source_native_article_coverage: 0/32
+legacy_summary_retirement_coverage: 0/32
 depends_on_topics:
   - sql
   - model-map
@@ -380,6 +385,16 @@ This concept depends on the generated Lava capability layer. Agents should use t
 - Safety matrix: [../lava/lava-safety-matrix.md](../lava/lava-safety-matrix.md)
 - Agent usage examples: [../lava/lava-agent-usage-examples.md](../lava/lava-agent-usage-examples.md)
 - Machine-readable rows: [agent/lava-capabilities.jsonl](../../../agent/lava-capabilities.jsonl)
+
+## Source Lifecycle
+
+- Official article records routed here: `32`
+- Upstream check range: `2026-08-04T15:01:28+00:00` through `2026-08-04T15:01:31+00:00`
+- Source-native typed articles: `0` of `32`
+- Legacy source summaries retired: `0`; still active: `32`
+- Migration status: `not_started`
+
+A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 
 ## Rebuild Dependencies
 

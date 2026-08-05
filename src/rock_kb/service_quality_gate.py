@@ -12,10 +12,19 @@ from typing import Any, Callable
 import httpx
 
 from .service_eval import evaluate_service
-from .service_projection import SERVICE_DIR, build_service_projection
+from .paths import REPO_ROOT
+from .service_projection import (
+    ACTIVE_RETRIEVAL_PROJECTIONS,
+    SERVICE_DIR,
+    build_service_projection,
+    retrieval_projection_switch_sql,
+)
 
 
 RunCommand = Callable[[list[str], Path], None]
+PROMOTION_POLICY_PATH = (
+    REPO_ROOT / "canonical" / "source-native" / "promotion-policy-v1.json"
+)
 
 
 @dataclass(frozen=True)
@@ -31,10 +40,12 @@ def run_service_quality_gate(
     thresholds: QualityThresholds | None = None,
     concurrency: int = 6,
     target_rank: int = 2,
+    retrieval_projection: str | None = None,
     run_command: RunCommand | None = None,
 ) -> dict[str, Any]:
     thresholds = thresholds or QualityThresholds()
     run_command = run_command or run_checked
+    selected_projection = normalize_quality_gate_projection(retrieval_projection)
     projection = build_service_projection()
     with tempfile.TemporaryDirectory(prefix="rock-kb-quality-gate-") as temp_dir:
         state_dir = Path(temp_dir) / "wrangler-state"
@@ -52,6 +63,24 @@ def run_service_quality_gate(
                 str(state_dir),
                 "--file",
                 str(projection.sql_path),
+                "--yes",
+            ],
+            SERVICE_DIR,
+        )
+        run_command(
+            [
+                "npx",
+                "wrangler",
+                "d1",
+                "execute",
+                "rock-agent-kb",
+                "--local",
+                "--env",
+                "production",
+                "--persist-to",
+                str(state_dir),
+                "--command",
+                retrieval_projection_switch_sql(selected_projection),
                 "--yes",
             ],
             SERVICE_DIR,
@@ -91,6 +120,13 @@ def run_service_quality_gate(
                 terminate_process(process)
 
     failures = quality_failures(evaluation, thresholds)
+    observed_projection = str(evaluation.get("retrieval_projection") or "")
+    if observed_projection != selected_projection:
+        failures.insert(
+            0,
+            "retrieval projection mismatch: "
+            f"expected {selected_projection}, observed {observed_projection or 'unknown'}",
+        )
     metrics = evaluation["metrics"]
     availability_fail_count = int(metrics.get("unavailable_question_count") or 0)
     retrieval_fail_count = int(metrics.get("retrieval_quality_failure_count") or 0)
@@ -98,6 +134,8 @@ def run_service_quality_gate(
         "schema": "rock-kb-service-quality-gate-v1",
         "status": "fail" if failures else "ok",
         "projection_version": projection.version,
+        "expected_retrieval_projection": selected_projection,
+        "retrieval_projection": observed_projection,
         "thresholds": {
             "minimum_mrr": thresholds.minimum_mrr,
             "minimum_recall": thresholds.minimum_recall,
@@ -120,6 +158,32 @@ def run_service_quality_gate(
     destination = SERVICE_DIR / "dist" / "lexical-quality-gate.json"
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return report
+
+
+def normalize_quality_gate_projection(
+    retrieval_projection: str | None,
+    *,
+    policy_path: Path = PROMOTION_POLICY_PATH,
+) -> str:
+    if retrieval_projection is not None:
+        selected = retrieval_projection.strip().lower()
+        if selected not in ACTIVE_RETRIEVAL_PROJECTIONS:
+            raise ValueError("retrieval projection must be legacy or canonical")
+        return selected
+
+    try:
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return "legacy"
+    authorization = policy.get("cutover_authorization") or {}
+    if (
+        authorization.get("status") == "approved"
+        and authorization.get("mode")
+        == "maintainer_approved_reversible_technical_cutover"
+        and authorization.get("requires_legacy_rollback") is True
+    ):
+        return "canonical"
+    return "legacy"
 
 
 def quality_failures(evaluation: dict[str, Any], thresholds: QualityThresholds) -> list[str]:

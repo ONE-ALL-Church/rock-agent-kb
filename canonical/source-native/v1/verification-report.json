@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 46,
+    "confirms": 52,
     "corrects": 23,
     "narrows": 14
   },
   "by_state": {
-    "verified": 83
+    "verified": 89
   },
   "by_surface": {
-    "maintainer_review": 30,
+    "maintainer_review": 31,
     "official_api": 2,
-    "public_source_code": 51
+    "public_source_code": 56
   },
-  "checked_at": "2026-08-04T18:00:00Z",
+  "checked_at": "2026-08-04T23:10:00Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -312,6 +312,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1153:check-in-location-hierarchy-and-campus-options"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:5b92ffaa5b44781960a79ca0",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-437:app-factory-triumph-hosted-app-delisting-risk"
       ],
       "reviewed_at": "2026-08-02T03:15:00Z",
@@ -496,6 +506,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1864:check-in-printer-default-dpi"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:88052e93a8d77abc19ac9577",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1863:structured-reference-rock-sample-check-in-labels"
       ],
       "reviewed_at": "2026-08-04T03:15:00Z",
@@ -543,6 +563,26 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:9dcc5151c7911fbc31841cd6",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1154:check-in-configuration-starting-point-reference"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:a4ed187de8a6afb02a9ed4a2",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1155:check-in-type-general-settings-reference"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:a55335ce48c97623992cd29a",
       "verification_surface": "public_source_code"
     },
     {
@@ -615,6 +655,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:b3305a88e6196dea94f22929",
       "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1160:check-in-kiosk-configuration-fields"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b7804c2104eafda1d06ef60e",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -862,6 +912,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1150:built-in-service-time-check-in-window-examples"
+      ],
+      "reviewed_at": "2026-08-04T23:10:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f8afc92e33a1fd71640211ca",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:recipe:rock_documentation:article-983:workflow-webhook-raw-body-inspection-and-parsing"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -872,10 +932,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 83,
-  "resolution_count": 83,
+  "queue_count": 89,
+  "resolution_count": 89,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 83
+  "verified_count": 89
 }
