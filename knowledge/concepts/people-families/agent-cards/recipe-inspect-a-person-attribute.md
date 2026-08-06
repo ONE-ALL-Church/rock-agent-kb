@@ -17,10 +17,14 @@ Complete Inspect A Person Attribute with evidence-backed checks and a verifiable
 ## Live Records To Inspect
 
 - `Attribute`
+- `Person`
+- `Block`
 
 ## Entities And Tables
 
 - `Attribute`
+- `Person`
+- `Block`
 
 ## Steps
 
@@ -35,6 +39,16 @@ Complete Inspect A Person Attribute with evidence-backed checks and a verifiable
 9. Formatted value.
 10. Typed persisted columns.
 11. Lava output.
+12. Does the attribute definition exist?
+13. Is the entity type `Rock.Model.Person`?
+14. Is the category displayed by the block?
+15. Does the current user have view access?
+16. Does an `AttributeValue` row exist for the person?
+17. Is the field type supported by the display surface?
+18. Is the value cached?
+19. Is the Lava key correct?
+20. Did v17.5+ attribute security affect the output?
+21. Is the block's entity context actually the person?
 
 ## Do Not Assume
 

@@ -46,6 +46,11 @@ Complete Audit A TV App Configuration with evidence-backed checks and a verifiab
 14. Configuration summary.
 15. Security concerns.
 16. Cache concerns.
+17. Broken page references.
+18. Missing auth pieces.
+19. Media risks.
+20. Version caveats.
+21. Live checks still needed.
 
 ## Do Not Assume
 

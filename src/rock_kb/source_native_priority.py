@@ -27,7 +27,7 @@ from .sources import Source, load_sources
 SOURCE_NATIVE_MIGRATION_PRIORITY_DIR = REVIEW_DIR / "source-native-legacy-migration"
 SOURCE_NATIVE_MIGRATION_PRIORITY_PATH = SOURCE_NATIVE_MIGRATION_PRIORITY_DIR / "priority-report.json"
 SOURCE_NATIVE_MIGRATION_PRIORITY_SCHEMA = "rock-kb-source-native-migration-priority-v1"
-SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "1"
+SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "2"
 MIGRATION_PROMPT_ID = "source-native-legacy-migration-v1"
 
 SCORE_WEIGHTS = {
@@ -37,7 +37,7 @@ SCORE_WEIGHTS = {
     "exact_evaluation_case": 20,
     "source_native_coverage_gap": 25,
     "source_native_existing": 40,
-    "external_signal": 0,
+    "external_signal": 20,
     "concept_routing": 5,
     "freshness_current": 10,
     "freshness_due_soon": 5,

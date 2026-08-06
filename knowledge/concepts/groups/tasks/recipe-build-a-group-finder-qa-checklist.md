@@ -22,6 +22,8 @@ Complete Build A Group Finder QA Checklist with evidence-backed checks and a ver
 - `Page`
 - `Block`
 - `Attribute`
+- `GroupType`
+- `Schedule`
 
 ## Entities And Tables
 
@@ -31,6 +33,8 @@ Complete Build A Group Finder QA Checklist with evidence-backed checks and a ver
 - `Page`
 - `Block`
 - `Attribute`
+- `GroupType`
+- `Schedule`
 
 ## Steps
 
@@ -50,6 +54,15 @@ Complete Build A Group Finder QA Checklist with evidence-backed checks and a ver
 14. Missing groups and reason.
 15. Security exposure risks.
 16. Block settings to adjust.
+17. Group active/archive status.
+18. Group Type selected by finder block.
+19. Campus context.
+20. Schedule options and whether they are filterable.
+21. Location and geocoding.
+22. Capacity and registration rules.
+23. Template security filtering.
+24. Query strings such as `LoadResults=true`.
+25. Public detail page permissions.
 
 ## Do Not Assume
 

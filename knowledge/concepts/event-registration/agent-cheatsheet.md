@@ -11,7 +11,7 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Summarize A Registration Instance](tasks/recipe-summarize-a-registration-instance.md) |  |  |
-| [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md) | `Label`, `Block` | `Label`, `Block` |
+| [Recipe: Verify A Public Registration URL](tasks/recipe-verify-a-public-registration-url.md) | `Label`, `Block`, `Page` | `Label`, `Block`, `Page` |
 | [Recipe: Audit Payment Risk](tasks/recipe-audit-payment-risk.md) | `Schedule` | `Schedule` |
 | [Recipe: Audit Discount Codes](tasks/recipe-audit-discount-codes.md) | `Schedule` | `Schedule` |
 | [Recipe: Audit Wait List](tasks/recipe-audit-wait-list.md) |  |  |

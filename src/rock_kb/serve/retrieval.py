@@ -225,7 +225,25 @@ def list_recipes(concept_id: str | None = None, root: Path | None = None) -> dic
 def get_recipe(recipe_id: str, root: Path | None = None) -> dict[str, Any]:
     root = root or REPO_ROOT
     normalized = recipe_id.removeprefix("recipe:")
-    row = next((row for row in read_jsonl(root / "agent" / "recipes.jsonl") if row.get("recipe_id") == normalized), None)
+    recipes = list(read_jsonl(root / "agent" / "recipes.jsonl"))
+    row = next((row for row in recipes if row.get("recipe_id") == normalized), None)
+    if row is None and ":" not in normalized:
+        slug_matches = [
+            candidate
+            for candidate in recipes
+            if str(candidate.get("recipe_id") or "").rsplit(":", 1)[-1] == normalized
+        ]
+        if len(slug_matches) == 1:
+            row = slug_matches[0]
+        elif len(slug_matches) > 1:
+            return {
+                "schema": "rock-kb-recipe-result-v1",
+                "status": "ambiguous",
+                "recipe_id": normalized,
+                "candidate_recipe_ids": sorted(
+                    str(candidate.get("recipe_id") or "") for candidate in slug_matches
+                ),
+            }
     if row is None:
         return {"schema": "rock-kb-recipe-result-v1", "status": "not_found", "recipe_id": normalized}
     return {"schema": "rock-kb-recipe-result-v1", "status": "ok", "recipe": row}

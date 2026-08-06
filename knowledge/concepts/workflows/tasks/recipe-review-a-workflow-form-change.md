@@ -19,12 +19,16 @@ A field change that preserves validation, visibility, and downstream behavior.
 - `Person`
 - `Workflow`
 - `Attribute`
+- `Page`
+- `Block`
 
 ## Entities And Tables
 
 - `Person`
 - `Workflow`
 - `Attribute`
+- `Page`
+- `Block`
 
 ## Steps
 
@@ -37,10 +41,17 @@ A field change that preserves validation, visibility, and downstream behavior.
 7. Submit a disposable instance.
 8. Inspect stored values and downstream outcomes.
 9. Verify access as public user, staff user, assignee, and unauthorized user where applicable.
+10. Identify the exact surface: Workflow navigation, direct Workflow Entry page, Workflow List, Workflow Detail, My Workflows, or Form Builder.
+11. Confirm the workflow type is active and the expected category is selected in the block settings.
+12. Check category and workflow-type View permissions.
+13. For Workflow Entry, confirm there is an active Form action assigned to the current person and that the person can view the activity.
+14. For My Workflows, confirm the activity is active, has an active form, is assigned appropriately, and the person can view it.
+15. Verify login, form start/end dates, and share-link settings when using Form Builder.
+16. Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list.
 
 ## Source Links
 
@@ -56,3 +67,4 @@ A field change that preserves validation, visibility, and downstream behavior.
 - https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms
 - https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder
 - https://community.rockrms.com/lava/commands/workflow-activate-commands
+- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows

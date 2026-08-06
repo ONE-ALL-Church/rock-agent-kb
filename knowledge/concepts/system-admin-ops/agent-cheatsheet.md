@@ -14,7 +14,7 @@ generated: true
 | [Recipe: Answer “Why Is This Data Wrong?”](tasks/recipe-answer-why-is-this-data-wrong.md) | `DataView` | `DataView` |
 | [Recipe: Answer “Can I Clear Cache?”](tasks/recipe-answer-can-i-clear-cache.md) |  |  |
 | [Recipe: Answer “Why Did This Workflow Not Start?”](tasks/recipe-answer-why-did-this-workflow-not-start.md) | `Schedule`, `Workflow` | `Schedule`, `Workflow` |
-| [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md) | `DataView` | `DataView` |
+| [Recipe: Answer “Why Is This Data View Slow?”](tasks/recipe-answer-why-is-this-data-view-slow.md) | `DataView`, `Person` | `DataView`, `Person` |
 | [Recipe: Answer “What Changed In This Version That Matters Operationally?”](tasks/recipe-answer-what-changed-in-this-version-that-matters-operationally.md) | `Workflow` | `Workflow` |
 
 ## Entities

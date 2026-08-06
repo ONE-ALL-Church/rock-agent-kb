@@ -19,6 +19,7 @@ from rock_kb.source_native import (
     parse_markdown_source_units,
     promote_source_native_distillation,
     source_observation_metadata,
+    source_native_evaluation_question,
     source_native_model_input_hash,
     source_native_evaluation_rows,
     validate_source_native_bundle_consistency,
@@ -241,6 +242,28 @@ def valid_output() -> dict:
             }
         ],
     }
+
+
+def test_source_native_evaluation_question_contextualizes_generic_source_reference():
+    artifact = SourceNativeDistillationOutput.model_validate(valid_output()).articles[0].artifacts[0]
+    artifact = artifact.model_copy(
+        update={
+            "title": "The source explains Obsidian debugging in VS Code.",
+            "independent_question": "What operational topics does this source cover?",
+        }
+    )
+
+    assert source_native_evaluation_question(artifact) == (
+        "What operational topics does the source on Obsidian debugging in VS Code cover?"
+    )
+
+
+def test_source_native_evaluation_question_keeps_self_contained_question():
+    artifact = SourceNativeDistillationOutput.model_validate(valid_output()).articles[0].artifacts[0]
+
+    assert source_native_evaluation_question(artifact) == (
+        "What behavior does the feature provide?"
+    )
 
 
 def test_parser_preserves_stable_block_types_and_private_text():
@@ -916,7 +939,7 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     assert len(activities) == 1
     assert activities[0]["prompt_version"] == "2.3.0"
     assert activities[0]["created_at"] == "2026-07-29T12:00:00+00:00"
-    assert activities[0]["parameters"]["review_contract_version"] == "2.3.1"
+    assert activities[0]["parameters"]["review_contract_version"] == "2.3.2"
     public_units = list(read_jsonl(destination / "source-units.jsonl"))
     assert all("text" not in row for row in public_units)
     assert all(row["public_summary"] for row in public_units)
@@ -1011,7 +1034,7 @@ def test_promotion_appends_safely_and_records_review_corrections(tmp_path: Path)
         "source-native:claim:rock_documentation:article-100:feature-behavior"
     ]
     activity = next(read_jsonl(destination / "generation-activities.jsonl"))
-    assert activity["prompt_version"] == "2.3.1"
+    assert activity["prompt_version"] == "2.3.2"
     assert activity["parameters"]["review_changed"] is True
     assert activity["parameters"]["review_correction_count"] > 0
     manifest = json.loads((destination / "manifest.json").read_text())

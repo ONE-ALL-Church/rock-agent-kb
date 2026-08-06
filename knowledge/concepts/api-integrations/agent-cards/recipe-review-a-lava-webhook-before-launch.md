@@ -34,6 +34,14 @@ Complete Review A Lava Webhook Before Launch with evidence-backed checks and a v
 8. Test malformed, missing, unauthorized, and valid requests.
 9. Add monitoring/logging.
 10. Document rollback/disable path.
+11. Defined Type is `Lava Webhook`.
+12. Defined Value value matches path after `/Webhooks/Lava.ashx/`.
+13. Method/verb matches.
+14. Regex/path variables are correct.
+15. The site route/casing/rewrite is not altering path.
+16. Template compiles.
+17. Required Lava commands are enabled.
+18. Errors are not swallowed by production error settings.
 
 ## Do Not Assume
 
@@ -42,3 +50,5 @@ Complete Review A Lava Webhook Before Launch with evidence-backed checks and a v
 ## Source Links
 
 - https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api
+- https://community.rockrms.com/ask/developing/2842

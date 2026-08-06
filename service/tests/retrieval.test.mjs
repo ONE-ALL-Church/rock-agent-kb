@@ -1390,6 +1390,11 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     assert.equal(result.recipe.security.data_access, "read_only");
     assert.equal(result.recipe.implementation.commit_sha.length, 40);
 
+    const slugResponse = await mf.dispatchFetch("https://kb.example.test/recipes/check-in-status-dashboard");
+    const slugResult = await slugResponse.json();
+    assert.equal(slugResponse.status, 200);
+    assert.equal(slugResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
+
     const searchResponse = await mf.dispatchFetch("https://kb.example.test/search?q=registration%20attendance%20dashboard&kind=recipe");
     const search = await searchResponse.json();
     assert.equal(search.kind, "recipe");
@@ -1407,6 +1412,10 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     const callResponse = await mcp(mf, "tools/call", { name: "kb_get_recipe", arguments: { recipe_id: "oneall:check-in-status-dashboard" } });
     const callResult = JSON.parse(callResponse.result.content[0].text);
     assert.equal(callResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
+
+    const slugCallResponse = await mcp(mf, "tools/call", { name: "kb_get_recipe", arguments: { recipe_id: "check-in-status-dashboard" } });
+    const slugCallResult = JSON.parse(slugCallResponse.result.content[0].text);
+    assert.equal(slugCallResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
 
     const missingVerifyResponse = await mf.dispatchFetch("https://kb.example.test/recipes/missing%3Arecipe/verify?rock_version=18");
     assert.equal(missingVerifyResponse.status, 404);

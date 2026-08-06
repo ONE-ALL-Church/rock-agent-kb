@@ -40,6 +40,11 @@ Complete Audit a single sent communication with evidence-backed checks and a ver
 14. open/click metrics if available
 15. transport used
 16. job/exceptions if relevant
+17. whether it was sent
+18. who was eligible
+19. who failed and why
+20. whether analytics are available
+21. what to inspect next
 
 ## Do Not Assume
 

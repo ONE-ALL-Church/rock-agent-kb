@@ -54,6 +54,83 @@ def test_task_cards_use_authored_recipe_steps():
     ]
 
 
+def test_task_cards_include_matching_troubleshooting_checks():
+    markdown = (
+        "## Troubleshooting Decision Tree\n\n"
+        "### A Room Is Missing From Check-In\n\n"
+        "1. Confirm the location is active and open.\n"
+        "2. Confirm the group, location, and schedule link exists.\n"
+        "3. Check device scope and room capacity.\n\n"
+        "## Agent Task Recipes\n\n"
+        "### Recipe: Prove Why A Check-In Room Is Not Available\n\n"
+        "Collect evidence before changing configuration.\n\n"
+        "- Check-in configuration name and ID.\n"
+        "- Location ID and path.\n"
+    )
+    section_rows = section_source_map(
+        "scheduling-locations",
+        parse_markdown_sections(markdown),
+        {},
+    )
+
+    cards = build_task_cards("scheduling-locations", markdown, section_rows, {})
+
+    assert cards[0]["steps"] == [
+        "Check-in configuration name and ID.",
+        "Location ID and path.",
+        "Confirm the location is active and open.",
+        "Confirm the group, location, and schedule link exists.",
+        "Check device scope and room capacity.",
+    ]
+    assert cards[0]["guide_sections"] == [
+        "Agent Task Recipes",
+        "Troubleshooting Decision Tree",
+    ]
+
+
+def test_task_card_enrichment_adds_troubleshooting_sources_after_recipe_sources():
+    markdown = (
+        "## Troubleshooting Decision Tree\n\n"
+        "### A Room Is Missing From Check-In\n\n"
+        "1. Check room threshold. [Troubleshooting](https://example.com/troubleshooting)\n\n"
+        "## Agent Task Recipes\n\n"
+        "### Recipe: Prove Why A Check-In Room Is Not Available\n\n"
+        "- Inspect the location. [Recipe](https://example.com/recipe)\n"
+    )
+    source_index = {
+        "recipe": {
+            "source_key": "recipe",
+            "title": "Recipe",
+            "url": "https://example.com/recipe",
+            "path": "",
+            "authority": "official",
+            "authority_score": 10,
+        },
+        "troubleshooting": {
+            "source_key": "troubleshooting",
+            "title": "Troubleshooting",
+            "url": "https://example.com/troubleshooting",
+            "path": "",
+            "authority": "official",
+            "authority_score": 10,
+        },
+    }
+    section_rows = section_source_map(
+        "scheduling-locations",
+        parse_markdown_sections(markdown),
+        source_index,
+    )
+
+    cards = build_task_cards(
+        "scheduling-locations",
+        markdown,
+        section_rows,
+        source_index,
+    )
+
+    assert cards[0]["source_keys"] == ["recipe", "troubleshooting"]
+
+
 def test_troubleshooting_tree_uses_authored_symptom_branches():
     markdown = (
         "## Troubleshooting Decision Tree\n\n"

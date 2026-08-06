@@ -12,6 +12,7 @@ from rock_kb.serve import (
     get_concept,
     get_lava_context,
     get_manifest,
+    get_recipe,
     get_result,
     get_rock_issue,
     list_concepts,
@@ -217,6 +218,35 @@ def test_search_and_concept_package_include_recipes(tmp_path):
     assert results[0]["id"] == "recipe:test-org:check-in-dashboard"
     assert results[0]["authority_tier"] == "community-reviewed"
     assert concept["recipes"][0]["recipe_id"] == "test-org:check-in-dashboard"
+
+
+def test_get_recipe_accepts_exact_result_ids_and_unique_slugs(tmp_path):
+    seed_root(tmp_path)
+
+    for recipe_id in [
+        "test-org:check-in-dashboard",
+        "recipe:test-org:check-in-dashboard",
+        "check-in-dashboard",
+    ]:
+        result = get_recipe(recipe_id, root=tmp_path)
+        assert result["status"] == "ok"
+        assert result["recipe"]["recipe_id"] == "test-org:check-in-dashboard"
+
+
+def test_get_recipe_rejects_ambiguous_bare_slug(tmp_path):
+    seed_root(tmp_path)
+    recipes_path = tmp_path / "agent" / "recipes.jsonl"
+    recipes = [json.loads(line) for line in recipes_path.read_text(encoding="utf-8").splitlines()]
+    recipes.append({**recipes[0], "recipe_id": "another-org:check-in-dashboard", "org_id": "another-org"})
+    write_jsonl(recipes_path, recipes)
+
+    result = get_recipe("check-in-dashboard", root=tmp_path)
+
+    assert result["status"] == "ambiguous"
+    assert result["candidate_recipe_ids"] == [
+        "another-org:check-in-dashboard",
+        "test-org:check-in-dashboard",
+    ]
 
 
 def test_manifest_and_concepts_load_from_public_agent_artifacts(tmp_path):

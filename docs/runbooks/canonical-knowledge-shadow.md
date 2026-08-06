@@ -139,7 +139,6 @@ Select a bounded migration batch before building private review inputs:
 ```bash
 uv run kb tools source-native-migration-priority \
   --as-of <iso-8601> \
-  --dashboard <captured-operations-dashboard.json> \
   --destination data/review/source-native-legacy-migration/priority-report.json
 ```
 
@@ -149,9 +148,12 @@ ranks source records by claim value, exact evaluation coverage, verification
 debt, source-native completion value, and freshness. It does not auto-select or
 promote anything. Refresh records marked `refresh_source_first`, manually
 resolve records under `unresolved_source_records`, and review the proposed
-concept IDs before choosing a coherent source-family batch. Result-ID-only
-outcome signals from an optional captured dashboard are advisory and
-privacy-bounded; stale feedback cannot change the score.
+concept IDs before choosing a coherent source-family batch. By default the
+command reads the hosted operations dashboard. Use `--dashboard <capture.json>`
+for a reproducible snapshot or `--no-hosted-dashboard` while offline.
+Result-ID-only outcome signals are advisory and privacy-bounded; their score is
+capped so they can prioritize a real field gap without overruling freshness or
+concept-routing gates.
 
 Build deterministic private review inputs from the Rockumentation API:
 

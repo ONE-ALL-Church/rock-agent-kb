@@ -75,6 +75,27 @@ def test_reviewed_source_native_record_gets_completion_priority():
     assert reviewed["recommended_action"] == "run_legacy_migration_compiler"
 
 
+def test_external_demand_is_bounded_and_changes_priority():
+    no_external_demand = score_priority_row(priority_row(legacy_claim_count=1))
+    one_external_signal = score_priority_row(
+        priority_row(legacy_claim_count=1, external_signal_count=1)
+    )
+    many_external_signals = score_priority_row(
+        priority_row(legacy_claim_count=1, external_signal_count=50)
+    )
+
+    assert (
+        one_external_signal["priority_score"]
+        - no_external_demand["priority_score"]
+        == 20
+    )
+    assert (
+        many_external_signals["priority_score"]
+        - no_external_demand["priority_score"]
+        == 60
+    )
+
+
 def test_stale_source_requires_refresh_before_migration():
     ranked = score_priority_row(
         priority_row(

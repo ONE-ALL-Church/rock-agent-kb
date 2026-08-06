@@ -218,7 +218,11 @@ def main(argv: list[str] | None = None) -> int:
     lava_context_verify.add_argument("--consent-attested", action="store_true", required=True)
 
     recipe = subparsers.add_parser("recipe")
-    recipe.add_argument("recipe_args", nargs="+")
+    recipe.add_argument(
+        "recipe_args",
+        nargs="+",
+        help="Recipe ID, recipe:<org-id>:<slug>, or a unique recipe slug; use verify <id> to verify upstream files.",
+    )
     recipe.add_argument("--rock-version")
 
     recipes = subparsers.add_parser("recipes")

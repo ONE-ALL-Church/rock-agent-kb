@@ -100,31 +100,108 @@ def build_troubleshooting_tree(
 
 def inferred_task_templates(guide_text: str) -> list[dict[str, Any]]:
     templates = []
+    parsed_sections = parse_markdown_sections(guide_text)
     sections = [
         section
-        for section in parse_markdown_sections(guide_text)
+        for section in parsed_sections
         if section.level == 3 and "agent task" in section.parent.lower()
+    ]
+    troubleshooting_sections = [
+        section
+        for section in parsed_sections
+        if section.level == 3 and "troubleshooting" in section.parent.lower()
     ]
     for section in sections:
         title = section.heading
         steps = action_items(section.text)
         if not steps:
             continue
+        related = best_matching_troubleshooting_section(title, troubleshooting_sections)
+        if related is not None:
+            steps = compact_unique([*steps, *action_items(related.text)])
+        related_cautions = caution_items(related.text) if related is not None else []
+        authored_entities = mentioned_entities(section.text)
+        related_entities = (
+            mentioned_entities(related.text) if related is not None else []
+        )
+        related_parents = (
+            [related.parent]
+            if related is not None and related.parent
+            else []
+        )
+        entities = compact_unique(
+            [
+                *authored_entities,
+                *related_entities,
+            ]
+        )
         templates.append(
             {
                 "id": slugify(title),
                 "title": title,
                 "goal": task_goal(title, section.text),
-                "guide_sections": [section.parent or "Agent Task Recipes"],
-                "steps": steps[:16],
-                "do_not_assume": caution_items(section.text)
+                "guide_sections": compact_unique(
+                    [
+                        section.parent or "Agent Task Recipes",
+                        *related_parents,
+                    ]
+                ),
+                "steps": steps[:32],
+                "do_not_assume": compact_unique(
+                    [*caution_items(section.text), *related_cautions]
+                )
                 or ["Do not treat generated guidance as live-instance proof."],
-                "entities": mentioned_entities(section.text),
-                "live_records": mentioned_entities(section.text),
-                "source_keywords": [title, *mentioned_entities(section.text)],
+                "entities": entities,
+                "live_records": entities,
+                "source_keywords": [
+                    title,
+                    *authored_entities,
+                ],
+                "related_source_headings": (
+                    [related.heading] if related is not None else []
+                ),
             }
         )
     return templates
+
+
+TASK_HEADING_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "from",
+    "in",
+    "is",
+    "not",
+    "of",
+    "the",
+    "to",
+    "why",
+}
+
+
+def best_matching_troubleshooting_section(title: str, sections: list[Any]) -> Any | None:
+    title_terms = task_heading_terms(title)
+    ranked = []
+    for section in sections:
+        section_terms = task_heading_terms(section.heading)
+        overlap = title_terms & section_terms
+        if len(overlap) < 2:
+            continue
+        ranked.append((len(overlap), len(section_terms), section.heading, section))
+    if not ranked:
+        return None
+    ranked.sort(key=lambda row: (-row[0], row[1], row[2]))
+    return ranked[0][3]
+
+
+def task_heading_terms(value: str) -> set[str]:
+    normalized = value.lower().replace("check-in", "checkin")
+    terms = set(re.findall(r"[a-z0-9]+", normalized)) - TASK_HEADING_STOPWORDS
+    if terms & {"available", "unavailable", "missing"}:
+        terms.difference_update({"available", "unavailable", "missing"})
+        terms.add("availability")
+    return terms
 
 def action_items(text: str) -> list[str]:
     ordered = extract_list_items(text, ordered_only=True)

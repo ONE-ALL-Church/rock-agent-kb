@@ -10,7 +10,7 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md) | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow` | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow` |
+| [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md) | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow`, `Campus` | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow`, `Campus` |
 | [Recipe: Audit Group Location Schedules](tasks/recipe-audit-group-location-schedules.md) | `Group`, `Location`, `Schedule` | `Group`, `Location`, `Schedule` |
 | [Recipe: Verify A New Service Time](tasks/recipe-verify-a-new-service-time.md) | `Attendance`, `Group`, `Location`, `Schedule`, `Device`, `Family` | `Attendance`, `Group`, `Location`, `Schedule`, `Device`, `Family` |
 | [Recipe: Build A Facilities Daily Report](tasks/recipe-build-a-facilities-daily-report.md) |  |  |

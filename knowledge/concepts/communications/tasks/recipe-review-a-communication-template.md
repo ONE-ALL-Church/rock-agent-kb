@@ -40,6 +40,13 @@ Complete Review a communication template with evidence-backed checks and a verif
 14. attachments
 15. CSS inlining
 16. Lava fields
+17. logo/image references
+18. preview as multiple people
+19. send to internal test recipients
+20. mobile rendering
+21. unsubscribe link
+22. link tracking
+23. spam/deliverability signals if available
 
 ## Do Not Assume
 

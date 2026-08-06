@@ -46,6 +46,10 @@ Complete Read-Only Finance Record Inspection with evidence-backed checks and a v
 14. Date/time.
 15. Total amount and detail allocations.
 16. Payment method.
+17. Batch status.
+18. Receipt status.
+19. Statement eligibility and blockers.
+20. Recommended next action.
 
 ## Do Not Assume
 

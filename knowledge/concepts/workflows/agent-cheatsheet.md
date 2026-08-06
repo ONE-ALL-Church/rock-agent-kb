@@ -11,11 +11,11 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Design a bounded workflow type](tasks/recipe-design-a-bounded-workflow-type.md) | `Person`, `Label`, `Workflow`, `Attribute` | `Person`, `Label`, `Workflow`, `Attribute` |
-| [Recipe: Review a workflow form change](tasks/recipe-review-a-workflow-form-change.md) | `Person`, `Workflow`, `Attribute` | `Person`, `Workflow`, `Attribute` |
+| [Recipe: Review a workflow form change](tasks/recipe-review-a-workflow-form-change.md) | `Person`, `Workflow`, `Attribute`, `Page`, `Block` | `Person`, `Workflow`, `Attribute`, `Page`, `Block` |
 | [Recipe: Configure a selective workflow webhook](tasks/recipe-configure-a-selective-workflow-webhook.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
 | [Recipe: Diagnose an active workflow instance](tasks/recipe-diagnose-an-active-workflow-instance.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
 | [Recipe: Audit a connection follow-up process](tasks/recipe-audit-a-connection-follow-up-process.md) | `Person`, `Campus`, `Workflow` | `Person`, `Campus`, `Workflow` |
-| [Recipe: Import or adapt a workflow safely](tasks/recipe-import-or-adapt-a-workflow-safely.md) | `Group`, `Campus`, `Workflow`, `Page`, `Attribute` | `Group`, `Campus`, `Workflow`, `Page`, `Attribute` |
+| [Recipe: Import or adapt a workflow safely](tasks/recipe-import-or-adapt-a-workflow-safely.md) | `Group`, `Campus`, `Workflow`, `Page`, `Attribute`, `Person`, `Block` | `Group`, `Campus`, `Workflow`, `Page`, `Attribute`, `Person`, `Block` |
 | [Recipe: Design background orchestration](tasks/recipe-design-background-orchestration.md) | `Page`, `Block` | `Page`, `Block` |
 
 ## Entities

@@ -35,6 +35,16 @@ Complete Review Web Farm with evidence-backed checks and a verifiable outcome.
 9. Job behavior.
 10. Cache behavior.
 11. Version caveats.
+12. Confirm same Rock code on every node.
+13. Confirm same connection strings.
+14. Confirm file storage consistency.
+15. Confirm message bus connectivity.
+16. Confirm node registered and metrics update.
+17. Confirm leader election.
+18. Confirm cache invalidation.
+19. Confirm load balancer routing and health checks.
+20. Confirm Azure SignalR/real-time compatibility if used.
+21. Review web farm limitations.
 
 ## Do Not Assume
 

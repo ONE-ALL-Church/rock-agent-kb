@@ -656,7 +656,7 @@ export default {
         const recipeId = decodeURIComponent(url.pathname.slice("/recipes/".length));
         const result = await getRecipe(env, recipeId);
         ctx.waitUntil(recordAccessUsage(env, "recipe_get", "recipe", result.status === "ok" ? 1 : 0, request));
-        return json(result, result.status === "not_found" ? 404 : 200);
+        return json(result, result.status === "not_found" ? 404 : result.status === "ambiguous" ? 409 : 200);
       }
       if (url.pathname.startsWith("/model-map/models/")) {
         const model = decodeURIComponent(url.pathname.slice("/model-map/models/".length));
@@ -3258,7 +3258,20 @@ function investigationTask(role: string, objective: string, dependsOn: string[],
 async function getRecipe(env: ServiceEnv, recipeId: string): Promise<JsonRecord> {
   const normalized = recipeId.startsWith("recipe:") ? recipeId.slice("recipe:".length) : recipeId;
   const recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
-  const recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  let recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  if (!recipe && !normalized.includes(":")) {
+    const slugMatches = recipes.filter((row) => String(row.recipe_id || "").split(":").at(-1) === normalized);
+    if (slugMatches.length === 1) {
+      [recipe] = slugMatches;
+    } else if (slugMatches.length > 1) {
+      return {
+        schema: "rock-kb-recipe-result-v1",
+        status: "ambiguous",
+        recipe_id: normalized,
+        candidate_recipe_ids: slugMatches.map((row) => String(row.recipe_id || "")).sort(),
+      };
+    }
+  }
   if (!recipe) {
     return { schema: "rock-kb-recipe-result-v1", status: "not_found", recipe_id: normalized };
   }

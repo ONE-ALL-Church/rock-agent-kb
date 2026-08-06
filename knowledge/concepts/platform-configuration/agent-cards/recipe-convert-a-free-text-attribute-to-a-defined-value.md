@@ -17,10 +17,14 @@ Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed c
 ## Live Records To Inspect
 
 - `Attribute`
+- `Workflow`
+- `Block`
 
 ## Entities And Tables
 
 - `Attribute`
+- `Workflow`
+- `Block`
 
 ## Steps
 
@@ -34,6 +38,13 @@ Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed c
 8. Hide old attribute after validation.
 9. Keep old data until retention/review is complete.
 10. Delete only after references are gone and stakeholders approve.
+11. Generated service deletion blockers.
+12. Direct model references.
+13. Attribute values storing the value.
+14. Historical records.
+15. Workflows and Lava.
+16. Whether value is system-defined.
+17. Whether disabling is safer than deletion.
 
 ## Do Not Assume
 
@@ -53,3 +64,4 @@ Complete Convert A Free-Text Attribute To A Defined Value with evidence-backed c
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/attributecolumns
 - https://community.rockrms.com/lava/workflows
 - https://community.rockrms.com/ModelMap
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/DefinedValueService.CodeGenerated.cs

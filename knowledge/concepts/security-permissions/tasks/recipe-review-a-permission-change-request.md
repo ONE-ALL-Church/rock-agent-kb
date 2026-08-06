@@ -30,6 +30,16 @@ Then implement the smallest change and test.
 4. Is the data sensitive?
 5. Is there a lower-scope object?
 6. Does this require workflow/report/API changes too?
+7. Confirm the rule was saved.
+8. Confirm it was saved on the correct entity.
+9. Confirm action verb.
+10. Confirm role membership.
+11. Confirm user logged out/in if membership/session is stale.
+12. Check direct deny rules.
+13. Check inheritance.
+14. Check cache/message-bus state in multi-node environments.
+15. Check custom code path.
+16. Test with another controlled account.
 
 ## Do Not Assume
 
@@ -49,3 +59,4 @@ Then implement the smallest change and test.
 - https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns
 - https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn
 - https://community.rockrms.com/rocku/groups/group-security
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs

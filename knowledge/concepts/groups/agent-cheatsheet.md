@@ -13,7 +13,7 @@ generated: true
 | [Recipe: Identify Why A Group Is Not Visible](tasks/recipe-identify-why-a-group-is-not-visible.md) | `Person`, `Group`, `GroupType`, `Page`, `Block` | `Person`, `Group`, `GroupType`, `Page`, `Block` |
 | [Recipe: Audit A Group Type Before Launch](tasks/recipe-audit-a-group-type-before-launch.md) | `Attendance`, `Step`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow`, `Attribute` | `Attendance`, `Step`, `Group`, `GroupType`, `Location`, `Schedule`, `Workflow`, `Attribute` |
 | [Recipe: Debug Group Attendance Reminder Failures](tasks/recipe-debug-group-attendance-reminder-failures.md) | `Attendance`, `Group`, `GroupType`, `Schedule` | `Attendance`, `Group`, `GroupType`, `Schedule` |
-| [Recipe: Build A Group Finder QA Checklist](tasks/recipe-build-a-group-finder-qa-checklist.md) | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute` | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute` |
+| [Recipe: Build A Group Finder QA Checklist](tasks/recipe-build-a-group-finder-qa-checklist.md) | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute`, `GroupType`, `Schedule` | `Group`, `Location`, `Campus`, `Page`, `Block`, `Attribute`, `GroupType`, `Schedule` |
 | [Recipe: Move Members Between Groups Safely](tasks/recipe-move-members-between-groups-safely.md) | `Group`, `Workflow`, `Attribute` | `Group`, `Workflow`, `Attribute` |
 | [Recipe: Create A Custom Scheduled Volunteer Communication Page](tasks/recipe-create-a-custom-scheduled-volunteer-communication-page.md) | `Group`, `GroupType`, `Location`, `Schedule`, `Page` | `Group`, `GroupType`, `Location`, `Schedule`, `Page` |
 

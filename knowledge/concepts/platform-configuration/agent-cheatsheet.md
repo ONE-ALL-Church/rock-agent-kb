@@ -15,7 +15,7 @@ generated: true
 | [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
 | [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md) | `Attribute` | `Attribute` |
 | [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md) | `Block`, `Attribute` | `Block`, `Attribute` |
-| [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md) | `Attribute` | `Attribute` |
+| [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md) | `Attribute`, `Workflow`, `Block` | `Attribute`, `Workflow`, `Block` |
 | [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
 
 ## Entities

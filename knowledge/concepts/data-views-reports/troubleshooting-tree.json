@@ -195,7 +195,7 @@
   ],
   "concept_id": "data-views-reports",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-04T23:53:09+00:00",
+  "generated_at": "2026-08-06T22:14:03+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-symptom-report-shows-no-rows",
