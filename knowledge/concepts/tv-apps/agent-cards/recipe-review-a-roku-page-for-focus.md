@@ -36,6 +36,12 @@ Complete Review A Roku Page For Focus with evidence-backed checks and a verifiab
 6. Buttons have enough width for labels.
 7. RowList has valid content hierarchy.
 8. Back navigation path is clear.
+9. Does the page have `Rock:Page initialFocus` pointing at an existing ID?
+10. Are controls focusable?
+11. Are horizontal/vertical controls wrapped in `Rock:FocusGroup`?
+12. Is `layoutDirection` correct for the desired movement?
+13. Are there nested groups causing focus traps?
+14. Test with a real Roku remote.
 
 ## Do Not Assume
 

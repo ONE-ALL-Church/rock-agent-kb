@@ -42,6 +42,13 @@ Complete Review A Shortcode For Production with evidence-backed checks and a ver
 14. Version requirements
 15. Security bypasses
 16. Cache behavior
+17. Keep as-is.
+18. Narrow commands.
+19. Fix parameters.
+20. Add documentation.
+21. Convert to block/inline only if no callers exist or all callers can be updated.
+22. Replace SQL with entity command or parameterized SQL.
+23. Add tests or staging validation.
 
 ## Do Not Assume
 

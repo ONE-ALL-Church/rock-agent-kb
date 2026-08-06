@@ -18,11 +18,13 @@ Return whether the URL targets the intended registration and why it is open, clo
 
 - `Label`
 - `Block`
+- `Page`
 
 ## Entities And Tables
 
 - `Label`
 - `Block`
+- `Page`
 
 ## Steps
 
@@ -35,6 +37,16 @@ Return whether the URL targets the intended registration and why it is open, clo
 7. Rendered status label.
 8. Mobile equivalent if applicable.
 9. Anonymous access.
+10. Instance Active.
+11. Registration Starts.
+12. Registration Ends.
+13. Current server time/time zone.
+14. Capacity/spots.
+15. Wait list enabled.
+16. Linkage points to correct instance.
+17. Public page block resolves correct instance.
+18. Template is valid.
+19. Version-specific status label behavior.
 
 ## Do Not Assume
 

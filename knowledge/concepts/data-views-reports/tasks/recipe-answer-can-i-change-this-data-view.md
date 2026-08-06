@@ -42,6 +42,16 @@ Complete Answer "Can I Change This Data View?" with evidence-backed checks and a
 8. Identify owner.
 9. Recommend edit, copy, or deprecate.
 10. Do not change until owner/risk is clear.
+11. Installed Rock version.
+12. Filter component entity type exists.
+13. Plugin installed/enabled.
+14. Selection string deserializes.
+15. Referenced IDs/GUIDs still exist.
+16. Obsidian component data migration.
+17. Cache invalidation.
+18. Exception logs.
+19. Source-code changes between versions.
+20. Rebuild filter on a copy if necessary.
 
 ## Do Not Assume
 
@@ -61,3 +71,4 @@ Complete Answer "Can I Change This Data View?" with evidence-backed checks and a
 - https://community.rockrms.com/rocku/reporting
 - https://community.rockrms.com/recipes/262
 - https://community.rockrms.com/recipes/240
+- https://community.rockrms.com/lava/commands/sql-commands

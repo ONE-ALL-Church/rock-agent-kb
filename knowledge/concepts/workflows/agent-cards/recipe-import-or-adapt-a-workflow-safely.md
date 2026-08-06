@@ -21,6 +21,8 @@ An imported or cloned workflow is validated before activation.
 - `Workflow`
 - `Page`
 - `Attribute`
+- `Person`
+- `Block`
 
 ## Entities And Tables
 
@@ -29,6 +31,8 @@ An imported or cloned workflow is validated before activation.
 - `Workflow`
 - `Page`
 - `Attribute`
+- `Person`
+- `Block`
 
 ## Steps
 
@@ -41,10 +45,17 @@ An imported or cloned workflow is validated before activation.
 7. Test with disposable instances.
 8. Verify logs, assignments, communications, and side effects.
 9. Connect the live trigger only after validation.
+10. Identify the exact surface: Workflow navigation, direct Workflow Entry page, Workflow List, Workflow Detail, My Workflows, or Form Builder.
+11. Confirm the workflow type is active and the expected category is selected in the block settings.
+12. Check category and workflow-type View permissions.
+13. For Workflow Entry, confirm there is an active Form action assigned to the current person and that the person can view the activity.
+14. For My Workflows, confirm the activity is active, has an active form, is assigned appropriately, and the person can view it.
+15. Verify login, form start/end dates, and share-link settings when using Form Builder.
+16. Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- Stop when visibility is explained; do not alter the workflow instance merely to force it onto a list.
 
 ## Source Links
 
@@ -60,3 +71,4 @@ An imported or cloned workflow is validated before activation.
 - https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms
 - https://community.rockrms.com/documentation/core-concepts/workflows/form-builder/intro-to-the-form-builder
 - https://community.rockrms.com/lava/commands/workflow-activate-commands
+- https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows

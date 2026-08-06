@@ -1,11 +1,11 @@
 {
-  "article_count": 54,
+  "article_count": 57,
   "artifact_type_counts": {
-    "claim": 106,
+    "claim": 110,
     "recipe": 26,
-    "source_summary": 45,
-    "structured_reference": 125,
-    "task_card": 48
+    "source_summary": 49,
+    "structured_reference": 132,
+    "task_card": 49
   },
   "concept_ids": [
     "ai-agents-automation",
@@ -25,32 +25,32 @@
     "system-admin-ops",
     "workflows"
   ],
-  "evaluation_case_count": 376,
+  "evaluation_case_count": 392,
   "file_hashes": {
     "artifact-migrations.jsonl": "ac361d12063f22c9f050a68b91565255bd0794f6e29240ee140f5c5c3e58f7e3",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
-    "evaluation-set.jsonl": "0ccfedf00984eda2e76972bbd503ee1943d7cf97d95a07d3a5c95ea876635ddf",
-    "generation-activities.jsonl": "5fd411730583ffc0e0195192499b379d8516edbd55e7fa0b6d73006de76f38a1",
-    "legacy-migrations.jsonl": "0fc54f230f0e0776a9369bbf3b0d343271d4a141e4491d19164042a428a261f9",
-    "relationships.jsonl": "822c75e0baec2e09a8d8ef21c0e544b7f3ca81efd01ba22e1123cbecfcdf3efc",
-    "reviewed-artifacts.jsonl": "75212cb9066a5978ff7bd898dd3ed6231532bab2708ea660d907b2ff66e02071",
-    "source-snapshots.jsonl": "4b63f917db5826ab60557398c834b6eb6180bb72026e71f95051dda41b30b58d",
-    "source-units.jsonl": "bf397218797f513db3cc6a0f94d6313cb908d637edd370f0de89bad5389bb678",
+    "evaluation-set.jsonl": "dad0b43e3077d7b97ff96cc9db07ab6875edb5e57f418a97354ca745c671edc5",
+    "generation-activities.jsonl": "f8bbc7027d08e9a42e3b4f18afe4ca3698dce27b9ef7d4347ca76268c634c21e",
+    "legacy-migrations.jsonl": "79ad890f8351410fdefe8eb11a7117aaa0def57673fd0eb1e53aa82aa3e5a12c",
+    "relationships.jsonl": "4ca98911f9551285dcd498038ba90f23244402d33f0c798753807a2912398e7e",
+    "reviewed-artifacts.jsonl": "abf73b6f6269cad18259df84e598a470d389b623e66852f0e3042eda9930aa94",
+    "source-snapshots.jsonl": "9a5c855372d53b1bceb4683387074279b49ce3bff4e73f63515d5a43069525b9",
+    "source-units.jsonl": "c8bade77a578251f0b807c8173b5d3664d8bba8bf9ef217575c08b1925dc85a8",
     "split-rules.jsonl": "ff473ada5492c4b8a772aa8f6ecdc19a618d3d4169f4158eec29ff5bc5f92d4a",
-    "verification-queue.jsonl": "d739d7c0540912751d4b4d5ccb5269c6bd643b820d5a933a24e5b87d79840311",
-    "verification-report.json": "d9b7a39872fc19049feafddea6c98426e8ad281daa78dea25c9edfc5f2e6fd6a",
-    "verification-resolutions.jsonl": "7a9b352a9f2a4b826f5343afc2170bc755f951b57054b009264c78e3a41bd0f2"
+    "verification-queue.jsonl": "8b2857761e3cf83c9bb5e009cfbbaf6cdd4a0e2a7efe9275996e750ea3ab7a92",
+    "verification-report.json": "c29018970fd21355e2c7f11cd431af9e16b875c69871b778f45662bab431c1de",
+    "verification-resolutions.jsonl": "6c20c6a0e10d117b19259d97942ae6d8a4209c578ab1771f10393afdbcd3e60c"
   },
-  "generation_activity_count": 54,
+  "generation_activity_count": 57,
   "generation_input_hash_versions": {
-    "2": 54
+    "2": 57
   },
   "generation_models": {
-    "gpt-5.6-sol": 54
+    "gpt-5.6-sol": 57
   },
   "generation_prompt_versions": {
-    "1.3.0": 21,
-    "2.3.1": 33
+    "1.3.0": 26,
+    "2.3.1": 31
   },
   "notes": [
     "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
@@ -61,22 +61,22 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.1",
   "public_retrieval_changed": false,
-  "relationship_count": 267,
+  "relationship_count": 295,
   "review_changed_article_count": 11,
-  "reviewed_artifact_count": 350,
+  "reviewed_artifact_count": 366,
   "reviewed_artifact_migration_count": 3,
-  "reviewed_legacy_migration_count": 37,
+  "reviewed_legacy_migration_count": 50,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,
-    "rock_developer": 3,
-    "rock_documentation": 40,
+    "rock_developer": 4,
+    "rock_documentation": 42,
     "rock_lava_docs": 3,
     "rock_mobile_docs": 4
   },
   "source_refresh_required_for_rebuild": true,
-  "source_snapshot_count": 54,
-  "source_unit_count": 1836,
+  "source_snapshot_count": 57,
+  "source_unit_count": 1896,
   "status": "canonical_input",
   "verification_request_count": 89,
   "verification_resolution_count": 89,

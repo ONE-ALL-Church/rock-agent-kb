@@ -36,6 +36,16 @@ Complete Validate A BI Finance Dashboard with evidence-backed checks and a verif
 8. Investigate differences by transaction type, account, campus, refunds, registration payments, and giving group.
 9. Document reconciliation.
 10. Get finance owner signoff.
+11. BI job last success.
+12. Dataset refresh time.
+13. Power BI credentials.
+14. Model/table version compatibility.
+15. Date/campus filters.
+16. Row-level security.
+17. Rock UI reconciliation.
+18. Analytics table refresh.
+19. Current vs historical dimensions.
+20. Template version.
 
 ## Do Not Assume
 
@@ -51,3 +61,4 @@ Complete Validate A BI Finance Dashboard with evidence-backed checks and a verif
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/GroupMemberDataViewFilter.cs
 - https://community.rockrms.com/recipes/264
 - https://community.rockrms.com/recipes/397
+- https://www.triumph.tech/resources/what-is-maxdop

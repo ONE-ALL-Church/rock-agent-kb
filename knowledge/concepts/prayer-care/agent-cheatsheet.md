@@ -12,7 +12,7 @@ generated: true
 | --- | --- | --- |
 | [Audit Prayer Configuration](tasks/audit-prayer-configuration.md) | `Group`, `Workflow`, `Page`, `Block` | `Group`, `Workflow`, `Page`, `Block` |
 | [Review A Sensitive Request](tasks/review-a-sensitive-request.md) | `Group`, `Campus`, `Workflow` | `Group`, `Campus`, `Workflow` |
-| [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md) | `Group`, `Campus` | `Group`, `Campus` |
+| [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md) | `Group`, `Campus`, `Page`, `Block` | `Group`, `Campus`, `Page`, `Block` |
 | [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md) | `Person`, `Group` | `Person`, `Group` |
 | [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md) | `Person`, `PersonAlias`, `Group`, `Campus`, `Workflow`, `Attribute` | `Person`, `PersonAlias`, `Group`, `Campus`, `Workflow`, `Attribute` |
 

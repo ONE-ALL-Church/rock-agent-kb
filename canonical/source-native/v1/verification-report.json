@@ -8,11 +8,11 @@
     "verified": 89
   },
   "by_surface": {
-    "maintainer_review": 31,
+    "maintainer_review": 29,
     "official_api": 2,
-    "public_source_code": 56
+    "public_source_code": 58
   },
-  "checked_at": "2026-08-04T23:10:00Z",
+  "checked_at": "2026-08-06T21:15:05+00:00",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -155,6 +155,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:23e811c5cebf5c9ae3d420f7",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-2200:content-security-baseline-verbs"
+      ],
+      "reviewed_at": "2026-08-06T21:07:30+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:23ecd9373f7f88330f0eeb5a",
       "verification_surface": "public_source_code"
     },
     {
@@ -402,16 +412,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-889:structured-reference-security-editor-controls"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:6cc9981fbadeabc18cb8f6d9",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
       "reviewed_at": "2026-08-04T16:42:00Z",
@@ -465,7 +465,7 @@
       "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
       ],
-      "reviewed_at": "2026-08-04T16:42:00Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
@@ -587,6 +587,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1711:signup-authorization-sources-reference"
+      ],
+      "reviewed_at": "2026-08-06T21:07:30+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:aa47c0204ecff445090073b1",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:task_card:rock_documentation:article-1932:configure-email-self-managed-deliverability-checks"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -624,17 +634,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:b1395323e697486a1bf2e74d",
       "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-889:task-card-inspect-person-entity-security",
-        "source-native:task_card:rock_documentation:article-889:task-card-restore-own-permissions-with-unlock-security"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:b18d85261b91f9a680dd7c7a",
-      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -680,7 +679,7 @@
       "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-443:rock-mobile-shell-update-new-os-availability-risk"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b96e05d050d5cca8015363c9",
@@ -701,7 +700,7 @@
         "source-native:claim:rock_developer:article-376:claim-vscode-obsidian-breakpoint-gutter",
         "source-native:structured_reference:rock_developer:article-376:reference-vscode-obsidian-debugger-controls"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:bf61f0946e939030f9a9f3d0",
@@ -731,7 +730,7 @@
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-04T07:04:13Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
@@ -762,7 +761,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-gmail-smtp-example"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d34a000453d7c14d2ffd6516",
@@ -803,7 +802,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_mobile_docs:article-443:rock-mobile-android-shell-update-timing-reference"
       ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
+      "reviewed_at": "2026-08-06T21:15:05+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d8ee3e24c7af1abb2673a644",

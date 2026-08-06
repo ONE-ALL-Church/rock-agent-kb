@@ -33,6 +33,24 @@ class SmokeHandler(BaseHTTPRequestHandler):
         if length:
             self.rfile.read(length)
         if self.path == "/mcp":
+            accepted = {
+                value.strip()
+                for value in (self.headers.get("accept") or "").split(",")
+                if value.strip()
+            }
+            if not {"application/json", "text/event-stream"}.issubset(accepted):
+                self.write_json(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": None,
+                        "error": {
+                            "code": -32000,
+                            "message": "Client must accept both application/json and text/event-stream",
+                        },
+                    },
+                    status=406,
+                )
+                return
             self.write_json(
                 {
                     "jsonrpc": "2.0",
@@ -58,9 +76,9 @@ class SmokeHandler(BaseHTTPRequestHandler):
     def log_message(self, *_args):
         return
 
-    def write_json(self, payload):
+    def write_json(self, payload, *, status=200):
         body = json.dumps(payload).encode("utf-8")
-        self.send_response(200)
+        self.send_response(status)
         self.send_header("content-type", "application/json")
         self.send_header("content-length", str(len(body)))
         self.end_headers()

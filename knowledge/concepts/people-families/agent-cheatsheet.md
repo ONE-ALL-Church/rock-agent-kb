@@ -11,7 +11,7 @@ generated: true
 | Task | Inspect | Entities |
 | --- | --- | --- |
 | [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md) | `Attendance`, `Person`, `PersonAlias`, `Group`, `Family`, `Workflow` | `Attendance`, `Person`, `PersonAlias`, `Group`, `Family`, `Workflow` |
-| [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md) | `Attribute` | `Attribute` |
+| [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md) | `Attribute`, `Person`, `Block` | `Attribute`, `Person`, `Block` |
 | [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md) | `Person`, `PersonAlias`, `Workflow`, `Attribute` | `Person`, `PersonAlias`, `Workflow`, `Attribute` |
 | [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md) | `Group`, `GroupType`, `Location`, `Schedule`, `Check-in Configuration`, `Family`, `Workflow`, `Attribute` | `Group`, `GroupType`, `Location`, `Schedule`, `Check-in Configuration`, `Family`, `Workflow`, `Attribute` |
 | [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md) | `Person`, `Workflow`, `Page`, `Block`, `Attribute` | `Person`, `Workflow`, `Page`, `Block`, `Attribute` |

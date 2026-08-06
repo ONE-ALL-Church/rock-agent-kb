@@ -724,7 +724,17 @@ def source_native_migration_priority(
         exists=True,
         file_okay=True,
         dir_okay=False,
-        help="Optional captured operations dashboard for bounded advisory signals.",
+        help="Captured operations dashboard; overrides hosted readback.",
+    ),
+    dashboard_url: str = typer.Option(
+        "https://rock-agent-kb.oneandall.church/operations/dashboard",
+        "--dashboard-url",
+        help="Hosted operations dashboard used for privacy-bounded demand signals.",
+    ),
+    hosted_dashboard: bool = typer.Option(
+        True,
+        "--hosted-dashboard/--no-hosted-dashboard",
+        help="Read bounded demand signals from the hosted dashboard when no capture is supplied.",
     ),
 ) -> None:
     """Rank active, unreviewed legacy prose records for bounded migration."""
@@ -732,11 +742,13 @@ def source_native_migration_priority(
     as_of_value = parse_utc(as_of)
     if as_of and as_of_value is None:
         raise typer.BadParameter("--as-of must be a valid ISO-8601 timestamp")
-    dashboard = None
-    if dashboard_path is not None:
-        dashboard = json.loads(dashboard_path.read_text(encoding="utf-8"))
-        if not isinstance(dashboard, dict):
-            raise typer.BadParameter("--dashboard must contain a JSON object")
+    dashboard = (
+        load_json(dashboard_path)
+        if dashboard_path is not None
+        else fetch_operations_dashboard(dashboard_url)
+        if hosted_dashboard
+        else None
+    )
     typer.echo(
         json.dumps(
             build_source_native_migration_priority_report(

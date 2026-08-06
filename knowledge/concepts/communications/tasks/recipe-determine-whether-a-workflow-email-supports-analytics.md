@@ -32,6 +32,14 @@ Do not promise analytics for workflow emails unless confirmed in the live instan
 6. provider tracking/webhook state
 7. comparison send through wizard
 8. recipient engagement rows
+9. Confirm the send created `CommunicationRecipient` records.
+10. Confirm it used the expected email medium.
+11. Confirm transport supports analytics.
+12. Confirm tracking is enabled for this send path.
+13. Confirm provider webhooks/callbacks.
+14. Confirm Rock has opens/clicks in the relevant analytics table or model.
+15. Compare with a wizard-sent test email.
+16. If workflow-sent, verify whether the workflow action path supports communication analytics. A community Q&A reports this exact difference for Mailgun but does not provide a confirmed fix in the source pack (Mailgun Tracking Q&A).
 
 ## Do Not Assume
 
@@ -51,3 +59,4 @@ Do not promise analytics for workflow emails unless confirmed in the live instan
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql
+- https://community.rockrms.com/ask/using/2824

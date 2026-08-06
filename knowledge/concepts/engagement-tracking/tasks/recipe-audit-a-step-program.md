@@ -23,6 +23,8 @@ Primary sources: Edit Step Programs, Edit Step Types.
 - `DataView`
 - `Workflow`
 - `Attribute`
+- `PersonAlias`
+- `Campus`
 
 ## Entities And Tables
 
@@ -33,6 +35,8 @@ Primary sources: Edit Step Programs, Edit Step Types.
 - `DataView`
 - `Workflow`
 - `Attribute`
+- `PersonAlias`
+- `Campus`
 
 ## Steps
 
@@ -47,6 +51,13 @@ Primary sources: Edit Step Programs, Edit Step Types.
 9. Sample person verification.
 10. Reports/Data Views depending on the program.
 11. Version caveats.
+12. Confirm each required Step Type has a completed Step.
+13. Confirm statuses are marked as completion statuses.
+14. Confirm inactive Step Types should or should not count.
+15. Confirm person alias identity.
+16. Confirm campus expectations.
+17. Inspect the Step Program Completion model in the live instance.
+18. Compare source-code rule in `StepProgramCompletion.cs`.
 
 ## Do Not Assume
 

@@ -54,6 +54,16 @@ Complete Audit A Group Type Before Launch with evidence-backed checks and a veri
 14. Finder/registration usage.
 15. Reports depending on it.
 16. Launch readiness.
+17. Missing configuration.
+18. Risky inherited settings.
+19. Live verification steps.
+20. Parent group `GroupTypeId`.
+21. Parent Group Type allowed child group types.
+22. Whether the intended child Group Type is active.
+23. Whether the user has edit/administrate access.
+24. Whether the UI is scoped to a subset of group types.
+25. Whether the group is archived or inactive.
+26. Whether inheritance or circular references are producing errors.
 
 ## Do Not Assume
 
@@ -73,3 +83,4 @@ Complete Audit A Group Type Before Launch with evidence-backed checks and a veri
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql
 - https://community.rockrms.com/recipes/519
 - https://community.rockrms.com/recipes/220
+- https://community.rockrms.com/recipes/329

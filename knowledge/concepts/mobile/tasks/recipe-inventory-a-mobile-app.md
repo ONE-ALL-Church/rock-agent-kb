@@ -42,6 +42,7 @@ Complete Inventory A Mobile App with evidence-backed checks and a verifiable out
 14. Push configuration.
 15. Giving configuration.
 16. App Factory account ownership.
+17. Store metadata status.
 
 ## Do Not Assume
 

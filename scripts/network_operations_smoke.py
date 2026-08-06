@@ -11,6 +11,7 @@ from typing import Any, Callable
 
 SCHEMA = "rock-kb-network-operations-smoke-v1"
 EXPECTED_MCP_TOOLS = {"kb_search", "kb_get_claims", "kb_submit", "kb_review_dashboard", "kb_get_freshness", "kb_report_issue"}
+MCP_ACCEPT = "application/json, text/event-stream"
 
 
 def main(argv: list[str]) -> int:
@@ -85,7 +86,11 @@ def source_freshness_check(base_url: str) -> dict[str, Any]:
 
 def mcp_tools_check(base_url: str) -> dict[str, Any]:
     try:
-        payload = post_json(f"{base_url}/mcp", {"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
+        payload = post_json(
+            f"{base_url}/mcp",
+            {"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+            accept=MCP_ACCEPT,
+        )
     except Exception as exc:
         return check("mcp_tools", "fail", str(exc))
     tools = ((payload.get("result") or {}).get("tools") or []) if isinstance(payload, dict) else []
@@ -134,11 +139,15 @@ def fetch_json(url: str) -> Any:
         return json.loads(response.read().decode("utf-8"))
 
 
-def post_json(url: str, payload: dict[str, Any]) -> Any:
+def post_json(url: str, payload: dict[str, Any], *, accept: str = "application/json") -> Any:
     request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"content-type": "application/json", "user-agent": "rock-kb-network-operations/1.0"},
+        headers={
+            "accept": accept,
+            "content-type": "application/json",
+            "user-agent": "rock-kb-network-operations/1.0",
+        },
         method="POST",
     )
     try:

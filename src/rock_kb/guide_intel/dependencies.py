@@ -237,7 +237,19 @@ def build_task_cards(
         templates = inferred_task_templates(guide_text)
     cards = []
     for template in templates:
-        source_keys = source_keys_for_keywords(template.get("source_keywords") or [], section_rows, source_index)
+        source_keys = source_keys_for_keywords(
+            template.get("source_keywords") or [],
+            section_rows,
+            source_index,
+        )
+        related_headings = set(template.get("related_source_headings") or [])
+        related_source_keys = compact_unique(
+            key
+            for row in section_rows
+            if row.get("heading") in related_headings
+            for key in row.get("source_keys") or []
+        )
+        source_keys = compact_unique([*source_keys, *related_source_keys])[:16]
         cards.append(
             {
                 "concept_id": concept_id,

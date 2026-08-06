@@ -17,10 +17,12 @@ Complete Answer “Why Is This Data View Slow?” with evidence-backed checks an
 ## Live Records To Inspect
 
 - `DataView`
+- `Person`
 
 ## Entities And Tables
 
 - `DataView`
+- `Person`
 
 ## Steps
 
@@ -32,6 +34,14 @@ Complete Answer “Why Is This Data View Slow?” with evidence-backed checks an
 6. Test live result count.
 7. Identify expensive filters.
 8. Recommend filter/index/report changes only after evidence.
+9. Is the caller authenticated?
+10. Does the Data View exist?
+11. Is ID/GUID/IdKey correct?
+12. Does current person have View authorization?
+13. Does caller have unrestricted read authorization?
+14. Is entity ID valid?
+15. Does the Data View execute?
+16. Is a persisted stale result involved?
 
 ## Do Not Assume
 

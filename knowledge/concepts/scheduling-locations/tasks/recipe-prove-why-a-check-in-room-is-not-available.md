@@ -23,6 +23,7 @@ Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks 
 - `Device`
 - `Check-in Configuration`
 - `Workflow`
+- `Campus`
 
 ## Entities And Tables
 
@@ -33,6 +34,7 @@ Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks 
 - `Device`
 - `Check-in Configuration`
 - `Workflow`
+- `Campus`
 
 ## Steps
 
@@ -51,6 +53,17 @@ Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks 
 13. Is the person eligible?
 14. Is the device scoped correctly?
 15. Is there a version caveat?
+16. Is `Location.IsActive` true?
+17. Is the room closed in Check-In Manager?
+18. Is the room under the expected campus/building parent?
+19. Is the location assigned to the group?
+20. Is the group/location enabled for the schedule?
+21. Is the device allowed to see that location?
+22. Is the room full according to soft threshold?
+23. Did location selection strategy auto-select a different room?
+24. Does the person meet age, grade, ability, requirement, and group membership rules?
+25. Is the room an overflow location that has not been scheduled?
+26. Is a workflow filter removing or excluding it?
 
 ## Do Not Assume
 
@@ -70,3 +83,6 @@ Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks 
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadLocations.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs
+- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs

@@ -30,6 +30,13 @@ Complete Answer “Can I Clear Cache?” with evidence-backed checks and a verif
 4. Impact risk.
 5. Version caveat if `App_Data/Cache` issue may apply.
 6. Preferred narrow action.
+7. Rock version.
+8. Exact exception.
+9. Does `App_Data/Cache` exist?
+10. Did Rock Cleanup delete it?
+11. Are file types configured to cache to server?
+12. Is the v19.1 fix present?
+13. Is there a file permission issue?
 
 ## Do Not Assume
 
@@ -38,3 +45,4 @@ Complete Answer “Can I Clear Cache?” with evidence-backed checks and a verif
 ## Source Links
 
 - https://community.rockrms.com/lava/lava-api
+- https://www.rockrms.com/releasenotes

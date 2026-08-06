@@ -2,15 +2,15 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-08-04T23:51:19+00:00
+last_built: 2026-08-06T21:08:03+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:05:12+00:00
+source_last_checked_at: 2026-08-06T20:54:01+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 5/76
-legacy_summary_retirement_coverage: 5/76
+legacy_summary_retirement_coverage: 6/76
 depends_on_topics:
   - people
   - groups
@@ -213,9 +213,9 @@ Keywords: `achievement, achievements, badge, achievement type`
 ## Source Lifecycle
 
 - Official article records routed here: `76`
-- Upstream check range: `2026-08-04T15:01:57+00:00` through `2026-08-04T15:05:12+00:00`
+- Upstream check range: `2026-08-04T15:01:57+00:00` through `2026-08-06T20:54:01+00:00`
 - Source-native typed articles: `5` of `76`
-- Legacy source summaries retired: `5`; still active: `71`
+- Legacy source summaries retired: `6`; still active: `70`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

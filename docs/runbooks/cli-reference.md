@@ -223,7 +223,7 @@ uv run kb tools source-native-migration-prompt --input <migration-input.jsonl> -
 uv run kb tools source-native-migration-merge --input <migration-input.jsonl> --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-migration-promote --input <migration-input.jsonl> --output <reviewed-output.json> --generated-output <generated-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-migration-rebind --previous-input <previous-input.jsonl> --refreshed-input <refreshed-input.jsonl> --output <reviewed-output.json> --destination <rebound-output.json>
-uv run kb tools source-native-migration-priority --as-of <iso-8601> --dashboard <captured-operations-dashboard.json>
+uv run kb tools source-native-migration-priority --as-of <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
 uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
 uv run kb tools source-native-verification-promote --input <reviewed-resolutions.jsonl> --reviewer <reviewer-id> --reviewed-at <iso-8601>
@@ -308,8 +308,10 @@ and semantic hash. A content, routing, relationship, or identity change fails
 and must return to review.
 
 `source-native-migration-priority` writes an ignored, deterministic queue for
-the remaining official prose migration debt. Given the same `--as-of`,
-canonical bundle, normalized sources, evaluations, and optional dashboard, it
+the remaining official prose migration debt. It reads the hosted operations
+dashboard by default; use `--dashboard <capture.json>` for a reproducible
+snapshot or `--no-hosted-dashboard` for an offline source-only ranking. Given
+the same `--as-of`, canonical bundle, normalized sources, evaluations, and dashboard, it
 produces the same input hash and ranking. The score uses active legacy claim
 count, exact evaluation demand, verification debt, source-native coverage, and
 source freshness. Current reviewed source-native concepts are authoritative;
@@ -319,9 +321,10 @@ suggestions. Overdue sources receive `refresh_source_first`, prior
 migration-wrapper records with intentionally retained rows are excluded, and
 same-family legacy hash IDs can reconcile to current article IDs only through
 an exact canonical URL. Unresolved removed or relocated URLs remain explicit.
-Captured outcome signals are result-ID-only and advisory: they never copy raw
-queries, organization identifiers, or private Rock data and do not change the
-score automatically.
+Outcome signals are result-ID-only and advisory: they never copy raw queries,
+organization identifiers, or private Rock data. Each occurrence adds a bounded
+weight, capped at three occurrences, so field demand can break close ties but
+cannot override freshness or missing concept-routing gates.
 
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.

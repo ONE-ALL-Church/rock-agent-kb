@@ -1,7 +1,7 @@
 # Source-Native Legacy Migration v1
 
 Prompt ID: `source-native-legacy-migration-v1`
-Prompt version: `1.3.0`
+Prompt version: `1.3.1`
 Status: reviewed migration contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -152,6 +152,8 @@ Before returning, verify that:
 - retained items have no primary or supporting replacement keys;
 - claim replacements have no supporting replacement keys;
 - retrieval text is standalone and declarative;
+- every independent question names the Rock surface, feature, record, or
+  operation and remains understandable outside the source article;
 - task-card steps are contiguous and one-based;
 - mutable defaults and unresolved version behavior are marked for verification;
 - no migration silently weakens, broadens, or combines the legacy meaning.

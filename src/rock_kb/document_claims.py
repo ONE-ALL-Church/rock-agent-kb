@@ -125,6 +125,7 @@ def build_document_claim_candidates(
                 and str(record.get("source_id") or "")
                 in DEFAULT_DOCUMENT_SOURCE_IDS
                 and not record_matches_path_constraints(record, concept.raw)
+                and str(record.get("id") or "") not in requested_record_ids
             ):
                 continue
             if not record.get("id") or not str(record.get("source_url") or "").startswith("http"):

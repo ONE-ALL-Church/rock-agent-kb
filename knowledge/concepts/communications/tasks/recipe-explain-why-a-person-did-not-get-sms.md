@@ -17,10 +17,12 @@ Complete Explain why a person did not get SMS with evidence-backed checks and a 
 ## Live Records To Inspect
 
 - `Block`
+- `Person`
 
 ## Entities And Tables
 
 - `Block`
+- `Person`
 
 ## Steps
 
@@ -35,6 +37,15 @@ Complete Explain why a person did not get SMS with evidence-backed checks and a 
 9. From system phone number
 10. provider send log
 11. pipeline only if inbound/reply issue
+12. Check recipient `CommunicationRecipient` status and status note.
+13. Check person's phone record.
+14. Confirm mobile phone type.
+15. Confirm SMS enabled state.
+16. Confirm opt-out state.
+17. Confirm bad-number provider errors.
+18. Confirm From number and provider send logs.
+19. Check whether the UI only appeared to send. Community experience shows staff can miss pending/failure state without stronger UI warnings (Disabled SMS Mobile Phone Warning).
+20. Check v19.1 bad-number vs opt-out fix if relevant (Rock Release Notes).
 
 ## Do Not Assume
 
@@ -54,3 +65,5 @@ Complete Explain why a person did not get SMS with evidence-backed checks and a 
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryGetRecipientsRequestBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts
 - https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts
+- https://community.rockrms.com/recipes/438
+- https://www.rockrms.com/releasenotes

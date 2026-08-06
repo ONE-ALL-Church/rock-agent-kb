@@ -46,7 +46,7 @@ from .source_native_verification import (
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
 SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
 SOURCE_NATIVE_PROMPT_ID = "source-knowledge-distillation-v2.3"
-SOURCE_NATIVE_PROMPT_VERSION = "2.3.1"
+SOURCE_NATIVE_PROMPT_VERSION = "2.3.2"
 SOURCE_NATIVE_INPUT_HASH_VERSION = "2"
 SOURCE_NATIVE_MAX_UNITS_PER_CANDIDATE = 200
 SOURCE_NATIVE_PROMPT_PATH = (
@@ -1631,6 +1631,76 @@ def source_native_artifact_id(
     )
 
 
+SOURCE_NATIVE_QUESTION_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "article",
+    "cover",
+    "covers",
+    "does",
+    "feature",
+    "for",
+    "in",
+    "is",
+    "it",
+    "of",
+    "operational",
+    "setting",
+    "source",
+    "the",
+    "this",
+    "to",
+    "topic",
+    "topics",
+    "what",
+    "which",
+}
+
+
+def source_native_evaluation_question(
+    artifact: SourceNativeArtifactCandidate,
+) -> str:
+    """Make deictic model questions independently retrievable."""
+
+    question = " ".join(artifact.independent_question.split())
+    deictic_match = re.search(
+        r"\bthis (source|article|feature|setting)\b",
+        question,
+        flags=re.IGNORECASE,
+    )
+    if deictic_match is None:
+        return question
+
+    question_terms = {
+        token
+        for token in re.findall(r"[a-z0-9]+", question.lower())
+        if token not in SOURCE_NATIVE_QUESTION_STOPWORDS
+    }
+    title_terms = {
+        token
+        for token in re.findall(r"[a-z0-9]+", artifact.title.lower())
+        if token not in SOURCE_NATIVE_QUESTION_STOPWORDS
+    }
+    if question_terms & title_terms:
+        return question
+
+    subject = artifact.title.rstrip(" .!?")
+    subject = re.sub(
+        r"^the source (?:explains|covers|describes|documents|summarizes)\s+",
+        "",
+        subject,
+        flags=re.IGNORECASE,
+    )
+    kind = deictic_match.group(1).lower()
+    replacement = f"the {kind} on {subject}"
+    return (
+        question[: deictic_match.start()]
+        + replacement
+        + question[deictic_match.end() :]
+    )
+
+
 def promote_source_native_distillation(
     *,
     input_path: Path,
@@ -1866,25 +1936,26 @@ def promote_source_native_distillation(
                 )
             )
 
-    evaluation_rows = [
-        {
-            "schema": "rock-kb-service-evaluation-case-v1",
-            "id": "source-native-eval:"
-            + sha256_text(
-                f"{row.artifact_id}:"
-                f"{row.artifact.independent_question}"
-            )[:24],
-            "question": row.artifact.independent_question,
-            "concept_id": row.artifact.concept_ids[0],
-            "source": "source_native_pilot_exact_question",
-            "evaluation_mode": "retrieval",
-            "expected_result_ids": [row.artifact_id],
-            "expected_result_kinds": [row.artifact.artifact_type],
-            "required_authority_tiers": ["official"],
-            "max_rank": 3,
-        }
-        for row in reviewed_artifacts
-    ]
+    evaluation_rows = []
+    for row in reviewed_artifacts:
+        evaluation_question = source_native_evaluation_question(row.artifact)
+        evaluation_rows.append(
+            {
+                "schema": "rock-kb-service-evaluation-case-v1",
+                "id": "source-native-eval:"
+                + sha256_text(
+                    f"{row.artifact_id}:{evaluation_question}"
+                )[:24],
+                "question": evaluation_question,
+                "concept_id": row.artifact.concept_ids[0],
+                "source": "source_native_pilot_exact_question",
+                "evaluation_mode": "retrieval",
+                "expected_result_ids": [row.artifact_id],
+                "expected_result_kinds": [row.artifact.artifact_type],
+                "required_authority_tiers": ["official"],
+                "max_rank": 3,
+            }
+        )
     bundle_rows = {
         "source-snapshots.jsonl": [
             row.public_dump() for row in snapshots.values()
@@ -2548,8 +2619,31 @@ def source_native_evaluation_rows(
     repo_root: Path = REPO_ROOT,
 ) -> list[dict[str, Any]]:
     destination = repo_root / "canonical" / "source-native" / "v1"
+    artifacts_by_id = {
+        str(row.get("artifact_id") or ""): SourceNativeArtifactCandidate.model_validate(
+            row.get("artifact") or {}
+        )
+        for row in read_jsonl(destination / "reviewed-artifacts.jsonl")
+        if row.get("artifact_id") and row.get("artifact")
+    }
+    rows = []
+    for row in read_jsonl(destination / "evaluation-set.jsonl"):
+        expected_ids = [
+            str(value) for value in row.get("expected_result_ids") or []
+        ]
+        artifact = (
+            artifacts_by_id.get(expected_ids[0])
+            if len(expected_ids) == 1
+            else None
+        )
+        if artifact is not None:
+            row = {
+                **row,
+                "question": source_native_evaluation_question(artifact),
+            }
+        rows.append(row)
     return [
-        *read_jsonl(destination / "evaluation-set.jsonl"),
+        *rows,
         *read_jsonl(destination / "evaluation-holdout.jsonl"),
     ]
 

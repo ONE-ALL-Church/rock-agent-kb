@@ -1,7 +1,7 @@
 # Source Knowledge Distillation v2.3
 
 Prompt ID: `source-knowledge-distillation-v2.3`
-Prompt version: `2.3.1`
+Prompt version: `2.3.2`
 Status: reviewed pilot contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -135,7 +135,9 @@ Every useful unit needs a concrete artifact payload, not a generic deferred note
 Each artifact needs:
 
 - a stable, descriptive `artifact_key`;
-- one question it independently answers;
+- one question it independently answers; the question must name the Rock
+  surface, feature, record, or operation and make sense outside the source
+  article, never ask only what "this source" or "this article" covers;
 - a standalone title and retrieval text written as a complete declarative
   sentence ending in punctuation, never a keyword bag;
 - source-unit IDs;

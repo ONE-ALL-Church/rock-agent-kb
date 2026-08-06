@@ -83,6 +83,32 @@ def test_build_document_claim_candidates_allows_concepts_without_path_constraint
     assert next(read_jsonl(output))["concept_ids"] == ["api-integrations"]
 
 
+def test_explicit_source_record_bypasses_automatic_path_constraint(monkeypatch, tmp_path: Path):
+    record = documentation_record(
+        "rock_documentation:signup-security",
+        "documentation/engagement/sign-ups/configure-sign-up-permissions",
+        "Configure Sign-Up Permissions",
+        "Sign-Up projects can grant role-based permissions through explicit security settings.",
+    )
+    output = tmp_path / "candidates.jsonl"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    result = document_claims.build_document_claim_candidates(
+        concept_ids=["security-permissions"],
+        limit_per_concept=1,
+        output_path=output,
+        records=[record],
+        source_record_ids=[record["id"]],
+        context_loader=lambda _record: (
+            "This official article documents the permissions required to create, "
+            "edit, and administer Sign-Up projects and attendees."
+        ),
+    )
+
+    assert result["candidate_count"] == 1
+    assert next(read_jsonl(output))["concept_ids"] == ["security-permissions"]
+
+
 def test_build_document_claim_candidates_skips_truncated_full_article(monkeypatch, tmp_path: Path):
     record = documentation_record(
         "rock_documentation:test-long",

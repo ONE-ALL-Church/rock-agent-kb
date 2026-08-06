@@ -10,7 +10,7 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md) | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute` | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute` |
+| [Recipe: Audit A Step Program](tasks/recipe-audit-a-step-program.md) | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute`, `PersonAlias`, `Campus` | `Person`, `StepProgram`, `StepType`, `Step`, `DataView`, `Workflow`, `Attribute`, `PersonAlias`, `Campus` |
 | [Recipe: Diagnose Step Badge Display](tasks/recipe-diagnose-step-badge-display.md) | `Person`, `StepProgram`, `StepType`, `Step`, `Block` | `Person`, `StepProgram`, `StepType`, `Step`, `Block` |
 | [Recipe: Review A Streak Type Before Rebuild](tasks/recipe-review-a-streak-type-before-rebuild.md) | `Attendance`, `Person`, `Location` | `Attendance`, `Person`, `Location` |
 | [Recipe: Verify Assessment Request Flow](tasks/recipe-verify-assessment-request-flow.md) | `Person`, `DataView`, `Attribute` | `Person`, `DataView`, `Attribute` |

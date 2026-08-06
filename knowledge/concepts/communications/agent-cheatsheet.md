@@ -12,7 +12,7 @@ generated: true
 | --- | --- | --- |
 | [Recipe: Audit a single sent communication](tasks/recipe-audit-a-single-sent-communication.md) |  |  |
 | [Recipe: Explain why a person did not get an email](tasks/recipe-explain-why-a-person-did-not-get-an-email.md) | `Person` | `Person` |
-| [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md) | `Block` | `Block` |
+| [Recipe: Explain why a person did not get SMS](tasks/recipe-explain-why-a-person-did-not-get-sms.md) | `Block`, `Person` | `Block`, `Person` |
 | [Recipe: Audit communication list freshness](tasks/recipe-audit-communication-list-freshness.md) | `DataView`, `Group`, `GroupType` | `DataView`, `Group`, `GroupType` |
 | [Recipe: Review a communication template](tasks/recipe-review-a-communication-template.md) |  |  |
 | [Recipe: Investigate SMS conversation access](tasks/recipe-investigate-sms-conversation-access.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
