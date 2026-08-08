@@ -2063,6 +2063,64 @@ test("strong lexical claims outrank incidental recipe matches", async () => {
   }
 });
 
+test("source-native independent questions disambiguate neighboring references", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "source-native:structured_reference:lava:webhook-matching",
+        title: "Lava webhook request matching rules",
+        body: "Rock selects a Defined Value using URL and optional HTTP verb rules.",
+        question: "How does Rock match an incoming Lava webhook request to a configured template?",
+      },
+      {
+        id: "source-native:structured_reference:lava:webhook-variables",
+        title: "Lava webhook configured template request variables",
+        body: "Rock exposes incoming request variables to a configured Lava webhook template.",
+        question: "Which request variables are available to a Lava webhook template?",
+      },
+    ];
+    for (const row of rows) {
+      const payload = JSON.stringify({
+        artifact: {
+          artifact_type: "structured_reference",
+          independent_question: row.question,
+        },
+      });
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, 'structured_reference', ?, ?, 'shadow/canonical/structured_reference.jsonl', ?, 'api-integrations', 'official', 'source_backed', 1, 'rock_lava_docs', ?)`)
+        .bind(row.id, row.title, `${row.body} ${row.question}`, "https://community.rockrms.com/lava/lava-api", payload)
+        .run();
+      await db.prepare(
+        "INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+      ).bind(
+        row.id,
+        row.title,
+        `${row.body} ${row.question}`,
+        "api-integrations lava",
+      ).run();
+    }
+
+    const query = encodeURIComponent(rows[0].question);
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${query}&limit=2&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, rows[0].id);
+    assert.equal(payload.results[0].signals.independent_question_boost, 260);
+    assert.equal(
+      payload.results[1].signals.independent_question_boost,
+      0,
+    );
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("generic title overlap does not displace more complete troubleshooting", async () => {
   const mf = await buildWorker();
   try {

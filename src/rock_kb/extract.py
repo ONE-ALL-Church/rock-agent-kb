@@ -67,12 +67,14 @@ def page_title(html: str) -> str:
     return " ".join(h1.get_text(" ", strip=True).split()) if h1 else ""
 
 
-def main_markdown(html: str) -> str:
+def main_markdown(html: str, *, prefer_article: bool = False) -> str:
     soup = BeautifulSoup(html, "html.parser")
     for selector in ["script", "style", "noscript", "svg"]:
         for node in soup.select(selector):
             node.decompose()
     main = soup.find("main") or soup.find(id="zone-main") or soup.body or soup
+    if prefer_article:
+        main = main.find("article") or main
     return html_to_markdown(str(main), heading_style="ATX").strip()
 
 

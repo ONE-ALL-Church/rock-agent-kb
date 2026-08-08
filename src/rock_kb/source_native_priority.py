@@ -114,9 +114,10 @@ def reconcile_legacy_source_record_ids(
 ) -> tuple[dict[str, list[Any]], dict[str, set[str]], list[dict[str, str]]]:
     record_ids_by_url: dict[str, set[str]] = defaultdict(set)
     for source_record_id, record in records.items():
-        source_url = str(record.get("source_url") or "").rstrip("/")
-        if source_url:
-            record_ids_by_url[source_url].add(source_record_id)
+        for value in [record.get("source_url"), *(record.get("location_aliases") or [])]:
+            source_url = str(value or "").rstrip("/")
+            if source_url:
+                record_ids_by_url[source_url].add(source_record_id)
     aliases: list[dict[str, str]] = []
     reconciled_items: dict[str, list[Any]] = defaultdict(list)
     reconciled_result_ids: dict[str, set[str]] = defaultdict(set)

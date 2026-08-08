@@ -54,6 +54,14 @@ Generated from structured metadata derived from official Rock Lava pages plus ma
 
 | Name | Category | Safety Notes | Official Page |
 | --- | --- | --- | --- |
+| DB Transaction | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/db-transaction) |
+| Delete Entity | `command` | reads data, requires command enablement | [official](https://community.rockrms.com/lava/commands/delete-entity) |
+| Execute | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/execute-commands) |
+| Getting Started | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/getting-started) |
+| HTTP Response | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/http-response) |
+| Modify Entity | `command` | reads data, requires command enablement | [official](https://community.rockrms.com/lava/commands/modify-entity) |
+| Observe | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/observe) |
+| Render Lava Endpoint | `command` | requires command enablement | [official](https://community.rockrms.com/lava/commands/render-lava-endpoint) |
 | Set Culture | `command` | page/HTTP output, requires command enablement | [official](https://community.rockrms.com/lava/commands/setculture-commands) |
 | Tag List | `command` | reads data | [official](https://community.rockrms.com/lava/commands/taglist-commands) |
 | AddCssLink | `filter` | page/HTTP output | [official](https://community.rockrms.com/lava/filters/other-filters) |
@@ -143,14 +151,22 @@ Generated from structured metadata derived from official Rock Lava pages plus ma
 | Adaptive Message | yes | no | no | yes | no | no | yes | [official](https://community.rockrms.com/lava/commands/adaptivemessage-commands) |
 | Cache | no | no | no | yes | no | no | yes | [official](https://community.rockrms.com/lava/commands/cache-commands) |
 | Calendar Events | yes | no | no | no | no | yes | yes | [official](https://community.rockrms.com/lava/commands/calendar-events) |
+| DB Transaction | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/db-transaction) |
+| Delete Entity | yes | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/delete-entity) |
 | Entity | yes | no | no | no | no | yes | yes | [official](https://community.rockrms.com/lava/commands/entity-commands) |
 | Event Scheduled Instance | yes | no | no | no | no | yes | yes | [official](https://community.rockrms.com/lava/commands/event-scheduled-instance) |
+| Execute | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/execute-commands) |
+| Getting Started | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/getting-started) |
+| HTTP Response | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/http-response) |
 | Interaction Content Channel Item Write | no | yes | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/interaction-content-channel-item-write) |
 | Interaction Intent Write | yes | yes | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/interaction-intent-write) |
 | Interaction Write | no | yes | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/interaction-write) |
 | JavaScript | no | no | no | yes | no | no | yes | [official](https://community.rockrms.com/lava/commands/javascript-commands) |
+| Modify Entity | yes | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/modify-entity) |
+| Observe | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/observe) |
 | Personalize | yes | no | no | yes | no | no | yes | [official](https://community.rockrms.com/lava/commands/personalize-commands) |
 | Print ZPL | no | no | yes | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/print-zpl) |
+| Render Lava Endpoint | no | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/render-lava-endpoint) |
 | Search | yes | no | no | no | no | no | yes | [official](https://community.rockrms.com/lava/commands/search-commands) |
 | Set Culture | no | no | no | yes | no | no | yes | [official](https://community.rockrms.com/lava/commands/setculture-commands) |
 | SQL | yes | yes | no | no | no | yes | yes | [official](https://community.rockrms.com/lava/commands/sql-commands) |
@@ -287,6 +303,7 @@ Generated from structured metadata derived from official Rock Lava pages plus ma
 | NumberToRomanNumerals | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/numeric-filters) |
 | NumberToWords | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/numeric-filters) |
 | ObfuscateEmail | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/text-filters) |
+| Object | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
 | OrderBy | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/array-filters) |
 | Page | yes | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
 | PageParameter | yes | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
@@ -369,6 +386,7 @@ Generated from structured metadata derived from official Rock Lava pages plus ma
 | ToCssClass | no | no | no | yes | no | no | no | [official](https://community.rockrms.com/lava/filters/text-filters) |
 | ToIdHash | yes | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
 | ToJSON | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
+| ToMarkdown | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/text-filters) |
 | ToMidnight | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/date-filters) |
 | ToPascal | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/text-filters) |
 | ToQuantity | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/numeric-filters) |
@@ -391,8 +409,7 @@ Generated from structured metadata derived from official Rock Lava pages plus ma
 | WriteCookie | no | yes | no | yes | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
 | XamlWrap | no | no | no | yes | no | no | no | [official](https://community.rockrms.com/lava/filters/other-filters) |
 | ZebraPhoto | yes | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/filters/person-filters) |
-| Assign | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/variable-tags) |
-| Capture | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/variable-tags) |
+| Assign and Capture Tags | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/variable-tags) |
 | Case | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/case-tags) |
 | Comment | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/comment-tags) |
 | Cycle | no | no | no | no | no | no | no | [official](https://community.rockrms.com/lava/tags/cycle-tags) |

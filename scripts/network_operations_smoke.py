@@ -152,10 +152,40 @@ def post_json(url: str, payload: dict[str, Any], *, accept: str = "application/j
     )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
-            return json.loads(response.read().decode("utf-8"))
+            body = response.read().decode("utf-8")
+            return decode_response_payload(body, response.headers.get("content-type", ""))
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8")
         raise RuntimeError(f"HTTP {exc.code}: {body[:500]}") from exc
+
+
+def decode_response_payload(body: str, content_type: str) -> Any:
+    media_type = content_type.partition(";")[0].strip().lower()
+    if media_type != "text/event-stream":
+        return json.loads(body)
+
+    payloads: list[Any] = []
+    data_lines: list[str] = []
+    for line in (*body.splitlines(), ""):
+        if not line:
+            if data_lines:
+                payloads.append(json.loads("\n".join(data_lines)))
+                data_lines = []
+            continue
+        if line.startswith("data:"):
+            data_lines.append(line[5:].lstrip())
+
+    if not payloads:
+        raise ValueError("SSE response contained no JSON data events")
+
+    responses = [
+        payload
+        for payload in payloads
+        if isinstance(payload, dict)
+        and payload.get("id") is not None
+        and ("result" in payload or "error" in payload)
+    ]
+    return responses[-1] if responses else payloads[-1]
 
 
 def check(name: str, status: str, message: str, evidence: dict[str, Any] | None = None) -> dict[str, Any]:

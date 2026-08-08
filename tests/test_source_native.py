@@ -9,7 +9,12 @@ from pydantic import ValidationError
 from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
 from rock_kb.extract import sha256_text
 from rock_kb.jsonl import read_jsonl, write_jsonl
-from rock_kb.schemas import SourceNativeDistillationOutput, SourceSnapshot, SourceUnit
+from rock_kb.schemas import (
+    SourceNativeDistillationOutput,
+    SourceNativePilotManifest,
+    SourceSnapshot,
+    SourceUnit,
+)
 from rock_kb.source_native import (
     apply_source_unit_split_rules,
     build_source_native_impact_report,
@@ -18,6 +23,7 @@ from rock_kb.source_native import (
     merge_source_native_distillation_outputs,
     parse_markdown_source_units,
     promote_source_native_distillation,
+    rebind_source_native_presentation_rows,
     source_observation_metadata,
     source_native_evaluation_question,
     source_native_model_input_hash,
@@ -53,6 +59,23 @@ def document_record() -> dict:
     }
 
 
+def test_source_native_manifest_supports_repository_scale_concept_facets():
+    manifest = SourceNativePilotManifest(
+        schema="rock-kb-source-native-pilot-manifest-v1",
+        prompt_id="source-knowledge-distillation-v2.3",
+        prompt_version="2.3.2",
+        concept_ids=[f"concept-{index}" for index in range(23)],
+        source_snapshot_count=0,
+        source_unit_count=0,
+        generation_activity_count=0,
+        reviewed_artifact_count=0,
+        relationship_count=0,
+        evaluation_case_count=0,
+    )
+
+    assert len(manifest.concept_ids) == 23
+
+
 def rockumentation_payload() -> dict:
     return {
         "initialContent": (
@@ -68,6 +91,135 @@ def rockumentation_payload() -> dict:
             "title": "Test Cache Article",
         },
     }
+
+
+def presentation_rebind_fixture() -> tuple[
+    SourceSnapshot,
+    SourceSnapshot,
+    SourceUnit,
+    SourceUnit,
+    dict,
+]:
+    prior_snapshot = SourceSnapshot(
+        schema="rock-kb-source-snapshot-v2",
+        source_snapshot_id="source-snapshot:lava-command",
+        source_id="rock_lava_docs",
+        source_record_id="rock_lava_docs:test",
+        canonical_url="https://community.rockrms.com/lava/commands/sql-commands",
+        title="Lava Tags/Commands",
+        last_checked_at="2026-08-08T10:00:00Z",
+        content_hash="a" * 64,
+        normalized_content_hash="a" * 64,
+        parser_id="official-static-markdown-blocks",
+        parser_version="1.1.0",
+        observation_status="initial",
+        authority_tier="official",
+        public_policy="cite_and_summarize_only",
+        location_aliases=["https://community.rockrms.com/lava/commands"],
+    )
+    incoming_snapshot = prior_snapshot.model_copy(
+        update={
+            "title": "SQL",
+            "last_checked_at": "2026-08-08T11:00:00Z",
+            "observation_status": "unchanged",
+            "location_aliases": [],
+        }
+    )
+    incoming_unit = parse_markdown_source_units(
+        markdown="# SQL Command\n\nRun a bounded query.",
+        source_snapshot_id=prior_snapshot.source_snapshot_id,
+        source_record_id=str(prior_snapshot.source_record_id),
+        source_url=str(prior_snapshot.canonical_url),
+        source_title="SQL",
+    )[0]
+    prior_unit = incoming_unit.model_copy(
+        update={
+            "contextual_prefix": "Lava Tags/Commands > SQL Command",
+            "text": None,
+            "public_summary": "Run a bounded query.",
+        }
+    )
+    source_input_hash = source_native_model_input_hash(
+        snapshot=incoming_snapshot,
+        source_units=[incoming_unit],
+        concept_ids=["lava"],
+        existing_claims=[],
+        documentation_path=None,
+        documentation_branches=[],
+        documentation_current_version=None,
+    )
+    source_input = {
+        "schema": "rock-kb-source-native-distillation-input-v1",
+        "candidate_id": "source-native-candidate:presentation-rebind",
+        "source_input_hash": source_input_hash,
+        "source_snapshot": incoming_snapshot.public_dump(),
+        "source_units": [
+            incoming_unit.model_dump(by_alias=True, exclude_none=True)
+        ],
+        "concept_ids": ["lava"],
+        "existing_claims": [],
+        "documentation_path": None,
+        "documentation_branches": [],
+        "documentation_current_version": None,
+    }
+    return (
+        prior_snapshot,
+        incoming_snapshot,
+        prior_unit,
+        incoming_unit,
+        source_input,
+    )
+
+
+def test_source_native_presentation_rebind_updates_only_reviewed_display_metadata():
+    prior_snapshot, _, prior_unit, incoming_unit, source_input = (
+        presentation_rebind_fixture()
+    )
+
+    snapshots, units, counts = rebind_source_native_presentation_rows(
+        inputs=[source_input],
+        snapshots=[prior_snapshot.public_dump()],
+        source_units=[prior_unit.public_dump()],
+    )
+
+    assert snapshots[0]["title"] == "SQL"
+    assert snapshots[0]["location_aliases"] == [
+        "https://community.rockrms.com/lava/commands"
+    ]
+    assert units[0]["contextual_prefix"] == incoming_unit.contextual_prefix
+    assert units[0]["public_summary"] == "Run a bounded query."
+    assert counts == {
+        "snapshot_count": 1,
+        "title_change_count": 1,
+        "contextual_prefix_change_count": 1,
+        "location_alias_added_count": 0,
+    }
+
+
+def test_source_native_presentation_rebind_rejects_unit_semantic_changes():
+    prior_snapshot, incoming_snapshot, prior_unit, incoming_unit, source_input = (
+        presentation_rebind_fixture()
+    )
+    changed_unit = incoming_unit.model_copy(update={"context": "Different"})
+    source_input["source_units"] = [
+        changed_unit.model_dump(by_alias=True, exclude_none=True)
+    ]
+    source_input["source_input_hash"] = source_native_model_input_hash(
+        snapshot=incoming_snapshot,
+        source_units=[changed_unit],
+        concept_ids=["lava"],
+        existing_claims=[],
+        documentation_path=None,
+        documentation_branches=[],
+        documentation_current_version=None,
+    )
+
+    with pytest.raises(ValueError, match="changed source unit semantics"):
+        rebind_source_native_presentation_rows(
+            inputs=[source_input],
+            snapshots=[prior_snapshot.public_dump()],
+            source_units=[prior_unit.public_dump()],
+        )
 
 
 def source_units() -> list[dict]:
@@ -523,6 +675,38 @@ def test_reviewed_split_rule_handles_shared_subject_and_clause():
     ]
 
 
+def test_reviewed_split_rule_separates_parenthetical_navigation():
+    source_record_id = "rock_lava_docs:parenthetical-navigation-test"
+    paragraph = (
+        "Rock matches the request to a template configured in the Defined Type "
+        "('Admin Tools > General Settings > Defined Types > Lava Webhook')."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": [],
+                "context_label": "Matching a Request",
+                "block_token": "paragraph:0:1",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(paragraph),
+                "strategy": "parenthetical_navigation",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Rock matches the request to a template configured in the Defined Type.",
+        "Administrative path: Admin Tools > General Settings > Defined Types > Lava Webhook.",
+    ]
+
+
 def test_reviewed_split_rule_handles_causal_clause():
     source_record_id = "rock_documentation:article:causal-test"
     paragraph = (
@@ -581,6 +765,38 @@ def test_reviewed_split_rule_preserves_closing_markdown_before_joined_text():
     assert [row["text"] for row in split] == [
         "**Where Did It Go?**",
         "Each night, the cleanup job runs.",
+    ]
+
+
+def test_reviewed_split_rule_preserves_emoji_at_sentence_boundary():
+    source_record_id = "rock_developer:article:emoji-split-test"
+    list_item = (
+        "* **Code Template** - Choose a template carefully...😀 "
+        "The configuration is available as `ConfigurationRigging`."
+    )
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "list_item",
+                "heading_path": [],
+                "context_label": "Code Template",
+                "block_token": "list:0:1",
+                "text": list_item,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": sha256_text(list_item),
+                "strategy": "sentence",
+            }
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "* **Code Template** - Choose a template carefully...😀",
+        "The configuration is available as `ConfigurationRigging`.",
     ]
 
 
@@ -722,6 +938,13 @@ def test_static_prose_candidate_coalesces_concept_facets(tmp_path: Path):
     assert result["source_record_ids"] == [record["id"]]
     candidate = next(read_jsonl(destination / "distillation-input.jsonl"))
     assert candidate["concept_ids"] == ["ai-agents-automation", "mobile"]
+    assert candidate["source_snapshot"]["parser_id"] == (
+        "official-static-markdown-blocks"
+    )
+    assert candidate["source_snapshot"]["parser_version"] == "1.1.0"
+    assert candidate["source_snapshot"]["derivation"]["extraction_tool"] == (
+        "official_static_article_http"
+    )
 
 
 def test_unchanged_candidate_refresh_preserves_ids_and_change_time(

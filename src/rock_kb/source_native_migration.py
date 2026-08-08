@@ -54,6 +54,39 @@ def public_record_hash(value: Any) -> str:
     return sha256_text(canonical_json(payload))
 
 
+def source_record_urls_by_id(snapshots: Iterable[SourceSnapshot]) -> dict[str, set[str]]:
+    urls: dict[str, set[str]] = defaultdict(set)
+    for snapshot in snapshots:
+        source_record_id = str(snapshot.source_record_id or "")
+        if not source_record_id:
+            continue
+        for value in [snapshot.canonical_url, *snapshot.location_aliases]:
+            normalized = str(value or "").rstrip("/")
+            if normalized:
+                urls[source_record_id].add(normalized)
+    return dict(urls)
+
+
+def matching_source_record_ids(
+    snapshot: SourceSnapshot,
+    urls_by_record: dict[str, set[str]],
+) -> set[str]:
+    source_record_id = str(snapshot.source_record_id or "")
+    source_id = str(snapshot.source_id or "")
+    candidate_urls = {
+        str(value or "").rstrip("/")
+        for value in [snapshot.canonical_url, *snapshot.location_aliases]
+        if value
+    }
+    matches = {source_record_id}
+    matches.update(
+        record_id
+        for record_id, urls in urls_by_record.items()
+        if record_id.startswith(f"{source_id}:") and candidate_urls.intersection(urls)
+    )
+    return matches
+
+
 def source_native_legacy_migration_input_hash(
     input_row: dict[str, Any],
     *,
@@ -155,6 +188,7 @@ def build_source_native_legacy_migration_inputs(
     )
     snapshots_by_id = {row.source_snapshot_id: row for row in bundle.source_snapshots}
     units_by_id = {row.source_unit_id: row for row in bundle.source_units}
+    legacy_urls_by_record = source_record_urls_by_id(bundle.source_snapshots)
 
     active_legacy_by_record: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in bundle.knowledge_units:
@@ -192,6 +226,7 @@ def build_source_native_legacy_migration_inputs(
     native_snapshots = {
         row.source_snapshot_id: row for row in source_native["source_snapshots"]
     }
+    native_urls_by_record = source_record_urls_by_id(source_native["source_snapshots"])
     native_units = {row.source_unit_id: row for row in source_native["source_units"]}
     native_artifacts_by_record: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for reviewed in source_native["reviewed_artifacts"]:
@@ -213,18 +248,42 @@ def build_source_native_legacy_migration_inputs(
 
     output_rows: list[dict[str, Any]] = []
     missing_legacy: list[str] = []
+    reconciled_aliases: set[tuple[str, str]] = set()
     for candidate in candidates:
         source_snapshot = SourceSnapshot.model_validate(candidate["source_snapshot"])
         source_record_id = str(source_snapshot.source_record_id or "")
+        legacy_record_ids = matching_source_record_ids(
+            source_snapshot,
+            legacy_urls_by_record,
+        )
+        legacy_items_by_id = {
+            str(row["legacy_knowledge_unit_id"]): row
+            for record_id in legacy_record_ids
+            for row in active_legacy_by_record.get(record_id) or []
+        }
         legacy_items = sorted(
-            active_legacy_by_record.get(source_record_id) or [],
+            legacy_items_by_id.values(),
             key=lambda row: str(row["legacy_knowledge_unit_id"]),
         )
         if not legacy_items:
             missing_legacy.append(source_record_id)
             continue
+        reconciled_aliases.update(
+            (record_id, source_record_id)
+            for record_id in legacy_record_ids
+            if record_id != source_record_id and active_legacy_by_record.get(record_id)
+        )
+        native_record_ids = matching_source_record_ids(
+            source_snapshot,
+            native_urls_by_record,
+        )
+        existing_artifacts_by_id = {
+            str(row["artifact_id"]): row
+            for record_id in native_record_ids
+            for row in native_artifacts_by_record.get(record_id) or []
+        }
         existing_artifacts = sorted(
-            native_artifacts_by_record.get(source_record_id) or [],
+            existing_artifacts_by_id.values(),
             key=lambda row: str(row["artifact_id"]),
         )
         migration_row = {
@@ -253,6 +312,7 @@ def build_source_native_legacy_migration_inputs(
         "existing_artifact_count": sum(
             len(row["existing_source_native_artifacts"]) for row in output_rows
         ),
+        "reconciled_legacy_source_record_alias_count": len(reconciled_aliases),
         "destination": str(destination),
     }
 
@@ -1167,11 +1227,30 @@ class LegacyMigrationIndex:
     def __init__(
         self,
         migrations: Iterable[ReviewedSourceNativeLegacyMigration],
+        *,
+        source_snapshots: Iterable[SourceSnapshot] = (),
     ) -> None:
         self.migrations = list(migrations)
         self.matched_migration_ids: set[str] = set()
         self.by_result_id: dict[str, ReviewedSourceNativeLegacyMigration] = {}
+        snapshots_by_id = {
+            snapshot.source_snapshot_id: snapshot for snapshot in source_snapshots
+        }
+        self.source_record_ids_by_migration: dict[str, set[str]] = {}
         for migration in self.migrations:
+            accepted_source_record_ids = {migration.source_record_id}
+            snapshot = snapshots_by_id.get(migration.source_snapshot_id)
+            if snapshot is not None:
+                for value in [snapshot.canonical_url, *snapshot.location_aliases]:
+                    source_url = str(value or "")
+                    if source_url.startswith("https://"):
+                        accepted_source_record_ids.add(
+                            f"{snapshot.source_id}:"
+                            f"{sha256_text(source_url)[:16]}"
+                        )
+            self.source_record_ids_by_migration[migration.migration_id] = (
+                accepted_source_record_ids
+            )
             for result_id in migration.legacy_result_ids:
                 existing = self.by_result_id.get(result_id)
                 if existing and existing.migration_id != migration.migration_id:
@@ -1211,7 +1290,10 @@ class LegacyMigrationIndex:
             raise ValueError(
                 f"legacy migration content hash changed: {migration.migration_id}"
             )
-        if migration.source_record_id not in set(source_record_ids):
+        accepted_source_record_ids = self.source_record_ids_by_migration[
+            migration.migration_id
+        ]
+        if not accepted_source_record_ids.intersection(set(source_record_ids)):
             raise ValueError(
                 f"legacy migration source record changed: {migration.migration_id}"
             )

@@ -370,8 +370,10 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
     if not title and not text:
         return None
     source_url = clean_url_for_fetch(fetched.get("url") or fetched.get("requested_url") or source.root_url)
+    requested_url = clean_url_for_fetch(fetched.get("requested_url") or source_url)
     raw = {
         "source_url": source_url,
+        "location_aliases": [requested_url] if requested_url != source_url else [],
         "source_title": title or source.name,
     }
     detail_type = infer_detail_type(source, source_url)
@@ -380,6 +382,7 @@ def normalize_community_fetch(source: Source, fetched: dict[str, Any]) -> Option
         "id": rockumentation_record_id(source, rockumentation_fields) or canonical_record_id(source.id, source_url),
         "source_id": source.id,
         "source_url": source_url,
+        "location_aliases": [requested_url] if requested_url != source_url else [],
         "source_title": title or source.name,
         "source_kind": source.kind,
         "retrieved_at": fetched.get("retrieved_at") or now_iso(),
@@ -615,6 +618,10 @@ def rockumentation_links_from_html(html: str, base_url: str) -> list[dict[str, A
 
 def readable_title(html: str, source: Source) -> str:
     soup = BeautifulSoup(html, "html.parser")
+    if source.kind == "rock_lava_docs":
+        title = clean_lava_heading_text(page_title(html))
+        if title:
+            return title
     for selector in ["h1", ".page-title", ".title", "h2"]:
         node = soup.select_one(selector)
         if node:
@@ -740,7 +747,7 @@ def infer_lava_doc_category(url: str) -> str:
 
 
 def lava_elements_from_page(soup: BeautifulSoup, url: str, category: str) -> list[dict[str, Any]]:
-    page_title_text = clean_lava_heading_text(first_heading_text(soup) or page_title(str(soup)))
+    page_title_text = clean_lava_heading_text(page_title(str(soup)) or first_heading_text(soup))
     if category == "filter":
         return lava_heading_elements(soup, url, category, page_title_text)
     if category in {"command", "tag"}:
@@ -780,7 +787,7 @@ def lava_page_elements(soup: BeautifulSoup, url: str, category: str, page_title_
 
 def clean_lava_heading_text(value: str) -> str:
     value = " ".join(value.split())
-    value = re.sub(r"\s*\|\s*Rock Community$", "", value)
+    value = re.sub(r"(?:\s*\|\s*Rock Community)+$", "", value)
     return value.strip()
 
 

@@ -193,6 +193,23 @@ def test_community_recipe_normalization():
     assert record["citations"][0]["url"] == "https://community.rockrms.com/recipes/543"
 
 
+def test_community_normalization_preserves_redirect_location_alias():
+    source = get_source("rock_lava_docs")
+    record = normalize_community_fetch(
+        source,
+        {
+            "requested_url": "https://community.rockrms.com/lava/commands",
+            "url": "https://community.rockrms.com/lava/commands/getting-started",
+            "status_code": 200,
+            "content": "<html><head><title>Getting Started</title></head><body><main><h1>Getting Started</h1><p>Enable commands explicitly.</p></main></body></html>",
+        },
+    )
+
+    assert record is not None
+    assert record["source_url"] == "https://community.rockrms.com/lava/commands/getting-started"
+    assert record["location_aliases"] == ["https://community.rockrms.com/lava/commands"]
+
+
 def test_rockumentation_slug_and_api_url_helpers():
     assert (
         documentation_slug_from_url("https://community.rockrms.com/documentation/core-concepts/workflows?Version=v19.0")

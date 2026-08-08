@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 52,
+    "confirms": 54,
     "corrects": 23,
     "narrows": 14
   },
   "by_state": {
-    "verified": 89
+    "verified": 91
   },
   "by_surface": {
     "maintainer_review": 29,
     "official_api": 2,
-    "public_source_code": 58
+    "public_source_code": 60
   },
-  "checked_at": "2026-08-06T21:15:05+00:00",
+  "checked_at": "2026-08-08T15:31:10+00:00",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -181,7 +181,7 @@
       "artifact_ids": [
         "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:2ee84003f6aa81a10630c8c4",
@@ -206,6 +206,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:35d88eee42d20b965c2556d6",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-345:helix-lava-endpoint-editor-settings"
+      ],
+      "reviewed_at": "2026-08-08T14:52:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:37c130d37481df90f6f0bad1",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -273,7 +283,7 @@
       "artifact_ids": [
         "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:41b666d07a10373e5f514eca",
@@ -528,7 +538,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
       ],
-      "reviewed_at": "2026-08-04T18:00:00Z",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
@@ -619,7 +629,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
       ],
-      "reviewed_at": "2026-08-04T18:00:00Z",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
@@ -679,11 +689,21 @@
       "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-443:rock-mobile-shell-update-new-os-availability-risk"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b96e05d050d5cca8015363c9",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_lava_docs:article-0:lava-command-enablement-control-map"
+      ],
+      "reviewed_at": "2026-08-08T14:52:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:bb8a2cf80146227a27cde7c3",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -730,7 +750,7 @@
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
@@ -761,7 +781,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-gmail-smtp-example"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d34a000453d7c14d2ffd6516",
@@ -802,7 +822,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_mobile_docs:article-443:rock-mobile-android-shell-update-timing-reference"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-08T14:55:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d8ee3e24c7af1abb2673a644",
@@ -931,10 +951,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 89,
-  "resolution_count": 89,
+  "queue_count": 91,
+  "resolution_count": 91,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 89
+  "verified_count": 91
 }

@@ -631,7 +631,7 @@ class SourceNativePilotManifest(KBRecord):
     public_retrieval_changed: Literal[False] = False
     prompt_id: Literal["source-knowledge-distillation-v2.3"]
     prompt_version: str = Field(min_length=1, max_length=80)
-    concept_ids: list[str] = Field(min_length=1, max_length=20)
+    concept_ids: list[str] = Field(min_length=1, max_length=128)
     article_count: int = Field(default=0, ge=0)
     source_snapshot_count: int = Field(ge=0)
     source_unit_count: int = Field(ge=0)

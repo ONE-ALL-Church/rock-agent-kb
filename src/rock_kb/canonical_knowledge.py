@@ -153,9 +153,12 @@ def build_canonical_knowledge_bundle(
         }
     )
     legacy_migration_index = LegacyMigrationIndex(
-        source_native.get("legacy_migrations") or []
-        if use_legacy_migrations
-        else []
+        (
+            source_native.get("legacy_migrations") or []
+            if use_legacy_migrations
+            else []
+        ),
+        source_snapshots=source_native.get("source_snapshots") or [],
     )
     artifact_migration_index = SourceNativeArtifactMigrationIndex(
         source_native.get("artifact_migrations") or []
