@@ -126,13 +126,15 @@ of each source navigation branch. The bundle feeds the canonical projection
 used by ordinary retrieval and OKF; the same build also retains the complete
 legacy projection for rollback and controlled comparisons.
 
-The tracked bundle currently contains five source families, 43 articles, 1,624
-source units, and 293 reviewed artifacts across 16 concept facets. All 43
-generation activities use `gpt-5.6-sol`: 33 use source distillation prompt
-`2.3.1`, and ten use legacy migration prompt `1.3.0`. Migration prompt `1.3.0`
-requires an exact identity decision for every prior source-native artifact. The
-manifest records prompt versions instead of presenting a mixed bundle as one
-generation run.
+The tracked bundle currently contains five source families, 64 articles, 2,052
+source units, and 391 reviewed artifacts across 23 concept facets. All 64
+generation activities use `gpt-5.6-sol`: 31 use source distillation prompt
+`2.3.1`, 26 use legacy migration wrapper `1.3.0`, and seven use wrapper `1.3.1`.
+The migration wrapper requires an exact identity decision for every prior
+source-native artifact. The manifest records prompt versions instead of
+presenting a mixed bundle as one generation run. Per-artifact concept lists
+remain bounded at 20; the manifest's aggregate concept inventory is separately
+bounded for repository-scale coverage.
 
 Select a bounded migration batch before building private review inputs:
 
@@ -189,6 +191,13 @@ classify a supplied unit or request a deterministic split; it cannot invent
 evidence addresses or target a fixed number of claims. Maintainer-approved,
 content-hash-bound sentence splits are recorded in `split-rules.jsonl`; a rule
 that no longer matches current source text fails closed.
+
+For official static pages without Rockumentation content, parser `1.1.0` scopes
+extraction to the page's nested `article` element when present. Do not flatten
+site navigation into source units. Preserve redirect locations in
+`location_aliases`, and increment the parser version whenever extraction
+semantics change. A redirected source is coalesced before candidate generation
+so one current URL produces one snapshot and one source-native candidate.
 
 A source candidate may contain at most 200 units. Oversized articles stop before
 model review and require a reviewed deterministic partitioning strategy; do not
@@ -287,6 +296,27 @@ notes remain in ignored private review data; only approved migration records
 enter the tracked bundle. Input-hash version `2` independently recomputes the
 source candidate hash before binding the legacy and prior-artifact rows, so an
 edited private packet fails rather than inheriting the original approval.
+
+API-backed source records may replace an older URL-hash record ID with a stable
+article ID. Runtime migration matching accepts the old ID only when it can be
+recomputed from the reviewed source snapshot's exact canonical URL or redirect
+aliases. Matching a different record from the same source family is not enough
+and still fails closed.
+
+When a static site shell changes only an article title or the contextual prefix
+derived from that title, regenerate the exact source-native candidate and use
+the presentation rebind. It recomputes the complete private input hash, requires
+the snapshot identity, body hash, parser, source-unit IDs, locators, and unit
+content hashes to remain identical, and preserves the original reviewed model
+activity instead of pretending the model reran:
+
+```bash
+uv run kb tools source-native-presentation-rebind \
+  --input <fresh-candidate-directory>/distillation-input.jsonl
+```
+
+Any content, routing, parser, locator, or source-unit change fails closed and
+requires the normal reviewed distillation or migration path.
 
 If a deterministic rebuild changes only legacy projection hashes after an
 already reviewed migration, rebind the review instead of rerunning model
@@ -452,6 +482,12 @@ The report separates:
   aliases, claims, issues, Ideas, Model Map, Lava contexts, and recipes;
 - latency and serialized storage; and
 - improved, unchanged, and regressed query results.
+
+Source-native artifacts expose an `independent_question` as reviewed retrieval
+metadata. Ranking gives an exact normalized question a bounded direct-match
+signal and gives only high-overlap paraphrases a smaller signal. This separates
+neighboring references from the same article without unconditional concept or
+artifact-type boosts; every change remains subject to the complete shadow.
 
 Run the report against the pre-change bundle as well as the current bundle when
 expanding source families. That comparison makes source coverage gains,

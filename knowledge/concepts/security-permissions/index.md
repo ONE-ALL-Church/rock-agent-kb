@@ -2,7 +2,7 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-08-06T21:08:08+00:00
+last_built: 2026-08-08T15:36:22+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -255,7 +255,6 @@ Keywords: `api key, bearer, rest, token`
 | Step 1: Create OpenAI Account | rock_recipes | 1 AI Chat in Rock: GPT 3.5, GTP 4 Shared by Brian Davis , ONE&ALL Church 3 years ago 12.0 General Beginner This recipe will have you chatting in with using GPT 3.5 or GPT 4 inside of Rock in 10-15 minutes. Sign up with an OpenAI Account, import a workflow and copy/paste in an API key and you'll be ready to chat. The Rock Core Team is working on building functionality directly into Rock that will allow you to do what... | [source](https://community.rockrms.com/recipes/365) |
 | Autocomplete Address When Adding New Family | rock_recipes | 3 Autocomplete Address When Adding New Family Shared by Alex Yarmolatii , The Promise Center 9 months ago 17.0 Administration / Finance, CRM, General, Operations, Web, Workflow Intermediate To provide predictive address autocomplete (street suggestions as you type), you’ll need to: - Add a custom JavaScript solution to the page (Pages → Page → Advanced → Page HTML or add script to the theme) that calls a geocoding... | [source](https://community.rockrms.com/recipes/508) |
 | Settings Quick-Access Shortcut | rock_recipes | 8 Settings Quick-Access Shortcut Shared by David Axelson , The Village Church 4 months ago 15.6 General Beginner The Magic: As you may have noticed from previous RX presentations , I do my best to leverage the flexibility of Rock to make my day-to-day simpler. Today's life hack is a shortcut key combination to open a searchable list of Rock Settings. The setup is fairly simple. I added an HTML block to the footer of... | [source](https://community.rockrms.com/recipes/532/settings-quick-access-shortcut) |
-| Using Lava Remotely | rock_lava_docs | Using Lava Remotely Many people assume that Lava is limited to being used inside Rock. For the most part that is true, but we have created some neat tools to help you extend the power of Lava to other websites running alternative technologies. Lava REST Endpoint The Lava REST endpoint is a simple endpoint that takes Lava as input and returns the rendered template as output. This endpoint is easily used by any... | [source](https://community.rockrms.com/lava/remote-lava) |
 | RockIQ Rapid Fire Q&A from the AI Summit \| Ep 218 Transcript Insight | rock_youtube | This official Rock Cast follow-up answers implementation and governance questions raised by the Rock AI Summit. It adds release-sensitive detail about the planned Rock IQ rollout, authenticated-user permissions, MCP security, per-tool controls, chat and token governance, skill placement, platform support, caching, custom-tool data access, agent scope and model selection. Treat roadmap and pre-release statements as directional until confirmed in current release notes, documentation and a live Rock instance. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
 
 
@@ -280,8 +279,8 @@ A recent source check or concept rebuild does not imply that every legacy summar
 
 ## Rebuild Dependencies
 
-- Source records: `145`
-- Lava capability source records: `53`
+- Source records: `152`
+- Lava capability source records: `60`
 - Approved claims: `63`
 - Dependency file: `agent/concept-dependencies.jsonl`
 

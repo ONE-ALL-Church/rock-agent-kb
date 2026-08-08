@@ -590,86 +590,19 @@
       "source_record_id": "media-insight:22ee135c5240caf2",
       "source_title": "Dashboard Design Part 1 Transcript Insight",
       "source_url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports",
-        "giving-finance"
-      ],
-      "content_hash": "f9ee46c3c08519f904df52539de5b7b4737962d0ad1755fc361a5bdf715f242f",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:9ce23feb117cb755",
-      "public_promotion_id": "media-public-promotion:f9ee46c3c08519f9",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "triumph_resources",
-      "source_record_id": "media-insight:9ce23feb117cb755",
-      "source_title": "SQL Window Functions Transcript Insight",
-      "source_url": "https://www.triumph.tech/resources/sql-window-functions"
-    },
-    {
-      "approved_concept_ids": [
-        "api-integrations",
-        "data-views-reports",
-        "workflows"
-      ],
-      "content_hash": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:8a313536a2a7f5bf",
-      "public_promotion_id": "media-public-promotion:9545935e58682499",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "triumph_resources",
-      "source_record_id": "media-insight:8a313536a2a7f5bf",
-      "source_title": "Video: AI's Role in Digital Ministry with Jon Edmiston Transcript Insight",
-      "source_url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports"
-      ],
-      "content_hash": "a26587d3c86689ae6f5ac0f9ffe9e8859a01cdb8c57aafd5a7729604f2992083",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:03736b23b68b6bc1",
-      "public_promotion_id": "media-public-promotion:a26587d3c86689ae",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "triumph_resources",
-      "source_record_id": "media-insight:03736b23b68b6bc1",
-      "source_title": "Grouping Sets Transcript Insight",
-      "source_url": "https://www.triumph.tech/resources/grouping-sets"
-    },
-    {
-      "approved_concept_ids": [
-        "data-views-reports"
-      ],
-      "content_hash": "16687973dc41b3aaa45047b30b15af0c554e32ddfbf5752d605acfe8035d647f",
-      "key_insight_count": 3,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:ae072db145e9b46e",
-      "public_promotion_id": "media-public-promotion:16687973dc41b3aa",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "triumph_resources",
-      "source_record_id": "media-insight:ae072db145e9b46e",
-      "source_title": "Pivot Pattern Transcript Insight",
-      "source_url": "https://www.triumph.tech/resources/pivot-patterns"
     }
   ],
   "approved_media_dependency_hashes": {
-    "media-insight:03736b23b68b6bc1": "a26587d3c86689ae6f5ac0f9ffe9e8859a01cdb8c57aafd5a7729604f2992083",
-    "media-insight:22ee135c5240caf2": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b",
-    "media-insight:8a313536a2a7f5bf": "9545935e58682499691fe430d8b9de7128574215b0e96c54335747a90e026351",
-    "media-insight:9ce23feb117cb755": "f9ee46c3c08519f904df52539de5b7b4737962d0ad1755fc361a5bdf715f242f",
-    "media-insight:ae072db145e9b46e": "16687973dc41b3aaa45047b30b15af0c554e32ddfbf5752d605acfe8035d647f"
+    "media-insight:22ee135c5240caf2": "3b2cce191f38ec131564798398dc3237029cf7700d3278ae89e7040e7b9dc60b"
   },
-  "approved_media_hash": "9cac3e4b9584f69646ec8c66adb8bbe2ee4cf068fd3b5aacb8eeb5451e541f23",
+  "approved_media_hash": "7a6fcdc5ad1730f973f009f134901155877d4c84e30189ce172baddeba7cdced",
   "approved_media_path": "knowledge/concepts/roku/approved-media.md",
-  "built_at": "2026-08-06T22:14:12+00:00",
+  "built_at": "2026-08-08T15:37:44+00:00",
   "concept_id": "roku",
-  "guide_hash": "626bb6656dd4a3aa217de666fd20dab3de09fe71c58a7ecd3784f245b4c46ecb",
-  "guide_line_count": 1258,
+  "guide_hash": "1b2989d0d7d2df62a7ac5aa1df8b4a10ad83f18db508949b7a237fd77b9ef546",
+  "guide_line_count": 1254,
   "guide_path": "knowledge/concepts/roku/guide.md",
-  "guide_word_count": 12679,
+  "guide_word_count": 12615,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -1093,42 +1026,6 @@
       "source_key": "4c0fe1130f878c66",
       "source_record_id": "",
       "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "3b02b9c6ab091f7a",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/grouping-sets"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "d386711478e79e81",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/pivot-patterns"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "f5e7897c401dd153",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/sql-window-functions"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "7b2dd6a6b528a9f3",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
     },
     {
       "authority": "official-release",
@@ -2343,22 +2240,18 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1196,
+      "end_line": 1192,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "4c0fe1130f878c66",
-        "3b02b9c6ab091f7a",
-        "d386711478e79e81",
-        "f5e7897c401dd153",
-        "7b2dd6a6b528a9f3"
+        "4c0fe1130f878c66"
       ],
       "start_line": 1180
     },
     {
       "confidence": "structural",
-      "end_line": 1198,
+      "end_line": 1194,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": false,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2404,11 +2297,11 @@
         "af3c7989909a45eb",
         "68e5a821254562e5"
       ],
-      "start_line": 1197
+      "start_line": 1193
     },
     {
       "confidence": "normal",
-      "end_line": 1258,
+      "end_line": 1254,
       "heading": "Release Notes And Community Examples",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes-release-notes-and-community-examples",
@@ -2454,7 +2347,7 @@
         "af3c7989909a45eb",
         "68e5a821254562e5"
       ],
-      "start_line": 1199
+      "start_line": 1195
     }
   ],
   "source_pack_hydrated_at": "2026-06-08T19:39:25+00:00",
@@ -3527,46 +3420,6 @@
       "source_record_id": "",
       "title": "https://www.triumph.tech/resources/dashboard-design-part-1",
       "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "3b02b9c6ab091f7a",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/grouping-sets",
-      "url": "https://www.triumph.tech/resources/grouping-sets"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "d386711478e79e81",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/pivot-patterns",
-      "url": "https://www.triumph.tech/resources/pivot-patterns"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "f5e7897c401dd153",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/sql-window-functions",
-      "url": "https://www.triumph.tech/resources/sql-window-functions"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "7b2dd6a6b528a9f3",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/ai-in-digital-ministry",
-      "url": "https://www.triumph.tech/resources/ai-in-digital-ministry"
     },
     {
       "authority": "official-release",

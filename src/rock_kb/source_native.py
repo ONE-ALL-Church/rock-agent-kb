@@ -138,7 +138,9 @@ def source_native_source_markdown(
         if "html" not in content_type:
             return ""
         return normalize_markdown(
-            clean_rockumentation_markdown(main_markdown(response.text))
+            clean_rockumentation_markdown(
+                main_markdown(response.text, prefer_article=True)
+            )
         )
     raise ValueError(f"unsupported source-native prose source ID: {source_id}")
 
@@ -450,6 +452,7 @@ def load_source_unit_split_rules(
             "sentence",
             "contrast_clause",
             "shared_subject_and_clause",
+            "parenthetical_navigation",
         }:
             raise ValueError(f"{path}:{line_number} has an unsupported strategy")
         if not str(rule.get("reviewed_by") or "").strip():
@@ -517,6 +520,8 @@ def apply_source_unit_split_rules(
                 split_blocks = split_paragraph_contrast_block(block)
             elif strategy == "shared_subject_and_clause":
                 split_blocks = split_paragraph_shared_subject_and_block(block)
+            elif strategy == "parenthetical_navigation":
+                split_blocks = split_paragraph_parenthetical_navigation_block(block)
             else:
                 split_blocks = split_paragraph_causal_clause_block(block)
         else:
@@ -675,6 +680,32 @@ def split_paragraph_shared_subject_and_block(
     ]
 
 
+def split_paragraph_parenthetical_navigation_block(
+    block: dict[str, Any],
+) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    match = re.fullmatch(
+        r"(.+?)\s+\((?:'|\")?([^()]+(?:\s*>\s*[^()]+)+)(?:'|\")?\)\.?",
+        text,
+    )
+    if match is None:
+        return [block]
+    statement = match.group(1).rstrip(". ") + "."
+    navigation = match.group(2).strip().strip("'\"").rstrip(". ")
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": statement},
+        {
+            "kind": "paragraph",
+            "heading_path": list(block.get("heading_path") or []),
+            "context_label": str(block.get("context_label") or ""),
+            "parent_block_token": parent_token,
+            "block_token": f"{parent_token}:parenthetical-navigation:2",
+            "text": f"Administrative path: {navigation}.",
+        },
+    ]
+
+
 def split_paragraph_causal_clause_block(
     block: dict[str, Any],
 ) -> list[dict[str, Any]]:
@@ -807,6 +838,11 @@ def split_reviewed_block_sentences(value: str) -> list[str]:
         r"(?<=[.!?])([*_`]{1,3})(?=[A-Z])",
         r"\1" + "\n",
         value,
+    )
+    normalized = re.sub(
+        r"(?<=[.!?])([^\w\s]*)(?=\s+[A-Z])",
+        lambda match: f"{match.group(1)}\n",
+        normalized,
     )
     normalized = re.sub(r"(?<=[.!?])(?=[A-Z])", " ", normalized)
     return [
@@ -1164,7 +1200,7 @@ def _build_source_native_document_candidates(
             "extraction_tool": (
                 "rockumentation_block_action"
                 if uses_rockumentation
-                else "official_static_http"
+                else "official_static_article_http"
             ),
             "source_unit_split_rule_count": len(article_split_rule_hashes),
         }
@@ -1181,6 +1217,11 @@ def _build_source_native_document_candidates(
             source_record_id=source_record_id,
             source_work_id=source_work_id,
             canonical_url=str(candidate.get("source_url") or ""),
+            location_aliases=[
+                str(value)
+                for value in candidate.get("location_aliases") or []
+                if value and str(value) != str(candidate.get("source_url") or "")
+            ],
             title=str(candidate.get("source_title") or ""),
             source_path=source_path,
             routing_paths=[
@@ -1199,7 +1240,7 @@ def _build_source_native_document_candidates(
                 if uses_rockumentation
                 else "official-static-markdown-blocks"
             ),
-            parser_version="1.4.0" if uses_rockumentation else "1.0.0",
+            parser_version="1.4.0" if uses_rockumentation else "1.1.0",
             observation_status=observation["observation_status"],
             immutable=False,
             authority_tier="official",
@@ -1370,6 +1411,196 @@ def source_native_model_input_hash(
         "documentation_current_version": documentation_current_version,
     }
     return sha256_text(_canonical_json(payload))
+
+
+def rebind_source_native_presentation_rows(
+    *,
+    inputs: Iterable[dict[str, Any]],
+    snapshots: Iterable[dict[str, Any]],
+    source_units: Iterable[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
+    """Apply title-only source presentation changes without new distillation."""
+
+    snapshot_rows = [SourceSnapshot.model_validate(row) for row in snapshots]
+    unit_rows = [SourceUnit.model_validate(row) for row in source_units]
+    snapshots_by_id = {row.source_snapshot_id: row for row in snapshot_rows}
+    units_by_id = {row.source_unit_id: row for row in unit_rows}
+    title_change_count = 0
+    contextual_prefix_change_count = 0
+    location_alias_added_count = 0
+    rebound_snapshot_ids: set[str] = set()
+
+    for raw_input in inputs:
+        incoming_snapshot = SourceSnapshot.model_validate(
+            raw_input["source_snapshot"]
+        )
+        incoming_units = [
+            SourceUnit.model_validate(row)
+            for row in raw_input.get("source_units") or []
+        ]
+        expected_input_hash = source_native_model_input_hash(
+            snapshot=incoming_snapshot,
+            source_units=incoming_units,
+            concept_ids=raw_input.get("concept_ids") or [],
+            existing_claims=raw_input.get("existing_claims") or [],
+            documentation_path=raw_input.get("documentation_path"),
+            documentation_branches=raw_input.get("documentation_branches") or [],
+            documentation_current_version=raw_input.get(
+                "documentation_current_version"
+            ),
+        )
+        if raw_input.get("source_input_hash") != expected_input_hash:
+            raise ValueError(
+                "source-native presentation rebind input hash does not match: "
+                f"{raw_input.get('candidate_id')}"
+            )
+
+        existing_snapshot = snapshots_by_id.get(
+            incoming_snapshot.source_snapshot_id
+        )
+        if existing_snapshot is None:
+            raise ValueError(
+                "source-native presentation rebind snapshot is not tracked: "
+                f"{incoming_snapshot.source_snapshot_id}"
+            )
+        if incoming_snapshot.source_snapshot_id in rebound_snapshot_ids:
+            raise ValueError(
+                "source-native presentation rebind repeats snapshot: "
+                f"{incoming_snapshot.source_snapshot_id}"
+            )
+        rebound_snapshot_ids.add(incoming_snapshot.source_snapshot_id)
+
+        allowed_snapshot_changes = {
+            "title",
+            "last_checked_at",
+            "observation_status",
+            "location_aliases",
+        }
+        existing_snapshot_payload = existing_snapshot.public_dump()
+        incoming_snapshot_payload = incoming_snapshot.public_dump()
+        if {
+            key: value
+            for key, value in existing_snapshot_payload.items()
+            if key not in allowed_snapshot_changes
+        } != {
+            key: value
+            for key, value in incoming_snapshot_payload.items()
+            if key not in allowed_snapshot_changes
+        }:
+            raise ValueError(
+                "source-native presentation rebind changed source semantics: "
+                f"{incoming_snapshot.source_snapshot_id}"
+            )
+
+        incoming_unit_ids = {row.source_unit_id for row in incoming_units}
+        existing_unit_ids = {
+            row.source_unit_id
+            for row in unit_rows
+            if row.source_snapshot_id == incoming_snapshot.source_snapshot_id
+        }
+        if incoming_unit_ids != existing_unit_ids:
+            raise ValueError(
+                "source-native presentation rebind changed source unit identity: "
+                f"{incoming_snapshot.source_snapshot_id}"
+            )
+        for incoming_unit in incoming_units:
+            existing_unit = units_by_id[incoming_unit.source_unit_id]
+            excluded_unit_fields = {
+                "contextual_prefix",
+                "public_summary",
+                "text",
+            }
+            if {
+                key: value
+                for key, value in existing_unit.public_dump().items()
+                if key not in excluded_unit_fields
+            } != {
+                key: value
+                for key, value in incoming_unit.public_dump().items()
+                if key not in excluded_unit_fields
+            }:
+                raise ValueError(
+                    "source-native presentation rebind changed source unit "
+                    f"semantics: {incoming_unit.source_unit_id}"
+                )
+            if existing_unit.contextual_prefix != incoming_unit.contextual_prefix:
+                contextual_prefix_change_count += 1
+                units_by_id[incoming_unit.source_unit_id] = (
+                    existing_unit.model_copy(
+                        update={
+                            "contextual_prefix": incoming_unit.contextual_prefix
+                        }
+                    )
+                )
+
+        aliases = sorted(
+            set(existing_snapshot.location_aliases)
+            | set(incoming_snapshot.location_aliases)
+        )
+        location_alias_added_count += len(aliases) - len(
+            existing_snapshot.location_aliases
+        )
+        if existing_snapshot.title != incoming_snapshot.title:
+            title_change_count += 1
+        snapshots_by_id[incoming_snapshot.source_snapshot_id] = (
+            existing_snapshot.model_copy(
+                update={
+                    "title": incoming_snapshot.title,
+                    "last_checked_at": incoming_snapshot.last_checked_at,
+                    "observation_status": incoming_snapshot.observation_status,
+                    "location_aliases": aliases,
+                }
+            )
+        )
+
+    return (
+        [
+            row.public_dump()
+            for row in sorted(
+                snapshots_by_id.values(),
+                key=lambda row: row.source_snapshot_id,
+            )
+        ],
+        [
+            row.public_dump()
+            for row in sorted(
+                units_by_id.values(),
+                key=lambda row: row.source_unit_id,
+            )
+        ],
+        {
+            "snapshot_count": len(rebound_snapshot_ids),
+            "title_change_count": title_change_count,
+            "contextual_prefix_change_count": contextual_prefix_change_count,
+            "location_alias_added_count": location_alias_added_count,
+        },
+    )
+
+
+def rebind_source_native_presentation_metadata(
+    *,
+    input_path: Path,
+    destination: Path = SOURCE_NATIVE_PILOT_DIR,
+) -> dict[str, Any]:
+    """Promote a hash-verified title or contextual-prefix correction."""
+
+    rebound_snapshots, rebound_units, counts = (
+        rebind_source_native_presentation_rows(
+            inputs=read_jsonl(input_path),
+            snapshots=read_jsonl(destination / "source-snapshots.jsonl"),
+            source_units=read_jsonl(destination / "source-units.jsonl"),
+        )
+    )
+    write_jsonl(destination / "source-snapshots.jsonl", rebound_snapshots)
+    write_jsonl(destination / "source-units.jsonl", rebound_units)
+    manifest = write_source_native_manifest(destination)
+    return {
+        "schema": "rock-kb-source-native-presentation-rebind-v1",
+        "status": "ok",
+        **counts,
+        "destination": str(destination),
+        "manifest": manifest.public_dump(),
+    }
 
 
 def validate_source_native_distillation(

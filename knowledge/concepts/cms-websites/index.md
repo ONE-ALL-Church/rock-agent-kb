@@ -2,7 +2,7 @@
 id: concept-cms-websites
 title: CMS And Websites
 generated: true
-last_built: 2026-08-06T21:08:06+00:00
+last_built: 2026-08-08T15:36:21+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
@@ -326,8 +326,8 @@ A recent source check or concept rebuild does not imply that every legacy summar
 
 ## Rebuild Dependencies
 
-- Source records: `144`
-- Lava capability source records: `53`
+- Source records: `151`
+- Lava capability source records: `60`
 - Approved claims: `33`
 - Dependency file: `agent/concept-dependencies.jsonl`
 

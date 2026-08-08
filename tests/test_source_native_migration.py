@@ -8,6 +8,7 @@ import pytest
 
 from rock_kb.canonical_knowledge import build_canonical_knowledge_bundle
 from rock_kb.jsonl import read_jsonl, write_jsonl
+from rock_kb.normalize import canonical_record_id
 from rock_kb.schemas import (
     GenerationActivity,
     ReviewedSourceNativeArtifact,
@@ -231,6 +232,84 @@ def test_migration_input_rebuild_projects_legacy_rows_before_retirement(
     output = list(read_jsonl(destination))
     assert result["legacy_item_count"] == 1
     assert output[0]["legacy_items"][0]["legacy_content_hash"] == "9" * 64
+
+
+def test_migration_input_reconciles_same_family_redirect_alias(
+    monkeypatch,
+    tmp_path,
+):
+    candidate = migration_input()
+    candidate["source_snapshot"].update(
+        {
+            "source_record_id": "rock_lava_docs:new",
+            "source_id": "rock_lava_docs",
+            "canonical_url": "https://community.rockrms.com/lava/commands/getting-started",
+            "location_aliases": ["https://community.rockrms.com/lava/commands"],
+        }
+    )
+    rehash_migration_input(candidate)
+    legacy_snapshot = SourceSnapshot.model_validate(
+        {
+            **candidate["source_snapshot"],
+            "source_snapshot_id": "source-snapshot:legacy",
+            "source_record_id": "rock_lava_docs:old",
+            "canonical_url": "https://community.rockrms.com/lava/commands",
+            "location_aliases": [],
+        }
+    )
+    legacy_unit = SourceUnit.model_validate(
+        {
+            **candidate["source_units"][0],
+            "source_unit_id": "source-unit:legacy",
+            "source_snapshot_id": legacy_snapshot.source_snapshot_id,
+        }
+    )
+    legacy = SimpleNamespace(
+        ingestion_mode="legacy_summary_projection",
+        knowledge_type="source_summary",
+        source_unit_ids=[legacy_unit.source_unit_id],
+        knowledge_unit_id="source:rock_lava_docs:old",
+        legacy_ids=["knowledge:source_summary:old"],
+        content_hash="9" * 64,
+        title="Getting Started",
+        retrieval_text="Enable commands explicitly.",
+        concept_facets=["lava"],
+    )
+
+    monkeypatch.setattr(
+        "rock_kb.canonical_knowledge.build_canonical_knowledge_bundle",
+        lambda **_kwargs: (
+            SimpleNamespace(
+                source_snapshots=[legacy_snapshot],
+                source_units=[legacy_unit],
+                knowledge_units=[legacy],
+            ),
+            {},
+        ),
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native.load_source_native_pilot",
+        lambda _repo_root: {
+            "source_snapshots": [],
+            "source_units": [],
+            "reviewed_artifacts": [],
+        },
+    )
+    input_path = tmp_path / "source-native-input.jsonl"
+    destination = tmp_path / "migration-input.jsonl"
+    write_jsonl(input_path, [candidate])
+
+    result = build_source_native_legacy_migration_inputs(
+        source_native_input_path=input_path,
+        destination=destination,
+        repo_root=tmp_path,
+    )
+
+    assert result["legacy_item_count"] == 1
+    assert result["reconciled_legacy_source_record_alias_count"] == 1
+    assert list(read_jsonl(destination))[0]["legacy_items"][0][
+        "legacy_knowledge_unit_id"
+    ] == "source:rock_lava_docs:old"
 
 
 def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
@@ -534,6 +613,11 @@ def test_source_summary_can_use_companions_but_claims_cannot():
 
 
 def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypatch):
+    legacy_source_url = "https://community.rockrms.com/documentation/test"
+    legacy_source_record_id = canonical_record_id(
+        "rock_documentation",
+        legacy_source_url,
+    )
     claim_row = {
         "id": "claim:claim:legacy",
         "kind": "claim",
@@ -549,12 +633,12 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
             "claim": "The feature performs the documented behavior.",
             "claim_type": "behavior",
             "concept_ids": ["workflows"],
-            "source_record_ids": ["rock_documentation:article:100"],
+            "source_record_ids": [legacy_source_record_id],
             "source_refs": [
                 {
                     "source_id": "rock_documentation",
                     "title": "Test Article",
-                    "url": "https://community.rockrms.com/documentation/test",
+                    "url": legacy_source_url,
                 }
             ],
             "authority_tier": "official",
@@ -754,6 +838,26 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
         lambda _repo_root: stale_source_native,
     )
     with pytest.raises(ValueError, match="content hash changed"):
+        build_canonical_knowledge_bundle(
+            search_rows=[claim_row],
+            distilled_claims=[],
+            identity_registry=[row.public_dump() for row in legacy_bundle.identities],
+            include_source_native_pilot=True,
+        )
+
+    unrelated_source_native = copy.deepcopy(source_native)
+    unrelated_source_native["source_snapshots"][0] = snapshot.model_copy(
+        update={
+            "canonical_url": (
+                "https://community.rockrms.com/documentation/different-article"
+            )
+        }
+    )
+    monkeypatch.setattr(
+        "rock_kb.canonical_knowledge.load_source_native_pilot",
+        lambda _repo_root: unrelated_source_native,
+    )
+    with pytest.raises(ValueError, match="source record changed"):
         build_canonical_knowledge_bundle(
             search_rows=[claim_row],
             distilled_claims=[],

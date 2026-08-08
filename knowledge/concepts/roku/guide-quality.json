@@ -10,12 +10,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12679 words; expected at least 1200.",
+      "message": "Guide has 12615 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 12679 words; expected no more than 9000.",
+      "message": "Guide has 12615 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -67,24 +67,24 @@
   "concept_id": "roku",
   "contribution_record_count": 0,
   "entity_count": 12,
-  "generated_at": "2026-08-06T22:14:13+00:00",
-  "guide_line_count": 1258,
-  "guide_word_count": 12679,
+  "generated_at": "2026-08-08T15:37:44+00:00",
+  "guide_line_count": 1254,
+  "guide_word_count": 12615,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
     "answer_claim_reference_count": 0,
     "entity_count": 12,
     "section_count": 89,
-    "source_count": 54,
-    "substantive_uncited_section_ratio": 0.0182,
+    "source_count": 50,
+    "substantive_uncited_section_ratio": 0.0185,
     "task_card_count": 6,
-    "word_count": 12679
+    "word_count": 12615
   },
   "private_draft_contribution_record_count": 0,
   "score": 90,
   "section_count": 89,
-  "source_count": 54,
+  "source_count": 50,
   "status": "fail",
   "task_card_count": 6
 }

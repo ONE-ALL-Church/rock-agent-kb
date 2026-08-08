@@ -566,6 +566,33 @@ def source_urls_from_snapshot(path: Optional[Path]) -> dict[str, set[str]]:
     return result
 
 
+def deduplicate_urls(urls: list[str]) -> list[str]:
+    return list(dict.fromkeys(urls))
+
+
+def deduplicate_source_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    unique: list[dict[str, Any]] = []
+    indexes: dict[tuple[str, str], int] = {}
+    for record in records:
+        key = (str(record.get("id") or ""), str(record.get("source_url") or ""))
+        if key in indexes:
+            current = unique[indexes[key]]
+            current["location_aliases"] = sorted(
+                {
+                    str(value)
+                    for value in [
+                        *(current.get("location_aliases") or []),
+                        *(record.get("location_aliases") or []),
+                    ]
+                    if value and str(value) != key[1]
+                }
+            )
+            continue
+        indexes[key] = len(unique)
+        unique.append(record)
+    return unique
+
+
 def _normalize_source(src) -> int:
     if src.kind == "rock_ideas":
         summary = sync_rock_ideas()
@@ -602,8 +629,10 @@ def _normalize_source(src) -> int:
                 urls.append(raw["source_url"])
         if not urls:
             urls = discover_community_urls(src, max_pages=250, id_sweep=src.kind in {"rock_recipes", "rock_qa"})
-        fetched_pages = fetch_community_pages(urls, source=src)
-        records = [record for record in (normalize_community_fetch(src, row) for row in fetched_pages) if record]
+        fetched_pages = fetch_community_pages(deduplicate_urls(urls), source=src)
+        records = deduplicate_source_records(
+            [record for record in (normalize_community_fetch(src, row) for row in fetched_pages) if record]
+        )
     elif src.kind in {"rock_release_notes", "rock_mobile_release_notes", "podcast_rss", "rss", "rock_model_map"}:
         fetched = fetch_url(src.root_url)
         records = records_from_source_content(src, fetched["content"])

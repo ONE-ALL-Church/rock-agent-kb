@@ -7203,6 +7203,11 @@ function searchSignals(
   const lavaContextRootBoost = exactLavaContextRootBoost(row, queryTerms, query);
   const rockIssueLookupBoost = rockIssueRetrievalBoost(row, queryTerms, query);
   const rockIdeaLookupBoost = rockIdeaRetrievalBoost(row, queryTerms, query);
+  const independentQuestionBoost = sourceNativeIndependentQuestionBoost(
+    row,
+    queryTerms,
+    query,
+  );
   const conceptIntent = conceptIntentBoost(row, queryTerms, query);
   const routeIntent = concepts.includes(queryTopicHint(query)) && row.kind !== "guide_section" ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
@@ -7210,7 +7215,7 @@ function searchSignals(
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
   // FTS5 negates BM25 so stronger matches have numerically lower values.
   const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
-  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + independentQuestionBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
@@ -7221,10 +7226,30 @@ function searchSignals(
     lexical_coverage_boost: lexicalCoverageBoost,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost,
     exact_lookup_boost: guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + conceptIntent + routeIntent,
+    independent_question_boost: independentQuestionBoost,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
     bm25_relevance: bm25Relevance,
   };
+}
+
+function sourceNativeIndependentQuestionBoost(
+  row: SearchRow,
+  queryTerms: string[],
+  query: string,
+): number {
+  const artifact = asRecord(parsePayload(row).artifact);
+  const independentQuestion = String(artifact.independent_question || "").trim();
+  if (!independentQuestion || queryTerms.length < 3) {
+    return 0;
+  }
+  if (normalizeSearchText(query) === normalizeSearchText(independentQuestion)) {
+    return 260;
+  }
+  const questionTerms = new Set(searchTerms(independentQuestion));
+  const overlap = overlapCount(queryTerms, questionTerms);
+  const coverage = overlap / Math.max(queryTerms.length, questionTerms.size, 1);
+  return overlap >= 3 && coverage >= 0.75 ? 100 : 0;
 }
 
 function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): number {

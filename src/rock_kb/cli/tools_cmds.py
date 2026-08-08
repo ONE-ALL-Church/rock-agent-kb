@@ -34,6 +34,7 @@ from ..source_native import (
     build_source_native_impact_report,
     merge_source_native_distillation_outputs,
     promote_source_native_distillation,
+    rebind_source_native_presentation_metadata,
     write_source_native_distillation_schema,
     write_source_native_generation_prompt,
     write_source_native_manifest,
@@ -695,6 +696,37 @@ def source_native_migration_rebind(
                 previous_input_path=previous_input,
                 refreshed_input_path=refreshed_input,
                 output_path=output_path,
+                destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-presentation-rebind")
+def source_native_presentation_rebind(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Fresh hash-verified source-native distillation input JSONL.",
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+) -> None:
+    """Rebind reviewed title metadata when source semantics are unchanged."""
+
+    typer.echo(
+        json.dumps(
+            rebind_source_native_presentation_metadata(
+                input_path=input_path,
                 destination=destination,
             ),
             ensure_ascii=False,

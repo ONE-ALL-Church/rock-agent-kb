@@ -11,6 +11,7 @@ spec = importlib.util.spec_from_file_location("network_operations_smoke", Path("
 assert spec and spec.loader
 network_operations_smoke_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(network_operations_smoke_module)
+decode_response_payload = network_operations_smoke_module.decode_response_payload
 network_operations_smoke = network_operations_smoke_module.network_operations_smoke
 
 
@@ -51,7 +52,7 @@ class SmokeHandler(BaseHTTPRequestHandler):
                     status=406,
                 )
                 return
-            self.write_json(
+            self.write_sse(
                 {
                     "jsonrpc": "2.0",
                     "id": 1,
@@ -83,6 +84,31 @@ class SmokeHandler(BaseHTTPRequestHandler):
         self.send_header("content-length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def write_sse(self, payload, *, status=200):
+        body = f"event: message\ndata: {json.dumps(payload)}\n\n".encode("utf-8")
+        self.send_response(status)
+        self.send_header("content-type", "text/event-stream; charset=utf-8")
+        self.send_header("content-length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+
+def test_decode_response_payload_accepts_json():
+    payload = {"jsonrpc": "2.0", "id": 1, "result": {"tools": []}}
+
+    assert decode_response_payload(json.dumps(payload), "application/json; charset=utf-8") == payload
+
+
+def test_decode_response_payload_accepts_sse_and_selects_response_event():
+    notification = {"jsonrpc": "2.0", "method": "notifications/progress"}
+    response = {"jsonrpc": "2.0", "id": 1, "result": {"tools": []}}
+    body = (
+        f"event: message\ndata: {json.dumps(notification)}\n\n"
+        f"event: message\ndata: {json.dumps(response)}\n\n"
+    )
+
+    assert decode_response_payload(body, "text/event-stream; charset=utf-8") == response
 
 
 def test_network_operations_smoke_passes_against_expected_service():

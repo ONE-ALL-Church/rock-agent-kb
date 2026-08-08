@@ -274,6 +274,7 @@ def hydrate_document_candidates(
                 "source_record_id": record.get("id"),
                 "source_id": record.get("source_id"),
                 "source_url": record.get("source_url"),
+                "location_aliases": record.get("location_aliases") or [],
                 "source_title": record.get("source_title"),
                 "concept_ids": concept_ids,
                 "documentation_path": record.get("documentation_path"),

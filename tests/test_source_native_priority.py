@@ -162,6 +162,31 @@ def test_legacy_hash_identity_reconciles_to_current_article_id_by_url():
     assert cross_source_aliases == []
 
 
+def test_legacy_identity_reconciles_through_current_location_alias():
+    item = object()
+    items, result_ids, aliases = reconcile_legacy_source_record_ids(
+        {"rock_lava_docs:old": [item]},
+        {"rock_lava_docs:old": {"legacy:result"}},
+        {"rock_lava_docs:old": {"https://community.rockrms.com/lava/commands"}},
+        {
+            "rock_lava_docs:new": {
+                "source_url": "https://community.rockrms.com/lava/commands/getting-started",
+                "location_aliases": ["https://community.rockrms.com/lava/commands"],
+            }
+        },
+    )
+
+    assert items == {"rock_lava_docs:new": [item]}
+    assert result_ids == {"rock_lava_docs:new": {"legacy:result"}}
+    assert aliases == [
+        {
+            "legacy_source_record_id": "rock_lava_docs:old",
+            "canonical_source_record_id": "rock_lava_docs:new",
+            "canonical_url": "https://community.rockrms.com/lava/commands",
+        }
+    ]
+
+
 def test_dashboard_signals_are_bounded_to_public_result_identity():
     dashboard = {
         "field_validation": {
