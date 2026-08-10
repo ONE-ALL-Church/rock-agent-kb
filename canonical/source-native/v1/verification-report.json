@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 54,
-    "corrects": 23,
-    "narrows": 14
+    "confirms": 48,
+    "corrects": 20,
+    "narrows": 13
   },
   "by_state": {
-    "verified": 91
+    "verified": 81
   },
   "by_surface": {
-    "maintainer_review": 29,
+    "maintainer_review": 27,
     "official_api": 2,
-    "public_source_code": 60
+    "public_source_code": 52
   },
-  "checked_at": "2026-08-08T15:31:10+00:00",
+  "checked_at": "2026-08-10T22:11:00Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -108,16 +108,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:claim:rock_community_blog:article-0:claim-rock-v19-ai-agent-preview-launch"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:1a93e970cb21683f42414f63",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -125,17 +115,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:1e5c9e3e7e778b8592b5d6d3",
       "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:recipe:rock_community_blog:article-0:recipe-multi-stage-volunteer-onboarding",
-        "source-native:task_card:rock_community_blog:article-0:task-card-establish-volunteer-onboarding-foundations"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:22f57bc7d7e78acebf258679",
-      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -240,6 +219,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1929:communication-list-category-configuration-reference"
+      ],
+      "reviewed_at": "2026-08-10T22:01:43Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:39e841c969c1446e09a3c79a",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-437:app-factory-requires-organization-owned-developer-accounts",
         "source-native:claim:rock_mobile_docs:article-437:organization-owned-developer-accounts-control-store-app"
       ],
@@ -248,16 +237,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:3c01e9305f69d234f7673de5",
       "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:claim:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-personal-ministry-onboarding"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:3c0d31bd2ac138fa87d20a14",
-      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -318,16 +297,6 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:563c6afbbe39d4ee36816e87",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:recipe:rock_developer:article-381:configuration-provided-selectable-options-recipe"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:567934179347443748137852",
       "verification_surface": "public_source_code"
     },
     {
@@ -483,19 +452,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:claim:rock_lava_docs:article-0:claim-lava-shortcode-type-change-compatibility-risk",
-        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-block-lava-shortcode-form",
-        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-inline-lava-shortcode-form",
-        "source-native:structured_reference:rock_lava_docs:article-0:structured-reference-lava-shortcode-types-and-shared-syntax"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:7a0c4dc2916e43f4bfe5b640",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1161:structured-reference-kiosk-welcome-screen-controls-and-default-layout"
       ],
       "reviewed_at": "2026-08-04T03:15:00Z",
@@ -538,7 +494,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
       ],
-      "reviewed_at": "2026-08-08T14:55:00Z",
+      "reviewed_at": "2026-08-10T22:11:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
@@ -629,7 +585,7 @@
       "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
       ],
-      "reviewed_at": "2026-08-08T14:55:00Z",
+      "reviewed_at": "2026-08-10T22:11:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
@@ -667,6 +623,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1929:communication-lists-shipped-sample-reference"
+      ],
+      "reviewed_at": "2026-08-10T22:01:43Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b3da2ae42c7e9d23842c9fd3",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1160:check-in-kiosk-configuration-fields"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -674,16 +640,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:b7804c2104eafda1d06ef60e",
       "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_developer:article-381:obsidian-edit-component-input-contract"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:b83ec37527293ac3d802a2e1",
-      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -728,16 +684,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_developer:article-381:defined-value-server-refresh-dependencies"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:c258c8c098313f1e39b3f1fb",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-bundled-and-additional-transports"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -750,7 +696,7 @@
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-08T14:55:00Z",
+      "reviewed_at": "2026-08-10T22:11:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
@@ -765,17 +711,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:cbd1153ef9deac86b6feed65",
       "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:recipe:rock_developer:article-381:client-only-configuration-update-recipe",
-        "source-native:recipe:rock_developer:article-381:server-derived-configuration-refresh-recipe"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:d20357fe97916386e1d91a15",
-      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -827,16 +762,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:d8ee3e24c7af1abb2673a644",
       "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_lava_docs:article-0:lava-taglist-command-reference"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:dafd2aad419e0066e86708ee",
-      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -900,37 +825,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-contact-control-catalog",
-        "source-native:structured_reference:rock_community_blog:article-0:rock-mobile-v19-outreach-toolbox-touchpoint-cadence-schedulers"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:f351be8b23e8ebb2f0ce3ccb",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:claim:rock_community_blog:article-0:claim-rock-v19-ai-agent-tools-not-immediately-visible"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:f35f56eca96e836efe6eabe8",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_developer:article-381:configuration-properties-interface-reference"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:f4be9ab45d31b6a6b3a9808f",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1150:built-in-service-time-check-in-window-examples"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -951,10 +845,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 91,
-  "resolution_count": 91,
+  "queue_count": 81,
+  "resolution_count": 81,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 91
+  "verified_count": 81
 }

@@ -3,7 +3,7 @@
   "enrichment_id": "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6924",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Affected Content Channel Item List revisions combine every Show in Grid item attribute qualified by either the channel type or the specific channel without deduplicating by key. The shared grid extension turns each key into `attr_<key>`, and GridBuilder rejects duplicate field names. Commit c98befb keeps the full attribute list for value loading but adds a distinct-by-key list for grid-column definitions, directly removing the diagnosed collision. That commit is the exact fixed revision; release-package inclusion remains independently verifiable.",
+  "diagnosis_summary": "Affected Content Channel Item List revisions combine every Show in Grid item attribute qualified by either the channel type or the specific channel without deduplicating by key. The shared grid extension turns each key into `attr_<key>`, and GridBuilder rejects duplicate field names. Commit c98befb keeps the full attribute list for value loading but adds a distinct-by-key list for grid-column definitions, directly removing the diagnosed collision. That commit is the exact fixed revision. The current issue is closed and officially labeled Fixed in v19.5; verify exact package inclusion before treating an installed build as fixed.",
   "workaround_summaries": [
     "For builds that do not include commit c98befb or an equivalent release fix, ensure only one of the same-key attributes is marked Show in Grid. Prefer preserving the canonical type-level attribute and renaming or hiding the channel-specific duplicate after staging review; changing the key can affect Lava, filters, data entry, and integrations that already reference it."
   ],
@@ -120,6 +120,29 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-18T17:08:35Z"
+    },
+    {
+      "assertion_id": "core-6924-fixed-19.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.5",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.5"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6924",
+        "https://github.com/SparkDevNetwork/Rock/commit/c98befbae4def19e8661e80aa4accfbb537c407e"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "source_refs": [
@@ -135,9 +158,9 @@
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-17T22:40:11Z",
-  "reviewed_at": "2026-07-18T17:08:35Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-07-31T20:57:57Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

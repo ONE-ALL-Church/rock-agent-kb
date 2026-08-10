@@ -2,10 +2,10 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.11.0"
+  rock-kb-skill-version: "1.12.0"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-08-03T23:27:23Z"
-  rock-kb-minimum-client-version: "0.22.0"
+  rock-kb-published-at: "2026-08-10T21:16:54Z"
+  rock-kb-minimum-client-version: "0.23.0"
 ---
 
 # Rock KB Agent
@@ -268,15 +268,17 @@ Use these commands for specific jobs:
 - Global `--version`: print the installed client version without making a
   network request.
 - `okf download [--profile full|core]`: download and digest-verify a read-only Open Knowledge Format release for offline, pinned, bulk, or interoperable use. Use `core` for a smaller local corpus and `full` for lossless public records.
-- `okf inspect <bundle>`: show an OKF directory or archive's version, source commit, scope, and counts.
-- `okf conformance <bundle>`: apply portable upstream OKF rules to any bundle; broken links and unknown versions are warnings.
-- `okf verify <bundle>`: verify a Rock KB release's profile, licensing, complete checksums, structured records, archive safety, and public/private boundaries. `okf validate` is a compatibility alias.
+- `okf inspect <bundle>`: show an OKF directory or archive's version, profile/spec tuple, legacy status, source commit, scope, and counts.
+- `okf conformance <bundle>`: apply portable upstream OKF v0.1/v0.2 rules to any bundle; broken links and unknown versions are warnings.
+- `okf verify <bundle>`: verify a Rock KB release's exact supported v0.1 or v0.2 contract, provenance, licensing, complete checksums, structured records, archive safety, and public/private boundaries. `okf validate` is a compatibility alias.
 - `validate <bundle.jsonl>`: check a contribution bundle before submitting.
 - `auth-check --org <org-id>`: verify hosted submission auth before sending a bundle.
 - `submit <bundle.jsonl> [--dry-run] [--org <org-id>]`: submit reviewed public-safe knowledge for a registered org with `ROCK_KB_TOKEN`; `--org` is inferred when bundle rows share one `org_id`.
 
 Do not fall back to copying raw KB artifacts into another repo. Use the OKF
 distribution when an agent or external tool needs a portable, offline corpus.
+Current releases produce OKF v0.2; client 0.23.0 and newer also strictly verify
+previously published Rock v0.1 releases under their exact legacy contract.
 Do not import an arbitrary OKF bundle into trusted knowledge; route proposed
 knowledge through the reviewed contribution workflow.
 

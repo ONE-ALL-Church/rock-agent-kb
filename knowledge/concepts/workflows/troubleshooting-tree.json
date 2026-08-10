@@ -264,7 +264,7 @@
   ],
   "concept_id": "workflows",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-08T15:37:08+00:00",
+  "generated_at": "2026-08-10T22:18:15+00:00",
   "guide_sections": [
     "troubleshooting-decision-tree",
     "troubleshooting-decision-tree-a-workflow-or-form-is-not-visible",

@@ -619,7 +619,8 @@ def test_build_service_projection_writes_d1_seed_and_artifacts(tmp_path):
     skill_manifest = json.loads((projection.dist / "artifacts" / "skills" / "rock-kb-agent" / "manifest.json").read_text(encoding="utf-8"))
     assert canonical_skill.read_text(encoding="utf-8") == legacy_skill.read_text(encoding="utf-8")
     assert skill_manifest["source_path"] == "skills/rock-kb-agent/SKILL.md"
-    assert skill_manifest["skill_version"] == "1.11.0"
+    assert skill_manifest["skill_version"] == "1.12.0"
+    assert skill_manifest["minimum_client_version"] == "0.23.0"
     shard_files = sorted((projection.dist / "artifact-shards").glob("*.json"))
     assert len(shard_files) == 16**service_projection.ARTIFACT_SHARD_PREFIX_LENGTH
     shard_payload = json.loads(shard_files[0].read_text(encoding="utf-8"))
@@ -1018,6 +1019,26 @@ def test_build_d1_seed_sql_records_issue_projection_content_hashes():
     assert "'rock_issue_record_count', '10'" in sql
     assert core_hash in sql
     assert mobile_hash in sql
+
+
+def test_build_d1_seed_sql_records_idea_projection_content_hashes():
+    catalog_hash = "c" * 64
+    source_hash = "d" * 64
+    sql = build_d1_seed_sql(
+        version="abc123",
+        generated_at="2026-08-10T00:00:00Z",
+        search_rows=[],
+        org_rows=[],
+        rock_idea_summary={
+            "record_count": 12,
+            "catalog_content_hash": catalog_hash,
+            "source_content_hash": source_hash,
+        },
+    )
+
+    assert f"'rock_idea_catalog_content_hash', '{catalog_hash}'" in sql
+    assert "'rock_idea_record_count', '12'" in sql
+    assert f"'rock_idea_source_content_hash', '{source_hash}'" in sql
 
 
 def test_build_d1_seed_sql_projects_canonical_related_content_edges(monkeypatch, tmp_path):

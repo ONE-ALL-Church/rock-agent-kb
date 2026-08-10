@@ -17,4 +17,4 @@ Rock Community Ideas are indexed as bounded metadata for finding known feature g
 5. Treat open and not-planned ideas as research leads, not proof that no workaround or newer capability exists.
 6. Use the verification queue to prioritize lifecycle claims. A queue state or private candidate count is not public evidence; only reviewed or deterministic official relationships can corroborate availability.
 
-Current generated catalog: 1082 metadata rows. See [`agent/rock-ideas.jsonl`](../../agent/rock-ideas.jsonl), [`agent/rock-idea-relationships.jsonl`](../../agent/rock-idea-relationships.jsonl), [`agent/rock-idea-verification-queue.jsonl`](../../agent/rock-idea-verification-queue.jsonl), and [`agent/rock-idea-summary.json`](../../agent/rock-idea-summary.json).
+Current generated catalog: 1089 metadata rows. See [`agent/rock-ideas.jsonl`](../../agent/rock-ideas.jsonl), [`agent/rock-idea-relationships.jsonl`](../../agent/rock-idea-relationships.jsonl), [`agent/rock-idea-verification-queue.jsonl`](../../agent/rock-idea-verification-queue.jsonl), and [`agent/rock-idea-summary.json`](../../agent/rock-idea-summary.json).

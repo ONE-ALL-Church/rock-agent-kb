@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6904-learning-class-copy-shares-activities-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6904",
   "diagnosis_status": "maintainer_confirmed",
-  "diagnosis_summary": "The affected class-copy path copied each LearningClassActivity without cloning its related LearningActivity, so copied classes shared the original activity content. It also declared a newActivities list without adding the copied activities before the attribute-save loop. Rock confirmed and closed the issue with commit 454307680220a4c219dc006c6e8b69b5d32f53aa, which eagerly loads and clones each LearningActivity and adds each new class activity to the attribute-save list. The issue is labeled fixed in Rock 19.4; exact package inclusion should still be verified before treating an installed build as unaffected.",
+  "diagnosis_summary": "The affected class-copy path copied each LearningClassActivity without cloning its related LearningActivity, so copied classes shared the original activity content. It also declared a newActivities list without adding the copied activities before the attribute-save loop. Rock confirmed and closed the issue with develop commit 454307680220a4c219dc006c6e8b69b5d32f53aa, which eagerly loads and clones each LearningActivity and adds each new class activity to the attribute-save list. Commit 580aba93c3ff9b1289e73ac3d289a13241230d01 carries the same fix in the hotfix-19.4 ancestry, matching the issue's current Fixed in v19.4 label.",
   "workaround_summaries": [
-    "Use a Rock package proven to contain commit 454307680220a4c219dc006c6e8b69b5d32f53aa or an equivalent fix. Before upgrade, do not edit copied-class activity content under the assumption that it is independent; copy activities individually and verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
+    "Use a Rock package proven to contain hotfix commit 580aba93c3ff9b1289e73ac3d289a13241230d01, develop commit 454307680220a4c219dc006c6e8b69b5d32f53aa, or an independently verified equivalent. Before upgrade, do not edit copied-class activity content under the assumption that it is independent; copy activities individually and verify each copied LearningClassActivity points to a distinct LearningActivity before changing content."
   ],
   "verification_playbook": {
     "goal": "Detect learning activities referenced by more than one class before an agent edits copied-class content.",
@@ -100,16 +100,18 @@
       "ranges": [],
       "status": "fixed",
       "fix_refs": [
-        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa"
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa",
+        "https://github.com/SparkDevNetwork/Rock/commit/580aba93c3ff9b1289e73ac3d289a13241230d01"
       ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6904",
-        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa"
+        "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa",
+        "https://github.com/SparkDevNetwork/Rock/commit/580aba93c3ff9b1289e73ac3d289a13241230d01"
       ],
       "authority_tier": "official",
       "claim_tier": "source_backed",
       "confidence": "medium",
-      "assessed_at": "2026-07-31T00:18:53Z"
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "source_refs": [
@@ -117,16 +119,18 @@
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClass/LearningClassService.cs#L89-L139",
     "https://github.com/SparkDevNetwork/Rock/blob/6e305568763043b3fb85c85142ce85b1ec566414/Rock/Model/LMS/LearningClassActivity/LearningClassActivityService.cs#L31-L57",
     "https://github.com/SparkDevNetwork/Rock/commit/454307680220a4c219dc006c6e8b69b5d32f53aa",
-    "https://github.com/SparkDevNetwork/Rock/blob/454307680220a4c219dc006c6e8b69b5d32f53aa/Rock/Model/LMS/LearningClass/LearningClassService.cs#L112-L145"
+    "https://github.com/SparkDevNetwork/Rock/blob/454307680220a4c219dc006c6e8b69b5d32f53aa/Rock/Model/LMS/LearningClass/LearningClassService.cs#L112-L145",
+    "https://github.com/SparkDevNetwork/Rock/commit/580aba93c3ff9b1289e73ac3d289a13241230d01",
+    "https://github.com/SparkDevNetwork/Rock/blob/580aba93c3ff9b1289e73ac3d289a13241230d01/Rock/Model/LMS/LearningClass/LearningClassService.cs#L112-L145"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "codex-public-source-revalidation-2026-07-30",
-  "issue_updated_at": "2026-07-29T19:37:59Z",
-  "reviewed_at": "2026-07-31T00:18:53Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-08-10T16:39:16Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

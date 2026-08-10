@@ -20,6 +20,8 @@ const ISSUE_FIXTURE_SOURCE_HASHES = {
     .update(`rock_mobile_issues:${ISSUE_FIXTURE_CATALOG_HASH}:0`)
     .digest("hex"),
 };
+const IDEA_FIXTURE_CATALOG_HASH = "e".repeat(64);
+const IDEA_FIXTURE_SOURCE_HASH = "f".repeat(64);
 
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
@@ -1417,6 +1419,26 @@ test("recipe routes and MCP tools return the structured recipe", async () => {
     const slugCallResult = JSON.parse(slugCallResponse.result.content[0].text);
     assert.equal(slugCallResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
 
+    for (const recipeId of [
+      "recipe:ONEALL:CHECK-IN-STATUS-DASHBOARD",
+      "ONEALL/CHECK-IN-STATUS-DASHBOARD",
+      "https://kb.example.test/recipes/oneall%3Acheck-in-status-dashboard/verify",
+    ]) {
+      const aliasResponse = await mcp(mf, "tools/call", {
+        name: "kb_get_recipe",
+        arguments: { recipe_id: recipeId },
+      });
+      const aliasResult = JSON.parse(aliasResponse.result.content[0].text);
+      assert.equal(aliasResult.status, "ok");
+      assert.equal(aliasResult.recipe.recipe_id, "oneall:check-in-status-dashboard");
+    }
+
+    const unsafeAlias = await mcp(mf, "tools/call", {
+      name: "kb_get_recipe",
+      arguments: { recipe_id: "oneall/check-in/status-dashboard" },
+    });
+    assert.equal(JSON.parse(unsafeAlias.result.content[0].text).status, "not_found");
+
     const missingVerifyResponse = await mf.dispatchFetch("https://kb.example.test/recipes/missing%3Arecipe/verify?rock_version=18");
     assert.equal(missingVerifyResponse.status, 404);
   } finally {
@@ -1881,6 +1903,20 @@ test("Rock Ideas are explicit-intent routing metadata across REST, search, and M
     const call = await mcp(mf, "tools/call", { name: "kb_get_rock_idea", arguments: { idea: "2250" } });
     const toolResult = JSON.parse(call.result.content[0].text);
     assert.equal(toolResult.idea_id, "rock_idea:2250");
+
+    for (const idea of [
+      "idea:2250",
+      "https://kb.example.test/rock-ideas/2250",
+      "https://kb.example.test/results/rock_idea%3A2250",
+    ]) {
+      const aliasCall = await mcp(mf, "tools/call", {
+        name: "kb_get_rock_idea",
+        arguments: { idea },
+      });
+      const aliasResult = JSON.parse(aliasCall.result.content[0].text);
+      assert.equal(aliasResult.status, "ok");
+      assert.equal(aliasResult.idea_id, "rock_idea:2250");
+    }
 
     const conceptCall = await mcp(mf, "tools/call", {
       name: "kb_get_concept",
@@ -2361,12 +2397,32 @@ test("opted-in outcomes feed a privacy-bounded field-validation funnel and revie
     });
     assert.equal(report.status, 201);
 
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `INSERT INTO usage_events_v6 (
+         day, service_version, retrieval_projection, projection_version, event,
+         client_class, cohort, installation_hash, topic_hint, result_count,
+         primary_result_kind, count
+       ) VALUES ('2026-08-01', 'old-service', 'legacy', 'old-service', 'recipe_get',
+                 'cli', 'community', 'old-installation', 'unclassified', 0, 'none', 7)`,
+    ).run();
+    await db.prepare(
+      `INSERT INTO outcome_events_v1 (
+         day, installation_hash, client_class, cohort, result_id, result_kind,
+         retrieval_projection, projection_version, outcome, reason_codes, count
+       ) VALUES ('2026-08-01', 'old-installation', 'cli', 'community',
+                 'concept:security-permissions', 'concept', 'legacy', 'old-service',
+                 'partially_useful', 'missing_detail', 4)`,
+    ).run();
+
     const dashboard = await (await mf.dispatchFetch("https://kb.example.test/operations/dashboard")).json();
     assert.equal(dashboard.schema, "rock-kb-operations-dashboard-v5");
     assert.equal(dashboard.field_validation.default_scope.evaluation_traffic_included, false);
     assert.equal(dashboard.field_validation.default_scope.maintainer_traffic_included, false);
-    assert.equal(dashboard.field_validation.coverage.event_schema, "usage_events_v5");
+    assert.equal(dashboard.field_validation.coverage.event_schema, "usage_events_v6");
     assert.equal(dashboard.field_validation.coverage.historical_event_schemas_included, false);
+    assert.equal(dashboard.field_validation.coverage.service_version, "test-version");
+    assert.equal(dashboard.field_validation.coverage.historical_review_signal_count, 11);
     assert.equal(dashboard.field_validation.funnel.search_count, 3);
     assert.equal(dashboard.field_validation.funnel.exact_retrieval_count, 3);
     assert.equal(dashboard.field_validation.funnel.exact_retrieval_success_count, 1);
@@ -2379,12 +2435,21 @@ test("opted-in outcomes feed a privacy-bounded field-validation funnel and revie
     assert.equal(dashboard.field_validation.review_queue.by_signal.negative_outcome, 1);
     assert.equal(dashboard.field_validation.review_queue.by_signal.repeated_zero_result_topic, 1);
     assert.equal(dashboard.field_validation.review_queue.by_signal.failed_exact_lookup, 2);
+    assert.equal(
+      dashboard.field_validation.review_queue.items.some((row) => row.operation === "recipe_get"),
+      false,
+    );
+    assert.equal(
+      dashboard.field_validation.review_queue.items.some((row) => row.result_id === "concept:security-permissions"),
+      false,
+    );
     assert.equal(JSON.stringify(dashboard).includes(installationId), false);
     assert.equal(JSON.stringify(dashboard).includes(maintainerInstallationId), false);
     assert.equal(JSON.stringify(dashboard).includes("prayerzz"), false);
 
-    const db = await mf.getD1Database("KB_DB");
-    const stored = await db.prepare("SELECT installation_hash FROM outcome_events_v1 LIMIT 1").first();
+    const stored = await db.prepare(
+      "SELECT installation_hash FROM outcome_events_v1 WHERE installation_hash <> 'old-installation' LIMIT 1",
+    ).first();
     assert.match(stored.installation_hash, /^[0-9a-f]{64}$/);
     assert.notEqual(stored.installation_hash, installationId);
   } finally {
@@ -2616,7 +2681,10 @@ test("hosted source freshness keeps workflow schedule and source content state s
     ).bind("rock_core_issues", "Rock Core GitHub Issues", now, now, "b".repeat(64), now).run();
 
     const current = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
-    assert.equal(current.status, "ok");
+    assert.equal(current.status, "deployment_lag");
+    assert.equal(current.source_status, "ok");
+    assert.equal(current.projection_status, "deployment_lag");
+    assert.deepEqual(current.blocking_projection_ids, ["rock_issues"]);
     assert.equal(current.workflows.length, 3);
     assert.equal(current.sources[0].last_checked_at, now);
     assert.equal(current.sources[0].content_changed_at, now);
@@ -2666,6 +2734,28 @@ test("hosted source freshness keeps workflow schedule and source content state s
       currentAssessment.catalog.source_content_hashes.rock_core_issues,
       ISSUE_FIXTURE_SOURCE_HASHES.rock_core_issues,
     );
+
+    await db.prepare(
+      `INSERT INTO source_freshness_state_v1
+       (source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at, result_count, content_hash, check_status, status, observed_at, workflow_id)
+       VALUES (?, ?, 'daily', 48, ?, ?, 1, ?, 'success', 'current', ?, 'daily-sources')`,
+    ).bind("rock_ideas", "Rock Community Ideas", now, now, "0".repeat(64), now).run();
+    const laggingIdeas = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(laggingIdeas.status, "deployment_lag");
+    assert.equal(laggingIdeas.rock_ideas.status, "deployment_lag");
+    assert.equal(laggingIdeas.rock_ideas.source_result_count, 1);
+    assert.equal(laggingIdeas.rock_ideas.projection_record_count, 1);
+    assert.equal(laggingIdeas.rock_ideas.projection_count_matches_source, true);
+    assert.equal(laggingIdeas.rock_ideas.projection_content_matches_source, false);
+
+    await db.prepare("UPDATE source_freshness_state_v1 SET content_hash = ? WHERE source_id = 'rock_ideas'")
+      .bind(IDEA_FIXTURE_SOURCE_HASH).run();
+    const currentIdeas = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(currentIdeas.status, "ok");
+    assert.equal(currentIdeas.projection_status, "current");
+    assert.equal(currentIdeas.rock_ideas.status, "current");
+    assert.equal(currentIdeas.rock_ideas.projection_catalog_content_hash, IDEA_FIXTURE_CATALOG_HASH);
+    assert.equal(currentIdeas.rock_ideas.projection_matches_source, true);
 
     const freshnessTool = await mcp(mf, "tools/call", { name: "kb_get_freshness", arguments: {} });
     assert.equal(freshnessTool.result.structuredContent.status, "ok");
@@ -2929,6 +3019,10 @@ async function buildWorker(options = {}) {
       .bind(ISSUE_FIXTURE_CATALOG_HASH).run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_source_content_hashes', ?)")
       .bind(JSON.stringify(ISSUE_FIXTURE_SOURCE_HASHES)).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_catalog_content_hash', ?)")
+      .bind(IDEA_FIXTURE_CATALOG_HASH).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_source_content_hash', ?)")
+      .bind(IDEA_FIXTURE_SOURCE_HASH).run();
     if (options.artifactPrefix) {
       await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('artifact_prefix', ?)").bind(options.artifactPrefix).run();
     }

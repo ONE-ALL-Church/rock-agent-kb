@@ -873,33 +873,83 @@ def test_client_okf_commands_are_read_only(monkeypatch, tmp_path, capsys):
     assert "rock-kb-okf-validation-v1" in capsys.readouterr().out
 
 
-def test_client_okf_verifier_accepts_directory_and_archive(tmp_path):
-    load_client_cli()
-    from rock_kb_client.okf import verify_okf
-
-    bundle = tmp_path / "bundle"
+def write_rock_okf_fixture(bundle: Path, okf_version: str) -> Path:
+    contracts = {
+        "0.1": {
+            "schema": "rock-kb-okf-distribution-v1",
+            "profile": "rock-kb-okf-profile-v1",
+            "spec": "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a",
+        },
+        "0.2": {
+            "schema": "rock-kb-okf-distribution-v2",
+            "profile": "rock-kb-okf-profile-v2",
+            "spec": "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96",
+        },
+    }
+    contract = contracts[okf_version]
     bundle.mkdir()
-    (bundle / "index.md").write_text("---\nokf_version: '0.1'\n---\n\n# Fixture\n\n[Claim](claims/example.md)\n", encoding="utf-8")
-    (bundle / "log.md").write_text("# Log\n\n## 2026-07-13\n\n* **Creation**: Fixture.\n", encoding="utf-8")
+    generated = {
+        "generated": {
+            "by": "process:rock-kb-okf-export",
+            "at": "2026-07-27T23:00:00Z",
+        },
+        "sources": [
+            {
+                "id": "fixture",
+                "resource": "https://example.test/source",
+                "title": "Fixture source",
+            }
+        ],
+    }
+    root_metadata = {"okf_version": okf_version}
+    if okf_version == "0.2":
+        root_metadata.update(generated)
+    (bundle / "index.md").write_text(
+        f"---\n{json.dumps(root_metadata)}\n---\n\n# Fixture\n\n[Claim](claims/example.md)\n",
+        encoding="utf-8",
+    )
+    (bundle / "log.md").write_text(
+        "# Log\n\n## 2026-07-13\n\n* **Creation**: Fixture.\n",
+        encoding="utf-8",
+    )
     (bundle / "claims").mkdir()
-    (bundle / "claims" / "example.md").write_text("---\ntype: Claim\nid: claim:example\ncanonical_id: claim:example\ntitle: Example\nstructured_record: /records/claim/example.json\n---\n\n# Example\n", encoding="utf-8")
+    claim_metadata = {
+        "type": "Claim",
+        "id": "claim:example",
+        "canonical_id": "claim:example",
+        "title": "Example",
+        "structured_record": "/records/claim/example.json",
+    }
+    if okf_version == "0.2":
+        claim_metadata.update(generated)
+    (bundle / "claims" / "example.md").write_text(
+        f"---\n{json.dumps(claim_metadata)}\n---\n\n# Example\n",
+        encoding="utf-8",
+    )
     (bundle / "records" / "claim").mkdir(parents=True)
     (bundle / "records" / "claim" / "example.json").write_text(
         '{"schema":"rock-kb-okf-structured-record-v1","kind":"claim","canonical_id":"claim:example"}\n',
         encoding="utf-8",
     )
-    (bundle / "profile.md").write_text("---\ntype: Reference\ntitle: Profile\n---\n\n# Profile\n", encoding="utf-8")
+    profile_metadata = {"type": "Reference", "title": "Profile"}
+    if okf_version == "0.2":
+        profile_metadata.update(generated)
+    (bundle / "profile.md").write_text(
+        f"---\n{json.dumps(profile_metadata)}\n---\n\n# Profile\n",
+        encoding="utf-8",
+    )
     (bundle / "LICENSE.txt").write_text("MIT\n", encoding="utf-8")
     (bundle / "NOTICE.txt").write_text("Notice\n", encoding="utf-8")
     (bundle / "relationships.jsonl").write_text("", encoding="utf-8")
     (bundle / "file-manifest.jsonl").write_text("", encoding="utf-8")
     manifest = {
-        "schema": "rock-kb-okf-distribution-v1",
-        "okf_version": "0.1",
-        "okf_spec_commit": "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a",
-        "okf_profile": "rock-kb-okf-profile-v1",
+        "schema": contract["schema"],
+        "okf_version": okf_version,
+        "okf_spec_commit": contract["spec"],
+        "okf_profile": contract["profile"],
         "profile": "core",
         "distribution_version": "test",
+        "generated_at": "2026-07-27T23:00:00Z",
         "read_only": True,
         "license": {"code": "MIT", "original_content": "CC-BY-4.0", "notice": "NOTICE.txt"},
         "relationships": 0,
@@ -907,6 +957,11 @@ def test_client_okf_verifier_accepts_directory_and_archive(tmp_path):
         "markdown_files": 4,
     }
     (bundle / "okf-manifest.json").write_text(json.dumps(manifest) + "\n", encoding="utf-8")
+    rewrite_okf_fixture_checksums(bundle)
+    return bundle
+
+
+def rewrite_okf_fixture_checksums(bundle: Path) -> None:
     checksum_targets = sorted(
         path.relative_to(bundle).as_posix()
         for path in bundle.rglob("*")
@@ -920,7 +975,18 @@ def test_client_okf_verifier_accepts_directory_and_archive(tmp_path):
         encoding="utf-8",
     )
 
+
+def test_client_okf_verifier_accepts_legacy_v01_directory_and_archive(tmp_path):
+    load_client_cli()
+    from rock_kb_client.okf import inspect_okf, verify_okf
+
+    bundle = write_rock_okf_fixture(tmp_path / "bundle-v01", "0.1")
+
     assert verify_okf(bundle)["status"] == "ok"
+    inspection = inspect_okf(bundle)
+    assert inspection["okf_version"] == "0.1"
+    assert inspection["legacy_v01"] is True
+    assert inspection["strict_verification_supported"] is True
 
     archive_path = tmp_path / "bundle.zip"
     with zipfile.ZipFile(archive_path, "w") as archive:
@@ -928,6 +994,32 @@ def test_client_okf_verifier_accepts_directory_and_archive(tmp_path):
             if path.is_file():
                 archive.write(path, f"rock-agent-kb-okf-vtest/{path.relative_to(bundle).as_posix()}")
     assert verify_okf(archive_path)["status"] == "ok"
+
+
+def test_client_okf_verifier_accepts_v02_and_rejects_mixed_contract(tmp_path):
+    load_client_cli()
+    from rock_kb_client.okf import conform_okf, inspect_okf, verify_okf
+
+    bundle = write_rock_okf_fixture(tmp_path / "bundle-v02", "0.2")
+
+    assert conform_okf(bundle)["status"] == "ok"
+    assert not any("unknown OKF version" in warning for warning in conform_okf(bundle)["warnings"])
+    assert verify_okf(bundle)["status"] == "ok"
+    inspection = inspect_okf(bundle)
+    assert inspection["okf_version"] == "0.2"
+    assert inspection["okf_profile"] == "rock-kb-okf-profile-v2"
+    assert inspection["legacy_v01"] is False
+    assert inspection["strict_verification_supported"] is True
+
+    manifest_path = bundle / "okf-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["okf_profile"] = "rock-kb-okf-profile-v1"
+    manifest_path.write_text(json.dumps(manifest) + "\n", encoding="utf-8")
+    rewrite_okf_fixture_checksums(bundle)
+
+    report = verify_okf(bundle)
+    assert report["status"] == "failed"
+    assert any("unexpected OKF extension profile for v0.2" in error for error in report["errors"])
 
 
 def test_client_okf_generic_conformance_is_not_rock_distribution_verification(tmp_path):
@@ -982,6 +1074,16 @@ def test_client_okf_archive_limits_and_duplicate_paths(monkeypatch, tmp_path):
         assert "duplicate path" in str(exc)
     else:
         raise AssertionError("duplicate archive path was accepted")
+
+    unsafe = tmp_path / "unsafe.zip"
+    with zipfile.ZipFile(unsafe, "w") as archive:
+        archive.writestr("../escape.md", "unsafe")
+    try:
+        okf.read_bundle(unsafe)
+    except ValueError as exc:
+        assert "unsafe path" in str(exc)
+    else:
+        raise AssertionError("archive path traversal was accepted")
 
     monkeypatch.setattr(okf, "MAX_FILE_BYTES", 8)
     oversized = tmp_path / "oversized.zip"

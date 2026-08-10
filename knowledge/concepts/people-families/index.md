@@ -2,7 +2,7 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-08-08T15:36:28+00:00
+last_built: 2026-08-10T22:17:29+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80

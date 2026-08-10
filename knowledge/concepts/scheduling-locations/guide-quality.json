@@ -44,7 +44,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 16 entity rows; expected at least 3.",
+      "message": "Guide has 18 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -75,15 +75,15 @@
   ],
   "concept_id": "scheduling-locations",
   "contribution_record_count": 0,
-  "entity_count": 16,
-  "generated_at": "2026-08-08T15:37:47+00:00",
+  "entity_count": 18,
+  "generated_at": "2026-08-10T22:19:00+00:00",
   "guide_line_count": 1144,
   "guide_word_count": 11358,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
     "answer_claim_reference_count": 0,
-    "entity_count": 16,
+    "entity_count": 18,
     "section_count": 91,
     "source_count": 73,
     "substantive_uncited_section_ratio": 0.0167,

@@ -31,7 +31,10 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     )
 
     assert report["status"] == "ok"
-    assert report["okf_version"] == "0.1"
+    assert report["schema"] == "rock-kb-okf-distribution-v2"
+    assert report["okf_version"] == "0.2"
+    assert report["okf_profile"] == "rock-kb-okf-profile-v2"
+    assert report["okf_spec_commit"] == "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
     assert report["distribution_version"] == "9.8.7"
     assert report["source_commit"] == "0123456789abcdef"
     assert report["read_only"] is True
@@ -54,7 +57,13 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert (destination / "profile.md").exists()
 
     root_index = (destination / "index.md").read_text(encoding="utf-8")
-    assert read_frontmatter(root_index)["okf_version"] == "0.1"
+    root_metadata = read_frontmatter(root_index)
+    assert root_metadata["okf_version"] == "0.2"
+    assert root_metadata["generated"] == {
+        "by": "process:rock-kb-okf-export",
+        "at": "2026-07-09T12:00:00+00:00",
+    }
+    assert "timestamp" not in root_metadata
     assert "complete read-only Open Knowledge Format distribution" in root_index
     assert "## 2026-07-09" in (destination / "log.md").read_text(encoding="utf-8")
     assert "2026-07-09T12:00:00" not in (destination / "log.md").read_text(encoding="utf-8")
@@ -82,6 +91,10 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
             continue
         metadata = read_frontmatter(path.read_text(encoding="utf-8"))
         seen_types.add(str(metadata["type"]))
+        assert metadata["generated"]["by"] == "process:rock-kb-okf-export"
+        assert metadata["generated"]["at"]
+        assert metadata["sources"]
+        assert all(source["resource"] for source in metadata["sources"])
         if metadata.get("id"):
             assert metadata["id"] not in seen_ids
             seen_ids.add(str(metadata["id"]))
@@ -99,6 +112,12 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert recipe_metadata["source_path"]
     assert (destination / str(recipe_metadata["structured_record"]).lstrip("/")).exists()
     assert {row["type"] for row in recipe_metadata["relationships"]} >= {"about", "supersedes"}
+    assert recipe_metadata["sources"][0]["id"] == "rock-kb-canonical"
+    assert "/blob/0123456789abcdef/" not in recipe_metadata["sources"][0]["resource"]
+    assert "/blob/main/" in recipe_metadata["sources"][0]["resource"]
+    recipe_body = recipe.read_text(encoding="utf-8")
+    assert "## Citations" not in recipe_body
+    assert "](/" not in recipe_body
 
     lava_row = next(
         row
@@ -203,6 +222,8 @@ def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_pat
     assert report["counts"]["recipes"] == len(list(read_jsonl(Path("agent/recipes.jsonl"))))
     assert find_document(destination, "model_map:stable:group")
     assert audit_okf_export(destination) == []
+    assert report["okf_version"] == "0.2"
+    assert report["okf_profile"] == "rock-kb-okf-profile-v2"
 
 
 

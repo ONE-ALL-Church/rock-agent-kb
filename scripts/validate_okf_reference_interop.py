@@ -11,7 +11,7 @@ from pathlib import Path, PurePosixPath
 
 
 UPSTREAM_REPOSITORY = "https://github.com/GoogleCloudPlatform/knowledge-catalog.git"
-UPSTREAM_COMMIT = "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a"
+UPSTREAM_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
 RESERVED = {"index.md", "log.md"}
 CLIENT_SOURCE = Path(__file__).resolve().parents[1] / "clients" / "python" / "src"
 
@@ -26,38 +26,57 @@ def main() -> int:
         work = Path(temporary)
         bundle_root = materialize_bundle(args.bundle.resolve(), work / "bundle")
         upstream = args.upstream_dir.resolve() if args.upstream_dir else checkout_upstream(work / "upstream")
-        reference_src = upstream / "okf" / "src"
-        if not reference_src.exists():
-            raise RuntimeError(f"Official OKF reference source not found: {reference_src}")
-        sys.path.insert(0, str(reference_src))
-        generator = importlib.import_module("enrichment_agent.viewer.generator")
-        concepts = generator._walk_concepts(bundle_root)
-        graph = generator._build_graph(concepts)
-
-        expected = {
-            path.relative_to(bundle_root).with_suffix("").as_posix()
-            for path in bundle_root.rglob("*.md")
-            if path.name not in RESERVED
-        }
-        parsed = {
-            str(concept.id)
-            for concept in concepts
-            if PurePosixPath(str(concept.id)).name not in {"index", "log"}
-        }
-        missing = sorted(expected - parsed)
-        edge_count = len(graph["edges"])
-        report = {
-            "schema": "rock-kb-okf-reference-interop-v1",
-            "status": "ok" if not missing and edge_count else "failed",
-            "upstream_commit": UPSTREAM_COMMIT,
-            "expected_documents": len(expected),
-            "parsed_documents": len(parsed),
-            "graph_nodes": len(graph["nodes"]),
-            "graph_edges": edge_count,
-            "missing_documents": missing[:50],
-        }
+        report = validate_reference_interop(bundle_root, upstream)
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0 if report["status"] == "ok" else 1
+
+
+def validate_reference_interop(bundle_root: Path, upstream: Path) -> dict:
+    reference_src = upstream / "okf" / "src"
+    if not reference_src.exists():
+        raise RuntimeError(f"Official OKF reference source not found: {reference_src}")
+    sys.path.insert(0, str(reference_src))
+    generator = importlib.import_module("reference_agent.viewer.generator")
+    concepts = generator._walk_concepts(bundle_root)
+    graph = generator._build_graph(concepts)
+
+    expected = {
+        path.relative_to(bundle_root).with_suffix("").as_posix()
+        for path in bundle_root.rglob("*.md")
+        if path.name not in RESERVED
+    }
+    parsed_concepts = [
+        concept
+        for concept in concepts
+        if PurePosixPath(str(concept.id)).name not in {"index", "log"}
+    ]
+    parsed = {str(concept.id) for concept in parsed_concepts}
+    missing = sorted(expected - parsed)
+    edge_count = len(graph["edges"])
+    generated_documents = sum(
+        1
+        for concept in parsed_concepts
+        if isinstance(concept.generated, dict)
+        and concept.generated.get("by")
+        and concept.generated.get("at")
+    )
+    sourced_documents = sum(1 for concept in parsed_concepts if concept.sources)
+    complete_v02_provenance = (
+        generated_documents == len(expected)
+        and sourced_documents == len(expected)
+    )
+    return {
+        "schema": "rock-kb-okf-reference-interop-v1",
+        "status": "ok" if not missing and edge_count and complete_v02_provenance else "failed",
+        "upstream_commit": UPSTREAM_COMMIT,
+        "expected_documents": len(expected),
+        "parsed_documents": len(parsed),
+        "graph_nodes": len(graph["nodes"]),
+        "graph_edges": edge_count,
+        "generated_documents": generated_documents,
+        "sourced_documents": sourced_documents,
+        "missing_documents": missing[:50],
+    }
 
 
 def materialize_bundle(source: Path, destination: Path) -> Path:

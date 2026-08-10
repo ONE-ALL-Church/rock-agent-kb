@@ -276,7 +276,10 @@ Use `core` as the normal starting point for a smaller local agent index. Use
 routing data, source summaries, and contribution provenance. Options include
 `--format tar.gz`, `--version X.Y.Z`, and `--destination <path>`. Downloads
 require published SHA-256 evidence. `conformance` handles generic OKF bundles;
-`verify` applies Rock release integrity and safety rules. The client does not
+`verify` applies Rock release integrity and safety rules. Inspection reports
+the declared OKF/profile/spec tuple and whether strict verification supports
+it. The client accepts current Rock v0.2 distributions and previously
+published Rock v0.1 bundles under their exact legacy contract; it does not
 import OKF into trusted knowledge.
 
 To test unreleased client changes directly from GitHub, use:

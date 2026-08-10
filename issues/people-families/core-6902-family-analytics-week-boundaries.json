@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6902-family-analytics-week-boundaries-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6902",
   "diagnosis_status": "maintainer_confirmed",
-  "diagnosis_summary": "Rock confirmed and closed this issue with commit 942f6ebc1e803ba4cd38325a2d399c6810be7cec. The pre-fix Family Analytics procedures mixed date-time transaction or attendance fields with Sunday-midnight boundaries, which could include the starting Sunday and exclude activity later on the final Sunday. The fix changes the final eligibility and count windows to compare derived SundayDate values against an exclusive lower boundary and inclusive upper boundary. A later public comment notes that the broad eRA transaction staging query still uses TransactionDateTime and the procedure still uses GETDATE for created/start values; Rock acknowledged that follow-up and is reviewing it. Treat the original boundary fix as source-confirmed, but do not imply that the follow-up time-zone concern is resolved.",
+  "diagnosis_summary": "Rock confirmed and closed this issue with commit 942f6ebc1e803ba4cd38325a2d399c6810be7cec. The pre-fix Family Analytics procedures mixed date-time transaction or attendance fields with Sunday-midnight boundaries, which could include the starting Sunday and exclude activity later on the final Sunday. That commit changes the final eligibility and count windows to compare derived SundayDate values against an exclusive lower boundary and inclusive upper boundary. Follow-up commit 5266a430722858b3237d8766ddaf368a5b23d47a changes the remaining broad eRA transaction and attendance pre-filters to SundayDate and replaces the procedure's GETDATE calls with dbo.RockGetDate. The current issue is closed and officially labeled Fixed in v19.5.",
   "workaround_summaries": [
-    "Use a Rock package proven to contain the fixing commit. Before upgrade, treat Family Analytics and eRA values near a weekly boundary as potentially stale, but do not rewrite stock procedures or manually change derived person attributes in production. After upgrade, follow the normal job and reporting validation process before relying on recalculated values."
+    "Use a Rock package proven to contain follow-up commit 5266a430722858b3237d8766ddaf368a5b23d47a or an independently verified equivalent containing both fixes. Before upgrade, treat Family Analytics and eRA values near a weekly boundary as potentially stale, but do not rewrite stock procedures or manually change derived person attributes in production. After upgrade, follow the normal job and reporting validation process before relying on recalculated values."
   ],
   "verification_playbook": {
     "goal": "Determine whether all three installed Family Analytics procedures use the corrected SundayDate boundary contract without returning procedure bodies or person-level results.",
@@ -18,9 +18,9 @@
         "step_id": "check-fixed-build",
         "title": "Check build ancestry",
         "method": "source_revision_check",
-        "instructions": "Confirm whether the installed package contains commit 942f6ebc1e803ba4cd38325a2d399c6810be7cec or an independently verified equivalent migration and procedure update.",
-        "expected_if_affected": "The build predates the fix or does not contain the equivalent SundayDate changes in all three procedures.",
-        "expected_if_unaffected": "The package contains the fixing commit or an equivalent reviewed change in all three procedures.",
+        "instructions": "Confirm whether the installed package contains follow-up commit 5266a430722858b3237d8766ddaf368a5b23d47a or an independently verified equivalent that includes the original SundayDate correction, the remaining eRA pre-filter correction, and Rock-configured time-zone timestamps.",
+        "expected_if_affected": "The build predates the follow-up fix or lacks one or more equivalent SundayDate or RockGetDate changes.",
+        "expected_if_unaffected": "The package contains the follow-up fixing commit or equivalent reviewed changes in all three procedures.",
         "evidence_to_record": [
           "Rock version",
           "package or commit identifier"
@@ -33,12 +33,12 @@
         "title": "Inspect aggregate procedure-contract flags",
         "method": "read_only_sql",
         "instructions": "Return only visibility and corrected-contract booleans. Do not return procedure definitions, person records, attendance, transactions, or attribute values.",
-        "probe": "SELECT CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) IS NULL THEN 0 ELSE 1 END AS EraProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) LIKE '%ft.SundayDate%>%@SundayEntryGivingDurationShort%' THEN 1 ELSE 0 END AS EraUsesSundayDateBoundaries, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsGiving')) IS NULL THEN 0 ELSE 1 END AS GivingProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsGiving')) LIKE '%ft.SundayDate%>%@SundayGivingDurationShort%' THEN 1 ELSE 0 END AS GivingUsesSundayDateBoundaries, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsAttendance')) IS NULL THEN 0 ELSE 1 END AS AttendanceProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsAttendance')) LIKE '%O.[SundayDate]%<=%@SundayDateStart%O.[SundayDate]%>%@SundayEntryAttendanceDuration%' THEN 1 ELSE 0 END AS AttendanceUsesSundayDateBoundaries",
+        "probe": "SELECT CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) IS NULL THEN 0 ELSE 1 END AS EraProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) LIKE '%ft.SundayDate%>%@SundayEntryGivingDurationShort%' THEN 1 ELSE 0 END AS EraUsesSundayDateBoundaries, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) LIKE '%ft.SundayDate%>%@SundayEntryGivingDurationLong%' AND OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) LIKE '%O.SundayDate%>%@SundayExitAttendanceDurationLong%' THEN 1 ELSE 0 END AS EraUsesSundayDatePreFilters, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsEraDataset')) LIKE '%dbo.RockGetDate()%' THEN 1 ELSE 0 END AS EraUsesRockDate, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsGiving')) IS NULL THEN 0 ELSE 1 END AS GivingProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsGiving')) LIKE '%ft.SundayDate%>%@SundayGivingDurationShort%' THEN 1 ELSE 0 END AS GivingUsesSundayDateBoundaries, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsAttendance')) IS NULL THEN 0 ELSE 1 END AS AttendanceProcedureVisible, CASE WHEN OBJECT_DEFINITION(OBJECT_ID(N'dbo.spCrm_FamilyAnalyticsAttendance')) LIKE '%O.[SundayDate]%<=%@SundayDateStart%O.[SundayDate]%>%@SundayEntryAttendanceDuration%' THEN 1 ELSE 0 END AS AttendanceUsesSundayDateBoundaries",
         "expected_if_affected": "All procedures are visible and one or more corrected-contract flags are zero.",
         "expected_if_unaffected": "All procedures are visible and all corrected-contract flags are one.",
         "evidence_to_record": [
           "procedure visibility flags",
-          "corrected boundary flags"
+          "corrected boundary, pre-filter, and Rock time flags"
         ],
         "requires_privileged_access": true,
         "mutation_risk": "none"
@@ -48,7 +48,7 @@
       "A zero visibility flag means the check is inconclusive because the login may lack VIEW DEFINITION permission.",
       "Correct procedure text does not prove that derived attributes have already been recalculated or that historical values were never affected.",
       "A locally customized procedure may require a source review even when its text does not match the stock signature exactly.",
-      "The fixing revision still uses TransactionDateTime in the broad eRA transaction staging query and GETDATE for two generated values. Rock has acknowledged a public follow-up about those lines, but no subsequent fix is linked yet."
+      "A package can contain the original commit without the follow-up commit, so verify the complete installed procedure contract instead of relying on issue closure alone."
     ],
     "production_safe": true
   },
@@ -78,7 +78,7 @@
       "component": "rock_core",
       "version_scheme": "git",
       "context": {
-        "scope": "exact stock procedure and hotfix revision"
+        "scope": "original final-window SundayDate correction; follow-up commit is required for the remaining eRA pre-filter and Rock time corrections"
       },
       "versions": ["942f6ebc1e803ba4cd38325a2d399c6810be7cec"],
       "ranges": [],
@@ -99,27 +99,52 @@
       "assessed_at": "2026-07-17T08:48:12Z"
     },
     {
-      "assertion_id": "core-6902-fixed-19.4",
+      "assertion_id": "core-6902-fixed-by-followup-commit-5266a43",
       "component": "rock_core",
-      "version_scheme": "rock_release",
-      "release_track": "19.4",
+      "version_scheme": "git",
       "context": {
-        "scope": "official GitHub fix release line; verify exact package inclusion"
+        "scope": "complete reviewed Family Analytics boundary and configured-time-zone source correction"
       },
-      "versions": ["19.4"],
+      "versions": ["5266a430722858b3237d8766ddaf368a5b23d47a"],
       "ranges": [],
       "status": "fixed",
       "fix_refs": [
-        "https://github.com/SparkDevNetwork/Rock/commit/942f6ebc1e803ba4cd38325a2d399c6810be7cec"
+        "https://github.com/SparkDevNetwork/Rock/commit/5266a430722858b3237d8766ddaf368a5b23d47a"
       ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6902",
-        "https://github.com/SparkDevNetwork/Rock/commit/942f6ebc1e803ba4cd38325a2d399c6810be7cec"
+        "https://github.com/SparkDevNetwork/Rock/commit/942f6ebc1e803ba4cd38325a2d399c6810be7cec",
+        "https://github.com/SparkDevNetwork/Rock/commit/5266a430722858b3237d8766ddaf368a5b23d47a",
+        "https://github.com/SparkDevNetwork/Rock/blob/5266a430722858b3237d8766ddaf368a5b23d47a/database/Procedures/spCrm_FamilyAnalyticsEraDataset.sql"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-08-10T20:43:27Z"
+    },
+    {
+      "assertion_id": "core-6902-fixed-19.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.5",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.5"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/5266a430722858b3237d8766ddaf368a5b23d47a"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6902",
+        "https://github.com/SparkDevNetwork/Rock/commit/942f6ebc1e803ba4cd38325a2d399c6810be7cec",
+        "https://github.com/SparkDevNetwork/Rock/commit/5266a430722858b3237d8766ddaf368a5b23d47a"
       ],
       "authority_tier": "official",
       "claim_tier": "source_backed",
       "confidence": "medium",
-      "assessed_at": "2026-07-17T08:48:12Z"
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "source_refs": [
@@ -129,16 +154,18 @@
     "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsGiving.sql",
     "https://github.com/SparkDevNetwork/Rock/blob/942f6ebc1e803ba4cd38325a2d399c6810be7cec/database/Procedures/spCrm_FamilyAnalyticsAttendance.sql",
     "https://github.com/SparkDevNetwork/Rock/issues/6902#issuecomment-5122978754",
-    "https://github.com/SparkDevNetwork/Rock/issues/6902#issuecomment-5133134429"
+    "https://github.com/SparkDevNetwork/Rock/issues/6902#issuecomment-5133134429",
+    "https://github.com/SparkDevNetwork/Rock/commit/5266a430722858b3237d8766ddaf368a5b23d47a",
+    "https://github.com/SparkDevNetwork/Rock/blob/5266a430722858b3237d8766ddaf368a5b23d47a/database/Procedures/spCrm_FamilyAnalyticsEraDataset.sql"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "codex-public-source-revalidation-2026-07-30",
-  "issue_updated_at": "2026-07-30T15:50:22Z",
-  "reviewed_at": "2026-07-31T00:18:53Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-08-05T19:45:36Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -17,6 +17,7 @@ from .extract import USER_AGENT, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR
 from .rock_idea_relationships import build_rock_idea_relationship_artifacts
+from .source_hashing import source_content_hash
 from .sources import Source, get_source
 
 
@@ -152,6 +153,7 @@ def sync_rock_ideas(
         catalog_complete=catalog_complete,
         detail_selected=detail_selected,
         detail_refreshed=detail_refreshed,
+        normalized_rows=normalized_rows,
         previous=previous_summary,
     )
     summary["relationships"] = build_rock_idea_relationship_artifacts(idea_rows, checked_at=checked_at)
@@ -793,6 +795,7 @@ def build_rock_idea_summary(
     catalog_complete: bool,
     detail_selected: int,
     detail_refreshed: int,
+    normalized_rows: Optional[list[dict[str, Any]]] = None,
     previous: Optional[dict[str, Any]] = None,
 ) -> dict[str, Any]:
     catalog_content_hash = sha256_text(
@@ -809,12 +812,25 @@ def build_rock_idea_summary(
         and previous.get("content_changed_at")
         else checked_at
     )
+    normalized_source_hash = ""
+    if normalized_rows is not None:
+        normalized_source_hash = source_content_hash(
+            {
+                "source_records": {
+                    str(row.get("id") or ""): row
+                    for row in normalized_rows
+                    if row.get("id")
+                }
+            },
+            "rock_ideas",
+        )
     return {
         "schema": "rock-kb-rock-idea-summary-v1",
         "generated_at": checked_at,
         "last_checked_at": checked_at,
         "content_changed_at": content_changed_at,
         "catalog_content_hash": catalog_content_hash,
+        "source_content_hash": normalized_source_hash or str((previous or {}).get("source_content_hash") or ""),
         "status": "ok" if catalog_complete else "incomplete",
         "source_id": "rock_ideas",
         "record_count": len(rows),

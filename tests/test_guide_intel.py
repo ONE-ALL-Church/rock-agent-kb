@@ -62,7 +62,7 @@ def test_task_cards_include_matching_troubleshooting_checks():
         "2. Confirm the group, location, and schedule link exists.\n"
         "3. Check device scope and room capacity.\n\n"
         "## Agent Task Recipes\n\n"
-        "### Recipe: Prove Why A Check-In Room Is Not Available\n\n"
+        "### Recipe: Diagnose A Missing Check-In Room\n\n"
         "Collect evidence before changing configuration.\n\n"
         "- Check-in configuration name and ID.\n"
         "- Location ID and path.\n"
@@ -86,6 +86,33 @@ def test_task_cards_include_matching_troubleshooting_checks():
         "Agent Task Recipes",
         "Troubleshooting Decision Tree",
     ]
+
+
+def test_check_in_room_task_override_orders_read_only_diagnosis():
+    markdown = (
+        "## Agent Task Recipes\n\n"
+        "### Recipe: Prove Why A Check-In Room Is Not Available\n\n"
+        "Collect evidence before changing configuration.\n\n"
+        "1. Inspect the location.\n"
+    )
+    section_rows = section_source_map(
+        "scheduling-locations",
+        parse_markdown_sections(markdown),
+        {},
+    )
+
+    card = build_task_cards(
+        "scheduling-locations",
+        markdown,
+        section_rows,
+        {},
+    )[0]
+
+    assert card["decision_order"][0].startswith("Reproduce the exact person")
+    assert card["steps"][3].startswith("Confirm a GroupLocation record")
+    assert card["steps"][9].startswith("Trace Check-In workflow filters")
+    assert "model_map:stable:group-location" in card["related_result_ids"]
+    assert card["do_not_assume"][0].startswith("A room with the right name")
 
 
 def test_task_card_enrichment_adds_troubleshooting_sources_after_recipe_sources():

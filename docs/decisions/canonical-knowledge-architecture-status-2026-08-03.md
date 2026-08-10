@@ -2,7 +2,7 @@
 
 Date: 2026-08-03
 
-Last updated: 2026-08-08
+Last updated: 2026-08-10
 
 Status: accepted architecture, canonical active, legacy rollback retained
 
@@ -53,14 +53,14 @@ code disagree.
 
 ## Current Evidence
 
-The tracked source-native bundle now covers five source families, 64 articles,
-23 concept facets, 2,052 addressable source units, and 391 reviewed artifacts:
-117 claims, 26 recipes, 54 source summaries, 145 structured references, and 49
-task cards. It also contains 343 typed relationships and 417 source-native
-evaluation cases. All 64 generation activities use `gpt-5.6-sol` and input
-hash version `2`. The manifest preserves the exact prompt history: 31 initial
+The tracked source-native bundle now covers five source families, 68 articles,
+26 concept facets, 1,773 addressable source units, and 415 reviewed artifacts:
+120 claims, 26 recipes, 63 source summaries, 152 structured references, and 54
+task cards. It also contains 427 typed relationships and 441 source-native
+evaluation cases. All 68 generation activities use `gpt-5.6-sol` and input
+hash version `2`. The manifest preserves the exact prompt history: 23 initial
 distillations at version `2.3.1`, 26 migration activities at wrapper version
-`1.3.0`, and seven at wrapper version `1.3.1`.
+`1.3.0`, and 19 at wrapper version `1.3.1`.
 
 The final 12 prompt-`2.3.0` documentation records were refreshed before
 reprocessing. Their upstream content hashes were unchanged, so the change
@@ -77,9 +77,22 @@ and 18 explicit retentions, with no unmatched routing terms. Static Lava pages
 now extract the nested article rather than navigation chrome; this reduced the
 Lava Commands candidate from 100 units to 13 and the Lava API candidate from
 130 to 45. Parser version `1.1.0` and URL aliases make that change observable
-and preserve the redirected `/lava/commands` identity. Seven older static
-parser-`1.0.0` records remain distinguishable refresh debt: four community
-articles and three Lava pages.
+and preserve the redirected `/lava/commands` identity. The seven older static
+parser-`1.0.0` records have now been refreshed and reviewed under parser
+`1.1.0`: AI Agents v19, Types of Shortcodes, Fluid Differences, Volunteer
+Onboarding, RockCast 197, Mobile v19, and Tag List. Their legacy and
+source-native identities were explicitly retained or replaced; none remains as
+hidden parser debt.
+
+The 2026-08-10 migration completed the next coherent Group, Communication,
+Core, Media, and parser-refresh batch. It migrated Group Attendance Digest,
+Group Type Requirements, Core Field Type Patterns, Media Player, and
+Communication Lists, then refreshed the seven parser records above. The batch
+records 81 exact legacy migrations and five source-native artifact migrations.
+Communication Lists was additionally checked against immutable current Rock
+source for its seeded categories and sample lists; mutable Mailgun references
+were rebound to current official content hashes without changing their reviewed
+meaning.
 
 The same refresh now yields 60 normalized Lava records and 285 distinct
 capability rows, including 26 named command rows and 36 high-risk rows with
@@ -90,15 +103,15 @@ Started snapshot and all 13 contextual prefixes while preserving its source
 snapshot identity, content hash, source-unit IDs, redirect alias, reviewed
 artifact, and original Sol generation activity.
 
-The final 2026-08-08 canonical retrieval shadow evaluated 586 questions through the
+The final 2026-08-10 canonical retrieval shadow evaluated 610 questions through the
 production Worker's local FTS and ranking implementation:
 
-- 422 improved, 164 were unchanged, none regressed, and no failures were shared
+- 446 improved, 164 were unchanged, none regressed, and no failures were shared
   by both projections;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
 - all ten exact REST and stateless MCP compatibility cases passed; and
-- serialized canonical projection storage increased by 6.576 percent, within
+- serialized canonical projection storage increased by 6.656 percent, within
   the 10 percent gate.
 
 The final isolated service quality gate also passed all 166 tracked questions.
@@ -134,8 +147,8 @@ useful evidence, but the project does not currently have a realistic external
 sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
-The canonical projection still identifies measurable migration debt: 578
-legacy claims and 5,541 legacy source summaries remain alongside 391
+The canonical projection still identifies measurable migration debt: 570
+legacy claims and 5,529 legacy source summaries remain alongside 415
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
 
@@ -156,7 +169,8 @@ rows, and seven notes, with no missing URL or stale dependency findings.
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The verification layer now reports 91 of 91 resolutions verified against
+1. The current source-native verification layer reports 81 of 81 resolutions
+   verified against
    exact source snapshots, immutable public source, or bounded official API
    observations, with zero unresolved rows, zero stale evidence, and zero
    default-cutover blockers. The 2026-08-04 refresh corrected blanket cache-tag
@@ -165,11 +179,11 @@ that were open at the start of the review:
    Rock 19.4 source requires it. It also reconciled the current Rock workspace
    debugger configuration against immutable public source and kept mutable web
    evidence bound to semantic article content rather than volatile page chrome.
-   The final live pass also rebound eight unchanged Google, Mailgun, Android,
-   and mobile-shell conclusions to current official page hashes without
-   changing their reviewed corrections or narrowings. Immutable Rock source
-   separately confirms the Helix endpoint authorization map and the Default
-   Enabled Lava Commands fallback introduced by the latest batch.
+   The August 10 live pass additionally rebound three unchanged Mailgun
+   conclusions to current official page hashes without changing their reviewed
+   corrections or narrowings. Immutable Rock source separately confirms the
+   Helix endpoint authorization map and the Default Enabled Lava Commands
+   fallback introduced by the prior batch.
 2. A maintainer approved all seven exact-statement collapse groups against the
    current packet hash. Canonical retrieval retains all source evidence,
    concept facets, and public aliases while removing nine redundant public
@@ -201,36 +215,40 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-The reviewed source-native bundle now records 61 exact legacy replacement
-migrations and three source-native identity migrations. The final projection
-has 391 typed artifacts; 578 legacy claims and 5,541 legacy source summaries
-remain. The 586-question production-worker shadow reported 422 improvements,
+The reviewed source-native bundle now records 81 exact legacy replacement
+migrations and five source-native identity migrations. The final projection
+has 415 typed artifacts; 570 legacy claims and 5,529 legacy source summaries
+remain. The 610-question production-worker shadow reported 446 improvements,
 164 ties, no shared failures, and zero retrieval, exact-lookup, authority,
-no-answer, or endpoint regressions. All 91 verification rows remain resolved
+no-answer, or endpoint regressions. All 81 verification rows remain resolved
 with no blocker.
 
-The deterministic migration-priority compiler currently identifies 1,602
-actionable official-prose source records: 1,302 are migration-ready, 298 require
-a source refresh first, and two require concept-routing review. Twelve prior
-records are deliberately retained, five legacy URL-hash IDs resolve through
-exact reviewed source URLs, and no source identity remains unresolved. The
-highest-value fresh candidates are the Group Attendance Digest Email, applying
-requirements to group types, the Media Player Lava Shortcode, Communication
-Lists, and the already-distilled Core Field Type Patterns migration compiler.
+The deterministic migration-priority compiler currently identifies 1,590
+actionable official-prose source records from 1,604 active legacy records:
+1,294 are migration-ready, 294 require a source refresh first, two require
+concept-routing review, 13 reviewed records are deliberately retained, and four
+legacy aliases are reconciled. One old Lava Commands URL-hash identity remains
+unresolved and must be reconciled before that record is migrated. Nineteen
+records are already compiler-ready; the highest hosted-demand fresh candidates
+are Install Server Roles and Features, Install SQL Server, Configure SQL Server,
+Configure Steps in Achievement Types, Configure Follow Events, Intro to SaaS
+Hosting, Channel Types, Manage Content Items, File Manager, and Intro to
+Reports.
 
 1. Continue privacy-bounded outcomes and blind comparisons as post-cutover
    validation. Do not retain queries, organization identifiers, Rock data, or
    free-form comparison feedback.
-2. Migrate the next coherent group-operations batch, starting with the Group
-   Attendance Digest Email, group requirements, and Communication Lists. Each
-   batch must demonstrate stable identity,
+2. Compile the 19 already-ready records in coherent batches, starting with
+   HighlightDetailColumn and the related Check-In, communication, and
+   system-administration records. Each batch must demonstrate stable identity,
    exact hash-bound retirement decisions, no silent loss of previously exposed
-   source-native IDs, no retrieval regressions, and rebuildable provenance
-   before replacing its legacy projection.
-3. Run the legacy compiler for already-distilled Core Field Type Patterns, and
-   keep the Media Player Lava Shortcode in a separate CMS/Lava batch.
-4. Refresh the remaining seven parser-`1.0.0` static records and source records
-   that the priority compiler marks stale before model work.
+   source-native IDs, no retrieval regressions, and rebuildable provenance.
+3. Migrate the high-demand hosting and security batch for articles 1044, 1046,
+   1047, and 2137, followed by the engagement and CMS groups.
+4. Reconcile the old `/lava/commands` source identity and review the two records
+   requiring concept routing: Navigate Rock and the community deprecations
+   article. Refresh stale sources only when they enter a bounded migration
+   batch.
 5. Re-run the guarded canonical activation checks after each deployed batch and
    keep legacy available until the new projection and public client are verified.
 

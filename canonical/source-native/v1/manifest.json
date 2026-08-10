@@ -1,11 +1,11 @@
 {
-  "article_count": 64,
+  "article_count": 68,
   "artifact_type_counts": {
-    "claim": 117,
+    "claim": 120,
     "recipe": 26,
-    "source_summary": 54,
-    "structured_reference": 145,
-    "task_card": 49
+    "source_summary": 63,
+    "structured_reference": 152,
+    "task_card": 54
   },
   "concept_ids": [
     "ai-agents-automation",
@@ -15,9 +15,12 @@
     "cms-websites",
     "communications",
     "connections",
+    "content-personalization",
+    "data-views-reports",
     "developer-resources",
     "engagement-tracking",
     "event-registration",
+    "groups",
     "helix",
     "lava",
     "mobile",
@@ -32,33 +35,33 @@
     "tv-apps",
     "workflows"
   ],
-  "evaluation_case_count": 417,
+  "evaluation_case_count": 441,
   "file_hashes": {
-    "artifact-migrations.jsonl": "ac361d12063f22c9f050a68b91565255bd0794f6e29240ee140f5c5c3e58f7e3",
+    "artifact-migrations.jsonl": "79989ef081d1a7673e4b5e9af925106d0e3cddf4f0d952977e6ddcff7d3a1194",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
-    "evaluation-set.jsonl": "8b2ab29f207445c28a0e14e3f35c40bc46c687b4205612166e24dfb36d3be8e0",
-    "generation-activities.jsonl": "99fc26dde9fc600e2b4b39a17ee191ac2372a41ea9ff90181f547cbcab88adb1",
-    "legacy-migrations.jsonl": "d75fc168f583b5fd55a45a144703ba4a0a71d83e7f81c6aaeb8727fc2c1f605f",
-    "relationships.jsonl": "5039a65fad34d2a08cea0aae3269247253aef8d5b392712bf2560d7908888ab7",
-    "reviewed-artifacts.jsonl": "dcf868e85e16e3034672502ebb92985d385a1f1b860c4a0e9ca356002119820f",
-    "source-snapshots.jsonl": "38b72e901181a1e128daee709245776af46df8f6bc8426b24c5e300a05834e26",
-    "source-units.jsonl": "329f7663e3973098b8ae55f8c4206bc79f7154f9c2d2063b51c67ec1bfb51dca",
-    "split-rules.jsonl": "7d180946994647e07f646ea062f0366613b5f99ae2671afae147de4792e1482a",
-    "verification-queue.jsonl": "7cbc85c1a3fd1fcb998748b040fd85d77574a6d1085beeb158127cbf46c953ed",
-    "verification-report.json": "bd55f952018e3a187e09933b7781e92487c6b058520c01f6ec8471ef4cc6f137",
-    "verification-resolutions.jsonl": "615edaa7805478429c2704a54b21631060c6bb7fd33d05ee310ba0cc1d4f2d11"
+    "evaluation-set.jsonl": "f1f1fb36c3661bd343c529e9d1d775424d7b031d0354773a2fe25f7fb476d3d0",
+    "generation-activities.jsonl": "b3b6809e9496f75a4e651fcf472450b6802982711e4abfabcb160bff04c52fdd",
+    "legacy-migrations.jsonl": "cc0cd8e0d93706e45ce2f212110b2443c9b8f01de4b78a345408659f00745136",
+    "relationships.jsonl": "a81c6066aa4c04ff82152aa3fac6e61a407beff680342c79c6900b642180ef80",
+    "reviewed-artifacts.jsonl": "e9fda6ea926dd802e74efe9cbfd105872308430f5b2b32f7fd8efe1b113a9433",
+    "source-snapshots.jsonl": "a2b6dbe66dddf224ad502ee833468873ffa5d5b5c4957e71421a1cc3e9bb8ffc",
+    "source-units.jsonl": "9e7b565b2758767582c41a18f4ce94950b95a3b201a20307cf9dd1d9a913a188",
+    "split-rules.jsonl": "e4000010d67a094f77b26cccbe54a30b13e0d843b5a6fe42faa22007b30325df",
+    "verification-queue.jsonl": "8c4c40e3b773516dffe58ccd718188f7715b9a5569b7b04ee721c0870a1da04b",
+    "verification-report.json": "3a545ad2ec7fe112e818fa0f5bd0ed6e3a30186095f4fbb254d0dbcae79c6902",
+    "verification-resolutions.jsonl": "5e94ec312104effddb064c6fd0afc18ad79072de3d1d2d569c8fbb5b76235849"
   },
-  "generation_activity_count": 64,
+  "generation_activity_count": 68,
   "generation_input_hash_versions": {
-    "2": 64
+    "2": 68
   },
   "generation_models": {
-    "gpt-5.6-sol": 64
+    "gpt-5.6-sol": 68
   },
   "generation_prompt_versions": {
     "1.3.0": 26,
-    "1.3.1": 7,
-    "2.3.1": 31
+    "1.3.1": 19,
+    "2.3.1": 23
   },
   "notes": [
     "The source-native bundle is reviewed canonical input; promotion rebuilds that input but does not change the separately controlled runtime reader marker.",
@@ -69,27 +72,27 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.2",
   "public_retrieval_changed": false,
-  "relationship_count": 343,
-  "review_changed_article_count": 18,
-  "reviewed_artifact_count": 391,
-  "reviewed_artifact_migration_count": 3,
-  "reviewed_legacy_migration_count": 61,
+  "relationship_count": 427,
+  "review_changed_article_count": 25,
+  "reviewed_artifact_count": 415,
+  "reviewed_artifact_migration_count": 5,
+  "reviewed_legacy_migration_count": 81,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,
     "rock_developer": 9,
-    "rock_documentation": 42,
+    "rock_documentation": 46,
     "rock_lava_docs": 5,
     "rock_mobile_docs": 4
   },
   "source_refresh_required_for_rebuild": true,
-  "source_snapshot_count": 64,
-  "source_unit_count": 2052,
+  "source_snapshot_count": 68,
+  "source_unit_count": 1773,
   "status": "canonical_input",
-  "verification_request_count": 91,
-  "verification_resolution_count": 91,
+  "verification_request_count": 81,
+  "verification_resolution_count": 81,
   "verification_state_counts": {
-    "verified": 91
+    "verified": 81
   },
   "verification_unresolved_count": 0
 }

@@ -27,6 +27,18 @@ def render_task_card(card: dict[str, Any]) -> str:
     lines.extend(f"- `{value}`" for value in card.get("live_records") or ["Guide section"])
     lines.extend(["", "## Entities And Tables", ""])
     lines.extend(f"- `{value}`" for value in card.get("entities") or ["See guide"])
+    if card.get("decision_order"):
+        lines.extend(["", "## Decision Order", ""])
+        lines.extend(
+            f"{index}. {step}"
+            for index, step in enumerate(card["decision_order"], start=1)
+        )
+    if card.get("read_only_checks"):
+        lines.extend(["", "## Read-Only Checks", ""])
+        lines.extend(f"- {check}" for check in card["read_only_checks"])
+    if card.get("related_result_ids"):
+        lines.extend(["", "## Related KB Results", ""])
+        lines.extend(f"- `{result_id}`" for result_id in card["related_result_ids"])
     lines.extend(["", "## Steps", ""])
     lines.extend(f"{index}. {step}" for index, step in enumerate(card.get("steps") or [], start=1))
     lines.extend(["", "## Do Not Assume", ""])

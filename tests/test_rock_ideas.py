@@ -310,6 +310,15 @@ def test_summary_separates_check_change_result_and_detail_failure_metadata() -> 
         catalog_complete=True,
         detail_selected=2,
         detail_refreshed=1,
+        normalized_rows=[
+            {
+                "id": "rock_ideas:1",
+                "source_id": "rock_ideas",
+                "source_title": "Example",
+                "source_url": "https://community.rockrms.com/ideas/1",
+                "content_hash": row["content_hash"],
+            }
+        ],
         previous=first,
     )
 
@@ -318,6 +327,7 @@ def test_summary_separates_check_change_result_and_detail_failure_metadata() -> 
     assert second["last_checked_at"] == "2026-07-17T00:00:00Z"
     assert second["content_changed_at"] == "2026-07-16T00:00:00Z"
     assert second["detail_rows_failed"] == 1
+    assert len(second["source_content_hash"]) == 64
 
 
 def test_validation_rejects_raw_idea_content() -> None:

@@ -168,6 +168,8 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
     )
     issue_summary_path = artifacts_dir / "agent" / "rock-issue-summary.json"
     issue_summary = json.loads(issue_summary_path.read_text(encoding="utf-8")) if issue_summary_path.exists() else {}
+    idea_summary_path = artifacts_dir / "agent" / "rock-idea-summary.json"
+    idea_summary = json.loads(idea_summary_path.read_text(encoding="utf-8")) if idea_summary_path.exists() else {}
     sql_text = build_d1_seed_sql(
         version=version,
         generated_at=generated_at,
@@ -175,6 +177,7 @@ def build_service_projection(destination: Path | None = None, artifact_prefix: s
         org_rows=org_rows,
         artifact_prefix=resolved_artifact_prefix,
         rock_issue_summary=issue_summary,
+        rock_idea_summary=idea_summary,
         canonical_shadow=canonical_shadow,
         canonical_search_rows=list(
             canonical_shadow.get("_search_rows") or []
@@ -1379,6 +1382,7 @@ def build_d1_seed_sql(
     org_rows: list[dict[str, Any]],
     artifact_prefix: str | None = None,
     rock_issue_summary: dict[str, Any] | None = None,
+    rock_idea_summary: dict[str, Any] | None = None,
     canonical_shadow: dict[str, Any] | None = None,
     canonical_search_rows: list[dict[str, Any]] | None = None,
 ) -> str:
@@ -1863,6 +1867,17 @@ def build_d1_seed_sql(
                     "rock_issue_source_content_hashes",
                     json.dumps(issue_source_hashes, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
                 ),
+            ]
+        )
+    idea_summary = rock_idea_summary or {}
+    idea_catalog_hash = str(idea_summary.get("catalog_content_hash") or "")
+    idea_source_hash = str(idea_summary.get("source_content_hash") or "")
+    if idea_catalog_hash and idea_source_hash:
+        metadata.extend(
+            [
+                ("rock_idea_catalog_content_hash", idea_catalog_hash),
+                ("rock_idea_record_count", str(int(idea_summary.get("record_count") or 0))),
+                ("rock_idea_source_content_hash", idea_source_hash),
             ]
         )
     for key, value in metadata:
