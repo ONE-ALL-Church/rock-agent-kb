@@ -1,22 +1,22 @@
 {
-  "catalog_content_hash": "838c902d5e719da27e2dc80d657b91916f261ad29a5e3c3eed4f928b89a515d9",
+  "catalog_content_hash": "dc2c3eaec43609f7b41745c8a131bde680e469164014add142c9c0f51b3b65ce",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 129,
-    "rock_core": 5699
+    "rock_core": 5709
   },
   "evidence_states": {
-    "commit_linked": 155,
-    "fixed_release_recorded": 3207,
+    "commit_linked": 153,
+    "fixed_release_recorded": 3226,
     "maintainer_triaged": 1219,
-    "report_only": 1247
+    "report_only": 1240
   },
   "labels_truncated_count": 0,
   "raw_issue_body_republished": false,
-  "record_count": 5828,
+  "record_count": 5838,
   "release_note_linked_count": 889,
   "repositories": {
-    "SparkDevNetwork/Rock": 5699,
+    "SparkDevNetwork/Rock": 5709,
     "SparkDevNetwork/Rock.Mobile-Issues": 129
   },
   "reviewed_enrichment_count": 28,
@@ -36,8 +36,13 @@
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 0,
-    "revalidation_due_enrichment_ids": [],
+    "revalidation_due_count": 4,
+    "revalidation_due_enrichment_ids": [
+      "rock_issue_enrichment:core-6902-family-analytics-week-boundaries-v1",
+      "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
+      "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
+      "rock_issue_enrichment:core-6928-signature-document-parent-security-v1"
+    ],
     "risk_assessment_count": 0,
     "risk_levels": {},
     "verification_playbook_count": 28,
@@ -46,47 +51,47 @@
   "routing": {
     "average_concepts_per_issue": 1.25,
     "basis_counts": {
-      "body_keyword": 398,
-      "github_topic_label": 1575,
-      "repository_default": 1338,
-      "title_keyword": 3972
+      "body_keyword": 399,
+      "github_topic_label": 1583,
+      "repository_default": 1340,
+      "title_keyword": 3973
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-07-31T01:59:20Z",
+  "source_updated_through": "2026-08-09T19:26:49Z",
   "states": {
-    "closed": 5815,
-    "open": 13
+    "closed": 5834,
+    "open": 4
   },
   "timeline_coverage": {
-    "complete": 534,
+    "complete": 544,
     "not_fetched": 5294,
-    "percent_complete": 9.16
+    "percent_complete": 9.32
   },
   "top_concepts": {
     "api-integrations": 106,
     "check-in": 361,
-    "cms-websites": 146,
+    "cms-websites": 148,
     "communications": 530,
     "connections": 173,
     "data-views-reports": 371,
     "developer-resources": 148,
     "documents-signatures": 92,
     "event-registration": 542,
-    "giving-finance": 397,
-    "groups": 318,
+    "giving-finance": 398,
+    "groups": 319,
     "lava": 387,
     "mobile": 142,
-    "obsidian-development": 246,
-    "people-families": 692,
+    "obsidian-development": 247,
+    "people-families": 694,
     "platform-configuration": 192,
-    "scheduling-locations": 228,
+    "scheduling-locations": 229,
     "security-permissions": 276,
-    "system-admin-ops": 1334,
-    "workflows": 382
+    "system-admin-ops": 1336,
+    "workflows": 383
   },
   "validation_states": {
-    "confirmed": 2552,
-    "reported": 3276
+    "confirmed": 2571,
+    "reported": 3267
   }
 }
