@@ -98,6 +98,17 @@ every registered source must resolve to exactly one workflow. Publishing rejects
 foreign or omitted owned sources, and the D1 upsert guard prevents later stale
 observations from decreasing `last_checked_at` or `content_changed_at`.
 
+Source freshness and deployed projection freshness are separate states. For
+typed catalogs that can be compared exactly, currently Rock GitHub issues and
+Rock Community Ideas, the service projection records the normalized source
+hash and row count used at build time. `/operations/freshness`, CLI
+`freshness`, and MCP `kb_get_freshness` compare those values with the latest
+successful source observation. `source_status: ok` with
+`projection_status: deployment_lag` means the upstream refresh succeeded but
+the refreshed rows have not yet been deployed. Do not describe that state as a
+current hosted KB. A matching count alone is insufficient; both count and
+content hash must match.
+
 4. Inspect the current build status and dry-run action plan.
 
 ```bash
@@ -287,6 +298,8 @@ The generated PR body includes source-scan counts, affected concepts, claim impa
 
 `.github/workflows/network-operations.yml` checks the public freshness endpoint
 daily. It fails when a required workflow is missed or a source is failed,
-missing, or genuinely overdue. A normal no-change check remains healthy because
-`last_checked_at` advances while `content_changed_at` and `content_hash` remain
-stable.
+missing, genuinely overdue, or newer than the deployed typed catalog. A normal
+no-change check remains healthy because `last_checked_at` advances while
+`content_changed_at` and `content_hash` remain stable. A source-only refresh
+that changes issues or Ideas intentionally reports `deployment_lag` until the
+reviewed deployment includes the new normalized hash and row count.

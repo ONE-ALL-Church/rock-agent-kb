@@ -52,7 +52,7 @@ uv run kb audit all
 
 ## OKF Release Distribution
 
-Tagged releases publish synchronized full and core read-only OKF v0.1 projections. Build them from the same canonical tracked records, commit, and `SOURCE_DATE_EPOCH`; compare each with its prior profile; validate them independently; run the official reference parser; attest the archives; and attach both profile asset sets to the release. The OKF trees remain ignored generated output and are never a second source of truth.
+Tagged releases publish synchronized full and core read-only OKF v0.2 projections. Build them from the same canonical tracked records, commit, and `SOURCE_DATE_EPOCH`; verify the prior v0.1 full/core assets for backward compatibility; compare each with its prior profile; validate them independently; run the pinned official v0.2 reference parser against both profiles; attest the archives; and attach both profile asset sets to the release. The OKF trees remain ignored generated output and are never a second source of truth.
 
 ```bash
 uv run kb publish okf --version X.Y.Z --source-commit "$(git rev-parse HEAD)" --archive-dir release-assets
@@ -61,6 +61,7 @@ uv run kb publish okf-validate data/okf-export
 uv run kb publish okf-validate data/okf-export-core
 uv run --project clients/python rock-kb okf verify release-assets/rock-agent-kb-okf-vX.Y.Z.zip
 uv run --project clients/python rock-kb okf verify release-assets/rock-agent-kb-okf-core-vX.Y.Z.zip
+uv run python scripts/validate_okf_reference_interop.py data/okf-export
 uv run python scripts/validate_okf_reference_interop.py data/okf-export-core
 ```
 

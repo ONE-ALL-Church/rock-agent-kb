@@ -1,5 +1,5 @@
 {
-  "catalog_content_hash": "dc2c3eaec43609f7b41745c8a131bde680e469164014add142c9c0f51b3b65ce",
+  "catalog_content_hash": "2276f2da718a54eb74613079b8e1e08a955fcc299be20b37977255b3560e79d8",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 129,
@@ -36,13 +36,8 @@
     },
     "issue_count": 28,
     "missing_verification_playbook_enrichment_ids": [],
-    "revalidation_due_count": 4,
-    "revalidation_due_enrichment_ids": [
-      "rock_issue_enrichment:core-6902-family-analytics-week-boundaries-v1",
-      "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
-      "rock_issue_enrichment:core-6924-content-channel-duplicate-grid-key-v1",
-      "rock_issue_enrichment:core-6928-signature-document-parent-security-v1"
-    ],
+    "revalidation_due_count": 0,
+    "revalidation_due_enrichment_ids": [],
     "risk_assessment_count": 0,
     "risk_levels": {},
     "verification_playbook_count": 28,
@@ -58,7 +53,7 @@
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
-  "source_updated_through": "2026-08-09T19:26:49Z",
+  "source_updated_through": "2026-08-10T16:47:27Z",
   "states": {
     "closed": 5834,
     "open": 4

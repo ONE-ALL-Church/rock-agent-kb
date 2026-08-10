@@ -2488,12 +2488,18 @@ function normalizeRockIdeaId(value: string): string {
   let text = value.trim().replace(/\/$/, "");
   try {
     const url = new URL(text);
-    const match = url.pathname.match(/^\/ideas\/(\d+)(?:\/|$)/i);
+    const match = url.pathname.match(/^\/(?:rock-)?ideas\/(\d+)(?:\/|$)/i)
+      || url.pathname.match(/^\/results\/rock_idea(?::|%3A)(\d+)(?:\/|$)/i);
     if (match) text = match[1];
   } catch {
     // A numeric or canonical reference is expected for CLI and MCP callers.
   }
-  text = text.replace(/^rock_idea:/i, "");
+  try {
+    text = decodeURIComponent(text);
+  } catch {
+    return "";
+  }
+  text = text.replace(/^(?:rock_idea|rock-idea|idea):/i, "");
   const match = text.match(/^(?:idea\s*)?#?(\d+)$/i);
   return match && Number(match[1]) > 0 ? `rock_idea:${match[1]}` : "";
 }
@@ -3256,11 +3262,13 @@ function investigationTask(role: string, objective: string, dependsOn: string[],
 }
 
 async function getRecipe(env: ServiceEnv, recipeId: string): Promise<JsonRecord> {
-  const normalized = recipeId.startsWith("recipe:") ? recipeId.slice("recipe:".length) : recipeId;
+  const normalized = normalizeRecipeReference(recipeId);
   const recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
-  let recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  let recipe = recipes.find((row) => String(row.recipe_id || "").toLowerCase() === normalized.toLowerCase());
   if (!recipe && !normalized.includes(":")) {
-    const slugMatches = recipes.filter((row) => String(row.recipe_id || "").split(":").at(-1) === normalized);
+    const slugMatches = recipes.filter(
+      (row) => String(row.recipe_id || "").split(":").at(-1)?.toLowerCase() === normalized.toLowerCase(),
+    );
     if (slugMatches.length === 1) {
       [recipe] = slugMatches;
     } else if (slugMatches.length > 1) {
@@ -3278,10 +3286,31 @@ async function getRecipe(env: ServiceEnv, recipeId: string): Promise<JsonRecord>
   return { schema: "rock-kb-recipe-result-v1", status: "ok", recipe };
 }
 
+function normalizeRecipeReference(value: string): string {
+  let text = value.trim().replace(/\/$/, "");
+  try {
+    const url = new URL(text);
+    const match = url.pathname.match(/^\/recipes\/([^/]+)(?:\/verify)?\/?$/i);
+    if (match) text = match[1];
+  } catch {
+    // A canonical id, slug, or org/slug shorthand is expected otherwise.
+  }
+  try {
+    text = decodeURIComponent(text);
+  } catch {
+    return "";
+  }
+  text = text.replace(/^recipe:/i, "").trim();
+  if (/^[a-z0-9][a-z0-9_-]*\/[a-z0-9][a-z0-9_-]*$/i.test(text)) {
+    text = text.replace("/", ":");
+  }
+  return /^[a-z0-9][a-z0-9_-]*(?::[a-z0-9][a-z0-9_-]*)?$/i.test(text) ? text : "";
+}
+
 async function verifyRecipe(env: ServiceEnv, recipeId: string, rockVersion: string | null): Promise<JsonRecord> {
-  const normalized = recipeId.startsWith("recipe:") ? recipeId.slice("recipe:".length) : recipeId;
+  const normalized = normalizeRecipeReference(recipeId);
   const recipes = await artifactJsonlValue(env, "agent/recipes.jsonl");
-  const recipe = recipes.find((row) => String(row.recipe_id || "") === normalized);
+  const recipe = recipes.find((row) => String(row.recipe_id || "").toLowerCase() === normalized.toLowerCase());
   if (!recipe) {
     return { schema: "rock-kb-recipe-verification-v1", status: "not_found", recipe_id: normalized };
   }
@@ -4115,7 +4144,16 @@ async function recordUsage(
     );
     return;
   }
-  await recordUsageSummary(env, event, identity, queryTopicHint(query), resultCount, primaryResultKind, kindCounts);
+  await recordUsageSummary(
+    env,
+    event,
+    identity,
+    queryTopicHint(query),
+    resultCount,
+    primaryResultKind,
+    kindCounts,
+    retrievalProjection,
+  );
 }
 
 async function recordAccessUsage(
@@ -4147,6 +4185,7 @@ async function recordAccessUsage(
     count,
     count > 0 ? resultKind : "none",
     count > 0 ? { [resultKind]: count } : {},
+    retrievalProjection,
   );
 }
 
@@ -4158,12 +4197,41 @@ async function recordUsageSummary(
   resultCount: number,
   primaryResultKind: string,
   kindCounts: JsonRecord,
+  retrievalProjection: RetrievalProjection,
 ): Promise<void> {
   await ensureTelemetryTables(env);
   const day = new Date().toISOString().slice(0, 10);
   const installationHash = identity.installationId
     ? await sha256Hex(`rock-kb-installation-v1:${identity.installationId}`)
     : "";
+  const serviceVersion = await currentVersion(env);
+  const projectionVersion = retrievalProjection === "legacy"
+    ? serviceVersion
+    : await currentRetrievalProjectionVersion(env, retrievalProjection);
+  await env.KB_DB.prepare(
+    `INSERT INTO usage_events_v6 (
+       day, service_version, retrieval_projection, projection_version, event,
+       client_class, cohort, installation_hash, topic_hint, result_count,
+       primary_result_kind, count
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+     ON CONFLICT(
+       day, service_version, retrieval_projection, projection_version, event,
+       client_class, cohort, installation_hash, topic_hint, result_count,
+       primary_result_kind
+     ) DO UPDATE SET count = count + 1`,
+  ).bind(
+    day,
+    serviceVersion,
+    retrievalProjection,
+    projectionVersion,
+    event,
+    identity.clientClass,
+    identity.cohort,
+    installationHash,
+    topicHint,
+    resultCount,
+    primaryResultKind,
+  ).run();
   await env.KB_DB.prepare(
     `INSERT INTO usage_events_v5 (day, event, client_class, cohort, installation_hash, topic_hint, result_count, primary_result_kind, count)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
@@ -4734,6 +4802,27 @@ async function createTelemetryTables(env: ServiceEnv): Promise<void> {
       PRIMARY KEY(
         day, projection_version, event, client_class, cohort,
         result_count, primary_result_kind
+      )
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS usage_events_v6 (
+      day TEXT NOT NULL,
+      service_version TEXT NOT NULL,
+      retrieval_projection TEXT NOT NULL,
+      projection_version TEXT NOT NULL,
+      event TEXT NOT NULL,
+      client_class TEXT NOT NULL,
+      cohort TEXT NOT NULL,
+      installation_hash TEXT NOT NULL,
+      topic_hint TEXT NOT NULL,
+      result_count INTEGER NOT NULL,
+      primary_result_kind TEXT NOT NULL,
+      count INTEGER NOT NULL,
+      PRIMARY KEY(
+        day, service_version, retrieval_projection, projection_version, event,
+        client_class, cohort, installation_hash, topic_hint, result_count,
+        primary_result_kind
       )
     )`
   ).run();
@@ -5996,7 +6085,7 @@ function queryTopicHint(query: string): string {
 
 async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
   await ensureSourceOperationsTables(env);
-  const [workflowResult, sourceResult] = await Promise.all([
+  const [workflowResult, sourceResult, issueProjection, ideaProjection, metadata] = await Promise.all([
     env.KB_DB.prepare(
       `SELECT workflow_id, run_id, run_url, observed_at, status, maximum_age_hours, source_count,
               content_hash, counts_json, blocking_source_ids_json
@@ -6009,6 +6098,16 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
        FROM source_freshness_state_v1
        ORDER BY source_id`
     ).all<JsonRecord>(),
+    env.KB_DB.prepare("SELECT COUNT(*) AS count FROM rock_issues").first<{ count: number }>(),
+    env.KB_DB.prepare("SELECT COUNT(*) AS count FROM search_rows WHERE kind = 'rock_idea'").first<{ count: number }>(),
+    env.KB_DB.prepare(
+      `SELECT key, value FROM kb_meta WHERE key IN (
+        'rock_issue_catalog_content_hash',
+        'rock_issue_source_content_hashes',
+        'rock_idea_catalog_content_hash',
+        'rock_idea_source_content_hash'
+      )`,
+    ).all<{ key: string; value: string }>(),
   ]);
   const workflows = (workflowResult.results || []).map((row) => {
     const ageHours = hoursSince(asOf, row.observed_at);
@@ -6074,59 +6173,101 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
   const blockingSources = sources
     .filter((row) => ["failed", "missing", "overdue"].includes(row.status))
     .map((row) => row.source_id);
-  const status = workflows.length === 0 || sources.length === 0
+  const sourceStatus = workflows.length === 0 || sources.length === 0
     ? "not_recorded"
     : blockingWorkflows.length || blockingSources.length
       ? "fail"
       : "ok";
+  const projectionMetadata = Object.fromEntries(
+    (metadata.results || []).map((row) => [String(row.key || ""), String(row.value || "")]),
+  );
   const issueSources = sources.filter((row) => ["rock_core_issues", "rock_mobile_issues"].includes(row.source_id));
+  const ideaSources = sources.filter((row) => row.source_id === "rock_ideas");
+  const issueCatalog = catalogProjectionFreshness({
+    schema: "rock-kb-rock-issue-catalog-freshness-v1",
+    label: "Rock issue",
+    sources: issueSources,
+    projectionRecordCount: Number(issueProjection?.count || 0),
+    projectionCatalogContentHash: projectionMetadata.rock_issue_catalog_content_hash || null,
+    projectionSourceContentHashes: asRecord(
+      parseStoredJson(projectionMetadata.rock_issue_source_content_hashes, {}),
+    ),
+  });
+  const ideaCatalog = catalogProjectionFreshness({
+    schema: "rock-kb-rock-idea-catalog-freshness-v1",
+    label: "Rock Idea",
+    sources: ideaSources,
+    projectionRecordCount: Number(ideaProjection?.count || 0),
+    projectionCatalogContentHash: projectionMetadata.rock_idea_catalog_content_hash || null,
+    projectionSourceContentHashes: {
+      rock_ideas: projectionMetadata.rock_idea_source_content_hash || "",
+    },
+  });
+  const projectionFreshness = {
+    rock_issues: issueCatalog,
+    rock_ideas: ideaCatalog,
+  };
+  const blockingProjectionIds = Object.entries(projectionFreshness)
+    .filter(([, value]) => value.status === "deployment_lag")
+    .map(([key]) => key);
+  const projectionStatus = blockingProjectionIds.length
+    ? "deployment_lag"
+    : Object.values(projectionFreshness).some((value) => value.status === "current")
+      ? "current"
+      : "not_recorded";
+  const status = sourceStatus === "fail" || sourceStatus === "not_recorded"
+    ? sourceStatus
+    : blockingProjectionIds.length
+      ? "deployment_lag"
+      : "ok";
+  const projectionStatusBySource = new Map<string, string | null>();
+  for (const catalog of Object.values(projectionFreshness)) {
+    for (const comparison of catalog.content_hash_comparisons as JsonRecord[]) {
+      projectionStatusBySource.set(
+        String(comparison.source_id || ""),
+        comparison.matches === true ? "current" : comparison.matches === false ? "deployment_lag" : null,
+      );
+    }
+  }
   return {
     schema: "rock-kb-source-operations-v1",
     generated_at: asOf.toISOString(),
     status,
+    source_status: sourceStatus,
+    projection_status: projectionStatus,
     workflow_count: workflows.length,
     source_count: sources.length,
     counts: countValues(sources.map((row) => row.status)),
     blocking_workflow_ids: blockingWorkflows,
     missing_workflow_ids: missingWorkflows,
     blocking_source_ids: blockingSources,
+    blocking_projection_ids: blockingProjectionIds,
     workflows,
-    sources,
-    rock_issues: {
-      source_count: issueSources.length,
-      result_count: issueSources.reduce((total, row) => total + row.result_count, 0),
-      sources: issueSources.map((row) => ({
-        source_id: row.source_id,
-        last_checked_at: row.last_checked_at,
-        content_changed_at: row.content_changed_at,
-        result_count: row.result_count,
-        content_hash: row.content_hash,
-        status: row.status,
-      })),
-    },
-    alerting: "The daily Network Operations workflow fails when this status is fail or not_recorded. Schedule age and source age are evaluated separately.",
+    sources: sources.map((row) => ({
+      ...row,
+      source_status: row.status,
+      projection_status: projectionStatusBySource.get(row.source_id) ?? null,
+    })),
+    rock_issues: issueCatalog,
+    rock_ideas: ideaCatalog,
+    projection_freshness: projectionFreshness,
+    alerting: "The daily Network Operations workflow fails when this status is fail, not_recorded, or deployment_lag. Schedule age, source age, and deployed projection currency are evaluated separately.",
   };
 }
 
-async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
-  const [operations, projection, metadata] = await Promise.all([
-    sourceOperationsSnapshot(env, asOf),
-    env.KB_DB.prepare("SELECT COUNT(*) AS count FROM rock_issues").first<{ count: number }>(),
-    env.KB_DB.prepare(
-      "SELECT key, value FROM kb_meta WHERE key IN ('rock_issue_catalog_content_hash', 'rock_issue_source_content_hashes')",
-    ).all<{ key: string; value: string }>(),
-  ]);
-  const issueFreshness = asRecord(operations.rock_issues);
-  const sources = Array.isArray(issueFreshness.sources) ? issueFreshness.sources.map(asRecord) : [];
-  const sourceResultCount = Number(issueFreshness.result_count || 0);
-  const projectionRecordCount = Number(projection?.count || 0);
-  const projectionMetadata = Object.fromEntries(
-    (metadata.results || []).map((row) => [String(row.key || ""), String(row.value || "")]),
-  );
-  const projectionCatalogContentHash = projectionMetadata.rock_issue_catalog_content_hash || null;
-  const projectionSourceContentHashes = asRecord(
-    parseStoredJson(projectionMetadata.rock_issue_source_content_hashes, {}),
-  );
+function catalogProjectionFreshness(input: {
+  schema: string;
+  label: string;
+  sources: JsonRecord[];
+  projectionRecordCount: number;
+  projectionCatalogContentHash: string | null;
+  projectionSourceContentHashes: JsonRecord;
+}): JsonRecord {
+  const sources = input.sources;
+  const sourceResultCount = sources.reduce((total, row) => total + Number(row.result_count || 0), 0);
+  const projectionRecordCount = input.projectionRecordCount;
+  const projectionCatalogContentHash = input.projectionCatalogContentHash;
+  const projectionSourceContentHashes = input.projectionSourceContentHashes;
   const sourceContentHashes = Object.fromEntries(
     sources.map((row) => [String(row.source_id || ""), String(row.content_hash || "")]),
   );
@@ -6156,25 +6297,28 @@ async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Pr
   let warning: string | null = null;
   if (!sources.length) {
     status = "not_recorded";
-    warning = "Authoritative Rock issue source-check metadata is not recorded.";
+    warning = `Authoritative ${input.label} source-check metadata is not recorded.`;
   } else if (sourceStatuses.some((value) => ["failed", "missing", "overdue"].includes(value))) {
     status = "source_stale";
-    warning = "One or more Rock issue sources are failed, missing, or overdue.";
+    warning = `One or more ${input.label} sources are failed, missing, or overdue.`;
   } else if (projectionMatchesSource === false) {
     status = "deployment_lag";
     warning = projectionCountMatchesSource === false && projectionContentMatchesSource === false
-      ? "The source refresh result count and content hash do not match the deployed issue projection."
+      ? `The source refresh result count and content hash do not match the deployed ${input.label} projection.`
       : projectionCountMatchesSource === false
-        ? "The source refresh result count does not match the deployed issue projection."
-        : "The source refresh content hash does not match the deployed issue projection.";
+        ? `The source refresh result count does not match the deployed ${input.label} projection.`
+        : `The source refresh content hash does not match the deployed ${input.label} projection.`;
   } else if (projectionMatchesSource === null) {
     status = "not_recorded";
-    warning = "The deployed Rock issue projection does not include comparable content-hash metadata.";
+    warning = `The deployed ${input.label} projection does not include comparable content-hash metadata.`;
   }
   return {
-    schema: "rock-kb-rock-issue-catalog-freshness-v1",
+    schema: input.schema,
     status,
     freshness_authority: "hosted_source_operations",
+    source_count: sources.length,
+    result_count: sourceResultCount,
+    sources,
     source_statuses: sourceStatuses,
     last_checked_at: uniqueStrings(sources.map((row) => row.last_checked_at)).sort().at(-1) || null,
     content_changed_at: uniqueStrings(sources.map((row) => row.content_changed_at)).sort().at(-1) || null,
@@ -6189,6 +6333,11 @@ async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Pr
     content_hash_comparisons: contentHashComparisons,
     warning,
   };
+}
+
+async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
+  const operations = await sourceOperationsSnapshot(env, asOf);
+  return asRecord(operations.rock_issues);
 }
 
 async function ensureSourceOperationsTables(env: ServiceEnv): Promise<void> {
@@ -6378,12 +6527,19 @@ function summarizeRetrievalComparisonScope(funnelRows: JsonRecord[], outcomeRows
 
 async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
   await ensureTelemetryTables(env);
+  const activeProjection = await activeRetrievalProjection(env);
+  const serviceVersion = await currentVersion(env);
+  const activeProjectionVersion = activeProjection === "legacy"
+    ? serviceVersion
+    : await currentRetrievalProjectionVersion(env, activeProjection);
   const [currentUsage, outcomeResult, installations, lavaContextVerifications] = await Promise.all([
     env.KB_DB.prepare(
-      `SELECT day, event, client_class, cohort, topic_hint, result_count, primary_result_kind, SUM(count) AS count
-       FROM usage_events_v5
+      `SELECT day, service_version, retrieval_projection, projection_version, event, client_class,
+              cohort, topic_hint, result_count, primary_result_kind, SUM(count) AS count
+       FROM usage_events_v6
        WHERE client_class <> 'eval' AND cohort NOT IN ('evaluation', 'maintainer')
-       GROUP BY day, event, client_class, cohort, topic_hint, result_count, primary_result_kind`
+       GROUP BY day, service_version, retrieval_projection, projection_version, event,
+                client_class, cohort, topic_hint, result_count, primary_result_kind`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
       `SELECT day, client_class, cohort, result_id, result_kind, projection_version, outcome, reason_codes, SUM(count) AS count
@@ -6403,8 +6559,16 @@ async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
        GROUP BY context_id, root_key, rock_version, observation, cohort`
     ).all<JsonRecord>(),
   ]);
-  const usageRows = currentUsage.results || [];
-  const outcomeRows = outcomeResult.results || [];
+  const allUsageRows = currentUsage.results || [];
+  const allOutcomeRows = outcomeResult.results || [];
+  const usageRows = allUsageRows.filter((row) => String(row.service_version || "") === serviceVersion);
+  const outcomeRows = allOutcomeRows.filter(
+    (row) => String(row.projection_version || "") === activeProjectionVersion,
+  );
+  const historicalReviewQueue = buildFieldReviewQueue(
+    allUsageRows.filter((row) => String(row.service_version || "") !== serviceVersion),
+    allOutcomeRows.filter((row) => String(row.projection_version || "") !== activeProjectionVersion),
+  );
   const lavaVerificationRows = lavaContextVerifications.results || [];
   const searchRows = usageRows.filter((row) => ["search", "rock_issue_search", "rock_idea_search"].includes(String(row.event || "")));
   const exactRows = usageRows.filter((row) => EXACT_RETRIEVAL_EVENTS.has(String(row.event || "")));
@@ -6419,9 +6583,16 @@ async function fieldValidationDashboard(env: ServiceEnv): Promise<JsonRecord> {
       cohorts_included: ["community", "external-test", "unattributed"],
     },
     coverage: {
-      event_schema: "usage_events_v5",
+      event_schema: "usage_events_v6",
       historical_event_schemas_included: false,
-      note: "Funnel counts begin when service v0.16.0 is deployed so every stage uses the same event coverage window.",
+      service_version: serviceVersion,
+      active_retrieval_projection: activeProjection,
+      active_projection_version: activeProjectionVersion,
+      historical_review_signal_count: historicalReviewQueue.reduce(
+        (total, row) => total + Number(row.occurrence_count || 0),
+        0,
+      ),
+      note: "The active funnel and review queue include only usage from the current service version and outcomes for the active retrieval projection. Older structured signals remain aggregated but do not keep resolved items active.",
     },
     funnel: {
       search_count: weightedCount(searchRows),

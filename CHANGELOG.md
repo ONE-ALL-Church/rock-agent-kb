@@ -6,11 +6,51 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.23.0] - 2026-08-10
+
+### Added
+
+- Open Knowledge Format v0.2 full and core distributions with standard
+  `generated` and `sources` provenance, file-relative graph links, and a
+  versioned Rock extension profile.
+- Exact client inspection of the OKF/profile/spec tuple and release gates that
+  validate both profiles with the reviewed upstream v0.2 reference parser.
+- A source-backed Check-In room-availability task card with an explicit
+  decision order, bounded read-only checks, model-map links, and first-exclusion
+  reporting guidance.
+- Deployed-projection freshness checks for the Rock issue and Rock Ideas
+  catalogs, including result-count and semantic content-hash comparisons.
+
+### Changed
+
+- Strict Rock verification accepts new v0.2 distributions and preserves
+  verification of published v0.1 bundles only under their exact legacy
+  manifest/profile/spec tuple.
+- The release workflow verifies the prior full/core release before producing
+  synchronized v0.2 archives and checks that the upstream specification pin is
+  still current.
+- The source-native bundle now covers 68 official prose records and 415 typed
+  artifacts. Group Attendance Digest, Group Type Requirements, Core Field Type
+  Patterns, Media Player, Communication Lists, and seven former parser-1.0
+  sources now use the reviewed canonical path with explicit legacy retirement
+  and identity decisions.
+- Rock issue intelligence now contains 5,838 public issue records and 28
+  reviewed enrichments; Rock Ideas now contains 1,089 records with refreshed
+  concept, issue, release, and model-map relationships.
+- Exact recipe and Rock Idea lookup accepts canonical URLs and common ID or
+  slug forms without weakening identity validation.
+- The operations dashboard limits the active usage funnel and review queue to
+  the current service and retrieval-projection versions while retaining older
+  signals only as a bounded historical count.
+- The agent skill is version `1.12.0` and requires client `0.23.0`.
+
 ### Fixed
 
 - Exact canonical results with verified corrections or narrowings now expose a
   compact effective artifact and a hash-addressed audit reference instead of
   embedding superseded pre-verification wording in the agent-facing payload.
+- Source freshness now separates successful upstream checks from deployment
+  lag, so a current source cannot hide a stale hosted issue or Idea projection.
 
 ## [0.22.0] - 2026-08-03
 

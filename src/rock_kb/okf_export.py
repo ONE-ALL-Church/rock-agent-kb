@@ -29,9 +29,11 @@ from .sources import load_sources
 from .timestamps import generated_at_iso
 
 
-OKF_VERSION = "0.1"
-OKF_SPEC_COMMIT = "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a"
-OKF_PROFILE_SCHEMA = "rock-kb-okf-profile-v1"
+OKF_VERSION = "0.2"
+OKF_SPEC_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+OKF_PROFILE_SCHEMA = "rock-kb-okf-profile-v2"
+OKF_MANIFEST_SCHEMA = "rock-kb-okf-distribution-v2"
+OKF_GENERATOR_ACTOR = "process:rock-kb-okf-export"
 OKF_PROFILES = {"full", "core"}
 DEFAULT_OKF_EXPORT_DIR = DATA_DIR / "okf-export"
 MANIFEST_NAME = "okf-manifest.json"
@@ -178,7 +180,16 @@ def build_okf_export(
                 "description": source.description,
                 "resource": source.root_url,
                 "tags": sorted(set(source.topics + [source.kind, "reference"])),
+                "generated": generated_metadata(generated_at),
+                "sources": [
+                    {
+                        "id": safe_slug(source_id),
+                        "resource": source.root_url,
+                        "title": source.name,
+                    }
+                ],
                 "source_path": "sources/registry.yaml",
+                "okf_profile": OKF_PROFILE_SCHEMA,
             }
         )
         write_typed_markdown(destination / path, frontmatter, body)
@@ -230,7 +241,14 @@ def build_okf_export(
                 "description": description,
                 "resource": primary_resource_url(row),
                 "tags": row_tags(row, concept_ids),
-                "timestamp": row_timestamp(row),
+                "generated": generated_metadata(row_timestamp(row) or generated_at),
+                "sources": source_entries_for_row(
+                    row,
+                    source_path=rendered_source_path,
+                    reference_paths=reference_paths,
+                    public_sources=public_sources,
+                    commit=commit,
+                ),
                 "retrieved_at": payload.get("retrieved_at"),
                 "content_hash": row_content_hash(row),
                 "source_content_hash": payload.get("source_content_hash") or payload.get("safe_evidence_hash"),
@@ -248,7 +266,7 @@ def build_okf_export(
 
     write_directory_indexes(destination, index_entries)
     copy_distribution_licenses(destination)
-    write_profile_document(destination, generated_at=generated_at)
+    write_profile_document(destination, generated_at=generated_at, commit=commit)
     write_root_index(
         destination,
         generated_at=generated_at,
@@ -274,7 +292,7 @@ def build_okf_export(
     counts["references"] = len(public_sources)
     write_file_manifest(destination)
     report = {
-        "schema": "rock-kb-okf-distribution-v1",
+        "schema": OKF_MANIFEST_SCHEMA,
         "okf_version": OKF_VERSION,
         "okf_spec_commit": OKF_SPEC_COMMIT,
         "okf_profile": OKF_PROFILE_SCHEMA,
@@ -612,6 +630,66 @@ def row_timestamp(row: dict[str, Any]) -> str:
     return ""
 
 
+def generated_metadata(timestamp: str) -> dict[str, str]:
+    return {
+        "by": OKF_GENERATOR_ACTOR,
+        "at": timestamp,
+    }
+
+
+def canonical_source_url(source_path: str, commit: str) -> str:
+    path = PurePosixPath(source_path)
+    if not source_path or path.is_absolute() or ".." in path.parts:
+        return ""
+    revision = commit if re.fullmatch(r"[0-9a-f]{40}", commit) else "main"
+    return (
+        "https://github.com/ONE-ALL-Church/rock-agent-kb/blob/"
+        f"{revision}/{path.as_posix()}"
+    )
+
+
+def source_entries_for_row(
+    row: dict[str, Any],
+    *,
+    source_path: str,
+    reference_paths: dict[str, PurePosixPath],
+    public_sources: dict[str, Any],
+    commit: str,
+) -> list[dict[str, Any]]:
+    entries: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+    seen_resources: set[str] = set()
+
+    def add(source_id: str, resource: str, title: str) -> None:
+        source_id = safe_slug(source_id)
+        resource = resource.strip()
+        if not source_id or not resource or source_id in seen_ids or resource in seen_resources:
+            return
+        entries.append({"id": source_id, "resource": resource, "title": title.strip() or resource})
+        seen_ids.add(source_id)
+        seen_resources.add(resource)
+
+    canonical_url = canonical_source_url(source_path, commit)
+    if canonical_url:
+        add("rock-kb-canonical", canonical_url, "Rock KB canonical public record")
+
+    for source_id in sorted(source_ids_for_row(row)):
+        if source_id not in reference_paths:
+            continue
+        source = public_sources.get(source_id)
+        add(
+            source_id,
+            f"/{reference_paths[source_id].as_posix()}",
+            str(getattr(source, "name", "") or source_id),
+        )
+
+    for citation in citations_for_row(row):
+        resource = citation["url"]
+        source_id = citation.get("id") or f"source-{hashlib.sha256(resource.encode('utf-8')).hexdigest()[:12]}"
+        add(source_id, resource, citation["title"])
+    return entries
+
+
 def row_tags(row: dict[str, Any], known_concepts: set[str]) -> list[str]:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
     values = [str(row.get("kind") or "")]
@@ -769,11 +847,14 @@ def render_row_body(
     if related:
         lines.extend(["", "## Related Knowledge", ""])
         for relation_type, target in related:
-            lines.append(f"- `{relation_type}`: [{target.stem}](/{target.as_posix()})")
+            lines.append(
+                f"- `{relation_type}`: [{target.stem}]"
+                f"({relative_markdown_link(current_path, target)})"
+            )
 
     citations = citations_for_row(row)
     if citations:
-        lines.extend(["", "## Citations", ""])
+        lines.extend(["", "## Sources", ""])
         for index, citation in enumerate(citations, 1):
             lines.append(f"[{index}] [{markdown_label(citation['title'])}](<{citation['url']}>)")
 
@@ -850,11 +931,15 @@ def citations_for_row(row: dict[str, Any]) -> list[dict[str, str]]:
     citations: list[dict[str, str]] = []
     by_url: dict[str, int] = {}
 
-    def add(title: Any, url: Any) -> None:
+    def add(title: Any, url: Any, source_id: Any = "") -> None:
         clean_url = str(url or "").strip()
         if not clean_url or not re.match(r"^https?://", clean_url):
             return
-        candidate = {"title": str(title or clean_url).strip(), "url": clean_url}
+        candidate = {
+            "id": safe_slug(str(source_id or "")),
+            "title": str(title or clean_url).strip(),
+            "url": clean_url,
+        }
         if clean_url in by_url:
             index = by_url[clean_url]
             current_title = citations[index]["title"]
@@ -868,11 +953,19 @@ def citations_for_row(row: dict[str, Any]) -> list[dict[str, str]]:
     for key in ("citations", "source_refs"):
         for item in payload.get(key) or []:
             if isinstance(item, dict):
-                add(item.get("title") or item.get("source_id"), item.get("source_timestamp_url") or item.get("url"))
+                add(
+                    item.get("title") or item.get("source_id"),
+                    item.get("source_timestamp_url") or item.get("url"),
+                    item.get("source_id"),
+                )
     for url in payload.get("source_urls") or payload.get("evidence_urls") or []:
         add("Evidence", url)
     for key in ("source_url",):
-        add(payload.get("source_title") or payload.get("title"), payload.get(key))
+        add(
+            payload.get("source_title") or payload.get("title"),
+            payload.get(key),
+            payload.get("source_id"),
+        )
     identity = payload.get("identity") if isinstance(payload.get("identity"), dict) else {}
     add("Rock Model Map", identity.get("source_url"))
     implementation = payload.get("implementation") if isinstance(payload.get("implementation"), dict) else {}
@@ -894,8 +987,16 @@ def related_link_lines(
     lines = []
     for row in rows:
         target = path_by_id[str(row["id"])]
-        lines.append(f"- [{markdown_label(row_title(row))}](/{target.as_posix()})")
+        lines.append(
+            f"- [{markdown_label(row_title(row))}]"
+            f"({relative_markdown_link(current_path, target)})"
+        )
     return lines or ["No related canonical records."]
+
+
+def relative_markdown_link(current_path: PurePosixPath, target: PurePosixPath) -> str:
+    start = current_path.parent.as_posix() or "."
+    return posixpath.relpath(target.as_posix(), start=start)
 
 
 def write_directory_indexes(
@@ -945,13 +1046,21 @@ def copy_distribution_licenses(destination: Path) -> None:
         shutil.copyfile(source, destination / target_name)
 
 
-def write_profile_document(destination: Path, *, generated_at: str) -> None:
-    source = REPO_ROOT / "docs" / "specs" / "rock-kb-okf-profile-v1.md"
+def write_profile_document(destination: Path, *, generated_at: str, commit: str) -> None:
+    source = REPO_ROOT / "docs" / "specs" / "rock-kb-okf-profile-v2.md"
     if not source.exists():
         raise ValueError(f"Missing Rock OKF extension profile: {source.relative_to(REPO_ROOT)}")
     text = source.read_text(encoding="utf-8")
     metadata = read_frontmatter(text)
-    metadata["timestamp"] = generated_at
+    metadata["generated"] = generated_metadata(generated_at)
+    metadata["sources"] = [
+        {
+            "id": "rock-kb-okf-profile",
+            "resource": canonical_source_url(source.relative_to(REPO_ROOT).as_posix(), commit),
+            "title": "Rock KB OKF Extension Profile v2",
+        }
+    ]
+    metadata["okf_profile"] = OKF_PROFILE_SCHEMA
     write_typed_markdown(destination / "profile.md", metadata, strip_frontmatter(text).strip().splitlines())
 
 
@@ -1090,7 +1199,7 @@ def write_root_index(
             "okf_version": OKF_VERSION,
             "title": "Rock RMS Agent Knowledge Base",
             "description": "Read-only, portable distribution of the canonical public Rock KB.",
-            "timestamp": generated_at,
+            "generated": generated_metadata(generated_at),
             "distribution_version": version,
             "source_commit": commit,
             "profile": profile,
@@ -1244,6 +1353,22 @@ def audit_okf_export(destination: Path) -> list[str]:
             frontmatter = read_frontmatter(text)
             if not frontmatter.get("type"):
                 errors.append(f"{relative} missing non-empty type frontmatter")
+            generated = frontmatter.get("generated")
+            if not isinstance(generated, dict) or not generated.get("by") or not generated.get("at"):
+                errors.append(f"{relative} missing Rock OKF v0.2 generated provenance")
+            sources = frontmatter.get("sources")
+            if not isinstance(sources, list) or not sources:
+                errors.append(f"{relative} missing Rock OKF v0.2 sources provenance")
+            else:
+                source_ids: set[str] = set()
+                for source in sources:
+                    if not isinstance(source, dict) or not source.get("resource"):
+                        errors.append(f"{relative} has invalid OKF v0.2 source entry")
+                        continue
+                    source_id = str(source.get("id") or "")
+                    if source_id and source_id in source_ids:
+                        errors.append(f"{relative} has duplicate OKF v0.2 source id: {source_id}")
+                    source_ids.add(source_id)
             structured_record = str(frontmatter.get("structured_record") or "").lstrip("/")
             if structured_record and not (destination / structured_record).exists():
                 errors.append(f"{relative} has missing structured record: {structured_record}")
@@ -1302,7 +1427,7 @@ def audit_okf_export(destination: Path) -> list[str]:
     else:
         try:
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            if manifest.get("schema") != "rock-kb-okf-distribution-v1":
+            if manifest.get("schema") != OKF_MANIFEST_SCHEMA:
                 errors.append(f"{MANIFEST_NAME} has unexpected schema")
             if str(manifest.get("okf_version") or "") != OKF_VERSION:
                 errors.append(f"{MANIFEST_NAME} has unexpected okf_version")

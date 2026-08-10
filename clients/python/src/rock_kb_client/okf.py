@@ -16,7 +16,20 @@ GITHUB_RELEASES_API = "https://api.github.com/repos/ONE-ALL-Church/rock-agent-kb
 MANIFEST_NAME = "okf-manifest.json"
 CHECKSUMS_NAME = "checksums.sha256"
 FILE_MANIFEST_NAME = "file-manifest.jsonl"
-OKF_SPEC_COMMIT = "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a"
+OKF_SPEC_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+SUPPORTED_OKF_VERSIONS = {"0.1", "0.2"}
+ROCK_OKF_CONTRACTS = {
+    "0.1": {
+        "manifest_schema": "rock-kb-okf-distribution-v1",
+        "profile": "rock-kb-okf-profile-v1",
+        "spec_commit": "ee67a5ca27044ebe7c38385f5b6cffc2305a9c1a",
+    },
+    "0.2": {
+        "manifest_schema": "rock-kb-okf-distribution-v2",
+        "profile": "rock-kb-okf-profile-v2",
+        "spec_commit": OKF_SPEC_COMMIT,
+    },
+}
 RESERVED_FILENAMES = {"index.md", "log.md"}
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 LOG_DATE_RE = re.compile(r"^## \d{4}-\d{2}-\d{2}$")
@@ -109,14 +122,20 @@ def inspect_okf(path: Path) -> dict:
     manifest = optional_manifest(files)
     root_meta = parse_frontmatter(files.get("index.md", b"").decode("utf-8", errors="replace"))
     markdown_files = sum(1 for name in files if name.endswith(".md"))
+    root_generated = root_meta.get("generated") if isinstance(root_meta.get("generated"), dict) else {}
+    okf_version = str(manifest.get("okf_version") or root_meta.get("okf_version") or "")
     return {
         "schema": "rock-kb-okf-inspection-v1",
         "status": "ok",
         "path": str(path.expanduser().resolve()),
-        "okf_version": manifest.get("okf_version") or root_meta.get("okf_version"),
+        "okf_version": okf_version,
+        "okf_profile": manifest.get("okf_profile") or root_meta.get("okf_profile"),
+        "okf_spec_commit": manifest.get("okf_spec_commit"),
+        "strict_verification_supported": okf_version in ROCK_OKF_CONTRACTS,
+        "legacy_v01": okf_version == "0.1",
         "distribution_version": manifest.get("distribution_version") or root_meta.get("distribution_version"),
         "profile": manifest.get("profile") or root_meta.get("profile"),
-        "generated_at": manifest.get("generated_at") or root_meta.get("timestamp"),
+        "generated_at": manifest.get("generated_at") or root_generated.get("at") or root_meta.get("timestamp"),
         "source_commit": manifest.get("source_commit") or root_meta.get("source_commit"),
         "read_only": manifest.get("read_only"),
         "counts": manifest.get("counts") or {},
@@ -151,6 +170,14 @@ def conform_okf(path: Path) -> dict:
         metadata = parse_frontmatter(text)
         if name not in RESERVED_FILENAMES and not metadata.get("type"):
             errors.append(f"{relative} missing parseable non-empty type frontmatter")
+        elif name == "index.md" and relative != "index.md" and text.startswith("---\n"):
+            errors.append(f"reserved file must not have frontmatter: {relative}")
+        elif name == "log.md":
+            if text.startswith("---\n"):
+                errors.append(f"reserved file must not have frontmatter: {relative}")
+            for line in text.splitlines():
+                if line.startswith("## ") and not LOG_DATE_RE.match(line):
+                    errors.append(f"{relative} has non-ISO date heading: {line}")
         version = str(metadata.get("okf_version") or "").strip()
         if version:
             declared_versions.add(version)
@@ -162,7 +189,7 @@ def conform_okf(path: Path) -> dict:
                 warnings.append(f"{relative} has unresolved link: {target[:500]}")
     if markdown_count == 0:
         errors.append("bundle contains no Markdown knowledge files")
-    for version in sorted(declared_versions - {"0.1"}):
+    for version in sorted(declared_versions - SUPPORTED_OKF_VERSIONS):
         warnings.append(f"bundle declares unknown OKF version: {version}")
     return conformance_report(path, sorted(set(errors)), sorted(set(warnings)), markdown_count)
 
@@ -184,15 +211,26 @@ def verify_okf(path: Path) -> dict:
     except (ValueError, json.JSONDecodeError, UnicodeDecodeError) as exc:
         manifest = {}
         errors.append(str(exc))
+    contract: dict[str, str] | None = None
+    manifest_version = ""
     if manifest:
-        if manifest.get("schema") != "rock-kb-okf-distribution-v1":
-            errors.append(f"{MANIFEST_NAME} has unexpected schema")
-        if str(manifest.get("okf_version") or "") != "0.1":
-            errors.append(f"{MANIFEST_NAME} must declare okf_version 0.1")
-        if manifest.get("okf_profile") != "rock-kb-okf-profile-v1":
-            errors.append(f"{MANIFEST_NAME} has unexpected OKF extension profile")
-        if manifest.get("okf_spec_commit") != OKF_SPEC_COMMIT:
-            errors.append(f"{MANIFEST_NAME} has unexpected upstream OKF specification commit")
+        manifest_version = str(manifest.get("okf_version") or "")
+        contract = ROCK_OKF_CONTRACTS.get(manifest_version)
+        if contract is None:
+            errors.append(
+                f"{MANIFEST_NAME} must declare a supported Rock OKF version: "
+                f"{', '.join(sorted(ROCK_OKF_CONTRACTS))}"
+            )
+        else:
+            if manifest.get("schema") != contract["manifest_schema"]:
+                errors.append(f"{MANIFEST_NAME} has unexpected schema for OKF v{manifest_version}")
+            if manifest.get("okf_profile") != contract["profile"]:
+                errors.append(f"{MANIFEST_NAME} has unexpected OKF extension profile for v{manifest_version}")
+            if manifest.get("okf_spec_commit") != contract["spec_commit"]:
+                errors.append(
+                    f"{MANIFEST_NAME} has unexpected upstream OKF specification commit "
+                    f"for v{manifest_version}"
+                )
         if manifest.get("profile") not in {"full", "core"}:
             errors.append(f"{MANIFEST_NAME} must declare profile full or core")
         if manifest.get("read_only") is not True:
@@ -206,8 +244,17 @@ def verify_okf(path: Path) -> dict:
         errors.append("missing index.md")
     else:
         root_meta = parse_frontmatter(root_index.decode("utf-8", errors="replace"))
-        if str(root_meta.get("okf_version") or "") != "0.1":
-            errors.append("index.md must declare okf_version 0.1")
+        root_version = str(root_meta.get("okf_version") or "")
+        if root_version not in ROCK_OKF_CONTRACTS:
+            errors.append(
+                "index.md must declare a supported Rock OKF version: "
+                f"{', '.join(sorted(ROCK_OKF_CONTRACTS))}"
+            )
+        elif manifest_version and root_version != manifest_version:
+            errors.append(
+                f"index.md OKF version {root_version} does not match "
+                f"{MANIFEST_NAME} version {manifest_version}"
+            )
     for required in (
         "log.md",
         "profile.md",
@@ -256,6 +303,28 @@ def verify_okf(path: Path) -> dict:
                 for relationship in metadata.get("relationships") or []:
                     if isinstance(relationship, dict) and str(relationship.get("target") or "").lstrip("/") == relative:
                         errors.append(f"{relative} has self relationship")
+            if manifest_version == "0.2" and name not in RESERVED_FILENAMES:
+                metadata = parse_frontmatter(text)
+                generated = metadata.get("generated")
+                if (
+                    not isinstance(generated, dict)
+                    or generated.get("by") != "process:rock-kb-okf-export"
+                    or not generated.get("at")
+                ):
+                    errors.append(f"{relative} missing Rock OKF v0.2 generated provenance")
+                sources = metadata.get("sources")
+                if not isinstance(sources, list) or not sources:
+                    errors.append(f"{relative} missing Rock OKF v0.2 sources provenance")
+                else:
+                    source_ids: set[str] = set()
+                    for source in sources:
+                        if not isinstance(source, dict) or not source.get("resource"):
+                            errors.append(f"{relative} has invalid OKF v0.2 source entry")
+                            continue
+                        source_id = str(source.get("id") or "")
+                        if source_id and source_id in source_ids:
+                            errors.append(f"{relative} has duplicate OKF v0.2 source id: {source_id}")
+                        source_ids.add(source_id)
         try:
             text = content.decode("utf-8")
         except UnicodeDecodeError:

@@ -1,6 +1,6 @@
 # Open Knowledge Format Distribution
 
-Rock KB publishes `full` and `core` read-only [Open Knowledge Format (OKF) v0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) distributions with each tagged release. OKF is a portability layer; the repository registries, JSONL records, hosted search service, and MCP server remain canonical. Rock-specific extensions are versioned in the [Rock KB OKF profile](../specs/rock-kb-okf-profile-v1.md).
+Rock KB publishes `full` and `core` read-only [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) distributions with each tagged release. OKF is a portability layer; the repository registries, JSONL records, hosted search service, and MCP server remain canonical. Rock-specific extensions are versioned in the [Rock KB OKF profile](../specs/rock-kb-okf-profile-v2.md). The current client continues to verify published Rock v0.1 bundles under their exact legacy v1 manifest/profile/spec tuple.
 
 ## When To Use OKF
 
@@ -59,7 +59,7 @@ uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
 uvx rock-kb okf download --profile core
 ```
 
-`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Prefer `--profile core` for a smaller local agent index; use `full` when the consumer needs Rock issue records, routing-only claims, source summaries, and contribution provenance. Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `conformance` applies generic OKF rules and reports unresolved links or unknown versions as warnings. `verify` applies the stricter Rock profile, integrity, licensing, structured-record, and public-safety rules. `validate` remains an alias for `verify` for older agents.
+`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Prefer `--profile core` for a smaller local agent index; use `full` when the consumer needs Rock issue records, routing-only claims, source summaries, and contribution provenance. Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `inspect` exposes the OKF/profile/spec tuple and legacy status. `conformance` applies generic OKF v0.1/v0.2 rules and reports unresolved links or unknown versions as warnings. `verify` applies the exact supported Rock contract plus integrity, provenance, licensing, structured-record, archive-limit, and public-safety rules. `validate` remains an alias for `verify` for older agents.
 
 The same commands work after a permanent client install:
 
@@ -101,7 +101,7 @@ The ignored export directories are generated output, not contributor edit target
 
 ## Conformance And Safety
 
-Generic conformance enforces the required OKF v0.1 `type` frontmatter while tolerating broken links and unknown versions as the upstream specification recommends. Strict Rock verification additionally enforces reserved-file behavior, date-only logs, complete checksums, exact structured-record links, archive entry/size/compression limits, duplicate-path rejection, licensing, and public/private boundaries. The release workflow runs Google's pinned reference parser against the core profile, and a weekly monitor fails when the upstream specification changes.
+Generic conformance enforces the required OKF `type` frontmatter and reserved-file structure while tolerating broken links and unknown versions as the upstream specification recommends. Rock v0.2 producers place meaningful-change provenance in `generated`, document provenance in `sources`, and use file-relative graph links accepted by the reviewed upstream reference parser. Strict Rock verification additionally enforces exact v0.1 or v0.2 contract tuples, generated/source provenance for v0.2, complete checksums, exact structured-record links, archive entry/size/compression limits, duplicate-path rejection, licensing, and public/private boundaries. The release workflow verifies the previous v0.1 full/core assets, then runs Google's pinned v0.2 reference parser against both new profiles. The weekly monitor fails only when the reviewed upstream specification commit changes again.
 
 ## Import Policy
 

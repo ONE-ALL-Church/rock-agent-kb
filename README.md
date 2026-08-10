@@ -108,7 +108,7 @@ person, IP address, logs, secrets, or Rock data.
 
 ## Portable OKF Distribution
 
-Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.1 distributions of the canonical public KB. OKF is a secondary portability layer for offline operation, pinned snapshots, bulk analysis, local indexing or vectorization, archival, and cross-system interchange. It is not the default search interface.
+Each tagged release includes complete `full` and compact `core` read-only Open Knowledge Format v0.2 distributions of the canonical public KB. OKF is a secondary portability layer for offline operation, pinned snapshots, bulk analysis, local indexing or vectorization, archival, and cross-system interchange. It is not the default search interface.
 
 When one of those use cases applies, download and validate a release:
 
@@ -121,7 +121,9 @@ Use the `core` profile for a smaller local agent corpus. Use `full` when a
 downstream system needs lossless public records, Rock issue routing data, source
 summaries, and contribution provenance. Use `okf conformance` for any
 third-party OKF bundle and `okf verify` for the stricter Rock release integrity,
-profile, licensing, and public-safety checks.
+profile, licensing, provenance, and public-safety checks. The current verifier
+also accepts previously published Rock OKF v0.1 bundles under their exact
+legacy manifest/profile/spec contract.
 
 See the [OKF Distribution Runbook](docs/runbooks/okf-distribution.md) for contents, local builds, release assets, and the reviewed-import policy.
 
@@ -169,7 +171,10 @@ separate public enrichment has passed review.
 Anyone can inspect the authoritative scheduled-refresh and source state with
 `uvx rock-kb freshness`. It reports workflow schedule health separately from
 each source's last check, last content change, result count, content hash, and
-check status. It does not expose private source content or maintainer paths.
+check status. For Rock issues and Ideas it also verifies that the deployed row
+count and normalized content hash match the latest successful source refresh;
+`deployment_lag` means the source is current but the hosted KB is not. It does
+not expose private source content or maintainer paths.
 
 The reusable agent skill asks the human once whether anonymous field validation
 may be enabled and remembered privately. With consent, an agent can submit

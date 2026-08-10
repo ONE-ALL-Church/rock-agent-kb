@@ -160,9 +160,12 @@ and `actionable_failure_rate` for service-health decisions.
 `retrieval_comparisons`, and `mcp_transport` sections. Default real-use views
 exclude evaluation and maintainer traffic. The field-validation funnel counts search, exact
 retrieval success/failure, outcome, feedback, and report-issue events. Every
-stage uses the v5 event stream beginning with service v0.16.0; older telemetry
-is intentionally excluded from this funnel so its stages share one coverage
-window. The broader telemetry summary retains historical aggregate continuity.
+stage uses the projection-aware v6 event stream so its stages share one
+coverage window. The active funnel and review queue use only access events from
+the current service version and outcomes for the active retrieval projection.
+Older structured signals, including the earlier v5 window, remain aggregated
+outside the active queue and do not keep a fixed or replaced result active. The
+broader telemetry summary retains historical aggregate continuity.
 The comparison section reports starts, submissions, fixed mapped preferences,
 category/reason aggregates, canonical preference rate, and a bounded queue of
 `legacy_better` or `neither_useful` groups. It never reveals the A/B assignment
@@ -173,6 +176,12 @@ The service builds a bounded queue of at most 50 aggregate review items from:
 - `partially_useful` and `not_useful` outcomes grouped by canonical public result;
 - public topic categories that produce at least three zero-result searches;
 - failed exact-lookup operation types.
+
+Access events are dual-written to the existing all-time v5 aggregate and the
+projection-aware v6 aggregate. V6 adds only service and retrieval projection
+versions; it still stores no attempted exact identifier, query, or private
+data. Deploying a fix therefore gives the review queue a clean active window
+without deleting historical evidence.
 
 The queue does not expose queries, unknown attempted IDs, installation hashes,
 or private data. It directs maintainers to investigate; it does not

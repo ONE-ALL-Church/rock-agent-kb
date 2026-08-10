@@ -2,15 +2,15 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-08-08T15:36:20+00:00
+last_built: 2026-08-10T22:17:20+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-06T20:54:01+00:00
+source_last_checked_at: 2026-08-10T21:43:24+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 0/78
-legacy_summary_retirement_coverage: 1/78
+source_native_article_coverage: 1/78
+legacy_summary_retirement_coverage: 2/78
 depends_on_topics:
   - cms
   - lava
@@ -199,9 +199,9 @@ Keywords: `personalization, segment, segments, audience`
 ## Source Lifecycle
 
 - Official article records routed here: `78`
-- Upstream check range: `2026-08-04T15:01:48+00:00` through `2026-08-06T20:54:01+00:00`
-- Source-native typed articles: `0` of `78`
-- Legacy source summaries retired: `1`; still active: `77`
+- Upstream check range: `2026-08-04T15:01:48+00:00` through `2026-08-10T21:43:24+00:00`
+- Source-native typed articles: `1` of `78`
+- Legacy source summaries retired: `2`; still active: `76`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

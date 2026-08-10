@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6919-azure-container-cache-concurrency-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6919",
   "diagnosis_status": "maintainer_confirmed",
-  "diagnosis_summary": "Public Rock 19.2 source used a shared mutable Dictionary cache in the singleton AzureBlobStorageClient and performed an unsynchronized ContainsKey/Add sequence. A Rock maintainer added a concurrent regression test, confirmed that it reproduced the reported race, replaced the cache with ConcurrentDictionary.GetOrAdd, and closed the issue. The issue is labeled Fixed in v19.4; verify exact package inclusion because a release-line label is not an exact build attestation.",
+  "diagnosis_summary": "Public Rock 19.2 source used a shared mutable Dictionary cache in the singleton AzureBlobStorageClient and performed an unsynchronized ContainsKey/Add sequence. A Rock maintainer added concurrent regression tests, confirmed that they reproduced the reported race, replaced the cache with ConcurrentDictionary.GetOrAdd, and closed the issue. Develop commit d66a4f492306b10c7bd71aa13d54273918c941a3 contains the original fix; commit c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2 carries it in the hotfix-19.4 ancestry, matching the current Fixed in v19.4 label.",
   "workaround_summaries": [
-    "Use a Rock build proven to contain commit d66a4f492306b10c7bd71aa13d54273918c941a3. Until upgraded, an application-pool recycle may restore service after the reported failure, but it does not remove the concurrency defect and is not a durable fix."
+    "Use a Rock build proven to contain hotfix commit c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2, develop commit d66a4f492306b10c7bd71aa13d54273918c941a3, or an independently verified equivalent. Until upgraded, an application-pool recycle may restore service after the reported failure, but it does not remove the concurrency defect and is not a durable fix."
   ],
   "verification_playbook": {
     "goal": "Determine whether the instance combines the vulnerable Azure container cache implementation with an Azure-backed binary file type.",
@@ -124,16 +124,18 @@
       "ranges": [],
       "status": "fixed",
       "fix_refs": [
-        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3",
+        "https://github.com/SparkDevNetwork/Rock/commit/c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2"
       ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6919",
-        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3"
+        "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3",
+        "https://github.com/SparkDevNetwork/Rock/commit/c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2"
       ],
       "authority_tier": "official",
       "claim_tier": "source_backed",
       "confidence": "high",
-      "assessed_at": "2026-07-17T07:57:36Z"
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "source_refs": [
@@ -143,16 +145,19 @@
     "https://github.com/SparkDevNetwork/Rock/blob/b4aee4df15d2aacf18d7c151e5601704ead7411b/Rock/Storage/Provider/AzureBlobStorage.cs#L131-L209",
     "https://github.com/SparkDevNetwork/Rock/commit/d66a4f492306b10c7bd71aa13d54273918c941a3",
     "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock/Storage/Common/AzureBlobStorageClient.cs#L38-L93",
-    "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock.Tests/Storage/AzureBlobStorageClientRaceTests.cs#L30-L104"
+    "https://github.com/SparkDevNetwork/Rock/blob/d66a4f492306b10c7bd71aa13d54273918c941a3/Rock.Tests/Storage/AzureBlobStorageClientRaceTests.cs#L30-L104",
+    "https://github.com/SparkDevNetwork/Rock/commit/c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2",
+    "https://github.com/SparkDevNetwork/Rock/blob/c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2/Rock/Storage/Common/AzureBlobStorageClient.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/c2f5bb4bf37139dbfa24e01de1378cdbbe2f4ff2/Rock.Tests/Storage/AzureBlobStorageClientRaceTests.cs"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-16T20:00:45Z",
-  "reviewed_at": "2026-07-17T07:57:36Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-08-10T16:37:43Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

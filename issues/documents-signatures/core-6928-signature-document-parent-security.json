@@ -3,9 +3,9 @@
   "enrichment_id": "rock_issue_enrichment:core-6928-signature-document-parent-security-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6928",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Rock 18.3.5's Workflow Control > Electronic Signature action generates and saves the signed PDF BinaryFile without assigning ParentEntityId or ParentEntityTypeId, then links that file to the new SignatureDocument. GetFile.ashx treats a file without both parent fields as having no parent authorization context and can fall back to BinaryFile security, where a non-authorized staff user receives HTTP 403. An earlier v16.1 migration backfilled signature-document files with their SignatureDocumentTemplate parent, confirming the intended ownership shape. This identifies one affected creation path; it does not prove that every affected file or missing Signed By value has the same cause. The issue remains open with no upstream fix recorded.",
+  "diagnosis_summary": "Rock 18.3.5's Workflow Control > Electronic Signature action generates and saves the signed PDF BinaryFile without assigning ParentEntityId or ParentEntityTypeId, then links that file to the new SignatureDocument. GetFile.ashx treats a file without both parent fields as having no parent authorization context and can fall back to BinaryFile security; its asynchronous continuation also did not reliably resolve an impersonated request identity. Commit ce582da3105b1a629c204f155506da2fb1df8837 fixes both affected signature creation paths, resolves the request identity from the retained HttpContext, and adds migration 312 to backfill missing template-parent fields while preserving rows that already have both values. The issue is closed and officially labeled Fixed in v19.5.",
   "workaround_summaries": [
-    "No supported public no-write workaround or upstream fix is currently recorded. Do not reproduce the reporter's direct production SQL update. If access is operationally urgent, use normal administrative access while a separately reviewed application-level remediation and data repair are tested in staging, backed up, and approved."
+    "Upgrade to a package proven to contain commit ce582da3105b1a629c204f155506da2fb1df8837 or an independently verified equivalent. Before upgrade, do not reproduce the reporter's direct production SQL update. If access is operationally urgent, use normal administrative access while any application-level remediation or data repair is separately tested, backed up, reviewed, and approved."
   ],
   "verification_playbook": {
     "goal": "Determine whether an instance has signature-document files missing their intended template parent and whether the workflow-backed Electronic Signature creation path can produce them, without opening documents or changing data.",
@@ -21,7 +21,7 @@
         "method": "source_revision_check",
         "instructions": "Inspect the installed Workflow Control Electronic Signature action. Confirm whether CreateSignedDocumentPdf assigns the generated BinaryFile's ParentEntityId to the SignatureDocumentTemplate ID and ParentEntityTypeId to the SignatureDocumentTemplate entity type before saving.",
         "expected_if_affected": "The action saves the BinaryFile without assigning both parent fields, matching the affected Rock 18.3.5 source path.",
-        "expected_if_unaffected": "The installed path explicitly assigns both template-parent fields before the BinaryFile is saved, or the workflow action is not used to create these documents.",
+        "expected_if_unaffected": "The installed workflow and legacy WorkflowEntry paths explicitly assign both template-parent fields before the BinaryFile is saved, or neither affected path is used to create these documents.",
         "evidence_to_record": [
           "Rock version or source revision",
           "template-parent assignment present yes or no",
@@ -50,11 +50,12 @@
         "step_id": "check-download-security-path",
         "title": "Check the download authorization path",
         "method": "source_revision_check",
-        "instructions": "Confirm that the installed GetFile handler calls ParentEntityAllowsView and, when no parent is present, evaluates BinaryFile authorization or a security grant for file types requiring view security.",
-        "expected_if_affected": "Missing parent metadata sends the request through the BinaryFile authorization fallback that can deny the impersonated staff user.",
-        "expected_if_unaffected": "The installed handler has a separately documented authorization path that safely resolves SignatureDocumentTemplate ownership when the file parent fields are absent.",
+        "instructions": "Confirm that the installed GetFile handler resolves the current person from the retained request HttpContext, including rckipid impersonation tokens, before calling ParentEntityAllowsView. Also confirm that files without parent metadata still use the BinaryFile security fallback when view security is required.",
+        "expected_if_affected": "The asynchronous handler resolves identity through ambient thread state or missing parent metadata sends the request through the BinaryFile authorization fallback, either of which can deny an impersonated authorized user.",
+        "expected_if_unaffected": "The installed handler resolves identity from the retained request context and the signature file has its template-parent authorization context.",
         "evidence_to_record": [
           "download handler authorization behavior",
+          "request-context impersonation resolution present yes or no",
           "fallback security path present yes or no"
         ],
         "requires_privileged_access": false,
@@ -64,7 +65,8 @@
     "limitations": [
       "Aggregate counts do not identify which creation path produced a file and do not prove that a specific user receives HTTP 403.",
       "Do not open signed documents, export file metadata, impersonate a production user, change security, or update BinaryFile rows solely to reproduce this issue.",
-      "A missing SignedByPersonAliasId may be valid for an anonymous signer and is not established as the cause of missing parent metadata."
+      "A missing SignedByPersonAliasId may be valid for an anonymous signer and is not established as the cause of missing parent metadata.",
+      "A zero missing-parent count does not by itself prove that the installed GetFile handler contains the request-context impersonation fix."
     ],
     "production_safe": true
   },
@@ -82,7 +84,9 @@
       ],
       "ranges": [],
       "status": "affected",
-      "fix_refs": [],
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837"
+      ],
       "evidence_refs": [
         "https://github.com/SparkDevNetwork/Rock/issues/6928",
         "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L348-L381",
@@ -92,7 +96,55 @@
       "authority_tier": "source-code-confirmed",
       "claim_tier": "source_backed",
       "confidence": "high",
-      "assessed_at": "2026-07-21T23:10:12Z"
+      "assessed_at": "2026-08-10T20:43:27Z"
+    },
+    {
+      "assertion_id": "core-6928-fixed-by-commit-ce582da",
+      "component": "rock_core",
+      "version_scheme": "git",
+      "context": {
+        "scope": "both signed-document creation paths, impersonated download identity resolution, and historical parent-field backfill"
+      },
+      "versions": ["ce582da3105b1a629c204f155506da2fb1df8837"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6928",
+        "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837",
+        "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/RockWeb/App_Code/GetFile.ashx.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/Rock/Plugin/HotFixes/312_FixSignatureDocumentBinaryFileParentEntity6928.cs"
+      ],
+      "authority_tier": "source-code-confirmed",
+      "claim_tier": "source_backed",
+      "confidence": "high",
+      "assessed_at": "2026-08-10T20:43:27Z"
+    },
+    {
+      "assertion_id": "core-6928-fixed-19.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.5",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion and migration execution"
+      },
+      "versions": ["19.5"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6928",
+        "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "applicability_requirements": [
@@ -111,16 +163,20 @@
     "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs#L448-L486",
     "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/RockWeb/App_Code/GetFile.ashx.cs#L101-L129",
     "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock/Model/Core/BinaryFile/BinaryFile.Logic.cs#L129-L151",
-    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.1/202311021741313_Rollup_20231101.cs#L287-L305"
+    "https://github.com/SparkDevNetwork/Rock/blob/350116c4b1789521b2303f5f56473523e255af84/Rock.Migrations/Migrations/Version%2016.0/Version%201.16.1/202311021741313_Rollup_20231101.cs#L287-L305",
+    "https://github.com/SparkDevNetwork/Rock/commit/ce582da3105b1a629c204f155506da2fb1df8837",
+    "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/Rock/Workflow/Action/WorkflowControl/ElectronicSignature.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/RockWeb/App_Code/GetFile.ashx.cs",
+    "https://github.com/SparkDevNetwork/Rock/blob/ce582da3105b1a629c204f155506da2fb1df8837/Rock/Plugin/HotFixes/312_FixSignatureDocumentBinaryFileParentEntity6928.cs"
   ],
   "agent_run_ids": [],
   "authority_tier": "community-reviewed",
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-21T20:08:27Z",
-  "reviewed_at": "2026-07-21T23:10:12Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-08-06T00:51:47Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

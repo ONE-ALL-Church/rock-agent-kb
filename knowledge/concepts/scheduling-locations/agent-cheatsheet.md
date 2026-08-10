@@ -10,7 +10,7 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md) | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow`, `Campus` | `Person`, `Group`, `Location`, `Schedule`, `Device`, `Check-in Configuration`, `Workflow`, `Campus` |
+| [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md) | `Check-in Configuration`, `Person`, `Device`, `Group`, `GroupLocation`, `GroupLocationSchedule`, `Location`, `Schedule`, `Workflow` | `Person`, `Device`, `Group`, `GroupLocation`, `Location`, `Schedule`, `Workflow` |
 | [Recipe: Audit Group Location Schedules](tasks/recipe-audit-group-location-schedules.md) | `Group`, `Location`, `Schedule` | `Group`, `Location`, `Schedule` |
 | [Recipe: Verify A New Service Time](tasks/recipe-verify-a-new-service-time.md) | `Attendance`, `Group`, `Location`, `Schedule`, `Device`, `Family` | `Attendance`, `Group`, `Location`, `Schedule`, `Device`, `Family` |
 | [Recipe: Build A Facilities Daily Report](tasks/recipe-build-a-facilities-daily-report.md) |  |  |
@@ -30,6 +30,8 @@ generated: true
 | `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
+| `GroupLocation` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `GroupLocationSchedule` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |

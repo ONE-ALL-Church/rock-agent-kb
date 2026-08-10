@@ -7,7 +7,7 @@ generated: true
 
 # Recipe: Prove Why A Check-In Room Is Not Available
 
-Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks and a verifiable outcome.
+Identify the first configuration, schedule, device, capacity, eligibility, or workflow filter that removes a specific room for a specific person and check-in attempt.
 
 ## When To Use
 
@@ -16,58 +16,75 @@ Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks 
 
 ## Live Records To Inspect
 
+- `Check-in Configuration`
 - `Person`
+- `Device`
 - `Group`
+- `GroupLocation`
+- `GroupLocationSchedule`
 - `Location`
 - `Schedule`
-- `Device`
-- `Check-in Configuration`
 - `Workflow`
-- `Campus`
 
 ## Entities And Tables
 
 - `Person`
+- `Device`
 - `Group`
+- `GroupLocation`
 - `Location`
 - `Schedule`
-- `Device`
-- `Check-in Configuration`
 - `Workflow`
-- `Campus`
+
+## Decision Order
+
+1. Reproduce the exact person, device, check-in configuration, campus, and Rock time.
+2. Prove the room, group, and group-location-schedule chain is active and complete.
+3. Prove the current schedule and device scope include that chain.
+4. Evaluate person eligibility and room capacity against the same attempt.
+5. Trace location-selection and workflow filters in execution order; stop at the first removal.
+6. Check version-specific behavior only after current data and filter state are known.
+
+## Read-Only Checks
+
+- Read the Location record and parent path; record IsActive and any Check-In Manager open or closed state.
+- Read the GroupLocation joining the expected Group and Location; confirm the link is not inferred from matching names.
+- Read the schedule configuration on that GroupLocation and compare it with the current date and time.
+- Read the Device location scope and check-in configuration used by the failing kiosk or workflow.
+- Evaluate age, grade, ability, requirements, group membership, capacity threshold, and overflow rules for the exact person without changing them.
+- Inspect the workflow action log or equivalent diagnostic state and record which filter first excluded the location.
+
+## Related KB Results
+
+- `concept:check-in`
+- `model_map:stable:device`
+- `model_map:stable:group`
+- `model_map:stable:group-location`
+- `model_map:stable:location`
+- `model_map:stable:schedule`
 
 ## Steps
 
-1. Check-in configuration name and ID.
-2. Group ID and path.
-3. Location ID and path.
-4. Schedule ID and name.
-5. Device ID and device locations.
-6. Person ID and eligibility rule.
-7. Current Rock time.
-8. Relevant workflow filter states.
-9. Does the group/location/schedule link exist?
-10. Is the location active and open?
-11. Is the schedule active right now?
-12. Did a workflow filter exclude it?
-13. Is the person eligible?
-14. Is the device scoped correctly?
-15. Is there a version caveat?
-16. Is `Location.IsActive` true?
-17. Is the room closed in Check-In Manager?
-18. Is the room under the expected campus/building parent?
-19. Is the location assigned to the group?
-20. Is the group/location enabled for the schedule?
-21. Is the device allowed to see that location?
-22. Is the room full according to soft threshold?
-23. Did location selection strategy auto-select a different room?
-24. Does the person meet age, grade, ability, requirement, and group membership rules?
-25. Is the room an overflow location that has not been scheduled?
-26. Is a workflow filter removing or excluding it?
+1. Record the exact check-in configuration, person, device, campus, occurrence, and current Rock time for one reproducible attempt.
+2. Confirm the expected Location is active, open, and under the intended campus and building hierarchy.
+3. Confirm the expected Group is active and included by the selected check-in configuration.
+4. Confirm a GroupLocation record joins that exact Group and Location.
+5. Confirm the GroupLocation schedule configuration includes the intended Schedule and occurrence.
+6. Confirm the Schedule is active at the recorded Rock time, including start date, end date, weekly time, and exclusions.
+7. Confirm the Device and kiosk configuration are allowed to display the expected location path.
+8. Evaluate the person's age, grade, ability, requirements, group membership, and other eligibility rules for that occurrence.
+9. Evaluate hard or soft capacity, room-closed state, overflow behavior, and location-selection strategy.
+10. Trace Check-In workflow filters in configured execution order and capture the first filter whose input contains the room but whose output does not.
+11. Compare the observed filter behavior with the cited Rock source and release caveats for the installed version.
+12. Report the first proven exclusion, the supporting record IDs or public model references, and the smallest safe configuration correction; do not change production during diagnosis.
 
 ## Do Not Assume
 
-- Do not treat generated guidance as live-instance proof.
+- A room with the right name is linked to the intended group or schedule.
+- An active Location is open for Check-In or visible to the current device.
+- A schedule is active now merely because it exists on the group.
+- A full room, eligibility failure, or workflow filter is the cause until the same attempt proves it.
+- The last configured filter caused the removal; identify the first input-to-output transition.
 
 ## Source Links
 

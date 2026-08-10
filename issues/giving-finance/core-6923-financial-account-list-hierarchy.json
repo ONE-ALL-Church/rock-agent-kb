@@ -3,7 +3,7 @@
   "enrichment_id": "rock_issue_enrichment:core-6923-financial-account-list-hierarchy-v1",
   "issue_id": "rock_issue:SparkDevNetwork/Rock#6923",
   "diagnosis_status": "source_supported",
-  "diagnosis_summary": "Affected Financial Account List revisions filter to children when AccountId identifies a parent. When no parent is supplied, the condition `topLevelOnly || !parentAccountId.HasValue` always filters to accounts whose ParentAccountId is null, so the root Obsidian list cannot present a flat all-account reorder list when TopLevel is false. Commit 409f2a0 removes the always-true no-parent term and restores the legacy no-parameter all-account mode. The source change directly addresses the diagnosed branch and is the exact fixed revision; release-package inclusion remains independently verifiable.",
+  "diagnosis_summary": "Affected Financial Account List revisions filter to children when AccountId identifies a parent. When no parent is supplied, the condition `topLevelOnly || !parentAccountId.HasValue` always filters to accounts whose ParentAccountId is null, so the root Obsidian list cannot present a flat all-account reorder list when TopLevel is false. Commit 409f2a0 removes the always-true no-parent term and restores the legacy no-parameter all-account mode. The source change directly addresses the diagnosed branch and is the exact fixed revision. The current issue is closed and officially labeled Fixed in v19.5; verify exact package inclusion before treating an installed build as fixed.",
   "workaround_summaries": [
     "For builds that do not include commit 409f2a0 or an equivalent release fix, manage ordering within each parent-specific account list and verify the resulting public giving presentation in staging. Do not treat the root Obsidian list as a complete flattened account hierarchy or move parent accounts under the assumption that omitted children will follow its order."
   ],
@@ -136,6 +136,29 @@
       "claim_tier": "source_backed",
       "confidence": "high",
       "assessed_at": "2026-07-18T17:08:35Z"
+    },
+    {
+      "assertion_id": "core-6923-fixed-19.5",
+      "component": "rock_core",
+      "version_scheme": "rock_release",
+      "release_track": "19.5",
+      "context": {
+        "scope": "official GitHub fix release line; verify exact package inclusion"
+      },
+      "versions": ["19.5"],
+      "ranges": [],
+      "status": "fixed",
+      "fix_refs": [
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
+      "evidence_refs": [
+        "https://github.com/SparkDevNetwork/Rock/issues/6923",
+        "https://github.com/SparkDevNetwork/Rock/commit/409f2a04680174857cebfea8fc83278b0a7fcda4"
+      ],
+      "authority_tier": "official",
+      "claim_tier": "source_backed",
+      "confidence": "medium",
+      "assessed_at": "2026-08-10T20:43:27Z"
     }
   ],
   "source_refs": [
@@ -151,9 +174,9 @@
   "claim_tier": "source_backed",
   "confidence": "high",
   "review_status": "approved_for_public_distillation",
-  "reviewer": "briand-delegated-codex-review",
-  "issue_updated_at": "2026-07-17T22:40:10Z",
-  "reviewed_at": "2026-07-18T17:08:35Z",
+  "reviewer": "codex-public-source-revalidation-2026-08-10",
+  "issue_updated_at": "2026-07-31T20:59:52Z",
+  "reviewed_at": "2026-08-10T20:43:27Z",
   "redaction_attestation": true,
   "license_attestation": true
 }

@@ -2,15 +2,15 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-08-08T15:36:27+00:00
+last_built: 2026-08-10T22:17:28+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-08T13:38:55+00:00
+source_last_checked_at: 2026-08-10T21:43:24+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/203
-legacy_summary_retirement_coverage: 7/203
+legacy_summary_retirement_coverage: 8/203
 depends_on_topics:
   - api-integrations
   - lava
@@ -207,9 +207,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `203`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-08T13:38:55+00:00`
+- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-10T21:43:24+00:00`
 - Source-native typed articles: `1` of `203`
-- Legacy source summaries retired: `7`; still active: `196`
+- Legacy source summaries retired: `8`; still active: `195`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

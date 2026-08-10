@@ -5,6 +5,88 @@ import yaml
 from ._shared import *  # noqa: F401,F403
 
 
+TASK_CARD_OVERRIDES = {
+    (
+        "scheduling-locations",
+        "recipe-prove-why-a-check-in-room-is-not-available",
+    ): {
+        "goal": "Identify the first configuration, schedule, device, capacity, eligibility, or workflow filter that removes a specific room for a specific person and check-in attempt.",
+        "live_records": [
+            "Check-in Configuration",
+            "Person",
+            "Device",
+            "Group",
+            "GroupLocation",
+            "GroupLocationSchedule",
+            "Location",
+            "Schedule",
+            "Workflow",
+        ],
+        "entities": [
+            "Person",
+            "Device",
+            "Group",
+            "GroupLocation",
+            "Location",
+            "Schedule",
+            "Workflow",
+        ],
+        "decision_order": [
+            "Reproduce the exact person, device, check-in configuration, campus, and Rock time.",
+            "Prove the room, group, and group-location-schedule chain is active and complete.",
+            "Prove the current schedule and device scope include that chain.",
+            "Evaluate person eligibility and room capacity against the same attempt.",
+            "Trace location-selection and workflow filters in execution order; stop at the first removal.",
+            "Check version-specific behavior only after current data and filter state are known.",
+        ],
+        "read_only_checks": [
+            "Read the Location record and parent path; record IsActive and any Check-In Manager open or closed state.",
+            "Read the GroupLocation joining the expected Group and Location; confirm the link is not inferred from matching names.",
+            "Read the schedule configuration on that GroupLocation and compare it with the current date and time.",
+            "Read the Device location scope and check-in configuration used by the failing kiosk or workflow.",
+            "Evaluate age, grade, ability, requirements, group membership, capacity threshold, and overflow rules for the exact person without changing them.",
+            "Inspect the workflow action log or equivalent diagnostic state and record which filter first excluded the location.",
+        ],
+        "steps": [
+            "Record the exact check-in configuration, person, device, campus, occurrence, and current Rock time for one reproducible attempt.",
+            "Confirm the expected Location is active, open, and under the intended campus and building hierarchy.",
+            "Confirm the expected Group is active and included by the selected check-in configuration.",
+            "Confirm a GroupLocation record joins that exact Group and Location.",
+            "Confirm the GroupLocation schedule configuration includes the intended Schedule and occurrence.",
+            "Confirm the Schedule is active at the recorded Rock time, including start date, end date, weekly time, and exclusions.",
+            "Confirm the Device and kiosk configuration are allowed to display the expected location path.",
+            "Evaluate the person's age, grade, ability, requirements, group membership, and other eligibility rules for that occurrence.",
+            "Evaluate hard or soft capacity, room-closed state, overflow behavior, and location-selection strategy.",
+            "Trace Check-In workflow filters in configured execution order and capture the first filter whose input contains the room but whose output does not.",
+            "Compare the observed filter behavior with the cited Rock source and release caveats for the installed version.",
+            "Report the first proven exclusion, the supporting record IDs or public model references, and the smallest safe configuration correction; do not change production during diagnosis.",
+        ],
+        "do_not_assume": [
+            "A room with the right name is linked to the intended group or schedule.",
+            "An active Location is open for Check-In or visible to the current device.",
+            "A schedule is active now merely because it exists on the group.",
+            "A full room, eligibility failure, or workflow filter is the cause until the same attempt proves it.",
+            "The last configured filter caused the removal; identify the first input-to-output transition.",
+        ],
+        "related_result_ids": [
+            "concept:check-in",
+            "model_map:stable:device",
+            "model_map:stable:group",
+            "model_map:stable:group-location",
+            "model_map:stable:location",
+            "model_map:stable:schedule",
+        ],
+        "source_keywords": [
+            "check-in room availability",
+            "GroupLocation",
+            "Schedule",
+            "Device",
+            "FilterLocations",
+        ],
+    }
+}
+
+
 def build_guide_intelligence(concept_id: str) -> dict[str, Any]:
     concept = get_concept(concept_id)
     guide_path = synthesis_output_path(concept_id)
@@ -237,6 +319,22 @@ def build_task_cards(
         templates = inferred_task_templates(guide_text)
     cards = []
     for template in templates:
+        base_template = template
+        override = TASK_CARD_OVERRIDES.get(
+            (concept_id, str(template.get("id") or "")),
+            {},
+        )
+        template = {
+            **base_template,
+            **override,
+        }
+        if override:
+            template["source_keywords"] = compact_unique(
+                [
+                    *(base_template.get("source_keywords") or []),
+                    *(override.get("source_keywords") or []),
+                ]
+            )
         source_keys = source_keys_for_keywords(
             template.get("source_keywords") or [],
             section_rows,
@@ -260,6 +358,9 @@ def build_task_cards(
                 "live_records": template.get("live_records") or [],
                 "entities": template.get("entities") or [],
                 "steps": template.get("steps") or [],
+                "decision_order": template.get("decision_order") or [],
+                "read_only_checks": template.get("read_only_checks") or [],
+                "related_result_ids": template.get("related_result_ids") or [],
                 "do_not_assume": template.get("do_not_assume") or [],
                 "source_keys": source_keys,
                 "source_urls": compact_unique(source_index[key].get("url") for key in source_keys if key in source_index),

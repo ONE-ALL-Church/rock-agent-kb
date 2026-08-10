@@ -18,7 +18,7 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 
 ## Primary Tasks
 
-- [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md): Complete Prove Why A Check-In Room Is Not Available with evidence-backed checks and a verifiable outcome.
+- [Recipe: Prove Why A Check-In Room Is Not Available](tasks/recipe-prove-why-a-check-in-room-is-not-available.md): Identify the first configuration, schedule, device, capacity, eligibility, or workflow filter that removes a specific room for a specific person and check-in attempt.
 - [Recipe: Audit Group Location Schedules](tasks/recipe-audit-group-location-schedules.md): The source query shape is documented in `View_GroupLocationSchedules.sql` (source).
 - [Recipe: Verify A New Service Time](tasks/recipe-verify-a-new-service-time.md): Complete Verify A New Service Time with evidence-backed checks and a verifiable outcome.
 - [Recipe: Build A Facilities Daily Report](tasks/recipe-build-a-facilities-daily-report.md): Complete Build A Facilities Daily Report with evidence-backed checks and a verifiable outcome.
@@ -45,9 +45,9 @@ Locations, schedules, rooms, resources, reservations, calendars, and operational
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the scheduling-locations guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
+- `GroupLocation`: Rock concept/entity referenced by the scheduling-locations guide.
+- `GroupLocationSchedule`: Rock concept/entity referenced by the scheduling-locations guide.
 - `GroupMember`: Rock concept/entity referenced by the scheduling-locations guide.
-- `Label`: Rock concept/entity referenced by the scheduling-locations guide.
-- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 
 ## Version Caveats
 

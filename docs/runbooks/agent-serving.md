@@ -195,6 +195,9 @@ packages returned by `kb_get_concept` include aggregate Idea status counts and
 at most eight lifecycle-prioritized highlights. Lifecycle Ideas also include a
 verification queue state and revalidation hash; neither is product evidence.
 - `GET /operations/dashboard`
+- `GET /operations/freshness` (separates workflow/source health from deployed
+  issue and Idea projection currency; `deployment_lag` means refreshed source
+  rows are not yet in the hosted projection)
 - `GET /telemetry/mcp-transport`
 - `POST /feedback`
 - `POST /outcomes`
@@ -309,9 +312,11 @@ evaluation and maintainer traffic and reports a funnel for search, exact
 retrieval success/failure, usefulness outcome, quality feedback, and KB
 malfunction reports. Its bounded review queue contains negative outcomes,
 public topic categories with at least three zero-result searches, and failed
-exact-lookup operation types. Funnel stages use only the v5 event stream that
-starts with service v0.16.0; historical aggregate telemetry remains available
-outside this funnel.
+exact-lookup operation types. Funnel stages and the active review queue use the
+projection-aware v6 event stream for the current service and retrieval
+projection. The all-time v5 aggregate remains available outside this funnel,
+and older v6 signals are reported only as historical so resolved failures do
+not remain active forever.
 
 With version `3` human consent, the client keeps a private random installation
 marker and sends it only with one of three fixed cohorts: `community`,
