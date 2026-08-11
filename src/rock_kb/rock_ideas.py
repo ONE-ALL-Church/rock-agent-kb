@@ -17,7 +17,7 @@ from .extract import USER_AGENT, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, KNOWLEDGE_DIR, NORMALIZED_DIR
 from .rock_idea_relationships import build_rock_idea_relationship_artifacts
-from .source_hashing import source_content_hash
+from .source_hashing import NORMALIZED_SOURCE_HASH_ALGORITHM, source_content_hash
 from .sources import Source, get_source
 
 
@@ -774,6 +774,20 @@ def build_rock_idea_artifacts_from_normalized() -> dict[str, int]:
     checked_at = str(summary.get("last_checked_at") or utc_now())
     relationships = build_rock_idea_relationship_artifacts(rows, checked_at=checked_at)
     if summary:
+        normalized_rows = list(read_jsonl(ROCK_IDEA_NORMALIZED_PATH))
+        normalized_source_hash = source_content_hash(
+            {
+                "source_records": {
+                    str(row.get("id") or ""): row
+                    for row in normalized_rows
+                    if row.get("id")
+                }
+            },
+            "rock_ideas",
+        )
+        if normalized_source_hash:
+            summary["source_content_hash"] = normalized_source_hash
+            summary["source_content_hash_algorithm"] = NORMALIZED_SOURCE_HASH_ALGORITHM
         summary["relationships"] = relationships
         ROCK_IDEA_SUMMARY_PATH.write_text(
             json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
@@ -831,6 +845,11 @@ def build_rock_idea_summary(
         "content_changed_at": content_changed_at,
         "catalog_content_hash": catalog_content_hash,
         "source_content_hash": normalized_source_hash or str((previous or {}).get("source_content_hash") or ""),
+        "source_content_hash_algorithm": (
+            NORMALIZED_SOURCE_HASH_ALGORITHM
+            if normalized_source_hash
+            else str((previous or {}).get("source_content_hash_algorithm") or "")
+        ),
         "status": "ok" if catalog_complete else "incomplete",
         "source_id": "rock_ideas",
         "record_count": len(rows),

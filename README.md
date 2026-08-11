@@ -172,9 +172,13 @@ Anyone can inspect the authoritative scheduled-refresh and source state with
 `uvx rock-kb freshness`. It reports workflow schedule health separately from
 each source's last check, last content change, result count, content hash, and
 check status. For Rock issues and Ideas it also verifies that the deployed row
-count and normalized content hash match the latest successful source refresh;
-`deployment_lag` means the source is current but the hosted KB is not. It does
-not expose private source content or maintainer paths.
+count and versioned normalized content hash match the latest successful source
+refresh. `deployment_lag` means the source observation is newer than the hosted
+projection; `projection_ahead` means a newer reviewed projection is deployed
+and the next source observation has not caught up yet. Missing or incompatible
+hash-contract metadata, or a known mismatch whose timestamp direction cannot be
+established, is reported as `not_recorded`. The endpoint does not
+expose private source content or maintainer paths.
 
 The reusable agent skill asks the human once whether anonymous field validation
 may be enabled and remembered privately. With consent, an agent can submit

@@ -6093,10 +6093,14 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
        ORDER BY workflow_id`
     ).all<JsonRecord>(),
     env.KB_DB.prepare(
-      `SELECT source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at,
-              result_count, content_hash, check_status, status, observed_at, workflow_id
-       FROM source_freshness_state_v1
-       ORDER BY source_id`
+      `SELECT source.source_id, source.name, source.cadence, source.maximum_age_hours,
+              source.last_checked_at, source.content_changed_at,
+              result_count, source.content_hash, contract.algorithm AS content_hash_algorithm,
+              source.check_status, source.status, source.observed_at, source.workflow_id
+       FROM source_freshness_state_v1 AS source
+       LEFT JOIN source_content_hash_contract_v1 AS contract
+         ON contract.source_id = source.source_id AND contract.content_hash = source.content_hash
+       ORDER BY source.source_id`
     ).all<JsonRecord>(),
     env.KB_DB.prepare("SELECT COUNT(*) AS count FROM rock_issues").first<{ count: number }>(),
     env.KB_DB.prepare("SELECT COUNT(*) AS count FROM search_rows WHERE kind = 'rock_idea'").first<{ count: number }>(),
@@ -6104,8 +6108,12 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
       `SELECT key, value FROM kb_meta WHERE key IN (
         'rock_issue_catalog_content_hash',
         'rock_issue_source_content_hashes',
+        'rock_issue_source_content_hash_algorithms',
+        'rock_issue_last_checked_at',
         'rock_idea_catalog_content_hash',
-        'rock_idea_source_content_hash'
+        'rock_idea_source_content_hash',
+        'rock_idea_source_content_hash_algorithm',
+        'rock_idea_last_checked_at'
       )`,
     ).all<{ key: string; value: string }>(),
   ]);
@@ -6156,6 +6164,7 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
       age_hours: ageHours,
       result_count: resultCount,
       content_hash: String(row.content_hash || ""),
+      content_hash_algorithm: String(row.content_hash_algorithm || ""),
       check_status: checkStatus,
       status,
       observed_at: String(row.observed_at || ""),
@@ -6192,6 +6201,12 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
     projectionSourceContentHashes: asRecord(
       parseStoredJson(projectionMetadata.rock_issue_source_content_hashes, {}),
     ),
+    projectionSourceContentHashAlgorithms: asRecord(
+      parseStoredJson(projectionMetadata.rock_issue_source_content_hash_algorithms, {}),
+    ),
+    projectionSourceCheckedAts: Object.fromEntries(
+      issueSources.map((row) => [String(row.source_id || ""), projectionMetadata.rock_issue_last_checked_at || ""]),
+    ),
   });
   const ideaCatalog = catalogProjectionFreshness({
     schema: "rock-kb-rock-idea-catalog-freshness-v1",
@@ -6202,30 +6217,40 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
     projectionSourceContentHashes: {
       rock_ideas: projectionMetadata.rock_idea_source_content_hash || "",
     },
+    projectionSourceContentHashAlgorithms: {
+      rock_ideas: projectionMetadata.rock_idea_source_content_hash_algorithm || "",
+    },
+    projectionSourceCheckedAts: {
+      rock_ideas: projectionMetadata.rock_idea_last_checked_at || "",
+    },
   });
   const projectionFreshness = {
     rock_issues: issueCatalog,
     rock_ideas: ideaCatalog,
   };
   const blockingProjectionIds = Object.entries(projectionFreshness)
-    .filter(([, value]) => value.status === "deployment_lag")
+    .filter(([, value]) => ["deployment_lag", "not_recorded"].includes(String(value.status || "")))
     .map(([key]) => key);
-  const projectionStatus = blockingProjectionIds.length
+  const projectionStatus = Object.values(projectionFreshness).some((value) => value.status === "deployment_lag")
     ? "deployment_lag"
+    : Object.values(projectionFreshness).some((value) => value.status === "not_recorded")
+      ? "not_recorded"
     : Object.values(projectionFreshness).some((value) => value.status === "current")
       ? "current"
-      : "not_recorded";
+      : Object.values(projectionFreshness).some((value) => value.status === "projection_ahead")
+        ? "current"
+        : "not_recorded";
   const status = sourceStatus === "fail" || sourceStatus === "not_recorded"
     ? sourceStatus
-    : blockingProjectionIds.length
-      ? "deployment_lag"
+    : projectionStatus !== "current"
+      ? projectionStatus
       : "ok";
   const projectionStatusBySource = new Map<string, string | null>();
   for (const catalog of Object.values(projectionFreshness)) {
     for (const comparison of catalog.content_hash_comparisons as JsonRecord[]) {
       projectionStatusBySource.set(
         String(comparison.source_id || ""),
-        comparison.matches === true ? "current" : comparison.matches === false ? "deployment_lag" : null,
+        String(comparison.status || "") || null,
       );
     }
   }
@@ -6251,7 +6276,7 @@ async function sourceOperationsSnapshot(env: ServiceEnv, asOf = new Date()): Pro
     rock_issues: issueCatalog,
     rock_ideas: ideaCatalog,
     projection_freshness: projectionFreshness,
-    alerting: "The daily Network Operations workflow fails when this status is fail, not_recorded, or deployment_lag. Schedule age, source age, and deployed projection currency are evaluated separately.",
+    alerting: "The daily Network Operations workflow fails when this status is fail, not_recorded, or deployment_lag. A newer projection is reported as projection_ahead and does not block. Schedule age, source age, hash-contract compatibility, and deployed projection currency are evaluated separately.",
   };
 }
 
@@ -6262,24 +6287,49 @@ function catalogProjectionFreshness(input: {
   projectionRecordCount: number;
   projectionCatalogContentHash: string | null;
   projectionSourceContentHashes: JsonRecord;
+  projectionSourceContentHashAlgorithms: JsonRecord;
+  projectionSourceCheckedAts: JsonRecord;
 }): JsonRecord {
   const sources = input.sources;
   const sourceResultCount = sources.reduce((total, row) => total + Number(row.result_count || 0), 0);
   const projectionRecordCount = input.projectionRecordCount;
   const projectionCatalogContentHash = input.projectionCatalogContentHash;
   const projectionSourceContentHashes = input.projectionSourceContentHashes;
+  const projectionSourceContentHashAlgorithms = input.projectionSourceContentHashAlgorithms;
+  const projectionSourceCheckedAts = input.projectionSourceCheckedAts;
   const sourceContentHashes = Object.fromEntries(
     sources.map((row) => [String(row.source_id || ""), String(row.content_hash || "")]),
   );
   const contentHashComparisons = sources.map((row) => {
     const sourceId = String(row.source_id || "");
     const sourceContentHash = String(row.content_hash || "");
+    const sourceContentHashAlgorithm = String(row.content_hash_algorithm || "");
     const projectionContentHash = String(projectionSourceContentHashes[sourceId] || "");
+    const projectionContentHashAlgorithm = String(projectionSourceContentHashAlgorithms[sourceId] || "");
+    const sourceCheckedAt = String(row.last_checked_at || "");
+    const projectionCheckedAt = String(projectionSourceCheckedAts[sourceId] || "");
+    const hashContractMatches = sourceContentHashAlgorithm && projectionContentHashAlgorithm
+      ? sourceContentHashAlgorithm === projectionContentHashAlgorithm
+      : null;
+    const comparable = Boolean(sourceContentHash && projectionContentHash && hashContractMatches === true);
+    const matches = comparable ? sourceContentHash === projectionContentHash : null;
+    let status: string | null = null;
+    if (matches === true) {
+      status = "current";
+    } else if (matches === false) {
+      status = timestampDirection(sourceCheckedAt, projectionCheckedAt) ?? "not_recorded";
+    }
     return {
       source_id: sourceId,
       source_content_hash: sourceContentHash || null,
+      source_content_hash_algorithm: sourceContentHashAlgorithm || null,
+      source_last_checked_at: sourceCheckedAt || null,
       projection_content_hash: projectionContentHash || null,
-      matches: sourceContentHash && projectionContentHash ? sourceContentHash === projectionContentHash : null,
+      projection_content_hash_algorithm: projectionContentHashAlgorithm || null,
+      projection_last_checked_at: projectionCheckedAt || null,
+      hash_contract_matches: hashContractMatches,
+      matches,
+      status,
     };
   });
   const projectionCountMatchesSource = sources.length > 0 ? sourceResultCount === projectionRecordCount : null;
@@ -6293,6 +6343,14 @@ function catalogProjectionFreshness(input: {
       ? true
       : null;
   const sourceStatuses = uniqueStrings(sources.map((row) => row.status));
+  const comparisonStatuses = contentHashComparisons.map((row) => row.status);
+  const sourceLastCheckedAt = uniqueStrings(sources.map((row) => row.last_checked_at)).sort().at(-1) || null;
+  const projectionLastCheckedAt = uniqueStrings(
+    Object.values(projectionSourceCheckedAts).map((value) => String(value || "")),
+  ).sort().at(-1) || null;
+  const countDirection = projectionCountMatchesSource === true
+    ? "current"
+    : timestampDirection(sourceLastCheckedAt || "", projectionLastCheckedAt || "") ?? "not_recorded";
   let status = "current";
   let warning: string | null = null;
   if (!sources.length) {
@@ -6301,16 +6359,26 @@ function catalogProjectionFreshness(input: {
   } else if (sourceStatuses.some((value) => ["failed", "missing", "overdue"].includes(value))) {
     status = "source_stale";
     warning = `One or more ${input.label} sources are failed, missing, or overdue.`;
-  } else if (projectionMatchesSource === false) {
+  } else if (comparisonStatuses.includes("deployment_lag") || countDirection === "deployment_lag") {
     status = "deployment_lag";
     warning = projectionCountMatchesSource === false && projectionContentMatchesSource === false
       ? `The source refresh result count and content hash do not match the deployed ${input.label} projection.`
       : projectionCountMatchesSource === false
         ? `The source refresh result count does not match the deployed ${input.label} projection.`
         : `The source refresh content hash does not match the deployed ${input.label} projection.`;
-  } else if (projectionMatchesSource === null) {
+  } else if (
+    comparisonStatuses.length > 0
+    && comparisonStatuses.every((value) => ["current", "projection_ahead"].includes(String(value || "")))
+    && ["current", "projection_ahead"].includes(String(countDirection || ""))
+    && (comparisonStatuses.includes("projection_ahead") || countDirection === "projection_ahead")
+  ) {
+    status = "projection_ahead";
+    warning = `The deployed ${input.label} projection was checked after the latest recorded source observation.`;
+  } else if (projectionMatchesSource !== true) {
     status = "not_recorded";
-    warning = `The deployed ${input.label} projection does not include comparable content-hash metadata.`;
+    warning = projectionMatchesSource === false
+      ? `The ${input.label} source and deployed projection differ, but comparable timestamps do not establish their direction.`
+      : `The deployed ${input.label} projection does not include comparable versioned content-hash metadata.`;
   }
   return {
     schema: input.schema,
@@ -6320,19 +6388,30 @@ function catalogProjectionFreshness(input: {
     result_count: sourceResultCount,
     sources,
     source_statuses: sourceStatuses,
-    last_checked_at: uniqueStrings(sources.map((row) => row.last_checked_at)).sort().at(-1) || null,
+    last_checked_at: sourceLastCheckedAt,
     content_changed_at: uniqueStrings(sources.map((row) => row.content_changed_at)).sort().at(-1) || null,
     source_result_count: sourceResultCount,
     source_content_hashes: sourceContentHashes,
     projection_record_count: projectionRecordCount,
     projection_catalog_content_hash: projectionCatalogContentHash,
     projection_source_content_hashes: projectionSourceContentHashes,
+    projection_source_content_hash_algorithms: projectionSourceContentHashAlgorithms,
+    projection_last_checked_at: projectionLastCheckedAt,
     projection_count_matches_source: projectionCountMatchesSource,
     projection_content_matches_source: projectionContentMatchesSource,
     projection_matches_source: projectionMatchesSource,
     content_hash_comparisons: contentHashComparisons,
+    comparison_statuses: uniqueStrings(comparisonStatuses.map((value) => String(value || ""))),
+    count_status: countDirection,
     warning,
   };
+}
+
+function timestampDirection(sourceCheckedAt: string, projectionCheckedAt: string): string | null {
+  const sourceTime = Date.parse(sourceCheckedAt);
+  const projectionTime = Date.parse(projectionCheckedAt);
+  if (!Number.isFinite(sourceTime) || !Number.isFinite(projectionTime)) return null;
+  return projectionTime > sourceTime ? "projection_ahead" : "deployment_lag";
 }
 
 async function rockIssueCatalogFreshness(env: ServiceEnv, asOf = new Date()): Promise<JsonRecord> {
@@ -6369,6 +6448,14 @@ async function ensureSourceOperationsTables(env: ServiceEnv): Promise<void> {
       status TEXT NOT NULL,
       observed_at TEXT NOT NULL,
       workflow_id TEXT NOT NULL
+    )`
+  ).run();
+  await env.KB_DB.prepare(
+    `CREATE TABLE IF NOT EXISTS source_content_hash_contract_v1 (
+      source_id TEXT NOT NULL,
+      content_hash TEXT NOT NULL,
+      algorithm TEXT NOT NULL,
+      PRIMARY KEY(source_id, content_hash)
     )`
   ).run();
 }

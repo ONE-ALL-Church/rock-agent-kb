@@ -197,7 +197,10 @@ verification queue state and revalidation hash; neither is product evidence.
 - `GET /operations/dashboard`
 - `GET /operations/freshness` (separates workflow/source health from deployed
   issue and Idea projection currency; `deployment_lag` means refreshed source
-  rows are not yet in the hosted projection)
+  rows are not yet in the hosted projection, while non-blocking
+  `projection_ahead` means the reviewed deployment is newer than the latest
+  source observation; a known mismatch with no comparable timestamps fails
+  closed as `not_recorded`)
 - `GET /telemetry/mcp-transport`
 - `POST /feedback`
 - `POST /outcomes`

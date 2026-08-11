@@ -19,7 +19,9 @@ tags and follow semantic versioning for public client and service contracts.
   decision order, bounded read-only checks, model-map links, and first-exclusion
   reporting guidance.
 - Deployed-projection freshness checks for the Rock issue and Rock Ideas
-  catalogs, including result-count and semantic content-hash comparisons.
+  catalogs, including result-count and semantic content-hash comparisons,
+  separate operational/projection timestamps, guarded hash contracts, and
+  fail-closed handling when mismatch direction cannot be established.
 
 ### Changed
 
@@ -42,15 +44,16 @@ tags and follow semantic versioning for public client and service contracts.
 - The operations dashboard limits the active usage funnel and review queue to
   the current service and retrieval-projection versions while retaining older
   signals only as a bounded historical count.
-- The agent skill is version `1.12.0` and requires client `0.23.0`.
+- The agent skill is version `1.12.1` and requires client `0.23.0`.
 
 ### Fixed
 
 - Exact canonical results with verified corrections or narrowings now expose a
   compact effective artifact and a hash-addressed audit reference instead of
   embedding superseded pre-verification wording in the agent-facing payload.
-- Source freshness now separates successful upstream checks from deployment
-  lag, so a current source cannot hide a stale hosted issue or Idea projection.
+- Source freshness now separates successful upstream checks, deployment lag,
+  and a newer reviewed projection using per-source versioned hash contracts, so
+  a stale hosted catalog is blocked without misclassifying a newer deployment.
 
 ## [0.22.0] - 2026-08-03
 

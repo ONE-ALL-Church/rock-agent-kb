@@ -7,13 +7,32 @@ from types import SimpleNamespace
 
 import yaml
 
+from rock_kb.extract import sha256_text
 from rock_kb.source_freshness import blocking_source_ids, build_source_observations, source_freshness_rows
+from rock_kb.source_hashing import source_record_freshness_hash
 from rock_kb.source_workflows import source_workflow_policy
 from rock_kb.sources import load_sources
 
 
 def source(source_id: str, cadence: str):
     return SimpleNamespace(id=source_id, name=source_id.title(), refresh_cadence=cadence)
+
+
+def test_source_record_hash_is_stable_before_and_after_snapshot_compaction():
+    raw = {
+        "content_hash": "a" * 64,
+        "summary": "Stable normalized summary",
+        "source_title": "Example",
+        "source_url": "https://example.test/source",
+        "topics": ["example"],
+    }
+    compact = {
+        **raw,
+        "summary_hash": sha256_text(raw["summary"]),
+    }
+    compact.pop("summary")
+
+    assert source_record_freshness_hash(raw) == source_record_freshness_hash(compact)
 
 
 def test_source_freshness_classifies_current_due_overdue_missing_and_manual():
@@ -193,12 +212,71 @@ def test_rock_issue_summary_supplies_issue_source_freshness_metadata():
     assert by_id["rock_mobile_issues"]["result_count"] == 127
     assert by_id["rock_core_issues"]["last_checked_at"] == "2026-07-16T11:30:00+00:00"
     assert by_id["rock_core_issues"]["content_hash"] != by_id["rock_mobile_issues"]["content_hash"]
+    assert by_id["rock_core_issues"]["content_hash_algorithm"] == "rock-kb-issue-catalog-derived-v1"
+
+
+def test_rock_issue_summary_uses_versioned_per_source_hashes():
+    as_of = datetime(2026, 7, 16, 12, tzinfo=timezone.utc)
+    sources = [source("rock_core_issues", "daily"), source("rock_mobile_issues", "daily")]
+    issue_summary = {
+        "last_checked_at": "2026-07-16T11:45:00Z",
+        "source_updated_through": "2026-07-16T11:30:00Z",
+        "repositories": {
+            "SparkDevNetwork/Rock": 1,
+            "SparkDevNetwork/Rock.Mobile-Issues": 1,
+        },
+        "source_content_hashes": {
+            "rock_core_issues": "a" * 64,
+            "rock_mobile_issues": "b" * 64,
+        },
+        "source_content_hash_algorithms": {
+            "rock_core_issues": "rock-kb-issue-source-set-v1",
+            "rock_mobile_issues": "rock-kb-issue-source-set-v1",
+        },
+    }
+
+    observations = build_source_observations(
+        sources,
+        {"sources": {}, "source_records": {}},
+        as_of,
+        issue_summary=issue_summary,
+    )
+
+    assert observations["sources"]["rock_core_issues"]["content_hash"] == "a" * 64
+    assert observations["sources"]["rock_mobile_issues"]["content_hash"] == "b" * 64
+    assert (
+        observations["sources"]["rock_core_issues"]["content_hash_algorithm"]
+        == "rock-kb-issue-source-set-v1"
+    )
+    assert observations["sources"]["rock_core_issues"]["last_checked_at"] == "2026-07-16T11:45:00+00:00"
+
+
+def test_tracked_issue_check_time_supersedes_stale_private_checkpoint():
+    observations = build_source_observations(
+        [source("rock_core_issues", "daily")],
+        {"sources": {}, "source_records": {}},
+        datetime(2026, 8, 10, 23, tzinfo=timezone.utc),
+        issue_summary={
+            "last_checked_at": "2026-08-10T22:00:00Z",
+            "source_updated_through": "2026-08-10T16:00:00Z",
+            "repositories": {"SparkDevNetwork/Rock": 1},
+            "source_content_hashes": {"rock_core_issues": "a" * 64},
+            "source_content_hash_algorithms": {
+                "rock_core_issues": "rock-kb-issue-source-set-v1",
+            },
+        },
+        issue_checkpoint={"checked_at": "2026-07-31T00:00:00Z"},
+    )
+
+    assert observations["sources"]["rock_core_issues"]["last_checked_at"] == "2026-08-10T22:00:00+00:00"
 
 
 def test_rock_issue_checkpoint_advances_check_time_without_changing_content_time():
     as_of = datetime(2026, 7, 18, 12, tzinfo=timezone.utc)
     sources = [source("rock_core_issues", "daily"), source("rock_mobile_issues", "daily")]
     issue_summary = {
+        "last_checked_at": "2026-07-16T11:45:00Z",
+        "projection_checked_at": "2026-07-16T11:45:00Z",
         "source_updated_through": "2026-07-16T11:30:00Z",
         "catalog_content_hash": "c" * 64,
         "repositories": {

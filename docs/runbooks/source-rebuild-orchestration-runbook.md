@@ -65,7 +65,9 @@ from appearing as a content change. A successful check with no source delta adva
 `content_changed_at`. Rock core and mobile issue observations use
 `data/review/rock-issues/checkpoint.json` for the successful sync check time and
 `agent/rock-issue-summary.json` for the upstream update time, repository counts,
-and catalog hash instead of expecting normalized source files. Scheduled
+catalog hash, and stable `projection_checked_at` instead of expecting normalized
+source files. An unchanged issue sync advances operational `last_checked_at`
+from the checkpoint without rewriting the tracked projection timestamp. Scheduled
 workflows cache the previous observation file, upload the
 freshness and scan reports, and fail when a required source is failed, missing,
 or overdue.
@@ -97,17 +99,25 @@ content change. `sources/freshness-policy.yaml` is the single ownership policy:
 every registered source must resolve to exactly one workflow. Publishing rejects
 foreign or omitted owned sources, and the D1 upsert guard prevents later stale
 observations from decreasing `last_checked_at` or `content_changed_at`.
+The same acceptance guard protects the hash-algorithm contract, so a stale
+workflow cannot attach an old algorithm to a newer source observation.
 
 Source freshness and deployed projection freshness are separate states. For
 typed catalogs that can be compared exactly, currently Rock GitHub issues and
 Rock Community Ideas, the service projection records the normalized source
-hash and row count used at build time. `/operations/freshness`, CLI
+hash contract, hash, source check time, and row count used at build time.
+`/operations/freshness`, CLI
 `freshness`, and MCP `kb_get_freshness` compare those values with the latest
 successful source observation. `source_status: ok` with
 `projection_status: deployment_lag` means the upstream refresh succeeded but
 the refreshed rows have not yet been deployed. Do not describe that state as a
-current hosted KB. A matching count alone is insufficient; both count and
-content hash must match.
+current hosted KB. `projection_ahead` is healthy: it means a newer reviewed
+projection is deployed and the next scheduled source observation has not yet
+reconciled it. A matching count alone is insufficient; both the versioned hash
+contract and content hash must match.
+When the source and projection differ but either comparison timestamp is
+missing or invalid, the service fails closed as `not_recorded`; it never infers
+`current` from a mismatch whose direction is unknown.
 
 4. Inspect the current build status and dry-run action plan.
 
@@ -302,4 +312,6 @@ missing, genuinely overdue, or newer than the deployed typed catalog. A normal
 no-change check remains healthy because `last_checked_at` advances while
 `content_changed_at` and `content_hash` remain stable. A source-only refresh
 that changes issues or Ideas intentionally reports `deployment_lag` until the
-reviewed deployment includes the new normalized hash and row count.
+reviewed deployment includes the new normalized hash and row count. A deploy
+from a newer source check can temporarily report non-blocking
+`projection_ahead` until the next owner workflow records its observation.

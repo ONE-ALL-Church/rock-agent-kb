@@ -22,6 +22,9 @@ const ISSUE_FIXTURE_SOURCE_HASHES = {
 };
 const IDEA_FIXTURE_CATALOG_HASH = "e".repeat(64);
 const IDEA_FIXTURE_SOURCE_HASH = "f".repeat(64);
+const ISSUE_FIXTURE_HASH_ALGORITHM = "rock-kb-issue-source-set-v1";
+const IDEA_FIXTURE_HASH_ALGORITHM = "rock-kb-normalized-source-set-v1";
+const FIXTURE_PROJECTION_CHECKED_AT = "2026-08-01T00:00:00Z";
 
 test("search is compact by default and exact result expands the row", async () => {
   const mf = await buildWorker();
@@ -2679,12 +2682,25 @@ test("hosted source freshness keeps workflow schedule and source content state s
        (source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at, result_count, content_hash, check_status, status, observed_at, workflow_id)
        VALUES (?, ?, 'daily', 48, ?, ?, 321, ?, 'success', 'current', ?, 'daily-issues')`,
     ).bind("rock_core_issues", "Rock Core GitHub Issues", now, now, "b".repeat(64), now).run();
+    const missingContract = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(missingContract.status, "deployment_lag");
+    await db.prepare("UPDATE source_freshness_state_v1 SET result_count = 1 WHERE source_id = 'rock_core_issues'").run();
+    const sameCountMissingContract = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(sameCountMissingContract.status, "not_recorded");
+    assert.equal(sameCountMissingContract.rock_issues.status, "not_recorded");
+    await db.prepare("UPDATE source_freshness_state_v1 SET result_count = 321 WHERE source_id = 'rock_core_issues'").run();
+    for (const contentHash of ["b".repeat(64), ISSUE_FIXTURE_SOURCE_HASHES.rock_core_issues]) {
+      await db.prepare(
+        `INSERT INTO source_content_hash_contract_v1 (source_id, content_hash, algorithm)
+         VALUES ('rock_core_issues', ?, ?)`,
+      ).bind(contentHash, ISSUE_FIXTURE_HASH_ALGORITHM).run();
+    }
 
     const current = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
     assert.equal(current.status, "deployment_lag");
     assert.equal(current.source_status, "ok");
     assert.equal(current.projection_status, "deployment_lag");
-    assert.deepEqual(current.blocking_projection_ids, ["rock_issues"]);
+    assert.deepEqual(current.blocking_projection_ids, ["rock_issues", "rock_ideas"]);
     assert.equal(current.workflows.length, 3);
     assert.equal(current.sources[0].last_checked_at, now);
     assert.equal(current.sources[0].content_changed_at, now);
@@ -2718,6 +2734,17 @@ test("hosted source freshness keeps workflow schedule and source content state s
     assert.equal(sameCountChangedContent.catalog.projection_matches_source, false);
     assert.match(sameCountChangedContent.catalog.warning, /content hash/);
 
+    await db.prepare("UPDATE kb_meta SET value = '' WHERE key = 'rock_issue_last_checked_at'").run();
+    const unknownDirection = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ profile: { core_version: "19.2.0" }, limit: 1 }),
+    })).json();
+    assert.equal(unknownDirection.catalog.status, "not_recorded");
+    assert.equal(unknownDirection.catalog.projection_matches_source, false);
+    assert.equal(unknownDirection.catalog.content_hash_comparisons[0].status, "not_recorded");
+    assert.match(unknownDirection.catalog.warning, /do not establish their direction/);
+
     await db.prepare("UPDATE source_freshness_state_v1 SET content_hash = ? WHERE source_id = 'rock_core_issues'")
       .bind(ISSUE_FIXTURE_SOURCE_HASHES.rock_core_issues).run();
     const currentAssessment = await (await mf.dispatchFetch("https://kb.example.test/rock-issues/assess", {
@@ -2740,6 +2767,12 @@ test("hosted source freshness keeps workflow schedule and source content state s
        (source_id, name, cadence, maximum_age_hours, last_checked_at, content_changed_at, result_count, content_hash, check_status, status, observed_at, workflow_id)
        VALUES (?, ?, 'daily', 48, ?, ?, 1, ?, 'success', 'current', ?, 'daily-sources')`,
     ).bind("rock_ideas", "Rock Community Ideas", now, now, "0".repeat(64), now).run();
+    for (const contentHash of ["0".repeat(64), IDEA_FIXTURE_SOURCE_HASH]) {
+      await db.prepare(
+        `INSERT INTO source_content_hash_contract_v1 (source_id, content_hash, algorithm)
+         VALUES ('rock_ideas', ?, ?)`,
+      ).bind(contentHash, IDEA_FIXTURE_HASH_ALGORITHM).run();
+    }
     const laggingIdeas = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
     assert.equal(laggingIdeas.status, "deployment_lag");
     assert.equal(laggingIdeas.rock_ideas.status, "deployment_lag");
@@ -2756,6 +2789,17 @@ test("hosted source freshness keeps workflow schedule and source content state s
     assert.equal(currentIdeas.rock_ideas.status, "current");
     assert.equal(currentIdeas.rock_ideas.projection_catalog_content_hash, IDEA_FIXTURE_CATALOG_HASH);
     assert.equal(currentIdeas.rock_ideas.projection_matches_source, true);
+
+    const projectionAheadAt = new Date(Date.now() + 60_000).toISOString();
+    await db.prepare("UPDATE kb_meta SET value = ? WHERE key = 'rock_idea_last_checked_at'")
+      .bind(projectionAheadAt).run();
+    await db.prepare("UPDATE source_freshness_state_v1 SET content_hash = ? WHERE source_id = 'rock_ideas'")
+      .bind("0".repeat(64)).run();
+    const projectionAhead = await (await mf.dispatchFetch("https://kb.example.test/operations/freshness")).json();
+    assert.equal(projectionAhead.status, "ok");
+    assert.equal(projectionAhead.projection_status, "current");
+    assert.equal(projectionAhead.rock_ideas.status, "projection_ahead");
+    assert.equal(projectionAhead.rock_ideas.content_hash_comparisons[0].status, "projection_ahead");
 
     const freshnessTool = await mcp(mf, "tools/call", { name: "kb_get_freshness", arguments: {} });
     assert.equal(freshnessTool.result.structuredContent.status, "ok");
@@ -3019,10 +3063,21 @@ async function buildWorker(options = {}) {
       .bind(ISSUE_FIXTURE_CATALOG_HASH).run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_source_content_hashes', ?)")
       .bind(JSON.stringify(ISSUE_FIXTURE_SOURCE_HASHES)).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_source_content_hash_algorithms', ?)")
+      .bind(JSON.stringify({
+        rock_core_issues: ISSUE_FIXTURE_HASH_ALGORITHM,
+        rock_mobile_issues: ISSUE_FIXTURE_HASH_ALGORITHM,
+      })).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_issue_last_checked_at', ?)")
+      .bind(FIXTURE_PROJECTION_CHECKED_AT).run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_catalog_content_hash', ?)")
       .bind(IDEA_FIXTURE_CATALOG_HASH).run();
     await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_source_content_hash', ?)")
       .bind(IDEA_FIXTURE_SOURCE_HASH).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_source_content_hash_algorithm', ?)")
+      .bind(IDEA_FIXTURE_HASH_ALGORITHM).run();
+    await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('rock_idea_last_checked_at', ?)")
+      .bind(FIXTURE_PROJECTION_CHECKED_AT).run();
     if (options.artifactPrefix) {
       await db.prepare("INSERT INTO kb_meta (key, value) VALUES ('artifact_prefix', ?)").bind(options.artifactPrefix).run();
     }

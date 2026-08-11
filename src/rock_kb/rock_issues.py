@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 from .jsonl import read_jsonl, write_jsonl
 from .paths import AGENT_DIR, DATA_DIR, REPO_ROOT
 from .schemas.rock_issue import RockIssue, RockIssueReviewedEnrichment, RockIssueWorkerResult
+from .source_hashing import ISSUE_SOURCE_HASH_ALGORITHM, source_set_content_hash
 from .timestamps import generated_at_iso
 
 
@@ -1035,14 +1036,20 @@ def sync_rock_issues(
     validate_rock_issue_rows(rows)
     write_jsonl(ROCK_ISSUE_PATH, rows)
     enrichments = build_reviewed_issue_enrichments(rows)
-    summary = build_rock_issue_summary(rows)
+    checked_at = generated_at_iso()
+    previous_summary = (
+        json.loads(ROCK_ISSUE_SUMMARY_PATH.read_text(encoding="utf-8"))
+        if ROCK_ISSUE_SUMMARY_PATH.exists()
+        else {}
+    )
+    summary = build_rock_issue_summary(rows, checked_at=checked_at, previous=previous_summary)
     summary.update(build_reviewed_enrichment_metrics(rows, enrichments))
     ROCK_ISSUE_SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_rock_issue_guide(summary)
     update_issue_manifest(summary)
     checkpoint = {
         "schema": "rock-kb-rock-issue-sync-checkpoint-v1",
-        "checked_at": generated_at_iso(),
+        "checked_at": checked_at,
         "metadata_mode": "graphql_cursor_full_count_reconciled",
         "changed_issue_count": changed_issue_count,
         "timeline_fetch_count": len(timeline_by_node),
@@ -1300,7 +1307,12 @@ def build_reviewed_enrichment_metrics(
     }
 
 
-def build_rock_issue_summary(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
+def build_rock_issue_summary(
+    rows: Iterable[dict[str, Any]],
+    *,
+    checked_at: str | None = None,
+    previous: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     values = list(rows)
     by_repo = Counter(str(row.get("repository") or "") for row in values)
     by_state = Counter(str(row.get("state") or "") for row in values)
@@ -1318,11 +1330,42 @@ def build_rock_issue_summary(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
     release_linked = sum(1 for row in values if row.get("release_note_refs"))
     labels_truncated = sum(1 for row in values if row.get("labels_truncated"))
     updated_through = max((str(row.get("updated_at") or "") for row in values), default="")
+    source_ids = sorted({str(row.get("source_id") or "") for row in values if row.get("source_id")})
+    source_content_hashes = {
+        source_id: source_set_content_hash(
+            [
+                (str(row.get("issue_id") or ""), str(row.get("source_content_hash") or ""))
+                for row in values
+                if row.get("source_id") == source_id
+            ]
+        )
+        for source_id in source_ids
+    }
+    catalog_content_hash = stable_hash(values)
+    projection_checked_at = checked_at or generated_at_iso()
+    if (
+        previous
+        and previous.get("catalog_content_hash") == catalog_content_hash
+        and previous.get("source_content_hashes") == source_content_hashes
+        and (previous.get("projection_checked_at") or previous.get("last_checked_at"))
+    ):
+        projection_checked_at = str(
+            previous.get("projection_checked_at") or previous.get("last_checked_at")
+        )
     return {
         "schema": "rock-kb-rock-issue-summary-v1",
         "record_count": len(values),
+        # Keep the legacy field stable for existing readers while naming its
+        # projection-specific meaning explicitly. Operational check time comes
+        # from the private refresh checkpoint.
+        "last_checked_at": projection_checked_at,
+        "projection_checked_at": projection_checked_at,
         "source_updated_through": updated_through,
-        "catalog_content_hash": stable_hash(values),
+        "catalog_content_hash": catalog_content_hash,
+        "source_content_hashes": source_content_hashes,
+        "source_content_hash_algorithms": {
+            source_id: ISSUE_SOURCE_HASH_ALGORITHM for source_id in source_content_hashes
+        },
         "repositories": dict(sorted(by_repo.items())),
         "states": dict(sorted(by_state.items())),
         "validation_states": dict(sorted(by_validation.items())),

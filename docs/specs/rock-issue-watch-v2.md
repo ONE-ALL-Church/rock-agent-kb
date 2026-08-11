@@ -91,12 +91,18 @@ Hosted `catalog.status` is one of:
 - `source_stale`: one or more Rock issue sources are failed, missing, or
   overdue;
 - `deployment_lag`: source checks succeeded but source and deployed projection
-  counts or content hashes differ;
-- `not_recorded`: authoritative source-check metadata is unavailable.
+  counts or versioned content hashes differ, and the source observation is at
+  least as new as the projection;
+- `projection_ahead`: the reviewed deployed projection was checked after the
+  latest recorded source observation; this is healthy and non-blocking;
+- `not_recorded`: authoritative source-check metadata, a compatible hash
+  contract, or the timestamps needed to establish the direction of a known
+  mismatch are unavailable.
 
 Read `catalog.warning` before relying on the assessment. A stale source or
 deployment lag is a reason to refresh or wait for deployment, not a reason to
-silently treat old results as current.
+silently treat old results as current. `projection_ahead` needs no rollback;
+the next successful source observation should reconcile it.
 
 Hosted responses expose `projection_count_matches_source`,
 `projection_content_matches_source`, the overall `projection_matches_source`,
