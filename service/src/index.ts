@@ -7497,7 +7497,12 @@ function searchSignals(
 }
 
 function sourceNativeTechnicalIdentifierBoost(row: SearchRow, queryTerms: string[]): number {
-  if (!row.id.startsWith("source-native:") || !queryTerms.includes("sa")) {
+  const saContextTerms = new Set(["administrator", "authentication", "database", "login", "server", "sql", "ssms"]);
+  if (
+    !row.id.startsWith("source-native:")
+    || !queryTerms.includes("sa")
+    || !queryTerms.some((term) => saContextTerms.has(term))
+  ) {
     return 0;
   }
   const payload = parsePayload(row);

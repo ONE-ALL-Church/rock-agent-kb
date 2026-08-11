@@ -2188,6 +2188,17 @@ test("verified source-native overrides retain exact independent-question ranking
           },
         },
       },
+      {
+        id: "source-native:structured_reference:hosting:service-area-abbreviation",
+        title: "Service Area (SA) abbreviation",
+        body: "SA is an abbreviation for service area.",
+        payload: {
+          artifact: {
+            artifact_type: "structured_reference",
+            independent_question: "What does SA mean in this service area?",
+          },
+        },
+      },
     ];
     for (const row of rows) {
       await db.prepare(`INSERT INTO search_rows
@@ -2223,6 +2234,15 @@ test("verified source-native overrides retain exact independent-question ranking
     assert.equal(paraphraseResponse.status, 200);
     assert.equal(paraphrase.results[0].id, rows[0].id);
     assert.ok(paraphrase.results[0].signals.exact_lookup_boost >= 220);
+
+    const unrelatedResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("What does SA mean in this service area?")}&limit=3&debug=true`,
+    );
+    const unrelated = await unrelatedResponse.json();
+    const unrelatedRow = unrelated.results.find((row) => row.id === rows[2].id);
+    assert.equal(unrelatedResponse.status, 200);
+    assert.ok(unrelatedRow);
+    assert.equal(unrelatedRow.signals.exact_lookup_boost, 0);
   } finally {
     await mf.dispose();
   }
