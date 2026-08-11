@@ -42,6 +42,9 @@ tags and follow semantic versioning for public client and service contracts.
 - CI release gates use bounded local-Worker concurrency so retrieval quality
   remains strict without turning the isolated D1 check into an unstable load
   test on shared runners.
+- Conversational search now preserves the technical `sa` identifier and
+  normalizes delete/deleted/deleting/deletion, so corrected source-native
+  answers outrank neighboring setup task cards for those paraphrases.
 
 ## [0.23.0] - 2026-08-10
 

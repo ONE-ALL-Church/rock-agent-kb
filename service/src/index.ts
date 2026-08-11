@@ -7281,7 +7281,7 @@ function buildFtsQuery(query: string): string {
 function searchTerms(query: string): string[] {
   const rawTerms = (query.match(/[A-Za-z0-9_]+/g) || [])
     .map(normalizeSearchTerm)
-    .filter((term) => term.length >= 3 || term === "ai" || term === "tv");
+    .filter((term) => term.length >= 3 || term === "ai" || term === "sa" || term === "tv");
   const filteredTerms = rawTerms.filter((term) => !SEARCH_STOP_WORDS.has(term));
   return Array.from(new Set(filteredTerms.length ? filteredTerms : rawTerms));
 }
@@ -7427,6 +7427,9 @@ function normalizeSearchTerm(value: string): string {
     reprinting: "reprint",
     developer: "develop",
     development: "develop",
+    deleted: "delete",
+    deleting: "delete",
+    deletion: "delete",
     workflows: "workflow",
     requests: "request",
     checkin: "check",
@@ -7467,6 +7470,7 @@ function searchSignals(
     query,
   );
   const schemaReferenceBoost = sourceNativeSchemaReferenceBoost(row, query);
+  const technicalIdentifierBoost = sourceNativeTechnicalIdentifierBoost(row, queryTerms);
   const conceptIntent = conceptIntentBoost(row, queryTerms, query);
   const routeIntent = concepts.includes(queryTopicHint(query)) && row.kind !== "guide_section" ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
@@ -7474,7 +7478,7 @@ function searchSignals(
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
   // FTS5 negates BM25 so stronger matches have numerically lower values.
   const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
-  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + independentQuestionBoost + schemaReferenceBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + independentQuestionBoost + schemaReferenceBoost + technicalIdentifierBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
@@ -7484,12 +7488,22 @@ function searchSignals(
     lexical_coverage: Number(lexicalCoverage.toFixed(4)),
     lexical_coverage_boost: lexicalCoverageBoost,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost,
-    exact_lookup_boost: guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + schemaReferenceBoost + conceptIntent + routeIntent,
+    exact_lookup_boost: guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + schemaReferenceBoost + technicalIdentifierBoost + conceptIntent + routeIntent,
     independent_question_boost: independentQuestionBoost,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
     bm25_relevance: bm25Relevance,
   };
+}
+
+function sourceNativeTechnicalIdentifierBoost(row: SearchRow, queryTerms: string[]): number {
+  if (!row.id.startsWith("source-native:") || !queryTerms.includes("sa")) {
+    return 0;
+  }
+  const payload = parsePayload(row);
+  const artifact = asRecord(payload.effective_artifact || payload.artifact);
+  const strongText = `${row.title || ""} ${artifact.title || ""} ${artifact.retrieval_text || ""}`;
+  return /(^|[^A-Za-z0-9_])sa([^A-Za-z0-9_]|$)/i.test(strongText) ? 220 : 0;
 }
 
 function sourceNativeSchemaReferenceBoost(row: SearchRow, query: string): number {
@@ -7544,6 +7558,11 @@ function sourceNativeIndependentQuestionBoost(
   const questionTerms = new Set(searchTerms(independentQuestion));
   const overlap = overlapCount(queryTerms, questionTerms);
   const coverage = overlap / Math.max(queryTerms.length, questionTerms.size, 1);
+  const queryCoverage = overlap / Math.max(queryTerms.length, 1);
+  const questionCoverage = overlap / Math.max(questionTerms.size, 1);
+  if (overlap >= 3 && queryCoverage >= 0.9 && questionCoverage >= 0.5) {
+    return 160;
+  }
   return overlap >= 3 && coverage >= 0.75 ? 100 : 0;
 }
 
