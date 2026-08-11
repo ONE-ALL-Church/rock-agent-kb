@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/deploy-service.yml"
       - "agent/**"
       - "canonical/**"
       - "claims/**"
@@ -92,7 +93,7 @@ jobs:
       - name: Build service projection
         run: uv run kb deploy-service
       - name: Run lexical retrieval quality gate
-        run: uv run kb quality-gate
+        run: uv run kb quality-gate --concurrency 3
       - name: Enforce shadow service lifecycle
         run: uv run kb shadow-lifecycle --strict
       - name: Sync Worker runtime secrets

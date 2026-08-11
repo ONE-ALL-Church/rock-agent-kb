@@ -39,6 +39,9 @@ tags and follow semantic versioning for public client and service contracts.
 - Public-safety scanning accepts literal ellipsis credential placeholders while
   still rejecting real password, token, key, and connection-string values on
   the same line.
+- CI release gates use bounded local-Worker concurrency so retrieval quality
+  remains strict without turning the isolated D1 check into an unstable load
+  test on shared runners.
 
 ## [0.23.0] - 2026-08-10
 
