@@ -16,9 +16,9 @@ from .rock_ideas import build_rock_idea_artifacts_from_normalized
 from .sources import load_sources
 
 
-def all_normalized_records() -> list[dict[str, Any]]:
+def all_normalized_records(normalized_dir: Path = NORMALIZED_DIR) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
-    for path in sorted(NORMALIZED_DIR.glob("*.jsonl")):
+    for path in sorted(normalized_dir.glob("*.jsonl")):
         records.extend(enrich_derived_documentation_metadata(record) for record in read_jsonl(path))
     return dedupe_records_by_id(records)
 

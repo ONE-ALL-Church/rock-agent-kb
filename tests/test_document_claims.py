@@ -109,6 +109,107 @@ def test_explicit_source_record_bypasses_automatic_path_constraint(monkeypatch, 
     assert next(read_jsonl(output))["concept_ids"] == ["security-permissions"]
 
 
+def test_explicit_source_records_bypass_per_concept_limit(monkeypatch, tmp_path: Path):
+    records = [
+        documentation_record(
+            f"rock_documentation:exact-{index}",
+            f"documentation/core-concepts/documents/exact-{index}",
+            f"Exact Article {index}",
+            "This official article contains enough source context for exact selection.",
+        )
+        for index in (1, 2, 3)
+    ]
+    output = tmp_path / "candidates.jsonl"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    result = document_claims.build_document_claim_candidates(
+        concept_ids=["documents-signatures"],
+        limit_per_concept=1,
+        output_path=output,
+        records=records,
+        source_record_ids=[record["id"] for record in records[:2]],
+        context_loader=lambda record: (
+            f"Full official text for {record['source_title']} explains a distinct "
+            "document workflow with enough detail for source-native review."
+        ),
+    )
+
+    assert result["candidate_count"] == 2
+    assert {row["source_record_id"] for row in read_jsonl(output)} == {
+        record["id"] for record in records[:2]
+    }
+
+
+def test_explicit_source_record_ids_accepts_all_known_ids(monkeypatch, tmp_path: Path):
+    records = [
+        documentation_record(
+            f"rock_documentation:known-{index}",
+            f"documentation/core-concepts/documents/known-{index}",
+            f"Known Article {index}",
+            "This official article contains enough source context for exact selection.",
+        )
+        for index in (1, 2)
+    ]
+    output = tmp_path / "candidates.jsonl"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    result = document_claims.build_document_claim_candidates(
+        concept_ids=["documents-signatures"],
+        limit_per_concept=1,
+        output_path=output,
+        records=records,
+        source_record_ids=[record["id"] for record in records],
+        context_loader=lambda record: f"Full official text for {record['source_title']} with sufficient detail for review.",
+    )
+
+    assert result["candidate_count"] == 2
+
+
+def test_explicit_source_record_ids_reject_any_unknown_id(monkeypatch, tmp_path: Path):
+    record = documentation_record(
+        "rock_documentation:known",
+        "documentation/core-concepts/documents/known",
+        "Known Article",
+        "This official article contains enough source context for exact selection.",
+    )
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    with pytest.raises(ValueError, match="Unknown source_record_ids: rock_documentation:missing"):
+        document_claims.build_document_claim_candidates(
+            concept_ids=["documents-signatures"],
+            limit_per_concept=1,
+            output_path=tmp_path / "candidates.jsonl",
+            records=[record],
+            source_record_ids=[record["id"], "rock_documentation:missing"],
+            context_loader=lambda _record: "Full official text with sufficient detail for review.",
+        )
+
+
+def test_explicit_source_record_ids_reject_source_family_mismatch(monkeypatch, tmp_path: Path):
+    record = documentation_record(
+        "rock_community_blog:wrong-family",
+        "blog/rock-documentation-reference",
+        "Wrong Source Family",
+        "This record exists but belongs to a different source family than the requested documentation source.",
+    )
+    record["source_id"] = "rock_community_blog"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    with pytest.raises(
+        ValueError,
+        match="source_record_ids outside allowed source_ids: rock_community_blog:wrong-family",
+    ):
+        document_claims.build_document_claim_candidates(
+            concept_ids=["documents-signatures"],
+            limit_per_concept=1,
+            output_path=tmp_path / "candidates.jsonl",
+            records=[record],
+            source_ids=["rock_documentation"],
+            source_record_ids=[record["id"]],
+            context_loader=lambda _record: "Full source text with sufficient detail for review.",
+        )
+
+
 def test_build_document_claim_candidates_skips_truncated_full_article(monkeypatch, tmp_path: Path):
     record = documentation_record(
         "rock_documentation:test-long",
@@ -361,3 +462,59 @@ def test_candidate_selection_reserves_subguide_coverage():
     assert any("/streaks/" in path for path in paths)
     assert any("/assessments/" in path for path in paths)
     assert any("/additional-engagement-tools/" in path for path in paths)
+
+
+def test_candidate_selection_reserves_exact_source_record_subguide_before_keywords():
+    concept = type("Concept", (), {"subguides": [{"source_record_ids": ["record:exact"], "keywords": ["steps"]}]})()
+    eligible = [
+        (
+            1_100,
+            "documentation/engagement/steps/keyword-match",
+            {
+                "id": "record:keyword",
+                "documentation_path": "documentation/engagement/steps/keyword-match",
+                "source_title": "Configure Steps",
+                "summary": "Configure steps",
+            },
+        ),
+        (
+            1_000,
+            "documentation/other/exact",
+            {
+                "id": "record:exact",
+                "documentation_path": "documentation/other/exact",
+                "source_title": "Exact Source Record",
+                "summary": "A source record selected by exact ID.",
+            },
+        ),
+    ]
+
+    selected = document_claims.reserve_subguide_coverage(concept, eligible, 1)
+
+    assert [item[2]["id"] for item in selected] == ["record:exact"]
+    assert not document_claims.record_matches_subguide(eligible[0][2], concept.subguides[0])
+
+
+def test_subguide_exact_source_records_are_additive_with_branches():
+    subguide = {
+        "source_record_ids": ["record:exact"],
+        "documentation_branches": ["documentation/supporting-rock/caching"],
+        "keywords": ["navigate"],
+    }
+    exact = {
+        "id": "record:exact",
+        "documentation_branch": "documentation/getting-started",
+    }
+    branch = {
+        "id": "record:cache",
+        "documentation_branch": "documentation/supporting-rock/caching",
+    }
+    unrelated = {
+        "id": "record:unrelated",
+        "documentation_branch": "documentation/church-management/groups",
+        "source_title": "Navigate unrelated content",
+    }
+
+    assert document_claims.record_matches_subguide(exact, subguide)
+    assert document_claims.record_matches_subguide(branch, subguide)
+    assert not document_claims.record_matches_subguide(unrelated, subguide)

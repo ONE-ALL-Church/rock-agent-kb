@@ -6,6 +6,40 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.23.1] - 2026-08-11
+
+### Changed
+
+- The reviewed source-native bundle now covers 77 official prose records and
+  466 typed artifacts, with 122 exact legacy migrations and seven
+  source-native artifact migrations. The batch completes the 19-record ready
+  queue plus bounded hosting, security, engagement, and CMS groups.
+- The old `/lava/commands` source identity now resolves to
+  `/lava/commands/getting-started`, and the Navigate Rock and community
+  deprecations records use exact source-record concept routing.
+- Current source verification narrows mutable SQL Server, unsubscribe,
+  Check-In, cache, File Manager, and content-channel guidance; all 71 active
+  verification decisions resolve with no blocker.
+
+### Fixed
+
+- Exact source-native questions retain their ranking signal after a verified
+  artifact correction, and field/property questions naming a distinctive code
+  object prefer its reviewed structured reference over generic Lava contexts.
+- Exact source-record migration selection is fail-closed, bypasses automatic
+  per-concept limits, and no longer admits keyword-neighbor records or reserves
+  the wrong subguide.
+- Redistilling an unchanged artifact now preserves every prior verified
+  correction, narrowing, or supersession. Changed source inputs and partial
+  artifact replacements stop for explicit re-review instead of restoring the
+  source's known-wrong wording; newer fully overlapping verified corrections
+  explicitly supersede older decisions.
+- Alternate-repository migration-priority reports consistently read and write
+  within the requested root instead of mixing inputs from the default checkout.
+- Public-safety scanning accepts literal ellipsis credential placeholders while
+  still rejecting real password, token, key, and connection-string values on
+  the same line.
+
 ## [0.23.0] - 2026-08-10
 
 ### Added

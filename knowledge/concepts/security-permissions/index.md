@@ -2,15 +2,15 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-08-10T22:17:22+00:00
+last_built: 2026-08-11T19:18:57+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-06T20:54:01+00:00
+source_last_checked_at: 2026-08-11T16:40:45+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/43
-legacy_summary_retirement_coverage: 2/43
+legacy_summary_retirement_coverage: 4/43
 depends_on_topics:
   - people
   - groups
@@ -270,9 +270,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `43`
-- Upstream check range: `2026-08-04T15:01:39+00:00` through `2026-08-06T20:54:01+00:00`
+- Upstream check range: `2026-08-04T15:01:39+00:00` through `2026-08-11T16:40:45+00:00`
 - Source-native typed articles: `4` of `43`
-- Legacy source summaries retired: `2`; still active: `41`
+- Legacy source summaries retired: `4`; still active: `39`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

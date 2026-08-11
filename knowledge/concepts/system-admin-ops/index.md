@@ -2,15 +2,15 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-08-10T22:17:12+00:00
+last_built: 2026-08-11T19:18:47+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:02:27+00:00
+source_last_checked_at: 2026-08-11T16:40:46+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 6/69
-legacy_summary_retirement_coverage: 0/69
+source_native_article_coverage: 6/70
+legacy_summary_retirement_coverage: 6/70
 depends_on_topics:
   - security
   - workflows
@@ -39,9 +39,9 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 ## How To Think About This Area
 
 - `System Administration And Operations` spans security, workflows, data-views, reports, cache, jobs. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_documentation, rock_community_hubs, rock_community_site, rock_core_release_notes, rock_model_map, rock_recipes.
+- The strongest source families in this build are: rock_documentation, rock_community_hubs, rock_community_blog, rock_core_release_notes, rock_model_map, rock_recipes.
 - Related tags found in source records: operations, usage, admin, sql, api, security, lava, finance.
-- Source detail types include: documentation_article, question, recipe, rock_community_site, training, triumph_resources.
+- Source detail types include: community_blog_article, documentation_article, question, recipe, training, triumph_resources.
 
 ## Reviewed Media Insights
 
@@ -52,10 +52,6 @@ Service jobs, exception logs, cache, cleanup, indexing, data integrity, settings
 | Media Watch Transcript Insight | built-in automation | 25:51 | Before building custom cleanup processes, review Rock's built-in data automation options such as profile activation/inactivation rules, adult-child family movement, and gender classification thresholds. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | Media Watch Transcript Insight | volunteer governance | 28:48 | Data volunteers can help with duplicate and cleanup queues, but they need training, review time, and bounded scope; adding more volunteers does not scale if every merge decision still requires staff judgment. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
 | Media Watch Transcript Insight | continuous improvement | 30:53 | Track recurring data defects in a shared backlog, choose a small set of fields or defect types to address first, set measurable cleanup goals, and share wins so ministry teams understand the operational value of clean Rock data. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) |
-| Media Watch Transcript Insight | sender trust | 01:04 | Email logo branding should be treated as sender-trust work that makes messages easier to recognize, not as a guaranteed fix for spam-folder placement. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| Media Watch Transcript Insight | BIMI prerequisites | 13:18 | Before pursuing BIMI or logo display, teams should verify SPF, DKIM, DMARC, domain alignment, and the logo-hosting requirements for the target mail clients. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| Media Watch Transcript Insight | verification options | 12:07 | Self-asserted, CMC, and VMC-style verification paths differ in cost, trademark requirements, and inbox support, so churches should pick the level that matches their domain risk and communication volume. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
-| Media Watch Transcript Insight | deliverability boundary | 30:53 | Logo display and domain authentication should be documented separately from Mailgun, IP reputation, list quality, and message-content factors that influence deliverability. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) |
 
 
 ## Approved Claims
@@ -68,10 +64,10 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 ## Source Coverage
 
-- `rock_community_hubs`: 2
-- `rock_community_site`: 1
+- `rock_community_blog`: 1
+- `rock_community_hubs`: 1
 - `rock_core_release_notes`: 2
-- `rock_documentation`: 69
+- `rock_documentation`: 70
 - `rock_model_map`: 12
 - `rock_qa`: 1
 - `rock_recipes`: 1
@@ -235,10 +231,10 @@ Keywords: `search, universal search, indexing, index, search components`
 
 ## Source Lifecycle
 
-- Official article records routed here: `69`
-- Upstream check range: `2026-08-04T15:01:37+00:00` through `2026-08-04T15:02:27+00:00`
-- Source-native typed articles: `6` of `69`
-- Legacy source summaries retired: `0`; still active: `69`
+- Official article records routed here: `70`
+- Upstream check range: `2026-08-04T15:01:36+00:00` through `2026-08-11T16:40:46+00:00`
+- Source-native typed articles: `6` of `70`
+- Legacy source summaries retired: `6`; still active: `64`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

@@ -2160,6 +2160,146 @@ test("source-native independent questions disambiguate neighboring references", 
   }
 });
 
+test("verified source-native overrides retain exact independent-question ranking", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const question = "What administrator username does Rock's internal-hosting procedure document for the first SQL Server Management Studio login?";
+    const rows = [
+      {
+        id: "source-native:structured_reference:hosting:first-ssms-admin",
+        title: "Use sa only in Rock's documented Mixed Mode path",
+        body: `Rock documents sa for the first login. ${question}`,
+        payload: {
+          effective_artifact: {
+            artifact_type: "structured_reference",
+            independent_question: question,
+          },
+        },
+      },
+      {
+        id: "source-native:source_summary:hosting:sql-server-installation",
+        title: "Install SQL Server for Rock internal hosting",
+        body: "Install SQL Server and SQL Server Management Studio for an internal Rock host.",
+        payload: {
+          artifact: {
+            artifact_type: "source_summary",
+            independent_question: "How do administrators install SQL Server for Rock internal hosting?",
+          },
+        },
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, 'shadow/canonical/source-native.jsonl', ?, 'hosting-infrastructure', 'official', 'source_backed', 1, 'rock_documentation', ?)`)
+        .bind(
+          row.id,
+          row.id.includes(":source_summary:") ? "source_summary" : "structured_reference",
+          row.title,
+          row.body,
+          "https://community.rockrms.com/documentation/supporting-rock/hosting",
+          JSON.stringify(row.payload),
+        )
+        .run();
+      await db.prepare(
+        "INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+      ).bind(row.id, row.title, row.body, "hosting-infrastructure").run();
+    }
+
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent(question)}&limit=2&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, rows[0].id);
+    assert.equal(payload.results[0].signals.independent_question_boost, 260);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("exact schema-object questions prefer the source-native field reference", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "source-native:structured_reference:check-in:helper-schema",
+        kind: "structured_reference",
+        title: "Rock documents field schemas for label-specific helper objects",
+        body: "LabelAttendanceDetail has Person, StartDateTime, EndDateTime, Group, Location, Schedule, GroupMembers, and SecurityCode fields.",
+        payload: {
+          artifact: {
+            artifact_type: "structured_reference",
+            independent_question: "Which fields and types are documented for LabelAttendanceDetail and AchievementBag?",
+            payload: {
+              reference_items: [
+                { label: "LabelAttendanceDetail fields" },
+                { label: "AchievementBag fields" },
+              ],
+            },
+          },
+        },
+      },
+      {
+        id: "source-native:structured_reference:check-in:label-types",
+        kind: "structured_reference",
+        title: "Rock check-in label types differ by print scope and available Lava merge fields",
+        body: "Attendance templates expose an Attendance value whose type is LabelAttendanceDetail.",
+        payload: {
+          artifact: {
+            artifact_type: "structured_reference",
+            independent_question: "What Lava merge fields are documented for each check-in label type?",
+          },
+        },
+      },
+      {
+        id: "lava_context:check-in-label:attendance",
+        kind: "lava_context",
+        title: "Check-In Label Designer Attendance Dynamic Text - Attendance",
+        body: "The Attendance Lava root contains LabelAttendanceDetail data.",
+        payload: { root_key: "Attendance" },
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, 'shadow/canonical/source-native.jsonl', ?, 'check-in', 'official', 'source_backed', 1, 'rock_documentation', ?)`)
+        .bind(
+          row.id,
+          row.kind,
+          row.title,
+          row.body,
+          "https://community.rockrms.com/documentation/check-in/labels",
+          JSON.stringify(row.payload),
+        )
+        .run();
+      await db.prepare(
+        "INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+      ).bind(row.id, row.title, row.body, "check-in").run();
+    }
+
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("What Lava properties are available on LabelAttendanceDetail?")}&limit=3&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, rows[0].id);
+    assert.ok(payload.results[0].signals.exact_lookup_boost >= 240);
+    const labelTypes = payload.results.find((row) => row.id === rows[1].id);
+    assert.equal(
+      payload.results[0].signals.exact_lookup_boost
+        - labelTypes.signals.exact_lookup_boost,
+      160,
+    );
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("generic title overlap does not displace more complete troubleshooting", async () => {
   const mf = await buildWorker();
   try {

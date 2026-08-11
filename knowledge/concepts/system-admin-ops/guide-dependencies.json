@@ -65,37 +65,19 @@
       "source_record_id": "media-insight:574371376cd3e666",
       "source_title": "Media Watch Transcript Insight",
       "source_url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-    },
-    {
-      "approved_concept_ids": [
-        "communications",
-        "security-permissions",
-        "system-admin-ops"
-      ],
-      "content_hash": "2ea0ceba3a8e7f553d6ae803a8961057c3c46f2d0edc4e919550a7f3c47d58e2",
-      "key_insight_count": 4,
-      "mentioned_in_guide": true,
-      "public_promotion_candidate_id": "media-public-candidate:e57ad3db15510f24",
-      "public_promotion_id": "media-public-promotion:2ea0ceba3a8e7f55",
-      "review_status": "approved_for_public_distillation",
-      "source_id": "rock_community_hubs",
-      "source_record_id": "media-insight:e57ad3db15510f24",
-      "source_title": "Media Watch Transcript Insight",
-      "source_url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     }
   ],
   "approved_media_dependency_hashes": {
-    "media-insight:574371376cd3e666": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc",
-    "media-insight:e57ad3db15510f24": "2ea0ceba3a8e7f553d6ae803a8961057c3c46f2d0edc4e919550a7f3c47d58e2"
+    "media-insight:574371376cd3e666": "2abc8a178fef21706cf991de25e918a22b4272ae67a20e356cfde5d62ded8fbc"
   },
-  "approved_media_hash": "600da2ee7abf72e40a1075d20f946aa600daa2c5c6eb17e6c2f7e6280a4b6e3a",
+  "approved_media_hash": "a9b1fb28ade1c7326d319ef92aec2a18f5ff90bf712165a1408421ffd51e57af",
   "approved_media_path": "knowledge/concepts/system-admin-ops/approved-media.md",
-  "built_at": "2026-08-10T22:18:21+00:00",
+  "built_at": "2026-08-11T19:20:02+00:00",
   "concept_id": "system-admin-ops",
-  "guide_hash": "7f96773219c91faf1f1a2b8d4509bd014f728d197d27ad65eb1363b84b696c1c",
-  "guide_line_count": 1669,
+  "guide_hash": "8754ae81ace0f4f15c211defbf1c948e422f03a21a209677421d3aa269af3a9e",
+  "guide_line_count": 1668,
   "guide_path": "knowledge/concepts/system-admin-ops/guide.md",
-  "guide_word_count": 12190,
+  "guide_word_count": 12174,
   "rebuild_triggers": [
     {
       "authority": "official-model-map",
@@ -501,15 +483,6 @@
       "source_key": "2a835fe90be9f475",
       "source_record_id": "",
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "65a454a45e1b631f",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     }
   ],
   "routing_context_claim_count": 0,
@@ -2119,19 +2092,18 @@
     },
     {
       "confidence": "citation-only",
-      "end_line": 1640,
+      "end_line": 1639,
       "heading": "Approved Media Coverage",
       "needs_live_verification": false,
       "section_id": "approved-media-coverage",
       "source_keys": [
-        "2a835fe90be9f475",
-        "65a454a45e1b631f"
+        "2a835fe90be9f475"
       ],
       "start_line": 1627
     },
     {
       "confidence": "high",
-      "end_line": 1669,
+      "end_line": 1668,
       "heading": "20. Source Map And Dependency Notes",
       "needs_live_verification": true,
       "section_id": "20-source-map-and-dependency-notes",
@@ -2155,7 +2127,7 @@
         "e8988031b9975c3b",
         "f0b9a2a5b041884c"
       ],
-      "start_line": 1641
+      "start_line": 1640
     }
   ],
   "source_pack_hydrated_at": "2026-06-03T18:03:44+00:00",
@@ -3042,16 +3014,6 @@
       "source_record_id": "",
       "title": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7",
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "65a454a45e1b631f",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW",
-      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW"
     }
   ],
   "synthesis_profile": "comprehensive",

@@ -20,6 +20,7 @@ from rock_kb.source_native_verification import (
     build_source_native_verification_packet,
     hash_live_evidence,
     hash_live_evidence_with_timeout_retry,
+    preserve_source_native_verification_continuity,
     promote_source_native_verification_resolutions,
     source_native_verification_queue_hash,
     verification_resolutions_by_artifact,
@@ -83,6 +84,81 @@ def resolution_row(queue: dict) -> dict:
     }
 
 
+def reviewed_artifact_row(*, source_input_hash: str = "a" * 64) -> dict:
+    return {
+        "schema": "rock-kb-reviewed-source-native-artifact-v1",
+        "artifact_id": "source-native:claim:test",
+        "source_candidate_id": "source-native-candidate:test",
+        "generation_activity_id": "generation:test",
+        "artifact": {
+            "artifact_key": "test",
+            "artifact_type": "claim",
+            "source_unit_ids": ["source-unit:test"],
+            "title": "Unverified source guidance",
+            "retrieval_text": "The source states the unverified guidance.",
+            "independent_question": "What guidance does the source provide?",
+            "rationale": "The source explicitly states the guidance.",
+            "concept_ids": ["workflows"],
+            "claim_type": "behavior",
+            "evidence_class": "current_behavior",
+            "payload": {"summary": "The source states the guidance."},
+            "needs_live_verification": False,
+        },
+        "review_state": "reviewer_approved",
+        "reviewer": "test-reviewer",
+        "reviewed_at": "2026-08-01T00:00:00+00:00",
+        "review_notes": [],
+        "source_input_hash": source_input_hash,
+    }
+
+
+def corrective_resolution_row(queue: dict) -> dict:
+    payload = resolution_row(queue)
+    payload.update(
+        {
+            "artifact_disposition": "corrects",
+            "effective_title": "Verified corrected guidance",
+            "effective_retrieval_text": (
+                "Public source evidence corrects the original guidance."
+            ),
+        }
+    )
+    return payload
+
+
+def test_redistillation_preserves_verified_correction_for_unchanged_source() -> None:
+    queue = queue_row()
+    artifacts, queues, preserved = preserve_source_native_verification_continuity(
+        prior_artifact_rows=[reviewed_artifact_row()],
+        prior_queue_rows=[queue],
+        prior_resolution_rows=[corrective_resolution_row(queue)],
+        current_artifact_rows=[reviewed_artifact_row()],
+        current_queue_rows=[],
+        current_resolution_rows=[],
+        current_source_unit_ids={"source-unit:test"},
+    )
+
+    assert preserved == ["source-native-verification:test"]
+    assert queues == [queue]
+    assert artifacts[0]["artifact"]["needs_live_verification"] is False
+
+
+def test_redistillation_rejects_correction_loss_after_source_change() -> None:
+    queue = queue_row()
+    with pytest.raises(ValueError, match="source input changed"):
+        preserve_source_native_verification_continuity(
+            prior_artifact_rows=[reviewed_artifact_row()],
+            prior_queue_rows=[queue],
+            prior_resolution_rows=[corrective_resolution_row(queue)],
+            current_artifact_rows=[
+                reviewed_artifact_row(source_input_hash="b" * 64)
+            ],
+            current_queue_rows=[],
+            current_resolution_rows=[],
+            current_source_unit_ids={"source-unit:test"},
+        )
+
+
 def test_verification_packet_and_promotion_are_hash_bound(tmp_path: Path):
     queue_path = tmp_path / "queue.jsonl"
     packet_path = tmp_path / "packet.jsonl"
@@ -111,6 +187,47 @@ def test_verification_packet_and_promotion_are_hash_bound(tmp_path: Path):
     assert result["report"]["verified_count"] == 1
     promoted = next(read_jsonl(destination / "verification-resolutions.jsonl"))
     assert promoted["reviewer"] == "test-reviewer"
+
+
+def test_new_correction_supersedes_fully_overlapping_prior_correction(
+    tmp_path: Path,
+) -> None:
+    old_queue = queue_row()
+    new_queue = {
+        **queue_row("What does current source establish instead?"),
+        "verification_id": "source-native-verification:new",
+    }
+    old_resolution = corrective_resolution_row(old_queue)
+    new_resolution = corrective_resolution_row(new_queue)
+    new_resolution["effective_title"] = "Newer verified guidance"
+    new_resolution["effective_retrieval_text"] = (
+        "Newer public evidence supplies the current corrected behavior."
+    )
+    queue_path = tmp_path / "queue.jsonl"
+    input_path = tmp_path / "reviewed.jsonl"
+    destination = tmp_path / "bundle"
+    write_jsonl(queue_path, [old_queue, new_queue])
+    write_jsonl(input_path, [new_resolution])
+    write_jsonl(
+        destination / "verification-resolutions.jsonl",
+        [old_resolution],
+    )
+
+    result = promote_source_native_verification_resolutions(
+        queue_path=queue_path,
+        input_path=input_path,
+        destination=destination,
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-02T12:00:00+00:00",
+    )
+
+    resolutions = list(
+        read_jsonl(destination / "verification-resolutions.jsonl")
+    )
+    assert result["resolution_count"] == 1
+    assert [row["verification_id"] for row in resolutions] == [
+        "source-native-verification:new"
+    ]
 
 
 def test_verification_queue_rejects_duplicate_ids(tmp_path: Path):

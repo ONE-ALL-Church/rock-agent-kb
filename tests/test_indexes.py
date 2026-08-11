@@ -2,6 +2,7 @@ import json
 
 import rock_kb.indexes as indexes_module
 from rock_kb.indexes import (
+    all_normalized_records,
     build_public_source_summaries,
     build_public_source_summary_pack,
     dedupe_records_by_id,
@@ -9,6 +10,19 @@ from rock_kb.indexes import (
     is_public_agent_record,
     public_agent_records,
 )
+
+
+def test_all_normalized_records_can_read_an_alternate_repo_root(tmp_path):
+    normalized_dir = tmp_path / "data" / "normalized"
+    normalized_dir.mkdir(parents=True)
+    (normalized_dir / "alternate.jsonl").write_text(
+        json.dumps({"id": "alternate:record", "source_id": "alternate"}) + "\n",
+        encoding="utf-8",
+    )
+
+    assert [row["id"] for row in all_normalized_records(normalized_dir)] == [
+        "alternate:record"
+    ]
 
 
 def test_public_agent_records_exclude_unreviewed_private_transcript_insights():

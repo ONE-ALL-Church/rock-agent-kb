@@ -2,15 +2,15 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-08-10T22:17:08+00:00
+last_built: 2026-08-11T19:18:43+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T22:27:07+00:00
+source_last_checked_at: 2026-08-11T16:40:46+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 17/76
-legacy_summary_retirement_coverage: 11/76
+legacy_summary_retirement_coverage: 17/76
 depends_on_topics:
   - attendance
   - groups
@@ -296,9 +296,9 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 ## Source Lifecycle
 
 - Official article records routed here: `76`
-- Upstream check range: `2026-08-04T15:01:10+00:00` through `2026-08-04T22:27:07+00:00`
+- Upstream check range: `2026-08-04T15:01:10+00:00` through `2026-08-11T16:40:46+00:00`
 - Source-native typed articles: `17` of `76`
-- Legacy source summaries retired: `11`; still active: `65`
+- Legacy source summaries retired: `17`; still active: `59`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

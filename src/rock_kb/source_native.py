@@ -41,6 +41,8 @@ from .source_native_verification import (
     VERIFICATION_REPORT_NAME,
     VERIFICATION_RESOLUTIONS_NAME,
     audit_source_native_verifications,
+    preserve_source_native_verification_continuity,
+    source_native_verification_queue_hash,
 )
 
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
@@ -2213,7 +2215,45 @@ def promote_source_native_distillation(
             base_dir=base_dir,
             incoming=bundle_rows,
         )
-    validate_source_native_bundle_consistency(bundle_rows)
+        prior_resolution_rows = list(
+            read_jsonl(base_dir / VERIFICATION_RESOLUTIONS_NAME)
+        )
+        (
+            bundle_rows["reviewed-artifacts.jsonl"],
+            bundle_rows["verification-queue.jsonl"],
+            preserved_resolution_ids,
+        ) = preserve_source_native_verification_continuity(
+            prior_artifact_rows=read_jsonl(
+                base_dir / "reviewed-artifacts.jsonl"
+            ),
+            prior_queue_rows=read_jsonl(
+                base_dir / "verification-queue.jsonl"
+            ),
+            prior_resolution_rows=prior_resolution_rows,
+            current_artifact_rows=bundle_rows["reviewed-artifacts.jsonl"],
+            current_queue_rows=bundle_rows["verification-queue.jsonl"],
+            current_resolution_rows=prior_resolution_rows,
+            current_source_unit_ids={
+                str(row.get("source_unit_id") or "")
+                for row in bundle_rows["source-units.jsonl"]
+            },
+        )
+        active_verification_ids = {
+            str(row.get("verification_id") or "")
+            for row in bundle_rows["verification-queue.jsonl"]
+        }
+        active_resolution_rows = [
+            row
+            for row in prior_resolution_rows
+            if str(row.get("verification_id") or "")
+            in active_verification_ids
+        ]
+    else:
+        active_resolution_rows = []
+    validate_source_native_bundle_consistency(
+        bundle_rows,
+        verification_resolution_rows=active_resolution_rows,
+    )
     destination.mkdir(parents=True, exist_ok=True)
     sort_keys = {
         "source-snapshots.jsonl": "source_snapshot_id",
@@ -2423,6 +2463,8 @@ def unique_rows_by_id(
 
 def validate_source_native_bundle_consistency(
     bundle_rows: dict[str, list[dict[str, Any]]],
+    *,
+    verification_resolution_rows: Iterable[dict[str, Any]] = (),
 ) -> dict[str, int]:
     """Reject final bundles whose verification flags and queue disagree."""
 
@@ -2448,6 +2490,38 @@ def validate_source_native_bundle_consistency(
         key="verification_id",
         source="verification-queue.jsonl",
     )
+    queue_by_id = {row.verification_id: row for row in queue_rows}
+    resolved_override_artifact_ids: set[str] = set()
+    for raw in verification_resolution_rows:
+        resolution = SourceNativeVerificationResolution.model_validate(raw)
+        queue_item = queue_by_id.get(resolution.verification_id)
+        if queue_item is None:
+            raise ValueError(
+                "verification resolution references an unknown queue item: "
+                f"{resolution.verification_id}"
+            )
+        if resolution.queue_item_hash != source_native_verification_queue_hash(
+            queue_item
+        ):
+            raise ValueError(
+                "verification resolution queue binding is stale: "
+                f"{resolution.verification_id}"
+            )
+        if resolution.resolution_state != "verified":
+            continue
+        if resolution.artifact_overrides:
+            if any(
+                override.artifact_disposition
+                in {"narrows", "corrects", "supersedes"}
+                for override in resolution.artifact_overrides
+            ):
+                resolved_override_artifact_ids.update(queue_item.artifact_ids)
+        elif resolution.artifact_disposition in {
+            "narrows",
+            "corrects",
+            "supersedes",
+        }:
+            resolved_override_artifact_ids.update(queue_item.artifact_ids)
     source_unit_ids = {row.source_unit_id for row in unit_rows}
     required_artifact_ids = {
         row.artifact_id
@@ -2492,7 +2566,11 @@ def validate_source_native_bundle_consistency(
             queued_artifact_ids.add(artifact_id)
 
     missing_queue = sorted(required_artifact_ids - queued_artifact_ids)
-    unexpected_queue = sorted(queued_artifact_ids - required_artifact_ids)
+    unexpected_queue = sorted(
+        queued_artifact_ids
+        - required_artifact_ids
+        - resolved_override_artifact_ids
+    )
     if missing_queue:
         raise ValueError(
             "source-native artifacts require verification but are absent from "
@@ -2507,6 +2585,9 @@ def validate_source_native_bundle_consistency(
         "artifact_count": len(artifact_rows),
         "verification_required_artifact_count": len(required_artifact_ids),
         "verification_queue_count": len(queue_rows),
+        "resolved_override_artifact_count": len(
+            resolved_override_artifact_ids
+        ),
     }
 
 
@@ -2556,7 +2637,8 @@ def write_source_native_manifest(
             "reviewed-artifacts.jsonl": artifacts,
             "verification-queue.jsonl": verification_queue,
             "source-units.jsonl": source_units,
-        }
+        },
+        verification_resolution_rows=verification_resolutions,
     )
     from .source_native_migration import (
         load_reviewed_source_native_artifact_migrations,

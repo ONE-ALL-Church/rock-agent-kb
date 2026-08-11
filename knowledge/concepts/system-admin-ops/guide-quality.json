@@ -13,12 +13,12 @@
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 12190 words; expected at least 1200.",
+      "message": "Guide has 12174 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 12190 words; expected no more than 9000.",
+      "message": "Guide has 12174 words; expected no more than 9000.",
       "passed": false
     },
     {
@@ -75,24 +75,24 @@
   "concept_id": "system-admin-ops",
   "contribution_record_count": 0,
   "entity_count": 11,
-  "generated_at": "2026-08-10T22:18:21+00:00",
-  "guide_line_count": 1669,
-  "guide_word_count": 12190,
+  "generated_at": "2026-08-11T19:20:03+00:00",
+  "guide_line_count": 1668,
+  "guide_word_count": 12174,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
     "answer_claim_count_in_pack": 0,
     "answer_claim_reference_count": 0,
     "entity_count": 11,
     "section_count": 131,
-    "source_count": 46,
-    "substantive_uncited_section_ratio": 0.0164,
+    "source_count": 45,
+    "substantive_uncited_section_ratio": 0.0167,
     "task_card_count": 6,
-    "word_count": 12190
+    "word_count": 12174
   },
   "private_draft_contribution_record_count": 0,
   "score": 91,
   "section_count": 131,
-  "source_count": 46,
+  "source_count": 45,
   "status": "fail",
   "task_card_count": 6
 }

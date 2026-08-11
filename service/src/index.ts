@@ -7466,6 +7466,7 @@ function searchSignals(
     queryTerms,
     query,
   );
+  const schemaReferenceBoost = sourceNativeSchemaReferenceBoost(row, query);
   const conceptIntent = conceptIntentBoost(row, queryTerms, query);
   const routeIntent = concepts.includes(queryTopicHint(query)) && row.kind !== "guide_section" ? 80 : 0;
   const tierBoost = (row.claim_tier_rank || 0) * 4;
@@ -7473,7 +7474,7 @@ function searchSignals(
   const lexicalCoverageBoost = lexicalCoverage >= 0.75 ? 120 : lexicalCoverage >= 0.5 ? 40 : 0;
   // FTS5 negates BM25 so stronger matches have numerically lower values.
   const bm25Relevance = Math.min(Math.max(-Number(row.rank || 0), 0), 60);
-  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + independentQuestionBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
+  const score = conceptOverlap * 40 + topicOverlap * 4 + titleOverlap * 20 + bodyOverlap + conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost + kindBoost + guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + independentQuestionBoost + schemaReferenceBoost + conceptIntent + routeIntent + tierBoost + lexicalCoverageBoost + bm25Relevance;
   return {
     score,
     title_overlap: titleOverlap,
@@ -7483,7 +7484,7 @@ function searchSignals(
     lexical_coverage: Number(lexicalCoverage.toFixed(4)),
     lexical_coverage_boost: lexicalCoverageBoost,
     phrase_boost: conceptPhraseBoost + titlePhraseBoost + bodyExactPhraseBoost,
-    exact_lookup_boost: guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + conceptIntent + routeIntent,
+    exact_lookup_boost: guideSectionLookupBoost + modelMapExactBoost + lavaContextRootBoost + rockIssueLookupBoost + rockIdeaLookupBoost + schemaReferenceBoost + conceptIntent + routeIntent,
     independent_question_boost: independentQuestionBoost,
     authority_boost: tierBoost,
     bm25_rank: Number(row.rank || 0),
@@ -7491,12 +7492,48 @@ function searchSignals(
   };
 }
 
+function sourceNativeSchemaReferenceBoost(row: SearchRow, query: string): number {
+  if (
+    row.kind !== "structured_reference"
+    || !/\b(fields?|properties?|types?|schemas?|members?)\b/i.test(query)
+  ) {
+    return 0;
+  }
+  const identifiers = Array.from(new Set(
+    (query.match(/\b[A-Z][a-z0-9]+(?:[A-Z][A-Za-z0-9]*)+\b/g) || [])
+      .map((value) => value.toLowerCase()),
+  ));
+  if (!identifiers.length) {
+    return 0;
+  }
+  const payload = parsePayload(row);
+  const artifact = asRecord(payload.effective_artifact || payload.artifact);
+  const artifactPayload = asRecord(artifact.payload);
+  const referenceItems = Array.isArray(artifactPayload.reference_items)
+    ? artifactPayload.reference_items.map(asRecord)
+    : [];
+  const strongText = normalizeSearchText([
+    artifact.title,
+    artifact.independent_question,
+    artifact.retrieval_text,
+    ...referenceItems.map((item) => item.label),
+  ].map((value) => String(value || "")).join(" "));
+  if (identifiers.some((identifier) => strongText.split(" ").includes(identifier))) {
+    return 240;
+  }
+  const rowText = normalizeSearchText(`${row.title || ""} ${row.body || ""}`);
+  return identifiers.some((identifier) => rowText.split(" ").includes(identifier))
+    ? 80
+    : 0;
+}
+
 function sourceNativeIndependentQuestionBoost(
   row: SearchRow,
   queryTerms: string[],
   query: string,
 ): number {
-  const artifact = asRecord(parsePayload(row).artifact);
+  const payload = parsePayload(row);
+  const artifact = asRecord(payload.effective_artifact || payload.artifact);
   const independentQuestion = String(artifact.independent_question || "").trim();
   if (!independentQuestion || queryTerms.length < 3) {
     return 0;

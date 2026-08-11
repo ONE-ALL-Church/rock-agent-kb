@@ -98,6 +98,32 @@ def build_document_claim_candidates(
     if unknown:
         raise ValueError("Unknown concept IDs: " + ", ".join(unknown))
     source_records = records if records is not None else concept_source_records()
+    if requested_record_ids:
+        known_record_ids = {
+            str(record.get("id") or "")
+            for record in source_records
+            if record.get("id")
+        }
+        unknown_record_ids = sorted(requested_record_ids - known_record_ids)
+        if unknown_record_ids:
+            raise ValueError("Unknown source_record_ids: " + ", ".join(unknown_record_ids))
+        mismatched_record_ids = sorted(
+            str(record.get("id") or "")
+            for record in source_records
+            if str(record.get("id") or "") in requested_record_ids
+            and str(record.get("source_id") or "") not in allowed_source_ids
+        )
+        if mismatched_record_ids:
+            raise ValueError(
+                "source_record_ids outside allowed source_ids: "
+                + ", ".join(mismatched_record_ids)
+            )
+    if requested_record_ids:
+        source_records = [
+            record
+            for record in source_records
+            if str(record.get("id") or "") in requested_record_ids
+        ]
     existing_by_concept = existing_claims_by_concept()
     selected: list[tuple[Any, dict[str, Any], int]] = []
     skipped: list[dict[str, Any]] = []
@@ -137,7 +163,11 @@ def build_document_claim_candidates(
             quality = document_candidate_quality_score(record, concept.keywords, rank)
             eligible.append((quality, str(record.get("documentation_path") or record.get("source_url") or ""), record))
         eligible.sort(key=lambda item: (-item[0], item[1]))
-        concept_selection = reserve_subguide_coverage(concept, eligible, limit_per_concept)
+        concept_selection = (
+            eligible
+            if requested_record_ids
+            else reserve_subguide_coverage(concept, eligible, limit_per_concept)
+        )
         selected.extend((concept, record, quality) for quality, _path, record in concept_selection)
 
     rows: list[dict[str, Any]] = []
@@ -359,7 +389,7 @@ def reserve_subguide_coverage(
 def record_matches_subguide(record: dict[str, Any], subguide: dict[str, Any]) -> bool:
     if any(
         subguide.get(key)
-        for key in ["source_url_prefixes", "developer_doc_prefixes", "documentation_branches", "documentation_path_prefixes"]
+        for key in ["source_record_ids", "source_url_prefixes", "developer_doc_prefixes", "documentation_branches", "documentation_path_prefixes"]
     ):
         return record_matches_path_constraints(record, subguide)
     keywords = [str(value) for value in subguide.get("keywords") or [] if value]

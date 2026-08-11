@@ -501,12 +501,12 @@
         "documentation/supporting-rock/caching",
         "documentation/core-concepts/search"
       ],
-      "matching_branch_record_count": 69,
+      "matching_branch_record_count": 70,
       "parent_concept_id": "",
       "path_constrained": true,
       "routing_context_claim_count": 0,
       "routing_role": "cross_cutting",
-      "selected_official_document_count": 69,
+      "selected_official_document_count": 70,
       "selected_record_count": 80,
       "title": "System Administration And Operations",
       "warnings": [
@@ -549,7 +549,7 @@
     }
   ],
   "errors": [],
-  "generated_at": "2026-08-10T22:17:41+00:00",
+  "generated_at": "2026-08-11T19:19:16+00:00",
   "highest_overlap_records": [
     {
       "concept_ids": [
@@ -754,9 +754,9 @@
   "metrics": {
     "explicit_branch_count": 27,
     "overlapping_selected_official_record_count": 193,
-    "selected_official_record_count": 1167,
+    "selected_official_record_count": 1168,
     "selected_official_record_overlap_distribution": {
-      "1": 974,
+      "1": 975,
       "2": 171,
       "3": 20,
       "4": 2

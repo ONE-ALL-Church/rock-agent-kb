@@ -14,6 +14,7 @@ from .community import fetch_rockumentation_payload
 from .extract import USER_AGENT, now_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .schemas import (
+    ReviewedSourceNativeArtifact,
     SourceNativeVerificationQueueItem,
     SourceNativeVerificationResolution,
     SourceSnapshot,
@@ -22,6 +23,9 @@ from .schemas import (
 
 VERIFICATION_RESOLUTIONS_NAME = "verification-resolutions.jsonl"
 VERIFICATION_REPORT_NAME = "verification-report.json"
+KNOWLEDGE_CHANGING_DISPOSITIONS = frozenset(
+    {"narrows", "corrects", "supersedes"}
+)
 
 
 def canonical_json(value: Any) -> str:
@@ -58,6 +62,200 @@ def index_source_native_verification_queue(
             )
         queue[item.verification_id] = item
     return queue
+
+
+def preserve_source_native_verification_continuity(
+    *,
+    prior_artifact_rows: Iterable[dict[str, Any]],
+    prior_queue_rows: Iterable[dict[str, Any]],
+    prior_resolution_rows: Iterable[dict[str, Any]],
+    current_artifact_rows: Iterable[dict[str, Any]],
+    current_queue_rows: Iterable[dict[str, Any]],
+    current_resolution_rows: Iterable[dict[str, Any]],
+    current_source_unit_ids: set[str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[str]]:
+    """Carry durable verification corrections across an unchanged redistillation."""
+
+    prior_artifacts = {
+        row.artifact_id: row
+        for row in (
+            ReviewedSourceNativeArtifact.model_validate(raw)
+            for raw in prior_artifact_rows
+        )
+    }
+    current_artifacts = {
+        row.artifact_id: row
+        for row in (
+            ReviewedSourceNativeArtifact.model_validate(raw)
+            for raw in current_artifact_rows
+        )
+    }
+    prior_queue = index_source_native_verification_queue(
+        prior_queue_rows,
+        source="prior verification queue rows",
+    )
+    current_queue = index_source_native_verification_queue(
+        current_queue_rows,
+        source="current verification queue rows",
+    )
+    current_changed_artifact_ids: set[str] = set()
+    for raw in current_resolution_rows:
+        if (
+            str(raw.get("artifact_disposition") or "")
+            not in KNOWLEDGE_CHANGING_DISPOSITIONS
+            and not any(
+                str(override.get("artifact_disposition") or "")
+                in KNOWLEDGE_CHANGING_DISPOSITIONS
+                for override in raw.get("artifact_overrides") or []
+            )
+        ):
+            continue
+        resolution = SourceNativeVerificationResolution.model_validate(raw)
+        queue_item = current_queue.get(resolution.verification_id)
+        if queue_item is None:
+            continue
+        if resolution.queue_item_hash != source_native_verification_queue_hash(
+            queue_item
+        ):
+            continue
+        current_changed_artifact_ids.update(
+            source_native_verification_changed_artifact_ids(
+                queue_item,
+                resolution,
+            )
+        )
+    preserved_resolution_ids: list[str] = []
+
+    for raw in prior_resolution_rows:
+        raw_changes_knowledge = (
+            str(raw.get("artifact_disposition") or "")
+            in KNOWLEDGE_CHANGING_DISPOSITIONS
+            or any(
+                str(override.get("artifact_disposition") or "")
+                in KNOWLEDGE_CHANGING_DISPOSITIONS
+                for override in raw.get("artifact_overrides") or []
+            )
+        )
+        if not raw_changes_knowledge:
+            continue
+        resolution = SourceNativeVerificationResolution.model_validate(raw)
+        queue_item = prior_queue.get(resolution.verification_id)
+        if queue_item is None:
+            raise ValueError(
+                "knowledge-changing verification resolution has no prior "
+                f"queue item: {resolution.verification_id}"
+            )
+        if resolution.artifact_overrides:
+            protected_artifact_ids = {
+                override.artifact_id
+                for override in resolution.artifact_overrides
+                if override.artifact_disposition
+                in KNOWLEDGE_CHANGING_DISPOSITIONS
+            }
+        elif resolution.artifact_disposition in KNOWLEDGE_CHANGING_DISPOSITIONS:
+            protected_artifact_ids = set(queue_item.artifact_ids)
+        else:
+            protected_artifact_ids = set()
+        superseded_artifact_ids = (
+            protected_artifact_ids.intersection(current_changed_artifact_ids)
+        )
+        if superseded_artifact_ids:
+            if superseded_artifact_ids == protected_artifact_ids:
+                continue
+            raise ValueError(
+                "knowledge-changing verification is only partially superseded; "
+                "explicitly re-review it: "
+                f"{resolution.verification_id}"
+            )
+        surviving_protected_ids = (
+            protected_artifact_ids.intersection(current_artifacts)
+        )
+        if not surviving_protected_ids:
+            continue
+        if surviving_protected_ids != protected_artifact_ids:
+            raise ValueError(
+                "knowledge-changing verification resolution only partially "
+                "survives redistillation; explicitly re-review it: "
+                f"{resolution.verification_id}"
+            )
+
+        missing_queue_artifacts = sorted(
+            set(queue_item.artifact_ids) - set(current_artifacts)
+        )
+        if missing_queue_artifacts:
+            raise ValueError(
+                "knowledge-changing verification queue lost companion artifacts; "
+                "explicitly re-review it: "
+                f"{resolution.verification_id}"
+            )
+        for artifact_id in queue_item.artifact_ids:
+            prior_artifact = prior_artifacts.get(artifact_id)
+            if prior_artifact is None:
+                raise ValueError(
+                    "knowledge-changing verification references an unknown prior "
+                    f"artifact: {artifact_id}"
+                )
+            current_artifact = current_artifacts[artifact_id]
+            if (
+                current_artifact.source_input_hash
+                != prior_artifact.source_input_hash
+            ):
+                raise ValueError(
+                    "knowledge-changing verification source input changed; "
+                    "explicitly re-review it before promotion: "
+                    f"{resolution.verification_id}"
+                )
+
+        missing_source_units = sorted(
+            set(queue_item.source_unit_ids) - current_source_unit_ids
+        )
+        if missing_source_units:
+            raise ValueError(
+                "knowledge-changing verification source units changed; explicitly "
+                f"re-review it before promotion: {resolution.verification_id}"
+            )
+        expected_hash = source_native_verification_queue_hash(queue_item)
+        if resolution.queue_item_hash != expected_hash:
+            raise ValueError(
+                "knowledge-changing verification queue binding is stale: "
+                f"{resolution.verification_id}"
+            )
+        current_queue_item = current_queue.get(resolution.verification_id)
+        if (
+            current_queue_item is not None
+            and source_native_verification_queue_hash(current_queue_item)
+            != expected_hash
+        ):
+            raise ValueError(
+                "knowledge-changing verification ID was rebound to different "
+                f"queue content: {resolution.verification_id}"
+            )
+        current_queue[resolution.verification_id] = queue_item
+        preserved_resolution_ids.append(resolution.verification_id)
+
+    return (
+        [row.public_dump() for row in current_artifacts.values()],
+        [row.public_dump() for row in current_queue.values()],
+        sorted(preserved_resolution_ids),
+    )
+
+
+def source_native_verification_changed_artifact_ids(
+    queue_item: SourceNativeVerificationQueueItem,
+    resolution: SourceNativeVerificationResolution,
+) -> set[str]:
+    if resolution.resolution_state != "verified":
+        return set()
+    if resolution.artifact_overrides:
+        return {
+            override.artifact_id
+            for override in resolution.artifact_overrides
+            if override.artifact_disposition
+            in KNOWLEDGE_CHANGING_DISPOSITIONS
+        }
+    if resolution.artifact_disposition in KNOWLEDGE_CHANGING_DISPOSITIONS:
+        return set(queue_item.artifact_ids)
+    return set()
 
 
 def build_source_native_verification_packet(
@@ -109,6 +307,7 @@ def promote_source_native_verification_resolutions(
     resolved_at = reviewed_at or now_iso()
     incoming: list[SourceNativeVerificationResolution] = []
     incoming_ids: set[str] = set()
+    incoming_changed_artifact_ids: set[str] = set()
     for line_number, raw in enumerate(read_jsonl(input_path), start=1):
         payload = {
             **raw,
@@ -133,14 +332,35 @@ def promote_source_native_verification_resolutions(
             )
         incoming.append(resolution)
         incoming_ids.add(resolution.verification_id)
+        incoming_changed_artifact_ids.update(
+            source_native_verification_changed_artifact_ids(
+                queue_item,
+                resolution,
+            )
+        )
 
     resolution_path = destination / VERIFICATION_RESOLUTIONS_NAME
-    existing = [
-        SourceNativeVerificationResolution.model_validate(row)
-        for row in read_jsonl(resolution_path)
-        if str(row.get("verification_id") or "") not in incoming_ids
-        and str(row.get("verification_id") or "") in queue
-    ]
+    existing: list[SourceNativeVerificationResolution] = []
+    for raw in read_jsonl(resolution_path):
+        verification_id = str(raw.get("verification_id") or "")
+        if verification_id in incoming_ids or verification_id not in queue:
+            continue
+        resolution = SourceNativeVerificationResolution.model_validate(raw)
+        changed_artifact_ids = source_native_verification_changed_artifact_ids(
+            queue[verification_id],
+            resolution,
+        )
+        overlap = changed_artifact_ids.intersection(
+            incoming_changed_artifact_ids
+        )
+        if overlap:
+            if overlap == changed_artifact_ids:
+                continue
+            raise ValueError(
+                "incoming verification only partially supersedes an existing "
+                f"knowledge-changing resolution: {verification_id}"
+            )
+        existing.append(resolution)
     rows = sorted(
         [*existing, *incoming],
         key=lambda row: row.verification_id,

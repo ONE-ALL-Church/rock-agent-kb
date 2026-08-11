@@ -148,6 +148,30 @@ def reconcile_legacy_source_record_ids(
     return dict(reconciled_items), dict(reconciled_result_ids), aliases
 
 
+def add_source_native_location_aliases(
+    records: dict[str, dict[str, Any]],
+    snapshots: Iterable[Any],
+) -> dict[str, dict[str, Any]]:
+    enriched = {source_record_id: {**record} for source_record_id, record in records.items()}
+    for snapshot in snapshots:
+        source_record_id = str(snapshot.source_record_id or "")
+        record = enriched.get(source_record_id)
+        if record is None:
+            continue
+        source_url = str(record.get("source_url") or "").rstrip("/")
+        locations = {
+            str(value).rstrip("/")
+            for value in [
+                *(record.get("location_aliases") or []),
+                snapshot.canonical_url,
+                *snapshot.location_aliases,
+            ]
+            if value and str(value).rstrip("/") != source_url
+        }
+        record["location_aliases"] = sorted(locations)
+    return enriched
+
+
 def source_native_indexes(source_native: dict[str, Any]) -> dict[str, Any]:
     snapshots_by_id = {
         row.source_snapshot_id: row for row in source_native["source_snapshots"]
@@ -388,7 +412,7 @@ def score_priority_row(row: dict[str, Any]) -> dict[str, Any]:
 
 def build_source_native_migration_priority_report(
     *,
-    destination: Path = SOURCE_NATIVE_MIGRATION_PRIORITY_PATH,
+    destination: Path | None = None,
     repo_root: Path = REPO_ROOT,
     as_of: datetime | None = None,
     limit: int = 200,
@@ -396,27 +420,42 @@ def build_source_native_migration_priority_report(
 ) -> dict[str, Any]:
     if limit < 1:
         raise ValueError("priority report limit must be at least 1")
+    destination = destination or (
+        repo_root / "data" / "review" / "source-native-legacy-migration" / "priority-report.json"
+    )
     as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
     identity_registry = list(
         read_jsonl(repo_root / "canonical" / "identity" / "v1" / "identity-registry.jsonl")
     )
+    canonical_bundle_inputs: dict[str, Any] = {
+        "identity_registry": identity_registry,
+        "include_source_native_pilot": True,
+        "include_reviewed_cross_source": True,
+        "repo_root": repo_root,
+    }
+    if repo_root != REPO_ROOT:
+        canonical_bundle_inputs["search_rows"] = list(
+            read_jsonl(repo_root / "service" / "dist" / "search-rows.jsonl")
+        )
     bundle, _summary = build_canonical_knowledge_bundle(
-        identity_registry=identity_registry,
-        include_source_native_pilot=True,
-        include_reviewed_cross_source=True,
-        repo_root=repo_root,
+        **canonical_bundle_inputs,
     )
     (
         raw_legacy_by_record,
         raw_result_ids_by_record,
         legacy_urls_by_record,
     ) = legacy_items_by_source_record(bundle)
+    source_native = load_source_native_pilot(repo_root)
     records = {
         str(record.get("id") or ""): record
-        for record in concept_source_records()
+        for record in concept_source_records(repo_root=repo_root)
         if str(record.get("source_id") or "") in SOURCE_NATIVE_PROSE_SOURCE_IDS
         and record.get("id")
     }
+    records = add_source_native_location_aliases(
+        records,
+        source_native["source_snapshots"],
+    )
     (
         all_legacy_by_record,
         all_result_ids_by_record,
@@ -443,7 +482,6 @@ def build_source_native_migration_priority_report(
         for result_id in result_ids:
             result_records[result_id].add(source_record_id)
 
-    source_native = load_source_native_pilot(repo_root)
     native = source_native_indexes(source_native)
     for artifact_id, source_record_id in native["artifact_record_by_id"].items():
         result_records[artifact_id].add(source_record_id)
@@ -457,9 +495,14 @@ def build_source_native_migration_priority_report(
         dashboard,
         result_records=result_records,
     )
-    sources = {source.id: source for source in load_sources()}
-    freshness_policy = load_source_freshness_policy()
-    concepts = load_concepts()
+    sources = {
+        source.id: source
+        for source in load_sources(repo_root / "sources" / "registry.yaml")
+    }
+    freshness_policy = load_source_freshness_policy(
+        repo_root / "sources" / "freshness-policy.yaml"
+    )
+    concepts = load_concepts(repo_root / "concepts" / "registry.yaml")
     reviewed_retained = sorted(
         set(legacy_by_record) & set(native["migrated_source_records"])
     )
