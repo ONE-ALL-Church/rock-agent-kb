@@ -46,7 +46,7 @@ jobs:
           uv run kb audit public-export
       - name: Run lexical retrieval quality gate
         working-directory: .
-        run: uv run kb quality-gate
+        run: uv run kb quality-gate --concurrency 3
       - name: Build and validate OKF distribution
         working-directory: .
         env:

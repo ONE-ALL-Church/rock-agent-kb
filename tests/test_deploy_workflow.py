@@ -34,9 +34,23 @@ def test_hosted_smoke_test_retries_cloudflare_propagation_failures():
 def test_source_native_pipeline_changes_trigger_service_deploy():
     workflow = deploy_workflow()
 
+    assert '- ".github/workflows/deploy-service.yml"' in workflow
     assert '- "src/rock_kb/source_native.py"' in workflow
     assert '- "src/rock_kb/schemas/source_native.py"' in workflow
     assert '- "src/rock_kb/source_family_contracts.py"' in workflow
+
+
+def test_ci_quality_gates_use_bounded_local_worker_concurrency():
+    repo_root = Path(__file__).resolve().parents[1]
+    for name in (
+        "deploy-service.yml",
+        "public-surface.yml",
+        "release-client.yml",
+    ):
+        workflow = (
+            repo_root / ".github" / "workflows" / name
+        ).read_text(encoding="utf-8")
+        assert "uv run kb quality-gate --concurrency 3" in workflow
 
 
 def test_projection_workflow_is_guarded_reversible_and_serialized_with_deploys():
