@@ -2,7 +2,7 @@
 
 Date: 2026-08-03
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 Status: accepted architecture, canonical active, legacy rollback retained
 
@@ -53,14 +53,14 @@ code disagree.
 
 ## Current Evidence
 
-The tracked source-native bundle now covers five source families, 68 articles,
-26 concept facets, 1,773 addressable source units, and 415 reviewed artifacts:
-120 claims, 26 recipes, 63 source summaries, 152 structured references, and 54
-task cards. It also contains 427 typed relationships and 441 source-native
-evaluation cases. All 68 generation activities use `gpt-5.6-sol` and input
-hash version `2`. The manifest preserves the exact prompt history: 23 initial
+The tracked source-native bundle now covers five source families, 77 articles,
+27 concept facets, 2,013 addressable source units, and 466 reviewed artifacts:
+123 claims, 28 recipes, 83 source summaries, 166 structured references, and 66
+task cards. It also contains 595 typed relationships and 492 source-native
+evaluation cases. All 77 generation activities use `gpt-5.6-sol` and input
+hash version `2`. The manifest preserves the exact prompt history: four initial
 distillations at version `2.3.1`, 26 migration activities at wrapper version
-`1.3.0`, and 19 at wrapper version `1.3.1`.
+`1.3.0`, and 47 at wrapper version `1.3.1`.
 
 The final 12 prompt-`2.3.0` documentation records were refreshed before
 reprocessing. Their upstream content hashes were unchanged, so the change
@@ -94,6 +94,23 @@ source for its seeded categories and sample lists; mutable Mailgun references
 were rebound to current official content hashes without changing their reviewed
 meaning.
 
+The 2026-08-11 migration compiled all 19 records that were already ready for
+review, including the HighlightDetailColumn, Check-In, communication, security,
+and system-administration groups. It then migrated the bounded hosting and
+security set for articles 1044, 1046, 1047, and 2137 plus selected engagement
+and CMS records. The manifest now records 122 exact legacy migrations and seven
+source-native artifact migrations. The same batch reconciled the old
+`/lava/commands` identity to `/lava/commands/getting-started` and replaced two
+keyword-only concept routes with exact source-record routes. Source verification
+corrected or narrowed mutable SQL Server, Mailgun/Gmail unsubscribe, Check-In,
+cache, File Manager, and content-channel details instead of promoting their
+earlier wording unchanged. All 71 active verification decisions resolve with no
+blocker: 34 confirm source wording, 22 correct it, and 15 narrow its scope.
+Redistillation now carries those knowledge-changing decisions forward only when
+the stable artifact identity and source-input hash are unchanged; changed or
+partially replaced inputs require explicit re-review. A newer verified decision
+can retire an older correction only when it fully covers the older artifact set.
+
 The same refresh now yields 60 normalized Lava records and 285 distinct
 capability rows, including 26 named command rows and 36 high-risk rows with
 mandatory security and live-verification guidance. The parser now uses the
@@ -103,19 +120,27 @@ Started snapshot and all 13 contextual prefixes while preserving its source
 snapshot identity, content hash, source-unit IDs, redirect alias, reviewed
 artifact, and original Sol generation activity.
 
-The final 2026-08-10 canonical retrieval shadow evaluated 610 questions through the
+The final 2026-08-11 canonical retrieval shadow evaluated 661 questions through the
 production Worker's local FTS and ranking implementation:
 
-- 446 improved, 164 were unchanged, none regressed, and no failures were shared
+- 497 improved, 164 were unchanged, none regressed, and no failures were shared
   by both projections;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
 - all ten exact REST and stateless MCP compatibility cases passed; and
-- serialized canonical projection storage increased by 6.656 percent, within
+- serialized canonical projection storage increased by 6.839 percent, within
   the 10 percent gate.
 
+The candidate achieved recall `1.0`, mean reciprocal rank `0.987102`, authority
+correctness `1.0`, and duplicate rate zero. A repeated paired run against the
+same pinned Worker bundle kept mean and p95 latency within the unchanged 20
+percent limits. Ranking now reads reviewed independent questions from both the
+original and verified-effective artifact shapes, and exact schema-object
+questions receive a bounded identifier signal only when they name both a
+distinctive code identifier and field, property, type, schema, or member intent.
+
 The final isolated service quality gate also passed all 166 tracked questions.
-Availability and recall were `1.0`, mean reciprocal rank was `0.99596`,
+Availability and recall were `1.0`, mean reciprocal rank was `0.992929`,
 authority correctness was `1.0`, and duplicate rate was zero. One broad Check-In
 setup question placed an accepted source-native result at rank three, within its
 tracked target. This gate exercises the same generated D1 projection and Worker
@@ -147,8 +172,8 @@ useful evidence, but the project does not currently have a realistic external
 sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
-The canonical projection still identifies measurable migration debt: 570
-legacy claims and 5,529 legacy source summaries remain alongside 415
+The canonical projection still identifies measurable migration debt: 555
+legacy claims and 5,503 legacy source summaries remain alongside 466
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
 
@@ -169,7 +194,7 @@ rows, and seven notes, with no missing URL or stale dependency findings.
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The current source-native verification layer reports 81 of 81 resolutions
+1. The current source-native verification layer reports 71 of 71 resolutions
    verified against
    exact source snapshots, immutable public source, or bounded official API
    observations, with zero unresolved rows, zero stale evidence, and zero
@@ -181,9 +206,12 @@ that were open at the start of the review:
    evidence bound to semantic article content rather than volatile page chrome.
    The August 10 live pass additionally rebound three unchanged Mailgun
    conclusions to current official page hashes without changing their reviewed
-   corrections or narrowings. Immutable Rock source separately confirms the
-   Helix endpoint authorization map and the Default Enabled Lava Commands
-   fallback introduced by the prior batch.
+   corrections or narrowings. The August 11 pass compacted the active queue to
+   71 fully resolved decisions and added the SQL Server, unsubscribe, Check-In,
+   cache, File Manager, and content-channel corrections described above.
+   Immutable Rock source separately confirms the Helix endpoint authorization
+   map and the Default Enabled Lava Commands fallback introduced by the prior
+   batch.
 2. A maintainer approved all seven exact-statement collapse groups against the
    current packet hash. Canonical retrieval retains all source evidence,
    concept facets, and public aliases while removing nine redundant public
@@ -215,41 +243,34 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-The reviewed source-native bundle now records 81 exact legacy replacement
-migrations and five source-native identity migrations. The final projection
-has 415 typed artifacts; 570 legacy claims and 5,529 legacy source summaries
-remain. The 610-question production-worker shadow reported 446 improvements,
-164 ties, no shared failures, and zero retrieval, exact-lookup, authority,
-no-answer, or endpoint regressions. All 81 verification rows remain resolved
-with no blocker.
+The reviewed source-native bundle now records 122 exact legacy migrations and
+seven source-native artifact migrations. The final projection has 466 typed
+artifacts; 555 legacy claims and 5,503 legacy source summaries remain. The
+661-question production-worker shadow reported 497 improvements, 164 ties, no
+shared failures, and zero retrieval, exact-lookup, authority, no-answer, or
+endpoint regressions. All 71 current verification rows remain resolved with no
+blocker.
 
-The deterministic migration-priority compiler currently identifies 1,590
-actionable official-prose source records from 1,604 active legacy records:
-1,294 are migration-ready, 294 require a source refresh first, two require
-concept-routing review, 13 reviewed records are deliberately retained, and four
-legacy aliases are reconciled. One old Lava Commands URL-hash identity remains
-unresolved and must be reconciled before that record is migrated. Nineteen
-records are already compiler-ready; the highest hosted-demand fresh candidates
-are Install Server Roles and Features, Install SQL Server, Configure SQL Server,
-Configure Steps in Achievement Types, Configure Follow Events, Intro to SaaS
-Hosting, Channel Types, Manage Content Items, File Manager, and Intro to
-Reports.
+The regenerated deterministic migration-priority queue contains 1,578 active
+legacy source records: 1,562 are actionable, 1,267 are migration-ready, 295
+need a source refresh first, and 16 are reviewed retentions. It has zero
+unresolved source identities and five reconciled aliases after the Lava alias
+and exact-route work. The highest current ready cluster is developer TV-app
+content spanning Apple TV and Roku, followed by Helix/Lava developer records.
+The queue must be regenerated after every reviewed batch; stale counts from a
+prior batch must not drive selection.
 
 1. Continue privacy-bounded outcomes and blind comparisons as post-cutover
    validation. Do not retain queries, organization identifiers, Rock data, or
    free-form comparison feedback.
-2. Compile the 19 already-ready records in coherent batches, starting with
-   HighlightDetailColumn and the related Check-In, communication, and
-   system-administration records. Each batch must demonstrate stable identity,
-   exact hash-bound retirement decisions, no silent loss of previously exposed
-   source-native IDs, no retrieval regressions, and rebuildable provenance.
-3. Migrate the high-demand hosting and security batch for articles 1044, 1046,
-   1047, and 2137, followed by the engagement and CMS groups.
-4. Reconcile the old `/lava/commands` source identity and review the two records
-   requiring concept routing: Navigate Rock and the community deprecations
-   article. Refresh stale sources only when they enter a bounded migration
-   batch.
-5. Re-run the guarded canonical activation checks after each deployed batch and
+2. Select the next coherent compiler-ready group from the regenerated queue,
+   favoring high-demand official prose with current source hashes. Each batch
+   must demonstrate stable identity, exact hash-bound retirement decisions, no
+   silent loss of previously exposed source-native IDs, no retrieval
+   regressions, and rebuildable provenance.
+3. Refresh stale sources only when they enter a bounded migration batch; do not
+   broaden a migration into an unconditional corpus refresh.
+4. Re-run the guarded canonical activation checks after each deployed batch and
    keep legacy available until the new projection and public client are verified.
 
 ## Not Next

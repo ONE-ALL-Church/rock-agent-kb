@@ -189,6 +189,9 @@ concepts:
       - documentation/supporting-rock/data
       - documentation/supporting-rock/caching
       - documentation/core-concepts/search
+    source_record_ids:
+      - rock_documentation:article:1855
+      - rock_community_blog:707c210afb40bd5b
     source_weights:
       rock_documentation: 4
       rock_developer: 4

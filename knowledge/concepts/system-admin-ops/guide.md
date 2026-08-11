@@ -1628,13 +1628,12 @@ This generated summary links the long-form guide to the approved public claim gr
 
 This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
 
-- Approved media records routed to this concept: `2`
+- Approved media records routed to this concept: `1`
 - Full generated media table: `approved-media.md`
 
 | Source | Review Status | Insights | Citation |
 | --- | --- | --- | --- |
 | [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/bKmX5yalo7) | approved_for_public_distillation | 5 | media-insight:574371376cd3e666 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW) | approved_for_public_distillation | 4 | media-insight:e57ad3db15510f24 |
 
 <!-- END GENERATED APPROVED MEDIA COVERAGE -->
 

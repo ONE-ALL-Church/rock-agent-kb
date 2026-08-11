@@ -2,15 +2,15 @@
 id: concept-serving-volunteer-ops
 title: Serving And Volunteer Operations
 generated: true
-last_built: 2026-08-10T22:17:14+00:00
+last_built: 2026-08-11T19:18:49+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-10T21:32:58+00:00
+source_last_checked_at: 2026-08-11T16:40:46+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/28
-legacy_summary_retirement_coverage: 2/28
+legacy_summary_retirement_coverage: 4/28
 depends_on_topics:
   - groups
   - scheduling
@@ -298,9 +298,9 @@ Keywords: `attendance, check-in, follow-up, no show, serving attendance`
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `28`
-- Upstream check range: `2026-07-10T17:16:12+00:00` through `2026-08-10T21:32:58+00:00`
+- Upstream check range: `2026-07-10T17:16:12+00:00` through `2026-08-11T16:40:46+00:00`
 - Source-native typed articles: `1` of `28`
-- Legacy source summaries retired: `2`; still active: `26`
+- Legacy source summaries retired: `4`; still active: `24`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

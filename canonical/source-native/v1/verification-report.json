@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 48,
-    "corrects": 20,
-    "narrows": 13
+    "confirms": 34,
+    "corrects": 22,
+    "narrows": 15
   },
   "by_state": {
-    "verified": 81
+    "verified": 71
   },
   "by_surface": {
     "maintainer_review": 27,
-    "official_api": 2,
-    "public_source_code": 52
+    "official_api": 1,
+    "public_source_code": 43
   },
-  "checked_at": "2026-08-10T22:11:00Z",
+  "checked_at": "2026-08-11T20:12:00Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -38,32 +38,32 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-email-delivery-controls"
+        "source-native:structured_reference:rock_documentation:article-1046:sql-server-installer-settings-for-rock-internal-hosting"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:01b7b5f120129bef0b8ddccd",
-      "verification_surface": "public_source_code"
+      "verification_id": "source-native-verification:095cabe4dbacf8a829421bf3",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-2133:cache-clearing-methods-reference"
+        "source-native:claim:rock_documentation:article-1970:mailgun-tracking-and-duplicate-unsubscribe-options"
       ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:077bec92018780a7de5f06bc",
-      "verification_surface": "public_source_code"
+      "verification_id": "source-native-verification:09accd3827cf8d5846c2c4e8",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-2131:cache-manager-statistics-default"
+        "source-native:structured_reference:rock_developer:article-1024:reference-highlight-detail-column-detail-field-interface"
       ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:0bb91492fbf7085f29cacde3",
+      "verification_id": "source-native-verification:0c490c77269d14ffeb78e5de",
       "verification_surface": "public_source_code"
     },
     {
@@ -78,23 +78,13 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_developer:article-1024:reference-highlight-detail-column-detail-field-interface"
-      ],
-      "reviewed_at": "2026-08-02T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:14ccddff1dcf6b12ad568da9",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1970:communication-medium-unsubscribe-controls"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:1867e0cebdec8079103d4aa5",
-      "verification_surface": "public_source_code"
+      "verification_id": "source-native-verification:0fad3d74111cc8dce31ad81d",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -108,13 +98,13 @@
     },
     {
       "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
+        "source-native:structured_reference:rock_documentation:article-1046:sql-server-installer-settings-for-rock-internal-hosting"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:1e5c9e3e7e778b8592b5d6d3",
-      "verification_surface": "public_source_code"
+      "verification_id": "source-native-verification:1b8f84951ddb682310c93ecc",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -198,16 +188,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-1932:configure-email-safe-sender-domains"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:385fd1759c655ec2e1678b4a",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_developer:article-376:reference-chrome-shortcut-remote-debugging-target-suffix",
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
@@ -216,6 +196,26 @@
       "status": "verified",
       "verification_id": "source-native-verification:38fd03bdeba3529213505e78",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1169:structured-reference-check-in-manager-label-reprinting-default"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:39205d0b089e9460168137cb",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1932:configure-email-bundled-and-additional-transports"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:394b3398b72189c54864a966",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -240,16 +240,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1075:rock-exception-list-organization"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:3e372a091d5c21c15fc5cc8f",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:recipe:rock_documentation:article-961:recipe-example-position-request-workflow"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -257,16 +247,6 @@
       "status": "verified",
       "verification_id": "source-native-verification:3ea8d0531cce62c1ebf224d8",
       "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-895:task-card-set-up-google-authentication"
-      ],
-      "reviewed_at": "2026-08-08T14:55:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:41b666d07a10373e5f514eca",
-      "verification_surface": "official_api"
     },
     {
       "artifact_ids": [
@@ -280,12 +260,22 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1065:reference-enable-auditing-global-attribute"
+        "source-native:structured_reference:rock_documentation:article-1047:documented-first-ssms-admin-username"
       ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:4fcc7a5bce4a200a5fa50862",
+      "verification_id": "source-native-verification:4e5f996bf62aacaa09b9d152",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1161:structured-reference-kiosk-welcome-screen-controls-and-default-layout"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:519382ce5a5a7b88ca2d2f29",
       "verification_surface": "public_source_code"
     },
     {
@@ -361,36 +351,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1970:bulk-email-threshold-editor-behavior"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:66d08e16cc6253fe304d4a55",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1169:structured-reference-check-in-manager-label-reprinting-default"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:695e11dbc3f21361b6fa965b",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:source_summary:rock_documentation:article-1212:source-summary-check-in-label-merge-model-discovery"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:6b5c22ac3156543912e1fc48",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
       "reviewed_at": "2026-08-04T16:42:00Z",
@@ -412,52 +372,12 @@
     },
     {
       "artifact_ids": [
-        "source-native:source_summary:rock_documentation:article-1212:source-summary-check-in-label-merge-model-discovery"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:723007b04b341d3d867990b7",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:claim:rock_documentation:article-1970:mailgun-tracking-and-duplicate-unsubscribe-options"
-      ],
-      "reviewed_at": "2026-08-02T03:45:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:73c900a4cf4de32824a605ec",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1075:rock-exception-email-global-attribute"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:7521c20929a40509cb7d96e7",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1161:structured-reference-kiosk-welcome-screen-controls-and-default-layout"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:815fba17ebcce87bb965ab57",
       "verification_surface": "public_source_code"
     },
     {
@@ -482,12 +402,32 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1863:structured-reference-rock-sample-check-in-labels"
+        "source-native:structured_reference:rock_documentation:article-2131:cache-manager-statistics-default"
       ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:89ff8457ea203ac06bfda97b",
+      "verification_id": "source-native-verification:898e41189129698cfef294d5",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1161:structured-reference-kiosk-ad-content-model"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:8d8ffa3ac20533e8fff6e9f6",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-2243:file-manager-default-administration-location"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:8f6ea15dbc04b379bdd63a2b",
       "verification_surface": "public_source_code"
     },
     {
@@ -499,6 +439,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-2196:documented-shipped-content-channel-type-examples"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:9a3b0e33bf7b1d2b56f72dfc",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -573,32 +523,12 @@
     },
     {
       "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-2133:configure-new-cache-tag-task"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:ad906fb8cbc889d1a71c2f79",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-smtp-settings"
       ],
       "reviewed_at": "2026-08-10T22:11:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:b12fd2e88424d34485f363b7",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:task_card:rock_documentation:article-1075:rock-exception-list-view-details"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:b1395323e697486a1bf2e74d",
       "verification_surface": "public_source_code"
     },
     {
@@ -676,7 +606,7 @@
         "source-native:claim:rock_developer:article-376:claim-vscode-obsidian-breakpoint-gutter",
         "source-native:structured_reference:rock_developer:article-376:reference-vscode-obsidian-debugger-controls"
       ],
-      "reviewed_at": "2026-08-06T21:15:05+00:00",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:bf61f0946e939030f9a9f3d0",
@@ -684,19 +614,19 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1932:configure-email-bundled-and-additional-transports"
+        "source-native:structured_reference:rock_documentation:article-1044:reference-iis-http-redirection-during-role-installation"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:c5e8c480e78dbc8e07b68009",
-      "verification_surface": "public_source_code"
+      "verification_id": "source-native-verification:c040bb23da9f6ccd451dc5f9",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
         "source-native:claim:rock_documentation:article-1932:configure-email-mailgun-starting-recommendation-qualifier"
       ],
-      "reviewed_at": "2026-08-10T22:11:00Z",
+      "reviewed_at": "2026-08-11T20:12:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c8ef121c6ea83b7992de724b",
@@ -704,13 +634,13 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-unsubscribe-controls"
+        "source-native:structured_reference:rock_documentation:article-1863:structured-reference-rock-sample-check-in-labels"
       ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
+      "reviewed_at": "2026-08-11T19:00:00Z",
       "stale_reasons": [],
       "status": "verified",
-      "verification_id": "source-native-verification:cbd1153ef9deac86b6feed65",
-      "verification_surface": "maintainer_review"
+      "verification_id": "source-native-verification:c9a52fc02dd434ce28beb952",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -730,17 +660,6 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d3580397f8edcf6d8abadaf3",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1161:structured-reference-kiosk-ad-content-model",
-        "source-native:task_card:rock_documentation:article-1161:task-card-connect-kiosk-ad-channel-to-next-gen-welcome-screen"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:d7765ef51e4adae217fc430f",
       "verification_surface": "public_source_code"
     },
     {
@@ -765,16 +684,6 @@
     },
     {
       "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1863:structured-reference-rock-check-in-label-types"
-      ],
-      "reviewed_at": "2026-08-04T03:15:00Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:db039ff0001c65155e219184",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:task_card:rock_mobile_docs:article-437:invite-app-factory-through-google-play-console"
       ],
       "reviewed_at": "2026-08-02T03:15:00Z",
@@ -795,32 +704,22 @@
     },
     {
       "artifact_ids": [
-        "source-native:source_summary:rock_documentation:article-1932:configure-email-mailgun-integration-guidance-location"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:eafaf7d6f36ea3253ea42fcf",
-      "verification_surface": "maintainer_review"
-    },
-    {
-      "artifact_ids": [
-        "source-native:structured_reference:rock_documentation:article-1932:configure-email-mailgun-http-settings"
-      ],
-      "reviewed_at": "2026-08-02T00:26:30Z",
-      "stale_reasons": [],
-      "status": "verified",
-      "verification_id": "source-native-verification:ef5207586bf8d90b7e75a955",
-      "verification_surface": "public_source_code"
-    },
-    {
-      "artifact_ids": [
         "source-native:claim:rock_documentation:article-2131:cache-manager-cache-tag-deletion-limit"
       ],
       "reviewed_at": "2026-08-04T03:15:00Z",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:f0de534ad312c84d8346768e",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_documentation:article-1970:communication-medium-unsubscribe-controls"
+      ],
+      "reviewed_at": "2026-08-11T19:00:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f3b12378f225ece4a808eae7",
       "verification_surface": "public_source_code"
     },
     {
@@ -845,10 +744,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 81,
-  "resolution_count": 81,
+  "queue_count": 71,
+  "resolution_count": 71,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 81
+  "verified_count": 71
 }

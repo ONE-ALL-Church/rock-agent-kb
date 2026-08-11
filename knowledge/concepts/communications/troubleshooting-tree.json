@@ -186,7 +186,7 @@
   ],
   "concept_id": "communications",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-10T22:18:42+00:00",
+  "generated_at": "2026-08-11T19:20:23+00:00",
   "guide_sections": [
     "16-troubleshooting-decision-tree",
     "16-troubleshooting-decision-tree-a-communication-did-not-send",

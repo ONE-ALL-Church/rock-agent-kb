@@ -14,6 +14,7 @@ from rock_kb.concepts import (
     load_concept_registry_metadata,
     load_concepts,
     rank_records_for_concept,
+    record_matches_path_constraints,
     refresh_long_form_approved_claims,
     replace_or_insert_generated_claim_section,
     replace_or_insert_generated_media_section,
@@ -468,6 +469,100 @@ def test_documentation_branch_constraints_match_structured_metadata():
     ranked = rank_records_for_concept(concept, records)
 
     assert [record["id"] for record in ranked] == ["prayer"]
+
+
+def test_source_record_constraint_routes_only_the_exact_record():
+    concept = Concept(
+        id="system-admin-ops",
+        title="System Administration And Operations",
+        description="Operations.",
+        keywords=["navigate"],
+        source_weights={"rock_documentation": 1},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={"source_record_ids": ["rock_documentation:article:1855"]},
+    )
+    records = [
+        {
+            "id": "rock_documentation:article:1855",
+            "source_id": "rock_documentation",
+            "source_title": "Navigate Rock",
+            "summary": "Navigate Rock.",
+        },
+        {
+            "id": "rock_documentation:article:1856",
+            "source_id": "rock_documentation",
+            "source_title": "Navigate Rock Child",
+            "summary": "Navigate Rock child article.",
+        },
+    ]
+
+    ranked = rank_records_for_concept(concept, records)
+
+    assert [record["id"] for record in ranked] == ["rock_documentation:article:1855"]
+    assert record_matches_path_constraints(records[0], concept.raw)
+    assert not record_matches_path_constraints(records[1], concept.raw)
+
+
+def test_source_record_constraint_is_additive_with_documentation_branches():
+    concept = Concept(
+        id="system-admin-ops",
+        title="System Administration And Operations",
+        description="Operations.",
+        keywords=["navigate", "cache"],
+        source_weights={"rock_documentation": 1},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={
+            "source_record_ids": ["rock_documentation:article:1855"],
+            "documentation_branches": ["documentation/supporting-rock/caching"],
+        },
+    )
+    records = [
+        {
+            "id": "rock_documentation:article:1855",
+            "source_id": "rock_documentation",
+            "source_title": "Navigate Rock",
+            "source_url": "https://community.rockrms.com/documentation/getting-started/navigate-rock",
+            "documentation_family": "documentation",
+            "documentation_branch": "documentation/getting-started",
+            "summary": "Navigate Rock.",
+        },
+        {
+            "id": "rock_documentation:article:cache",
+            "source_id": "rock_documentation",
+            "source_title": "Caching",
+            "source_url": "https://community.rockrms.com/documentation/supporting-rock/caching/cache",
+            "documentation_family": "documentation",
+            "documentation_branch": "documentation/supporting-rock/caching",
+            "summary": "Cache operations.",
+        },
+        {
+            "id": "rock_documentation:article:other",
+            "source_id": "rock_documentation",
+            "source_title": "Unrelated Navigate Article",
+            "source_url": "https://community.rockrms.com/documentation/church-management/groups/other",
+            "documentation_family": "documentation",
+            "documentation_branch": "documentation/church-management/groups",
+            "summary": "Navigate an unrelated area.",
+        },
+    ]
+
+    ranked = rank_records_for_concept(concept, records)
+
+    assert {record["id"] for record in ranked} == {
+        "rock_documentation:article:1855",
+        "rock_documentation:article:cache",
+    }
+    assert record_matches_path_constraints(records[0], concept.raw)
+    assert record_matches_path_constraints(records[1], concept.raw)
+    assert not record_matches_path_constraints(records[2], concept.raw)
 
 
 def test_record_table_rows_skip_sensitive_looking_summaries():

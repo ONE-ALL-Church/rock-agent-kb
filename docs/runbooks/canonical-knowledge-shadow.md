@@ -487,7 +487,12 @@ Source-native artifacts expose an `independent_question` as reviewed retrieval
 metadata. Ranking gives an exact normalized question a bounded direct-match
 signal and gives only high-overlap paraphrases a smaller signal. This separates
 neighboring references from the same article without unconditional concept or
-artifact-type boosts; every change remains subject to the complete shadow.
+artifact-type boosts. Verified corrections retain the signal from the
+`effective_artifact` projection. A structured reference receives an additional
+bounded exact-lookup signal only when a field/property/type/schema/member query
+contains a distinctive code-style identifier that its reviewed question,
+retrieval text, title, or reference-item label names; a body-only mention gets a
+smaller signal. Every change remains subject to the complete shadow.
 
 Run the report against the pre-change bundle as well as the current bundle when
 expanding source families. That comparison makes source coverage gains,

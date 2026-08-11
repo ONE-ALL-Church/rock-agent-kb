@@ -34,6 +34,9 @@ from rock_kb.source_native import (
     write_source_native_generation_prompt,
     write_source_native_manifest,
 )
+from rock_kb.source_native_verification import (
+    source_native_verification_queue_hash,
+)
 
 
 def document_record() -> dict:
@@ -1331,6 +1334,93 @@ def test_promotion_drops_resolutions_for_replaced_verification_requests(
     manifest = json.loads((destination / "manifest.json").read_text())
     assert manifest["verification_request_count"] == 0
     assert manifest["verification_resolution_count"] == 0
+
+
+def test_promotion_preserves_verified_correction_for_unchanged_artifact(
+    tmp_path: Path,
+):
+    input_path = tmp_path / "input.jsonl"
+    reviewed_path = tmp_path / "reviewed.json"
+    base = tmp_path / "base"
+    destination = tmp_path / "refreshed"
+    write_jsonl(input_path, [distillation_input()])
+    reviewed = valid_output()
+    reviewed["articles"][0]["artifacts"][0]["needs_live_verification"] = True
+    reviewed["articles"][0]["verification_requests"] = [
+        {
+            "source_unit_ids": [source_units()[0]["source_unit_id"]],
+            "verification_surface": "public_source_code",
+            "question": "Does current public source retain this behavior?",
+            "why_material": (
+                "The release-sensitive behavior changes the recommended "
+                "implementation."
+            ),
+        }
+    ]
+    reviewed_path.write_text(json.dumps(reviewed), encoding="utf-8")
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=base,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-30T12:00:00+00:00",
+    )
+    queue = next(read_jsonl(base / "verification-queue.jsonl"))
+    snapshot = next(read_jsonl(base / "source-snapshots.jsonl"))
+    write_jsonl(
+        base / "verification-resolutions.jsonl",
+        [
+            {
+                "schema": "rock-kb-source-native-verification-resolution-v1",
+                "verification_id": queue["verification_id"],
+                "queue_item_hash": source_native_verification_queue_hash(queue),
+                "resolution_state": "verified",
+                "artifact_disposition": "corrects",
+                "finding": "Current public evidence corrects the source wording.",
+                "effective_title": "Use the verified current behavior",
+                "effective_retrieval_text": (
+                    "Current public evidence supports the corrected behavior."
+                ),
+                "evidence": [
+                        {
+                            "evidence_type": "source_snapshot",
+                            "source_url": document_record()["source_url"],
+                        "source_ref": snapshot["source_snapshot_id"],
+                        "content_hash": snapshot["content_hash"],
+                        "hash_mode": "source_snapshot",
+                        "finding": "The immutable snapshot supplies the evidence.",
+                    }
+                ],
+                "reviewer": "test-reviewer",
+                "reviewed_at": "2026-07-30T12:00:00+00:00",
+                "revalidation_policy": "source_hash_change",
+                "rock_versions": [],
+                "version_scope_status": "version_independent",
+            }
+        ],
+    )
+
+    reviewed_path.write_text(json.dumps(valid_output()), encoding="utf-8")
+    promote_source_native_distillation(
+        input_path=input_path,
+        output_path=reviewed_path,
+        destination=destination,
+        base_dir=base,
+        reviewer="test-reviewer",
+        model="test-model",
+        reviewed_at="2026-07-31T12:00:00+00:00",
+    )
+
+    assert len(list(read_jsonl(destination / "verification-queue.jsonl"))) == 1
+    assert len(
+        list(read_jsonl(destination / "verification-resolutions.jsonl"))
+    ) == 1
+    artifact = next(read_jsonl(destination / "reviewed-artifacts.jsonl"))
+    assert artifact["artifact"]["needs_live_verification"] is False
+    manifest = json.loads((destination / "manifest.json").read_text())
+    assert manifest["verification_request_count"] == 1
+    assert manifest["verification_resolution_count"] == 1
 
 
 def test_manual_holdout_is_hashed_and_loaded_with_generated_evaluations(

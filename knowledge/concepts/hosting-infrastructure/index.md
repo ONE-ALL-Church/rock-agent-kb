@@ -2,15 +2,15 @@
 id: concept-hosting-infrastructure
 title: Hosting And Infrastructure
 generated: true
-last_built: 2026-08-10T22:17:18+00:00
+last_built: 2026-08-11T19:18:53+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 60
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:02:29+00:00
-source_native_migration_status: not_started
-source_native_article_coverage: 0/21
-legacy_summary_retirement_coverage: 0/21
+source_last_checked_at: 2026-08-11T16:51:59+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 4/21
+legacy_summary_retirement_coverage: 4/21
 depends_on_topics:
   - operations
   - security
@@ -213,10 +213,10 @@ Keywords: `backup, ssl, smtp, storage, performance, readiness`
 ## Source Lifecycle
 
 - Official article records routed here: `21`
-- Upstream check range: `2026-08-04T15:02:27+00:00` through `2026-08-04T15:02:29+00:00`
-- Source-native typed articles: `0` of `21`
-- Legacy source summaries retired: `0`; still active: `21`
-- Migration status: `not_started`
+- Upstream check range: `2026-08-04T15:02:27+00:00` through `2026-08-11T16:51:59+00:00`
+- Source-native typed articles: `4` of `21`
+- Legacy source summaries retired: `4`; still active: `17`
+- Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 

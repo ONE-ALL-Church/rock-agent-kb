@@ -133,13 +133,24 @@ def build_raw_manifest(source: Source, fetched: dict[str, Any]) -> dict[str, Any
 
 
 def grep_sensitive_values(lines: Iterable[str]) -> list[str]:
+    assignment_pattern = re.compile(
+        r"(?i)(?:^|[^A-Za-z0-9_-])"
+        r"(password|secret|api[_-]?key|token)\s*[:=]\s*['\"]?"
+        r"(?P<value>[^'\"\s]+)"
+    )
     patterns = [
-        re.compile(r"(?i)(?:^|[^A-Za-z0-9_-])(password|secret|api[_-]?key|token)\s*[:=]\s*['\"]?[^'\"\s]+"),
         re.compile(r"(?<![A-Za-z0-9_-])sk-[A-Za-z0-9_-]{20,}(?![A-Za-z0-9_-])"),
         re.compile(r"(?i)connectionstring\s*[:=]"),
     ]
     findings: list[str] = []
     for line in lines:
+        assignment_matches = assignment_pattern.finditer(line)
+        if any(
+            match.group("value") not in {"...", "\u2026"}
+            for match in assignment_matches
+        ):
+            findings.append(line.strip())
+            continue
         for pattern in patterns:
             if pattern.search(line):
                 findings.append(line.strip())

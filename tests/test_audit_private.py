@@ -1030,3 +1030,11 @@ def test_sensitive_scanner_does_not_flag_section_metadata():
     lines = ['{"section_id":"19-agent-task-recipes-recipe-verify-a-check-in-configuration"}']
     assert grep_sensitive_values(lines) == []
     assert grep_sensitive_values(["password = hello"])
+
+
+def test_sensitive_scanner_allows_only_explicit_ellipsis_placeholders():
+    assert grep_sensitive_values(["CREATE LOGIN [RockUser] WITH PASSWORD = '...';"]) == []
+    assert grep_sensitive_values(["password = \u2026"]) == []
+    assert grep_sensitive_values(["password = replace-me"])
+    assert grep_sensitive_values(["password = '<replace-me>'"])
+    assert grep_sensitive_values(["password = '...' token = real-value"])

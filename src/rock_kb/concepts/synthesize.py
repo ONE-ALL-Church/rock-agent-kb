@@ -9,13 +9,18 @@ def selected_records_for_concept(concept_id: str, limit: int = 40) -> list[dict[
     ranked = rank_records_for_concept(concept, records)
     return ensure_weighted_source_coverage(concept, ranked, limit)
 
-def concept_source_records() -> list[dict[str, Any]]:
+def concept_source_records(repo_root: Path = REPO_ROOT) -> list[dict[str, Any]]:
     """Return records allowed to influence public concept guides.
 
     Private transcript-derived media insights must be promoted by review before
     they can affect public guide dependencies or authored synthesis packs.
     """
-    return public_agent_records(all_normalized_records())
+    records = (
+        all_normalized_records()
+        if repo_root == REPO_ROOT
+        else all_normalized_records(repo_root / "data" / "normalized")
+    )
+    return public_agent_records(records)
 
 def approved_media_dependencies_for_concept(
     concept_id: str,
@@ -236,7 +241,11 @@ def synthesis_output_path(concept_id: str) -> Path:
 
 def rank_records_for_concept(concept: Concept, records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     scored = []
+    source_record_ids = record_constraint_values(concept.raw, "source_record_ids")
+    exact_ids_are_exclusive = source_record_ids and not has_non_record_path_constraints(concept.raw)
     for record in records:
+        if exact_ids_are_exclusive and str(record.get("id") or "") not in source_record_ids:
+            continue
         if concept_has_path_constraints(concept) and (
             record_is_unmatched_developer_branch(record, concept.raw)
             or record_is_unmatched_documentation_branch(record, concept.raw)
@@ -269,21 +278,35 @@ def records_matching_subguide(records: list[dict[str, Any]], subguide: dict[str,
 
 def concept_has_path_constraints(concept: Concept) -> bool:
     return (
-        record_constraint_values(concept.raw, "source_url_prefixes")
+        record_constraint_values(concept.raw, "source_record_ids")
+        or record_constraint_values(concept.raw, "source_url_prefixes")
         or record_constraint_values(concept.raw, "developer_doc_prefixes")
         or record_constraint_values(concept.raw, "documentation_branches")
         or record_constraint_values(concept.raw, "documentation_path_prefixes")
     )
 
+def has_non_record_path_constraints(config: dict[str, Any]) -> bool:
+    return bool(
+        record_constraint_values(config, "source_url_prefixes")
+        or record_constraint_values(config, "developer_doc_prefixes")
+        or record_constraint_values(config, "documentation_branches")
+        or record_constraint_values(config, "documentation_path_prefixes")
+    )
+
 def subguide_has_path_constraints(subguide: dict[str, Any]) -> bool:
     return (
-        record_constraint_values(subguide, "source_url_prefixes")
+        record_constraint_values(subguide, "source_record_ids")
+        or record_constraint_values(subguide, "source_url_prefixes")
         or record_constraint_values(subguide, "developer_doc_prefixes")
         or record_constraint_values(subguide, "documentation_branches")
         or record_constraint_values(subguide, "documentation_path_prefixes")
     )
 
 def record_matches_path_constraints(record: dict[str, Any], config: dict[str, Any]) -> bool:
+    source_record_ids = record_constraint_values(config, "source_record_ids")
+    if str(record.get("id") or "") in source_record_ids:
+        return True
+
     source_url_prefixes = record_constraint_values(config, "source_url_prefixes")
     if source_url_prefixes:
         source_url = str(record.get("source_url") or "")
