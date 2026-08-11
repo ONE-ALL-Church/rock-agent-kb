@@ -2188,6 +2188,17 @@ test("verified source-native overrides retain exact independent-question ranking
           },
         },
       },
+      {
+        id: "source-native:structured_reference:hosting:service-area-abbreviation",
+        title: "Service Area (SA) abbreviation",
+        body: "SA is an abbreviation for service area.",
+        payload: {
+          artifact: {
+            artifact_type: "structured_reference",
+            independent_question: "What does SA mean in this service area?",
+          },
+        },
+      },
     ];
     for (const row of rows) {
       await db.prepare(`INSERT INTO search_rows
@@ -2215,6 +2226,82 @@ test("verified source-native overrides retain exact independent-question ranking
     assert.equal(response.status, 200);
     assert.equal(payload.results[0].id, rows[0].id);
     assert.equal(payload.results[0].signals.independent_question_boost, 260);
+
+    const paraphraseResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("Should I use sa as the SQL Server administrator for Rock?")}&limit=2&debug=true`,
+    );
+    const paraphrase = await paraphraseResponse.json();
+    assert.equal(paraphraseResponse.status, 200);
+    assert.equal(paraphrase.results[0].id, rows[0].id);
+    assert.ok(paraphrase.results[0].signals.exact_lookup_boost >= 220);
+
+    const unrelatedResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("What does SA mean in this service area?")}&limit=3&debug=true`,
+    );
+    const unrelated = await unrelatedResponse.json();
+    const unrelatedRow = unrelated.results.find((row) => row.id === rows[2].id);
+    assert.equal(unrelatedResponse.status, 200);
+    assert.ok(unrelatedRow);
+    assert.equal(unrelatedRow.signals.exact_lookup_boost, 0);
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("source-native independent questions recognize deletion paraphrases without generic task-card displacement", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "source-native:claim:caching:deletion-limit",
+        kind: "claim",
+        title: "Rock 19.4 cache-tag deletion requires dependency checks",
+        body: "Rock permits deleting a cache tag through its Defined Type after dependency checks.",
+        question: "Can a Rock Cache Manager tag be deleted after it is created?",
+      },
+      {
+        id: "source-native:task_card:caching:add-tag",
+        kind: "task_card",
+        title: "Rock Cache Manager provides an action for adding a cache tag",
+        body: "Start creating a new cache tag from the add control in Rock Cache Manager.",
+        question: "How do I start adding a cache tag in Rock Cache Manager?",
+      },
+      {
+        id: "source-native:task_card:caching:clear-tag",
+        kind: "task_card",
+        title: "Rock Cache Manager clears cached items associated with a selected tag",
+        body: "Clear cached items associated with a selected cache tag in Rock Cache Manager.",
+        question: "How do I clear cached items associated with one tag?",
+      },
+    ];
+    for (const row of rows) {
+      const body = `${row.body} ${row.question}`;
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, 'shadow/canonical/source-native.jsonl', ?, 'system-admin-ops', 'official', 'source_backed', 1, 'rock_documentation', ?)`)
+        .bind(
+          row.id,
+          row.kind,
+          row.title,
+          body,
+          "https://community.rockrms.com/documentation/supporting-rock/caching",
+          JSON.stringify({ effective_artifact: { artifact_type: row.kind, independent_question: row.question } }),
+        )
+        .run();
+      await db.prepare(
+        "INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+      ).bind(row.id, row.title, body, "system-admin-ops").run();
+    }
+
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("How do I delete a cache tag in Rock Cache Manager?")}&limit=3&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, rows[0].id);
+    assert.equal(payload.results[0].signals.independent_question_boost, 160);
   } finally {
     await mf.dispose();
   }
