@@ -139,6 +139,8 @@
   },
   "result_count": 1089,
   "schema": "rock-kb-rock-idea-summary-v1",
+  "source_content_hash": "caacd2c4097fcf11481c8a3596f9cd77b2a193650823500b7043c2651e146d7d",
+  "source_content_hash_algorithm": "rock-kb-normalized-source-set-v1",
   "source_id": "rock_ideas",
   "status": "ok",
   "trust_boundary": "Idea metadata is a feature-gap and roadmap routing signal. It is never sufficient evidence that a feature exists, is absent, or applies to an instance."

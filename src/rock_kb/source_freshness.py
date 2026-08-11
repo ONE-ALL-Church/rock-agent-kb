@@ -9,7 +9,7 @@ from typing import Any, Iterable
 from .extract import generated_at_iso, sha256_text
 from .paths import AGENT_DIR, DATA_DIR, REPO_ROOT
 from .source_orchestration import build_source_snapshot
-from .source_hashing import source_content_hash, source_record_freshness_hash
+from .source_hashing import NORMALIZED_SOURCE_HASH_ALGORITHM, source_content_hash, source_record_freshness_hash
 from .source_workflows import load_source_freshness_policy
 from .sources import Source, load_sources
 
@@ -134,9 +134,13 @@ def build_source_observations(
     skipped = {str(value) for value in refresh_status.get("skipped") or []}
     explicit_checked = "checked" in refresh_status
     checked_at = parse_datetime(refresh_status.get("checked_at"))
-    issue_checked_at = parse_datetime(issue_checkpoint.get("checked_at")) or parse_datetime(
-        issue_summary.get("source_updated_through")
-    )
+    issue_check_candidates = [
+        parse_datetime(issue_checkpoint.get("checked_at")),
+        parse_datetime(issue_summary.get("last_checked_at")),
+        parse_datetime(issue_summary.get("projection_checked_at")),
+        parse_datetime(issue_summary.get("source_updated_through")),
+    ]
+    issue_checked_at = max((value for value in issue_check_candidates if value), default=None)
     rows: dict[str, dict[str, Any]] = {}
 
     for source in sorted(sources, key=lambda item: item.id):
@@ -144,13 +148,20 @@ def build_source_observations(
         previous = previous_sources.get(source.id) or {}
         result_count = int(current.get("record_count") or 0)
         content_hash = source_content_hash(snapshot, source.id)
+        content_hash_algorithm = NORMALIZED_SOURCE_HASH_ALGORITHM if content_hash else ""
         source_checked_at = parse_datetime(current.get("retrieved_at_max"))
 
         repository = ISSUE_SOURCE_REPOSITORIES.get(source.id)
         if repository and issue_summary:
             result_count = int((issue_summary.get("repositories") or {}).get(repository) or 0)
-            catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
-            content_hash = sha256_text(f"{source.id}:{catalog_hash}:{result_count}") if catalog_hash else ""
+            source_hashes = issue_summary.get("source_content_hashes") or {}
+            source_hash_algorithms = issue_summary.get("source_content_hash_algorithms") or {}
+            content_hash = str(source_hashes.get(source.id) or "")
+            content_hash_algorithm = str(source_hash_algorithms.get(source.id) or "")
+            if not content_hash:
+                catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
+                content_hash = sha256_text(f"{source.id}:{catalog_hash}:{result_count}") if catalog_hash else ""
+                content_hash_algorithm = "rock-kb-issue-catalog-derived-v1" if content_hash else ""
             source_checked_at = issue_checked_at
 
         if source.refresh_cadence == "manual":
@@ -190,6 +201,7 @@ def build_source_observations(
             "content_changed_at": isoformat(content_changed_at),
             "result_count": result_count,
             "content_hash": content_hash,
+            "content_hash_algorithm": content_hash_algorithm,
             "status": check_status,
         }
 
@@ -269,6 +281,7 @@ def source_freshness_rows(
                 "content_changed_at": isoformat(content_changed_at),
                 "result_count": result_count,
                 "content_hash": str(observation.get("content_hash") or ""),
+                "content_hash_algorithm": str(observation.get("content_hash_algorithm") or ""),
                 "check_status": check_status or ("success" if last_checked_at and result_count else "missing"),
                 "retrieved_at": isoformat(last_checked_at),
                 "age_hours": age_hours,

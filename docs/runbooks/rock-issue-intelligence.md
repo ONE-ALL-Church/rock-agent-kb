@@ -78,8 +78,11 @@ need every applicable issue must follow every page. Each result separates
 matches, unknowns, evidence, remediation, risk source, and live verification.
 `exclusion_summary` provides bounded reasons and examples for candidates ruled
 out. `catalog` reports source freshness and deployment lag by comparing both
-row counts and per-source content hashes; equal counts alone do not establish a
-current projection. The MCP tool accepts the same `scope`, `limit`, and `offset` fields. See the
+row counts and versioned per-source content hashes; equal counts alone do not
+establish a current projection. A `projection_ahead` status is non-blocking and
+means the reviewed deployment was checked after the latest recorded source
+observation. A known mismatch with missing comparison timestamps fails closed as
+`not_recorded`. The MCP tool accepts the same `scope`, `limit`, and `offset` fields. See the
 [Issue Watch V2 specification](../specs/rock-issue-watch-v2.md).
 
 For repeat checks, `uvx rock-kb issues watch instance-profile.json` retrieves

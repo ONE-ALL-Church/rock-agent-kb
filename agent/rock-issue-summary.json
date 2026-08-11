@@ -1,17 +1,19 @@
 {
-  "catalog_content_hash": "2276f2da718a54eb74613079b8e1e08a955fcc299be20b37977255b3560e79d8",
+  "catalog_content_hash": "3b3dcefd66e667515cd22e9a74984d3726005e502f78571d0933ce106f0647a8",
   "claim_tier": "routing_context_only",
   "components": {
     "mobile_shell": 129,
     "rock_core": 5709
   },
   "evidence_states": {
-    "commit_linked": 153,
+    "commit_linked": 223,
     "fixed_release_recorded": 3226,
-    "maintainer_triaged": 1219,
-    "report_only": 1240
+    "maintainer_triaged": 1171,
+    "report_only": 1218
   },
   "labels_truncated_count": 0,
+  "last_checked_at": "2026-08-11T04:40:21+00:00",
+  "projection_checked_at": "2026-08-11T04:40:21+00:00",
   "raw_issue_body_republished": false,
   "record_count": 5838,
   "release_note_linked_count": 889,
@@ -53,15 +55,23 @@
     }
   },
   "schema": "rock-kb-rock-issue-summary-v1",
+  "source_content_hash_algorithms": {
+    "rock_core_issues": "rock-kb-issue-source-set-v1",
+    "rock_mobile_issues": "rock-kb-issue-source-set-v1"
+  },
+  "source_content_hashes": {
+    "rock_core_issues": "83ed870e18b923ad5594a2f9fe1ab7b405ef8e1f3ce43a0101ff1a1a9c57d4d1",
+    "rock_mobile_issues": "b92f72598a4ba2bcc9128e16557d50fff254b8bd646b8338de41cae93d666d24"
+  },
   "source_updated_through": "2026-08-10T16:47:27Z",
   "states": {
     "closed": 5834,
     "open": 4
   },
   "timeline_coverage": {
-    "complete": 544,
-    "not_fetched": 5294,
-    "percent_complete": 9.32
+    "complete": 644,
+    "not_fetched": 5194,
+    "percent_complete": 11.03
   },
   "top_concepts": {
     "api-integrations": 106,

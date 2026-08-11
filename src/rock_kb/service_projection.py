@@ -1853,11 +1853,14 @@ def build_d1_seed_sql(
     issue_catalog_hash = str(issue_summary.get("catalog_content_hash") or "")
     issue_repositories = issue_summary.get("repositories") or {}
     if issue_catalog_hash and isinstance(issue_repositories, dict):
-        issue_source_hashes = {
+        issue_source_hashes = issue_summary.get("source_content_hashes") or {
             source_id: sha256_text(
                 f"{source_id}:{issue_catalog_hash}:{int(issue_repositories.get(repository) or 0)}"
             )
             for source_id, repository in sorted(ISSUE_SOURCE_REPOSITORIES.items())
+        }
+        issue_source_hash_algorithms = issue_summary.get("source_content_hash_algorithms") or {
+            source_id: "rock-kb-issue-catalog-derived-v1" for source_id in issue_source_hashes
         }
         metadata.extend(
             [
@@ -1866,6 +1869,23 @@ def build_d1_seed_sql(
                 (
                     "rock_issue_source_content_hashes",
                     json.dumps(issue_source_hashes, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                ),
+                (
+                    "rock_issue_source_content_hash_algorithms",
+                    json.dumps(
+                        issue_source_hash_algorithms,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        separators=(",", ":"),
+                    ),
+                ),
+                (
+                    "rock_issue_last_checked_at",
+                    str(
+                        issue_summary.get("projection_checked_at")
+                        or issue_summary.get("last_checked_at")
+                        or ""
+                    ),
                 ),
             ]
         )
@@ -1878,6 +1898,11 @@ def build_d1_seed_sql(
                 ("rock_idea_catalog_content_hash", idea_catalog_hash),
                 ("rock_idea_record_count", str(int(idea_summary.get("record_count") or 0))),
                 ("rock_idea_source_content_hash", idea_source_hash),
+                (
+                    "rock_idea_source_content_hash_algorithm",
+                    str(idea_summary.get("source_content_hash_algorithm") or ""),
+                ),
+                ("rock_idea_last_checked_at", str(idea_summary.get("last_checked_at") or "")),
             ]
         )
     for key, value in metadata:

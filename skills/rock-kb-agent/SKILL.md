@@ -2,9 +2,9 @@
 name: rock-kb-agent
 description: Use when answering Rock RMS questions with the public Rock Agent Knowledge Base, configuring an agent to query the hosted KB, citing KB trust tiers, inspecting model-map details, or submitting public-safe community contribution bundles.
 metadata:
-  rock-kb-skill-version: "1.12.0"
+  rock-kb-skill-version: "1.12.1"
   rock-kb-source: "https://github.com/ONE-ALL-Church/rock-agent-kb/tree/main/skills/rock-kb-agent"
-  rock-kb-published-at: "2026-08-10T21:16:54Z"
+  rock-kb-published-at: "2026-08-10T23:35:29Z"
   rock-kb-minimum-client-version: "0.23.0"
 ---
 
@@ -407,8 +407,11 @@ tools instead of shell commands:
   failure fields; raw `405` GET/DELETE session rejections are expected and
   reported separately.
 - `kb_get_freshness`: check daily/weekly schedule health and source
-  `last_checked_at`, `content_changed_at`, result count, content hash, and
-  status independently.
+  `last_checked_at`, `content_changed_at`, result count, versioned content hash,
+  and status independently. `deployment_lag` means the recorded source check is
+  newer; `projection_ahead` is healthy and means the reviewed deployment is
+  newer; `not_recorded` means comparable hash-contract metadata or the
+  timestamps needed to direct a known mismatch are unavailable.
 - `kb_submit`: validate and submit a contribution bundle for a registered org.
 
 Use MCP for agent-native typed tools and the CLI for terminal or scripted

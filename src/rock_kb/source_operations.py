@@ -22,6 +22,7 @@ SOURCE_FIELDS = (
     "content_changed_at",
     "result_count",
     "content_hash",
+    "content_hash_algorithm",
     "check_status",
     "status",
 )
@@ -77,6 +78,7 @@ def source_freshness_snapshot(
         row["last_checked_at"] = str(row.get("last_checked_at") or "")
         row["content_changed_at"] = str(row.get("content_changed_at") or "")
         row["content_hash"] = str(row.get("content_hash") or "")
+        row["content_hash_algorithm"] = str(row.get("content_hash_algorithm") or "")
         row["check_status"] = str(row.get("check_status") or "")
         row["status"] = str(row.get("status") or "")
         row["result_count"] = int(row.get("result_count") or 0)
@@ -107,6 +109,7 @@ def source_freshness_snapshot(
             "source_id": row["source_id"],
             "result_count": row["result_count"],
             "content_hash": row["content_hash"],
+            "content_hash_algorithm": row["content_hash_algorithm"],
             "check_status": row["check_status"],
             "status": row["status"],
         }
@@ -147,6 +150,7 @@ def source_freshness_sql(snapshot: dict[str, Any]) -> str:
     statements = [
         "CREATE TABLE IF NOT EXISTS source_workflow_runs_v1 (workflow_id TEXT PRIMARY KEY, run_id TEXT NOT NULL, run_url TEXT NOT NULL, observed_at TEXT NOT NULL, status TEXT NOT NULL, maximum_age_hours REAL NOT NULL, source_count INTEGER NOT NULL, content_hash TEXT NOT NULL, counts_json TEXT NOT NULL, blocking_source_ids_json TEXT NOT NULL);",
         "CREATE TABLE IF NOT EXISTS source_freshness_state_v1 (source_id TEXT PRIMARY KEY, name TEXT NOT NULL, cadence TEXT NOT NULL, maximum_age_hours REAL, last_checked_at TEXT NOT NULL, content_changed_at TEXT NOT NULL, result_count INTEGER NOT NULL, content_hash TEXT NOT NULL, check_status TEXT NOT NULL, status TEXT NOT NULL, observed_at TEXT NOT NULL, workflow_id TEXT NOT NULL);",
+        "CREATE TABLE IF NOT EXISTS source_content_hash_contract_v1 (source_id TEXT NOT NULL, content_hash TEXT NOT NULL, algorithm TEXT NOT NULL, PRIMARY KEY(source_id, content_hash));",
         "INSERT INTO source_workflow_runs_v1 (workflow_id, run_id, run_url, observed_at, status, maximum_age_hours, source_count, content_hash, counts_json, blocking_source_ids_json)",
         f"VALUES ({', '.join(sql_value(value) for value in workflow_values)})",
         "ON CONFLICT(workflow_id) DO UPDATE SET run_id = excluded.run_id, run_url = excluded.run_url, observed_at = excluded.observed_at, status = excluded.status, maximum_age_hours = excluded.maximum_age_hours, source_count = excluded.source_count, content_hash = excluded.content_hash, counts_json = excluded.counts_json, blocking_source_ids_json = excluded.blocking_source_ids_json WHERE excluded.observed_at >= source_workflow_runs_v1.observed_at;",
@@ -186,6 +190,32 @@ def source_freshness_sql(snapshot: dict[str, Any]) -> str:
                 + ";",
             ]
         )
+        if row["content_hash"] and row["content_hash_algorithm"]:
+            contract_values = (
+                row["source_id"],
+                row["content_hash"],
+                row["content_hash_algorithm"],
+            )
+            accepted_source_guard = " AND ".join(
+                [
+                    f"source_id = {sql_value(row['source_id'])}",
+                    f"content_hash = {sql_value(row['content_hash'])}",
+                    f"workflow_id = {sql_value(snapshot['workflow_id'])}",
+                    f"observed_at = {sql_value(snapshot['observed_at'])}",
+                    f"last_checked_at = {sql_value(row['last_checked_at'])}",
+                    f"content_changed_at = {sql_value(row['content_changed_at'])}",
+                ]
+            )
+            statements.append(
+                "INSERT INTO source_content_hash_contract_v1 (source_id, content_hash, algorithm) SELECT "
+                + ", ".join(
+                    sql_value(value)
+                    for value in contract_values
+                )
+                + " WHERE EXISTS (SELECT 1 FROM source_freshness_state_v1 WHERE "
+                + accepted_source_guard
+                + ") ON CONFLICT(source_id, content_hash) DO UPDATE SET algorithm = excluded.algorithm;"
+            )
     return "\n".join(statements) + "\n"
 
 

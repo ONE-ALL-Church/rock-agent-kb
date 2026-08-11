@@ -26,6 +26,7 @@ def report_fixture() -> dict[str, object]:
                 "content_changed_at": "2026-07-18T09:44:00+00:00",
                 "result_count": 123,
                 "content_hash": "a" * 64,
+                "content_hash_algorithm": "rock-kb-issue-source-set-v1",
                 "check_status": "success",
                 "status": "current",
             },
@@ -38,6 +39,7 @@ def report_fixture() -> dict[str, object]:
                 "content_changed_at": "2026-07-17T09:44:00+00:00",
                 "result_count": 45,
                 "content_hash": "b" * 64,
+                "content_hash_algorithm": "rock-kb-issue-source-set-v1",
                 "check_status": "success",
                 "status": "current",
             },
@@ -68,6 +70,7 @@ def test_source_freshness_snapshot_keeps_separate_public_operational_fields() ->
         "content_changed_at": "2026-07-18T09:44:00+00:00",
         "result_count": 123,
         "content_hash": "a" * 64,
+        "content_hash_algorithm": "rock-kb-issue-source-set-v1",
         "check_status": "success",
         "status": "current",
     }
@@ -121,10 +124,12 @@ def test_source_freshness_sql_upserts_workflow_and_source_state() -> None:
 
     assert "CREATE TABLE IF NOT EXISTS source_workflow_runs_v1" in sql
     assert "CREATE TABLE IF NOT EXISTS source_freshness_state_v1" in sql
+    assert "CREATE TABLE IF NOT EXISTS source_content_hash_contract_v1" in sql
     assert "WHERE excluded.observed_at >= source_workflow_runs_v1.observed_at" in sql
     assert "julianday(excluded.last_checked_at) >= julianday(source_freshness_state_v1.last_checked_at)" in sql
     assert "source_freshness_state_v1.workflow_id = excluded.workflow_id" in sql
     assert "rock_core_issues" in sql
+    assert "rock-kb-issue-source-set-v1" in sql
     assert json.dumps(snapshot["counts"], sort_keys=True, separators=(",", ":")) in sql
 
 
@@ -162,6 +167,31 @@ def test_later_stale_workflow_cannot_overwrite_newer_source_observation() -> Non
         "2026-07-18T09:44:00+00:00",
         "a" * 64,
     )
+
+
+def test_rejected_same_time_replay_cannot_overwrite_current_hash_contract() -> None:
+    daily = source_freshness_snapshot(
+        report_fixture(),
+        workflow_id="daily-issues",
+        run_id="daily",
+    )
+    stale_replay = deepcopy(daily)
+    stale_replay["run_id"] = "stale-replay"
+    for row in stale_replay["sources"]:
+        row["content_changed_at"] = "2026-07-16T09:44:00+00:00"
+        row["content_hash_algorithm"] = "stale-algorithm-v0"
+
+    database = sqlite3.connect(":memory:")
+    database.executescript(source_freshness_sql(daily))
+    database.executescript(source_freshness_sql(stale_replay))
+    rows = database.execute(
+        "SELECT source_id, algorithm FROM source_content_hash_contract_v1 ORDER BY source_id"
+    ).fetchall()
+
+    assert rows == [
+        ("rock_core_issues", "rock-kb-issue-source-set-v1"),
+        ("rock_mobile_issues", "rock-kb-issue-source-set-v1"),
+    ]
 
 
 def test_newer_owner_observation_can_repair_legacy_wrong_ownership() -> None:

@@ -174,6 +174,44 @@ def test_issue_catalog_assessment_pages_after_ranking_complete_result_set():
     assert second_page["results"][0]["issue_id"].endswith("#6918")
 
 
+def test_issue_summary_records_independent_versioned_source_hashes():
+    core_raw, timeline = core_issue()
+    core = normalize_issue("SparkDevNetwork/Rock", core_raw, timeline=timeline)
+    mobile_raw = {
+        **core_raw,
+        "number": 128,
+        "html_url": "https://github.com/SparkDevNetwork/Rock.Mobile-Issues/issues/128",
+    }
+    mobile = normalize_issue("SparkDevNetwork/Rock.Mobile-Issues", mobile_raw, timeline=[])
+
+    summary = rock_issues.build_rock_issue_summary(
+        [core, mobile],
+        checked_at="2026-08-10T20:00:00Z",
+    )
+
+    assert summary["last_checked_at"] == "2026-08-10T20:00:00Z"
+    assert summary["projection_checked_at"] == "2026-08-10T20:00:00Z"
+    assert set(summary["source_content_hashes"]) == {"rock_core_issues", "rock_mobile_issues"}
+    assert summary["source_content_hashes"]["rock_core_issues"] != summary["source_content_hashes"]["rock_mobile_issues"]
+    assert set(summary["source_content_hash_algorithms"].values()) == {"rock-kb-issue-source-set-v1"}
+
+    unchanged = rock_issues.build_rock_issue_summary(
+        [core, mobile],
+        checked_at="2026-08-11T20:00:00Z",
+        previous=summary,
+    )
+    assert unchanged["last_checked_at"] == "2026-08-10T20:00:00Z"
+    assert unchanged["projection_checked_at"] == "2026-08-10T20:00:00Z"
+
+    changed = rock_issues.build_rock_issue_summary(
+        [{**core, "source_content_hash": "f" * 64}, mobile],
+        checked_at="2026-08-11T20:00:00Z",
+        previous=summary,
+    )
+    assert changed["last_checked_at"] == "2026-08-11T20:00:00Z"
+    assert changed["projection_checked_at"] == "2026-08-11T20:00:00Z"
+
+
 def test_issue_assessment_scopes_keep_open_and_historical_populations_explicit():
     closed_raw, timeline = core_issue()
     closed = normalize_issue("SparkDevNetwork/Rock", closed_raw, timeline=timeline)
