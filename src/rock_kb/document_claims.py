@@ -275,7 +275,7 @@ def build_document_claim_candidates(
             for row in rows
         ),
         "skipped_count": len(skipped),
-        "skipped": skipped[:50],
+        "skipped": skipped[:100],
         "output": str(output_path),
     }
 
@@ -329,12 +329,16 @@ def hydrate_document_candidates(
             else "normalized_summary"
         )
         source_context = full_text or normalized_document_context(record)
+        source_input_hash = sha256_text(source_context) if source_context else None
+        source_context_char_count = len(source_context)
         if require_full_text and not context_mode.endswith("_full_text"):
             skipped.append(
                 {
                     "concept_ids": concept_ids,
                     "source_record_id": record.get("id"),
                     "reason": "official_full_text_unavailable",
+                    "source_input_hash": source_input_hash,
+                    "source_context_char_count": source_context_char_count,
                 }
             )
             continue
@@ -345,6 +349,8 @@ def hydrate_document_candidates(
                     "concept_ids": concept_ids,
                     "source_record_id": record.get("id"),
                     "reason": "rockumentation_full_text_exceeds_review_limit",
+                    "source_input_hash": source_input_hash,
+                    "source_context_char_count": source_context_char_count,
                 }
             )
             continue

@@ -303,6 +303,10 @@ def test_build_document_claim_candidates_skips_truncated_full_article(monkeypatc
 
     assert result["candidate_count"] == 0
     assert result["skipped"][0]["reason"] == "rockumentation_full_text_exceeds_review_limit"
+    assert result["skipped"][0]["source_input_hash"] == document_claims.sha256_text(
+        "This API article is longer than the configured full-article review boundary."
+    )
+    assert result["skipped"][0]["source_context_char_count"] == 76
 
 
 def test_promote_document_claim_rewrite_builds_public_safe_review(monkeypatch, tmp_path: Path):

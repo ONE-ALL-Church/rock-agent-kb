@@ -59,7 +59,9 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "2"
-RISK_POLICY_VERSION = "6"
+RISK_POLICY_VERSION = "7"
+MAX_BATCH_RECORD_COUNT = 50
+MAX_PREFLIGHT_POOL_RECORD_COUNT = 70
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -160,6 +162,20 @@ HYDRATED_STANDARD_RISK_PATTERNS = (
             r"deprecated\s+soon|not\s+(?:yet|currently)\s+"
             r"(?:available|released|supported)|no\s+longer\s+supported|unsupported)\b"
         ),
+    ),
+)
+HYDRATED_EXACT_CONFLICT_PAIRS = (
+    (
+        "hydrated_conflicting_context_api_identifiers",
+        "conflicting context API method identifiers",
+        r"\bgetscopedentitycontexts\b",
+        r"\bgetscopedcontextentities\b",
+    ),
+    (
+        "hydrated_conflicting_cache_duration_units",
+        "conflicting cache-duration units",
+        r"\bhow\s+many\s+minutes\s+to\s+keep\s+it\s+cached\b",
+        r"\bnumber\s+of\s+seconds\s+to\s+cache\b",
     ),
 )
 HYDRATED_POSITIVE_STATUS_PATTERN = (
@@ -634,6 +650,13 @@ def classify_hydrated_candidate_risk(
                 code,
                 f"hydrated source contains {label}",
             )
+    for code, label, left_pattern, right_pattern in HYDRATED_EXACT_CONFLICT_PAIRS:
+        if re.search(left_pattern, lowered) and re.search(right_pattern, lowered):
+            raise_to(
+                "standard",
+                code,
+                f"hydrated source contains {label}",
+            )
     if re.search(HYDRATED_POSITIVE_STATUS_PATTERN, lowered) and re.search(
         HYDRATED_NEGATIVE_STATUS_PATTERN,
         lowered,
@@ -758,8 +781,11 @@ def select_migration_batch(
     exact_source_record_ids: Iterable[str] = (),
 ) -> dict[str, Any]:
     _validate_priority_report(report)
-    if count < 1 or count > 50:
-        raise ValueError("migration batch count must be between 1 and 50")
+    if count < 1 or count > MAX_PREFLIGHT_POOL_RECORD_COUNT:
+        raise ValueError(
+            "migration selection count must be between 1 and "
+            f"{MAX_PREFLIGHT_POOL_RECORD_COUNT}"
+        )
     if max_risk not in RISK_ORDER:
         raise ValueError("max_risk must be low, standard, or high")
     records_by_id = {
@@ -908,7 +934,7 @@ def _hydrated_preflight_selection(
         for row in candidate_rows
     }
     skipped_by_record = {
-        str(row.get("source_record_id") or ""): str(row.get("reason") or "")
+        str(row.get("source_record_id") or ""): row
         for row in (
             (build_result.get("document_candidate_build") or {}).get("skipped")
             or []
@@ -916,12 +942,14 @@ def _hydrated_preflight_selection(
         if row.get("source_record_id")
     }
     accepted: list[dict[str, Any]] = []
+    screened_safe_reserve: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
     for selected_row in selection.get("selected") or []:
         source_record_id = str(selected_row.get("source_record_id") or "")
         candidate = candidates_by_record.get(source_record_id)
         if candidate is None:
-            reason = skipped_by_record.get(source_record_id) or "candidate_missing"
+            skipped = skipped_by_record.get(source_record_id) or {}
+            reason = str(skipped.get("reason") or "candidate_missing")
             risk_level = (
                 "standard"
                 if reason == "rockumentation_full_text_exceeds_review_limit"
@@ -931,6 +959,12 @@ def _hydrated_preflight_selection(
                 {
                     "source_record_id": source_record_id,
                     "reason_code": reason,
+                    "candidate_id": None,
+                    "source_input_hash": skipped.get("source_input_hash"),
+                    "source_context_char_count": skipped.get(
+                        "source_context_char_count"
+                    ),
+                    "source_unit_count": None,
                     "risk": {
                         "level": risk_level,
                         "policy_version": RISK_POLICY_VERSION,
@@ -949,6 +983,9 @@ def _hydrated_preflight_selection(
                 {
                     "source_record_id": source_record_id,
                     "reason_code": reason,
+                    "candidate_id": candidate.get("candidate_id"),
+                    "source_input_hash": candidate.get("source_input_hash"),
+                    "source_unit_count": unit_count,
                     "risk": {
                         "level": "standard",
                         "policy_version": RISK_POLICY_VERSION,
@@ -973,18 +1010,24 @@ def _hydrated_preflight_selection(
                 {
                     "source_record_id": source_record_id,
                     "reason_code": "hydrated_risk_exceeds_batch_policy",
+                    "candidate_id": candidate.get("candidate_id"),
+                    "source_input_hash": candidate.get("source_input_hash"),
+                    "source_unit_count": unit_count,
                     "risk": hydrated_risk,
                 }
             )
             continue
-        accepted.append(
-            {
-                "source_record_id": source_record_id,
-                "hydrated_risk": hydrated_risk,
-            }
-        )
-        if len(accepted) == count:
-            break
+        eligible = {
+            "source_record_id": source_record_id,
+            "candidate_id": candidate.get("candidate_id"),
+            "source_input_hash": candidate.get("source_input_hash"),
+            "source_unit_count": unit_count,
+            "hydrated_risk": hydrated_risk,
+        }
+        if len(accepted) < count:
+            accepted.append(eligible)
+        else:
+            screened_safe_reserve.append(eligible)
     if len(accepted) != count:
         raise ValueError(
             "hydrated candidate reserve could not preserve the exact batch size; "
@@ -993,6 +1036,7 @@ def _hydrated_preflight_selection(
     return {
         "candidate_pool_count": len(selection.get("selected") or []),
         "accepted": accepted,
+        "screened_safe_reserve": screened_safe_reserve,
         "rejected": rejected,
     }
 
@@ -1029,6 +1073,25 @@ def _apply_hydrated_preflight_queues(
                 "risk": risk,
             }
         )
+    excluded = Counter()
+    excluded_examples: dict[str, list[str]] = defaultdict(list)
+    for queue_name, rows in selection["queues"].items():
+        rows.sort(
+            key=lambda row: (
+                row.get("rank") is None,
+                int(row.get("rank") or 0),
+                str(row.get("source_record_id") or ""),
+            )
+        )
+        for row in rows:
+            reason = str(row.get("exclusion_reason") or "other_excluded")
+            excluded[reason] += 1
+            if len(excluded_examples[reason]) < 10:
+                excluded_examples[reason].append(
+                    str(row.get("source_record_id") or "")
+                )
+    selection["excluded_counts"] = dict(sorted(excluded.items()))
+    selection["excluded_examples"] = dict(sorted(excluded_examples.items()))
     selection["queues"] = dict(sorted(selection["queues"].items()))
 
 
@@ -1284,6 +1347,10 @@ def prepare_source_native_migration_batch(
     require_clean: bool = True,
 ) -> dict[str, Any]:
     destination = _require_review_destination(destination, repo_root)
+    if count < 1 or count > MAX_BATCH_RECORD_COUNT:
+        raise ValueError(
+            f"migration batch count must be between 1 and {MAX_BATCH_RECORD_COUNT}"
+        )
     if max_source_units_per_record < 1 or max_source_units_per_record > 200:
         raise ValueError("max_source_units_per_record must be between 1 and 200")
     parsed_as_of = parse_utc(as_of)
@@ -1327,8 +1394,12 @@ def prepare_source_native_migration_batch(
                 exact_source_record_ids=exact_source_record_ids,
             )
             preflight_selection = selection
-            if not exact_source_record_ids and count < 50:
-                for reserve_count in range(min(50, count + 20), count, -1):
+            if not exact_source_record_ids:
+                for reserve_count in range(
+                    min(MAX_PREFLIGHT_POOL_RECORD_COUNT, count + 20),
+                    count,
+                    -1,
+                ):
                     try:
                         preflight_selection = select_migration_batch(
                             report=report,

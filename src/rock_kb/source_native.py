@@ -48,7 +48,7 @@ from .source_native_verification import (
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
 SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
 SOURCE_NATIVE_PROMPT_ID = "source-knowledge-distillation-v2.3"
-SOURCE_NATIVE_PROMPT_VERSION = "2.3.2"
+SOURCE_NATIVE_PROMPT_VERSION = "2.3.3"
 SOURCE_NATIVE_INPUT_HASH_VERSION = "2"
 SOURCE_NATIVE_MAX_UNITS_PER_CANDIDATE = 200
 SOURCE_NATIVE_PROMPT_PATH = (

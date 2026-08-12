@@ -67,7 +67,7 @@ def test_source_native_manifest_supports_repository_scale_concept_facets():
     manifest = SourceNativePilotManifest(
         schema="rock-kb-source-native-pilot-manifest-v1",
         prompt_id="source-knowledge-distillation-v2.3",
-        prompt_version="2.3.2",
+        prompt_version="2.3.3",
         concept_ids=[f"concept-{index}" for index in range(23)],
         source_snapshot_count=0,
         source_unit_count=0,
@@ -1234,7 +1234,7 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     assert len(activities) == 1
     assert activities[0]["prompt_version"] == "2.3.0"
     assert activities[0]["created_at"] == "2026-07-29T12:00:00+00:00"
-    assert activities[0]["parameters"]["review_contract_version"] == "2.3.2"
+    assert activities[0]["parameters"]["review_contract_version"] == "2.3.3"
     public_units = list(read_jsonl(destination / "source-units.jsonl"))
     assert all("text" not in row for row in public_units)
     assert all(row["public_summary"] for row in public_units)
@@ -1329,7 +1329,7 @@ def test_promotion_appends_safely_and_records_review_corrections(tmp_path: Path)
         "source-native:claim:rock_documentation:article-100:feature-behavior"
     ]
     activity = next(read_jsonl(destination / "generation-activities.jsonl"))
-    assert activity["prompt_version"] == "2.3.2"
+    assert activity["prompt_version"] == "2.3.3"
     assert activity["parameters"]["review_changed"] is True
     assert activity["parameters"]["review_correction_count"] > 0
     manifest = json.loads((destination / "manifest.json").read_text())

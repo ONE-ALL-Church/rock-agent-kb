@@ -479,7 +479,7 @@ def test_non_high_confidence_concept_routing_requires_standard_risk(
     assert "concept_routing_not_high_confidence" in (
         selected["selected"][0]["risk"]["reason_codes"]
     )
-    assert selected["risk_policy_version"] == "6"
+    assert selected["risk_policy_version"] == "7"
 
 
 def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
@@ -513,6 +513,8 @@ def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
                         "reason": (
                             "rockumentation_full_text_exceeds_review_limit"
                         ),
+                        "source_input_hash": "a" * 64,
+                        "source_context_char_count": 80_000,
                     }
                 ]
             }
@@ -531,9 +533,13 @@ def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
         {
             "source_record_id": records[0]["id"],
             "reason_code": "rockumentation_full_text_exceeds_review_limit",
+            "candidate_id": None,
+            "source_input_hash": "a" * 64,
+            "source_context_char_count": 80_000,
+            "source_unit_count": None,
             "risk": {
                 "level": "standard",
-                "policy_version": "6",
+                "policy_version": "7",
                 "reason_codes": [
                     "rockumentation_full_text_exceeds_review_limit"
                 ],
@@ -543,6 +549,53 @@ def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
             },
         }
     ]
+
+
+def test_hydrated_preflight_screens_entire_reserve_after_batch_is_full():
+    records = [source_record(1), source_record(2), source_record(3)]
+    selection = orchestrator.select_migration_batch(
+        report=priority_report(records),
+        records=records,
+        count=3,
+        max_risk="low",
+    )
+    candidate_rows = [
+        {
+            "candidate_id": f"candidate:{index}",
+            "source_input_hash": f"{index + 10:064x}",
+            "source_snapshot": {"source_record_id": record["id"]},
+            "source_units": [
+                {
+                    "unit_kind": "paragraph",
+                    "text": (
+                        record["summary"]
+                        if index < 3
+                        else record["summary"] + " Execute SQL using a private key."
+                    ),
+                }
+            ],
+        }
+        for index, record in enumerate(records, 1)
+    ]
+
+    result = orchestrator._hydrated_preflight_selection(
+        selection=selection,
+        candidate_rows=candidate_rows,
+        build_result={},
+        records_by_id={record["id"]: record for record in records},
+        count=2,
+        max_risk="low",
+        max_source_units_per_record=200,
+    )
+
+    assert [row["source_record_id"] for row in result["accepted"]] == [
+        records[0]["id"],
+        records[1]["id"],
+    ]
+    assert result["screened_safe_reserve"] == []
+    assert result["rejected"][0]["source_record_id"] == records[2]["id"]
+    assert result["rejected"][0]["candidate_id"] == "candidate:3"
+    assert result["rejected"][0]["source_unit_count"] == 1
 
 
 def test_prepare_backfills_hydration_skip_and_preserves_queue(
@@ -619,6 +672,12 @@ def test_prepare_backfills_hydration_skip_and_preserves_queue(
         for row in read_jsonl(
             destination / "queues" / "standard-risk.jsonl"
         )
+    ] == [records[0]["id"]]
+    assert selection["excluded_counts"][
+        "rockumentation_full_text_exceeds_review_limit"
+    ] == 1
+    assert selection["excluded_examples"][
+        "rockumentation_full_text_exceeds_review_limit"
     ] == [records[0]["id"]]
 
 
@@ -835,6 +894,45 @@ def test_hydrated_candidate_binding_rejects_unrelated_page():
 
     assert result["level"] == "high"
     assert "insufficient normalized preview coverage" in result["reasons"][0]
+
+
+@pytest.mark.parametrize(
+    ("conflict_text", "reason_code"),
+    [
+        (
+            (
+                "Use RockPage.GetScopedEntityContexts for the collection. "
+                "The example calls RockPage.GetScopedContextEntities instead."
+            ),
+            "hydrated_conflicting_context_api_identifiers",
+        ),
+        (
+            (
+                "Let the administrator decide how many minutes to keep it cached. "
+                "The field description says Number of seconds to cache the content."
+            ),
+            "hydrated_conflicting_cache_duration_units",
+        ),
+    ],
+)
+def test_hydrated_candidate_escalates_exact_source_conflicts(
+    conflict_text: str,
+    reason_code: str,
+):
+    record = source_record(1)
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": record["summary"] + " " + conflict_text,
+            }
+        ]
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "standard"
+    assert reason_code in result["reason_codes"]
 
 
 @pytest.mark.parametrize(

@@ -1,7 +1,7 @@
 # Source-Native Legacy Migration v1
 
 Prompt ID: `source-native-legacy-migration-v1`
-Prompt version: `1.3.2`
+Prompt version: `1.3.3`
 Status: reviewed migration contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -42,6 +42,12 @@ Apply the complete Source Knowledge Distillation v2.3 contract:
   recipes and exact catalogs in structured references.
 - Preserve conditions, caveats, security boundaries, mutable-value status,
   product-version uncertainty, and exact operational tokens.
+- Preserve useful exact public destinations and relative paths; a label without
+  its supplied route is not full coverage when the route is independently
+  useful.
+- Compare units for conflicting identifiers, units, defaults, and method forms.
+  Never silently choose one; preserve the conflict and request bounded
+  verification when the independent answer depends on it.
 - A useful unit belongs to exactly one primary artifact.
 - `split_required` blocks promotion.
 
@@ -165,7 +171,13 @@ Before returning, verify that:
   operation and remains understandable outside the source article;
 - task-card steps are contiguous and one-based;
 - mutable defaults and unresolved version behavior are marked for verification;
-- no migration silently weakens, broadens, or combines the legacy meaning.
+- no migration silently weakens, broadens, or combines the legacy meaning;
+- every named supporting replacement has a typed link from the primary when the
+  primary routes to or depends on it, with evidence that supports the edge;
+- completion conditions and implementation paths state only what the source
+  actually guarantees;
+- artifacts that expose the same mutable contract use consistent temporal
+  status unless the source supports a difference.
 
 ## Output
 

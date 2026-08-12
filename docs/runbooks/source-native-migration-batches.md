@@ -64,6 +64,10 @@ hydrated risk checks is recorded in the sealed selection, moved to the
 appropriate risk queue, and backfilled from that reserve. Exact record batches
 may be specified with repeated `--source-record-id`; they never substitute a
 different record, and every exact record must satisfy the selected risk policy.
+The coordinator screens the entire reserve, not only records needed to fill the
+batch, and seals each hydrated candidate ID, source-input hash, and unit count so
+risk reclassification remains reproducible after temporary hydration files are
+removed.
 
 API-backed documentation, developer, and mobile prose also needs an exact
 `article` source identity. Static discovery or landing-page hashes can remain

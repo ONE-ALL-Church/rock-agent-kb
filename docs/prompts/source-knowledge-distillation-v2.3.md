@@ -1,7 +1,7 @@
 # Source Knowledge Distillation v2.3
 
 Prompt ID: `source-knowledge-distillation-v2.3`
-Prompt version: `2.3.2`
+Prompt version: `2.3.3`
 Status: reviewed pilot contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -179,6 +179,22 @@ option matrices may be preserved as reviewed structured facts under a
 cite-and-summarize policy. Do not reproduce expressive article prose, whole
 sections, or an unbounded source table.
 
+When a unit's useful purpose is routing or reference, preserve its exact public
+destination, relative path, or URL token in a reference item or procedure step.
+Naming only the destination label is not full coverage when the supplied path
+is independently useful. Never invent or repair a destination.
+
+Compare all units for the same subject before declaring exact identifiers,
+units, defaults, or method forms. If supplied units disagree, do not silently
+choose one form. Preserve the conflict in the artifact's cautions, mark the
+affected value for verification, and emit one bounded verification request when
+the independent answer depends on resolving it.
+
+Do not turn advice into a guarantee. A diagnostic check is not a supported
+completion condition unless the source says that check identifies or resolves
+the problem. A request to assess or collaborate is not a documented
+implementation path.
+
 ### Related Artifacts
 
 Use `related_artifact_links` only for another artifact emitted from the same
@@ -188,6 +204,10 @@ row. Allowed relations are `related_to`, `corroborates`, `qualifies`,
 `supersedes`, `requires`, and `references`. Cite exact article source-unit IDs
 and give a source-supported rationale. Do not invent a link merely because two
 artifacts share a concept.
+
+When a primary artifact names or routes to supporting artifacts, emit a typed
+link to every material companion. The edge's evidence units must substantiate
+the relationship itself, not merely one endpoint.
 
 ## Step 5: Claim Atomicity
 
@@ -235,6 +255,9 @@ Allowed verification surfaces:
 
 State one read-only question and why it matters. Private instance observations
 cannot become public evidence.
+
+Use one consistent temporal status for artifacts that expose the same mutable
+or version-sensitive contract unless their evidence supports a real difference.
 
 `documentation_current_version` is documentation metadata, not Rock product
 scope. Use `scoped` only with explicit supported Rock versions. Otherwise use
