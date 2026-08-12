@@ -2150,7 +2150,7 @@ test("source-native independent questions disambiguate neighboring references", 
 
     assert.equal(response.status, 200);
     assert.equal(payload.results[0].id, rows[0].id);
-    assert.equal(payload.results[0].signals.independent_question_boost, 260);
+    assert.equal(payload.results[0].signals.independent_question_boost, 360);
     assert.equal(
       payload.results[1].signals.independent_question_boost,
       0,
@@ -2225,7 +2225,7 @@ test("verified source-native overrides retain exact independent-question ranking
 
     assert.equal(response.status, 200);
     assert.equal(payload.results[0].id, rows[0].id);
-    assert.equal(payload.results[0].signals.independent_question_boost, 260);
+    assert.equal(payload.results[0].signals.independent_question_boost, 360);
 
     const paraphraseResponse = await mf.dispatchFetch(
       `https://kb.example.test/search?q=${encodeURIComponent("Should I use sa as the SQL Server administrator for Rock?")}&limit=2&debug=true`,
@@ -2302,6 +2302,100 @@ test("source-native independent questions recognize deletion paraphrases without
     assert.equal(response.status, 200);
     assert.equal(payload.results[0].id, rows[0].id);
     assert.equal(payload.results[0].signals.independent_question_boost, 160);
+
+    const partialParaphraseResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("Can an administrator rename or remove a cache tag after creating it?")}&limit=3&debug=true`,
+    );
+    const partialParaphrase = await partialParaphraseResponse.json();
+
+    assert.equal(partialParaphraseResponse.status, 200);
+    assert.equal(partialParaphrase.results[0].id, rows[0].id);
+    assert.equal(
+      partialParaphrase.results[0].signals.independent_question_boost,
+      70,
+    );
+  } finally {
+    await mf.dispose();
+  }
+});
+
+test("how-to intent favors only recipes whose reviewed metadata matches the query", async () => {
+  const mf = await buildWorker();
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    const rows = [
+      {
+        id: "source-native:recipe:check-in:segment-kiosk-ads",
+        kind: "recipe",
+        title: "Segment kiosk ads by campus",
+        body: "Limit check-in kiosk ads to selected campuses with channel and campus filters.",
+        payload: {
+          artifact: {
+            independent_question: "How can an organization tailor check-in kiosk ads for different campuses?",
+            retrieval_text: "Segment kiosk ads with campus filters.",
+          },
+        },
+      },
+      {
+        id: "source-native:task_card:check-in:configure-kiosk-ads",
+        kind: "task_card",
+        title: "Configure kiosk ads by campus",
+        body: "Limit check-in kiosk ads to selected campuses with channel and campus filters.",
+        payload: {},
+      },
+      {
+        id: "source-native:recipe:check-in:build-crawler-page",
+        kind: "recipe",
+        title: "Build a crawler links page",
+        body: "A dedicated links page lets a crawler discover every site page.",
+        payload: {
+          artifact: {
+            independent_question: "How can a crawler discover every page?",
+            retrieval_text: "Build a page containing links for the crawler.",
+          },
+        },
+      },
+      {
+        id: "source-native:task_card:check-in:secure-crawler-page",
+        kind: "task_card",
+        title: "Keep a crawler links page private",
+        body: "Restrict the links page from visitors while allowing the crawler to index it.",
+        payload: {},
+      },
+    ];
+    for (const row of rows) {
+      await db.prepare(`INSERT INTO search_rows
+        (id, kind, title, body, path, url, concept, authority_tier, claim_tier, claim_tier_rank, source_id, payload_json)
+        VALUES (?, ?, ?, ?, 'shadow/canonical/source-native.jsonl', ?, 'check-in', 'official', 'source_backed', 1, 'rock_documentation', ?)`)
+        .bind(
+          row.id,
+          row.kind,
+          row.title,
+          row.body,
+          "https://community.rockrms.com/documentation/church-management/check-in",
+          JSON.stringify(row.payload),
+        )
+        .run();
+      await db.prepare(
+        "INSERT INTO search_rows_fts (id, title, body, concept) VALUES (?, ?, ?, ?)",
+      ).bind(row.id, row.title, row.body, "check-in").run();
+    }
+
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("How do I limit check-in kiosk ads to selected campuses?")}&limit=2&debug=true`,
+    );
+    const payload = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(payload.results[0].id, rows[0].id);
+
+    const securityResponse = await mf.dispatchFetch(
+      `https://kb.example.test/search?q=${encodeURIComponent("How can a crawler links page stay hidden from visitors but still be indexed?")}&limit=2&debug=true`,
+    );
+    const security = await securityResponse.json();
+
+    assert.equal(securityResponse.status, 200);
+    assert.equal(security.results[0].id, rows[3].id);
   } finally {
     await mf.dispose();
   }

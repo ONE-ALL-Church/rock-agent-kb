@@ -2,12 +2,12 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-08-11T19:18:55+00:00
+last_built: 2026-08-12T03:17:17+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:40:45+00:00
+source_last_checked_at: 2026-08-12T02:22:01+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/47
 legacy_summary_retirement_coverage: 4/47
@@ -81,8 +81,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
-| Creating Blocks | rock_developer | Obsidian blocks are made up of multiple parts that all work together to display data to and interact with the individual. ## Anatomy of an Obsidian Block The parts that make up an Obsidian block are the C# Block, the TypeScript Component and then the Block Actions. At a high level, the C# Block provides the server-level logic and database access required to render the block on the web page. The TypeScript Component... | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
 | Columns | rock_developer | [Standard Columns](/documentation/obsidian/grid-reference/columns/standard-columns) [AttributeColumns](/documentation/obsidian/grid-reference/columns/attributecolumns) [BooleanColumn](/documentation/obsidian/grid-reference/columns/booleancolumn) [ButtonColumn](/documentation/obsidian/grid-reference/columns/buttoncolumn) [Column](/documentation/obsidian/grid-reference/columns/column)... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/columns) |
+| Creating Blocks | rock_developer | Obsidian blocks are made up of multiple parts that all work together to display data to and interact with the individual. ## Anatomy of an Obsidian Block The parts that make up an Obsidian block are the C# Block, the TypeScript Component and then the Block Actions. At a high level, the C# Block provides the server-level logic and database access required to render the block on the web page. The TypeScript Component... | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-blocks) |
 | Creating Detail Blocks | rock_developer | A detail block is a term used to identify a very specific type of block. These blocks show an entity on screen with an Edit button that allows for editing one or more values of the entity. Detail blocks also have labels, badges, and custom actions defined by the block developer. ## Detail Block Anatomy Detail blocks have a very specific look and feature set. These are meant to be standardized so that we can adjust... | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks) |
 | Creating List Blocks | rock_developer | These are also mostly standard, cookie cutter blocks and typically just display a list of records for a particular entity. Use the Code Generator tool to create a vanilla List block and then modify it as needed: Important The Code Generator tool is currently only available to core blocks, not plugins. If you want to look at an example of an Obsidian List block you can review the... | [source](https://community.rockrms.com/developer/obsidian/blocks/creating-list-blocks) |
 | Grid Reference | rock_developer | [Grid](/documentation/obsidian/grid-reference/grid) [Columns](/documentation/obsidian/grid-reference/columns) [Filters](/documentation/obsidian/grid-reference/filters) | [source](https://community.rockrms.com/developer/obsidian/grid-reference) |
@@ -200,7 +200,7 @@ Keywords: `development environment, debugging, vscode, typescript`
 ## Source Lifecycle
 
 - Official article records routed here: `47`
-- Upstream check range: `2026-08-04T16:17:32+00:00` through `2026-08-11T16:40:45+00:00`
+- Upstream check range: `2026-08-12T02:21:59+00:00` through `2026-08-12T02:22:01+00:00`
 - Source-native typed articles: `4` of `47`
 - Legacy source summaries retired: `4`; still active: `43`
 - Migration status: `partial`

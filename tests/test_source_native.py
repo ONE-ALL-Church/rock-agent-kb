@@ -21,6 +21,7 @@ from rock_kb.source_native import (
     build_source_native_document_candidates,
     load_source_unit_split_rules,
     merge_source_native_distillation_outputs,
+    merge_source_native_bundle_rows,
     parse_markdown_source_units,
     promote_source_native_distillation,
     rebind_source_native_presentation_rows,
@@ -348,6 +349,8 @@ def valid_output() -> dict:
                         "independent_question": "How do I configure the feature?",
                         "rationale": "The ordered list supplies the complete setup sequence.",
                         "concept_ids": ["system-admin-ops"],
+                        "claim_type": None,
+                        "evidence_class": None,
                         "temporal_status": "release_sensitive",
                         "payload": {
                             "summary": "Configure the feature through its documented settings.",
@@ -366,6 +369,8 @@ def valid_output() -> dict:
                         "independent_question": "What does the Enabled setting control?",
                         "rationale": "The settings table defines the option semantics.",
                         "concept_ids": ["system-admin-ops"],
+                        "claim_type": None,
+                        "evidence_class": None,
                         "temporal_status": "release_sensitive",
                         "payload": {
                             "summary": "Reference for the feature's documented setting.",
@@ -904,6 +909,20 @@ def test_candidate_build_can_target_one_prose_source_family(tmp_path: Path):
     assert snapshot["parser_id"] == "rockumentation-markdown-blocks"
 
 
+def test_exact_candidate_build_requires_explicit_concept_routing(tmp_path: Path):
+    record = document_record()
+
+    with pytest.raises(
+        ValueError,
+        match="exact source_record_ids require at least one explicit concept",
+    ):
+        build_source_native_document_candidates(
+            source_record_ids=[record["id"]],
+            destination=tmp_path / "candidate",
+            records=[record],
+        )
+
+
 def test_static_prose_candidate_coalesces_concept_facets(tmp_path: Path):
     record = {
         **document_record(),
@@ -1127,6 +1146,17 @@ def test_v23_schema_rejects_procedure_shadowed_as_claim():
 
     with pytest.raises(ValidationError, match="procedural text"):
         SourceNativeDistillationOutput.model_validate(output)
+
+
+def test_source_native_validation_requires_explicit_nullable_contract_fields():
+    output = valid_output()
+    del output["articles"][0]["artifacts"][1]["claim_type"]
+
+    with pytest.raises(ValueError, match="claim_type"):
+        validate_source_native_distillation(
+            output,
+            inputs=[distillation_input()],
+        )
 
 
 def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
@@ -1400,6 +1430,26 @@ def test_promotion_preserves_verified_correction_for_unchanged_artifact(
             }
         ],
     )
+    resolved_artifacts = list(read_jsonl(base / "reviewed-artifacts.jsonl"))
+    resolved_artifacts[0]["artifact"]["needs_live_verification"] = False
+    write_jsonl(base / "reviewed-artifacts.jsonl", resolved_artifacts)
+
+    merged = merge_source_native_bundle_rows(
+        base_dir=base,
+        incoming={
+            "source-snapshots.jsonl": [],
+            "source-units.jsonl": [],
+            "generation-activities.jsonl": [],
+            "reviewed-artifacts.jsonl": [],
+            "relationships.jsonl": [],
+            "evaluation-set.jsonl": [],
+            "verification-queue.jsonl": [],
+        },
+        verification_resolution_rows=read_jsonl(
+            base / "verification-resolutions.jsonl"
+        ),
+    )
+    assert len(merged["verification-queue.jsonl"]) == 1
 
     reviewed_path.write_text(json.dumps(valid_output()), encoding="utf-8")
     promote_source_native_distillation(

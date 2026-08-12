@@ -274,9 +274,10 @@ hierarchies remain structured routing metadata. Repeated concept matches are
 coalesced into one candidate with concept facets. `source-native-schema` and
 `source-native-prompt` create a strict v2.3 structured-output contract and a
 bounded model packet. Use repeated `--source-record-id` values for explicit
-stable article selection; `--candidate-id` targets an exact content-derived
-input revision. Candidates over 200 units stop for reviewed deterministic
-partitioning instead of being truncated.
+stable article selection and include at least one reviewed `--concept` routing
+facet; exact selection fails closed without it. `--candidate-id` targets an
+exact content-derived input revision. Candidates over 200 units stop for
+reviewed deterministic partitioning instead of being truncated.
 `source-native-merge` requires exact batch coverage and reruns the semantic
 gate. `--allow-review-blockers` may assemble exact `split_required` feedback
 only into an ignored private review packet; it does not relax promotion.

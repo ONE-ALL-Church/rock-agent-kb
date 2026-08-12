@@ -1019,7 +1019,7 @@ def source_unit_and_locator_kind(block_kind: str) -> tuple[str, str]:
 
 def build_source_native_document_candidates(
     *,
-    concept_ids: Iterable[str] = SOURCE_NATIVE_PILOT_CONCEPTS,
+    concept_ids: Iterable[str] | None = None,
     limit_per_concept: int = SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
     source_ids: Iterable[str] = SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
     source_record_ids: Iterable[str] | None = None,
@@ -1030,6 +1030,11 @@ def build_source_native_document_candidates(
     payload_loader: Callable[[dict[str, Any]], dict[str, Any] | None] | None = None,
     markdown_loader: Callable[[dict[str, Any]], str] | None = None,
 ) -> dict[str, Any]:
+    requested_concept_ids = [
+        str(concept_id).strip()
+        for concept_id in (concept_ids or [])
+        if str(concept_id).strip()
+    ]
     requested_source_ids = sorted(
         {
             str(source_id).strip()
@@ -1056,6 +1061,11 @@ def build_source_native_document_candidates(
             if str(source_record_id).strip()
         }
     )
+    if requested_record_ids and not requested_concept_ids:
+        raise ValueError(
+            "exact source_record_ids require at least one explicit concept routing facet"
+        )
+    resolved_concept_ids = requested_concept_ids or list(SOURCE_NATIVE_PILOT_CONCEPTS)
     if requested_record_ids:
         available_records = records if records is not None else concept_source_records()
         available_by_id = {
@@ -1083,7 +1093,7 @@ def build_source_native_document_candidates(
             headers={"User-Agent": USER_AGENT},
         ) as client:
             return _build_source_native_document_candidates(
-                concept_ids=list(concept_ids),
+                concept_ids=resolved_concept_ids,
                 limit_per_concept=limit_per_concept,
                 source_ids=requested_source_ids,
                 source_record_ids=requested_record_ids,
@@ -1101,7 +1111,7 @@ def build_source_native_document_candidates(
         lambda record: rockumentation_markdown(payload_loader(record))
     )
     return _build_source_native_document_candidates(
-        concept_ids=list(concept_ids),
+        concept_ids=resolved_concept_ids,
         limit_per_concept=limit_per_concept,
         source_ids=requested_source_ids,
         source_record_ids=requested_record_ids,
@@ -1611,6 +1621,8 @@ def validate_source_native_distillation(
     inputs: Iterable[dict[str, Any]],
     require_promotable: bool = False,
 ) -> SourceNativeDistillationOutput:
+    if isinstance(output, dict):
+        _require_explicit_source_native_nullable_fields(output)
     result = (
         output
         if isinstance(output, SourceNativeDistillationOutput)
@@ -1779,6 +1791,30 @@ def validate_source_native_distillation(
     return result
 
 
+def _require_explicit_source_native_nullable_fields(output: dict[str, Any]) -> None:
+    """Enforce nullable keys required by the strict model-output contract."""
+
+    articles = output.get("articles")
+    if not isinstance(articles, list):
+        return
+    for article_index, article in enumerate(articles):
+        if not isinstance(article, dict):
+            continue
+        artifacts = article.get("artifacts")
+        if not isinstance(artifacts, list):
+            continue
+        for artifact_index, artifact in enumerate(artifacts):
+            if not isinstance(artifact, dict):
+                continue
+            for field_name in ("claim_type", "evidence_class"):
+                if field_name not in artifact:
+                    raise ValueError(
+                        "strict source-native output requires explicit nullable "
+                        f"field articles.{article_index}.artifacts.{artifact_index}."
+                        f"{field_name}"
+                    )
+
+
 def merge_source_native_distillation_outputs(
     *,
     input_path: Path,
@@ -1790,15 +1826,18 @@ def merge_source_native_distillation_outputs(
     paths = list(batch_paths)
     articles_by_id: dict[str, dict[str, Any]] = {}
     for batch_path in paths:
-        batch = SourceNativeDistillationOutput.model_validate(
-            json.loads(batch_path.read_text(encoding="utf-8"))
-        )
+        raw_batch = json.loads(batch_path.read_text(encoding="utf-8"))
+        _require_explicit_source_native_nullable_fields(raw_batch)
+        batch = SourceNativeDistillationOutput.model_validate(raw_batch)
         for article in batch.articles:
             if article.candidate_id in articles_by_id:
                 raise ValueError(
                     f"duplicate generated candidate_id: {article.candidate_id}"
                 )
-            articles_by_id[article.candidate_id] = article.public_dump()
+            articles_by_id[article.candidate_id] = article.model_dump(
+                by_alias=True,
+                exclude_none=False,
+            )
     expected_ids = [str(row.get("candidate_id") or "") for row in inputs]
     missing = sorted(set(expected_ids) - set(articles_by_id))
     unknown = sorted(set(articles_by_id) - set(expected_ids))
@@ -1826,7 +1865,7 @@ def merge_source_native_distillation_outputs(
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
         json.dumps(
-            validated.public_dump(),
+            validated.model_dump(by_alias=True, exclude_none=False),
             ensure_ascii=False,
             indent=2,
             sort_keys=True,
@@ -1951,11 +1990,8 @@ def promote_source_native_distillation(
     generation_prompt_path: Path | None = None,
 ) -> dict[str, Any]:
     inputs = list(read_jsonl(input_path))
-    output = SourceNativeDistillationOutput.model_validate(
-        json.loads(output_path.read_text(encoding="utf-8"))
-    )
     validated = validate_source_native_distillation(
-        output,
+        json.loads(output_path.read_text(encoding="utf-8")),
         inputs=inputs,
         require_promotable=True,
     )
@@ -1965,8 +2001,12 @@ def promote_source_native_distillation(
         )
     generated_articles_by_id = dict(generated_article_payloads or {})
     if generated_output_path is not None:
+        raw_generated_output = json.loads(
+            generated_output_path.read_text(encoding="utf-8")
+        )
+        _require_explicit_source_native_nullable_fields(raw_generated_output)
         generated_output = SourceNativeDistillationOutput.model_validate(
-            json.loads(generated_output_path.read_text(encoding="utf-8"))
+            raw_generated_output
         )
         generated_articles_by_id = {
             article.candidate_id: article.public_dump()
@@ -2211,12 +2251,13 @@ def promote_source_native_distillation(
         ],
     }
     if base_dir is not None:
+        prior_resolution_rows = list(
+            read_jsonl(base_dir / VERIFICATION_RESOLUTIONS_NAME)
+        )
         bundle_rows = merge_source_native_bundle_rows(
             base_dir=base_dir,
             incoming=bundle_rows,
-        )
-        prior_resolution_rows = list(
-            read_jsonl(base_dir / VERIFICATION_RESOLUTIONS_NAME)
+            verification_resolution_rows=prior_resolution_rows,
         )
         (
             bundle_rows["reviewed-artifacts.jsonl"],
@@ -2319,6 +2360,7 @@ def merge_source_native_bundle_rows(
     *,
     base_dir: Path,
     incoming: dict[str, list[dict[str, Any]]],
+    verification_resolution_rows: Iterable[dict[str, Any]] = (),
 ) -> dict[str, list[dict[str, Any]]]:
     """Append a reviewed batch while replacing prior rows for refreshed works."""
 
@@ -2440,7 +2482,25 @@ def merge_source_native_bundle_rows(
                 raise ValueError(f"{name} duplicates {key} {row_id}")
             rows_by_id[row_id] = row
         combined[name] = list(rows_by_id.values())
-    validate_source_native_bundle_consistency(combined)
+    queue_by_id = {
+        str(row.get("verification_id") or ""): row
+        for row in combined["verification-queue.jsonl"]
+    }
+    active_bound_resolutions = []
+    for raw_resolution in verification_resolution_rows:
+        verification_id = str(raw_resolution.get("verification_id") or "")
+        queue_row = queue_by_id.get(verification_id)
+        if queue_row is None:
+            continue
+        if raw_resolution.get("queue_item_hash") != (
+            source_native_verification_queue_hash(queue_row)
+        ):
+            continue
+        active_bound_resolutions.append(raw_resolution)
+    validate_source_native_bundle_consistency(
+        combined,
+        verification_resolution_rows=active_bound_resolutions,
+    )
     return combined
 
 

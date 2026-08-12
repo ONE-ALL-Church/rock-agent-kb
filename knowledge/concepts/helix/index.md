@@ -2,15 +2,15 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-08-11T19:19:00+00:00
+last_built: 2026-08-12T03:17:21+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:51:59+00:00
+source_last_checked_at: 2026-08-12T02:32:42+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 2/214
-legacy_summary_retirement_coverage: 17/214
+source_native_article_coverage: 4/214
+legacy_summary_retirement_coverage: 19/214
 depends_on_topics:
   - lava
   - api-integrations
@@ -92,11 +92,11 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Forms & Controls | rock_developer | [Understanding Forms](/documentation/helix/forms-controls/understanding-forms) [Using Form Controls](/documentation/helix/forms-controls/using-form-controls) [Creating New Controls](/documentation/helix/forms-controls/creating-new-controls) [Form Validation](/documentation/helix/forms-controls/form-validation) [Loading Indicator](/documentation/helix/forms-controls/loading-indicator) | [source](https://community.rockrms.com/developer/helix/forms-controls) |
 | Lava Applications | rock_developer | HTMX empowers you to build responsive and dynamic applications by creating server-side endpoints that return HTML snippets. Managing multiple endpoints is common, even in basic applications. To simplify this, we introduced Lava Applications, which consist of two key components: the Application and its Endpoints. Below is a diagram of a very basic Lava Application: The example showcases an application with five... | [source](https://community.rockrms.com/developer/helix/lava-applications) |
 | Content Block | rock_developer | With your application and endpoints ready you're pretty much set on the backend. While you can technically call the backend from any webpage by importing the HTMX library yourself, we highly recommend using the provided Lava Application Content block on the front-end. This block automatically registers HTMX for you and provides convenience features and styling. Below are the block settings for the Lava Application... | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
-| HTMX | rock_developer | [Learning More](/documentation/helix/htmx/learning-more) [Syntax Style Guides](/documentation/helix/htmx/syntax-style-guides) | [source](https://community.rockrms.com/developer/helix/htmx) |
 | 🧬 Helix | rock_developer | Redefine the boundaries of what you believed possible with Lava. ** Dynamic Content without the Need for JavaScript** Infuse your web pages with live content updates using Lava, bypassing the complexity of JavaScript. [HTMX](/documentation/helix/htmx) ** Elevate Lava Beyond Reading to Updating Data** Transform Lava into a powerful tool that not only reads but also updates data seamlessly within your applications.... | [source](https://community.rockrms.com/developer/helix) |
 | Customizing Rock | rock_developer | There are several levels of customization available for your Rock instance, described below in basic categories. While it might seem desirable to aim for the highest level, it's often better to aim lower. Each new level, while offering more power and capabilities, also introduces greater complexity and increased support costs. We advise staying as low on the pyramid as possible. Lava Applications provide enhanced... | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
-| Loading Indicator | rock_developer | HTMX has a sophisticated and well considered loading indicator pattern. See their documentation for all of the details. Below are a couple of prebuilt patterns to help you get started. Note The image paths below are for when using Helix with Rock v18 or later. If you are using the plugin version of Helix, the paths will be `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/...` ## Adding Indicator To Buttons One great... | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
+| HTMX | rock_developer | [Learning More](/documentation/helix/htmx/learning-more) [Syntax Style Guides](/documentation/helix/htmx/syntax-style-guides) | [source](https://community.rockrms.com/developer/helix/htmx) |
 | Applications | rock_developer | Configuring a Lava Application is quite straightforward. Below is a screenshot of the editing panel. Below are the properties that are required: * **Name** - A friendly name for you to keep your applications organized. * **Description** - To serve as a place for some documentation about your application. * **Slug** - Helps to tell HTMX what application to use (in the example above the application slug is... | [source](https://community.rockrms.com/developer/helix/lava-applications/applications) |
+| FAQ | rock_developer | Here you'll find a comprehensive list of frequently asked questions about the Helix project, accompanied by detailed answers. **Why is Helix not a part of core?** ~~Helix is a R&D project by Triumph Tech. Only Spark Development Network can decide to put code into core.~~ It is now in core! **Is Helix available in Rock Mobile?** We like the way you think! Helix would be very powerful if it was a part of Rock Mobile.... | [source](https://community.rockrms.com/developer/helix/overview/faq) |
 
 ## Data Model Landmarks
 
@@ -158,8 +158,8 @@ Keywords: `helix, overview, roadmap, customizing rock, plugin installation, faq`
 | --- | --- | --- | --- |
 | Overview | rock_developer | Helix is the codename for an upcoming project that represents the next evolution of Lava for web development, integrating four distinct technologies. * [HTMX](/documentation/helix/overview#htmx) * [Lava Applications](/documentation/helix/overview#lava-applications) * [Lava Commands](/documentation/helix/overview#lava-commands) * [Control Shortcodes](/documentation/helix/overview#control-shortcodes) Important Before... | [source](https://community.rockrms.com/developer/helix/overview) |
 | Customizing Rock | rock_developer | There are several levels of customization available for your Rock instance, described below in basic categories. While it might seem desirable to aim for the highest level, it's often better to aim lower. Each new level, while offering more power and capabilities, also introduces greater complexity and increased support costs. We advise staying as low on the pyramid as possible. Lava Applications provide enhanced... | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
-| Plugin Installation | rock_developer | **Helix Is Currently in Limited Beta** With great power comes a great amount of testing. Helix is currently being tested by a few select organizations. Keep checking back for the latest details. Helix operates seamlessly with the aid of two complimentary plugins, both freely available. Simply navigate to the Rock Shop to install the following: 1. Helix Plugin - This is the main plugin that contains all of the logic... | [source](https://community.rockrms.com/developer/helix/overview/plugin-installation) |
 | FAQ | rock_developer | Here you'll find a comprehensive list of frequently asked questions about the Helix project, accompanied by detailed answers. **Why is Helix not a part of core?** ~~Helix is a R&D project by Triumph Tech. Only Spark Development Network can decide to put code into core.~~ It is now in core! **Is Helix available in Rock Mobile?** We like the way you think! Helix would be very powerful if it was a part of Rock Mobile.... | [source](https://community.rockrms.com/developer/helix/overview/faq) |
+| Plugin Installation | rock_developer | **Helix Is Currently in Limited Beta** With great power comes a great amount of testing. Helix is currently being tested by a few select organizations. Keep checking back for the latest details. Helix operates seamlessly with the aid of two complimentary plugins, both freely available. Simply navigate to the Rock Shop to install the following: 1. Helix Plugin - This is the main plugin that contains all of the logic... | [source](https://community.rockrms.com/developer/helix/overview/plugin-installation) |
 | Security | rock_developer | We can't stress enough the importance of considering security when using Helix tools. ## Points to Consider Here are some key points to keep in mind when building Helix applications. Warning Application security covers a wide range of topics. While it's impossible to document every safeguard, this list provides an overview of the major considerations you should keep in mind. 1. Remember that your endpoints might be... | [source](https://community.rockrms.com/developer/helix/overview/security) |
 | Roadmap | rock_developer | We're just getting started with Helix. There a lot of plans and thoughts in the future. Below is just the beginning of what we're considering. Note These are just ideas. Some may not see the light of day. 1. More recipes and how-tos. 2. Additional form controls. 3. Simplify advanced concepts like annimation and drag-drop. 4. Provide a toast framework. 5. Potential use-cases for Rock's Real-time Engine. 6. Support... | [source](https://community.rockrms.com/developer/helix/overview/roadmap) |
 
@@ -240,9 +240,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `214`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-11T16:51:59+00:00`
-- Source-native typed articles: `2` of `214`
-- Legacy source summaries retired: `17`; still active: `197`
+- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-12T02:32:42+00:00`
+- Source-native typed articles: `4` of `214`
+- Legacy source summaries retired: `19`; still active: `195`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

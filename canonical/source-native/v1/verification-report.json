@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 34,
-    "corrects": 22,
-    "narrows": 15
+    "confirms": 38,
+    "corrects": 24,
+    "narrows": 16
   },
   "by_state": {
-    "verified": 71
+    "verified": 78
   },
   "by_surface": {
     "maintainer_review": 27,
     "official_api": 1,
-    "public_source_code": 43
+    "public_source_code": 50
   },
-  "checked_at": "2026-08-11T20:12:00Z",
+  "checked_at": "2026-08-12T03:15:00Z",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -55,6 +55,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:09accd3827cf8d5846c2c4e8",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-318:roku-play-video-command"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:0a762ae8bb6f7633f8e1d08e",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -134,6 +144,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:23ecd9373f7f88330f0eeb5a",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-173:apple-tv-media-command-reference"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:24e65000204e451af65ccd8a",
       "verification_surface": "public_source_code"
     },
     {
@@ -341,6 +361,26 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-318:roku-play-video-command"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:62891334024a285f2ada916e",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-173:apple-tv-media-command-reference"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:64f0bbab30d8160707449da4",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-983:workflow-webhook-defined-value-location"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -378,6 +418,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-173:apple-tv-media-command-reference"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:849817e73928da79a32ff24d",
       "verification_surface": "public_source_code"
     },
     {
@@ -704,6 +754,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-318:roku-play-audio-command"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:eeaa7f2c943f533e71568d47",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_documentation:article-2131:cache-manager-cache-tag-deletion-limit"
       ],
       "reviewed_at": "2026-08-04T03:15:00Z",
@@ -720,6 +780,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:f3b12378f225ece4a808eae7",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-318:roku-play-video-command"
+      ],
+      "reviewed_at": "2026-08-12T03:15:00Z",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f3ee67d3d8e282ea3796b8fd",
       "verification_surface": "public_source_code"
     },
     {
@@ -744,10 +814,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 71,
-  "resolution_count": 71,
+  "queue_count": 78,
+  "resolution_count": 78,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 71
+  "verified_count": 78
 }
