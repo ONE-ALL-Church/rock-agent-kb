@@ -47,7 +47,7 @@
     "reviewed-artifacts.jsonl": "75dd2f833d8cd4b540641c59cf6fa5d21a36234e99a4e66383627b7149382b99",
     "source-snapshots.jsonl": "973624c47fd270afd3a36e436957b95801a5dd9163b75a5f4361a14dd4cf1b29",
     "source-units.jsonl": "f03ddd44d6719760dc7e99921dd38623f642675bbcbcab480de1ff2bdbaaf796",
-    "split-rules.jsonl": "a67ef9174f2d76377dd51e0e2840208b7be2b6cd9abb0666c3009ed3fc440a7a",
+    "split-rules.jsonl": "a15e10839ff24b5701740312c36542aaf9ba33807522a20608137609a327c927",
     "verification-queue.jsonl": "a69513b972d9a249562409cf0ab7bb07c53c64ac1f2d30d718a0ec1de4702cd3",
     "verification-report.json": "b708d36acccc9511c5546b08e67097135a29f60e85ecb34d09e259f268fc8c39",
     "verification-resolutions.jsonl": "d7bfb19fe4552be078b31ae7ed991f1f8f7c292a4dd76141d100a012af676694"
@@ -71,7 +71,7 @@
     "Unprocessed product-version scope is exposed separately from the observed documentation revision."
   ],
   "prompt_id": "source-knowledge-distillation-v2.3",
-  "prompt_version": "2.3.2",
+  "prompt_version": "2.3.3",
   "public_retrieval_changed": false,
   "relationship_count": 647,
   "review_changed_article_count": 58,
