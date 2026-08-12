@@ -681,23 +681,23 @@ def test_prepare_backfills_hydration_skip_and_preserves_queue(
     ] == [records[0]["id"]]
 
 
-def test_prepare_uses_full_bounded_reserve_after_more_than_twenty_rejections(
+def test_prepare_uses_full_bounded_reserve_after_seventy_five_rejections(
     monkeypatch,
     tmp_path: Path,
 ):
-    records = [source_record(index) for index in range(1, 28)]
+    records = [source_record(index) for index in range(1, 78)]
     install_prepare_stubs(monkeypatch, tmp_path, records)
     original_build = orchestrator.build_source_native_document_candidates
     call_count = 0
 
-    def build_with_twenty_five_high_risk_records(**options):
+    def build_with_seventy_five_high_risk_records(**options):
         nonlocal call_count
         call_count += 1
         result = original_build(**options)
         if call_count != 1:
             return result
         rows = list(read_jsonl(options["destination"] / "distillation-input.jsonl"))
-        for row in rows[:25]:
+        for row in rows[:75]:
             row["source_units"][0]["text"] += (
                 " Add or update persistent database records."
             )
@@ -707,7 +707,7 @@ def test_prepare_uses_full_bounded_reserve_after_more_than_twenty_rejections(
     monkeypatch.setattr(
         orchestrator,
         "build_source_native_document_candidates",
-        build_with_twenty_five_high_risk_records,
+        build_with_seventy_five_high_risk_records,
     )
     report_path = tmp_path / "data" / "review" / "priority.json"
     write_json(report_path, priority_report(records))
@@ -725,10 +725,10 @@ def test_prepare_uses_full_bounded_reserve_after_more_than_twenty_rejections(
     assert result["status"] == "ok"
     assert call_count == 2
     assert selection["selected_source_record_ids"] == [
-        records[25]["id"],
-        records[26]["id"],
+        records[75]["id"],
+        records[76]["id"],
     ]
-    assert len(selection["hydrated_preflight"]["rejected"]) == 25
+    assert len(selection["hydrated_preflight"]["rejected"]) == 75
 
 
 def test_missing_concept_routing_provenance_is_high_risk():
