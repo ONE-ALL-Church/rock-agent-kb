@@ -1151,6 +1151,37 @@ def test_prepared_file_verification_rejects_state_path_escape(tmp_path: Path):
         orchestrator._verify_prepared_files(batch_dir, state)
 
 
+def test_prepared_file_inventory_excludes_declared_runtime_workspaces(
+    tmp_path: Path,
+):
+    batch_dir = tmp_path / "batch"
+    batch_dir.mkdir()
+    prepared = batch_dir / "migration-input.jsonl"
+    prepared.write_text('{"candidate_id":"candidate:1"}\n', encoding="utf-8")
+    model_output = batch_dir / "model-output" / "first.json"
+    model_output.parent.mkdir()
+    model_output.write_text("{}\n", encoding="utf-8")
+    judge_output = batch_dir / "review-work" / "judge.json"
+    judge_output.parent.mkdir()
+    judge_output.write_text("{}\n", encoding="utf-8")
+
+    inventory = orchestrator._prepared_file_inventory(batch_dir)
+
+    assert set(inventory) == {"migration-input.jsonl"}
+
+
+def test_prepared_file_verification_rejects_undeclared_extra_file(tmp_path: Path):
+    batch_dir = tmp_path / "batch"
+    batch_dir.mkdir()
+    prepared = batch_dir / "migration-input.jsonl"
+    prepared.write_text('{"candidate_id":"candidate:1"}\n', encoding="utf-8")
+    state = {"prepared_files": orchestrator._prepared_file_inventory(batch_dir)}
+    (batch_dir / "unexpected.json").write_text("{}\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="file inventory changed"):
+        orchestrator._verify_prepared_files(batch_dir, state)
+
+
 def test_runtime_cleanup_removes_only_known_atomic_residue(tmp_path: Path):
     batch_dir = tmp_path / "batch"
     batch_dir.mkdir()

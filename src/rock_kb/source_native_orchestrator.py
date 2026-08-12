@@ -1149,7 +1149,9 @@ def _prepared_file_inventory(root: Path) -> dict[str, dict[str, Any]]:
     inventory: dict[str, dict[str, Any]] = {}
     for path in sorted(value for value in root.rglob("*") if value.is_file()):
         relative = path.relative_to(root).as_posix()
-        if relative in excluded or relative.startswith("model-output/"):
+        if relative in excluded or relative.startswith(
+            ("model-output/", "review-work/")
+        ):
             continue
         record_count = None
         if path.suffix == ".jsonl":
