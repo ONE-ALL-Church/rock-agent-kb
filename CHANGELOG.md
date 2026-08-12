@@ -6,6 +6,28 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+### Changed
+
+- The reviewed source-native bundle now covers 87 official prose records and
+  498 typed artifacts. Apple TV articles 120, 128, 139, 146, and 173; Roku
+  articles 186, 315, and 318; and Helix articles 348 and 358 now use the
+  source-native path with 29 explicit legacy replacements and one reviewed
+  partial retention.
+- The Rock developer-documentation source was refreshed from its public API;
+  generated source summaries, concept indexes, and dependency metadata now
+  reflect the current 361-record normalized projection.
+
+### Fixed
+
+- Exact source-record candidate generation now requires explicit concept
+  routing instead of silently inheriting the balanced-pilot defaults.
+- Source-native model-output merging preserves required nullable contract
+  fields, and migration promotion preserves hash-matching verification
+  resolutions while appending a reviewed batch.
+- Exact independent questions now retain precedence over nearby paraphrases,
+  while high-overlap source-native recipes can outrank generic task cards for
+  matching how-to questions without receiving an unconditional recipe boost.
+
 ## [0.23.1] - 2026-08-11
 
 ### Changed

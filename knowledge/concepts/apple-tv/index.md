@@ -2,15 +2,15 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-08-11T19:19:03+00:00
+last_built: 2026-08-12T03:17:23+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:51:59+00:00
+source_last_checked_at: 2026-08-12T02:32:28+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/248
-legacy_summary_retirement_coverage: 16/248
+source_native_article_coverage: 6/248
+legacy_summary_retirement_coverage: 21/248
 depends_on_topics:
   - api-integrations
   - lava
@@ -218,9 +218,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `248`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-11T16:51:59+00:00`
-- Source-native typed articles: `1` of `248`
-- Legacy source summaries retired: `16`; still active: `232`
+- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-12T02:32:28+00:00`
+- Source-native typed articles: `6` of `248`
+- Legacy source summaries retired: `21`; still active: `227`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

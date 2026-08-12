@@ -7430,6 +7430,16 @@ function normalizeSearchTerm(value: string): string {
     deleted: "delete",
     deleting: "delete",
     deletion: "delete",
+    remove: "delete",
+    removed: "delete",
+    removing: "delete",
+    removal: "delete",
+    created: "create",
+    creating: "create",
+    inspected: "inspect",
+    inspecting: "inspect",
+    parsed: "parse",
+    parsing: "parse",
     workflows: "workflow",
     requests: "request",
     checkin: "check",
@@ -7558,7 +7568,7 @@ function sourceNativeIndependentQuestionBoost(
     return 0;
   }
   if (normalizeSearchText(query) === normalizeSearchText(independentQuestion)) {
-    return 260;
+    return 360;
   }
   const questionTerms = new Set(searchTerms(independentQuestion));
   const overlap = overlapCount(queryTerms, questionTerms);
@@ -7567,6 +7577,9 @@ function sourceNativeIndependentQuestionBoost(
   const questionCoverage = overlap / Math.max(questionTerms.size, 1);
   if (overlap >= 3 && queryCoverage >= 0.9 && questionCoverage >= 0.5) {
     return 160;
+  }
+  if (overlap >= 4 && queryCoverage >= 0.6 && questionCoverage >= 0.6) {
+    return 70;
   }
   return overlap >= 3 && coverage >= 0.75 ? 100 : 0;
 }
@@ -7591,6 +7604,19 @@ function kindIntentBoost(row: SearchRow, queryTerms: string[], intent: string): 
     return intent === "overview" ? 70 : 2;
   }
   if (row.kind === "recipe") {
+    if (intent === "how_to") {
+      const payload = parsePayload(row);
+      const artifact = asRecord(payload.effective_artifact || payload.artifact);
+      const strongTerms = new Set(searchTerms([
+        row.title,
+        artifact.title,
+        artifact.independent_question,
+        artifact.retrieval_text,
+      ].map((value) => String(value || "")).join(" ")));
+      const overlap = overlapCount(queryTerms, strongTerms);
+      const coverage = overlap / Math.max(queryTerms.length, 1);
+      return overlap >= 3 && coverage >= 0.55 ? 90 : 24;
+    }
     return queryTerms.some((term) => RECIPE_QUERY_INTENT_TERMS.has(term)) ? 30 : 4;
   }
   if (row.kind === "lava_context") {

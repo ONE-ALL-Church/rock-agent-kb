@@ -2,15 +2,15 @@
 id: concept-roku
 title: Roku Apps
 generated: true
-last_built: 2026-08-11T19:19:03+00:00
+last_built: 2026-08-12T03:17:24+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:51:59+00:00
+source_last_checked_at: 2026-08-12T02:32:34+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/203
-legacy_summary_retirement_coverage: 17/203
+source_native_article_coverage: 4/203
+legacy_summary_retirement_coverage: 20/203
 depends_on_topics:
   - api-integrations
   - lava
@@ -95,8 +95,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Pages | rock_developer | *Display custom, Lava-driven content as a subset of your application.* ## Page Settings When creating or editing a Roku page, you have access to the following configuration options. Page configuration options ### Show in Menu Whether or not this page should be used in navigation menus. Note, this is not actually utilized anywhere in the Roku shell, but instead empowers you to create navigation menus in Lava. ###... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/pages) |
 | Applications | rock_developer | *Learn how to create a Roku application in Rock to manage your TV content.* ## Application Settings When creating or editing a Roku application, you have access to the following configuration options. ### Enable Page Views Whether (or not) page interactions should be written to track the usage of your application. ### Page View Retention Duration The duration (in days) to retain the page interactions that are... | [source](https://community.rockrms.com/developer/roku-docs/getting-started/applications) |
 | Layout Nodes | rock_developer | Although Roku has many different layouts, very few have default item templates. Be cautious when picking your SceneGraph elements as we try to avoid custom BrightScript components. | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes) |
-| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 | Button | rock_developer | *Extends* [*Button*](https://developer.roku.com/docs/references/scenegraph/widget-nodes/button.md) ## Description In order to properly handle commands, we extended the Roku Button with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:Button rockCommand="pushPage" rockPageGuid="4443b83e-86c9-4e35-9637-13b8991856ed" /> ``` | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/button) |
+| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 
 ## Data Model Landmarks
 
@@ -173,8 +173,8 @@ Keywords: `controls, button, content node, focus group, page, focus`
 | --- | --- | --- | --- |
 | Focus Group | rock_developer | Manage vertical or horizontal focus in your Roku application. *Extends* [*LayoutGroup*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/layoutgroup.md) ## Description Unfortunately, as of 2024, focus management is not built into Roku applications (like we are used to with Apple TV). This control handles three simple things automatically for you: 1. Display views vertically/horizontally. 2.... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group) |
 | Controls | rock_developer | Roku applications are built with an XML language named [SceneGraph](https://developer.roku.com/docs/developer-program/core-concepts/scenegraph-xml/overview.md). Most of your application will be comprised with the built-in SceneGraph components. This section covers the custom components provided with Roku. | [source](https://community.rockrms.com/developer/roku-docs/resources/controls) |
-| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 | Button | rock_developer | *Extends* [*Button*](https://developer.roku.com/docs/references/scenegraph/widget-nodes/button.md) ## Description In order to properly handle commands, we extended the Roku Button with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:Button rockCommand="pushPage" rockPageGuid="4443b83e-86c9-4e35-9637-13b8991856ed" /> ``` | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/button) |
+| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 | Page | rock_developer | The standard control that is used for your page content. *Extends* [*Group*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/group.md) ## Description This is a group of views that represents an entire page of content. ## Field \| Field \| Type \| Description \| \| --- \| --- \| --- \| \| initialFocus \| string \| The ID of the item you want to be focused when the page comes into view. \| ## Examples ```... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/page) |
 
 ### Roku Layouts And Resources
@@ -189,8 +189,8 @@ Keywords: `layout nodes, rowlist, roku resources, tips and tricks, useful links`
 | 📚 Resources | rock_developer | [Controls](/documentation/roku-docs/resources/controls) [Layout Nodes](/documentation/roku-docs/resources/layout-nodes) [Roku Resources](/documentation/roku-docs/resources/roku-resources) [Tips and Tricks](/documentation/roku-docs/resources/tips-and-tricks) [Useful Links](/documentation/roku-docs/resources/useful-links) | [source](https://community.rockrms.com/developer/roku-docs/resources) |
 | RowList | rock_developer | The RowList Node component within SceneGraph is used to create a horizontal list of items. This component is ideal for displaying a series of elements that can be scrolled horizontally. This layout accepts an unlimited amount of vertical and horizontal scrollability. \| Parameter \| Type \| Description \| \| --- \| --- \| --- \| \| itemSize \| vector2d \| The size of the RowList element. \| \| numRows \| int \| Specifies the... | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist) |
 | Layout Nodes | rock_developer | Although Roku has many different layouts, very few have default item templates. Be cautious when picking your SceneGraph elements as we try to avoid custom BrightScript components. | [source](https://community.rockrms.com/developer/roku-docs/resources/layout-nodes) |
-| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 | Button | rock_developer | *Extends* [*Button*](https://developer.roku.com/docs/references/scenegraph/widget-nodes/button.md) ## Description In order to properly handle commands, we extended the Roku Button with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:Button rockCommand="pushPage" rockPageGuid="4443b83e-86c9-4e35-9637-13b8991856ed" /> ``` | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/button) |
+| Content Node | rock_developer | *Extends* [*Content Node*](https://developer.roku.com/docs/references/scenegraph/control-nodes/contentnode.md) ## Description In order to properly handle commands, we extended the Roku Content Node with an additional `rockCommand` field. It also has fields for all of the different command parameters (such as `rockVideoUrl`). ## Examples ``` <Rock:ContentNode rockCommand="pushPage"... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/content-node) |
 | Useful Links | rock_developer | A page containing some useful information and links. ## Feature Requests Have an idea to improve the Roku application development in Rock? Submit your feature requests on our [Ideas](https://community.rockrms.com/ideas) Page. We value your feedback and are always looking for ways to make the experience better! ## GitHub Issues If you run into any bugs or want to track the status of current issues, visit our GitHub... | [source](https://community.rockrms.com/developer/roku-docs/resources/useful-links) |
 | Page | rock_developer | The standard control that is used for your page content. *Extends* [*Group*](https://developer.roku.com/docs/references/scenegraph/layout-group-nodes/group.md) ## Description This is a group of views that represents an entire page of content. ## Field \| Field \| Type \| Description \| \| --- \| --- \| --- \| \| initialFocus \| string \| The ID of the item you want to be focused when the page comes into view. \| ## Examples ```... | [source](https://community.rockrms.com/developer/roku-docs/resources/controls/page) |
 
@@ -207,9 +207,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `203`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-11T16:51:59+00:00`
-- Source-native typed articles: `1` of `203`
-- Legacy source summaries retired: `17`; still active: `186`
+- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-12T02:32:34+00:00`
+- Source-native typed articles: `4` of `203`
+- Legacy source summaries retired: `20`; still active: `183`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

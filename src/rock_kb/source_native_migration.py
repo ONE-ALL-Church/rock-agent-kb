@@ -401,6 +401,8 @@ def validate_source_native_legacy_migration_output(
     )
 
     input_rows = list(inputs)
+    if isinstance(raw_output, dict):
+        _require_explicit_migration_nullable_fields(raw_output)
     output = (
         raw_output
         if isinstance(raw_output, SourceNativeLegacyMigrationOutput)
@@ -524,6 +526,41 @@ def validate_source_native_legacy_migration_output(
     return output
 
 
+def _require_explicit_migration_nullable_fields(output: dict[str, Any]) -> None:
+    """Enforce nullable keys required by the strict migration-output contract."""
+
+    articles = output.get("articles")
+    if not isinstance(articles, list):
+        return
+    for article_index, article in enumerate(articles):
+        if not isinstance(article, dict):
+            continue
+        artifacts = article.get("artifacts")
+        if isinstance(artifacts, list):
+            for artifact_index, artifact in enumerate(artifacts):
+                if not isinstance(artifact, dict):
+                    continue
+                for field_name in ("claim_type", "evidence_class"):
+                    if field_name not in artifact:
+                        raise ValueError(
+                            "strict migration output requires explicit nullable "
+                            f"field articles.{article_index}.artifacts."
+                            f"{artifact_index}.{field_name}"
+                        )
+        decisions = article.get("legacy_decisions")
+        if isinstance(decisions, list):
+            for decision_index, decision in enumerate(decisions):
+                if (
+                    isinstance(decision, dict)
+                    and "replacement_artifact_key" not in decision
+                ):
+                    raise ValueError(
+                        "strict migration output requires explicit nullable field "
+                        f"articles.{article_index}.legacy_decisions."
+                        f"{decision_index}.replacement_artifact_key"
+                    )
+
+
 def merge_source_native_legacy_migration_outputs(
     *,
     input_path: Path,
@@ -535,15 +572,18 @@ def merge_source_native_legacy_migration_outputs(
     articles_by_id: dict[str, dict[str, Any]] = {}
     paths = list(batch_paths)
     for path in paths:
-        batch = SourceNativeLegacyMigrationOutput.model_validate(
-            json.loads(path.read_text(encoding="utf-8"))
-        )
+        raw_batch = json.loads(path.read_text(encoding="utf-8"))
+        _require_explicit_migration_nullable_fields(raw_batch)
+        batch = SourceNativeLegacyMigrationOutput.model_validate(raw_batch)
         for article in batch.articles:
             if article.candidate_id in articles_by_id:
                 raise ValueError(
                     f"duplicate generated candidate_id: {article.candidate_id}"
                 )
-            articles_by_id[article.candidate_id] = article.public_dump()
+            articles_by_id[article.candidate_id] = article.model_dump(
+                by_alias=True,
+                exclude_none=False,
+            )
     if set(articles_by_id) != set(expected_ids):
         raise ValueError("migration batches must cover the exact migration input")
     merged = {
@@ -558,7 +598,10 @@ def merge_source_native_legacy_migration_outputs(
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
         json.dumps(
-            validated.public_dump(), ensure_ascii=False, indent=2, sort_keys=True
+            validated.model_dump(by_alias=True, exclude_none=False),
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
         )
         + "\n",
         encoding="utf-8",
@@ -948,7 +991,10 @@ def promote_source_native_legacy_migration(
         standard_output_path = temporary_dir / "reviewed-source-native-output.json"
         standard_output_path.write_text(
             json.dumps(
-                migration_output_as_source_native(reviewed_output).public_dump(),
+                migration_output_as_source_native(reviewed_output).model_dump(
+                    by_alias=True,
+                    exclude_none=False,
+                ),
                 ensure_ascii=False,
                 indent=2,
                 sort_keys=True,

@@ -175,6 +175,31 @@ def migration_output() -> dict:
     }
 
 
+def test_migration_output_requires_explicit_nullable_artifact_contract_fields():
+    output = migration_output()
+    del output["articles"][0]["artifacts"][0]["claim_type"]
+
+    with pytest.raises(ValueError, match="claim_type"):
+        validate_source_native_legacy_migration_output(
+            output,
+            inputs=[migration_input()],
+        )
+
+
+def test_migration_output_requires_explicit_nullable_replacement_key():
+    output = migration_output()
+    decision = output["articles"][0]["legacy_decisions"][0]
+    decision["disposition"] = "retain"
+    decision["coverage"] = "partial"
+    del decision["replacement_artifact_key"]
+
+    with pytest.raises(ValueError, match="replacement_artifact_key"):
+        validate_source_native_legacy_migration_output(
+            output,
+            inputs=[migration_input()],
+        )
+
+
 def test_migration_input_rebuild_projects_legacy_rows_before_retirement(
     monkeypatch,
     tmp_path,
@@ -509,6 +534,8 @@ def test_source_summary_can_use_companions_but_claims_cannot():
             "independent_question": "What does the feature article cover?",
             "rationale": "The source unit establishes the article's documented scope.",
             "concept_ids": ["workflows"],
+            "claim_type": None,
+            "evidence_class": None,
             "confidence": "high",
             "payload": {"summary": "The article documents the feature behavior."},
         },
@@ -521,6 +548,8 @@ def test_source_summary_can_use_companions_but_claims_cannot():
             "independent_question": "Where is the feature behavior summarized?",
             "rationale": "The source unit directly supports this compact reference.",
             "concept_ids": ["workflows"],
+            "claim_type": None,
+            "evidence_class": None,
             "confidence": "high",
             "temporal_status": "release_sensitive",
             "payload": {

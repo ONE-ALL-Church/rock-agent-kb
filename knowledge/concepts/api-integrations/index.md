@@ -2,15 +2,15 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-08-11T19:18:59+00:00
+last_built: 2026-08-12T03:17:20+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-08T14:33:56+00:00
+source_last_checked_at: 2026-08-12T02:32:42+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/34
-legacy_summary_retirement_coverage: 3/34
+legacy_summary_retirement_coverage: 6/34
 depends_on_topics:
   - security
   - workflows
@@ -241,9 +241,9 @@ Keywords: `webhook, integration`
 | Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 2 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540/lava-webhook-to-create-an-ical-ics-file) |
 | Lava Webhook to Create an iCal (.ics) File | rock_recipes | 1 Lava Webhook to Create an iCal (.ics) File Shared by Brandon Meeks , The Creek 2 months ago 16.13 Event, General, Web Intermediate What does it do? This webhook creates a file that can be downloaded to add an item to someone's calendar on their device. The contents of the .ics file are written per RFC 5545 specifications. How do I set it up? Navigate to General Settings -> Defined Types -> Lava Webhook Create new... | [source](https://community.rockrms.com/recipes/540) |
 | Step 1: Create OpenAI Account | rock_recipes | 6 ChatGPT Shortcode Shared by Brian Davis , ONE&ALL Church 3 years ago 10.0 General Intermediate In this recipe we'll walk through the steps to build a basic integration in Rock RMS to communicate with ChatGPT to ask questions via the ChatGPT API. I'll also provide some examples of how this integration might be used. The recipe might look alarmingly long, but I'll have you chatting with an AI in a couple minutes and... | [source](https://community.rockrms.com/recipes/362) |
+| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 | Extending Communication Transports | rock_developer | ## SMS Transports In Rock v12.1, we’ve added the `ISmsPipelineWebhook` interface that will let you identify the location of any corresponding webhook. The `SmsPipelineWebhookPath` property will be used by the SMS Pipeline block to display the full URL to the webhook which is useful when administrators are setting up the interface with the remote service. | [source](https://community.rockrms.com/developer/303---blast-off/extending-communication-transports) |
 | Docker Desktop | rock_developer | We use Docker Desktop to provide a clean database for each suite of integration tests. This makes sure the database is 1) in a known clean state and 2) does not require any specific steps to prepare the database for tests. To run the integration tests you just need to make sure Docker Desktop is installed and running. Everything else will be automatic. The first time you run the tests for that specific version of... | [source](https://community.rockrms.com/developer/developer-codex/coding-standards/testing/unit-testing/docker-desktop) |
-| Creating APIs Using Lava | rock_lava_docs | Creating APIs Using Lava Please note that there isn't any security on running Lava through these webhooks. Please be careful what data you expose through them. We've seen how we can add dynamic content using Lava. Now, let's look at how we can use Lava to create new custom APIs. This method of creating APIs is a great way to build things like an XML API for Apple TV or a Roku channel. This is all done through a... | [source](https://community.rockrms.com/lava/lava-api) |
 
 
 ## Lava Capability References
@@ -258,9 +258,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `34`
-- Upstream check range: `2026-07-10T17:16:20+00:00` through `2026-08-08T14:33:56+00:00`
+- Upstream check range: `2026-07-10T17:16:20+00:00` through `2026-08-12T02:32:42+00:00`
 - Source-native typed articles: `1` of `34`
-- Legacy source summaries retired: `3`; still active: `31`
+- Legacy source summaries retired: `6`; still active: `28`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

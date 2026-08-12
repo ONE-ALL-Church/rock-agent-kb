@@ -2,15 +2,15 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-08-11T19:18:45+00:00
+last_built: 2026-08-12T03:17:08+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-10T21:43:24+00:00
+source_last_checked_at: 2026-08-12T02:32:42+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/13
-legacy_summary_retirement_coverage: 1/13
+legacy_summary_retirement_coverage: 2/13
 depends_on_topics:
   - cms
   - workflows
@@ -232,9 +232,9 @@ Keywords: `command, sql command, web request, entity command`
 | Tag List | rock_lava_docs | Tag List Command v8.0 This is a very basic administrative command to list all of the registered Lava commands on your server. This is helpful if you'd like to find the command name of an entity, especially when working with plugins. {% taglist %} Results analyticsdimcampus - Rock.Lava.Blocks.RockEntity analyticsdimfamilycurrent - Rock.Lava.Blocks.RockEntity analyticsdimfamilyheadofhousehold -... | [source](https://community.rockrms.com/lava/commands/taglist-commands) |
 | Lava | rock_lava_docs | Lava v13.7 Fluid Ever feel like you type {% %} too much? Perhaps, text on those keys on your keyboard are worn off? The lava tag may be able to help. Syntax inside of the lava tag is basically reversed. Instead of 'tagging' keywords, and everything else is text to be displayed, you need to 'tag' text to display (using the echo command) and everythinge else is assumed to be code. Confused...? Don't worry an example... | [source](https://community.rockrms.com/lava/tags/lava-tags) |
 | Render Lava Endpoint | rock_lava_docs | Render Lava Endpoint v18.0 Sometimes, a Lava Endpoint generates content you'd like to display immediately when the page loads. While you could use HTMX to trigger a call to the endpoint on load, this approach introduces an extra HTTP request and might cause page layout shifts as the content loads. To address this, we introduced the renderlavaendpoint command. This command processes the Lava from the specified... | [source](https://community.rockrms.com/lava/commands/render-lava-endpoint) |
-| Lava Commands | rock_developer | ## Overview Some Lava Commands are particularly useful when you need to read, update, or interact with data directly from within your Lava templates. These include commands for deleting entities, modifying data, responding to HTTP requests, and more. You'll now find all of these commands fully documented in the official [Lava Documentation](https://community.rockrms.com/lava). Here are direct links to each command’s... | [source](https://community.rockrms.com/developer/helix/lava-commands) |
 | Delete Entity | rock_lava_docs | Delete Entity v18.0 Delete an entity from the database. Introduction Familiar with Lava's Entity command for data retrieval? The Delete Entity command extends its capabilities, allowing you to delete data directly from your database. Warning While the Delete Entity command is a powerful tool, it comes with significant security responsibilities. It's crucial to thoroughly understand and implement the security... | [source](https://community.rockrms.com/lava/commands/delete-entity) |
 | Modify Entity | rock_lava_docs | Modify Entity v18.0 Make changes to properties or attributes of an entity. Introduction Familiar with Lava's Entity command for data retrieval? The Modify Entity command extends its capabilities, allowing you to update or insert data directly into your database, enhancing your data management toolkit. Warning While the Modify Entity command is a powerful tool, it comes with significant security responsibilities.... | [source](https://community.rockrms.com/lava/commands/modify-entity) |
+| Lava Commands | rock_developer | ## Overview Some Lava Commands are particularly useful when you need to read, update, or interact with data directly from within your Lava templates. These include commands for deleting entities, modifying data, responding to HTTP requests, and more. You'll now find all of these commands fully documented in the official [Lava Documentation](https://community.rockrms.com/lava). Here are direct links to each command’s... | [source](https://community.rockrms.com/developer/helix/lava-commands) |
 
 ### Filters
 
@@ -251,7 +251,7 @@ Keywords: `filter, text filter, date filter, person filter`
 | Slicker Campus Filters | rock_recipes | 2 Slicker Campus Filters Shared by Steve Klein , Liquid Church 2 years ago 13.7 General Beginner The Why We have multiple locations so we are frequently building dynamic reports which include a campus filter. In the past, our campus filters would display all campuses by default or the selected campus. With a little bit of SQL and Lava, we found that we could include an All Campuses option in our campus filter and... | [source](https://community.rockrms.com/recipes/393) |
 | Event Item Occurrence List By Audience Lava | rock_mobile_docs | *Block that takes an audience and displays calendar item occurrences for it using Lava.* ## Query Parameters The query parameters this block looks for upon initialization are as follows: \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| CampusGuid \| Guid \| An optional Guid of the campus to filter event items to. \| ## Block Configuration ### List Title The title to make available in the lava. ### Audience The... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava) |
 | Use Filter Groups | rock_documentation | Some views need both AND and OR logic, for example individuals who are married AND members, OR who are single AND attendees. Filter groups give you that. Inside a Data View, add a filter group with Add Filter Group, then set its Show results matching option to All, Any or None. Nest your criteria under it: an outer group set to Any holds two inner groups each set to All, so a record matches if it satisfies either... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/use-filter-groups) |
-| List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
+| Person | rock_lava_docs | Person Filters Rock is based on managing people, so it's not surprising that we have special Lava filters for the Person model. Address Show Details Server: v2.0 Provides an address for the person you provide. Additional Details This filter has some input parameters: Address Type: Home, Work, etc. Format Template (optional) v3.0 : An optional template parameter to help you format the address any way you wish. See... | [source](https://community.rockrms.com/lava/filters/person-filters) |
 
 ### Shortcodes
 
@@ -283,9 +283,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `13`
-- Upstream check range: `2026-07-10T17:16:17+00:00` through `2026-08-10T21:43:24+00:00`
+- Upstream check range: `2026-07-10T17:16:17+00:00` through `2026-08-12T02:32:42+00:00`
 - Source-native typed articles: `1` of `13`
-- Legacy source summaries retired: `1`; still active: `12`
+- Legacy source summaries retired: `2`; still active: `11`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

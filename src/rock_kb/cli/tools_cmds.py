@@ -209,10 +209,13 @@ def canonical_identity_baseline(
 @app.command("source-native-candidates")
 def source_native_candidates(
     concept: list[str] = typer.Option(
-        list(SOURCE_NATIVE_PILOT_CONCEPTS),
+        [],
         "--concept",
         "-c",
-        help="Concept to include in the source-native documentation batch.",
+        help=(
+            "Concept to include in the source-native documentation batch. "
+            "Required when selecting exact source records."
+        ),
     ),
     limit_per_concept: int = typer.Option(
         SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
@@ -245,10 +248,18 @@ def source_native_candidates(
 ) -> None:
     """Build deterministic Rockumentation source units and private review inputs."""
 
+    if source_record_id and not concept:
+        raise typer.BadParameter(
+            "exact --source-record-id selection requires at least one explicit "
+            "--concept routing facet",
+            param_hint="--concept",
+        )
+    selected_concepts = concept or list(SOURCE_NATIVE_PILOT_CONCEPTS)
+
     typer.echo(
         json.dumps(
             build_source_native_document_candidates(
-                concept_ids=concept,
+                concept_ids=selected_concepts,
                 limit_per_concept=limit_per_concept,
                 source_ids=source_id,
                 source_record_ids=source_record_id,

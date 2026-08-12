@@ -176,10 +176,12 @@ uv run kb tools source-native-prompt \
 ```
 
 Use repeated `--source-record-id` options when a maintainer has selected exact
-records. Exact record IDs are explicit routing decisions and are not dropped
-because their normalized summary has a low concept score. Records surfaced
-under multiple concepts are coalesced into one candidate with multiple concept
-facets.
+records, and always provide the reviewed `--concept` routing facets in the same
+command. Exact selection fails closed without an explicit concept so the pilot
+defaults cannot silently misroute a migration. Exact record IDs are explicit
+routing decisions and are not dropped because their normalized summary has a
+low concept score. Records surfaced under multiple concepts are coalesced into
+one candidate with multiple concept facets.
 
 The parser assigns stable IDs before model review to sentences, tables, code
 blocks, and individual list items. Nested field catalogs are separate child

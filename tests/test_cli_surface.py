@@ -5,7 +5,9 @@ from typer.testing import CliRunner
 
 from rock_kb.cli import app
 from rock_kb.cli import audit_cmds
+from rock_kb.cli import tools_cmds
 from rock_kb.source_native import SOURCE_NATIVE_PILOT_DIR
+from rock_kb.source_native import SOURCE_NATIVE_PILOT_CONCEPTS
 from rock_kb.source_native_verification import VERIFICATION_REPORT_NAME
 
 
@@ -156,3 +158,63 @@ def test_live_verification_audit_rejects_manifest_bound_report_destination():
 
     assert result.exit_code != 0
     assert "ephemeral readiness evidence" in result.output
+
+
+def test_exact_source_native_candidates_require_explicit_concept():
+    result = CliRunner().invoke(
+        app,
+        [
+            "tools",
+            "source-native-candidates",
+            "--source-record-id",
+            "rock_developer:article:139",
+        ],
+    )
+
+    assert result.exit_code != 0
+    assert "exact --source-record-id selection requires" in result.output
+    assert "explicit --concept routing facet" in result.output
+
+
+def test_balanced_source_native_candidates_keep_pilot_concepts(monkeypatch):
+    calls = []
+    monkeypatch.setattr(
+        tools_cmds,
+        "build_source_native_document_candidates",
+        lambda **options: calls.append(options) or {"status": "ok"},
+    )
+
+    result = CliRunner().invoke(
+        app,
+        ["tools", "source-native-candidates", "--limit-per-concept", "1"],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert calls[0]["concept_ids"] == list(SOURCE_NATIVE_PILOT_CONCEPTS)
+
+
+def test_exact_source_native_candidates_forward_explicit_concept(monkeypatch):
+    calls = []
+    monkeypatch.setattr(
+        tools_cmds,
+        "build_source_native_document_candidates",
+        lambda **options: calls.append(options) or {"status": "ok"},
+    )
+
+    result = CliRunner().invoke(
+        app,
+        [
+            "tools",
+            "source-native-candidates",
+            "--concept",
+            "apple-tv",
+            "--source-id",
+            "rock_developer",
+            "--source-record-id",
+            "rock_developer:article:139",
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert calls[0]["concept_ids"] == ["apple-tv"]
+    assert calls[0]["source_record_ids"] == ["rock_developer:article:139"]
