@@ -534,6 +534,50 @@ def test_hydrated_candidate_risk_rejects_sensitive_source_text():
     assert "execute sql" in result["reasons"][0]
 
 
+def test_hydrated_candidate_binding_allows_metadata_prefix_variation():
+    original = source_record(1)
+    record = {
+        **original,
+        "summary": "Published Developer Article One. " + original["summary"],
+    }
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": (
+                    "Article One\n" + original["summary"]
+                    + " Additional bounded details appear here."
+                ),
+            }
+        ]
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "low"
+    assert result["source_binding_overlap"] >= 0.6
+
+
+def test_hydrated_candidate_binding_rejects_unrelated_page():
+    record = source_record(1)
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": (
+                    "An unrelated page discusses gardens, weather, music, travel, "
+                    "buildings, meals, seating, parking, and weekend activities."
+                ),
+            }
+        ]
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "high"
+    assert "insufficient normalized preview coverage" in result["reasons"][0]
+
+
 def test_prepare_rejects_destination_outside_ignored_review(tmp_path: Path):
     with pytest.raises(ValueError, match="under the ignored data/review"):
         orchestrator.prepare_source_native_migration_batch(

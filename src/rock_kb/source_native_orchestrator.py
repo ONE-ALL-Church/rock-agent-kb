@@ -58,7 +58,7 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "1"
-RISK_POLICY_VERSION = "1"
+RISK_POLICY_VERSION = "2"
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -123,6 +123,20 @@ HYDRATED_HIGH_RISK_TERMS = {
     "secret",
     "security",
     "web request",
+}
+SOURCE_BINDING_STOP_WORDS = {
+    "and",
+    "article",
+    "documentation",
+    "developer",
+    "for",
+    "from",
+    "into",
+    "rock",
+    "that",
+    "the",
+    "this",
+    "with",
 }
 STABLE_LIST_KEYS = (
     "artifact_key",
@@ -402,14 +416,12 @@ def _normalized_tokens(value: str) -> list[str]:
     ]
 
 
-def _contains_token_sequence(haystack: list[str], needle: list[str]) -> bool:
-    if not needle or len(needle) > len(haystack):
-        return False
-    width = len(needle)
-    return any(
-        haystack[index : index + width] == needle
-        for index in range(len(haystack) - width + 1)
-    )
+def _source_binding_tokens(value: str) -> set[str]:
+    return {
+        token
+        for token in _normalized_tokens(value)
+        if len(token) > 2 and token not in SOURCE_BINDING_STOP_WORDS
+    }
 
 
 def classify_hydrated_candidate_risk(
@@ -437,13 +449,18 @@ def classify_hydrated_candidate_risk(
             f"{len(units)} units, {code_count} code blocks, {table_count} tables"
         )
 
-    summary_tokens = _normalized_tokens(str(record.get("summary") or ""))
-    hydrated_tokens = _normalized_tokens(text)
-    preview = summary_tokens[: min(12, len(summary_tokens))]
-    if len(preview) >= 8 and not _contains_token_sequence(hydrated_tokens, preview):
+    summary_tokens = _source_binding_tokens(str(record.get("summary") or ""))
+    hydrated_tokens = _source_binding_tokens(text)
+    overlap_ratio = (
+        len(summary_tokens & hydrated_tokens) / len(summary_tokens)
+        if summary_tokens
+        else 0.0
+    )
+    if len(summary_tokens) >= 8 and overlap_ratio < 0.6:
         level = "high"
         reasons.append(
-            "hydrated source no longer matches the normalized source preview"
+            "hydrated source has insufficient normalized preview coverage: "
+            f"{overlap_ratio:.2f}"
         )
     if not reasons:
         reasons.append(
@@ -456,6 +473,7 @@ def classify_hydrated_candidate_risk(
         "source_unit_count": len(units),
         "code_block_count": code_count,
         "table_count": table_count,
+        "source_binding_overlap": round(overlap_ratio, 3),
     }
 
 
@@ -953,10 +971,6 @@ def prepare_source_native_migration_batch(
                     checked_at=str(report["as_of"]),
                     records=selected_records,
                 )
-                if int(build_result.get("article_count") or 0) != count:
-                    raise ValueError(
-                        "candidate hydration did not preserve the exact batch size"
-                    )
                 candidate_rows = list(
                     read_jsonl(candidate_dir / "distillation-input.jsonl")
                 )
@@ -964,6 +978,15 @@ def prepare_source_native_migration_batch(
                     str(row["source_snapshot"]["source_record_id"]): row
                     for row in candidate_rows
                 }
+                if int(build_result.get("article_count") or 0) != count:
+                    missing = sorted(selected_set - set(candidates_by_record))
+                    skipped = (build_result.get("document_candidate_build") or {}).get(
+                        "skipped"
+                    ) or []
+                    raise ValueError(
+                        "candidate hydration did not preserve the exact batch size; "
+                        f"missing={missing}; skipped={skipped}"
+                    )
                 if set(candidates_by_record) != selected_set:
                     raise ValueError(
                         "candidate hydration changed the exact selected record set"

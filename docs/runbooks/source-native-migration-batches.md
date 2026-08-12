@@ -55,6 +55,12 @@ shape. Security, permissions, authentication, SQL, writes, workflows, hosting,
 payments, and similar surfaces are high risk. Legacy claims and version-sensitive
 or broad articles require at least standard review.
 
+Hydrated full text is checked again before packet sealing. Sensitive terms and
+broad code/table structure raise risk, while source binding uses meaningful
+token coverage rather than a literal summary prefix so breadcrumbs and publish
+metadata cannot masquerade as source drift. Insufficient coverage still fails
+high risk as a possible wrong-page or parser mismatch.
+
 ## Immutable Packet
 
 The content-addressed `batch-manifest.json` binds the batch to:
