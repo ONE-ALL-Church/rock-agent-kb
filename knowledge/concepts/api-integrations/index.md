@@ -2,15 +2,15 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-08-12T03:17:20+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:32:42+00:00
+source_last_checked_at: 2026-08-12T11:27:24+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 1/34
-legacy_summary_retirement_coverage: 6/34
+source_native_article_coverage: 1/33
+legacy_summary_retirement_coverage: 7/33
 depends_on_topics:
   - security
   - workflows
@@ -107,13 +107,13 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 
 - `rock_api_docs`: 1
 - `rock_community_hubs`: 2
-- `rock_core_release_notes`: 6
+- `rock_core_release_notes`: 7
 - `rock_demo_api_docs_v1`: 1
 - `rock_demo_api_docs_v2`: 1
 - `rock_developer`: 21
 - `rock_documentation`: 6
 - `rock_lava_docs`: 4
-- `rock_mobile_docs`: 7
+- `rock_mobile_docs`: 6
 - `rock_model_map`: 12
 - `rock_podcast_rss`: 5
 - `rock_qa`: 4
@@ -177,6 +177,7 @@ Lava fields that the stable generated Model Map marks as non-database are tracke
 | 17.5 | API | Fixed an issue where trying to access a model's ./DataView/{id} endpoint would check permissions on the wrong entity. This often resulted in a permission denied error even when the Person or API Key had been granted explicit permission to the DataView. Fixes: #6348 | [source](https://www.rockrms.com/releasenotes) |
 | 19.1 | Finance | Fixed slow performance on the Giving History API endpoint. Response times are significantly improved for organizations with large giving history data. Fixes: #6818 | [source](https://www.rockrms.com/releasenotes) |
 | 18.3 | CMS | Fixed an issue where some REST v2 API endpoints incorrectly failed security checks when using ExecuteWrite permissions. | [source](https://www.rockrms.com/releasenotes) |
+| 18.3 | Finance | Fixed two issues in the Giving History API. When "Combine Giving With" was blank, the API incorrectly returned family giving data instead of only the individual's authorized giving. When family giving (includeGivingGroup parameter) was excluded, contributions from the individual's other records were missing from results. Fixes: #6739 | [source](https://www.rockrms.com/releasenotes) |
 
 ## Repository Landmarks
 
@@ -257,10 +258,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records in the bounded guide selection: `34`
-- Upstream check range: `2026-07-10T17:16:20+00:00` through `2026-08-12T02:32:42+00:00`
-- Source-native typed articles: `1` of `34`
-- Legacy source summaries retired: `6`; still active: `28`
+- Official article records in the bounded guide selection: `33`
+- Upstream check range: `2026-08-12T06:13:10+00:00` through `2026-08-12T11:27:24+00:00`
+- Source-native typed articles: `1` of `33`
+- Legacy source summaries retired: `7`; still active: `26`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

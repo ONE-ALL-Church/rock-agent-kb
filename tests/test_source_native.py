@@ -17,18 +17,18 @@ from rock_kb.schemas import (
 )
 from rock_kb.source_native import (
     apply_source_unit_split_rules,
-    build_source_native_impact_report,
     build_source_native_document_candidates,
+    build_source_native_impact_report,
     load_source_unit_split_rules,
-    merge_source_native_distillation_outputs,
     merge_source_native_bundle_rows,
+    merge_source_native_distillation_outputs,
     parse_markdown_source_units,
     promote_source_native_distillation,
     rebind_source_native_presentation_rows,
-    source_observation_metadata,
     source_native_evaluation_question,
-    source_native_model_input_hash,
     source_native_evaluation_rows,
+    source_native_model_input_hash,
+    source_observation_metadata,
     validate_source_native_bundle_consistency,
     validate_source_native_distillation,
     write_source_native_distillation_schema,
@@ -67,7 +67,7 @@ def test_source_native_manifest_supports_repository_scale_concept_facets():
     manifest = SourceNativePilotManifest(
         schema="rock-kb-source-native-pilot-manifest-v1",
         prompt_id="source-knowledge-distillation-v2.3",
-        prompt_version="2.3.2",
+        prompt_version="2.3.3",
         concept_ids=[f"concept-{index}" for index in range(23)],
         source_snapshot_count=0,
         source_unit_count=0,
@@ -587,6 +587,40 @@ def test_reviewed_split_rule_handles_joined_paragraph_sentences():
     ]
 
 
+def test_reviewed_split_rule_separates_issue_action_from_response_timing():
+    source_record_id = "rock_developer:article:329"
+    paragraph = (
+        "Feel free to open new issues, and we’ll work to address them as soon as "
+        "possible."
+    )
+    paragraph_hash = sha256_text(" ".join(paragraph.split()))
+
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": ["GitHub Issues"],
+                "context_label": "GitHub Issues",
+                "block_token": "paragraph:github-issues:2",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": paragraph_hash,
+                "strategy": "coordinated_clause",
+            },
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Feel free to open new issues.",
+        "We’ll work to address them as soon as possible.",
+    ]
+
+
 def test_reviewed_split_rule_handles_exact_contrast_clause():
     source_record_id = "rock_mobile_docs:article:contrast-test"
     paragraph = (
@@ -969,6 +1003,45 @@ def test_static_prose_candidate_coalesces_concept_facets(tmp_path: Path):
     )
 
 
+def test_exact_candidate_build_preserves_per_record_concept_routing(tmp_path: Path):
+    first = document_record()
+    second = {
+        **document_record(),
+        "id": "rock_documentation:article:101",
+        "source_url": "https://community.rockrms.com/documentation/system/second",
+        "source_title": "Second Article",
+        "documentation_path": "documentation/system/second",
+        "documentation_article_id": 101,
+    }
+    destination = tmp_path / "candidate"
+    empty = tmp_path / "empty"
+    empty.mkdir()
+
+    result = build_source_native_document_candidates(
+        concept_ids=["documents-signatures", "system-admin-ops"],
+        source_record_ids=[first["id"], second["id"]],
+        source_record_concept_ids={
+            first["id"]: ["documents-signatures"],
+            second["id"]: ["system-admin-ops"],
+        },
+        destination=destination,
+        previous_dir=empty,
+        records=[first, second],
+        markdown_loader=lambda record: (
+            f"# {record['source_title']}\n\nThis official article contains "
+            "enough material for deterministic source-native review."
+        ),
+    )
+    candidates = {
+        row["source_snapshot"]["source_record_id"]: row
+        for row in read_jsonl(destination / "distillation-input.jsonl")
+    }
+
+    assert result["article_count"] == 2
+    assert candidates[first["id"]]["concept_ids"] == ["documents-signatures"]
+    assert candidates[second["id"]]["concept_ids"] == ["system-admin-ops"]
+
+
 def test_unchanged_candidate_refresh_preserves_ids_and_change_time(
     tmp_path: Path,
 ):
@@ -1195,7 +1268,7 @@ def test_promotion_strips_source_text_and_records_generation(tmp_path: Path):
     assert len(activities) == 1
     assert activities[0]["prompt_version"] == "2.3.0"
     assert activities[0]["created_at"] == "2026-07-29T12:00:00+00:00"
-    assert activities[0]["parameters"]["review_contract_version"] == "2.3.2"
+    assert activities[0]["parameters"]["review_contract_version"] == "2.3.3"
     public_units = list(read_jsonl(destination / "source-units.jsonl"))
     assert all("text" not in row for row in public_units)
     assert all(row["public_summary"] for row in public_units)
@@ -1290,7 +1363,7 @@ def test_promotion_appends_safely_and_records_review_corrections(tmp_path: Path)
         "source-native:claim:rock_documentation:article-100:feature-behavior"
     ]
     activity = next(read_jsonl(destination / "generation-activities.jsonl"))
-    assert activity["prompt_version"] == "2.3.2"
+    assert activity["prompt_version"] == "2.3.3"
     assert activity["parameters"]["review_changed"] is True
     assert activity["parameters"]["review_correction_count"] > 0
     manifest = json.loads((destination / "manifest.json").read_text())

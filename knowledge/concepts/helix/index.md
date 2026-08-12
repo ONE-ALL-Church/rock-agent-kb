@@ -2,15 +2,15 @@
 id: concept-helix
 title: Helix
 generated: true
-last_built: 2026-08-12T03:17:21+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:32:42+00:00
+source_last_checked_at: 2026-08-12T06:22:00+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 4/214
-legacy_summary_retirement_coverage: 19/214
+source_native_article_coverage: 13/215
+legacy_summary_retirement_coverage: 28/215
 depends_on_topics:
   - lava
   - api-integrations
@@ -40,7 +40,7 @@ Helix, HTMX, Lava Applications, Lava Endpoints, Lava Application Content blocks,
 ## How To Think About This Area
 
 - `Helix` spans lava, api-integrations, security, cms, workflows, forms. Agents should expect cross-cutting dependencies rather than a single page or table.
-- The strongest source families in this build are: rock_developer, rock_documentation, rock_lava_docs, rock_recipes, rock_core_release_notes, rock_model_map.
+- The strongest source families in this build are: rock_developer, rock_lava_docs, rock_documentation, rock_recipes, rock_core_release_notes, rock_model_map.
 - Related tags found in source records: development, lava, api, cms, workflow, obsidian, operations, security.
 - Source detail types include: developer_doc, documentation_article, recipe, rock_community_site, rock_lava_docs, triumph_resources.
 
@@ -239,10 +239,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records routed here: `214`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-12T02:32:42+00:00`
-- Source-native typed articles: `4` of `214`
-- Legacy source summaries retired: `19`; still active: `195`
+- Official article records routed here: `215`
+- Upstream check range: `2026-08-12T06:13:20+00:00` through `2026-08-12T06:22:00+00:00`
+- Source-native typed articles: `13` of `215`
+- Legacy source summaries retired: `28`; still active: `187`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

@@ -2,12 +2,12 @@
 id: concept-system-admin-ops
 title: System Administration And Operations
 generated: true
-last_built: 2026-08-12T03:17:09+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:40:46+00:00
+source_last_checked_at: 2026-08-12T06:18:53+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 6/70
 legacy_summary_retirement_coverage: 6/70
@@ -224,15 +224,15 @@ Keywords: `search, universal search, indexing, index, search components`
 | Customizing Results for Entities | rock_documentation | How results are returned from the search is important. Luckily, there are numerous ways to customize the results from the search. We cover all the options below. # Default Entity Results Each entity has a default result template that you can change. This is a great place to modify what you'd like to be returned across multiple search interfaces. You can edit these templates on a per-entity basis under Admin Tools >... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/customizing-results-for-entities) |
 | Search | rock_documentation | SECTIONS [Searching for People](?Version=v19.0#searching-for-people) ### Searching for People Articles [Search by Name](/documentation/core-concepts/search/searching-for-people/search-by-name?Version=v19.0) [Search by Phone](/documentation/core-concepts/search/searching-for-people/search-by-phone?Version=v19.0) [Search by Other... | [source](https://community.rockrms.com/documentation/core-concepts/search) |
 | Search by Name | rock_documentation | To find someone in the database, start by using the *Smart Search*tool found at the top of every page. This tool can be used to search several different types of data, but it defaults to searching for individuals by name. When searching by name, it's important to know some tricks to improve the quality of your search and to save time. Keep in mind that you don't need to type a person's full name to search. You can... | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-name) |
+| Search by Other Means | rock_documentation | Searching by *[People](/documentation/core-concepts/search/searching-for-people)* and by *[Name](/documentation/core-concepts/search/searching-for-people/search-by-name)* aren't the only ways to find people in Rock, below are some other ways to search. # Searching by Email Yep, you guessed it: Rock can search by email using the Smart Search tool, too. Partial searches are supported. We're sure you've got it by now,... | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people/search-by-other-means) |
 | Searching for People | rock_documentation | [Search by Name](/documentation/core-concepts/search/searching-for-people/search-by-name?Version=v19.0) [Search by Phone](/documentation/core-concepts/search/searching-for-people/search-by-phone?Version=v19.0) [Search by Other Means](/documentation/core-concepts/search/searching-for-people/search-by-other-means?Version=v19.0) | [source](https://community.rockrms.com/documentation/core-concepts/search/searching-for-people) |
 | Installing Elasticsearch | rock_documentation | To install Elasticsearch you will need to follow the steps below. Detailed instructions for installing and running ElasticSearch can also be found on the [elastic.co](https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html) website. Note **Windows Service**If you want to install and run Elasticsearch as a service on Windows, follow the instructions found... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch) |
-| Intro to Universal Search | rock_documentation | The basic search capability in Rock is quite powerful, but sometimes you may need more. That's where Universal Search comes in. Universal Search allows you to search multiple types of data at once in a full-text manner. In a sense, it's like Google for Rock. With this great power comes some additional technical knowledge, but don't worry we'll unpack it all here in this guide. # Overview The first thing that you'll... | [source](https://community.rockrms.com/documentation/core-concepts/search/universal-search/intro-to-universal-search) |
 
 
 ## Source Lifecycle
 
 - Official article records routed here: `70`
-- Upstream check range: `2026-08-04T15:01:36+00:00` through `2026-08-11T16:40:46+00:00`
+- Upstream check range: `2026-08-12T06:18:20+00:00` through `2026-08-12T06:18:53+00:00`
 - Source-native typed articles: `6` of `70`
 - Legacy source summaries retired: `6`; still active: `64`
 - Migration status: `partial`

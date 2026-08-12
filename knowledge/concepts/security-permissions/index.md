@@ -2,12 +2,12 @@
 id: concept-security-permissions
 title: Security And Permissions
 generated: true
-last_built: 2026-08-12T03:17:18+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:40:45+00:00
+source_last_checked_at: 2026-08-12T06:18:24+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/43
 legacy_summary_retirement_coverage: 4/43
@@ -170,8 +170,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Title | Source | Why It Matters | Citation |
 | --- | --- | --- | --- |
 | Cloning Security Role Groups | rock_documentation | Let's circle back to the *Security Roles* page we reviewed earlier. To save you time (and possibly a headache), you can access the *Security Roles* page to clone security role groups. Cloning allows you to make a copy of an existing group along with all of its security configuration. Group members are not copied over to the new group. Cloning groups is a quick and easy process. Simply choose the group you want to... | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/cloning-security-role-groups) |
-| Security Roles | rock_documentation | [Intro to Security Roles](/documentation/core-concepts/security/security-roles/intro-to-security-roles?Version=v19.0) [Administering Security Roles](/documentation/core-concepts/security/security-roles/administering-security-roles?Version=v19.0) [Handle Permissions](/documentation/core-concepts/security/security-roles/handle-permissions?Version=v19.0) | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles) |
 | Handle Permissions | rock_documentation | Wherever you see the icon you can manage the security of the item being displayed. Clicking the icon will bring up the *Security Editor* shown below. 1. **Actions** - The first thing you’ll see is a tabbed list of the security actions available for the item. Typically, these will be *View*, *Edit* and *Administrate*. You'll set permissions for each of these actions. 2. **Item Permissions** - The *Item Permissions*... | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
+| Security Roles | rock_documentation | [Intro to Security Roles](/documentation/core-concepts/security/security-roles/intro-to-security-roles?Version=v19.0) [Administering Security Roles](/documentation/core-concepts/security/security-roles/administering-security-roles?Version=v19.0) [Handle Permissions](/documentation/core-concepts/security/security-roles/handle-permissions?Version=v19.0) | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles) |
 | View the Security Change Audit | rock_documentation | This page was designed to assist when troubleshooting security permission changes. Keep in mind that this tracks changes to item permissions, not changes to an individual's security. For instance, granting the role "RSR - Staff Worker" permission to view a page would appear in the audit log. Adding the role "RSR - Rock Administration" to Ted Decker's account would not appear in the audit log. However, an addition to... | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit) |
 | Intro to Security Roles | rock_documentation | Security roles are used to lock down features and data in Rock. While you can configure Rock at the user level (allow and deny specific users), it's much easier to assign people to roles and then build security around those groups. This adds consistency to your security model, which leads to fewer mistakes. The security role pages allow you to manage your roles and to add individuals to them. It's important that you... | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/intro-to-security-roles) |
 | Advanced Security | rock_documentation | [Inspect Security](/documentation/core-concepts/security/advanced-security/inspect-security?Version=v19.0) [Configure Security Settings](/documentation/core-concepts/security/advanced-security/configure-security-settings?Version=v19.0) | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security) |
@@ -270,7 +270,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `43`
-- Upstream check range: `2026-08-04T15:01:39+00:00` through `2026-08-11T16:40:45+00:00`
+- Upstream check range: `2026-08-12T06:18:22+00:00` through `2026-08-12T06:18:24+00:00`
 - Source-native typed articles: `4` of `43`
 - Legacy source summaries retired: `4`; still active: `39`
 - Migration status: `partial`

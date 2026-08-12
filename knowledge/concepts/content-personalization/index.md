@@ -2,12 +2,12 @@
 id: concept-content-personalization
 title: Content And Personalization
 generated: true
-last_built: 2026-08-12T03:17:16+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T17:33:27+00:00
+source_last_checked_at: 2026-08-12T06:18:31+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 3/78
 legacy_summary_retirement_coverage: 4/78
@@ -199,7 +199,7 @@ Keywords: `personalization, segment, segments, audience`
 ## Source Lifecycle
 
 - Official article records routed here: `78`
-- Upstream check range: `2026-08-04T15:01:48+00:00` through `2026-08-11T17:33:27+00:00`
+- Upstream check range: `2026-08-12T06:18:28+00:00` through `2026-08-12T06:18:31+00:00`
 - Source-native typed articles: `3` of `78`
 - Legacy source summaries retired: `4`; still active: `74`
 - Migration status: `partial`

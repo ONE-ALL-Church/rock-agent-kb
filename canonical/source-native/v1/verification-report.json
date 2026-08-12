@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 38,
-    "corrects": 24,
-    "narrows": 16
+    "confirms": 41,
+    "corrects": 27,
+    "narrows": 31
   },
   "by_state": {
-    "verified": 78
+    "verified": 99
   },
   "by_surface": {
-    "maintainer_review": 27,
+    "maintainer_review": 36,
     "official_api": 1,
-    "public_source_code": 50
+    "public_source_code": 62
   },
-  "checked_at": "2026-08-12T03:15:00Z",
+  "checked_at": "2026-08-12T12:45:00+00:00",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -178,6 +178,26 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-157:apple-tv-catalog-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:30c4205771cfb61f333876fe",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-163:apple-tv-rating-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3212877eda439e31f06b9fda",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
         "source-native:source_summary:rock_documentation:article-1932:configure-email-communication-transport-settings-location"
       ],
       "reviewed_at": "2026-08-02T00:26:30Z",
@@ -239,6 +259,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-155:apple-tv-main-template-recipe"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:396dc9d7ab331968e2f9c157",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1929:communication-list-category-configuration-reference"
       ],
       "reviewed_at": "2026-08-10T22:01:43Z",
@@ -246,6 +276,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:39e841c969c1446e09a3c79a",
       "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-160:apple-tv-one-up-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:3bb30071edf5c45252517951",
+      "verification_surface": "maintainer_review"
     },
     {
       "artifact_ids": [
@@ -321,6 +361,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-317:roku-navigation-command-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:5d230f4630c689f37bb1095b",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-437:app-factory-triumph-hosted-app-delisting-risk"
       ],
       "reviewed_at": "2026-08-02T03:15:00Z",
@@ -391,6 +441,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-166:apple-tv-countdown-control-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:686d21001d01723d4c7e166d",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-configure-windows-chrome-shortcut-for-remote-debugging"
       ],
       "reviewed_at": "2026-08-04T16:42:00Z",
@@ -414,10 +474,30 @@
       "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
       ],
-      "reviewed_at": "2026-08-11T19:00:00Z",
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-674:rock-v17-qr-code-color-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:7f9c3cd7563d56d89a31383a",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-129:apple-tv-text-overflow-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:8083e6fe4087471b950399d1",
       "verification_surface": "public_source_code"
     },
     {
@@ -482,6 +562,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-159:apple-tv-menu-bar-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:8fd379d2610ed5c9b79f24da",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1932:configure-email-deliverability-service-interfaces"
       ],
       "reviewed_at": "2026-08-10T22:11:00Z",
@@ -489,6 +579,16 @@
       "status": "verified",
       "verification_id": "source-native-verification:9260bdc64bc5b55c93281bee",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_developer:article-152:apple-tv-alert-template-recipe"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:9596b98bd3ec3c83befc81bb",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -553,6 +653,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-153:apple-tv-descriptive-alert-template-recipe"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:a8cdc4bd7b87076ac508b2a5",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1711:signup-authorization-sources-reference"
       ],
       "reviewed_at": "2026-08-06T21:07:30+00:00",
@@ -569,6 +679,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:ab21ca47c03f5092e865f3c1",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-164:apple-tv-showcase-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:acac22e0657a7526de9a773a",
       "verification_surface": "maintainer_review"
     },
     {
@@ -613,6 +733,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-671:add-dynamic-breadcrumb-to-legacy-block"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b4f248d294ece57402e74fa4",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1160:check-in-kiosk-configuration-fields"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -653,10 +783,20 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-672:add-custom-slide-out-administration-controls"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:bec50e19169e273f891743f9",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_developer:article-376:claim-vscode-obsidian-breakpoint-gutter",
         "source-native:structured_reference:rock_developer:article-376:reference-vscode-obsidian-debugger-controls"
       ],
-      "reviewed_at": "2026-08-11T19:00:00Z",
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:bf61f0946e939030f9a9f3d0",
@@ -671,6 +811,36 @@
       "status": "verified",
       "verification_id": "source-native-verification:c040bb23da9f6ccd451dc5f9",
       "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-165:apple-tv-stack-template-patterns"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c059bf4f8ef6666f80b7ea24",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-154:apple-tv-div-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c19d924e4687ebb220bc44d9",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:recipe:rock_developer:article-156:apple-tv-parade-template-recipe"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:c82ab81d6f439cc49f9d5f49",
+      "verification_surface": "public_source_code"
     },
     {
       "artifact_ids": [
@@ -690,6 +860,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c9a52fc02dd434ce28beb952",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-356:rock-control-parameter-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d1c3d1f475dc65658d644b89",
       "verification_surface": "public_source_code"
     },
     {
@@ -730,6 +910,26 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:d8ee3e24c7af1abb2673a644",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-158:apple-tv-compilation-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:dd9d97cb4dd548410b8edd0b",
+      "verification_surface": "maintainer_review"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-159:apple-tv-menu-bar-template-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:45:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:e3d2b328005462acc9dea1a9",
       "verification_surface": "maintainer_review"
     },
     {
@@ -794,6 +994,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-674:rock-qr-code-handler-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f726648d0419fba8eb0bb179",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1150:built-in-service-time-check-in-window-examples"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -814,10 +1024,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 78,
-  "resolution_count": 78,
+  "queue_count": 99,
+  "resolution_count": 99,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 78
+  "verified_count": 99
 }

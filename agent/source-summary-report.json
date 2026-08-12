@@ -3,7 +3,7 @@
     "oneall_rock_sql_library": 1,
     "public_rock_repos": 75,
     "rock_api_docs": 1,
-    "rock_community_blog": 24,
+    "rock_community_blog": 25,
     "rock_community_hubs": 106,
     "rock_community_site": 26,
     "rock_core_release_notes": 1208,
@@ -12,7 +12,7 @@
     "rock_developer": 361,
     "rock_documentation": 917,
     "rock_lava_docs": 60,
-    "rock_mobile_docs": 275,
+    "rock_mobile_docs": 277,
     "rock_mobile_release_notes": 218,
     "rock_model_map": 377,
     "rock_podcast_rss": 437,
@@ -25,14 +25,14 @@
     "sparkdevnetwork_slingshot": 1,
     "triumph_resources": 127
   },
-  "eligible_record_count": 5572,
+  "eligible_record_count": 5575,
   "notes": [
     "Rows are generated only from records already eligible for the public agent pack.",
     "Rows that trigger the public secret scanner are excluded from source-summaries.jsonl.",
     "Skipped rows remain available in private/generated normalized data and by following their source URLs."
   ],
   "public_publish_mode": "public_cite_and_summarize_only",
-  "public_summary_count": 5570,
+  "public_summary_count": 5573,
   "public_summary_path": "agent/source-summaries.jsonl",
   "schema": "rock-kb-source-summary-report-v1",
   "skipped_sensitive_by_source": {

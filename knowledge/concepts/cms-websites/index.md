@@ -2,12 +2,12 @@
 id: concept-cms-websites
 title: CMS And Websites
 generated: true
-last_built: 2026-08-12T03:17:17+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:01:57+00:00
+source_last_checked_at: 2026-08-12T06:18:34+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/41
 legacy_summary_retirement_coverage: 0/41
@@ -317,7 +317,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `41`
-- Upstream check range: `2026-08-04T15:01:54+00:00` through `2026-08-04T15:01:57+00:00`
+- Upstream check range: `2026-08-12T06:18:32+00:00` through `2026-08-12T06:18:34+00:00`
 - Source-native typed articles: `0` of `41`
 - Legacy source summaries retired: `0`; still active: `41`
 - Migration status: `not_started`

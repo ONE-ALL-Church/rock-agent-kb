@@ -2,12 +2,12 @@
 id: concept-data-views-reports
 title: Data Views And Reports
 generated: true
-last_built: 2026-08-12T03:17:19+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:01:31+00:00
+source_last_checked_at: 2026-08-12T06:18:16+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/32
 legacy_summary_retirement_coverage: 0/32
@@ -297,7 +297,7 @@ Keywords: `data view, filter`
 | Reporting | rock_documentation | SECTIONS [Overview](?Version=v19.0#overview) [Data Views](?Version=v19.0#data-views) [Reports](?Version=v19.0#reports) [Metrics](?Version=v19.0#metrics) ### Overview Articles [Intro to Reporting](/documentation/church-management/reporting/overview/intro-to-reporting?Version=v19.0) ### Data Views Articles [Intro to Data Views](/documentation/church-management/reporting/data-views/intro-to-data-views?Version=v19.0)... | [source](https://community.rockrms.com/documentation/church-management/reporting) |
 | Media Watch Transcript Insight | rock_community_hubs | This Data Analytics Hub panel gives a practical decision frame for Rock-native reporting versus external BI tools. The panel favors starting with Rock metrics, Data Views, Lava, Dynamic Data, and embedded pages for operational or person-actionable workflows, while using BI tools for complex joins, third-party sources, leadership KPIs, and broader analytical exploration. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) |
 | Add a Data View | rock_documentation | Let's start by looking at a couple of the Data Views that come out-of-the-box. Data Views are configured under `Tools > Data Views`. Below is a figure of the default list of data views. Over time you'll collect plenty of data views. To help you organize them we allow you to create a hierarchical directory of categories. The use of categories again becomes a part of your reporting strategy. What good is a reusable... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/add-a-data-view) |
-| Persist Data Views | rock_documentation | Sometimes when you have an extremely large or complex Data View, it can take a long time for Rock to filter down to just the records you're interested in. This can be critical when you're relying on the information in the data view for reports, for workflow actions (using [Lava](https://community.rockrms.com/lava/commands/entity-commands#dataview)) and just to keep the load on your server as low as possible. This is... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/persist-data-views) |
+| Intro to Metrics | rock_documentation | > "What’s measured improves." -Peter Drucker Using metrics can help provide your organization with a framework for improvement by tracking key performance indicators. Metrics describe what’s going on under the hood of your organization. Rock includes a full set of features for tracking and displaying metrics. First let's walk through how we define metrics and then we'll look briefly at how we can present metrics in... | [source](https://community.rockrms.com/documentation/church-management/reporting/metrics/intro-to-metrics) |
 
 ### Reports
 
@@ -389,7 +389,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `32`
-- Upstream check range: `2026-08-04T15:01:28+00:00` through `2026-08-04T15:01:31+00:00`
+- Upstream check range: `2026-08-12T06:18:15+00:00` through `2026-08-12T06:18:16+00:00`
 - Source-native typed articles: `0` of `32`
 - Legacy source summaries retired: `0`; still active: `32`
 - Migration status: `not_started`

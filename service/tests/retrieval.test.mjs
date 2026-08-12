@@ -533,6 +533,67 @@ test("canonical can be the default reader and legacy remains an immediate rollba
   }
 });
 
+test("canonical exact lookup resolves a legacy source summary alias to a structured reference", async () => {
+  const canonicalHash = "f".repeat(64);
+  const legacyId = "source_summary:legacy-rock-documentation-article-1";
+  const canonicalId =
+    "source-native:structured_reference:rock_documentation:article-1:check-in-label-fields";
+  const mf = await buildWorker({
+    activeProjection: "canonical",
+    canonicalShadow: {
+      status: "ready",
+      contentHash: canonicalHash,
+      searchRowCount: 1,
+      knowledgeUnitCount: 1,
+      artifactCount: 1,
+      observationCount: 1,
+    },
+  });
+  try {
+    const db = await mf.getD1Database("KB_DB");
+    await db.prepare(
+      `INSERT INTO canonical_search_rows (
+         id, kind, title, body, path, url, concept, authority_tier,
+         claim_tier, claim_tier_rank, source_id, concepts_json,
+         topics_json, payload_json
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(
+      canonicalId,
+      "structured_reference",
+      "Check-in label fields",
+      "Typed reference for fields available to check-in labels.",
+      "canonical/source-native/v1/reviewed-artifacts.jsonl",
+      "https://example.test/check-in-label-fields",
+      "check-in",
+      "official",
+      "source_backed",
+      1,
+      "rock_documentation",
+      JSON.stringify(["check-in"]),
+      JSON.stringify(["labels", "fields"]),
+      JSON.stringify({ reference_id: "check-in-label-fields" }),
+    ).run();
+    await db.prepare(
+      "INSERT INTO canonical_search_row_aliases (alias_id, canonical_id) VALUES (?, ?)",
+    ).bind(legacyId, canonicalId).run();
+
+    const response = await mf.dispatchFetch(
+      `https://kb.example.test/results/${encodeURIComponent(legacyId)}?projection=canonical`,
+    );
+    const exact = await response.json();
+
+    assert.equal(response.status, 200);
+    assert.equal(exact.status, "ok");
+    assert.equal(exact.requested_result_id, legacyId);
+    assert.equal(exact.canonical_result_id, canonicalId);
+    assert.equal(exact.result.id, canonicalId);
+    assert.equal(exact.result.kind, "structured_reference");
+    assert.equal(exact.retrieval_projection, "canonical");
+  } finally {
+    await mf.dispose();
+  }
+});
+
 test("full search, exact claim lookup, and MCP progressive tools work", async () => {
   const mf = await buildWorker();
   try {

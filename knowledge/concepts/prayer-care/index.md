@@ -2,12 +2,12 @@
 id: concept-prayer-care
 title: Prayer And Care
 generated: true
-last_built: 2026-08-12T03:17:15+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 50
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:02:43+00:00
+source_last_checked_at: 2026-08-12T06:18:49+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/17
 legacy_summary_retirement_coverage: 0/17
@@ -234,7 +234,7 @@ Keywords: `follow-up, communication, notification, pastoral care`
 ## Source Lifecycle
 
 - Official article records routed here: `17`
-- Upstream check range: `2026-08-04T15:02:18+00:00` through `2026-08-04T15:02:43+00:00`
+- Upstream check range: `2026-08-12T06:18:48+00:00` through `2026-08-12T06:18:49+00:00`
 - Source-native typed articles: `0` of `17`
 - Legacy source summaries retired: `0`; still active: `17`
 - Migration status: `not_started`

@@ -2,15 +2,15 @@
 id: concept-apple-tv
 title: Apple TV Apps
 generated: true
-last_built: 2026-08-12T03:17:23+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:32:28+00:00
+source_last_checked_at: 2026-08-12T11:29:00+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 6/248
-legacy_summary_retirement_coverage: 21/248
+source_native_article_coverage: 36/249
+legacy_summary_retirement_coverage: 51/249
 depends_on_topics:
   - api-integrations
   - lava
@@ -175,9 +175,9 @@ Keywords: `javascript, media commands, personal commands, demo commands, command
 | Demo Commands | rock_developer | There are a set of commands that allow a TV app to change the configuration of the server and application that it points to. For these commands to work the application has to be compiled with support for demo mode. ## Show Demo This command brings up the demo mode screen. This screen allows you to enter a code to retrieve the demo settings from the Triumph server. ``` <menuItem rockCommand="showDemo">... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands) |
 | Personal Commands | rock_developer | ## Login *This allow for an individual to login to the TV Application.* Important Be sure that your application has defined a Login page before using this command. That setting is used to configure the QR code. ``` <menuItem rockCommand="login" rockLoginPageGuid="0C64D387-0A87-ECAA-48A5-B38A62CC704C" rockLoginTimeoutPageGuid="E6F3553B-6270-04AD-4882-F6A99FB3875D"... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands) |
 | Commands | rock_developer | ## Multiple Commands Typically, commands will be fired one at a time. There may be cases where you'll want to fire two commands at once. For instance you may want to set a context value and also navigate to a different page. Below is a sample ``` <buttonLockup rockCommand="setContext, pushPage" rockPageGuid="0406785c-2c00-4553-931f-cbca5c338796?GroupId=12" rockContextKey="Campus"... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands) |
+| 💻 Javascript | rock_developer | [Commands](/documentation/apple-tv-docs/javascript/commands) | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
 | Navigation Commands | rock_developer | The commands below are used to show and hides pages on the screen. ## Push Page Pushes a new page onto the navigation stack. ``` <menuItem rockCommand="pushPage" rockPageGuid="0406785c-2c00-4553-931f-cbca5c338796?GroupId=12"> <title>Product Page</title> </menuItem> ``` Additional options include the following parameters. \| Parameter \| Type \| Description \| \| --- \| --- \| --- \| \| rockPageGuid \| String \| The GUID of the... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/navigation-commands) |
 | Utility Commands | rock_developer | ## Set Context Sets the application context using the give key/value. ``` <buttonLockup rockCommand="setContext" rockContextKey="Campus" rockContextValue="FC0001DF-4F5E-45F3-B0EA-A780AF75E7E9"> <title>Glendale Campus</title> </buttonLockup> ``` Parameters for this command include: \| Parameter \| Type \| Description \| \| --- \| --- \| --- \| \| rockContextKey \| string \| The key for the context. \| \| rockContextValue \| string... | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/utility-commands) |
-| 💻 Javascript | rock_developer | [Commands](/documentation/apple-tv-docs/javascript/commands) | [source](https://community.rockrms.com/developer/apple-tv-docs/javascript) |
 
 ### Apple TV Styling
 
@@ -217,10 +217,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records routed here: `248`
-- Upstream check range: `2026-08-04T15:01:12+00:00` through `2026-08-12T02:32:28+00:00`
-- Source-native typed articles: `6` of `248`
-- Legacy source summaries retired: `21`; still active: `227`
+- Official article records routed here: `249`
+- Upstream check range: `2026-08-12T06:13:12+00:00` through `2026-08-12T11:29:00+00:00`
+- Source-native typed articles: `36` of `249`
+- Legacy source summaries retired: `51`; still active: `198`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

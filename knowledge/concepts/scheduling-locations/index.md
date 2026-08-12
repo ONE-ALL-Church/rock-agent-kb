@@ -2,12 +2,12 @@
 id: concept-scheduling-locations
 title: Scheduling And Locations
 generated: true
-last_built: 2026-08-12T03:17:25+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T22:27:07+00:00
+source_last_checked_at: 2026-08-12T06:18:52+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 0/43
 legacy_summary_retirement_coverage: 4/43
@@ -228,7 +228,7 @@ Keywords: `reservation, resource`
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `43`
-- Upstream check range: `2026-08-04T15:01:11+00:00` through `2026-08-04T22:27:07+00:00`
+- Upstream check range: `2026-08-12T06:18:04+00:00` through `2026-08-12T06:18:52+00:00`
 - Source-native typed articles: `0` of `43`
 - Legacy source summaries retired: `4`; still active: `39`
 - Migration status: `partial`

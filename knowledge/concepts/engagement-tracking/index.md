@@ -2,12 +2,12 @@
 id: concept-engagement-tracking
 title: Engagement Tracking
 generated: true
-last_built: 2026-08-12T03:17:16+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:51:59+00:00
+source_last_checked_at: 2026-08-12T06:18:50+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 7/76
 legacy_summary_retirement_coverage: 7/76
@@ -41,7 +41,7 @@ Steps, step programs, streaks, assessments, achievements, engagement tools, jour
 
 - `Engagement Tracking` spans people, groups, workflows, communications, data-views, reports. Agents should expect cross-cutting dependencies rather than a single page or table.
 - The strongest source families in this build are: rock_documentation, rock_rocku, rock_model_map, rock_core_release_notes, rock_recipes, rock_qa.
-- Related tags found in source records: operations, usage, admin, check-in, workflow, sql, development, lava.
+- Related tags found in source records: operations, usage, admin, check-in, sql, workflow, development, lava.
 - Source detail types include: documentation_article, question, recipe, training, triumph_resources.
 
 ## Approved Claims
@@ -153,8 +153,8 @@ Keywords: `step, steps, step program, step type`
 | Steps Badges | rock_documentation | You have the option of displaying badges for your step programs, to quickly and easily view an individual’s progress from places like the *Person Profile* page or Connection Requests. To add Steps badges, first navigate to `Admin Tools > Settings > General > Badges` and add a row to the badge list. A single badge should be set up for the entire program (and not one badge for each step in the program) using the page... | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/steps-badges) |
 | Configure Steps | rock_documentation | [Edit Step Programs](/documentation/engagement/steps/configure-steps/edit-step-programs?Version=v19.0) [Edit Step Types](/documentation/engagement/steps/configure-steps/edit-step-types?Version=v19.0) | [source](https://community.rockrms.com/documentation/engagement/steps/configure-steps) |
 | Intro to Step Types | rock_documentation | Next, let's shift our focus to one of the individual step types within our example program. The layout of the *Step Type* page is very similar to the *Step Program* page. You’ll see a familiar detail block at the top, followed by a list of step participants below. From here you can maintain the list of participants and view their progress as they start and finish the step. 1. **Name and Description** - The name of... | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-step-types) |
-| Use Step Entry | rock_documentation | Shepherding individuals through your program can be done either from the *Step Types* page or from the *Person Profile* page. Whichever path you take, you’ll wind up at a *Step Entry* page like the one pictured below. This is where you'll maintain step type information for an individual. 1. **Person** - In this example we’re adding a step from within the *Steps* area, so we need to provide a person. Steps entered... | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry) |
 | Steps Charts | rock_documentation | [Intro to Step Charts](/documentation/engagement/steps/steps-charts/intro-to-step-charts?Version=v19.0) [Chart Types](/documentation/engagement/steps/steps-charts/chart-types?Version=v19.0) | [source](https://community.rockrms.com/documentation/engagement/steps/steps-charts) |
+| Use Step Entry | rock_documentation | Shepherding individuals through your program can be done either from the *Step Types* page or from the *Person Profile* page. Whichever path you take, you’ll wind up at a *Step Entry* page like the one pictured below. This is where you'll maintain step type information for an individual. 1. **Person** - In this example we’re adding a step from within the *Steps* area, so we need to provide a person. Steps entered... | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/use-step-entry) |
 | Edit Step Programs | rock_documentation | Let’s go back to the *Step Program* page to see how we can edit our programs. Clicking the Edit button lets you update the program and its configurable settings. Trailblazer 1. **Name** - Provide the name of the program. 2. **Active** - Set the program to active or inactive. 3. **Description**- Add a meaningful description of the program. 4. **Icon CSS Class**- Choose the *CSS icon* to use for the program. 5.... | [source](https://community.rockrms.com/documentation/engagement/steps/configure-steps/edit-step-programs) |
 | Intro to Steps | rock_documentation | Whether it’s getting kids to bed at night or getting ready for work in the morning, many areas of our lives require a series of tasks intended to achieve a single goal. Spiritual growth is no exception. With Rock’s help, you can guide your attendees through customized steps along the path of spiritual development. But before we dive too deeply into Steps, let’s take a moment to define a few terms and introduce you... | [source](https://community.rockrms.com/documentation/engagement/steps/fundamentals/intro-to-steps) |
 
@@ -213,7 +213,7 @@ Keywords: `achievement, achievements, badge, achievement type`
 ## Source Lifecycle
 
 - Official article records routed here: `76`
-- Upstream check range: `2026-08-04T15:01:57+00:00` through `2026-08-11T16:51:59+00:00`
+- Upstream check range: `2026-08-12T06:18:34+00:00` through `2026-08-12T06:18:50+00:00`
 - Source-native typed articles: `7` of `76`
 - Legacy source summaries retired: `7`; still active: `69`
 - Migration status: `partial`

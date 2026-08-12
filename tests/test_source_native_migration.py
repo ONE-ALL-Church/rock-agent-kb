@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -19,9 +20,14 @@ from rock_kb.schemas import (
     SourceSnapshot,
     SourceUnit,
 )
-from rock_kb.source_native import source_native_artifact_id, source_native_model_input_hash
+from rock_kb.source_native import (
+    source_native_artifact_id,
+    source_native_model_input_hash,
+)
 from rock_kb.source_native_migration import (
+    _install_rebound_bundle_transactionally,
     build_source_native_legacy_migration_inputs,
+    promote_rebound_source_native_legacy_migrations,
     public_record_hash,
     rebind_source_native_legacy_migration_output,
     source_native_legacy_migration_input_hash,
@@ -332,7 +338,7 @@ def test_migration_input_reconciles_same_family_redirect_alias(
 
     assert result["legacy_item_count"] == 1
     assert result["reconciled_legacy_source_record_alias_count"] == 1
-    assert list(read_jsonl(destination))[0]["legacy_items"][0][
+    assert next(iter(read_jsonl(destination)))["legacy_items"][0][
         "legacy_knowledge_unit_id"
     ] == "source:rock_lava_docs:old"
 
@@ -341,6 +347,8 @@ def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
     previous = migration_input()
     refreshed = copy.deepcopy(previous)
     refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+    refreshed["source_snapshot"]["last_checked_at"] = "2026-08-12T10:00:00Z"
+    refreshed["source_snapshot"]["observation_status"] = "unchanged"
     artifact = SourceNativeArtifactCandidate.model_validate(
         migration_output()["articles"][0]["artifacts"][0]
     )
@@ -395,6 +403,261 @@ def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
             output_path=output_path,
             destination=destination,
         )
+
+
+def test_migration_rebind_materializes_historical_nullable_fields(tmp_path):
+    previous = migration_input()
+    refreshed = copy.deepcopy(previous)
+    refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+
+    reviewed = migration_output()
+    reviewed_artifact = reviewed["articles"][0]["artifacts"][0]
+    reviewed_artifact["artifact_type"] = "source_summary"
+    reviewed["articles"][0]["unit_decisions"][0]["disposition"] = (
+        "source_summary"
+    )
+    del reviewed_artifact["claim_type"]
+    del reviewed_artifact["evidence_class"]
+
+    materialized_artifact = copy.deepcopy(reviewed_artifact)
+    materialized_artifact["claim_type"] = None
+    materialized_artifact["evidence_class"] = None
+    artifact = SourceNativeArtifactCandidate.model_validate(materialized_artifact)
+    snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+    artifact_id = source_native_artifact_id(snapshot, artifact)
+    refreshed["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": artifact_id,
+            "artifact_hash": public_record_hash(artifact),
+            "artifact": artifact.public_dump(),
+        }
+    ]
+    rehash_migration_input(refreshed)
+
+    previous_path = tmp_path / "previous.jsonl"
+    refreshed_path = tmp_path / "refreshed.jsonl"
+    output_path = tmp_path / "reviewed-output.json"
+    destination = tmp_path / "rebound-output.json"
+    write_jsonl(previous_path, [previous])
+    write_jsonl(refreshed_path, [refreshed])
+    output_path.write_text(json.dumps(reviewed) + "\n", encoding="utf-8")
+
+    result = rebind_source_native_legacy_migration_output(
+        previous_input_path=previous_path,
+        refreshed_input_path=refreshed_path,
+        output_path=output_path,
+        destination=destination,
+    )
+
+    rebound_artifact = json.loads(destination.read_text(encoding="utf-8"))[
+        "articles"
+    ][0]["artifacts"][0]
+    assert result["materialized_nullable_field_count"] == 2
+    assert rebound_artifact["claim_type"] is None
+    assert rebound_artifact["evidence_class"] is None
+
+
+def test_migration_rebind_promotion_updates_only_hash_bindings(
+    monkeypatch,
+    tmp_path,
+):
+    previous = migration_input()
+    refreshed = copy.deepcopy(previous)
+    refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+    artifact = SourceNativeArtifactCandidate.model_validate(
+        migration_output()["articles"][0]["artifacts"][0]
+    )
+    snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+    artifact_id = source_native_artifact_id(snapshot, artifact)
+    refreshed["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": artifact_id,
+            "artifact_hash": public_record_hash(artifact),
+            "artifact": artifact.public_dump(),
+        }
+    ]
+    rehash_migration_input(refreshed)
+
+    reviewed = migration_output()
+    reviewed["articles"][0]["migration_input_hash"] = refreshed[
+        "migration_input_hash"
+    ]
+    reviewed["articles"][0]["legacy_decisions"][0][
+        "legacy_content_hash"
+    ] = "f" * 64
+    reviewed["articles"][0]["existing_artifact_decisions"] = [
+        {
+            "existing_artifact_id": artifact_id,
+            "existing_artifact_hash": public_record_hash(artifact),
+            "disposition": "retain_identity",
+            "replacement_artifact_key": artifact.artifact_key,
+            "rationale": (
+                "The current artifact exactly matches the reviewed output, so "
+                "its stable identity is retained."
+            ),
+        }
+    ]
+    reviewed_record = ReviewedSourceNativeArtifact(
+        schema="rock-kb-reviewed-source-native-artifact-v1",
+        artifact_id=artifact_id,
+        source_candidate_id=refreshed["candidate_id"],
+        generation_activity_id="generation:test",
+        artifact=artifact,
+        review_state="reviewer_approved",
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-04T00:00:00Z",
+        source_input_hash=refreshed["source_input_hash"],
+    )
+    decision = reviewed["articles"][0]["legacy_decisions"][0]
+    existing_migration = ReviewedSourceNativeLegacyMigration(
+        schema="rock-kb-reviewed-source-native-legacy-migration-v1",
+        migration_id="source-native-legacy-migration:test",
+        source_record_id=str(snapshot.source_record_id),
+        source_snapshot_id=snapshot.source_snapshot_id,
+        source_snapshot_content_hash=snapshot.content_hash,
+        legacy_knowledge_unit_id=decision["legacy_knowledge_unit_id"],
+        legacy_result_ids=refreshed["legacy_items"][0]["legacy_result_ids"],
+        legacy_knowledge_type="claim",
+        legacy_ingestion_mode="legacy_reviewed_claim_projection",
+        legacy_content_hash="e" * 64,
+        migration_input_hash=previous["migration_input_hash"],
+        migration_input_hash_version="2",
+        replacement_artifact_id=artifact_id,
+        replacement_artifact_hash=public_record_hash(artifact),
+        rationale=decision["rationale"],
+        generation_model="test-model",
+        generation_prompt_id="source-native-legacy-migration-v1",
+        generation_prompt_version="1.3.1",
+        generated_article_hash="1" * 64,
+        reviewed_article_hash="2" * 64,
+        review_correction_count=1,
+        reviewer="original-reviewer",
+        reviewed_at="2026-08-04T00:00:00Z",
+    )
+    base_bundle = {
+        "source_snapshots": [snapshot],
+        "source_units": [],
+        "generation_activities": [],
+        "reviewed_artifacts": [reviewed_record],
+        "relationships": [],
+        "evaluation_set": [],
+        "verification_queue": [],
+        "verification_resolutions": [],
+        "legacy_migrations": [existing_migration],
+        "artifact_migrations": [],
+    }
+    monkeypatch.setattr(
+        "rock_kb.source_native.load_source_native_pilot_directory",
+        lambda _path: base_bundle,
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native.write_source_native_manifest",
+        lambda path: (path / "manifest.json").write_text(
+            "{}\n", encoding="utf-8"
+        ),
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native_migration._active_legacy_projection",
+        lambda _repo_root: (
+            {
+                str(snapshot.source_record_id): [
+                    copy.deepcopy(refreshed["legacy_items"][0])
+                ]
+            },
+            {},
+        ),
+    )
+
+    input_path = tmp_path / "refreshed.jsonl"
+    output_path = tmp_path / "rebound.json"
+    base_dir = tmp_path / "base"
+    destination = tmp_path / "destination"
+    base_dir.mkdir()
+    destination.mkdir()
+    write_jsonl(destination / "artifact-migrations.jsonl", [{"stale": True}])
+    write_jsonl(input_path, [refreshed])
+    output_path.write_text(json.dumps(reviewed) + "\n", encoding="utf-8")
+    write_jsonl(
+        base_dir / "legacy-migrations.jsonl",
+        [existing_migration.public_dump()],
+    )
+
+    fabricated = copy.deepcopy(refreshed)
+    fabricated["legacy_items"][0]["legacy_content_hash"] = "a" * 64
+    rehash_migration_input(fabricated)
+    fabricated_output = copy.deepcopy(reviewed)
+    fabricated_output["articles"][0]["migration_input_hash"] = fabricated[
+        "migration_input_hash"
+    ]
+    fabricated_output["articles"][0]["legacy_decisions"][0][
+        "legacy_content_hash"
+    ] = "a" * 64
+    fabricated_input_path = tmp_path / "fabricated.jsonl"
+    fabricated_output_path = tmp_path / "fabricated-output.json"
+    write_jsonl(fabricated_input_path, [fabricated])
+    fabricated_output_path.write_text(
+        json.dumps(fabricated_output) + "\n", encoding="utf-8"
+    )
+    with pytest.raises(ValueError, match="current legacy projection"):
+        promote_rebound_source_native_legacy_migrations(
+            input_path=fabricated_input_path,
+            output_path=fabricated_output_path,
+            destination=destination,
+            base_dir=base_dir,
+        )
+
+    result = promote_rebound_source_native_legacy_migrations(
+        input_path=input_path,
+        output_path=output_path,
+        destination=destination,
+        base_dir=base_dir,
+    )
+
+    promoted = next(iter(read_jsonl(destination / "legacy-migrations.jsonl")))
+    assert result["migration_count"] == 1
+    assert promoted["legacy_content_hash"] == "f" * 64
+    assert promoted["migration_input_hash"] == refreshed["migration_input_hash"]
+    assert promoted["generation_prompt_version"] == "1.3.1"
+    assert promoted["reviewer"] == "original-reviewer"
+    assert not (destination / "artifact-migrations.jsonl").exists()
+
+
+def test_migration_rebind_transaction_restores_previous_bundle_on_install_failure(
+    monkeypatch,
+    tmp_path,
+):
+    destination = tmp_path / "canonical"
+    staging = tmp_path / ".canonical.rebind-promotion-staging-test"
+    destination.mkdir()
+    staging.mkdir()
+    (destination / "marker.txt").write_text("previous\n", encoding="utf-8")
+    (staging / "marker.txt").write_text("replacement\n", encoding="utf-8")
+
+    original_replace = Path.replace
+
+    def fail_staging_install(path: Path, target: Path) -> Path:
+        if path == staging:
+            raise OSError("simulated install failure")
+        return original_replace(path, target)
+
+    monkeypatch.setattr(Path, "replace", fail_staging_install)
+
+    with pytest.raises(OSError, match="simulated install failure"):
+        _install_rebound_bundle_transactionally(
+            staging=staging,
+            destination=destination,
+        )
+
+    assert (destination / "marker.txt").read_text(encoding="utf-8") == (
+        "previous\n"
+    )
+    assert not staging.exists()
+    assert not (
+        tmp_path / ".canonical.rebind-promotion-journal.json"
+    ).exists()
+    assert not list(
+        tmp_path.glob(".canonical.rebind-promotion-backup-*")
+    )
 
 
 def test_migration_output_requires_exact_legacy_coverage():
@@ -641,56 +904,178 @@ def test_source_summary_can_use_companions_but_claims_cannot():
         )
 
 
-def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypatch):
+def test_source_summary_can_use_typed_primary_without_synthetic_summary():
+    input_row = migration_input()
+    input_row["legacy_items"] = [
+        {
+            "legacy_knowledge_unit_id": "source:rock_documentation:article:100",
+            "legacy_result_ids": ["source:rock_documentation:article:100"],
+            "legacy_knowledge_type": "source_summary",
+            "legacy_ingestion_mode": "legacy_summary_projection",
+            "legacy_content_hash": "f" * 64,
+            "title": "Legacy article summary",
+            "retrieval_text": "The article documents the feature behavior.",
+            "concept_facets": ["workflows"],
+            "source_record_ids": ["rock_documentation:article:100"],
+        }
+    ]
+    rehash_migration_input(input_row)
+    output = migration_output()
+    article = output["articles"][0]
+    article["source_input_hash"] = input_row["source_input_hash"]
+    article["migration_input_hash"] = input_row["migration_input_hash"]
+    article["unit_decisions"][0].update(
+        {
+            "disposition": "structured_reference",
+            "existing_relation": "not_applicable",
+        }
+    )
+    article["artifacts"] = [
+        {
+            "artifact_key": "feature-behavior-reference",
+            "artifact_type": "structured_reference",
+            "source_unit_ids": ["source-unit:test"],
+            "title": "The feature has a documented behavior reference.",
+            "retrieval_text": (
+                "The feature behavior reference states that the feature performs "
+                "the documented behavior."
+            ),
+            "independent_question": (
+                "What behavior does the feature reference document?"
+            ),
+            "rationale": (
+                "The source unit is a bounded behavior reference and completely "
+                "preserves the useful legacy landing value."
+            ),
+            "concept_ids": ["workflows"],
+            "claim_type": None,
+            "evidence_class": None,
+            "confidence": "high",
+            "temporal_status": "release_sensitive",
+            "payload": {
+                "summary": "The feature performs the documented behavior.",
+                "reference_items": [
+                    {
+                        "label": "Behavior",
+                        "detail": "The feature performs the documented behavior.",
+                        "value_status": "documented_behavior",
+                        "needs_verification": False,
+                    }
+                ],
+            },
+        }
+    ]
+    article["legacy_decisions"] = [
+        {
+            "legacy_knowledge_unit_id": "source:rock_documentation:article:100",
+            "legacy_content_hash": "f" * 64,
+            "disposition": "replace",
+            "coverage": "full",
+            "replacement_artifact_key": "feature-behavior-reference",
+            "supporting_replacement_artifact_keys": [],
+            "rationale": (
+                "The structured reference independently preserves the useful "
+                "scope and answer value of the legacy source summary."
+            ),
+        }
+    ]
+
+    validated = validate_source_native_legacy_migration_output(
+        output,
+        inputs=[input_row],
+    )
+
+    decision = validated.articles[0].legacy_decisions[0]
+    assert decision.disposition == "replace"
+    assert decision.replacement_artifact_key == "feature-behavior-reference"
+    assert validated.articles[0].artifacts[0].artifact_type == "structured_reference"
+
+
+@pytest.mark.parametrize(
+    ("legacy_kind", "replacement_type", "legacy_ingestion_mode"),
+    [
+        ("claim", "claim", "legacy_reviewed_claim_projection"),
+        ("source_summary", "structured_reference", "legacy_summary_projection"),
+    ],
+)
+def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(
+    monkeypatch,
+    legacy_kind,
+    replacement_type,
+    legacy_ingestion_mode,
+):
     legacy_source_url = "https://community.rockrms.com/documentation/test"
     legacy_source_record_id = canonical_record_id(
         "rock_documentation",
         legacy_source_url,
     )
-    claim_row = {
-        "id": "claim:claim:legacy",
-        "kind": "claim",
-        "title": "Legacy behavior",
-        "body": "The feature performs the documented behavior.",
-        "concepts": ["workflows"],
-        "authority_tier": "official",
-        "claim_tier": "answer_pack_approved",
-        "source_id": "rock_documentation",
-        "payload": {
-            "schema": "rock-kb-claim-v1",
-            "claim_id": "claim:legacy",
-            "claim": "The feature performs the documented behavior.",
-            "claim_type": "behavior",
-            "concept_ids": ["workflows"],
-            "source_record_ids": [legacy_source_record_id],
-            "source_refs": [
-                {
-                    "source_id": "rock_documentation",
-                    "title": "Test Article",
-                    "url": legacy_source_url,
-                }
-            ],
+    if legacy_kind == "claim":
+        search_row = {
+            "id": "claim:claim:legacy",
+            "kind": "claim",
+            "title": "Legacy behavior",
+            "body": "The feature performs the documented behavior.",
+            "concepts": ["workflows"],
             "authority_tier": "official",
-            "confidence": "high",
-            "review_status": "approved_for_public_distillation",
-            "license_status": "cite_and_summarize_only",
-            "public_publish_mode": "public_cite_and_summarize_only",
-            "safe_evidence_hash": "1" * 64,
-            "needs_live_verification": False,
-            "created_at": "2026-08-04T00:00:00+00:00",
-            "updated_at": "2026-08-04T00:00:00+00:00",
-            "derived_from": {"type": "test"},
-            "community_derived": False,
-            "primary_concept_id": "workflows",
-            "concept_assignment_reason": "test_fixture",
-            "answer_candidate": True,
-            "operational_priority": 100,
-            "requires_live_instance": False,
             "claim_tier": "answer_pack_approved",
-        },
-    }
+            "source_id": "rock_documentation",
+            "payload": {
+                "schema": "rock-kb-claim-v1",
+                "claim_id": "claim:legacy",
+                "claim": "The feature performs the documented behavior.",
+                "claim_type": "behavior",
+                "concept_ids": ["workflows"],
+                "source_record_ids": [legacy_source_record_id],
+                "source_refs": [
+                    {
+                        "source_id": "rock_documentation",
+                        "title": "Test Article",
+                        "url": legacy_source_url,
+                    }
+                ],
+                "authority_tier": "official",
+                "confidence": "high",
+                "review_status": "approved_for_public_distillation",
+                "license_status": "cite_and_summarize_only",
+                "public_publish_mode": "public_cite_and_summarize_only",
+                "safe_evidence_hash": "1" * 64,
+                "needs_live_verification": False,
+                "created_at": "2026-08-04T00:00:00+00:00",
+                "updated_at": "2026-08-04T00:00:00+00:00",
+                "derived_from": {"type": "test"},
+                "community_derived": False,
+                "primary_concept_id": "workflows",
+                "concept_assignment_reason": "test_fixture",
+                "answer_candidate": True,
+                "operational_priority": 100,
+                "requires_live_instance": False,
+                "claim_tier": "answer_pack_approved",
+            },
+        }
+    else:
+        search_row = {
+            "id": "source:rock_documentation:article:100",
+            "kind": "source_summary",
+            "title": "Test Article",
+            "body": "The article documents the feature behavior.",
+            "url": legacy_source_url,
+            "concepts": ["workflows"],
+            "topics": [],
+            "authority_tier": "official",
+            "source_id": "rock_documentation",
+            "payload": {
+                "schema": "rock-kb-public-source-summary-v1",
+                "source_id": "rock_documentation",
+                "source_record_id": "rock_documentation:article:100",
+                "source_title": "Test Article",
+                "source_url": legacy_source_url,
+                "summary": "The article documents the feature behavior.",
+                "content_hash": "1" * 64,
+                "retrieved_at": "2026-08-04T00:00:00+00:00",
+            },
+        }
     legacy_bundle, _summary = build_canonical_knowledge_bundle(
-        search_rows=[claim_row],
+        search_rows=[search_row],
         distilled_claims=[],
         include_source_native_pilot=False,
     )
@@ -723,24 +1108,43 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
         normalized_content_hash="d" * 64,
         required_public_handling="cite_and_summarize_only",
     )
+    artifact_payload = (
+        {"summary": "The feature performs the documented behavior."}
+        if replacement_type == "claim"
+        else {
+            "summary": "The feature performs the documented behavior.",
+            "reference_items": [
+                {
+                    "label": "Behavior",
+                    "detail": "The feature performs the documented behavior.",
+                    "value_status": "documented_behavior",
+                    "needs_verification": False,
+                }
+            ],
+        }
+    )
     artifact = SourceNativeArtifactCandidate(
         artifact_key="feature-behavior",
-        artifact_type="claim",
+        artifact_type=replacement_type,
         source_unit_ids=[unit.source_unit_id],
         title="The feature performs the documented behavior.",
         retrieval_text="The feature performs the documented behavior.",
         independent_question="What behavior does the feature perform?",
         rationale="The source unit directly states this behavior.",
         concept_ids=["workflows"],
-        claim_type="behavior",
-        evidence_class="current_behavior",
+        claim_type="behavior" if replacement_type == "claim" else None,
+        evidence_class="current_behavior" if replacement_type == "claim" else None,
+        temporal_status=(
+            "release_sensitive" if replacement_type == "structured_reference" else "current"
+        ),
         confidence="high",
-        payload={"summary": "The feature performs the documented behavior."},
+        payload=artifact_payload,
     )
     reviewed = ReviewedSourceNativeArtifact(
         schema="rock-kb-reviewed-source-native-artifact-v1",
         artifact_id=(
-            "source-native:claim:rock_documentation:article-100:feature-behavior"
+            f"source-native:{replacement_type}:rock_documentation:article-100:"
+            "feature-behavior"
         ),
         source_candidate_id="source-native-candidate:test",
         generation_activity_id="generation:test",
@@ -758,15 +1162,15 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
         source_snapshot_content_hash=snapshot.content_hash,
         legacy_knowledge_unit_id=legacy.knowledge_unit_id,
         legacy_result_ids=sorted({legacy.knowledge_unit_id, *legacy.legacy_ids}),
-        legacy_knowledge_type="claim",
-        legacy_ingestion_mode="legacy_reviewed_claim_projection",
+        legacy_knowledge_type=legacy_kind,
+        legacy_ingestion_mode=legacy_ingestion_mode,
         legacy_content_hash=legacy.content_hash,
         migration_input_hash="b" * 64,
         replacement_artifact_id=reviewed.artifact_id,
         replacement_artifact_hash=public_record_hash(reviewed.artifact),
         rationale=(
             "The replacement preserves the complete supported behavior in one "
-            "source-native claim."
+            "source-native artifact."
         ),
         generation_model="test-model",
         generation_prompt_id="source-native-legacy-migration-v1",
@@ -783,7 +1187,9 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
         source_record_id="rock_documentation:article:100",
         source_snapshot_id=snapshot.source_snapshot_id,
         source_snapshot_content_hash=snapshot.content_hash,
-        prior_artifact_id="source-native:claim:rock_documentation:article-100:old-key",
+        prior_artifact_id=(
+            f"source-native:{replacement_type}:rock_documentation:article-100:old-key"
+        ),
         prior_artifact_hash="4" * 64,
         replacement_artifact_id=reviewed.artifact_id,
         replacement_artifact_hash=public_record_hash(reviewed.artifact),
@@ -829,7 +1235,7 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
     )
 
     bundle, summary = build_canonical_knowledge_bundle(
-        search_rows=[claim_row],
+        search_rows=[search_row],
         distilled_claims=[],
         identity_registry=[row.public_dump() for row in legacy_bundle.identities],
         include_source_native_pilot=True,
@@ -843,13 +1249,7 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
     assert artifact_migration.prior_artifact_id in replacement.legacy_ids
     assert summary["input"]["reviewed_legacy_migrations"] == 1
     assert summary["input"]["reviewed_source_native_artifact_migrations"] == 1
-    assert (
-        summary["output"]["ingestion_modes"].get(
-            "legacy_reviewed_claim_projection",
-            0,
-        )
-        == 0
-    )
+    assert summary["output"]["ingestion_modes"].get(legacy_ingestion_mode, 0) == 0
     identity_migration = next(
         row
         for row in bundle.identity_migrations
@@ -868,28 +1268,31 @@ def test_canonical_migration_replaces_legacy_row_and_preserves_aliases(monkeypat
     )
     with pytest.raises(ValueError, match="content hash changed"):
         build_canonical_knowledge_bundle(
-            search_rows=[claim_row],
+            search_rows=[search_row],
             distilled_claims=[],
             identity_registry=[row.public_dump() for row in legacy_bundle.identities],
             include_source_native_pilot=True,
         )
 
-    unrelated_source_native = copy.deepcopy(source_native)
-    unrelated_source_native["source_snapshots"][0] = snapshot.model_copy(
-        update={
-            "canonical_url": (
-                "https://community.rockrms.com/documentation/different-article"
-            )
-        }
-    )
-    monkeypatch.setattr(
-        "rock_kb.canonical_knowledge.load_source_native_pilot",
-        lambda _repo_root: unrelated_source_native,
-    )
-    with pytest.raises(ValueError, match="source record changed"):
-        build_canonical_knowledge_bundle(
-            search_rows=[claim_row],
-            distilled_claims=[],
-            identity_registry=[row.public_dump() for row in legacy_bundle.identities],
-            include_source_native_pilot=True,
+    if legacy_kind == "claim":
+        unrelated_source_native = copy.deepcopy(source_native)
+        unrelated_source_native["source_snapshots"][0] = snapshot.model_copy(
+            update={
+                "canonical_url": (
+                    "https://community.rockrms.com/documentation/different-article"
+                )
+            }
         )
+        monkeypatch.setattr(
+            "rock_kb.canonical_knowledge.load_source_native_pilot",
+            lambda _repo_root: unrelated_source_native,
+        )
+        with pytest.raises(ValueError, match="source record changed"):
+            build_canonical_knowledge_bundle(
+                search_rows=[search_row],
+                distilled_claims=[],
+                identity_registry=[
+                    row.public_dump() for row in legacy_bundle.identities
+                ],
+                include_source_native_pilot=True,
+            )

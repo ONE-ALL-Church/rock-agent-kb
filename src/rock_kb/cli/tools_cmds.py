@@ -44,10 +44,17 @@ from ..source_native_migration import (
     SOURCE_NATIVE_LEGACY_MIGRATION_SCHEMA_PATH,
     build_source_native_legacy_migration_inputs,
     merge_source_native_legacy_migration_outputs,
+    promote_rebound_source_native_legacy_migrations,
     promote_source_native_legacy_migration,
     rebind_source_native_legacy_migration_output,
     write_source_native_legacy_migration_prompt,
     write_source_native_legacy_migration_schema,
+)
+from ..source_native_orchestrator import (
+    assemble_source_native_migration_batch,
+    prepare_source_native_migration_batch,
+    promote_validated_source_native_migration_batch,
+    validate_source_native_migration_batch_review,
 )
 from ..source_native_priority import (
     SOURCE_NATIVE_MIGRATION_PRIORITY_PATH,
@@ -715,6 +722,54 @@ def source_native_migration_rebind(
     )
 
 
+@app.command("source-native-migration-rebind-promote")
+def source_native_migration_rebind_promote(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Fresh migration input used by the validated rebind.",
+    ),
+    output_path: Path = typer.Option(
+        ...,
+        "--output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Validated rebound reviewed output.",
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+    base_dir: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--base",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+) -> None:
+    """Promote exact hash rebindings without recreating model artifacts."""
+
+    typer.echo(
+        json.dumps(
+            promote_rebound_source_native_legacy_migrations(
+                input_path=input_path,
+                output_path=output_path,
+                destination=destination,
+                base_dir=base_dir,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
 @app.command("source-native-presentation-rebind")
 def source_native_presentation_rebind(
     input_path: Path = typer.Option(
@@ -799,6 +854,229 @@ def source_native_migration_priority(
                 as_of=as_of_value,
                 limit=limit,
                 dashboard=dashboard,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-batch-prepare")
+def source_native_migration_batch_prepare(
+    destination: Path = typer.Option(
+        ...,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+        help="New ignored data/review directory for the immutable batch.",
+    ),
+    count: int = typer.Option(30, "--count", min=1, max=50),
+    max_risk: str = typer.Option(
+        "low",
+        "--max-risk",
+        help="Highest allowed deterministic risk class: low, standard, or high.",
+    ),
+    as_of: str | None = typer.Option(
+        None,
+        "--as-of",
+        help="Fixed UTC ISO-8601 priority time for reproducible selection.",
+    ),
+    priority_report: Path | None = typer.Option(
+        None,
+        "--priority-report",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Optional complete deterministic priority report to reuse.",
+    ),
+    source_id: list[str] = typer.Option(
+        [],
+        "--source-id",
+        help="Optionally restrict source families. Repeat as needed.",
+    ),
+    concept: list[str] = typer.Option(
+        [],
+        "--concept",
+        help="Optionally require at least one listed concept. Repeat as needed.",
+    ),
+    source_record_id: list[str] = typer.Option(
+        [],
+        "--source-record-id",
+        help="Optionally prepare these exact records in this exact order.",
+    ),
+    max_source_units_per_record: int = typer.Option(
+        200,
+        "--max-source-units-per-record",
+        min=1,
+        max=200,
+    ),
+) -> None:
+    """Prepare an immutable, risk-bounded batch; never invoke or approve a model."""
+
+    if max_risk not in {"low", "standard", "high"}:
+        raise typer.BadParameter(
+            "must be low, standard, or high",
+            param_hint="--max-risk",
+        )
+    typer.echo(
+        json.dumps(
+            prepare_source_native_migration_batch(
+                destination=destination,
+                count=count,
+                max_risk=max_risk,
+                as_of=as_of,
+                priority_report_path=priority_report,
+                source_ids=source_id,
+                concept_ids=concept,
+                exact_source_record_ids=source_record_id,
+                max_source_units_per_record=max_source_units_per_record,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-batch-assemble")
+def source_native_migration_batch_assemble(
+    batch_dir: Path = typer.Option(
+        ...,
+        "--batch",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    output: list[Path] = typer.Option(
+        ...,
+        "--output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Schema-constrained model output shard. Repeat for every shard.",
+    ),
+    model: str = typer.Option(
+        ...,
+        "--model",
+        help="Exact model identifier used to generate every supplied shard.",
+    ),
+) -> None:
+    """Assemble exact model shards and stop for explicit maintainer review."""
+
+    typer.echo(
+        json.dumps(
+            assemble_source_native_migration_batch(
+                batch_dir=batch_dir,
+                model_output_paths=output,
+                model=model,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-batch-validate")
+def source_native_migration_batch_validate(
+    batch_dir: Path = typer.Option(
+        ...,
+        "--batch",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    reviewed_output: Path = typer.Option(
+        ...,
+        "--reviewed-output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    review_decisions: Path = typer.Option(
+        ...,
+        "--review-decisions",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="One explicit, hash-bound maintainer decision per article.",
+    ),
+    judge_review: Path | None = typer.Option(
+        None,
+        "--judge-review",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Optional judge recommendations requiring exact adjudication.",
+    ),
+) -> None:
+    """Validate reviewed output and stop before the separate promotion command."""
+
+    typer.echo(
+        json.dumps(
+            validate_source_native_migration_batch_review(
+                batch_dir=batch_dir,
+                reviewed_output_path=reviewed_output,
+                review_decisions_path=review_decisions,
+                judge_review_path=judge_review,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-batch-promote")
+def source_native_migration_batch_promote(
+    batch_dir: Path = typer.Option(
+        ...,
+        "--batch",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    review_decisions: Path = typer.Option(
+        ...,
+        "--review-decisions",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+    base_dir: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--base",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+    reviewer: str = typer.Option(..., "--reviewer"),
+    model: str = typer.Option(..., "--model"),
+    reviewed_at: str = typer.Option(..., "--reviewed-at"),
+    judge_review: Path | None = typer.Option(
+        None,
+        "--judge-review",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+    ),
+) -> None:
+    """Explicitly promote the exact output bound to validated article reviews."""
+
+    typer.echo(
+        json.dumps(
+            promote_validated_source_native_migration_batch(
+                batch_dir=batch_dir,
+                review_decisions_path=review_decisions,
+                destination=destination,
+                base_dir=base_dir,
+                reviewer=reviewer,
+                model=model,
+                reviewed_at=reviewed_at,
+                judge_review_path=judge_review,
             ),
             ensure_ascii=False,
             indent=2,

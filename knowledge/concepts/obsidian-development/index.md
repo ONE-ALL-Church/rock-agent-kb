@@ -2,12 +2,12 @@
 id: concept-obsidian-development
 title: Obsidian Development
 generated: true
-last_built: 2026-08-12T03:17:17+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:22:01+00:00
+source_last_checked_at: 2026-08-12T06:13:23+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/47
 legacy_summary_retirement_coverage: 4/47
@@ -200,7 +200,7 @@ Keywords: `development environment, debugging, vscode, typescript`
 ## Source Lifecycle
 
 - Official article records routed here: `47`
-- Upstream check range: `2026-08-12T02:21:59+00:00` through `2026-08-12T02:22:01+00:00`
+- Upstream check range: `2026-08-12T06:13:20+00:00` through `2026-08-12T06:13:23+00:00`
 - Source-native typed articles: `4` of `47`
 - Legacy source summaries retired: `4`; still active: `43`
 - Migration status: `partial`

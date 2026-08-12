@@ -8,14 +8,26 @@ tags and follow semantic versioning for public client and service contracts.
 
 ### Changed
 
-- The reviewed source-native bundle now covers 87 official prose records and
-  498 typed artifacts. Apple TV articles 120, 128, 139, 146, and 173; Roku
-  articles 186, 315, and 318; and Helix articles 348 and 358 now use the
-  source-native path with 29 explicit legacy replacements and one reviewed
-  partial retention.
+- The reviewed source-native bundle now covers 147 official prose records,
+  2,889 addressable source units, and 603 typed artifacts, with 211 exact
+  legacy migrations and seven source-native artifact migrations. Knowledge is
+  distilled from each complete source record; legacy rows are used only to
+  prevent silent loss and bind explicit replacement decisions.
+- A corrected 30-record low-risk Apple TV pilot processed 269 source units into
+  44 reviewed artifacts and replaced all 30 selected legacy records. Explicit
+  review changed nine articles across 37 paths and raised 15 verification
+  requests; every request was resolved against current official documentation
+  or immutable public source before promotion.
+- Apple TV articles 120, 128, 139, 146, and 173; Roku articles 186, 315, and
+  318; and Helix articles 348 and 358 now use the source-native path with 29
+  explicit legacy replacements and one reviewed partial retention.
 - The Rock developer-documentation source was refreshed from its public API;
   generated source summaries, concept indexes, and dependency metadata now
   reflect the current 361-record normalized projection.
+- The Rock mobile-documentation API source now contains 277 current records.
+  The refresh adds Pre-Release Testing and Render Pipeline, expands Deep
+  Linking, and rebuilds the mobile selector audit, search index, guides, agent
+  pack, and public export from the reviewed source inputs.
 
 ### Fixed
 
@@ -24,6 +36,23 @@ tags and follow semantic versioning for public client and service contracts.
 - Source-native model-output merging preserves required nullable contract
   fields, and migration promotion preserves hash-matching verification
   resolutions while appending a reviewed batch.
+- Metadata-only refreshes of legacy source-summary projections now use an
+  explicit fail-closed, transactional rebind path. It independently verifies
+  the current legacy projection, updates only reviewed legacy hash and input
+  bindings, replaces the complete canonical directory, and restores the prior
+  bundle if installation fails.
+- Hydrated migration risk policy v8 recognizes persistent mutation contracts,
+  HTTP mutation routes, and permission-gated administration surfaces. Applying
+  the corrected policy to the first 30-record pilot classifies 27 records as
+  low risk and three as high risk; all three had already received explicit
+  maintainer review, but they are no longer represented as low-risk evidence.
+- Automatic low-risk batches screen the full bounded hydration reserve before
+  failing an exact requested count, so more than 20 elevated records cannot
+  hide later eligible records in the same deterministic queue.
+- Batch policy v3 may preflight API records whose only deterministic uncertainty
+  is a thin preview or broad table of contents. Final low-risk selection still
+  requires the exact hydrated article to pass every low-risk check and retains
+  both risk decisions; all other standard and high-risk reasons remain strict.
 - Exact independent questions now retain precedence over nearby paraphrases,
   while high-overlap source-native recipes can outrank generic task cards for
   matching how-to questions without receiving an unconditional recipe boost.

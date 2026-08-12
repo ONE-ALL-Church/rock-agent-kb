@@ -223,6 +223,7 @@ uv run kb tools source-native-migration-prompt --input <migration-input.jsonl> -
 uv run kb tools source-native-migration-merge --input <migration-input.jsonl> --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-migration-promote --input <migration-input.jsonl> --output <reviewed-output.json> --generated-output <generated-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-migration-rebind --previous-input <previous-input.jsonl> --refreshed-input <refreshed-input.jsonl> --output <reviewed-output.json> --destination <rebound-output.json>
+uv run kb tools source-native-migration-rebind-promote --input <refreshed-input.jsonl> --output <rebound-output.json> --base canonical/source-native/v1 --destination canonical/source-native/v1
 uv run kb tools source-native-migration-priority --as-of <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
 uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
@@ -307,6 +308,10 @@ reviewed output first, allows only legacy content and migration hash changes,
 and requires any already materialized artifact to match the reviewed stable ID
 and semantic hash. A content, routing, relationship, or identity change fails
 and must return to review.
+`source-native-migration-rebind-promote` is the explicit write boundary for a
+validated rebind. It changes only legacy hash bindings and the bundle manifest;
+all reviewed knowledge, relationships, and model-generation metadata must match
+the canonical bundle exactly.
 
 `source-native-migration-priority` writes an ignored, deterministic queue for
 the remaining official prose migration debt. It reads the hosted operations
@@ -318,7 +323,12 @@ count, exact evaluation demand, verification debt, source-native coverage, and
 source freshness. Current reviewed source-native concepts are authoritative;
 otherwise the report combines API branch routing, normalized topics, bounded
 lexical matches, and still-supported legacy facets, with at most three concept
-suggestions. Overdue sources receive `refresh_source_first`, prior
+suggestions. It uses the strongest available routing-evidence tier instead of
+padding explicit path/topic routes with weaker lexical matches. Each route
+records its method and aggregate confidence. Only
+complete high-confidence routing can enter a low-risk batch; medium,
+lexical-only, mixed, or missing provenance requires stronger review. Overdue
+sources receive `refresh_source_first`, prior
 migration-wrapper records with intentionally retained rows are excluded, and
 same-family legacy hash IDs can reconcile to current article IDs only through
 an exact canonical URL. Unresolved removed or relocated URLs remain explicit.
@@ -326,6 +336,40 @@ Outcome signals are result-ID-only and advisory: they never copy raw queries,
 organization identifiers, or private Rock data. Each occurrence adds a bounded
 weight, capped at three occurrences, so field demand can break close ties but
 cannot override freshness or missing concept-routing gates.
+
+This queue is legacy-seeded and is not a whole-source completeness report. The
+migration compiler re-distills every source unit in a selected record and may
+add typed knowledge that legacy never represented, but records with no active
+legacy projection require a separate supported-source coverage audit and the
+ordinary source-native distillation path.
+
+`source-native-migration-batch-prepare` converts a complete priority report
+into an immutable, risk-bounded private packet with exact per-record concept
+routing and one prompt per source record. It requires a clean tracked tree,
+rejects truncated queues, stale or missing identities, changed hashes, partial
+hydration, unsupported source shape, legacy/source identity mismatches, and
+records above the 200-unit response contract. Editorial community sources,
+internal mutable APIs, write requirements, and compatibility warnings cannot
+be classified as low risk. API-backed prose must also have an exact article
+identity rather than a static discovery or landing-page hash. Repeating the
+same preparation is a no-op only when every base, selection, prompt, schema,
+source, and file hash still matches.
+`source-native-migration-batch-assemble` enforces exact schema-constrained model
+coverage, records the exact generation model, and stops at
+`awaiting_maintainer_review`. Low-risk assembly rejects unmatched routing terms
+instead of allowing a reviewer to force them into an unrelated concept.
+`source-native-migration-batch-validate` requires a separate reviewed output and
+one hash-bound maintainer decision per article. Optional judge recommendations
+must all be explicitly adjudicated. It emits categorized correction and
+available throughput/cost evidence, then stops at
+`ready_for_explicit_promotion`. None of those automatic phases can approve,
+promote, publish, deploy, or write externally. The separate
+`source-native-migration-batch-promote` command is an explicit maintainer write:
+it revalidates the content-addressed manifest and exact reviewed output,
+decisions, judge review, comparison report, model, reviewer, and timestamp,
+then uses a rollback-journaled directory replacement instead of file-by-file
+canonical writes. Follow `docs/runbooks/source-native-migration-batches.md`,
+then run the remaining release gates separately.
 
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.

@@ -2,15 +2,15 @@
 id: concept-mobile
 title: Rock Mobile
 generated: true
-last_built: 2026-08-12T03:17:20+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-02T01:29:51+00:00
+source_last_checked_at: 2026-08-12T11:27:24+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 4/275
-legacy_summary_retirement_coverage: 0/275
+source_native_article_coverage: 4/277
+legacy_summary_retirement_coverage: 0/277
 depends_on_topics:
   - api
   - check-in
@@ -180,8 +180,8 @@ Keywords: `release, ios, android, minimum`
 | Migrating to .NET MAUI (V6) | rock_mobile_docs | A helpful guide to follow when upgrading your Rock Mobile Xamarin Forms application (V5 and lower) to .NET MAUI (V6 and later). ## What? Why? In May of 2024, [Xamarin Forms](https://dotnet.microsoft.com/en-us/apps/xamarin/xamarin-forms), the foundation of Rock Mobile, will [lose support](https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin) from Microsoft. This is why, in Rock Mobile V6, we will be... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6) |
 | Context Menu | rock_mobile_docs | Display a native context menu that can be attached to nearly any control. A popular pattern in mobile development is attaching a native menu to a control that opens with a tap or long press. With Rock Mobile, this is not only easy to implement but also highly customizable! Note Due to limitations on Android, these are *more* fleshed out on iOS. We didn't want to take the native iOS features away, so some properties... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu) |
 | Legacy | rock_mobile_docs | This contains the styling documentation for applications targeting a Rock version <17 or mobile shell version <6. [Colors](/documentation/mobile-docs/styling/legacy/colors) [Borders](/documentation/mobile-docs/styling/legacy/borders) [Text](/documentation/mobile-docs/styling/legacy/text) [iOS Shadows](/documentation/mobile-docs/styling/legacy/ios-shadows) [Styling... | [source](https://community.rockrms.com/developer/mobile-docs/styling/legacy) |
+| Pre-Release Testing | rock_mobile_docs | *Rock Mobile Latest (the "blue app") has been retired as our pre-release distribution method as of July 2026.* Pre-release builds are distributed through the orange **Rock Core** app with the platforms Apple and Google provide: 1. **TestFlight** for iOS 2. **Firebase App Distribution** for Android ## How pre-release testing will work When a new Rock version is released, we'll plan to make the **next major and next... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/pre-release-testing) |
 | 🏭 App Factory | rock_mobile_docs | Compiling the shell and publishing apps to the stores is a complicated process that requires a good deal of technical proficiency. Because most churches aren't equipped to do this on their own, Spark has partnered with Triumph Tech to provide the [App Factory service plan](https://www.triumph.tech/app-factory) to make this process easy for you. Whether the apps are hosted under your developer store accounts or under... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory) |
-| Shell Components | rock_mobile_docs | How to style various elements of the shell. ## Status Bar The Status Bar is part of the mobile operation that shows the time and status of things like the cellular signal and battery. Your application doesn't have much control of this area of the display, but you can set the color of the foreground using the CSS below. ``` NavigationPage { -rock-status-bar-text: light; } ``` *(Valid values: light, dark)* ##... | [source](https://community.rockrms.com/developer/mobile-docs/styling/style-guide/shell-components) |
 
 ### App Publishing
 
@@ -198,7 +198,7 @@ Keywords: `app factory, app store, google play, publish, publishing, store listi
 | Store Graphics & Icons | rock_mobile_docs | ### Launch Image The launch screen, commonly referred to as the splash screen, is the static visual that appears instantly when a user opens an app, filling the gap while the app loads in the background. App Factory utilizes a **2048x2048** graphic resolution with a safe area of **720x1440.** ### App Icons Your app icon is a crucial aspect of your app’s branding. It appears on the Home Screen and in key locations... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/store-graphics-icons) |
 | Deploying Your App | rock_mobile_docs | ## Deployment Navigating to the **Application** page for your app shows the deployment status in the top right. New apps start as Not Deployed, so you'll need to click the **Deploy** button in the bottom right corner to test your app. The first deploy may take a few moments, but generally this process happens quickly. Note that making changes to the app (like adding new pages and blocks or changing block settings... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app) |
 | Image Resources | rock_mobile_docs | When publishing a Rock Mobile app with App Factory, additional image resources can be provided and compiled into the shell that goes into the app stores. The advantage of this feature is that the images are not loaded over the network, improving performance in load time and avoiding pop-ins. This also means that the images are not processed on the server (or if using a CDN), so desired optimizations must be applied... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources) |
-| 🏭 App Factory | rock_mobile_docs | Compiling the shell and publishing apps to the stores is a complicated process that requires a good deal of technical proficiency. Because most churches aren't equipped to do this on their own, Spark has partnered with Triumph Tech to provide the [App Factory service plan](https://www.triumph.tech/app-factory) to make this process easy for you. Whether the apps are hosted under your developer store accounts or under... | [source](https://community.rockrms.com/developer/mobile-docs/app-factory) |
+| App Configuration | rock_mobile_docs | Now it's time to configure your app. There are some options that are not covered below; they are beyond the scope of this walkthrough. Start by filling in the **Application Name** and optional **Description**. Note Don't worry too much about the name you enter. It will be used to identify your application in Rock but has no effect on the official app name once deployed to the app stores. ## Application Type You have... | [source](https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration) |
 
 
 ## Lava Capability References
@@ -212,10 +212,10 @@ This concept depends on the generated Lava capability layer. Agents should use t
 
 ## Source Lifecycle
 
-- Official article records routed here: `275`
-- Upstream check range: `2026-07-10T17:16:07+00:00` through `2026-08-02T01:29:51+00:00`
-- Source-native typed articles: `4` of `275`
-- Legacy source summaries retired: `0`; still active: `275`
+- Official article records routed here: `277`
+- Upstream check range: `2026-08-12T11:27:08+00:00` through `2026-08-12T11:27:24+00:00`
+- Source-native typed articles: `4` of `277`
+- Legacy source summaries retired: `0`; still active: `277`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

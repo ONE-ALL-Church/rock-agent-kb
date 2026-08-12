@@ -5,7 +5,7 @@ import json
 import re
 import shutil
 from collections import Counter
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -48,7 +48,7 @@ from .source_native_verification import (
 SOURCE_NATIVE_PILOT_DIR = REPO_ROOT / "canonical" / "source-native" / "v1"
 SOURCE_NATIVE_REVIEW_DIR = REVIEW_DIR / "source-native-pilot"
 SOURCE_NATIVE_PROMPT_ID = "source-knowledge-distillation-v2.3"
-SOURCE_NATIVE_PROMPT_VERSION = "2.3.2"
+SOURCE_NATIVE_PROMPT_VERSION = "2.3.3"
 SOURCE_NATIVE_INPUT_HASH_VERSION = "2"
 SOURCE_NATIVE_MAX_UNITS_PER_CANDIDATE = 200
 SOURCE_NATIVE_PROMPT_PATH = (
@@ -451,6 +451,7 @@ def load_source_unit_split_rules(
             raise ValueError(f"{path}:{line_number} has an unsupported schema")
         if rule.get("strategy") not in {
             "causal_clause",
+            "coordinated_clause",
             "sentence",
             "contrast_clause",
             "shared_subject_and_clause",
@@ -524,6 +525,8 @@ def apply_source_unit_split_rules(
                 split_blocks = split_paragraph_shared_subject_and_block(block)
             elif strategy == "parenthetical_navigation":
                 split_blocks = split_paragraph_parenthetical_navigation_block(block)
+            elif strategy == "coordinated_clause":
+                split_blocks = split_paragraph_coordinated_clause_block(block)
             else:
                 split_blocks = split_paragraph_causal_clause_block(block)
         else:
@@ -732,6 +735,30 @@ def split_paragraph_causal_clause_block(
     ]
 
 
+def split_paragraph_coordinated_clause_block(
+    block: dict[str, Any],
+) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    clauses = split_reviewed_coordinated_clauses(text)
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": clauses[0]},
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:coordinated:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
 def split_reviewed_contrast_clauses(value: str) -> list[str]:
     depth = 0
     lower = value.lower()
@@ -827,6 +854,34 @@ def split_reviewed_causal_clauses(value: str) -> list[str]:
         left = value[:index].strip()
         right = value[index + 5 :].strip()
         if len(left) < 20 or len(right) < 20:
+            continue
+        left = left if left.endswith((".", "!", "?")) else f"{left}."
+        right = right if right.endswith((".", "!", "?")) else f"{right}."
+        return [left, f"{right[0].upper()}{right[1:]}"]
+    return [value]
+
+
+def split_reviewed_coordinated_clauses(value: str) -> list[str]:
+    depth = 0
+    lower = value.lower()
+    for index, character in enumerate(value):
+        if character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        if depth or not lower.startswith(", and ", index):
+            continue
+        left = value[:index].strip()
+        right = value[index + 6 :].strip()
+        if (
+            len(left) < 20
+            or len(right) < 20
+            or not re.match(
+                r"^(?:i|we|you|he|she|they|it|this|these|those)(?:\b|['’])",
+                right,
+                flags=re.IGNORECASE,
+            )
+        ):
             continue
         left = left if left.endswith((".", "!", "?")) else f"{left}."
         right = right if right.endswith((".", "!", "?")) else f"{right}."
@@ -1023,6 +1078,7 @@ def build_source_native_document_candidates(
     limit_per_concept: int = SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
     source_ids: Iterable[str] = SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
     source_record_ids: Iterable[str] | None = None,
+    source_record_concept_ids: Mapping[str, Iterable[str]] | None = None,
     destination: Path = SOURCE_NATIVE_REVIEW_DIR,
     previous_dir: Path = SOURCE_NATIVE_PILOT_DIR,
     checked_at: str | None = None,
@@ -1097,6 +1153,7 @@ def build_source_native_document_candidates(
                 limit_per_concept=limit_per_concept,
                 source_ids=requested_source_ids,
                 source_record_ids=requested_record_ids,
+                source_record_concept_ids=source_record_concept_ids,
                 destination=destination,
                 candidate_path=candidate_path,
                 previous_dir=previous_dir,
@@ -1115,6 +1172,7 @@ def build_source_native_document_candidates(
         limit_per_concept=limit_per_concept,
         source_ids=requested_source_ids,
         source_record_ids=requested_record_ids,
+        source_record_concept_ids=source_record_concept_ids,
         destination=destination,
         candidate_path=candidate_path,
         previous_dir=previous_dir,
@@ -1131,6 +1189,7 @@ def _build_source_native_document_candidates(
     limit_per_concept: int,
     source_ids: list[str],
     source_record_ids: list[str],
+    source_record_concept_ids: Mapping[str, Iterable[str]] | None,
     destination: Path,
     candidate_path: Path,
     previous_dir: Path,
@@ -1169,6 +1228,7 @@ def _build_source_native_document_candidates(
         require_full_text=True,
         source_ids=source_ids,
         source_record_ids=source_record_ids,
+        source_record_concept_ids=source_record_concept_ids,
     )
     snapshots: list[SourceSnapshot] = []
     units: list[SourceUnit] = []

@@ -136,6 +136,15 @@ presenting a mixed bundle as one generation run. Per-artifact concept lists
 remain bounded at 20; the manifest's aggregate concept inventory is separately
 bounded for repository-scale coverage.
 
+Migration is source-first, not a same-type rewrite. Re-read every deterministic
+unit in the current source and allow useful typed artifacts with no legacy
+equivalent. Treat legacy rows as a loss-prevention ledger. In particular, a
+legacy source summary can resolve through its public alias to a claim, task
+card, recipe, structured reference, or genuine source summary when that primary
+independently preserves the useful landing value. Source-registry topics are
+source-wide metadata and need article-local corroboration before they qualify
+as high-confidence concept routes.
+
 Select a bounded migration batch before building private review inputs:
 
 ```bash
@@ -156,6 +165,16 @@ for a reproducible snapshot or `--no-hosted-dashboard` while offline.
 Result-ID-only outcome signals are advisory and privacy-bounded; their score is
 capped so they can prioritize a real field gap without overruling freshness or
 concept-routing gates.
+
+For routine legacy migration waves, use the fail-closed batch coordinator in
+[`source-native-migration-batches.md`](source-native-migration-batches.md). It
+preserves exact per-record concept routing, prepares one immutable model packet
+per article, records machine-readable correction metrics, and requires one
+hash-bound maintainer decision per article. The coordinator ends at
+`ready_for_explicit_promotion`; it never invokes a model, approves output,
+promotes knowledge, rebuilds public projections, deploys, or writes externally.
+The commands below remain the lower-level manual workflow and the separate
+promotion boundary.
 
 Build deterministic private review inputs from the Rockumentation API:
 
@@ -180,8 +199,11 @@ records, and always provide the reviewed `--concept` routing facets in the same
 command. Exact selection fails closed without an explicit concept so the pilot
 defaults cannot silently misroute a migration. Exact record IDs are explicit
 routing decisions and are not dropped because their normalized summary has a
-low concept score. Records surfaced under multiple concepts are coalesced into
-one candidate with multiple concept facets.
+low concept score. Programmatic batch preparation supplies a validated
+per-record concept map; passing the union of a batch's concepts to every exact
+record is invalid because it would over-route unrelated articles. Records
+surfaced under multiple concepts are coalesced into one candidate with only
+their reviewed concept facets.
 
 The parser assigns stable IDs before model review to sentences, tables, code
 blocks, and individual list items. Nested field catalogs are separate child
@@ -330,6 +352,11 @@ uv run kb tools source-native-migration-rebind \
   --refreshed-input <refreshed-migration-input.jsonl> \
   --output <reviewed-output.json> \
   --destination <rebound-reviewed-output.json>
+uv run kb tools source-native-migration-rebind-promote \
+  --input <refreshed-migration-input.jsonl> \
+  --output <rebound-reviewed-output.json> \
+  --base canonical/source-native/v1 \
+  --destination canonical/source-native/v1
 ```
 
 The command first validates the prior review against its original input. It
@@ -338,6 +365,9 @@ approved artifacts may be materialized only when their stable IDs and semantic
 hashes exactly match the reviewed output. Any source, source-unit, artifact,
 retrieval text, concept, relationship, or identity change fails closed and
 requires a new review.
+The separate promotion command updates only the validated legacy and migration
+hash bindings plus the signed manifest. It does not recreate artifacts,
+generation activities, prompt metadata, review timestamps, or relationships.
 
 After promotion, rebuild the identity baseline and run the production-worker
 retrieval shadow. A migration batch is not releasable unless verification has

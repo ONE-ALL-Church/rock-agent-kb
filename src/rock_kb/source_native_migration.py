@@ -27,7 +27,7 @@ from .schemas.source_native import SourceNativeDistillationArticle
 SOURCE_NATIVE_LEGACY_MIGRATIONS_NAME = "legacy-migrations.jsonl"
 SOURCE_NATIVE_ARTIFACT_MIGRATIONS_NAME = "artifact-migrations.jsonl"
 SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_ID = "source-native-legacy-migration-v1"
-SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_VERSION = "1.3.1"
+SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_VERSION = "1.3.3"
 SOURCE_NATIVE_LEGACY_MIGRATION_INPUT_HASH_VERSION = "2"
 SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR = (
     REVIEW_DIR / "source-native-legacy-migration"
@@ -85,6 +85,63 @@ def matching_source_record_ids(
         if record_id.startswith(f"{source_id}:") and candidate_urls.intersection(urls)
     )
     return matches
+
+
+def _active_legacy_projection(
+    repo_root: Path = REPO_ROOT,
+) -> tuple[dict[str, list[dict[str, Any]]], dict[str, set[str]]]:
+    """Reconstruct current pre-retirement legacy rows from canonical inputs."""
+
+    from .canonical_knowledge import build_canonical_knowledge_bundle
+
+    bundle, _summary = build_canonical_knowledge_bundle(
+        identity_registry=[],
+        include_source_native_pilot=False,
+        include_legacy_migrations=False,
+        include_reviewed_cross_source=True,
+        repo_root=repo_root,
+    )
+    snapshots_by_id = {
+        row.source_snapshot_id: row for row in bundle.source_snapshots
+    }
+    units_by_id = {row.source_unit_id: row for row in bundle.source_units}
+    legacy_urls_by_record = source_record_urls_by_id(bundle.source_snapshots)
+    active_legacy_by_record: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for item in bundle.knowledge_units:
+        if item.ingestion_mode not in {
+            "legacy_reviewed_claim_projection",
+            "legacy_summary_projection",
+        }:
+            continue
+        if item.knowledge_type not in {"claim", "source_summary"}:
+            continue
+        source_record_ids = sorted(
+            {
+                str(snapshot.source_record_id)
+                for source_unit_id in item.source_unit_ids
+                if (source_unit := units_by_id.get(source_unit_id))
+                and (
+                    snapshot := snapshots_by_id.get(
+                        source_unit.source_snapshot_id
+                    )
+                )
+                and snapshot.source_record_id
+            }
+        )
+        public_item = {
+            "legacy_knowledge_unit_id": item.knowledge_unit_id,
+            "legacy_result_ids": sorted({item.knowledge_unit_id, *item.legacy_ids}),
+            "legacy_knowledge_type": item.knowledge_type,
+            "legacy_ingestion_mode": item.ingestion_mode,
+            "legacy_content_hash": item.content_hash,
+            "title": item.title,
+            "retrieval_text": item.retrieval_text,
+            "concept_facets": item.concept_facets,
+            "source_record_ids": source_record_ids,
+        }
+        for source_record_id in source_record_ids:
+            active_legacy_by_record[source_record_id].append(public_item)
+    return active_legacy_by_record, legacy_urls_by_record
 
 
 def source_native_legacy_migration_input_hash(
@@ -169,7 +226,6 @@ def build_source_native_legacy_migration_inputs(
 ) -> dict[str, Any]:
     """Join private source inputs to active legacy rows and reviewed replacements."""
 
-    from .canonical_knowledge import build_canonical_knowledge_bundle
     from .source_native import load_source_native_pilot
 
     candidates = list(read_jsonl(source_native_input_path))
@@ -179,48 +235,9 @@ def build_source_native_legacy_migration_inputs(
     # Reconstruct the pre-retirement surface. The persisted identity baseline may
     # already transfer legacy aliases to source-native survivors, so it cannot be
     # used to refresh the hash-bound migration that authorized that transfer.
-    bundle, _summary = build_canonical_knowledge_bundle(
-        identity_registry=[],
-        include_source_native_pilot=False,
-        include_legacy_migrations=False,
-        include_reviewed_cross_source=True,
-        repo_root=repo_root,
+    active_legacy_by_record, legacy_urls_by_record = _active_legacy_projection(
+        repo_root
     )
-    snapshots_by_id = {row.source_snapshot_id: row for row in bundle.source_snapshots}
-    units_by_id = {row.source_unit_id: row for row in bundle.source_units}
-    legacy_urls_by_record = source_record_urls_by_id(bundle.source_snapshots)
-
-    active_legacy_by_record: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for item in bundle.knowledge_units:
-        if item.ingestion_mode not in {
-            "legacy_reviewed_claim_projection",
-            "legacy_summary_projection",
-        }:
-            continue
-        if item.knowledge_type not in {"claim", "source_summary"}:
-            continue
-        source_record_ids = sorted(
-            {
-                str(snapshot.source_record_id)
-                for source_unit_id in item.source_unit_ids
-                if (source_unit := units_by_id.get(source_unit_id))
-                and (snapshot := snapshots_by_id.get(source_unit.source_snapshot_id))
-                and snapshot.source_record_id
-            }
-        )
-        public_item = {
-            "legacy_knowledge_unit_id": item.knowledge_unit_id,
-            "legacy_result_ids": sorted({item.knowledge_unit_id, *item.legacy_ids}),
-            "legacy_knowledge_type": item.knowledge_type,
-            "legacy_ingestion_mode": item.ingestion_mode,
-            "legacy_content_hash": item.content_hash,
-            "title": item.title,
-            "retrieval_text": item.retrieval_text,
-            "concept_facets": item.concept_facets,
-            "source_record_ids": source_record_ids,
-        }
-        for source_record_id in source_record_ids:
-            active_legacy_by_record[source_record_id].append(public_item)
 
     source_native = load_source_native_pilot(repo_root)
     native_snapshots = {
@@ -507,18 +524,6 @@ def validate_source_native_legacy_migration_output(
             legacy_type = str(
                 legacy_by_id[legacy_id].get("legacy_knowledge_type") or ""
             )
-            if (
-                decision.disposition == "replace"
-                and legacy_type == "source_summary"
-                and artifacts_by_key[
-                    str(decision.replacement_artifact_key)
-                ].artifact_type
-                != "source_summary"
-            ):
-                raise ValueError(
-                    "legacy source summaries require a source-summary primary "
-                    f"replacement: {legacy_id}"
-                )
             if legacy_type == "claim" and decision.supporting_replacement_artifact_keys:
                 raise ValueError(
                     f"legacy claims cannot use supporting replacements: {legacy_id}"
@@ -638,8 +643,12 @@ def rebind_source_native_legacy_migration_output(
 
     previous_inputs = list(read_jsonl(previous_input_path))
     refreshed_inputs = list(read_jsonl(refreshed_input_path))
+    raw_output = json.loads(output_path.read_text(encoding="utf-8"))
+    materialized_nullable_field_count = (
+        _materialize_historical_migration_nullable_fields(raw_output)
+    )
     reviewed_output = validate_source_native_legacy_migration_output(
-        json.loads(output_path.read_text(encoding="utf-8")),
+        raw_output,
         inputs=previous_inputs,
     )
     previous_by_id = {str(row["candidate_id"]): row for row in previous_inputs}
@@ -649,7 +658,7 @@ def rebind_source_native_legacy_migration_output(
             "refreshed migration input must preserve candidate IDs and order"
         )
 
-    rebound = reviewed_output.public_dump()
+    rebound = reviewed_output.model_dump(by_alias=True, exclude_none=False)
     changed_legacy_hash_count = 0
     materialized_artifact_count = 0
     for article in rebound["articles"]:
@@ -687,13 +696,14 @@ def rebind_source_native_legacy_migration_output(
         refreshed_existing = refreshed.get("existing_source_native_artifacts") or []
         if previous_existing != refreshed_existing:
             snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
-            reviewed_artifacts = {
-                source_native_artifact_id(
-                    snapshot,
-                    SourceNativeArtifactCandidate.model_validate(artifact),
-                ): artifact
-                for artifact in article.get("artifacts") or []
-            }
+            reviewed_artifacts = {}
+            for artifact_payload in article.get("artifacts") or []:
+                artifact = SourceNativeArtifactCandidate.model_validate(
+                    artifact_payload
+                )
+                reviewed_artifacts[
+                    source_native_artifact_id(snapshot, artifact)
+                ] = artifact
             refreshed_existing_by_id = {
                 str(row["artifact_id"]): row for row in refreshed_existing
             }
@@ -717,7 +727,7 @@ def rebind_source_native_legacy_migration_output(
                         "existing_artifact_id": artifact_id,
                         "existing_artifact_hash": expected_hash,
                         "disposition": "retain_identity",
-                        "replacement_artifact_key": artifact["artifact_key"],
+                        "replacement_artifact_key": artifact.artifact_key,
                         "rationale": (
                             "The current source-native artifact exactly matches the "
                             "reviewed output, so its stable identity is retained."
@@ -733,7 +743,7 @@ def rebind_source_native_legacy_migration_output(
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
         json.dumps(
-            validated.public_dump(),
+            validated.model_dump(by_alias=True, exclude_none=False),
             ensure_ascii=False,
             indent=2,
             sort_keys=True,
@@ -747,8 +757,33 @@ def rebind_source_native_legacy_migration_output(
         "article_count": len(validated.articles),
         "changed_legacy_hash_count": changed_legacy_hash_count,
         "materialized_artifact_count": materialized_artifact_count,
+        "materialized_nullable_field_count": materialized_nullable_field_count,
         "destination": str(destination),
     }
+
+
+def _materialize_historical_migration_nullable_fields(output: dict[str, Any]) -> int:
+    """Normalize archived reviewed output without inferring non-null values."""
+
+    count = 0
+    for article in output.get("articles") or []:
+        if not isinstance(article, dict):
+            continue
+        for artifact in article.get("artifacts") or []:
+            if not isinstance(artifact, dict):
+                continue
+            for field_name in ("claim_type", "evidence_class"):
+                if field_name not in artifact:
+                    artifact[field_name] = None
+                    count += 1
+        for decision in article.get("legacy_decisions") or []:
+            if (
+                isinstance(decision, dict)
+                and "replacement_artifact_key" not in decision
+            ):
+                decision["replacement_artifact_key"] = None
+                count += 1
+    return count
 
 
 def _migration_rebind_stable_payload(row: dict[str, Any]) -> str:
@@ -770,7 +805,325 @@ def _migration_rebind_stable_payload(row: dict[str, Any]) -> str:
         }
         for legacy in row.get("legacy_items") or []
     ]
+    snapshot = dict(payload.get("source_snapshot") or {})
+    snapshot.pop("last_checked_at", None)
+    snapshot.pop("observation_status", None)
+    payload["source_snapshot"] = snapshot
     return canonical_json(payload)
+
+
+def _rebind_promotion_journal_path(destination: Path) -> Path:
+    return destination.parent / f".{destination.name}.rebind-promotion-journal.json"
+
+
+def _write_rebind_promotion_journal(
+    path: Path,
+    payload: dict[str, Any],
+) -> None:
+    temporary = path.with_name(f"{path.name}.tmp")
+    temporary.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
+def _validated_rebind_sibling(
+    value: str,
+    destination: Path,
+    role: str,
+) -> Path:
+    path = Path(value).resolve()
+    expected_prefix = f".{destination.name}.rebind-promotion-{role}-"
+    if path.parent != destination.parent or not path.name.startswith(
+        expected_prefix
+    ):
+        raise ValueError(f"invalid rebind promotion {role} path")
+    return path
+
+
+def _recover_rebind_promotion(destination: Path) -> None:
+    journal_path = _rebind_promotion_journal_path(destination)
+    if not journal_path.exists():
+        return
+    journal = json.loads(journal_path.read_text(encoding="utf-8"))
+    if journal.get("schema") != (
+        "rock-kb-source-native-rebind-promotion-journal-v1"
+    ):
+        raise ValueError("unknown rebind promotion journal schema")
+    if Path(str(journal.get("destination") or "")).resolve() != destination:
+        raise ValueError("rebind promotion journal destination changed")
+    staging = _validated_rebind_sibling(
+        str(journal.get("staging") or ""), destination, "staging"
+    )
+    backup_value = str(journal.get("backup") or "")
+    backup = (
+        _validated_rebind_sibling(backup_value, destination, "backup")
+        if backup_value
+        else None
+    )
+    if destination.exists():
+        if backup and backup.exists():
+            shutil.rmtree(backup)
+    elif backup and backup.exists():
+        backup.replace(destination)
+    elif journal.get("phase") == "new_installed":
+        raise ValueError("completed rebind promotion destination disappeared")
+    if staging.exists():
+        shutil.rmtree(staging)
+    journal_path.unlink(missing_ok=True)
+
+
+def _install_rebound_bundle_transactionally(
+    *,
+    staging: Path,
+    destination: Path,
+) -> None:
+    destination = destination.resolve()
+    _recover_rebind_promotion(destination)
+    backup = Path(
+        tempfile.mkdtemp(
+            prefix=f".{destination.name}.rebind-promotion-backup-",
+            dir=destination.parent,
+        )
+    ).resolve()
+    backup.rmdir()
+    journal_path = _rebind_promotion_journal_path(destination)
+    journal = {
+        "schema": "rock-kb-source-native-rebind-promotion-journal-v1",
+        "phase": "staged",
+        "destination": str(destination),
+        "staging": str(staging),
+        "backup": str(backup) if destination.exists() else None,
+    }
+    try:
+        _write_rebind_promotion_journal(journal_path, journal)
+        if destination.exists():
+            destination.replace(backup)
+            journal["phase"] = "old_moved"
+            _write_rebind_promotion_journal(journal_path, journal)
+        staging.replace(destination)
+        journal["phase"] = "new_installed"
+        _write_rebind_promotion_journal(journal_path, journal)
+        if backup.exists():
+            shutil.rmtree(backup)
+        journal_path.unlink(missing_ok=True)
+    except Exception:
+        _recover_rebind_promotion(destination)
+        raise
+
+
+def promote_rebound_source_native_legacy_migrations(
+    *,
+    input_path: Path,
+    output_path: Path,
+    destination: Path,
+    base_dir: Path,
+    repo_root: Path = REPO_ROOT,
+) -> dict[str, Any]:
+    """Promote hash-only rebindings without recreating reviewed knowledge."""
+
+    from .source_native import (
+        PILOT_FILE_NAMES,
+        load_source_native_pilot_directory,
+        source_native_artifact_id,
+        write_source_native_manifest,
+    )
+
+    destination = destination.resolve()
+    base_dir = base_dir.resolve()
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    _recover_rebind_promotion(destination)
+    inputs = list(read_jsonl(input_path))
+    reviewed_output = validate_source_native_legacy_migration_output(
+        json.loads(output_path.read_text(encoding="utf-8")),
+        inputs=inputs,
+    )
+    active_by_record, _active_urls = _active_legacy_projection(repo_root)
+    active_by_id: dict[str, dict[str, Any]] = {}
+    for rows in active_by_record.values():
+        for row in rows:
+            legacy_id = str(row["legacy_knowledge_unit_id"])
+            existing = active_by_id.get(legacy_id)
+            if existing is not None and existing != row:
+                raise ValueError(
+                    f"active legacy projection conflicts for {legacy_id}"
+                )
+            active_by_id[legacy_id] = row
+    for input_row in inputs:
+        legacy_items = input_row.get("legacy_items") or []
+        if len(legacy_items) != len(
+            {str(row["legacy_knowledge_unit_id"]) for row in legacy_items}
+        ):
+            raise ValueError("migration rebind input repeats a legacy item")
+        for legacy in legacy_items:
+            legacy_id = str(legacy["legacy_knowledge_unit_id"])
+            if active_by_id.get(legacy_id) != legacy:
+                raise ValueError(
+                    "migration rebind input does not match the current legacy "
+                    f"projection: {legacy_id}"
+                )
+    inputs_by_id = {str(row["candidate_id"]): row for row in inputs}
+    base = load_source_native_pilot_directory(base_dir)
+    snapshots_by_id = {
+        row.source_snapshot_id: row for row in base["source_snapshots"]
+    }
+    artifacts_by_id = {
+        row.artifact_id: row for row in base["reviewed_artifacts"]
+    }
+    migrations_by_legacy_id = {
+        row.legacy_knowledge_unit_id: row
+        for row in base["legacy_migrations"]
+    }
+    changed_migration_ids: list[str] = []
+
+    for article in reviewed_output.articles:
+        input_row = inputs_by_id[article.candidate_id]
+        snapshot = SourceSnapshot.model_validate(input_row["source_snapshot"])
+        existing_snapshot = snapshots_by_id.get(snapshot.source_snapshot_id)
+        if (
+            existing_snapshot is None
+            or existing_snapshot.source_record_id != snapshot.source_record_id
+            or existing_snapshot.content_hash != snapshot.content_hash
+        ):
+            raise ValueError(
+                "migration rebind source snapshot changed for "
+                f"{article.candidate_id}"
+            )
+
+        artifact_ids_by_key: dict[str, str] = {}
+        for artifact in article.artifacts:
+            artifact_id = source_native_artifact_id(snapshot, artifact)
+            existing_artifact = artifacts_by_id.get(artifact_id)
+            if existing_artifact is None or public_record_hash(
+                existing_artifact.artifact
+            ) != public_record_hash(artifact):
+                raise ValueError(
+                    f"migration rebind artifact changed for {artifact_id}"
+                )
+            artifact_ids_by_key[artifact.artifact_key] = artifact_id
+
+        if any(
+            decision.disposition != "retain_identity"
+            for decision in article.existing_artifact_decisions
+        ):
+            raise ValueError(
+                "metadata-only migration rebind cannot supersede artifacts"
+            )
+
+        legacy_by_id = {
+            str(row["legacy_knowledge_unit_id"]): row
+            for row in input_row.get("legacy_items") or []
+        }
+        for decision in article.legacy_decisions:
+            if decision.disposition != "replace":
+                raise ValueError(
+                    "metadata-only migration rebind requires an existing "
+                    "replacement decision"
+                )
+            existing = migrations_by_legacy_id.get(
+                decision.legacy_knowledge_unit_id
+            )
+            if existing is None:
+                raise ValueError(
+                    "migration rebind has no reviewed canonical migration for "
+                    f"{decision.legacy_knowledge_unit_id}"
+                )
+            legacy = legacy_by_id[decision.legacy_knowledge_unit_id]
+            replacement_id = artifact_ids_by_key[
+                str(decision.replacement_artifact_key)
+            ]
+            supporting_ids = sorted(
+                artifact_ids_by_key[key]
+                for key in decision.supporting_replacement_artifact_keys
+            )
+            existing_supporting_ids = sorted(
+                row.artifact_id
+                for row in existing.supporting_replacement_artifacts
+            )
+            unchanged_contract = (
+                existing.source_record_id == snapshot.source_record_id
+                and existing.source_snapshot_id == snapshot.source_snapshot_id
+                and existing.source_snapshot_content_hash == snapshot.content_hash
+                and existing.legacy_result_ids
+                == sorted(set(legacy["legacy_result_ids"]))
+                and existing.legacy_knowledge_type
+                == legacy["legacy_knowledge_type"]
+                and existing.legacy_ingestion_mode
+                == legacy["legacy_ingestion_mode"]
+                and existing.replacement_artifact_id == replacement_id
+                and existing_supporting_ids == supporting_ids
+                and existing.rationale == decision.rationale
+            )
+            if not unchanged_contract:
+                raise ValueError(
+                    "migration rebind changed the reviewed replacement contract: "
+                    f"{existing.migration_id}"
+                )
+            migrations_by_legacy_id[decision.legacy_knowledge_unit_id] = (
+                existing.model_copy(
+                    update={
+                        "legacy_content_hash": decision.legacy_content_hash,
+                        "migration_input_hash": article.migration_input_hash,
+                        "migration_input_hash_version": (
+                            article.migration_input_hash_version
+                        ),
+                    }
+                )
+            )
+            changed_migration_ids.append(existing.migration_id)
+
+    if len(changed_migration_ids) != len(set(changed_migration_ids)):
+        raise ValueError("migration rebind repeats a canonical migration")
+
+    promoted_dir = Path(
+        tempfile.mkdtemp(
+            prefix=f".{destination.name}.rebind-promotion-staging-",
+            dir=destination.parent,
+        )
+    ).resolve()
+    try:
+        shutil.copytree(base_dir, promoted_dir, dirs_exist_ok=True)
+        write_jsonl(
+            promoted_dir / SOURCE_NATIVE_LEGACY_MIGRATIONS_NAME,
+            [
+                row.public_dump()
+                for row in sorted(
+                    migrations_by_legacy_id.values(),
+                    key=lambda value: value.migration_id,
+                )
+            ],
+        )
+        write_source_native_manifest(promoted_dir)
+        validated = load_source_native_pilot_directory(promoted_dir)
+        expected_files = {
+            name
+            for name in (*PILOT_FILE_NAMES, "manifest.json")
+            if (promoted_dir / name).exists()
+        }
+        actual_files = {
+            path.name for path in promoted_dir.iterdir() if path.is_file()
+        }
+        if actual_files != expected_files:
+            raise ValueError("rebound bundle contains unexpected canonical files")
+        _install_rebound_bundle_transactionally(
+            staging=promoted_dir,
+            destination=destination,
+        )
+    except Exception:
+        if promoted_dir.exists():
+            shutil.rmtree(promoted_dir)
+        raise
+
+    return {
+        "schema": "rock-kb-source-native-legacy-migration-rebind-promotion-v1",
+        "status": "ok",
+        "article_count": len(reviewed_output.articles),
+        "migration_count": len(changed_migration_ids),
+        "changed_migration_ids": sorted(changed_migration_ids),
+        "canonical_migration_count": len(validated["legacy_migrations"]),
+        "destination": str(destination),
+    }
 
 
 def load_reviewed_source_native_legacy_migrations(

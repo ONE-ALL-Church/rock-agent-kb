@@ -2,12 +2,12 @@
 id: concept-connections
 title: Connections
 generated: true
-last_built: 2026-08-12T03:17:07+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:02:07+00:00
+source_last_checked_at: 2026-08-12T06:18:41+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/21
 legacy_summary_retirement_coverage: 0/21
@@ -324,7 +324,7 @@ Keywords: `assignment, assigned, follow-up, follow up, connector`
 ## Source Lifecycle
 
 - Official article records routed here: `21`
-- Upstream check range: `2026-08-04T15:02:05+00:00` through `2026-08-04T15:02:07+00:00`
+- Upstream check range: `2026-08-12T06:18:40+00:00` through `2026-08-12T06:18:41+00:00`
 - Source-native typed articles: `0` of `21`
 - Legacy source summaries retired: `0`; still active: `21`
 - Migration status: `not_started`
