@@ -64,6 +64,11 @@ SQL, writes, workflows, hosting, payments, and similar surfaces are high risk.
 Legacy claims and version-sensitive or broad articles require at least standard
 review.
 
+Concept inference uses the strongest available evidence tier. Explicit
+documentation paths and exact source topics are not padded with weaker lexical
+facets; missing topics surface later as unmatched routing terms and move the
+record out of the low-risk wave.
+
 Hydrated full text is checked again before packet sealing. Sensitive terms and
 broad code/table structure raise risk, while source binding uses meaningful
 token coverage rather than a literal summary prefix so breadcrumbs and publish

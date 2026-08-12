@@ -575,7 +575,7 @@ def test_concept_routing_marks_community_style_lexical_only_input_low():
     }
 
 
-def test_concept_routing_mixed_exact_topic_and_lexical_is_low():
+def test_concept_routing_prefers_exact_topic_over_lexical_padding():
     exact_topic = Concept(
         id="workflows",
         title="Workflows",
@@ -615,16 +615,12 @@ def test_concept_routing_mixed_exact_topic_and_lexical_is_low():
     )
 
     assert routing == {
-        "concept_ids": ["community-practices", "workflows"],
+        "concept_ids": ["workflows"],
         "routes": [
-            {
-                "concept_id": "community-practices",
-                "method": "lexical_only",
-            },
             {
                 "concept_id": "workflows",
                 "method": "exact_source_topic",
             },
         ],
-        "confidence": "low",
+        "confidence": "high",
     }

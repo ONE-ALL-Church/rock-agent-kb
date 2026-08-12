@@ -479,7 +479,7 @@ def test_non_high_confidence_concept_routing_requires_standard_risk(
     assert "concept_routing_not_high_confidence" in (
         selected["selected"][0]["risk"]["reason_codes"]
     )
-    assert selected["risk_policy_version"] == "4"
+    assert selected["risk_policy_version"] == "5"
 
 
 def test_missing_concept_routing_provenance_is_high_risk():
@@ -739,6 +739,27 @@ def test_hydrated_candidate_escalates_internal_mutable_and_status_signals(
 
     assert result["level"] == expected_level
     assert reason_code in result["reason_codes"]
+
+
+def test_hydrated_candidate_escalates_contradictory_core_status():
+    record = source_record(1)
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": (
+                    record["summary"]
+                    + " Helix is now in core. Support could change if Helix "
+                    "were ever added to the core product."
+                ),
+            }
+        ]
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "standard"
+    assert "hydrated_contradictory_core_status" in result["reason_codes"]
 
 
 def test_hydrated_candidate_rejects_differing_legacy_episode_identity():

@@ -27,7 +27,7 @@ from .sources import Source, load_sources
 SOURCE_NATIVE_MIGRATION_PRIORITY_DIR = REVIEW_DIR / "source-native-legacy-migration"
 SOURCE_NATIVE_MIGRATION_PRIORITY_PATH = SOURCE_NATIVE_MIGRATION_PRIORITY_DIR / "priority-report.json"
 SOURCE_NATIVE_MIGRATION_PRIORITY_SCHEMA = "rock-kb-source-native-migration-priority-v1"
-SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "2"
+SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "3"
 MIGRATION_PROMPT_ID = "source-native-legacy-migration-v1"
 
 SCORE_WEIGHTS = {
@@ -265,6 +265,10 @@ def infer_concept_routing(
             (routing_class, -lexical_score, role_order, concept.id, route_method)
         )
     scored.sort(key=lambda row: row[:4])
+    if any(row[0] <= 1 for row in scored):
+        scored = [row for row in scored if row[0] <= 1]
+    elif any(row[0] == 2 for row in scored):
+        scored = [row for row in scored if row[0] == 2]
     selected_routes = {
         concept_id: route_method
         for *_scores, concept_id, route_method in scored[:max_inferred]

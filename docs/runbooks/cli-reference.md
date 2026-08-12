@@ -318,7 +318,9 @@ count, exact evaluation demand, verification debt, source-native coverage, and
 source freshness. Current reviewed source-native concepts are authoritative;
 otherwise the report combines API branch routing, normalized topics, bounded
 lexical matches, and still-supported legacy facets, with at most three concept
-suggestions. Each route records its method and aggregate confidence. Only
+suggestions. It uses the strongest available routing-evidence tier instead of
+padding explicit path/topic routes with weaker lexical matches. Each route
+records its method and aggregate confidence. Only
 complete high-confidence routing can enter a low-risk batch; medium,
 lexical-only, mixed, or missing provenance requires stronger review. Overdue
 sources receive `refresh_source_first`, prior

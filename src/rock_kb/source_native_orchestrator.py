@@ -59,7 +59,7 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "1"
-RISK_POLICY_VERSION = "4"
+RISK_POLICY_VERSION = "5"
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -171,6 +171,11 @@ HYDRATED_NEGATIVE_STATUS_PATTERN = (
     r"(?:currently\s+)?(?:available|released|supported)\b|"
     r"\b(?:not\s+(?:yet|currently)\s+(?:available|released|supported)|"
     r"no\s+longer\s+supported|unsupported)\b"
+)
+HYDRATED_CURRENT_CORE_PATTERN = r"\bnow\s+(?:part\s+of|in)\s+(?:the\s+)?core\b"
+HYDRATED_FUTURE_CORE_PATTERN = (
+    r"\bif\b[\s\S]{0,160}\bever\b[\s\S]{0,160}"
+    r"\b(?:added|included|part)\b[\s\S]{0,80}\bcore\b"
 )
 EPISODE_NUMBER_PATTERN = re.compile(
     r"\bep(?:isode)?\.?[\s:#-]*(\d{1,4})\b",
@@ -637,6 +642,15 @@ def classify_hydrated_candidate_risk(
             "standard",
             "hydrated_contradictory_release_status",
             "hydrated source contains contradictory support or release status wording",
+        )
+    if re.search(HYDRATED_CURRENT_CORE_PATTERN, lowered) and re.search(
+        HYDRATED_FUTURE_CORE_PATTERN,
+        lowered,
+    ):
+        raise_to(
+            "standard",
+            "hydrated_contradictory_core_status",
+            "hydrated source describes a feature as both current core and conditional future core",
         )
     code_count = sum(str(unit.get("unit_kind") or "") == "code_block" for unit in units)
     table_count = sum(str(unit.get("unit_kind") or "") == "table" for unit in units)
