@@ -60,15 +60,25 @@ being copied onto unrelated C# articles.
 
 ## Current Evidence
 
-The tracked source-native bundle now covers five source families, 117 articles,
-27 concept facets, 2,620 addressable source units, and 559 reviewed artifacts:
-139 claims, 47 recipes, 97 source summaries, 208 structured references, and 68
-task cards. It also contains 707 typed relationships and 585 source-native
-evaluation cases. All 117 generation activities use `gpt-5.6-sol` and input
+The tracked source-native bundle now covers five source families, 147 articles,
+27 concept facets, 2,889 addressable source units, and 603 reviewed artifacts:
+143 claims, 57 recipes, 107 source summaries, 226 structured references, and 70
+task cards. It also contains 723 typed relationships and 629 source-native
+evaluation cases. All 147 generation activities use `gpt-5.6-sol` and input
 hash version `2`. The manifest preserves the exact prompt history: four initial
 distillations at version `2.3.1`, 26 migration activities at wrapper version
-`1.3.0`, 57 at wrapper version `1.3.1`, and the 30-record migration pilot at
-wrapper version `1.3.3`.
+`1.3.0`, 57 at wrapper version `1.3.1`, and 60 at wrapper version `1.3.3`.
+
+The corrected 2026-08-12 low-risk pilot selected 30 Apple TV developer records
+exactly once under hydrated risk policy v8 and processed 269 source units into
+44 reviewed artifacts: four claims, ten recipes, ten source summaries, 18
+structured references, and two task cards. All 30 legacy records were replaced.
+Explicit review changed nine articles across 37 exact paths: 25 artifact-shape,
+two relationship, and ten verification corrections. Review raised 15
+verification requests, all of which were corrected or narrowed against current
+official documentation or immutable public source before promotion. The final
+bundle therefore records 211 exact legacy migrations, seven artifact
+migrations, and 99 of 99 resolved verification decisions with no blocker.
 
 The 2026-08-12 deterministic migration pilot selected 30 current source records
 exactly once and processed 450 source units into 61 reviewed artifacts. Twelve
@@ -85,15 +95,15 @@ legacy row. Legacy knowledge is an explicit loss-prevention ledger: it must be
 replaced, retained, or retired, but it neither caps artifact count nor prevents
 the source from yielding useful knowledge that had no legacy counterpart.
 
-The prior 10-record developer batch processed 157 units into 33 generated and
-32 reviewed artifacts; five articles changed across 72 exact correction paths.
-The coordinated pilot processed three times as many articles and 2.9 times as
-many units, while correction paths fell from 7.2 to 1.6 per article. The source
-mix differs, so this is useful process evidence rather than a controlled model
-quality experiment. Preparation, assembly, and review validation took 17.530,
-0.022, and 0.034 seconds respectively; active human review time, model token
-counts, and billing records were not captured and remain explicitly
-unavailable.
+The closest preserved 10-record comparison is one reviewed worker shard from
+the prior pilot, not a standalone sealed batch. It processed 195 units into 26
+artifacts and required two relationship corrections. The corrected pilot
+processed three times as many records, 1.379 times as many units, and 1.692
+times as many artifacts. Its preparation, assembly, and review-validation
+phases took 34.631, 0.018, and 0.027 seconds. Generation time, active maintainer
+review time, token counts, and billing records were not captured for either
+comparison and remain explicitly unavailable; no cost estimate is presented as
+observed evidence.
 
 The final 12 prompt-`2.3.0` documentation records were refreshed before
 reprocessing. Their upstream content hashes were unchanged, so the change
@@ -153,21 +163,22 @@ Started snapshot and all 13 contextual prefixes while preserving its source
 snapshot identity, content hash, source-unit IDs, redirect alias, reviewed
 artifact, and original Sol generation activity.
 
-The final 2026-08-11 canonical retrieval shadow evaluated 661 questions through the
-production Worker's local FTS and ranking implementation:
+The final 2026-08-12 canonical retrieval shadow evaluated 800 questions through
+the production Worker's local FTS and ranking implementation:
 
-- 497 improved, 164 were unchanged, none regressed, and no failures were shared
+- 636 improved, 164 were unchanged, none regressed, and no failures were shared
   by both projections;
 - exact lookup, authority, no-answer, and endpoint compatibility regressions
   were all zero;
 - all ten exact REST and stateless MCP compatibility cases passed; and
-- serialized canonical projection storage increased by 6.839 percent, within
+- serialized canonical projection storage increased by 7.789 percent, within
   the 10 percent gate.
 
-The candidate achieved recall `1.0`, mean reciprocal rank `0.987102`, authority
+The candidate achieved recall `1.0`, mean reciprocal rank `0.992063`, authority
 correctness `1.0`, and duplicate rate zero. A repeated paired run against the
-same pinned Worker bundle kept mean and p95 latency within the unchanged 20
-percent limits. Ranking now reads reviewed independent questions from both the
+same pinned Worker bundle measured mean latency at 85.273 milliseconds and p95
+at 127.32 milliseconds, both within the unchanged 20 percent limits. Ranking
+now reads reviewed independent questions from both the
 original and verified-effective artifact shapes, and exact schema-object
 questions receive a bounded identifier signal only when they name both a
 distinctive code identifier and field, property, type, schema, or member intent.
@@ -205,10 +216,12 @@ useful evidence, but the project does not currently have a realistic external
 sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
-The canonical projection still identifies measurable migration debt: 536
-legacy claims and 5,464 legacy source summaries remain alongside 559
-source-native artifacts and deterministic typed families. That inventory is a
-migration queue, not a reason to discard the working system.
+The canonical projection still identifies measurable migration debt: 1,512
+active legacy-backed source records remain alongside 603 source-native
+artifacts and deterministic typed families. Of those records, 1,495 are
+actionable and migration-ready and 17 are reviewed retentions. That inventory
+is a loss-prevention queue, not a reason to discard the working system and not
+a complete inventory of current sources that never had a legacy projection.
 
 Semantic source hashes now exclude transport and observation metadata while
 retaining article identity, normalized content, routing, and revision fields.
@@ -227,9 +240,9 @@ rows, and seven notes, with no missing URL or stale dependency findings.
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The current source-native verification layer reports 84 of 84 resolutions
-   verified against
-   exact source snapshots, immutable public source, or bounded official API
+1. The current source-native verification layer reports 99 of 99 resolutions
+   verified against exact source snapshots, immutable public source, or bounded
+   official API
    observations, with zero unresolved rows, zero stale evidence, and zero
    default-cutover blockers. The 2026-08-04 refresh corrected blanket cache-tag
    immutability, narrowed cache-tag normalization by release, and corrected
@@ -242,8 +255,10 @@ that were open at the start of the review:
    corrections or narrowings. The August 11 pass compacted the active queue to
    71 fully resolved decisions and added the SQL Server, unsubscribe, Check-In,
    cache, File Manager, and content-channel corrections described above. The
-   August 12 pilot added 13 reviewed verification decisions, leaving 84 fully
-   resolved decisions and no blocker.
+   first August 12 pilot added 13 reviewed verification decisions, leaving 84
+   fully resolved decisions. The corrected low-risk Apple TV pilot added 15
+   more corrected or narrowed decisions, leaving 99 fully resolved decisions
+   and no blocker.
    Immutable Rock source separately confirms the Helix endpoint authorization
    map and the Default Enabled Lava Commands fallback introduced by the prior
    batch.
@@ -278,18 +293,17 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-The reviewed source-native bundle now records 181 exact legacy migrations and
-seven source-native artifact migrations. The final projection has 559 typed
-artifacts; 536 legacy claims and 5,464 legacy source summaries remain. The
-661-question production-worker shadow reported 497 improvements, 164 ties, no
-shared failures, and zero retrieval, exact-lookup, authority, no-answer, or
-endpoint regressions. All 84 current verification rows remain resolved with no
-blocker.
+The reviewed source-native bundle now records 211 exact legacy migrations and
+seven source-native artifact migrations. The final projection has 603 typed
+artifacts. The 800-question production-worker shadow reported 636 improvements,
+164 ties, no shared failures, and zero retrieval, exact-lookup, authority,
+no-answer, or endpoint regressions. All 99 current verification rows remain
+resolved with no blocker.
 
-The regenerated deterministic migration-priority queue contains 1,540 active
-legacy source records: 1,523 are actionable, 1,248 are migration-ready, 275
-need a source refresh first, and 17 are reviewed retentions. It has zero
-unresolved source identities and six reconciled aliases after the Lava alias
+The regenerated deterministic migration-priority queue contains 1,512 active
+legacy source records: 1,495 are actionable and migration-ready and 17 are
+reviewed retentions. It has zero unresolved source identities and six
+reconciled aliases after the Lava alias
 and exact-route work. The highest current ready cluster is Obsidian developer
 content. The legacy-backed queue is not the complete source inventory; each
 source family must also be audited for current public records that have no

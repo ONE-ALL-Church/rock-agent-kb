@@ -2,12 +2,12 @@
 id: concept-lava
 title: Lava
 generated: true
-last_built: 2026-08-12T12:45:00+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:18:33+00:00
+source_last_checked_at: 2026-08-12T11:27:22+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/13
 legacy_summary_retirement_coverage: 2/13
@@ -249,9 +249,9 @@ Keywords: `filter, text filter, date filter, person filter`
 | Filters | rock_developer | There are a number of standard filters that can be used with columns. Custom filters can also be created. These consist of a Component that is displayed in the popup which builds the "filter value" and a function that will be passed each row and the "filter value" to determine if the row matches. \| Filter \| Description \| \| --- \| --- \| \| booleanValueFilter \| A column filter that can be used with boolean values. \| \|... | [source](https://community.rockrms.com/developer/obsidian/grid-reference/filters) |
 | Countdown | rock_mobile_docs | M v1.0 Adding a countdown timer to your page is simple. There are several options for providing a date and time to the control. ### String Simply enter a raw date time value as a string. ``` <Rock:Countdown StartDateTime="08/27/2020 10:30AM" /> ``` ### Lava Filter See the [Lava documentation](https://community.rockrms.com/lava/filters/date-filters) for more information. ``` <Rock:Countdown StartDateTime="{{ 'Now' \|... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/countdown) |
 | Slicker Campus Filters | rock_recipes | 2 Slicker Campus Filters Shared by Steve Klein , Liquid Church 2 years ago 13.7 General Beginner The Why We have multiple locations so we are frequently building dynamic reports which include a campus filter. In the past, our campus filters would display all campuses by default or the selected campus. With a little bit of SQL and Lava, we found that we could include an All Campuses option in our campus filter and... | [source](https://community.rockrms.com/recipes/393) |
-| Event Item Occurrence List By Audience Lava | rock_mobile_docs | *Block that takes an audience and displays calendar item occurrences for it using Lava.* ## Query Parameters The query parameters this block looks for upon initialization are as follows: \| Name \| Type \| Description \| \| --- \| --- \| --- \| \| CampusGuid \| Guid \| An optional Guid of the campus to filter event items to. \| ## Block Configuration ### List Title The title to make available in the lava. ### Audience The... | [source](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/event-item-occurrence-list-by-audience-lava) |
 | Person | rock_lava_docs | Person Filters Rock is based on managing people, so it's not surprising that we have special Lava filters for the Person model. Address Show Details Server: v2.0 Provides an address for the person you provide. Additional Details This filter has some input parameters: Address Type: Home, Work, etc. Format Template (optional) v3.0 : An optional template parameter to help you format the address any way you wish. See... | [source](https://community.rockrms.com/lava/filters/person-filters) |
 | List Tools | rock_developer | ## Overview `List` tools help an agent find and return a set of matching records. `List` tools are comprised of 3 basic parts. 1. Filter a set of data down to match the request. 2. Format the results into a concrete Result class that represents each item. 3. Apply pagination rules to the final set and return the data. The last item, pagination, is not required but is suggested if you have a large data set. At the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/list-tools) |
+| Use Filter Groups | rock_documentation | Some views need both AND and OR logic, for example individuals who are married AND members, OR who are single AND attendees. Filter groups give you that. Inside a Data View, add a filter group with Add Filter Group, then set its Show results matching option to All, Any or None. Nest your criteria under it: an outer group set to Any holds two inner groups each set to All, so a record matches if it satisfies either... | [source](https://community.rockrms.com/documentation/church-management/reporting/data-views/use-filter-groups) |
 
 ### Shortcodes
 
@@ -283,7 +283,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `13`
-- Upstream check range: `2026-07-10T17:16:17+00:00` through `2026-08-12T06:18:33+00:00`
+- Upstream check range: `2026-08-12T06:13:11+00:00` through `2026-08-12T11:27:22+00:00`
 - Source-native typed articles: `1` of `13`
 - Legacy source summaries retired: `2`; still active: `11`
 - Migration status: `partial`

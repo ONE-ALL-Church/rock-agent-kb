@@ -1483,7 +1483,7 @@
     }
   ],
   "entity_count": 460,
-  "generated_at": "2026-08-12T12:45:00+00:00",
+  "generated_at": "2026-08-12T12:50:00+00:00",
   "private_media": {
     "notes": "Private media indexes route agents to local sidecars, transcripts, and prioritized transcription work. Public exports must not include raw transcript text or direct media queue rows.",
     "path": "data/media/index/media-index.jsonl",
@@ -1525,12 +1525,12 @@
   "rock_issue_enrichment_count": 28,
   "schema": "rock-kb-agent-manifest-v2",
   "source_summaries": {
-    "eligible_record_count": 5573,
+    "eligible_record_count": 5575,
     "notes": "Public source summaries are citation-first routing notes. They are not full source mirrors and exclude scanner-positive rows.",
     "path": "agent/source-summaries.jsonl",
     "public_publish_mode": "public_cite_and_summarize_only",
     "publishability_status": "public_distilled_source_routing_index",
-    "record_count": 5571,
+    "record_count": 5573,
     "report": "agent/source-summary-report.json",
     "skipped_sensitive_count": 2
   },

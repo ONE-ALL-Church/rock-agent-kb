@@ -8,19 +8,26 @@ tags and follow semantic versioning for public client and service contracts.
 
 ### Changed
 
-- The reviewed source-native bundle now covers 117 official prose records and
-  559 typed artifacts. A deterministic 30-record migration batch processed 450
-  source units into 61 reviewed artifacts, recorded 59 additional exact legacy
-  replacements, and preserved all seven prior source-native artifact migration
-  decisions. Knowledge was distilled from each complete source record; legacy
-  rows were used only to prevent silent loss and bind explicit replacement
-  decisions.
+- The reviewed source-native bundle now covers 147 official prose records,
+  2,889 addressable source units, and 603 typed artifacts, with 211 exact
+  legacy migrations and seven source-native artifact migrations. Knowledge is
+  distilled from each complete source record; legacy rows are used only to
+  prevent silent loss and bind explicit replacement decisions.
+- A corrected 30-record low-risk Apple TV pilot processed 269 source units into
+  44 reviewed artifacts and replaced all 30 selected legacy records. Explicit
+  review changed nine articles across 37 paths and raised 15 verification
+  requests; every request was resolved against current official documentation
+  or immutable public source before promotion.
 - Apple TV articles 120, 128, 139, 146, and 173; Roku articles 186, 315, and
   318; and Helix articles 348 and 358 now use the source-native path with 29
   explicit legacy replacements and one reviewed partial retention.
 - The Rock developer-documentation source was refreshed from its public API;
   generated source summaries, concept indexes, and dependency metadata now
   reflect the current 361-record normalized projection.
+- The Rock mobile-documentation API source now contains 277 current records.
+  The refresh adds Pre-Release Testing and Render Pipeline, expands Deep
+  Linking, and rebuilds the mobile selector audit, search index, guides, agent
+  pack, and public export from the reviewed source inputs.
 
 ### Fixed
 

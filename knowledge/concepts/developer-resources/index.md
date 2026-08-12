@@ -2,15 +2,15 @@
 id: concept-developer-resources
 title: Rock Developer Resources
 generated: true
-last_built: 2026-08-12T12:45:00+00:00
+last_built: 2026-08-12T12:50:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 120
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T06:22:00+00:00
+source_last_checked_at: 2026-08-12T11:29:00+00:00
 source_native_migration_status: partial
-source_native_article_coverage: 35/846
-legacy_summary_retirement_coverage: 63/846
+source_native_article_coverage: 65/848
+legacy_summary_retirement_coverage: 93/848
 depends_on_topics:
   - api-integrations
   - lava
@@ -349,10 +349,10 @@ Keywords: `design system, dynamic linq, pulled pre-alpha, realtime visualizer, r
 
 ## Source Lifecycle
 
-- Official article records routed here: `846`
-- Upstream check range: `2026-07-10T17:16:07+00:00` through `2026-08-12T06:22:00+00:00`
-- Source-native typed articles: `35` of `846`
-- Legacy source summaries retired: `63`; still active: `783`
+- Official article records routed here: `848`
+- Upstream check range: `2026-08-12T06:13:08+00:00` through `2026-08-12T11:29:00+00:00`
+- Source-native typed articles: `65` of `848`
+- Legacy source summaries retired: `93`; still active: `755`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
