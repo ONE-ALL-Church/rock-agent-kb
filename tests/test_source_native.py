@@ -587,6 +587,40 @@ def test_reviewed_split_rule_handles_joined_paragraph_sentences():
     ]
 
 
+def test_reviewed_split_rule_separates_issue_action_from_response_timing():
+    source_record_id = "rock_developer:article:329"
+    paragraph = (
+        "Feel free to open new issues, and we’ll work to address them as soon as "
+        "possible."
+    )
+    paragraph_hash = sha256_text(" ".join(paragraph.split()))
+
+    split = apply_source_unit_split_rules(
+        [
+            {
+                "kind": "paragraph",
+                "heading_path": ["GitHub Issues"],
+                "context_label": "GitHub Issues",
+                "block_token": "paragraph:github-issues:2",
+                "text": paragraph,
+            }
+        ],
+        source_record_id=source_record_id,
+        split_rules=[
+            {
+                "source_record_id": source_record_id,
+                "source_unit_content_hash": paragraph_hash,
+                "strategy": "coordinated_clause",
+            },
+        ],
+    )
+
+    assert [row["text"] for row in split] == [
+        "Feel free to open new issues.",
+        "We’ll work to address them as soon as possible.",
+    ]
+
+
 def test_reviewed_split_rule_handles_exact_contrast_clause():
     source_record_id = "rock_mobile_docs:article:contrast-test"
     paragraph = (

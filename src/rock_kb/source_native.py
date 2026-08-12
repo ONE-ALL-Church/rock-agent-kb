@@ -451,6 +451,7 @@ def load_source_unit_split_rules(
             raise ValueError(f"{path}:{line_number} has an unsupported schema")
         if rule.get("strategy") not in {
             "causal_clause",
+            "coordinated_clause",
             "sentence",
             "contrast_clause",
             "shared_subject_and_clause",
@@ -524,6 +525,8 @@ def apply_source_unit_split_rules(
                 split_blocks = split_paragraph_shared_subject_and_block(block)
             elif strategy == "parenthetical_navigation":
                 split_blocks = split_paragraph_parenthetical_navigation_block(block)
+            elif strategy == "coordinated_clause":
+                split_blocks = split_paragraph_coordinated_clause_block(block)
             else:
                 split_blocks = split_paragraph_causal_clause_block(block)
         else:
@@ -732,6 +735,30 @@ def split_paragraph_causal_clause_block(
     ]
 
 
+def split_paragraph_coordinated_clause_block(
+    block: dict[str, Any],
+) -> list[dict[str, Any]]:
+    text = normalize_block_text(str(block.get("text") or ""))
+    clauses = split_reviewed_coordinated_clauses(text)
+    if len(clauses) < 2:
+        return [block]
+    parent_token = str(block.get("block_token") or f"split:{sha256_text(text)[:16]}")
+    return [
+        {**block, "block_token": parent_token, "text": clauses[0]},
+        *[
+            {
+                "kind": "paragraph",
+                "heading_path": list(block.get("heading_path") or []),
+                "context_label": str(block.get("context_label") or ""),
+                "parent_block_token": parent_token,
+                "block_token": f"{parent_token}:coordinated:{index}",
+                "text": clause,
+            }
+            for index, clause in enumerate(clauses[1:], start=2)
+        ],
+    ]
+
+
 def split_reviewed_contrast_clauses(value: str) -> list[str]:
     depth = 0
     lower = value.lower()
@@ -827,6 +854,34 @@ def split_reviewed_causal_clauses(value: str) -> list[str]:
         left = value[:index].strip()
         right = value[index + 5 :].strip()
         if len(left) < 20 or len(right) < 20:
+            continue
+        left = left if left.endswith((".", "!", "?")) else f"{left}."
+        right = right if right.endswith((".", "!", "?")) else f"{right}."
+        return [left, f"{right[0].upper()}{right[1:]}"]
+    return [value]
+
+
+def split_reviewed_coordinated_clauses(value: str) -> list[str]:
+    depth = 0
+    lower = value.lower()
+    for index, character in enumerate(value):
+        if character == "(":
+            depth += 1
+        elif character == ")":
+            depth = max(0, depth - 1)
+        if depth or not lower.startswith(", and ", index):
+            continue
+        left = value[:index].strip()
+        right = value[index + 6 :].strip()
+        if (
+            len(left) < 20
+            or len(right) < 20
+            or not re.match(
+                r"^(?:i|we|you|he|she|they|it|this|these|those)(?:\b|['’])",
+                right,
+                flags=re.IGNORECASE,
+            )
+        ):
             continue
         left = left if left.endswith((".", "!", "?")) else f"{left}."
         right = right if right.endswith((".", "!", "?")) else f"{right}."
