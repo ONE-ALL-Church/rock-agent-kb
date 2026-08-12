@@ -1434,8 +1434,12 @@ def prepare_source_native_migration_batch(
             )
             preflight_selection = selection
             if not exact_source_record_ids:
+                reserve_ceiling = min(
+                    MAX_PREFLIGHT_POOL_RECORD_COUNT,
+                    len(report.get("rows") or []),
+                )
                 for reserve_count in range(
-                    min(MAX_PREFLIGHT_POOL_RECORD_COUNT, count + 20),
+                    reserve_ceiling,
                     count,
                     -1,
                 ):

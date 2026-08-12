@@ -39,6 +39,9 @@ tags and follow semantic versioning for public client and service contracts.
   the corrected policy to the first 30-record pilot classifies 27 records as
   low risk and three as high risk; all three had already received explicit
   maintainer review, but they are no longer represented as low-risk evidence.
+- Automatic low-risk batches screen the full bounded hydration reserve before
+  failing an exact requested count, so more than 20 elevated records cannot
+  hide later eligible records in the same deterministic queue.
 - Exact independent questions now retain precedence over nearby paraphrases,
   while high-overlap source-native recipes can outrank generic task cards for
   matching how-to questions without receiving an unconditional recipe boost.
