@@ -56,10 +56,14 @@ uv run kb tools source-native-migration-batch-prepare \
 
 Preparation fails if the priority report is truncated, identities are
 unresolved, the tracked tree is dirty, source hashes changed, concept routing
-is missing or lacks complete provenance, hydration drops a record, an article
-exceeds 200 source units, or a selected record has no active legacy projection.
-Exact record batches may be specified with repeated `--source-record-id`; every
-exact record must satisfy the selected risk policy.
+is missing or lacks complete provenance, the hydrated reserve cannot fill the
+exact requested size, or a selected record has no active legacy projection.
+Automatic selection prehydrates a bounded priority reserve. A record that lacks
+full text, exceeds the review-context or source-unit limit, or escalates under
+hydrated risk checks is recorded in the sealed selection, moved to the
+appropriate risk queue, and backfilled from that reserve. Exact record batches
+may be specified with repeated `--source-record-id`; they never substitute a
+different record, and every exact record must satisfy the selected risk policy.
 
 API-backed documentation, developer, and mobile prose also needs an exact
 `article` source identity. Static discovery or landing-page hashes can remain
@@ -79,9 +83,9 @@ Legacy claims and version-sensitive or broad articles require at least standard
 review.
 
 Concept inference uses the strongest available evidence tier. Explicit
-documentation paths and exact source topics are not padded with weaker lexical
-facets; missing topics surface later as unmatched routing terms and move the
-record out of the low-risk wave.
+documentation paths and corroborated source topics are not padded with weaker
+lexical facets; missing topics surface later as unmatched routing terms and move
+the record out of the low-risk wave.
 
 Hydrated full text is checked again before packet sealing. Sensitive terms and
 broad code/table structure raise risk, while source binding uses meaningful

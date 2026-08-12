@@ -479,7 +479,147 @@ def test_non_high_confidence_concept_routing_requires_standard_risk(
     assert "concept_routing_not_high_confidence" in (
         selected["selected"][0]["risk"]["reason_codes"]
     )
-    assert selected["risk_policy_version"] == "5"
+    assert selected["risk_policy_version"] == "6"
+
+
+def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
+    records = [source_record(1), source_record(2), source_record(3)]
+    selection = orchestrator.select_migration_batch(
+        report=priority_report(records),
+        records=records,
+        count=3,
+        max_risk="low",
+    )
+    candidate_rows = [
+        {
+            "source_snapshot": {"source_record_id": record["id"]},
+            "source_units": [
+                {
+                    "unit_kind": "paragraph",
+                    "text": record["summary"],
+                }
+            ],
+        }
+        for record in records[1:]
+    ]
+    result = orchestrator._hydrated_preflight_selection(
+        selection=selection,
+        candidate_rows=candidate_rows,
+        build_result={
+            "document_candidate_build": {
+                "skipped": [
+                    {
+                        "source_record_id": records[0]["id"],
+                        "reason": (
+                            "rockumentation_full_text_exceeds_review_limit"
+                        ),
+                    }
+                ]
+            }
+        },
+        records_by_id={record["id"]: record for record in records},
+        count=2,
+        max_risk="low",
+        max_source_units_per_record=200,
+    )
+
+    assert [row["source_record_id"] for row in result["accepted"]] == [
+        records[1]["id"],
+        records[2]["id"],
+    ]
+    assert result["rejected"] == [
+        {
+            "source_record_id": records[0]["id"],
+            "reason_code": "rockumentation_full_text_exceeds_review_limit",
+            "risk": {
+                "level": "standard",
+                "policy_version": "6",
+                "reason_codes": [
+                    "rockumentation_full_text_exceeds_review_limit"
+                ],
+                "reasons": [
+                    "hydrated source could not enter the bounded review packet"
+                ],
+            },
+        }
+    ]
+
+
+def test_prepare_backfills_hydration_skip_and_preserves_queue(
+    monkeypatch,
+    tmp_path: Path,
+):
+    records = [source_record(1), source_record(2), source_record(3)]
+    install_prepare_stubs(monkeypatch, tmp_path, records)
+    original_build = orchestrator.build_source_native_document_candidates
+    call_count = 0
+
+    def build_with_one_preflight_skip(**options):
+        nonlocal call_count
+        call_count += 1
+        result = original_build(**options)
+        if call_count != 1:
+            return result
+        skipped_id = records[0]["id"]
+        rows = [
+            row
+            for row in read_jsonl(
+                options["destination"] / "distillation-input.jsonl"
+            )
+            if row["source_snapshot"]["source_record_id"] != skipped_id
+        ]
+        write_jsonl(
+            options["destination"] / "distillation-input.jsonl",
+            rows,
+        )
+        return {
+            **result,
+            "article_count": len(rows),
+            "document_candidate_build": {
+                "skipped": [
+                    {
+                        "source_record_id": skipped_id,
+                        "reason": (
+                            "rockumentation_full_text_exceeds_review_limit"
+                        ),
+                    }
+                ]
+            },
+        }
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_native_document_candidates",
+        build_with_one_preflight_skip,
+    )
+    report_path = tmp_path / "data" / "review" / "priority.json"
+    write_json(report_path, priority_report(records))
+    destination = tmp_path / "data" / "review" / "batch"
+
+    result = orchestrator.prepare_source_native_migration_batch(
+        destination=destination,
+        count=2,
+        max_risk="low",
+        priority_report_path=report_path,
+        repo_root=tmp_path,
+    )
+
+    selection = json.loads((destination / "selection.json").read_text())
+    assert result["status"] == "ok"
+    assert call_count == 2
+    assert selection["selected_source_record_ids"] == [
+        records[1]["id"],
+        records[2]["id"],
+    ]
+    assert selection["hydrated_preflight"]["rejected"][0][
+        "source_record_id"
+    ] == records[0]["id"]
+    assert [
+        row["source_record_id"]
+        for row in read_jsonl(
+            destination / "queues" / "standard-risk.jsonl"
+        )
+    ] == [records[0]["id"]]
 
 
 def test_missing_concept_routing_provenance_is_high_risk():

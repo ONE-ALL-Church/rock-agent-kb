@@ -58,8 +58,8 @@ BATCH_MANIFEST_SCHEMA = "rock-kb-source-native-migration-batch-manifest-v1"
 BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
-BATCH_POLICY_VERSION = "1"
-RISK_POLICY_VERSION = "5"
+BATCH_POLICY_VERSION = "2"
+RISK_POLICY_VERSION = "6"
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -893,6 +893,145 @@ def select_migration_batch(
     }
 
 
+def _hydrated_preflight_selection(
+    *,
+    selection: dict[str, Any],
+    candidate_rows: Iterable[dict[str, Any]],
+    build_result: dict[str, Any],
+    records_by_id: dict[str, dict[str, Any]],
+    count: int,
+    max_risk: str,
+    max_source_units_per_record: int,
+) -> dict[str, Any]:
+    candidates_by_record = {
+        str(row.get("source_snapshot", {}).get("source_record_id") or ""): row
+        for row in candidate_rows
+    }
+    skipped_by_record = {
+        str(row.get("source_record_id") or ""): str(row.get("reason") or "")
+        for row in (
+            (build_result.get("document_candidate_build") or {}).get("skipped")
+            or []
+        )
+        if row.get("source_record_id")
+    }
+    accepted: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+    for selected_row in selection.get("selected") or []:
+        source_record_id = str(selected_row.get("source_record_id") or "")
+        candidate = candidates_by_record.get(source_record_id)
+        if candidate is None:
+            reason = skipped_by_record.get(source_record_id) or "candidate_missing"
+            risk_level = (
+                "standard"
+                if reason == "rockumentation_full_text_exceeds_review_limit"
+                else "high"
+            )
+            rejected.append(
+                {
+                    "source_record_id": source_record_id,
+                    "reason_code": reason,
+                    "risk": {
+                        "level": risk_level,
+                        "policy_version": RISK_POLICY_VERSION,
+                        "reason_codes": [reason],
+                        "reasons": [
+                            "hydrated source could not enter the bounded review packet"
+                        ],
+                    },
+                }
+            )
+            continue
+        unit_count = len(candidate.get("source_units") or [])
+        if unit_count > max_source_units_per_record:
+            reason = "hydrated_source_unit_limit_exceeded"
+            rejected.append(
+                {
+                    "source_record_id": source_record_id,
+                    "reason_code": reason,
+                    "risk": {
+                        "level": "standard",
+                        "policy_version": RISK_POLICY_VERSION,
+                        "reason_codes": [reason],
+                        "reasons": [
+                            (
+                                "hydrated source exceeds the bounded source-unit "
+                                f"limit: {unit_count} > "
+                                f"{max_source_units_per_record}"
+                            )
+                        ],
+                    },
+                }
+            )
+            continue
+        hydrated_risk = classify_hydrated_candidate_risk(
+            candidate,
+            records_by_id[source_record_id],
+        )
+        if RISK_ORDER[hydrated_risk["level"]] > RISK_ORDER[max_risk]:
+            rejected.append(
+                {
+                    "source_record_id": source_record_id,
+                    "reason_code": "hydrated_risk_exceeds_batch_policy",
+                    "risk": hydrated_risk,
+                }
+            )
+            continue
+        accepted.append(
+            {
+                "source_record_id": source_record_id,
+                "hydrated_risk": hydrated_risk,
+            }
+        )
+        if len(accepted) == count:
+            break
+    if len(accepted) != count:
+        raise ValueError(
+            "hydrated candidate reserve could not preserve the exact batch size; "
+            f"accepted={len(accepted)}; requested={count}; rejected={rejected[:5]}"
+        )
+    return {
+        "candidate_pool_count": len(selection.get("selected") or []),
+        "accepted": accepted,
+        "rejected": rejected,
+    }
+
+
+def _apply_hydrated_preflight_queues(
+    selection: dict[str, Any],
+    rejected: Iterable[dict[str, Any]],
+) -> None:
+    rejected_by_id = {
+        str(row.get("source_record_id") or ""): row for row in rejected
+    }
+    if not rejected_by_id:
+        return
+    moved: dict[str, dict[str, Any]] = {}
+    for queue_name, rows in list((selection.get("queues") or {}).items()):
+        kept = []
+        for row in rows:
+            source_record_id = str(row.get("source_record_id") or "")
+            if source_record_id in rejected_by_id:
+                moved[source_record_id] = row
+            else:
+                kept.append(row)
+        selection["queues"][queue_name] = kept
+    for source_record_id, rejection in rejected_by_id.items():
+        risk = rejection["risk"]
+        queue_name = (
+            "high_risk" if risk.get("level") == "high" else "standard_risk"
+        )
+        row = moved.get(source_record_id, {"source_record_id": source_record_id})
+        selection["queues"].setdefault(queue_name, []).append(
+            {
+                **row,
+                "exclusion_reason": rejection["reason_code"],
+                "risk": risk,
+            }
+        )
+    selection["queues"] = dict(sorted(selection["queues"].items()))
+
+
 def _selection_payload(selection: dict[str, Any]) -> dict[str, Any]:
     return {
         key: selection[key]
@@ -904,6 +1043,7 @@ def _selection_payload(selection: dict[str, Any]) -> dict[str, Any]:
             "concept_ids",
             "selected_source_record_ids",
             "selected",
+            "hydrated_preflight",
         )
     }
 
@@ -1151,6 +1291,9 @@ def prepare_source_native_migration_batch(
         raise ValueError("as_of must be a valid ISO-8601 timestamp")
     if priority_report_path is None and parsed_as_of is None:
         raise ValueError("automatic priority generation requires a fixed as_of")
+    source_ids = tuple(source_ids)
+    concept_ids = tuple(concept_ids)
+    exact_source_record_ids = tuple(exact_source_record_ids)
     git_state = _git_state(repo_root, require_clean=require_clean)
 
     with _batch_lock(repo_root), tempfile.TemporaryDirectory(
@@ -1183,6 +1326,22 @@ def prepare_source_native_migration_batch(
                 concept_ids=concept_ids,
                 exact_source_record_ids=exact_source_record_ids,
             )
+            preflight_selection = selection
+            if not exact_source_record_ids and count < 50:
+                for reserve_count in range(min(50, count + 20), count, -1):
+                    try:
+                        preflight_selection = select_migration_batch(
+                            report=report,
+                            records=records,
+                            count=reserve_count,
+                            max_risk=max_risk,
+                            source_ids=source_ids,
+                            concept_ids=concept_ids,
+                        )
+                        break
+                    except ValueError as error:
+                        if "satisfied the" not in str(error):
+                            raise
             destination.parent.mkdir(parents=True, exist_ok=True)
             staging = Path(
                 tempfile.mkdtemp(
@@ -1193,6 +1352,84 @@ def prepare_source_native_migration_batch(
             started = time.monotonic()
             try:
                 shutil.copy2(priority_source, staging / "priority-report.json")
+                all_records_by_id = {
+                    str(record.get("id") or ""): record for record in records
+                }
+                preflight_ids = preflight_selection["selected_source_record_ids"]
+                preflight_set = set(preflight_ids)
+                preflight_records = [
+                    record
+                    for record in records
+                    if str(record.get("id") or "") in preflight_set
+                ]
+                preflight_by_id = {
+                    str(row["source_record_id"]): row
+                    for row in preflight_selection["selected"]
+                }
+                preflight_record_concepts = {
+                    source_record_id: list(row["concept_ids"])
+                    for source_record_id, row in preflight_by_id.items()
+                }
+                with tempfile.TemporaryDirectory(
+                    prefix="rock-kb-migration-hydration-preflight-"
+                ) as preflight_temp:
+                    preflight_destination = Path(preflight_temp)
+                    preflight_build = build_source_native_document_candidates(
+                        concept_ids=sorted(
+                            {
+                                str(concept_id)
+                                for row in preflight_selection["selected"]
+                                for concept_id in row["concept_ids"]
+                            }
+                        ),
+                        source_ids=sorted(
+                            {
+                                str(row["source_id"])
+                                for row in preflight_selection["selected"]
+                            }
+                        ),
+                        source_record_ids=preflight_ids,
+                        source_record_concept_ids=preflight_record_concepts,
+                        destination=preflight_destination,
+                        previous_dir=repo_root
+                        / SOURCE_NATIVE_PILOT_DIR.relative_to(REPO_ROOT),
+                        checked_at=str(report["as_of"]),
+                        records=preflight_records,
+                    )
+                    preflight_candidate_rows = list(
+                        read_jsonl(
+                            preflight_destination / "distillation-input.jsonl"
+                        )
+                    )
+                    hydrated_preflight = _hydrated_preflight_selection(
+                        selection=preflight_selection,
+                        candidate_rows=preflight_candidate_rows,
+                        build_result=preflight_build,
+                        records_by_id=all_records_by_id,
+                        count=count,
+                        max_risk=max_risk,
+                        max_source_units_per_record=(
+                            max_source_units_per_record
+                        ),
+                    )
+                selected_ids = [
+                    str(row["source_record_id"])
+                    for row in hydrated_preflight["accepted"]
+                ]
+                selection = select_migration_batch(
+                    report=report,
+                    records=records,
+                    count=count,
+                    max_risk=max_risk,
+                    source_ids=source_ids,
+                    concept_ids=concept_ids,
+                    exact_source_record_ids=selected_ids,
+                )
+                selection["hydrated_preflight"] = hydrated_preflight
+                _apply_hydrated_preflight_queues(
+                    selection,
+                    hydrated_preflight["rejected"],
+                )
                 queue_dir = staging / "queues"
                 for queue_name in (
                     "refresh_first",
@@ -1205,7 +1442,6 @@ def prepare_source_native_migration_batch(
                         queue_dir / f"{queue_name.replace('_', '-')}.jsonl",
                         selection.get("queues", {}).get(queue_name) or [],
                     )
-                selected_ids = selection["selected_source_record_ids"]
                 selected_set = set(selected_ids)
                 selected_records = [
                     record
