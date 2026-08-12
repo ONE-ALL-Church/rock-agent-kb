@@ -27,7 +27,7 @@ from .schemas.source_native import SourceNativeDistillationArticle
 SOURCE_NATIVE_LEGACY_MIGRATIONS_NAME = "legacy-migrations.jsonl"
 SOURCE_NATIVE_ARTIFACT_MIGRATIONS_NAME = "artifact-migrations.jsonl"
 SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_ID = "source-native-legacy-migration-v1"
-SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_VERSION = "1.3.1"
+SOURCE_NATIVE_LEGACY_MIGRATION_PROMPT_VERSION = "1.3.2"
 SOURCE_NATIVE_LEGACY_MIGRATION_INPUT_HASH_VERSION = "2"
 SOURCE_NATIVE_LEGACY_MIGRATION_REVIEW_DIR = (
     REVIEW_DIR / "source-native-legacy-migration"
@@ -507,18 +507,6 @@ def validate_source_native_legacy_migration_output(
             legacy_type = str(
                 legacy_by_id[legacy_id].get("legacy_knowledge_type") or ""
             )
-            if (
-                decision.disposition == "replace"
-                and legacy_type == "source_summary"
-                and artifacts_by_key[
-                    str(decision.replacement_artifact_key)
-                ].artifact_type
-                != "source_summary"
-            ):
-                raise ValueError(
-                    "legacy source summaries require a source-summary primary "
-                    f"replacement: {legacy_id}"
-                )
             if legacy_type == "claim" and decision.supporting_replacement_artifact_keys:
                 raise ValueError(
                     f"legacy claims cannot use supporting replacements: {legacy_id}"

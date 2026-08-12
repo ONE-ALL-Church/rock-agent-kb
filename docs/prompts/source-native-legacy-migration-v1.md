@@ -1,7 +1,7 @@
 # Source-Native Legacy Migration v1
 
 Prompt ID: `source-native-legacy-migration-v1`
-Prompt version: `1.3.1`
+Prompt version: `1.3.2`
 Status: reviewed migration contract; promotion requires maintainer approval
 
 ## Role And Boundary
@@ -93,18 +93,25 @@ when its best type is a task card, recipe, or structured reference, but the
 single replacement must still answer the legacy question on its own.
 
 A legacy `source_summary` is a routing envelope, not one factual assertion. It
-may be replaced by one primary emitted `source_summary` plus a bounded set of
-typed companion artifacts when that collection preserves the summary's useful
-scope and operational details. Put the primary source-summary key in
+may be replaced by one primary emitted artifact plus a bounded set of typed
+companion artifacts when that collection preserves the summary's useful scope
+and operational details. The primary can be a source summary, claim, task card,
+recipe, or structured reference, but it must independently preserve the legacy
+summary's useful routing and answer value. Choose the source-native type that
+best represents the current source; never emit a synthetic source summary only
+to preserve the legacy type. Put the primary key in
 `replacement_artifact_key` and the companion keys in
 `supporting_replacement_artifact_keys`. Exact legacy lookup will resolve to the
-primary summary, and reviewed typed relationships will expose the companions.
+primary artifact, and reviewed typed relationships will expose the companions.
+If no single primary provides a complete landing result, retain the legacy
+summary or emit a genuine source summary when the current source supports one.
 Do not use companions to make an incomplete claim replacement appear complete.
 
 Choose `retain` with `coverage: partial` when the article supports only part of
 the legacy meaning, the meaning is distributed across several artifacts, or a
 condition would be lost. Distribution alone is not a reason to retain a legacy
-source summary when a primary summary plus named companions preserves it.
+source summary when one independently useful primary artifact plus named
+companions preserves it.
 Choose `retain` with `coverage: unsupported` when the
 current source snapshot does not substantiate the legacy item. Never retire an
 item merely because it is old, duplicative, broad, awkwardly worded, or absent
@@ -149,6 +156,8 @@ Before returning, verify that:
 - every legacy item has one migration decision;
 - every replacement key exists in the same article;
 - every replacement decision has full coverage;
+- every legacy source-summary replacement has one independently useful primary
+  artifact chosen for the current source rather than for legacy type parity;
 - retained items have no primary or supporting replacement keys;
 - claim replacements have no supporting replacement keys;
 - retrieval text is standalone and declarative;

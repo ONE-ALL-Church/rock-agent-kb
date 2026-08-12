@@ -575,7 +575,7 @@ def test_concept_routing_marks_community_style_lexical_only_input_low():
     }
 
 
-def test_concept_routing_prefers_exact_topic_over_lexical_padding():
+def test_concept_routing_prefers_corroborated_topic_over_lexical_padding():
     exact_topic = Concept(
         id="workflows",
         title="Workflows",
@@ -619,8 +619,87 @@ def test_concept_routing_prefers_exact_topic_over_lexical_padding():
         "routes": [
             {
                 "concept_id": "workflows",
-                "method": "exact_source_topic",
+                "method": "corroborated_source_topic",
             },
         ],
         "confidence": "high",
+    }
+
+
+def test_concept_routing_does_not_treat_source_wide_topic_as_article_evidence():
+    lava = Concept(
+        id="lava",
+        title="Lava",
+        description="Lava templates and syntax.",
+        keywords=["lava", "command"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+    developer_resources = Concept(
+        id="developer-resources",
+        title="Developer Resources",
+        description="Rock developer documentation.",
+        keywords=["developer"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={
+            "source_url_prefixes": [
+                "https://community.rockrms.com/developer"
+            ]
+        },
+    )
+    record = {
+        "source_id": "rock_developer",
+        "source_url": (
+            "https://community.rockrms.com/developer/303---blast-off/"
+            "extending-communication-transports"
+        ),
+        "source_title": "Extending Communication Transports",
+        "summary": "A C# interface declares an SMS pipeline webhook path.",
+        "topics": ["development", "api", "lava", "obsidian"],
+        "documentation_path": (
+            "developer/303---blast-off/extending-communication-transports"
+        ),
+    }
+
+    routing = infer_concept_routing(
+        record,
+        seeded_concept_ids=[],
+        concepts=[lava, developer_resources],
+    )
+
+    assert routing == {
+        "concept_ids": ["developer-resources"],
+        "routes": [
+            {
+                "concept_id": "developer-resources",
+                "method": "documentation_path",
+            }
+        ],
+        "confidence": "high",
+    }
+
+    topic_only = infer_concept_routing(
+        {**record, "source_url": "", "documentation_path": ""},
+        seeded_concept_ids=[],
+        concepts=[lava],
+    )
+    assert topic_only == {
+        "concept_ids": ["lava"],
+        "routes": [
+            {
+                "concept_id": "lava",
+                "method": "source_topic_only",
+            }
+        ],
+        "confidence": "low",
     }

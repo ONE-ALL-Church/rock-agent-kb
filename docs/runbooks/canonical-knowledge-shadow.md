@@ -136,6 +136,15 @@ presenting a mixed bundle as one generation run. Per-artifact concept lists
 remain bounded at 20; the manifest's aggregate concept inventory is separately
 bounded for repository-scale coverage.
 
+Migration is source-first, not a same-type rewrite. Re-read every deterministic
+unit in the current source and allow useful typed artifacts with no legacy
+equivalent. Treat legacy rows as a loss-prevention ledger. In particular, a
+legacy source summary can resolve through its public alias to a claim, task
+card, recipe, structured reference, or genuine source summary when that primary
+independently preserves the useful landing value. Source-registry topics are
+source-wide metadata and need article-local corroboration before they qualify
+as high-confidence concept routes.
+
 Select a bounded migration batch before building private review inputs:
 
 ```bash

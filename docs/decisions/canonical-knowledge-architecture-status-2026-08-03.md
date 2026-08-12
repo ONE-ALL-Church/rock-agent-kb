@@ -2,7 +2,7 @@
 
 Date: 2026-08-03
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 Status: accepted architecture, canonical active, legacy rollback retained
 
@@ -45,11 +45,18 @@ The shared envelope must not flatten unlike sources into generic prose:
 | Model Map and Lava contexts | Deterministic structured records with exact lookup fields and source/version provenance. |
 | Reviewed recipes and community contributions | Deterministic typed records that preserve adaptation, security, organization provenance, and concept facets. |
 | Cross-source conclusions | Separately reviewed synthesis with typed evidence roles; never an automatic merge based only on similar wording. |
-| Legacy claims and source summaries | Explicit migration debt. Keep serving them until their source family is safely converted; do not mass-rewrite them. |
+| Legacy claims and source summaries | Explicit loss-prevention debt. Re-read the complete current source, emit any useful new typed artifacts, and preserve exact lookup through reviewed aliases. A legacy source summary may resolve to the best independently useful typed primary; do not manufacture a same-type summary merely to retire it. |
 
 The reviewed machine-readable source-family contracts in
 `canonical/source-family-contracts-v1.json` are authoritative when prose and
 code disagree.
+
+Concept routing is also source-native. Reviewed artifact assignments and exact
+API-derived article paths are strong routing evidence. Registry topics describe
+the source as a whole and require independent corroboration in the article
+title, path, summary, or excerpt before they can become high-confidence article
+facets. This prevents broad developer-source tags such as Lava or Obsidian from
+being copied onto unrelated C# articles.
 
 ## Current Evidence
 

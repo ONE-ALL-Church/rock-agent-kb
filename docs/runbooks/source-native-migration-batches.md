@@ -13,6 +13,20 @@ useful typed artifacts that have no legacy equivalent. Legacy rows and prior
 source-native artifacts are comparison inputs and loss-prevention ledgers; they
 do not define the number, wording, or shape of the new artifacts.
 
+A legacy source summary does not require another source summary as its primary
+replacement. Use the current source's best primary type when one claim, task
+card, recipe, structured reference, or genuine source summary independently
+preserves the old row's useful landing value. Keep or create a source summary
+only when the source actually contains useful overview or discovery context;
+do not manufacture one to retire the legacy type.
+
+Concept routing is article-specific. Source-registry topics describe the whole
+source and become high-confidence routing evidence only when the article title,
+path, summary, or excerpt independently corroborates that exact topic. Prefer
+reviewed artifact seeds and API-derived documentation paths; do not route every
+developer article to Lava or Obsidian merely because those topics apply to the
+developer source as a whole.
+
 ## Preconditions
 
 - Work in a clean current-main worktree.

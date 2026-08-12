@@ -27,7 +27,7 @@ from .sources import Source, load_sources
 SOURCE_NATIVE_MIGRATION_PRIORITY_DIR = REVIEW_DIR / "source-native-legacy-migration"
 SOURCE_NATIVE_MIGRATION_PRIORITY_PATH = SOURCE_NATIVE_MIGRATION_PRIORITY_DIR / "priority-report.json"
 SOURCE_NATIVE_MIGRATION_PRIORITY_SCHEMA = "rock-kb-source-native-migration-priority-v1"
-SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "3"
+SOURCE_NATIVE_MIGRATION_PRIORITY_ALGORITHM = "4"
 MIGRATION_PROMPT_ID = "source-native-legacy-migration-v1"
 
 SCORE_WEIGHTS = {
@@ -239,7 +239,12 @@ def infer_concept_routing(
     legacy = {str(value) for value in legacy_concept_ids if str(value) in known}
     record_topics = {str(value) for value in record.get("topics") or []}
     scored: list[tuple[int, int, int, str, str]] = []
-    text = record_text(record)
+    # Registry topics describe an entire source, not necessarily this article.
+    # Exclude them from article-level lexical evidence so a broad source tag
+    # cannot bootstrap its own high-confidence route.
+    routing_record = dict(record)
+    routing_record["topics"] = []
+    text = record_text(routing_record)
     for concept in concept_rows:
         path_match = concept_has_path_constraints(concept) and record_matches_path_constraints(
             record, concept.raw
@@ -249,14 +254,20 @@ def infer_concept_routing(
         if path_match:
             routing_class = 0
             route_method = "documentation_path"
-        elif concept.id in record_topics:
+        elif concept.id in record_topics and _topic_is_article_corroborated(
+            concept.id,
+            text,
+        ):
             routing_class = 1
-            route_method = "exact_source_topic"
+            route_method = "corroborated_source_topic"
         elif concept.id in legacy and (lexical_score > 0 or topic_score > 0):
             routing_class = 2
             route_method = "supported_legacy"
-        elif lexical_score > 0:
+        elif concept.id in record_topics:
             routing_class = 3
+            route_method = "source_topic_only"
+        elif lexical_score > 0:
+            routing_class = 4
             route_method = "lexical_only"
         else:
             continue
@@ -269,13 +280,15 @@ def infer_concept_routing(
         scored = [row for row in scored if row[0] <= 1]
     elif any(row[0] == 2 for row in scored):
         scored = [row for row in scored if row[0] == 2]
+    elif any(row[0] == 3 for row in scored):
+        scored = [row for row in scored if row[0] == 3]
     selected_routes = {
         concept_id: route_method
         for *_scores, concept_id, route_method in scored[:max_inferred]
     }
     concept_ids = sorted(selected_routes)
     methods = set(selected_routes.values())
-    if not methods or "lexical_only" in methods:
+    if not methods or methods & {"lexical_only", "source_topic_only"}:
         confidence = "low"
     elif "supported_legacy" in methods:
         confidence = "medium"
@@ -292,6 +305,17 @@ def infer_concept_routing(
         ],
         "confidence": confidence,
     }
+
+
+def _topic_is_article_corroborated(concept_id: str, text: str) -> bool:
+    phrase = concept_id.lower().replace("-", " ").strip()
+    if not phrase:
+        return False
+    variants = {phrase}
+    words = phrase.split()
+    if words and words[-1].endswith("s") and len(words[-1]) > 3:
+        variants.add(" ".join([*words[:-1], words[-1][:-1]]))
+    return score_text(text, sorted(variants)) > 0
 
 
 def infer_concept_ids(
