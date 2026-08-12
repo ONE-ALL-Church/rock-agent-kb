@@ -379,6 +379,72 @@ def test_exact_selection_fails_closed_when_any_record_is_not_low_risk():
         )
 
 
+def test_low_risk_selection_requires_exact_hydration_for_resolvable_preview():
+    record = source_record(1)
+    record["documentation_table_of_contents_link_count"] = 31
+    report = priority_report([record])
+
+    with pytest.raises(ValueError, match="only 0 satisfied the low risk policy"):
+        orchestrator.select_migration_batch(
+            report=report,
+            records=[record],
+            count=1,
+            max_risk="low",
+        )
+
+    provisional = orchestrator.select_migration_batch(
+        report=report,
+        records=[record],
+        count=1,
+        max_risk="low",
+        allow_hydration_resolvable_preview=True,
+    )
+    assert provisional["selected"][0]["risk"] == {
+        "level": "standard",
+        "policy_version": "8",
+        "reason_codes": ["broad_table_of_contents"],
+        "reasons": ["source table of contents indicates broad scope"],
+        "hydration_resolution_required": True,
+    }
+
+    hydrated_risk = {
+        "level": "low",
+        "policy_version": "8",
+        "reason_codes": ["hydrated_bounded_source"],
+        "reasons": [
+            "hydrated source remains within low-risk content and structure bounds"
+        ],
+    }
+    final = orchestrator.select_migration_batch(
+        report=report,
+        records=[record],
+        count=1,
+        max_risk="low",
+        exact_source_record_ids=[record["id"]],
+        hydrated_risks_by_record={record["id"]: hydrated_risk},
+    )
+    assert final["selected"][0]["risk"]["level"] == "low"
+    assert final["selected"][0]["risk"]["resolved_by_hydration"] is True
+    assert final["selected"][0]["risk"]["deterministic_preflight_risk"][
+        "reason_codes"
+    ] == ["broad_table_of_contents"]
+
+
+def test_hydration_cannot_downgrade_sensitive_preview_risk():
+    record = source_record(1, title="Security Overview")
+    record["documentation_table_of_contents_link_count"] = 31
+    report = priority_report([record])
+
+    with pytest.raises(ValueError, match="only 0 satisfied the low risk policy"):
+        orchestrator.select_migration_batch(
+            report=report,
+            records=[record],
+            count=1,
+            max_risk="low",
+            allow_hydration_resolvable_preview=True,
+        )
+
+
 def test_claim_bearing_record_requires_at_least_standard_risk():
     record = source_record(1)
     report = priority_report([record])
@@ -679,6 +745,38 @@ def test_prepare_backfills_hydration_skip_and_preserves_queue(
     assert selection["excluded_examples"][
         "rockumentation_full_text_exceeds_review_limit"
     ] == [records[0]["id"]]
+
+
+def test_prepare_accepts_only_hydrated_low_risk_preview_records(
+    monkeypatch,
+    tmp_path: Path,
+):
+    records = [source_record(1), source_record(2)]
+    for record in records:
+        record["documentation_table_of_contents_link_count"] = 31
+    install_prepare_stubs(monkeypatch, tmp_path, records)
+    report_path = tmp_path / "data" / "review" / "priority.json"
+    write_json(report_path, priority_report(records))
+    destination = tmp_path / "data" / "review" / "batch"
+
+    result = orchestrator.prepare_source_native_migration_batch(
+        destination=destination,
+        count=2,
+        max_risk="low",
+        priority_report_path=report_path,
+        repo_root=tmp_path,
+    )
+
+    selection = json.loads((destination / "selection.json").read_text())
+    assert result["status"] == "ok"
+    assert selection["max_risk"] == "low"
+    assert all(
+        row["risk"]["level"] == "low"
+        and row["risk"]["resolved_by_hydration"] is True
+        and row["risk"]["deterministic_preflight_risk"]["reason_codes"]
+        == ["broad_table_of_contents"]
+        for row in selection["selected"]
+    )
 
 
 def test_prepare_uses_full_bounded_reserve_after_seventy_five_rejections(

@@ -42,6 +42,10 @@ tags and follow semantic versioning for public client and service contracts.
 - Automatic low-risk batches screen the full bounded hydration reserve before
   failing an exact requested count, so more than 20 elevated records cannot
   hide later eligible records in the same deterministic queue.
+- Batch policy v3 may preflight API records whose only deterministic uncertainty
+  is a thin preview or broad table of contents. Final low-risk selection still
+  requires the exact hydrated article to pass every low-risk check and retains
+  both risk decisions; all other standard and high-risk reasons remain strict.
 - Exact independent questions now retain precedence over nearby paraphrases,
   while high-overlap source-native recipes can outrank generic task cards for
   matching how-to questions without receiving an unconditional recipe boost.

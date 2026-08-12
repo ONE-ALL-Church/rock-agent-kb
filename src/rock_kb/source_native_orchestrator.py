@@ -58,11 +58,17 @@ BATCH_MANIFEST_SCHEMA = "rock-kb-source-native-migration-batch-manifest-v1"
 BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
-BATCH_POLICY_VERSION = "2"
+BATCH_POLICY_VERSION = "3"
 RISK_POLICY_VERSION = "8"
 MAX_BATCH_RECORD_COUNT = 50
 MAX_PREFLIGHT_POOL_RECORD_COUNT = 150
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
+HYDRATION_RESOLVABLE_PREVIEW_RISK_CODES = frozenset(
+    {
+        "broad_table_of_contents",
+        "normalized_source_preview_too_thin",
+    }
+)
 HIGH_RISK_TERMS = {
     "authentication",
     "authorization",
@@ -807,6 +813,15 @@ def classify_hydrated_candidate_risk(
     }
 
 
+def _risk_is_hydration_resolvable_preview(risk: dict[str, Any]) -> bool:
+    reason_codes = {str(value) for value in risk.get("reason_codes") or []}
+    return (
+        risk.get("level") == "standard"
+        and bool(reason_codes)
+        and reason_codes <= HYDRATION_RESOLVABLE_PREVIEW_RISK_CODES
+    )
+
+
 def select_migration_batch(
     *,
     report: dict[str, Any],
@@ -816,6 +831,8 @@ def select_migration_batch(
     source_ids: Iterable[str] = (),
     concept_ids: Iterable[str] = (),
     exact_source_record_ids: Iterable[str] = (),
+    allow_hydration_resolvable_preview: bool = False,
+    hydrated_risks_by_record: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     _validate_priority_report(report)
     if count < 1 or count > MAX_PREFLIGHT_POOL_RECORD_COUNT:
@@ -831,6 +848,7 @@ def select_migration_batch(
     source_filter = {str(value) for value in source_ids if str(value)}
     concept_filter = {str(value) for value in concept_ids if str(value)}
     exact_ids = [str(value) for value in exact_source_record_ids if str(value)]
+    hydrated_risks = hydrated_risks_by_record or {}
     rows_by_id = {str(row.get("source_record_id") or ""): row for row in report["rows"]}
     if exact_ids:
         if len(exact_ids) != len(set(exact_ids)):
@@ -868,10 +886,42 @@ def select_migration_batch(
             return "concept_filter", None
         if not row.get("migration_ready"):
             return str(row.get("recommended_action") or "not_migration_ready"), None
-        risk = classify_migration_risk(row, record)
-        if RISK_ORDER[risk["level"]] > RISK_ORDER[max_risk]:
-            return f"risk_{risk['level']}", risk
-        return None, risk
+        deterministic_risk = classify_migration_risk(row, record)
+        hydrated_risk = hydrated_risks.get(source_record_id)
+        if hydrated_risk is not None:
+            hydrated_level = str(hydrated_risk.get("level") or "")
+            if hydrated_level not in RISK_ORDER:
+                raise ValueError(
+                    f"hydrated risk is invalid for {source_record_id}"
+                )
+            if RISK_ORDER[hydrated_level] > RISK_ORDER[max_risk]:
+                return f"risk_{hydrated_level}", hydrated_risk
+        if RISK_ORDER[deterministic_risk["level"]] > RISK_ORDER[max_risk]:
+            if (
+                hydrated_risk is not None
+                and _risk_is_hydration_resolvable_preview(deterministic_risk)
+            ):
+                return None, {
+                    **hydrated_risk,
+                    "resolved_by_hydration": True,
+                    "deterministic_preflight_risk": deterministic_risk,
+                }
+            if (
+                allow_hydration_resolvable_preview
+                and _risk_is_hydration_resolvable_preview(deterministic_risk)
+            ):
+                return None, {
+                    **deterministic_risk,
+                    "hydration_resolution_required": True,
+                }
+            return f"risk_{deterministic_risk['level']}", deterministic_risk
+        if hydrated_risk is not None:
+            return None, {
+                **hydrated_risk,
+                "resolved_by_hydration": False,
+                "deterministic_preflight_risk": deterministic_risk,
+            }
+        return None, deterministic_risk
 
     selected: list[dict[str, Any]] = []
     for row in candidates:
@@ -1059,6 +1109,7 @@ def _hydrated_preflight_selection(
             "candidate_id": candidate.get("candidate_id"),
             "source_input_hash": candidate.get("source_input_hash"),
             "source_unit_count": unit_count,
+            "deterministic_preflight_risk": selected_row.get("risk"),
             "hydrated_risk": hydrated_risk,
         }
         if len(accepted) < count:
@@ -1431,6 +1482,9 @@ def prepare_source_native_migration_batch(
                 source_ids=source_ids,
                 concept_ids=concept_ids,
                 exact_source_record_ids=exact_source_record_ids,
+                allow_hydration_resolvable_preview=(
+                    max_risk == "low" and not exact_source_record_ids
+                ),
             )
             preflight_selection = selection
             if not exact_source_record_ids:
@@ -1451,6 +1505,9 @@ def prepare_source_native_migration_batch(
                             max_risk=max_risk,
                             source_ids=source_ids,
                             concept_ids=concept_ids,
+                            allow_hydration_resolvable_preview=(
+                                max_risk == "low"
+                            ),
                         )
                         break
                     except ValueError as error:
@@ -1530,6 +1587,10 @@ def prepare_source_native_migration_batch(
                     str(row["source_record_id"])
                     for row in hydrated_preflight["accepted"]
                 ]
+                hydrated_risks_by_record = {
+                    str(row["source_record_id"]): row["hydrated_risk"]
+                    for row in hydrated_preflight["accepted"]
+                }
                 selection = select_migration_batch(
                     report=report,
                     records=records,
@@ -1538,6 +1599,7 @@ def prepare_source_native_migration_batch(
                     source_ids=source_ids,
                     concept_ids=concept_ids,
                     exact_source_record_ids=selected_ids,
+                    hydrated_risks_by_record=hydrated_risks_by_record,
                 )
                 selection["hydrated_preflight"] = hydrated_preflight
                 _apply_hydrated_preflight_queues(

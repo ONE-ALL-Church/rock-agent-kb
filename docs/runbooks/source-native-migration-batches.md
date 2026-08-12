@@ -69,6 +69,15 @@ batch, and seals each hydrated candidate ID, source-input hash, and unit count s
 risk reclassification remains reproducible after temporary hydration files are
 removed.
 
+For API-backed records, two preview-only standard-risk signals may enter this
+preflight reserve: a thin normalized preview and a broad table of contents.
+They do not enter the final low-risk batch unless the exact hydrated article is
+bounded and low risk. The sealed selection retains both the deterministic
+preview risk and its hydrated resolution. No other standard or high-risk reason
+can be downgraded this way; sensitive terms, claims, concepts, identities,
+versions, mutations, permissions, conflicts, and verification debt stay in
+their higher-risk queues.
+
 API-backed documentation, developer, and mobile prose also needs an exact
 `article` source identity. Static discovery or landing-page hashes can remain
 source leads, but they cannot enter a low-risk migration packet until the full
@@ -77,14 +86,15 @@ article is normalized under its stable API identity.
 The risk policy is independent of priority. Priority estimates migration value;
 risk controls batching and review intensity. Low risk requires an official,
 fresh, summary-only legacy source with complete high-confidence concept-routing
-provenance and no verification debt, prior source-native identity decision,
-sensitive operational concept, or broad source shape. Medium or lexical-only
-concept inference requires at least standard review. Editorial community blog
-records also require at least standard review because one article can span
-several ministry and product topics. Security, permissions, authentication,
-SQL, writes, workflows, hosting, payments, and similar surfaces are high risk.
-Legacy claims and version-sensitive or broad articles require at least standard
-review.
+provenance and no verification debt, prior source-native identity decision, or
+sensitive operational concept. Preview breadth alone may be resolved only by
+the exact bounded hydration described above. Medium or lexical-only concept
+inference requires at least standard review. Editorial community blog records
+also require at least standard review because one article can span several
+ministry and product topics. Security, permissions, authentication, SQL,
+writes, workflows, hosting, payments, and similar surfaces are high risk.
+Legacy claims, version-sensitive material, and broad hydrated articles require
+at least standard review.
 
 Concept inference uses the strongest available evidence tier. Explicit
 documentation paths and corroborated source topics are not padded with weaker
