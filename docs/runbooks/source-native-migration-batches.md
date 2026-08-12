@@ -47,6 +47,11 @@ exceeds 200 source units, or a selected record has no active legacy projection.
 Exact record batches may be specified with repeated `--source-record-id`; every
 exact record must satisfy the selected risk policy.
 
+API-backed documentation, developer, and mobile prose also needs an exact
+`article` source identity. Static discovery or landing-page hashes can remain
+source leads, but they cannot enter a low-risk migration packet until the full
+article is normalized under its stable API identity.
+
 The risk policy is independent of priority. Priority estimates migration value;
 risk controls batching and review intensity. Low risk requires an official,
 fresh, summary-only legacy source with complete high-confidence concept-routing

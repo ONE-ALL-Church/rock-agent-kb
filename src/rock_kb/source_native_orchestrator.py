@@ -59,7 +59,7 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "1"
-RISK_POLICY_VERSION = "3"
+RISK_POLICY_VERSION = "4"
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -479,6 +479,18 @@ def classify_migration_risk(
             "standard",
             "editorial_community_blog",
             "editorial rock_community_blog sources require standard review",
+        )
+    source_id = str(row.get("source_id") or record.get("source_id") or "")
+    source_record_id = str(row.get("source_record_id") or record.get("id") or "")
+    if source_id in {
+        "rock_developer",
+        "rock_documentation",
+        "rock_mobile_docs",
+    } and ":article:" not in source_record_id:
+        raise_to(
+            "high",
+            "exact_article_identity_missing",
+            "API-backed prose source lacks an exact hydratable article identity",
         )
 
     matched_terms = sorted(

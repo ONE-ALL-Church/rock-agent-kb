@@ -433,6 +433,17 @@ def test_editorial_community_blog_requires_at_least_standard_risk():
     ]
 
 
+def test_api_backed_prose_without_exact_article_identity_is_high_risk():
+    record = source_record(1)
+    record["id"] = "rock_developer:604a7cf9025a8bcc"
+    row = priority_row(record, 1)
+
+    result = orchestrator.classify_migration_risk(row, record)
+
+    assert result["level"] == "high"
+    assert "exact_article_identity_missing" in result["reason_codes"]
+
+
 @pytest.mark.parametrize("confidence", ["medium", "low"])
 def test_non_high_confidence_concept_routing_requires_standard_risk(
     confidence: str,
@@ -468,7 +479,7 @@ def test_non_high_confidence_concept_routing_requires_standard_risk(
     assert "concept_routing_not_high_confidence" in (
         selected["selected"][0]["risk"]["reason_codes"]
     )
-    assert selected["risk_policy_version"] == "3"
+    assert selected["risk_policy_version"] == "4"
 
 
 def test_missing_concept_routing_provenance_is_high_risk():

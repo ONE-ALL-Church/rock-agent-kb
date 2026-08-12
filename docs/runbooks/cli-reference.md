@@ -343,8 +343,10 @@ rejects truncated queues, stale or missing identities, changed hashes, partial
 hydration, unsupported source shape, legacy/source identity mismatches, and
 records above the 200-unit response contract. Editorial community sources,
 internal mutable APIs, write requirements, and compatibility warnings cannot
-be classified as low risk. Repeating the same preparation is a no-op only when
-every base, selection, prompt, schema, source, and file hash still matches.
+be classified as low risk. API-backed prose must also have an exact article
+identity rather than a static discovery or landing-page hash. Repeating the
+same preparation is a no-op only when every base, selection, prompt, schema,
+source, and file hash still matches.
 `source-native-migration-batch-assemble` enforces exact schema-constrained model
 coverage, records the exact generation model, and stops at
 `awaiting_maintainer_review`. Low-risk assembly rejects unmatched routing terms
