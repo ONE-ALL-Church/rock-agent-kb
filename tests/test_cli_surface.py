@@ -3,13 +3,9 @@ from __future__ import annotations
 import pytest
 from typer.testing import CliRunner
 
-from rock_kb.cli import app
-from rock_kb.cli import audit_cmds
-from rock_kb.cli import tools_cmds
-from rock_kb.source_native import SOURCE_NATIVE_PILOT_DIR
-from rock_kb.source_native import SOURCE_NATIVE_PILOT_CONCEPTS
+from rock_kb.cli import app, audit_cmds, tools_cmds
+from rock_kb.source_native import SOURCE_NATIVE_PILOT_CONCEPTS, SOURCE_NATIVE_PILOT_DIR
 from rock_kb.source_native_verification import VERIFICATION_REPORT_NAME
-
 
 FINAL_COMMANDS = [
     ["status"],
@@ -96,6 +92,10 @@ FINAL_COMMANDS = [
     ["report", "refresh"],
     ["report", "dashboard"],
     ["tools", "repo-pack"],
+    ["tools", "source-native-migration-batch-prepare"],
+    ["tools", "source-native-migration-batch-assemble"],
+    ["tools", "source-native-migration-batch-validate"],
+    ["tools", "source-native-migration-batch-promote"],
 ]
 
 DEAD_COMMANDS = [

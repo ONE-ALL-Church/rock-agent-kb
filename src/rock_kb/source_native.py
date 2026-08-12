@@ -5,7 +5,7 @@ import json
 import re
 import shutil
 from collections import Counter
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -1023,6 +1023,7 @@ def build_source_native_document_candidates(
     limit_per_concept: int = SOURCE_NATIVE_PILOT_LIMIT_PER_CONCEPT,
     source_ids: Iterable[str] = SOURCE_NATIVE_ROCKUMENTATION_SOURCE_IDS,
     source_record_ids: Iterable[str] | None = None,
+    source_record_concept_ids: Mapping[str, Iterable[str]] | None = None,
     destination: Path = SOURCE_NATIVE_REVIEW_DIR,
     previous_dir: Path = SOURCE_NATIVE_PILOT_DIR,
     checked_at: str | None = None,
@@ -1097,6 +1098,7 @@ def build_source_native_document_candidates(
                 limit_per_concept=limit_per_concept,
                 source_ids=requested_source_ids,
                 source_record_ids=requested_record_ids,
+                source_record_concept_ids=source_record_concept_ids,
                 destination=destination,
                 candidate_path=candidate_path,
                 previous_dir=previous_dir,
@@ -1115,6 +1117,7 @@ def build_source_native_document_candidates(
         limit_per_concept=limit_per_concept,
         source_ids=requested_source_ids,
         source_record_ids=requested_record_ids,
+        source_record_concept_ids=source_record_concept_ids,
         destination=destination,
         candidate_path=candidate_path,
         previous_dir=previous_dir,
@@ -1131,6 +1134,7 @@ def _build_source_native_document_candidates(
     limit_per_concept: int,
     source_ids: list[str],
     source_record_ids: list[str],
+    source_record_concept_ids: Mapping[str, Iterable[str]] | None,
     destination: Path,
     candidate_path: Path,
     previous_dir: Path,
@@ -1169,6 +1173,7 @@ def _build_source_native_document_candidates(
         require_full_text=True,
         source_ids=source_ids,
         source_record_ids=source_record_ids,
+        source_record_concept_ids=source_record_concept_ids,
     )
     snapshots: list[SourceSnapshot] = []
     units: list[SourceUnit] = []

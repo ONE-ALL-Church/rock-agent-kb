@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rock-agent-kb.oneandall.church/schemas/source-native-migration-article-review-v1.schema.json",
+  "additionalProperties": false,
+  "properties": {
+    "adjudications": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "disposition": {
+            "enum": [
+              "accept",
+              "modify",
+              "reject"
+            ]
+          },
+          "evidence_refs": {
+            "items": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "type": "array"
+          },
+          "rationale": {
+            "maxLength": 1500,
+            "minLength": 20,
+            "type": "string"
+          },
+          "recommendation_id": {
+            "maxLength": 240,
+            "minLength": 3,
+            "type": "string"
+          }
+        },
+        "required": [
+          "recommendation_id",
+          "disposition",
+          "rationale",
+          "evidence_refs"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "candidate_id": {
+      "maxLength": 240,
+      "minLength": 3,
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "approved",
+        "approved_with_corrections"
+      ]
+    },
+    "generated_article_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "notes": {
+      "items": {
+        "maxLength": 1500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 30,
+      "type": "array"
+    },
+    "reviewed_article_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reviewer": {
+      "maxLength": 160,
+      "minLength": 2,
+      "type": "string"
+    },
+    "schema": {
+      "const": "rock-kb-source-native-article-review-v1"
+    },
+    "source_record_id": {
+      "maxLength": 240,
+      "minLength": 3,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "candidate_id",
+    "source_record_id",
+    "generated_article_hash",
+    "reviewed_article_hash",
+    "decision",
+    "reviewer",
+    "reviewed_at",
+    "notes",
+    "adjudications"
+  ],
+  "title": "Rock KB source-native migration article review",
+  "type": "object"
+}

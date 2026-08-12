@@ -327,6 +327,35 @@ organization identifiers, or private Rock data. Each occurrence adds a bounded
 weight, capped at three occurrences, so field demand can break close ties but
 cannot override freshness or missing concept-routing gates.
 
+This queue is legacy-seeded and is not a whole-source completeness report. The
+migration compiler re-distills every source unit in a selected record and may
+add typed knowledge that legacy never represented, but records with no active
+legacy projection require a separate supported-source coverage audit and the
+ordinary source-native distillation path.
+
+`source-native-migration-batch-prepare` converts a complete priority report
+into an immutable, risk-bounded private packet with exact per-record concept
+routing and one prompt per source record. It requires a clean tracked tree,
+rejects truncated queues, stale or missing identities, changed hashes, partial
+hydration, unsupported source shape, and records above the 200-unit response
+contract. Repeating the same preparation is a no-op only when every base,
+selection, prompt, schema, source, and file hash still matches.
+`source-native-migration-batch-assemble` enforces exact schema-constrained model
+coverage, records the exact generation model, and stops at
+`awaiting_maintainer_review`.
+`source-native-migration-batch-validate` requires a separate reviewed output and
+one hash-bound maintainer decision per article. Optional judge recommendations
+must all be explicitly adjudicated. It emits categorized correction and
+available throughput/cost evidence, then stops at
+`ready_for_explicit_promotion`. None of those automatic phases can approve,
+promote, publish, deploy, or write externally. The separate
+`source-native-migration-batch-promote` command is an explicit maintainer write:
+it revalidates the content-addressed manifest and exact reviewed output,
+decisions, judge review, comparison report, model, reviewer, and timestamp,
+then uses a rollback-journaled directory replacement instead of file-by-file
+canonical writes. Follow `docs/runbooks/source-native-migration-batches.md`,
+then run the remaining release gates separately.
+
 `source-native-verification-packet` binds each mutable or
 implementation-sensitive question to its exact queue-row hash.
 `source-native-verification-promote` accepts reviewed public evidence and

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Any, Callable, Iterable
+from typing import Any, Callable, Iterable, Mapping
 
 import httpx
 
@@ -17,7 +17,7 @@ from .community import fetch_rockumentation_payload, rockumentation_readable_tex
 from .concepts import (
     concept_has_path_constraints,
     concept_source_records,
-    get_concept,
+    get_concept,  # noqa: F401 - existing review helper surface
     load_concepts,
     rank_records_for_concept,
     record_matches_path_constraints,
@@ -26,7 +26,6 @@ from .concepts import (
 from .extract import USER_AGENT, now_iso, sha256_text
 from .jsonl import read_jsonl, write_jsonl
 from .paths import REVIEW_DIR
-
 
 DOCUMENT_CLAIM_CANDIDATE_SCHEMA = "rock-kb-document-claim-candidate-v1"
 DOCUMENT_CLAIM_REWRITE_SCHEMA = "rock-kb-document-claim-rewrite-v1"
@@ -74,6 +73,7 @@ def build_document_claim_candidates(
     require_full_text: bool = True,
     source_ids: Iterable[str] | None = None,
     source_record_ids: Iterable[str] | None = None,
+    source_record_concept_ids: Mapping[str, Iterable[str]] | None = None,
 ) -> dict[str, Any]:
     if limit_per_concept < 1:
         raise ValueError("limit_per_concept must be at least 1")
@@ -93,10 +93,64 @@ def build_document_claim_candidates(
         for source_record_id in (source_record_ids or [])
         if str(source_record_id).strip()
     }
+    record_concepts = {
+        str(source_record_id).strip(): {
+            str(concept_id).strip()
+            for concept_id in concept_ids_for_record
+            if str(concept_id).strip()
+        }
+        for source_record_id, concept_ids_for_record in (
+            source_record_concept_ids or {}
+        ).items()
+        if str(source_record_id).strip()
+    }
+    if record_concepts and not requested_record_ids:
+        raise ValueError(
+            "source_record_concept_ids requires exact source_record_ids"
+        )
+    unmapped_record_ids = sorted(requested_record_ids - set(record_concepts))
+    extra_mapped_record_ids = sorted(set(record_concepts) - requested_record_ids)
+    empty_concept_record_ids = sorted(
+        source_record_id
+        for source_record_id, mapped_concepts in record_concepts.items()
+        if not mapped_concepts
+    )
+    if source_record_concept_ids is not None and unmapped_record_ids:
+        raise ValueError(
+            "source_record_concept_ids missing exact source records: "
+            + ", ".join(unmapped_record_ids)
+        )
+    if extra_mapped_record_ids:
+        raise ValueError(
+            "source_record_concept_ids contains unrequested source records: "
+            + ", ".join(extra_mapped_record_ids)
+        )
+    if empty_concept_record_ids:
+        raise ValueError(
+            "source_record_concept_ids contains empty concept routing: "
+            + ", ".join(empty_concept_record_ids)
+        )
     concepts = {concept.id: concept for concept in load_concepts()}
     unknown = sorted(set(requested) - set(concepts))
     if unknown:
         raise ValueError("Unknown concept IDs: " + ", ".join(unknown))
+    mapped_concepts = {
+        concept_id
+        for concepts_for_record in record_concepts.values()
+        for concept_id in concepts_for_record
+    }
+    unknown_mapped_concepts = sorted(mapped_concepts - set(concepts))
+    if unknown_mapped_concepts:
+        raise ValueError(
+            "Unknown source_record_concept_ids concepts: "
+            + ", ".join(unknown_mapped_concepts)
+        )
+    concepts_outside_request = sorted(mapped_concepts - set(requested))
+    if concepts_outside_request:
+        raise ValueError(
+            "source_record_concept_ids concepts outside concept_ids: "
+            + ", ".join(concepts_outside_request)
+        )
     source_records = records if records is not None else concept_source_records()
     if requested_record_ids:
         known_record_ids = {
@@ -144,6 +198,11 @@ def build_document_claim_candidates(
         )
         eligible = []
         for rank, record in enumerate(ranked):
+            record_id = str(record.get("id") or "")
+            if record_concepts and concept_id not in record_concepts.get(
+                record_id, set()
+            ):
+                continue
             if str(record.get("source_id") or "") not in allowed_source_ids:
                 continue
             if (
@@ -203,6 +262,12 @@ def build_document_claim_candidates(
         "concept_ids": requested,
         "source_ids": requested_source_ids,
         "source_record_ids": sorted(requested_record_ids),
+        "source_record_concept_ids": {
+            source_record_id: sorted(concepts_for_record)
+            for source_record_id, concepts_for_record in sorted(
+                record_concepts.items()
+            )
+        },
         "limit_per_concept": limit_per_concept,
         "candidate_count": len(rows),
         "full_text_candidates": sum(

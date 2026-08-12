@@ -17,18 +17,18 @@ from rock_kb.schemas import (
 )
 from rock_kb.source_native import (
     apply_source_unit_split_rules,
-    build_source_native_impact_report,
     build_source_native_document_candidates,
+    build_source_native_impact_report,
     load_source_unit_split_rules,
-    merge_source_native_distillation_outputs,
     merge_source_native_bundle_rows,
+    merge_source_native_distillation_outputs,
     parse_markdown_source_units,
     promote_source_native_distillation,
     rebind_source_native_presentation_rows,
-    source_observation_metadata,
     source_native_evaluation_question,
-    source_native_model_input_hash,
     source_native_evaluation_rows,
+    source_native_model_input_hash,
+    source_observation_metadata,
     validate_source_native_bundle_consistency,
     validate_source_native_distillation,
     write_source_native_distillation_schema,
@@ -967,6 +967,45 @@ def test_static_prose_candidate_coalesces_concept_facets(tmp_path: Path):
     assert candidate["source_snapshot"]["derivation"]["extraction_tool"] == (
         "official_static_article_http"
     )
+
+
+def test_exact_candidate_build_preserves_per_record_concept_routing(tmp_path: Path):
+    first = document_record()
+    second = {
+        **document_record(),
+        "id": "rock_documentation:article:101",
+        "source_url": "https://community.rockrms.com/documentation/system/second",
+        "source_title": "Second Article",
+        "documentation_path": "documentation/system/second",
+        "documentation_article_id": 101,
+    }
+    destination = tmp_path / "candidate"
+    empty = tmp_path / "empty"
+    empty.mkdir()
+
+    result = build_source_native_document_candidates(
+        concept_ids=["documents-signatures", "system-admin-ops"],
+        source_record_ids=[first["id"], second["id"]],
+        source_record_concept_ids={
+            first["id"]: ["documents-signatures"],
+            second["id"]: ["system-admin-ops"],
+        },
+        destination=destination,
+        previous_dir=empty,
+        records=[first, second],
+        markdown_loader=lambda record: (
+            f"# {record['source_title']}\n\nThis official article contains "
+            "enough material for deterministic source-native review."
+        ),
+    )
+    candidates = {
+        row["source_snapshot"]["source_record_id"]: row
+        for row in read_jsonl(destination / "distillation-input.jsonl")
+    }
+
+    assert result["article_count"] == 2
+    assert candidates[first["id"]]["concept_ids"] == ["documents-signatures"]
+    assert candidates[second["id"]]["concept_ids"] == ["system-admin-ops"]
 
 
 def test_unchanged_candidate_refresh_preserves_ids_and_change_time(

@@ -140,6 +140,78 @@ def test_explicit_source_records_bypass_per_concept_limit(monkeypatch, tmp_path:
     }
 
 
+def test_exact_source_record_concept_map_preserves_per_record_routing(
+    monkeypatch, tmp_path: Path
+):
+    first = documentation_record(
+        "rock_documentation:first",
+        "documentation/core-concepts/documents/first",
+        "First Article",
+        "This official article contains enough context for exact selection.",
+    )
+    second = documentation_record(
+        "rock_documentation:second",
+        "documentation/core-concepts/documents/second",
+        "Second Article",
+        "This official article contains enough context for exact selection.",
+    )
+    output = tmp_path / "candidates.jsonl"
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    result = document_claims.build_document_claim_candidates(
+        concept_ids=["documents-signatures", "system-admin-ops"],
+        limit_per_concept=1,
+        output_path=output,
+        records=[first, second],
+        source_record_ids=[first["id"], second["id"]],
+        source_record_concept_ids={
+            first["id"]: ["documents-signatures"],
+            second["id"]: ["system-admin-ops"],
+        },
+        context_loader=lambda record: (
+            f"Full official text for {record['source_title']} contains enough "
+            "detail for source-native review and deterministic routing."
+        ),
+    )
+    rows = {row["source_record_id"]: row for row in read_jsonl(output)}
+
+    assert result["candidate_count"] == 2
+    assert rows[first["id"]]["concept_ids"] == ["documents-signatures"]
+    assert rows[second["id"]]["concept_ids"] == ["system-admin-ops"]
+
+
+def test_exact_source_record_concept_map_requires_complete_routing(
+    monkeypatch, tmp_path: Path
+):
+    records = [
+        documentation_record(
+            f"rock_documentation:record-{index}",
+            f"documentation/core-concepts/documents/record-{index}",
+            f"Record {index}",
+            "This official article contains enough context for exact selection.",
+        )
+        for index in (1, 2)
+    ]
+    monkeypatch.setattr(document_claims, "existing_claims_by_concept", lambda: {})
+
+    with pytest.raises(
+        ValueError,
+        match="source_record_concept_ids missing exact source records",
+    ):
+        document_claims.build_document_claim_candidates(
+            concept_ids=["documents-signatures"],
+            output_path=tmp_path / "candidates.jsonl",
+            records=records,
+            source_record_ids=[record["id"] for record in records],
+            source_record_concept_ids={
+                records[0]["id"]: ["documents-signatures"]
+            },
+            context_loader=lambda _record: (
+                "Full official text contains enough detail for source-native review."
+            ),
+        )
+
+
 def test_explicit_source_record_ids_accepts_all_known_ids(monkeypatch, tmp_path: Path):
     records = [
         documentation_record(

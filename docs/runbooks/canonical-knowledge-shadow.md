@@ -157,6 +157,16 @@ Result-ID-only outcome signals are advisory and privacy-bounded; their score is
 capped so they can prioritize a real field gap without overruling freshness or
 concept-routing gates.
 
+For routine legacy migration waves, use the fail-closed batch coordinator in
+[`source-native-migration-batches.md`](source-native-migration-batches.md). It
+preserves exact per-record concept routing, prepares one immutable model packet
+per article, records machine-readable correction metrics, and requires one
+hash-bound maintainer decision per article. The coordinator ends at
+`ready_for_explicit_promotion`; it never invokes a model, approves output,
+promotes knowledge, rebuilds public projections, deploys, or writes externally.
+The commands below remain the lower-level manual workflow and the separate
+promotion boundary.
+
 Build deterministic private review inputs from the Rockumentation API:
 
 ```bash
@@ -180,8 +190,11 @@ records, and always provide the reviewed `--concept` routing facets in the same
 command. Exact selection fails closed without an explicit concept so the pilot
 defaults cannot silently misroute a migration. Exact record IDs are explicit
 routing decisions and are not dropped because their normalized summary has a
-low concept score. Records surfaced under multiple concepts are coalesced into
-one candidate with multiple concept facets.
+low concept score. Programmatic batch preparation supplies a validated
+per-record concept map; passing the union of a batch's concepts to every exact
+record is invalid because it would over-route unrelated articles. Records
+surfaced under multiple concepts are coalesced into one candidate with only
+their reviewed concept facets.
 
 The parser assigns stable IDs before model review to sentences, tables, code
 blocks, and individual list items. Nested field catalogs are separate child
