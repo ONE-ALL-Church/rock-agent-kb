@@ -39,6 +39,16 @@ def priority_row(record: dict, rank: int) -> dict:
         "documentation_branches": record["documentation_branches"],
         "authority_tiers": ["official"],
         "concept_ids": ["developer-resources"],
+        "concept_routing": {
+            "concept_ids": ["developer-resources"],
+            "confidence": "high",
+            "routes": [
+                {
+                    "concept_id": "developer-resources",
+                    "method": "documentation_path",
+                }
+            ],
+        },
         "legacy_concept_ids": ["developer-resources"],
         "legacy_claim_count": 0,
         "legacy_source_summary_count": 1,
@@ -393,6 +403,104 @@ def test_claim_bearing_record_requires_at_least_standard_risk():
     assert selected["selected_source_record_ids"] == [record["id"]]
 
 
+def test_editorial_community_blog_requires_at_least_standard_risk():
+    record = source_record(1)
+    record.update(
+        {
+            "id": "rock_community_blog:article:1",
+            "source_id": "rock_community_blog",
+            "source_url": "https://community.rockrms.com/connect/article-1",
+        }
+    )
+    report = priority_report([record])
+
+    with pytest.raises(ValueError, match="only 0 satisfied the low risk policy"):
+        orchestrator.select_migration_batch(
+            report=report,
+            records=[record],
+            count=1,
+            max_risk="low",
+        )
+
+    selected = orchestrator.select_migration_batch(
+        report=report,
+        records=[record],
+        count=1,
+        max_risk="standard",
+    )
+    assert selected["selected"][0]["risk"]["reason_codes"] == [
+        "editorial_community_blog"
+    ]
+
+
+@pytest.mark.parametrize("confidence", ["medium", "low"])
+def test_non_high_confidence_concept_routing_requires_standard_risk(
+    confidence: str,
+):
+    record = source_record(1)
+    report = priority_report([record])
+    report["rows"][0]["concept_routing"] = {
+        "concept_ids": ["developer-resources"],
+        "confidence": confidence,
+        "routes": [
+            {
+                "concept_id": "developer-resources",
+                "method": "supported_legacy",
+            }
+        ],
+    }
+    rehash_priority_report(report)
+
+    with pytest.raises(ValueError, match="only 0 satisfied the low risk policy"):
+        orchestrator.select_migration_batch(
+            report=report,
+            records=[record],
+            count=1,
+            max_risk="low",
+        )
+
+    selected = orchestrator.select_migration_batch(
+        report=report,
+        records=[record],
+        count=1,
+        max_risk="standard",
+    )
+    assert "concept_routing_not_high_confidence" in (
+        selected["selected"][0]["risk"]["reason_codes"]
+    )
+    assert selected["risk_policy_version"] == "3"
+
+
+def test_missing_concept_routing_provenance_is_high_risk():
+    record = source_record(1)
+    report = priority_report([record])
+    del report["rows"][0]["concept_routing"]
+    rehash_priority_report(report)
+
+    result = orchestrator.classify_migration_risk(report["rows"][0], record)
+
+    assert result["level"] == "high"
+    assert "concept_routing_provenance_missing" in result["reason_codes"]
+    with pytest.raises(ValueError, match="only 0 satisfied the low risk policy"):
+        orchestrator.select_migration_batch(
+            report=report,
+            records=[record],
+            count=1,
+            max_risk="low",
+        )
+
+
+def test_missing_per_concept_routing_method_is_high_risk():
+    record = source_record(1)
+    row = priority_row(record, 1)
+    del row["concept_routing"]["routes"][0]["method"]
+
+    result = orchestrator.classify_migration_risk(row, record)
+
+    assert result["level"] == "high"
+    assert "concept_routing_provenance_missing" in result["reason_codes"]
+
+
 def test_prepare_is_immutable_and_idempotent(monkeypatch, tmp_path: Path):
     records = [source_record(1), source_record(2)]
     install_prepare_stubs(monkeypatch, tmp_path, records)
@@ -578,6 +686,166 @@ def test_hydrated_candidate_binding_rejects_unrelated_page():
     assert "insufficient normalized preview coverage" in result["reasons"][0]
 
 
+@pytest.mark.parametrize(
+    ("signal", "expected_level", "reason_code"),
+    [
+        ("The member has a RockInternal attribute.", "high", "hydrated_sensitive_terms"),
+        ("Call SaveChanges() after updating the entity.", "high", "hydrated_sensitive_terms"),
+        ("The helper can save changes to the entity.", "high", "hydrated_sensitive_terms"),
+        (
+            "This is an internal API for infrastructure use.",
+            "standard",
+            "hydrated_internal_api",
+        ),
+        (
+            "These members may change in the near term.",
+            "standard",
+            "hydrated_near_term_change_warning",
+        ),
+        (
+            "This feature is currently supported. This feature is no longer supported.",
+            "standard",
+            "hydrated_contradictory_release_status",
+        ),
+    ],
+)
+def test_hydrated_candidate_escalates_internal_mutable_and_status_signals(
+    signal: str,
+    expected_level: str,
+    reason_code: str,
+):
+    record = source_record(1)
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": record["summary"] + " " + signal,
+            }
+        ]
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == expected_level
+    assert reason_code in result["reason_codes"]
+
+
+def test_hydrated_candidate_rejects_differing_legacy_episode_identity():
+    record = source_record(1)
+    candidate = {
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": record["summary"] + " Episode 220 covers current adoption.",
+            }
+        ],
+        "legacy_items": [
+            {
+                "title": "Episode 219",
+                "retrieval_text": "Ep 219 covers a previous outreach feature.",
+            }
+        ],
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "high"
+    assert "hydrated_legacy_episode_mismatch" in result["reason_codes"]
+    assert result["identity_checks"]["legacy_episode_numbers"] == [219]
+    assert result["identity_checks"]["hydrated_episode_numbers"] == [220]
+
+
+def test_hydrated_candidate_rejects_generic_landing_page_legacy_mismatch():
+    record = source_record(1)
+    record.update(
+        {
+            "source_id": "rock_community_blog",
+            "source_url": "https://community.rockrms.com/connect",
+        }
+    )
+    candidate = {
+        "source_snapshot": {
+            "source_id": "rock_community_blog",
+            "canonical_url": "https://community.rockrms.com/connect",
+            "source_path": "knowledge/community/connect.md",
+            "title": "Blog",
+        },
+        "source_units": [
+            {
+                "unit_kind": "paragraph",
+                "text": record["summary"] + " New homepage announcements appear here.",
+            }
+        ],
+        "legacy_items": [
+            {
+                "title": "Volunteer Onboarding",
+                "retrieval_text": (
+                    "Coordinate volunteer onboarding forms, background checks, "
+                    "training milestones, ministry placement, and leader follow-up."
+                ),
+            }
+        ],
+    }
+
+    result = orchestrator.classify_hydrated_candidate_risk(candidate, record)
+
+    assert result["level"] == "high"
+    assert "hydrated_generic_landing_legacy_mismatch" in result["reason_codes"]
+    assert result["identity_checks"]["generic_landing_snapshot"] is True
+
+
+def test_prepare_rechecks_hydrated_risk_after_legacy_items_are_attached(
+    monkeypatch,
+    tmp_path: Path,
+):
+    record = source_record(1)
+    record["summary"] += " Episode 220 covers current adoption."
+    install_prepare_stubs(monkeypatch, tmp_path, [record])
+
+    def build_migration_inputs(**options):
+        rows = []
+        for row in read_jsonl(options["source_native_input_path"]):
+            rows.append(
+                {
+                    **row,
+                    "migration_input_hash": "d" * 64,
+                    "legacy_items": [
+                        {
+                            "legacy_knowledge_unit_id": "legacy:episode-219",
+                            "title": "Episode 219",
+                            "retrieval_text": "Ep 219 covers a previous outreach feature.",
+                        }
+                    ],
+                }
+            )
+        write_jsonl(options["destination"], rows)
+        return {
+            "status": "ok",
+            "article_count": len(rows),
+            "legacy_item_count": len(rows),
+        }
+
+    monkeypatch.setattr(
+        orchestrator,
+        "build_source_native_legacy_migration_inputs",
+        build_migration_inputs,
+    )
+    report_path = tmp_path / "data" / "review" / "priority.json"
+    write_json(report_path, priority_report([record]))
+    destination = tmp_path / "data" / "review" / "batch"
+
+    with pytest.raises(ValueError, match="hydrated candidate exceeds the low risk"):
+        orchestrator.prepare_source_native_migration_batch(
+            destination=destination,
+            count=1,
+            max_risk="low",
+            priority_report_path=report_path,
+            repo_root=tmp_path,
+        )
+
+    assert not destination.exists()
+
+
 def test_prepare_rejects_destination_outside_ignored_review(tmp_path: Path):
     with pytest.raises(ValueError, match="under the ignored data/review"):
         orchestrator.prepare_source_native_migration_batch(
@@ -739,6 +1007,61 @@ def test_assemble_recovers_interrupted_state_update(monkeypatch, tmp_path: Path)
     assert result["status"] == "recovered"
     assert state["overall_state"] == "awaiting_maintainer_review"
     assert state["generated_output"]["recovered_after_interrupted_state_update"]
+
+
+def test_low_risk_assembly_rejects_unmatched_routing_terms(
+    monkeypatch,
+    tmp_path: Path,
+):
+    batch_dir = tmp_path / "data" / "review" / "batch"
+    batch_dir.mkdir(parents=True)
+    shard = batch_dir / "model-output" / "first.json"
+    write_json(shard, {"articles": [{"candidate_id": "candidate:1"}]})
+    state = {
+        "schema": orchestrator.BATCH_STATE_SCHEMA,
+        "batch_id": "batch:test",
+        "overall_state": "awaiting_model_generation",
+        "phases": {"assemble": {"status": "pending"}},
+        "_manifest": {"policy": {"max_risk": "low"}},
+    }
+    monkeypatch.setattr(
+        orchestrator,
+        "_validate_batch_runtime",
+        lambda *_args, **_kwargs: state,
+    )
+
+    def merge_stub(**options):
+        write_json(
+            options["destination"],
+            {
+                "articles": [
+                    {
+                        "candidate_id": "candidate:1",
+                        "unmatched_routing_terms": ["uncertain-feature"],
+                    }
+                ]
+            },
+        )
+        return {"article_count": 1}
+
+    monkeypatch.setattr(
+        orchestrator,
+        "merge_source_native_legacy_migration_outputs",
+        merge_stub,
+    )
+
+    with pytest.raises(ValueError, match="low-risk assembly contains unmatched"):
+        orchestrator.assemble_source_native_migration_batch(
+            batch_dir=batch_dir,
+            model_output_paths=[shard],
+            model="gpt-5.6-sol",
+            repo_root=tmp_path,
+            require_clean=False,
+        )
+
+    assert state["overall_state"] == "awaiting_model_generation"
+    assert not (batch_dir / "generated-output.json").exists()
+    assert not (batch_dir / ".generated-output.pending.json").exists()
 
 
 def test_compare_migration_outputs_uses_stable_list_keys_and_categories():

@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import json
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from collections.abc import Iterable
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from .canonical_knowledge import build_canonical_knowledge_bundle
 from .concepts import (
@@ -19,10 +20,9 @@ from .concepts import (
 from .extract import sha256_text
 from .jsonl import read_jsonl
 from .paths import REPO_ROOT, REVIEW_DIR
-from .source_native import SOURCE_NATIVE_PILOT_DIR, SOURCE_NATIVE_PROSE_SOURCE_IDS, load_source_native_pilot
+from .source_native import SOURCE_NATIVE_PROSE_SOURCE_IDS, load_source_native_pilot
 from .source_workflows import load_source_freshness_policy
 from .sources import Source, load_sources
-
 
 SOURCE_NATIVE_MIGRATION_PRIORITY_DIR = REVIEW_DIR / "source-native-legacy-migration"
 SOURCE_NATIVE_MIGRATION_PRIORITY_PATH = SOURCE_NATIVE_MIGRATION_PRIORITY_DIR / "priority-report.json"
@@ -52,14 +52,14 @@ def parse_utc(value: str | datetime | None) -> datetime | None:
         parsed = value
     elif value:
         try:
-            parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+            parsed = datetime.fromisoformat(str(value))
         except ValueError:
             return None
     else:
         return None
     if parsed.tzinfo is None:
-        parsed = parsed.replace(tzinfo=timezone.utc)
-    return parsed.astimezone(timezone.utc)
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
 
 
 def canonical_json(value: Any) -> str:
@@ -211,23 +211,34 @@ def source_native_indexes(source_native: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def infer_concept_ids(
+def infer_concept_routing(
     record: dict[str, Any],
     *,
     seeded_concept_ids: Iterable[str],
     legacy_concept_ids: Iterable[str] = (),
     max_inferred: int = 3,
     concepts: Iterable[Any] | None = None,
-) -> list[str]:
+) -> dict[str, Any]:
     concept_rows = list(concepts) if concepts is not None else load_concepts()
     concepts_by_id = {concept.id: concept for concept in concept_rows}
     known = set(concepts_by_id)
     seeded = {str(value) for value in seeded_concept_ids if str(value) in known}
     if seeded:
-        return sorted(seeded)
+        concept_ids = sorted(seeded)
+        return {
+            "concept_ids": concept_ids,
+            "routes": [
+                {
+                    "concept_id": concept_id,
+                    "method": "reviewed_artifact_seeded",
+                }
+                for concept_id in concept_ids
+            ],
+            "confidence": "high",
+        }
     legacy = {str(value) for value in legacy_concept_ids if str(value) in known}
     record_topics = {str(value) for value in record.get("topics") or []}
-    scored: list[tuple[int, int, int, str]] = []
+    scored: list[tuple[int, int, int, str, str]] = []
     text = record_text(record)
     for concept in concept_rows:
         path_match = concept_has_path_constraints(concept) and record_matches_path_constraints(
@@ -237,19 +248,63 @@ def infer_concept_ids(
         topic_score = topic_overlap_score(record, concept)
         if path_match:
             routing_class = 0
+            route_method = "documentation_path"
         elif concept.id in record_topics:
             routing_class = 1
+            route_method = "exact_source_topic"
         elif concept.id in legacy and (lexical_score > 0 or topic_score > 0):
             routing_class = 2
+            route_method = "supported_legacy"
         elif lexical_score > 0:
             routing_class = 3
+            route_method = "lexical_only"
         else:
             continue
         role_order = 0 if concept.routing_role == "primary" else 1
-        scored.append((routing_class, -lexical_score, role_order, concept.id))
-    scored.sort()
-    selected = {concept_id for *_scores, concept_id in scored[:max_inferred]}
-    return sorted(selected)
+        scored.append(
+            (routing_class, -lexical_score, role_order, concept.id, route_method)
+        )
+    scored.sort(key=lambda row: row[:4])
+    selected_routes = {
+        concept_id: route_method
+        for *_scores, concept_id, route_method in scored[:max_inferred]
+    }
+    concept_ids = sorted(selected_routes)
+    methods = set(selected_routes.values())
+    if not methods or "lexical_only" in methods:
+        confidence = "low"
+    elif "supported_legacy" in methods:
+        confidence = "medium"
+    else:
+        confidence = "high"
+    return {
+        "concept_ids": concept_ids,
+        "routes": [
+            {
+                "concept_id": concept_id,
+                "method": selected_routes[concept_id],
+            }
+            for concept_id in concept_ids
+        ],
+        "confidence": confidence,
+    }
+
+
+def infer_concept_ids(
+    record: dict[str, Any],
+    *,
+    seeded_concept_ids: Iterable[str],
+    legacy_concept_ids: Iterable[str] = (),
+    max_inferred: int = 3,
+    concepts: Iterable[Any] | None = None,
+) -> list[str]:
+    return infer_concept_routing(
+        record,
+        seeded_concept_ids=seeded_concept_ids,
+        legacy_concept_ids=legacy_concept_ids,
+        max_inferred=max_inferred,
+        concepts=concepts,
+    )["concept_ids"]
 
 
 def source_record_freshness(
@@ -423,7 +478,7 @@ def build_source_native_migration_priority_report(
     destination = destination or (
         repo_root / "data" / "review" / "source-native-legacy-migration" / "priority-report.json"
     )
-    as_of = (as_of or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    as_of = (as_of or datetime.now(UTC)).astimezone(UTC)
     identity_registry = list(
         read_jsonl(repo_root / "canonical" / "identity" / "v1" / "identity-registry.jsonl")
     )
@@ -523,12 +578,13 @@ def build_source_native_migration_priority_report(
             for concept_id in item.concept_facets
         }
         reviewed_concept_ids = native["artifact_concepts_by_record"].get(source_record_id) or set()
-        concept_ids = infer_concept_ids(
+        concept_routing = infer_concept_routing(
             record,
             seeded_concept_ids=reviewed_concept_ids,
             legacy_concept_ids=legacy_concept_ids,
             concepts=concepts,
         )
+        concept_ids = concept_routing["concept_ids"]
         external_signal_count = external_by_record[source_record_id] + sum(
             external_by_concept[concept_id] for concept_id in concept_ids
         )
@@ -549,6 +605,7 @@ def build_source_native_migration_priority_report(
                     }
                 ),
                 "concept_ids": concept_ids,
+                "concept_routing": concept_routing,
                 "legacy_concept_ids": sorted(legacy_concept_ids),
                 "legacy_claim_count": sum(item.knowledge_type == "claim" for item in legacy_items),
                 "legacy_source_summary_count": sum(

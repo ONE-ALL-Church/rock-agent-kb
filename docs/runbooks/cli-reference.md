@@ -318,7 +318,10 @@ count, exact evaluation demand, verification debt, source-native coverage, and
 source freshness. Current reviewed source-native concepts are authoritative;
 otherwise the report combines API branch routing, normalized topics, bounded
 lexical matches, and still-supported legacy facets, with at most three concept
-suggestions. Overdue sources receive `refresh_source_first`, prior
+suggestions. Each route records its method and aggregate confidence. Only
+complete high-confidence routing can enter a low-risk batch; medium,
+lexical-only, mixed, or missing provenance requires stronger review. Overdue
+sources receive `refresh_source_first`, prior
 migration-wrapper records with intentionally retained rows are excluded, and
 same-family legacy hash IDs can reconcile to current article IDs only through
 an exact canonical URL. Unresolved removed or relocated URLs remain explicit.
@@ -337,12 +340,15 @@ ordinary source-native distillation path.
 into an immutable, risk-bounded private packet with exact per-record concept
 routing and one prompt per source record. It requires a clean tracked tree,
 rejects truncated queues, stale or missing identities, changed hashes, partial
-hydration, unsupported source shape, and records above the 200-unit response
-contract. Repeating the same preparation is a no-op only when every base,
-selection, prompt, schema, source, and file hash still matches.
+hydration, unsupported source shape, legacy/source identity mismatches, and
+records above the 200-unit response contract. Editorial community sources,
+internal mutable APIs, write requirements, and compatibility warnings cannot
+be classified as low risk. Repeating the same preparation is a no-op only when
+every base, selection, prompt, schema, source, and file hash still matches.
 `source-native-migration-batch-assemble` enforces exact schema-constrained model
 coverage, records the exact generation model, and stops at
-`awaiting_maintainer_review`.
+`awaiting_maintainer_review`. Low-risk assembly rejects unmatched routing terms
+instead of allowing a reviewer to force them into an unrelated concept.
 `source-native-migration-batch-validate` requires a separate reviewed output and
 one hash-bound maintainer decision per article. Optional judge recommendations
 must all be explicitly adjudicated. It emits categorized correction and

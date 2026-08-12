@@ -1,14 +1,15 @@
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from types import SimpleNamespace
 
-from rock_kb.concepts import Concept
 import rock_kb.source_native_priority as source_native_priority_module
+from rock_kb.concepts import Concept
 from rock_kb.source_native_priority import (
     add_source_native_location_aliases,
     bounded_dashboard_signals,
     infer_concept_ids,
+    infer_concept_routing,
     reconcile_legacy_source_record_ids,
     score_priority_row,
     source_record_freshness,
@@ -119,7 +120,7 @@ def test_source_record_freshness_uses_registry_policy():
         "due_soon_fraction": 0.75,
         "cadences": {"weekly": {"maximum_age_hours": 216}},
     }
-    as_of = datetime(2026, 8, 4, tzinfo=timezone.utc)
+    as_of = datetime(2026, 8, 4, tzinfo=UTC)
 
     current = source_record_freshness(
         {"retrieved_at": "2026-08-03T00:00:00Z"},
@@ -339,7 +340,7 @@ def test_priority_report_uses_the_supplied_repo_root_for_inputs_and_default_outp
 
     result = source_native_priority_module.build_source_native_migration_priority_report(
         repo_root=tmp_path,
-        as_of=datetime(2026, 8, 11, tzinfo=timezone.utc),
+        as_of=datetime(2026, 8, 11, tzinfo=UTC),
     )
 
     destination = (
@@ -360,6 +361,16 @@ def test_priority_report_uses_the_supplied_repo_root_for_inputs_and_default_outp
     report = json.loads(destination.read_text(encoding="utf-8"))
     assert report["rows"][0]["source_record_id"] == "rock_documentation:alternate"
     assert report["rows"][0]["concept_ids"] == ["alternate-concept"]
+    assert report["rows"][0]["concept_routing"] == {
+        "concept_ids": ["alternate-concept"],
+        "confidence": "medium",
+        "routes": [
+            {
+                "concept_id": "alternate-concept",
+                "method": "supported_legacy",
+            }
+        ],
+    }
 
 
 def test_dashboard_signals_are_bounded_to_public_result_identity():
@@ -397,8 +408,8 @@ def test_dashboard_signals_are_bounded_to_public_result_identity():
     ]
 
 
-def test_concept_inference_prefers_path_and_supported_legacy_routing():
-    concepts = infer_concept_ids(
+def test_concept_inference_preserves_selection_and_seed_wrapper():
+    routing = infer_concept_routing(
         {
             "source_id": "rock_documentation",
             "source_title": "Configure Sign-Up Permissions",
@@ -411,16 +422,32 @@ def test_concept_inference_prefers_path_and_supported_legacy_routing():
         seeded_concept_ids=[],
         legacy_concept_ids=["engagement-tracking", "security-permissions"],
     )
+    concepts = routing["concept_ids"]
 
     assert "engagement-tracking" in concepts
     assert "security-permissions" in concepts
     assert "platform-configuration" not in concepts
 
+    seeded_routing = infer_concept_routing(
+        {"source_title": "Debugging Obsidian in VS Code"},
+        seeded_concept_ids=["obsidian-development"],
+        legacy_concept_ids=["security-permissions"],
+    )
+    assert seeded_routing == {
+        "concept_ids": ["obsidian-development"],
+        "routes": [
+            {
+                "concept_id": "obsidian-development",
+                "method": "reviewed_artifact_seeded",
+            }
+        ],
+        "confidence": "high",
+    }
     assert infer_concept_ids(
         {"source_title": "Debugging Obsidian in VS Code"},
         seeded_concept_ids=["obsidian-development"],
         legacy_concept_ids=["security-permissions"],
-    ) == ["obsidian-development"]
+    ) == seeded_routing["concept_ids"]
 
     media_concepts = infer_concept_ids(
         {
@@ -436,3 +463,168 @@ def test_concept_inference_prefers_path_and_supported_legacy_routing():
         legacy_concept_ids=["cms-websites", "content-personalization"],
     )
     assert "lava" in media_concepts
+
+
+def test_concept_routing_classifies_path_and_supported_legacy_confidence():
+    path_concept = Concept(
+        id="engagement-tracking",
+        title="Engagement Tracking",
+        description="Engagement tools and tracking.",
+        keywords=["engagement"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={
+            "documentation_path_prefixes": [
+                "documentation/engagement/additional-engagement-tools"
+            ]
+        },
+    )
+    legacy_concept = Concept(
+        id="security-permissions",
+        title="Security and Permissions",
+        description="Security and permissions configuration.",
+        keywords=["permissions"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+    record = {
+        "source_title": "Configure Sign-Up Permissions",
+        "summary": "Configure permissions for Sign-Ups.",
+        "documentation_path": (
+            "documentation/engagement/additional-engagement-tools/sign-ups"
+        ),
+    }
+
+    path_routing = infer_concept_routing(
+        record,
+        seeded_concept_ids=[],
+        concepts=[path_concept],
+    )
+    legacy_routing = infer_concept_routing(
+        record,
+        seeded_concept_ids=[],
+        legacy_concept_ids=["security-permissions"],
+        concepts=[legacy_concept],
+    )
+
+    assert path_routing == {
+        "concept_ids": ["engagement-tracking"],
+        "routes": [
+            {
+                "concept_id": "engagement-tracking",
+                "method": "documentation_path",
+            }
+        ],
+        "confidence": "high",
+    }
+    assert legacy_routing == {
+        "concept_ids": ["security-permissions"],
+        "routes": [
+            {
+                "concept_id": "security-permissions",
+                "method": "supported_legacy",
+            }
+        ],
+        "confidence": "medium",
+    }
+
+
+def test_concept_routing_marks_community_style_lexical_only_input_low():
+    concept = Concept(
+        id="community-practices",
+        title="Community Practices",
+        description="Community-authored operational practices.",
+        keywords=["volunteer onboarding"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+
+    routing = infer_concept_routing(
+        {
+            "source_id": "rock_community_blog",
+            "source_title": "Five Volunteer Onboarding Practices",
+            "summary": "Community advice for building a volunteer onboarding process.",
+        },
+        seeded_concept_ids=[],
+        concepts=[concept],
+    )
+
+    assert routing == {
+        "concept_ids": ["community-practices"],
+        "routes": [
+            {
+                "concept_id": "community-practices",
+                "method": "lexical_only",
+            }
+        ],
+        "confidence": "low",
+    }
+
+
+def test_concept_routing_mixed_exact_topic_and_lexical_is_low():
+    exact_topic = Concept(
+        id="workflows",
+        title="Workflows",
+        description="Workflow configuration and execution.",
+        keywords=["workflow"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+    lexical = Concept(
+        id="community-practices",
+        title="Community Practices",
+        description="Community-authored operational practices.",
+        keywords=["volunteer onboarding"],
+        source_weights={},
+        depends_on_topics=[],
+        subguides=[],
+        rebuild_policy="source_hash_changed_or_weekly",
+        guide_status="generated_needs_review",
+        max_records=10,
+        raw={},
+    )
+
+    routing = infer_concept_routing(
+        {
+            "source_id": "rock_community_blog",
+            "source_title": "Volunteer Onboarding Workflow",
+            "summary": "A volunteer onboarding process for community teams.",
+            "topics": ["workflows"],
+        },
+        seeded_concept_ids=[],
+        concepts=[exact_topic, lexical],
+    )
+
+    assert routing == {
+        "concept_ids": ["community-practices", "workflows"],
+        "routes": [
+            {
+                "concept_id": "community-practices",
+                "method": "lexical_only",
+            },
+            {
+                "concept_id": "workflows",
+                "method": "exact_source_topic",
+            },
+        ],
+        "confidence": "low",
+    }

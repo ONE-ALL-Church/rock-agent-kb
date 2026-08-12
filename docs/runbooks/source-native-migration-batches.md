@@ -42,24 +42,31 @@ uv run kb tools source-native-migration-batch-prepare \
 
 Preparation fails if the priority report is truncated, identities are
 unresolved, the tracked tree is dirty, source hashes changed, concept routing
-is missing, hydration drops a record, an article exceeds 200 source units, or a
-selected record has no active legacy projection. Exact record batches may be
-specified with repeated `--source-record-id`; every exact record must satisfy
-the selected risk policy.
+is missing or lacks complete provenance, hydration drops a record, an article
+exceeds 200 source units, or a selected record has no active legacy projection.
+Exact record batches may be specified with repeated `--source-record-id`; every
+exact record must satisfy the selected risk policy.
 
 The risk policy is independent of priority. Priority estimates migration value;
 risk controls batching and review intensity. Low risk requires an official,
-fresh, summary-only legacy source with no verification debt, prior
-source-native identity decision, sensitive operational concept, or broad source
-shape. Security, permissions, authentication, SQL, writes, workflows, hosting,
-payments, and similar surfaces are high risk. Legacy claims and version-sensitive
-or broad articles require at least standard review.
+fresh, summary-only legacy source with complete high-confidence concept-routing
+provenance and no verification debt, prior source-native identity decision,
+sensitive operational concept, or broad source shape. Medium or lexical-only
+concept inference requires at least standard review. Editorial community blog
+records also require at least standard review because one article can span
+several ministry and product topics. Security, permissions, authentication,
+SQL, writes, workflows, hosting, payments, and similar surfaces are high risk.
+Legacy claims and version-sensitive or broad articles require at least standard
+review.
 
 Hydrated full text is checked again before packet sealing. Sensitive terms and
 broad code/table structure raise risk, while source binding uses meaningful
 token coverage rather than a literal summary prefix so breadcrumbs and publish
 metadata cannot masquerade as source drift. Insufficient coverage still fails
-high risk as a possible wrong-page or parser mismatch.
+high risk as a possible wrong-page or parser mismatch. The sealed migration
+input is checked a second time after legacy rows are attached; reused landing
+pages, conflicting episode identities, `RockInternal` contracts, mutation
+requirements, and explicit compatibility warnings cannot remain low risk.
 
 ## Immutable Packet
 
@@ -112,6 +119,9 @@ Assembly requires exact candidate coverage, input order, current hashes,
 explicit nullable fields, complete source-unit dispositions, promotable typed
 artifacts, and exact legacy decisions. It stops at
 `awaiting_maintainer_review`. Schema-valid output is not reviewed knowledge.
+For a low-risk batch, any non-empty `unmatched_routing_terms` list rejects
+assembly. Correct routing in a new sealed packet or move the record to a higher
+risk review wave; do not force the artifact into an unrelated supplied concept.
 
 ## Explicit Review
 

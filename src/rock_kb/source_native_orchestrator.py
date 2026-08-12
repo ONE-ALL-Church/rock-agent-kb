@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -58,7 +59,7 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "1"
-RISK_POLICY_VERSION = "2"
+RISK_POLICY_VERSION = "3"
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
 HIGH_RISK_TERMS = {
     "authentication",
@@ -120,10 +121,61 @@ HYDRATED_HIGH_RISK_TERMS = {
     "password",
     "payment",
     "private key",
+    "rockinternal",
+    "save changes",
+    "savechanges",
     "secret",
     "security",
     "web request",
 }
+HYDRATED_STANDARD_RISK_PATTERNS = (
+    (
+        "hydrated_internal_api",
+        "internal API compatibility warning",
+        r"\binternal\s+api\b",
+    ),
+    (
+        "hydrated_near_term_change_warning",
+        "near-term change warning",
+        (
+            r"\bmay\s+(?:be\s+)?change\w*(?:\s+\w+){0,8}\s+"
+            r"(?:in\s+)?(?:the\s+)?near[\s-]+term\b"
+        ),
+    ),
+    (
+        "hydrated_change_without_notice_warning",
+        "change or removal without notice warning",
+        r"\b(?:changed|removed)(?:\s+\w+){0,6}\s+without\s+notice\b",
+    ),
+    (
+        "hydrated_compatibility_warning",
+        "reduced compatibility guarantee",
+        r"\bnot\s+subject(?:\s+\w+){0,8}\s+compatibility\s+standards\b",
+    ),
+    (
+        "hydrated_mutable_release_status",
+        "mutable or provisional release status",
+        (
+            r"\b(?:pre[\s-]?alpha|early[\s-]+access|preview(?:\s+release)?|"
+            r"deprecated\s+soon|not\s+(?:yet|currently)\s+"
+            r"(?:available|released|supported)|no\s+longer\s+supported|unsupported)\b"
+        ),
+    ),
+)
+HYDRATED_POSITIVE_STATUS_PATTERN = (
+    r"\b(?:is|are|was|were)\s+(?:now\s+|currently\s+)?"
+    r"(?:available|released|supported)\b|\bhas\s+been\s+released\b"
+)
+HYDRATED_NEGATIVE_STATUS_PATTERN = (
+    r"\b(?:is|are|was|were)\s+(?:not|no\s+longer)\s+"
+    r"(?:currently\s+)?(?:available|released|supported)\b|"
+    r"\b(?:not\s+(?:yet|currently)\s+(?:available|released|supported)|"
+    r"no\s+longer\s+supported|unsupported)\b"
+)
+EPISODE_NUMBER_PATTERN = re.compile(
+    r"\bep(?:isode)?\.?[\s:#-]*(\d{1,4})\b",
+    re.IGNORECASE,
+)
 SOURCE_BINDING_STOP_WORDS = {
     "and",
     "article",
@@ -331,48 +383,120 @@ def _risk_text(row: dict[str, Any], record: dict[str, Any]) -> str:
     return " ".join(str(value or "").lower() for value in values)
 
 
+def _concept_routing_provenance(row: dict[str, Any]) -> tuple[str, bool]:
+    routing = row.get("concept_routing")
+    if not isinstance(routing, dict):
+        return "", False
+    confidence = str(routing.get("confidence") or "").lower()
+    concept_ids = [str(value) for value in row.get("concept_ids") or []]
+    routed_concept_ids = [str(value) for value in routing.get("concept_ids") or []]
+    routes = routing.get("routes")
+    route_concept_ids = [
+        str(route.get("concept_id") or "")
+        for route in routes or []
+        if isinstance(route, dict) and str(route.get("method") or "")
+    ]
+    complete = (
+        confidence in {"high", "medium", "low"}
+        and isinstance(routes, list)
+        and len(route_concept_ids) == len(routes)
+        and len(route_concept_ids) == len(set(route_concept_ids))
+        and sorted(routed_concept_ids) == sorted(concept_ids)
+        and sorted(route_concept_ids) == sorted(concept_ids)
+    )
+    return confidence, complete
+
+
 def classify_migration_risk(
     row: dict[str, Any],
     record: dict[str, Any],
 ) -> dict[str, Any]:
     reasons: list[str] = []
+    reason_codes: list[str] = []
     level = "low"
 
-    def raise_to(value: str, reason: str) -> None:
+    def raise_to(value: str, code: str, reason: str) -> None:
         nonlocal level
         if RISK_ORDER[value] > RISK_ORDER[level]:
             level = value
+        reason_codes.append(code)
         reasons.append(reason)
 
     freshness = str((row.get("freshness") or {}).get("status") or "missing")
     if not row.get("migration_ready"):
-        raise_to("high", "priority action is not migration-ready")
+        raise_to("high", "priority_not_migration_ready", "priority action is not migration-ready")
     if freshness != "current":
-        raise_to("high", f"source freshness is {freshness}")
+        raise_to("high", "source_not_current", f"source freshness is {freshness}")
     if int(row.get("verification_debt_count") or 0):
-        raise_to("high", "legacy projection has verification debt")
+        raise_to(
+            "high",
+            "legacy_verification_debt",
+            "legacy projection has verification debt",
+        )
     if int(row.get("existing_source_native_artifact_count") or 0):
-        raise_to("high", "existing source-native identities require adjudication")
+        raise_to(
+            "high",
+            "existing_source_native_identity",
+            "existing source-native identities require adjudication",
+        )
     if int(row.get("legacy_claim_count") or 0):
-        raise_to("standard", "legacy claims require semantic replacement review")
+        raise_to(
+            "standard",
+            "legacy_claim_semantic_review",
+            "legacy claims require semantic replacement review",
+        )
     if not row.get("concept_ids"):
-        raise_to("high", "concept routing is missing")
+        raise_to("high", "concept_routing_missing", "concept routing is missing")
+    routing_confidence, routing_provenance_complete = _concept_routing_provenance(row)
+    if row.get("concept_ids") and not routing_provenance_complete:
+        raise_to(
+            "high",
+            "concept_routing_provenance_missing",
+            "concept routing provenance is missing or invalid",
+        )
+    elif row.get("concept_ids") and routing_confidence != "high":
+        raise_to(
+            "standard",
+            "concept_routing_not_high_confidence",
+            f"concept routing confidence is {routing_confidence}",
+        )
     if not str(row.get("source_content_hash") or ""):
-        raise_to("high", "normalized source hash is missing")
+        raise_to(
+            "high",
+            "normalized_source_hash_missing",
+            "normalized source hash is missing",
+        )
     if {str(value) for value in row.get("authority_tiers") or []} != {"official"}:
-        raise_to("high", "source authority is not exclusively official")
+        raise_to(
+            "high",
+            "source_authority_not_official",
+            "source authority is not exclusively official",
+        )
+    if str(row.get("source_id") or record.get("source_id") or "") == (
+        "rock_community_blog"
+    ):
+        raise_to(
+            "standard",
+            "editorial_community_blog",
+            "editorial rock_community_blog sources require standard review",
+        )
 
     matched_terms = sorted(
         term for term in HIGH_RISK_TERMS if term in _risk_text(row, record)
     )
     if matched_terms:
-        raise_to("high", "sensitive operational terms: " + ", ".join(matched_terms))
+        raise_to(
+            "high",
+            "sensitive_operational_terms",
+            "sensitive operational terms: " + ", ".join(matched_terms),
+        )
     matched_standard_terms = sorted(
         term for term in STANDARD_RISK_TERMS if term in _risk_text(row, record)
     )
     if matched_standard_terms:
         raise_to(
             "standard",
+            "version_sensitive_operational_terms",
             "version-sensitive or operational terms: "
             + ", ".join(matched_standard_terms),
         )
@@ -382,26 +506,43 @@ def classify_migration_risk(
     if matched_concepts:
         raise_to(
             "high",
+            "sensitive_operational_concepts",
             "sensitive operational concepts: " + ", ".join(matched_concepts),
         )
 
     summary_length = len(str(record.get("summary") or "").strip())
     if summary_length < 100:
         raise_to(
-            "standard", "normalized source preview is too thin for low-risk batching"
+            "standard",
+            "normalized_source_preview_too_thin",
+            "normalized source preview is too thin for low-risk batching",
         )
     if int(record.get("lava_element_count") or 0) > 5:
-        raise_to("standard", "source declares more than five Lava elements")
+        raise_to(
+            "standard",
+            "broad_lava_surface",
+            "source declares more than five Lava elements",
+        )
     if int(record.get("documentation_table_of_contents_link_count") or 0) > 30:
-        raise_to("standard", "source table of contents indicates broad scope")
+        raise_to(
+            "standard",
+            "broad_table_of_contents",
+            "source table of contents indicates broad scope",
+        )
     if len(record.get("rock_versions") or []) > 5:
-        raise_to("standard", "source spans more than five Rock versions")
+        raise_to(
+            "standard",
+            "broad_version_scope",
+            "source spans more than five Rock versions",
+        )
 
     if not reasons:
+        reason_codes.append("bounded_current_official_source")
         reasons.append("current official summary-only source with bounded metadata")
     return {
         "level": level,
         "policy_version": RISK_POLICY_VERSION,
+        "reason_codes": reason_codes,
         "reasons": reasons,
     }
 
@@ -424,6 +565,26 @@ def _source_binding_tokens(value: str) -> set[str]:
     }
 
 
+def _episode_numbers(value: str) -> set[int]:
+    return {int(match) for match in EPISODE_NUMBER_PATTERN.findall(value)}
+
+
+def _is_generic_landing_snapshot(
+    candidate: dict[str, Any],
+    record: dict[str, Any],
+) -> bool:
+    snapshot = candidate.get("source_snapshot") or {}
+    source_id = str(snapshot.get("source_id") or record.get("source_id") or "")
+    title = str(snapshot.get("title") or "").strip().lower()
+    canonical_url = str(snapshot.get("canonical_url") or record.get("source_url") or "")
+    source_path = str(snapshot.get("source_path") or "").lower()
+    return source_id == "rock_community_blog" and (
+        title in {"blog", "connect"}
+        or canonical_url.rstrip("/").endswith("/connect")
+        or source_path.endswith("/connect.md")
+    )
+
+
 def classify_hydrated_candidate_risk(
     candidate: dict[str, Any],
     record: dict[str, Any],
@@ -432,21 +593,47 @@ def classify_hydrated_candidate_risk(
     text = " ".join(str(unit.get("text") or "") for unit in units)
     lowered = text.lower()
     reasons: list[str] = []
+    reason_codes: list[str] = []
     level = "low"
+
+    def raise_to(value: str, code: str, reason: str) -> None:
+        nonlocal level
+        if RISK_ORDER[value] > RISK_ORDER[level]:
+            level = value
+        reason_codes.append(code)
+        reasons.append(reason)
 
     matched_terms = sorted(term for term in HYDRATED_HIGH_RISK_TERMS if term in lowered)
     if matched_terms:
-        level = "high"
-        reasons.append(
-            "hydrated source contains sensitive terms: " + ", ".join(matched_terms)
+        raise_to(
+            "high",
+            "hydrated_sensitive_terms",
+            "hydrated source contains sensitive terms: " + ", ".join(matched_terms),
+        )
+    for code, label, pattern in HYDRATED_STANDARD_RISK_PATTERNS:
+        if re.search(pattern, lowered):
+            raise_to(
+                "standard",
+                code,
+                f"hydrated source contains {label}",
+            )
+    if re.search(HYDRATED_POSITIVE_STATUS_PATTERN, lowered) and re.search(
+        HYDRATED_NEGATIVE_STATUS_PATTERN,
+        lowered,
+    ):
+        raise_to(
+            "standard",
+            "hydrated_contradictory_release_status",
+            "hydrated source contains contradictory support or release status wording",
         )
     code_count = sum(str(unit.get("unit_kind") or "") == "code_block" for unit in units)
     table_count = sum(str(unit.get("unit_kind") or "") == "table" for unit in units)
     if level == "low" and (code_count > 10 or table_count > 5 or len(units) > 100):
-        level = "standard"
-        reasons.append(
+        raise_to(
+            "standard",
+            "hydrated_structural_bounds",
             "hydrated source exceeds low-risk structural bounds: "
-            f"{len(units)} units, {code_count} code blocks, {table_count} tables"
+            f"{len(units)} units, {code_count} code blocks, {table_count} tables",
         )
 
     summary_tokens = _source_binding_tokens(str(record.get("summary") or ""))
@@ -457,23 +644,80 @@ def classify_hydrated_candidate_risk(
         else 0.0
     )
     if len(summary_tokens) >= 8 and overlap_ratio < 0.6:
-        level = "high"
-        reasons.append(
+        raise_to(
+            "high",
+            "hydrated_normalized_preview_mismatch",
             "hydrated source has insufficient normalized preview coverage: "
-            f"{overlap_ratio:.2f}"
+            f"{overlap_ratio:.2f}",
+        )
+
+    legacy_text = " ".join(
+        " ".join(
+            (
+                str(item.get("title") or ""),
+                str(item.get("retrieval_text") or ""),
+            )
+        )
+        for item in candidate.get("legacy_items") or []
+        if isinstance(item, dict)
+    )
+    legacy_episode_numbers = _episode_numbers(legacy_text)
+    hydrated_episode_numbers = _episode_numbers(text)
+    if (
+        legacy_episode_numbers
+        and hydrated_episode_numbers
+        and legacy_episode_numbers.isdisjoint(hydrated_episode_numbers)
+    ):
+        raise_to(
+            "high",
+            "hydrated_legacy_episode_mismatch",
+            "hydrated source episode identity differs from legacy retrieval text: "
+            f"legacy={sorted(legacy_episode_numbers)}, "
+            f"hydrated={sorted(hydrated_episode_numbers)}",
+        )
+    legacy_tokens = _source_binding_tokens(legacy_text)
+    legacy_overlap_ratio = (
+        len(legacy_tokens & hydrated_tokens) / len(legacy_tokens)
+        if legacy_tokens
+        else None
+    )
+    generic_landing_snapshot = _is_generic_landing_snapshot(candidate, record)
+    if (
+        generic_landing_snapshot
+        and len(legacy_tokens) >= 8
+        and legacy_overlap_ratio is not None
+        and legacy_overlap_ratio < 0.6
+    ):
+        raise_to(
+            "high",
+            "hydrated_generic_landing_legacy_mismatch",
+            "generic hydrated landing page has insufficient legacy item coverage: "
+            f"{legacy_overlap_ratio:.2f}",
         )
     if not reasons:
+        reason_codes.append("hydrated_bounded_source")
         reasons.append(
             "hydrated source remains within low-risk content and structure bounds"
         )
     return {
         "level": level,
         "policy_version": RISK_POLICY_VERSION,
+        "reason_codes": reason_codes,
         "reasons": reasons,
         "source_unit_count": len(units),
         "code_block_count": code_count,
         "table_count": table_count,
         "source_binding_overlap": round(overlap_ratio, 3),
+        "identity_checks": {
+            "generic_landing_snapshot": generic_landing_snapshot,
+            "hydrated_episode_numbers": sorted(hydrated_episode_numbers),
+            "legacy_episode_numbers": sorted(legacy_episode_numbers),
+            "legacy_source_binding_overlap": (
+                round(legacy_overlap_ratio, 3)
+                if legacy_overlap_ratio is not None
+                else None
+            ),
+        },
     }
 
 
@@ -1020,8 +1264,6 @@ def prepare_source_native_migration_batch(
                             f"{source_record_id} is {hydrated_risk['level']}"
                         )
                     selected_by_id[source_record_id]["hydrated_risk"] = hydrated_risk
-                _refresh_selection_hash(selection)
-                _atomic_json(staging / "selection.json", selection)
                 candidate_summary_path = candidate_dir / "candidate-summary.json"
                 if candidate_summary_path.exists():
                     _atomic_json(
@@ -1052,6 +1294,19 @@ def prepare_source_native_migration_batch(
                     raise ValueError(
                         "migration input changed the exact selected record set"
                     )
+                for source_record_id in selected_ids:
+                    hydrated_risk = classify_hydrated_candidate_risk(
+                        migration_by_record[source_record_id],
+                        records_by_id[source_record_id],
+                    )
+                    if RISK_ORDER[hydrated_risk["level"]] > RISK_ORDER[max_risk]:
+                        raise ValueError(
+                            f"hydrated candidate exceeds the {max_risk} risk policy: "
+                            f"{source_record_id} is {hydrated_risk['level']}"
+                        )
+                    selected_by_id[source_record_id]["hydrated_risk"] = hydrated_risk
+                _refresh_selection_hash(selection)
+                _atomic_json(staging / "selection.json", selection)
 
                 schema_result = write_source_native_legacy_migration_schema(
                     staging / "migration-schema.json"
@@ -1246,6 +1501,28 @@ def prepare_source_native_migration_batch(
     }
 
 
+def _reject_low_risk_unmatched_routing(
+    output_path: Path,
+    manifest: dict[str, Any],
+) -> None:
+    if str((manifest.get("policy") or {}).get("max_risk") or "") != "low":
+        return
+    output = _read_json(output_path)
+    violations = [
+        {
+            "candidate_id": str(article.get("candidate_id") or ""),
+            "unmatched_routing_terms": list(article.get("unmatched_routing_terms") or []),
+        }
+        for article in output.get("articles") or []
+        if isinstance(article, dict) and article.get("unmatched_routing_terms")
+    ]
+    if violations:
+        raise ValueError(
+            "low-risk assembly contains unmatched routing terms: "
+            + canonical_json(violations)
+        )
+
+
 def assemble_source_native_migration_batch(
     *,
     batch_dir: Path,
@@ -1288,6 +1565,10 @@ def assemble_source_native_migration_batch(
                     )
                 if recorded.get("model") != model:
                     raise ValueError("requested model differs from the assembled batch")
+                _reject_low_risk_unmatched_routing(
+                    destination,
+                    state.get("_manifest") or {},
+                )
                 return {
                     "schema": BATCH_STATE_SCHEMA,
                     "status": "unchanged",
@@ -1306,6 +1587,14 @@ def assemble_source_native_migration_batch(
                 raise ValueError(
                     "existing generated output differs from the requested model shards"
                 )
+            try:
+                _reject_low_risk_unmatched_routing(
+                    recovery_path,
+                    state.get("_manifest") or {},
+                )
+            except Exception:
+                recovery_path.unlink(missing_ok=True)
+                raise
             recovery_path.unlink(missing_ok=True)
             state["generated_output"] = {
                 "path": destination.relative_to(batch_dir).as_posix(),
@@ -1336,11 +1625,19 @@ def assemble_source_native_migration_batch(
             }
         started = time.monotonic()
         pending_destination = batch_dir / ".generated-output.pending.json"
-        merge_result = merge_source_native_legacy_migration_outputs(
-            input_path=batch_dir / "migration-input.jsonl",
-            batch_paths=paths,
-            destination=pending_destination,
-        )
+        try:
+            merge_result = merge_source_native_legacy_migration_outputs(
+                input_path=batch_dir / "migration-input.jsonl",
+                batch_paths=paths,
+                destination=pending_destination,
+            )
+            _reject_low_risk_unmatched_routing(
+                pending_destination,
+                state.get("_manifest") or {},
+            )
+        except Exception:
+            pending_destination.unlink(missing_ok=True)
+            raise
         pending_destination.replace(destination)
         state["generated_output"] = {
             "path": destination.relative_to(batch_dir).as_posix(),
