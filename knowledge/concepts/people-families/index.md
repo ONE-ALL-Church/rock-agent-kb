@@ -2,12 +2,12 @@
 id: concept-people-families
 title: People And Families
 generated: true
-last_built: 2026-08-12T03:17:24+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:01:28+00:00
+source_last_checked_at: 2026-08-12T06:18:15+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/39
 legacy_summary_retirement_coverage: 0/39
@@ -304,7 +304,7 @@ Keywords: `attribute, person attribute`
 ## Source Lifecycle
 
 - Official article records routed here: `39`
-- Upstream check range: `2026-08-04T15:01:24+00:00` through `2026-08-04T15:01:28+00:00`
+- Upstream check range: `2026-08-12T06:18:13+00:00` through `2026-08-12T06:18:15+00:00`
 - Source-native typed articles: `0` of `39`
 - Legacy source summaries retired: `0`; still active: `39`
 - Migration status: `not_started`

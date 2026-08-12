@@ -184,7 +184,7 @@
   ],
   "concept_id": "prayer-care",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T03:18:19+00:00",
+  "generated_at": "2026-08-12T12:45:00+00:00",
   "guide_sections": [
     "17-troubleshooting-decision-tree",
     "17-troubleshooting-decision-tree-request-was-submitted-but-prayer-team-cannot-see-it",

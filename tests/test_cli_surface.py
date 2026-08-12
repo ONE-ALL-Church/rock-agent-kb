@@ -96,6 +96,7 @@ FINAL_COMMANDS = [
     ["tools", "source-native-migration-batch-assemble"],
     ["tools", "source-native-migration-batch-validate"],
     ["tools", "source-native-migration-batch-promote"],
+    ["tools", "source-native-migration-rebind-promote"],
 ]
 
 DEAD_COMMANDS = [

@@ -44,6 +44,7 @@ from ..source_native_migration import (
     SOURCE_NATIVE_LEGACY_MIGRATION_SCHEMA_PATH,
     build_source_native_legacy_migration_inputs,
     merge_source_native_legacy_migration_outputs,
+    promote_rebound_source_native_legacy_migrations,
     promote_source_native_legacy_migration,
     rebind_source_native_legacy_migration_output,
     write_source_native_legacy_migration_prompt,
@@ -714,6 +715,54 @@ def source_native_migration_rebind(
                 refreshed_input_path=refreshed_input,
                 output_path=output_path,
                 destination=destination,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
+@app.command("source-native-migration-rebind-promote")
+def source_native_migration_rebind_promote(
+    input_path: Path = typer.Option(
+        ...,
+        "--input",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Fresh migration input used by the validated rebind.",
+    ),
+    output_path: Path = typer.Option(
+        ...,
+        "--output",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        help="Validated rebound reviewed output.",
+    ),
+    destination: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--destination",
+        file_okay=False,
+        dir_okay=True,
+    ),
+    base_dir: Path = typer.Option(
+        SOURCE_NATIVE_PILOT_DIR,
+        "--base",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+    ),
+) -> None:
+    """Promote exact hash rebindings without recreating model artifacts."""
+
+    typer.echo(
+        json.dumps(
+            promote_rebound_source_native_legacy_migrations(
+                input_path=input_path,
+                output_path=output_path,
+                destination=destination,
+                base_dir=base_dir,
             ),
             ensure_ascii=False,
             indent=2,

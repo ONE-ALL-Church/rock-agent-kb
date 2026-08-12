@@ -2,12 +2,12 @@
 id: concept-workflows
 title: Workflows
 generated: true
-last_built: 2026-08-12T03:17:06+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-04T15:01:47+00:00
+source_last_checked_at: 2026-08-12T06:18:27+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 4/59
 legacy_summary_retirement_coverage: 4/59
@@ -140,8 +140,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Workflow Actions | rock_documentation | [AI](/documentation/core-concepts/workflows/workflow-actions/ai?Version=v19.0) [Assessments](/documentation/core-concepts/workflows/workflow-actions/assessments?Version=v19.0) [Background Check](/documentation/core-concepts/workflows/workflow-actions/background-check?Version=v19.0) [CMS](/documentation/core-concepts/workflows/workflow-actions/cms?Version=v19.0)... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/workflow-actions) |
 | Understand Form Actions | rock_documentation | To help us understand this action better, let’s [go back to](/documentation/core-concepts/workflows/workflow-components/intro-to-workflows#a-sample-workflow) the simple *HR Position Request* example, specifically the first entry form that Ted used to start the request. Below is a screenshot of the entry form action used in that workflow. 1. **Purpose** - The Form Header is a great place to introduce the purpose of... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/understand-form-actions) |
 | My Workflows | rock_documentation | The tools described in the [Manage Workflow Instances](/documentation/core-concepts/workflows/manage-workflow-instances) section are great for working on workflows of a specific workflow type. However, there are times you just want to see the workflows that are assigned to you or that you have initiated. You can track active workflows that are related to you under `Tools > My Workflows`. 1. **Initiated By Me /... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/manage-workflow-instances/my-workflows) |
-| Secure Workflows | rock_documentation | While we've already covered workflow security in other articles, we thought we'd summarize workflow security in one place. This should give you a good understanding of what's possible. # Editing A Workflow Type To be able to add or edit a workflow type, you’ll need Edit access to the workflow configuration page (`Admin Tools > General Settings > Workflow Configuration`) and the *Workflow Type Detail* block on it.... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows) |
 | Configure Workflow Details | rock_documentation | Workflow types are configured under `Admin Tools > General Settings > Workflow Configuration`. After adding the workflow, we'll complete the detail section. 1. **Non-Persisted** - Note that this workflow is not automatically persisted. Workflows that start with an entry form are usually configured this way to keep workflows from being added to the database when the person clicks on the form but never enters... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/build-a-workflow/configure-workflow-details) |
+| Secure Workflows | rock_documentation | While we've already covered workflow security in other articles, we thought we'd summarize workflow security in one place. This should give you a good understanding of what's possible. # Editing A Workflow Type To be able to add or edit a workflow type, you’ll need Edit access to the workflow configuration page (`Admin Tools > General Settings > Workflow Configuration`) and the *Workflow Type Detail* block on it.... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/advanced-workflows/secure-workflows) |
 | Chain Entry Forms | rock_documentation | In our [sample HR workflow](/documentation/core-concepts/workflows/workflow-components/intro-to-workflows#a-sample-workflow), you'll remember that the initial entry form asked if the position was full-time or part-time. Depending on the person's selection, they were taken to a new entry form based on their input. This is a feature called entry form chaining. When the command on the first form is executed, the... | [source](https://community.rockrms.com/documentation/core-concepts/workflows/entry-forms/chain-entry-forms) |
 
 ## Data Model Landmarks
@@ -252,7 +252,7 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records routed here: `59`
-- Upstream check range: `2026-08-04T15:01:42+00:00` through `2026-08-04T15:01:47+00:00`
+- Upstream check range: `2026-08-12T06:18:24+00:00` through `2026-08-12T06:18:27+00:00`
 - Source-native typed articles: `4` of `59`
 - Legacy source summaries retired: `4`; still active: `55`
 - Migration status: `partial`

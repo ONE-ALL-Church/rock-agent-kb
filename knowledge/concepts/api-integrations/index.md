@@ -2,15 +2,15 @@
 id: concept-api-integrations
 title: API And Integrations
 generated: true
-last_built: 2026-08-12T03:17:20+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:32:42+00:00
+source_last_checked_at: 2026-08-12T06:22:00+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 1/34
-legacy_summary_retirement_coverage: 6/34
+legacy_summary_retirement_coverage: 7/34
 depends_on_topics:
   - security
   - workflows
@@ -258,9 +258,9 @@ This concept depends on the generated Lava capability layer. Agents should use t
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `34`
-- Upstream check range: `2026-07-10T17:16:20+00:00` through `2026-08-12T02:32:42+00:00`
+- Upstream check range: `2026-07-10T17:16:20+00:00` through `2026-08-12T06:22:00+00:00`
 - Source-native typed articles: `1` of `34`
-- Legacy source summaries retired: `6`; still active: `28`
+- Legacy source summaries retired: `7`; still active: `27`
 - Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.

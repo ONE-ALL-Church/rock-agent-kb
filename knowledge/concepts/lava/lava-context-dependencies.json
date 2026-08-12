@@ -15,7 +15,7 @@
     "utility-lava": 4,
     "workflow": 10
   },
-  "generated_at": "2026-08-12T03:18:48+00:00",
+  "generated_at": "2026-08-12T12:45:00+00:00",
   "resource_paths": {
     "agent_contexts": "agent/lava-contexts.jsonl",
     "agent_summary": "agent/lava-context-summary.json",

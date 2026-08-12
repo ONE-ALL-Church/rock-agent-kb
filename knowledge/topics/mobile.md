@@ -10,7 +10,7 @@ Rock Mobile shell, mobile docs, controls, commands, and mobile release notes.
 
 This page is generated from normalized records. Follow source links before applying operational or code changes.
 
-Matched records: 749
+Matched records: 748
 
 ## Highest Signal Records
 

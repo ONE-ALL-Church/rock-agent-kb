@@ -1,11 +1,11 @@
 {
-  "article_count": 87,
+  "article_count": 117,
   "artifact_type_counts": {
-    "claim": 129,
-    "recipe": 31,
-    "source_summary": 93,
-    "structured_reference": 178,
-    "task_card": 67
+    "claim": 139,
+    "recipe": 47,
+    "source_summary": 97,
+    "structured_reference": 208,
+    "task_card": 68
   },
   "concept_ids": [
     "ai-agents-automation",
@@ -36,32 +36,33 @@
     "tv-apps",
     "workflows"
   ],
-  "evaluation_case_count": 524,
+  "evaluation_case_count": 585,
   "file_hashes": {
     "artifact-migrations.jsonl": "4f515c4a0b22e18b1e5ae390de4df5bd53075ea8ee13497967ab49a790ca18e1",
     "evaluation-holdout.jsonl": "3e15925b8db335b9c8122669ef7bd648f9625e617279ebf743286bf2528cb3b0",
-    "evaluation-set.jsonl": "5a19c894b93327e268f5028c8cca9d2cb69f3a69b03412558a9f8e9591c85d12",
-    "generation-activities.jsonl": "f4e25e6ec733f43831618656f30f7043a1d7138f23f159721c192b0e90342bd0",
-    "legacy-migrations.jsonl": "2e37073477f721f72e60bd064679537db9db30895621e628dc61bf373f6c8c9f",
-    "relationships.jsonl": "87d6ee878c15011a860046398400906b4ac6c4809b520844a179862700936a37",
-    "reviewed-artifacts.jsonl": "75dd2f833d8cd4b540641c59cf6fa5d21a36234e99a4e66383627b7149382b99",
-    "source-snapshots.jsonl": "973624c47fd270afd3a36e436957b95801a5dd9163b75a5f4361a14dd4cf1b29",
-    "source-units.jsonl": "f03ddd44d6719760dc7e99921dd38623f642675bbcbcab480de1ff2bdbaaf796",
+    "evaluation-set.jsonl": "39f706b30a1de843d3b1b81c2efda3f17bc0a84be5eaa5935e150291d645c1f3",
+    "generation-activities.jsonl": "29900dc433c48228c1718d1d4cc20d28e7ef2843dab6a872aed0278d55a37637",
+    "legacy-migrations.jsonl": "b9ea077b57e7b0375923237b4f827d9b6d0c78e956da50563e5b3f450765ff74",
+    "relationships.jsonl": "f4440acaf9b66adbe6d108425eab9a600e52580f8c3f7dfad1f84ae3847964d3",
+    "reviewed-artifacts.jsonl": "bda3a313232056241d70e6ca2d4ce3c3e7f04759a2e37c353945ae6d53b518ac",
+    "source-snapshots.jsonl": "26c369e2a68c4090e9278ff89b50c5757de8eb50dcd70460eb90447125a99648",
+    "source-units.jsonl": "c9b1409a34c76a6ad6dc3d176161c0856cbbd4bbec67397fa71f11e5f535a895",
     "split-rules.jsonl": "a15e10839ff24b5701740312c36542aaf9ba33807522a20608137609a327c927",
-    "verification-queue.jsonl": "a69513b972d9a249562409cf0ab7bb07c53c64ac1f2d30d718a0ec1de4702cd3",
-    "verification-report.json": "b708d36acccc9511c5546b08e67097135a29f60e85ecb34d09e259f268fc8c39",
-    "verification-resolutions.jsonl": "d7bfb19fe4552be078b31ae7ed991f1f8f7c292a4dd76141d100a012af676694"
+    "verification-queue.jsonl": "757439a8525e5b8209c819f94c276030655d2d2cc533255513c6b5e41f1293e7",
+    "verification-report.json": "c8471c37e54b894d6fc8999c2588a4ce847ea2ea1fa2e50408f92d8db804619a",
+    "verification-resolutions.jsonl": "e7810fc094e98b60ae000665796f0587669bf35112e4e43a445288fd1a477ef0"
   },
-  "generation_activity_count": 87,
+  "generation_activity_count": 117,
   "generation_input_hash_versions": {
-    "2": 87
+    "2": 117
   },
   "generation_models": {
-    "gpt-5.6-sol": 87
+    "gpt-5.6-sol": 117
   },
   "generation_prompt_versions": {
     "1.3.0": 26,
     "1.3.1": 57,
+    "1.3.3": 30,
     "2.3.1": 4
   },
   "notes": [
@@ -73,27 +74,27 @@
   "prompt_id": "source-knowledge-distillation-v2.3",
   "prompt_version": "2.3.3",
   "public_retrieval_changed": false,
-  "relationship_count": 647,
-  "review_changed_article_count": 58,
-  "reviewed_artifact_count": 498,
+  "relationship_count": 707,
+  "review_changed_article_count": 86,
+  "reviewed_artifact_count": 559,
   "reviewed_artifact_migration_count": 7,
-  "reviewed_legacy_migration_count": 151,
+  "reviewed_legacy_migration_count": 181,
   "schema": "rock-kb-source-native-pilot-manifest-v1",
   "source_family_counts": {
     "rock_community_blog": 4,
-    "rock_developer": 19,
+    "rock_developer": 49,
     "rock_documentation": 55,
     "rock_lava_docs": 5,
     "rock_mobile_docs": 4
   },
   "source_refresh_required_for_rebuild": true,
-  "source_snapshot_count": 87,
-  "source_unit_count": 2170,
+  "source_snapshot_count": 117,
+  "source_unit_count": 2620,
   "status": "canonical_input",
-  "verification_request_count": 78,
-  "verification_resolution_count": 78,
+  "verification_request_count": 84,
+  "verification_resolution_count": 84,
   "verification_state_counts": {
-    "verified": 78
+    "verified": 84
   },
   "verification_unresolved_count": 0
 }

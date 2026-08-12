@@ -223,6 +223,7 @@ uv run kb tools source-native-migration-prompt --input <migration-input.jsonl> -
 uv run kb tools source-native-migration-merge --input <migration-input.jsonl> --batch <batch-a.json> --batch <batch-b.json>
 uv run kb tools source-native-migration-promote --input <migration-input.jsonl> --output <reviewed-output.json> --generated-output <generated-output.json> --reviewer <reviewer-id> --model <model-id> --reviewed-at <iso-8601>
 uv run kb tools source-native-migration-rebind --previous-input <previous-input.jsonl> --refreshed-input <refreshed-input.jsonl> --output <reviewed-output.json> --destination <rebound-output.json>
+uv run kb tools source-native-migration-rebind-promote --input <refreshed-input.jsonl> --output <rebound-output.json> --base canonical/source-native/v1 --destination canonical/source-native/v1
 uv run kb tools source-native-migration-priority --as-of <iso-8601>
 uv run kb tools source-native-impact --previous <prior-bundle>
 uv run kb tools source-native-verification-packet --destination <private-packet.jsonl>
@@ -307,6 +308,10 @@ reviewed output first, allows only legacy content and migration hash changes,
 and requires any already materialized artifact to match the reviewed stable ID
 and semantic hash. A content, routing, relationship, or identity change fails
 and must return to review.
+`source-native-migration-rebind-promote` is the explicit write boundary for a
+validated rebind. It changes only legacy hash bindings and the bundle manifest;
+all reviewed knowledge, relationships, and model-generation metadata must match
+the canonical bundle exactly.
 
 `source-native-migration-priority` writes an ignored, deterministic queue for
 the remaining official prose migration debt. It reads the hosted operations

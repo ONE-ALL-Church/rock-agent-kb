@@ -479,7 +479,7 @@ def test_non_high_confidence_concept_routing_requires_standard_risk(
     assert "concept_routing_not_high_confidence" in (
         selected["selected"][0]["risk"]["reason_codes"]
     )
-    assert selected["risk_policy_version"] == "7"
+    assert selected["risk_policy_version"] == "8"
 
 
 def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
@@ -539,7 +539,7 @@ def test_hydrated_preflight_uses_reserve_after_review_limit_skip():
             "source_unit_count": None,
             "risk": {
                 "level": "standard",
-                "policy_version": "7",
+                "policy_version": "8",
                 "reason_codes": [
                     "rockumentation_full_text_exceeds_review_limit"
                 ],
@@ -941,6 +941,21 @@ def test_hydrated_candidate_escalates_exact_source_conflicts(
         ("The member has a RockInternal attribute.", "high", "hydrated_sensitive_terms"),
         ("Call SaveChanges() after updating the entity.", "high", "hydrated_sensitive_terms"),
         ("The helper can save changes to the entity.", "high", "hydrated_sensitive_terms"),
+        (
+            "Use one AddOrUpdate native tool for adding new items and updating existing items.",
+            "high",
+            "hydrated_mutation_contract",
+        ),
+        (
+            "Rock calls this when a person with edit access clicks the button.",
+            "high",
+            "hydrated_permission_gate",
+        ),
+        (
+            "Submit the form with hx-post to the endpoint.",
+            "high",
+            "hydrated_http_mutation",
+        ),
         (
             "This is an internal API for infrastructure use.",
             "standard",

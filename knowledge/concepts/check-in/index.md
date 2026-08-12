@@ -2,12 +2,12 @@
 id: concept-check-in
 title: Check-In
 generated: true
-last_built: 2026-08-12T03:17:05+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-11T16:40:46+00:00
+source_last_checked_at: 2026-08-12T06:18:07+00:00
 source_native_migration_status: partial
 source_native_article_coverage: 17/76
 legacy_summary_retirement_coverage: 17/76
@@ -196,7 +196,7 @@ Keywords: `label, zpl, printer, next-gen labels`
 | Check-In Manager Person Profile | rock_documentation | There are lots of ways you can get to the *Check-in Manager Person Profile* page. Whether you arrived here from a *Search*, from the *Room Manager* or from *Live Metrics*, there’s a lot to see and do on this page. 1. **Person Information** - You can see the person's photo and campus to the left, as well as their gender, age and grade along the top of the page. 2. **Attendance History** - Clicking this icon will take... | [source](https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile) |
 | Administer Check-Out | rock_documentation | ## Check-Out Manually Out of the box, Rock automatically “checks out” individuals when an event end time has passed (it doesn't actually mark them as checked out, they no longer appear in Check-in Manager). However, you can configure Rock to allow individuals to manually check out and set it up to print a check-out label. To configure manual check-out, follow these steps: 1. Go to `Admin Tools > Check-in > Check-in... | [source](https://community.rockrms.com/documentation/church-management/check-in/advanced-check-in/administer-check-out) |
 | Labels | rock_documentation | [Intro to Labels](/documentation/church-management/check-in/labels/intro-to-labels?Version=v19.0) [Use the Label Designer](/documentation/church-management/check-in/labels/use-the-label-designer?Version=v19.0) [Link Labels to Check-in](/documentation/church-management/check-in/labels/link-labels-to-check-in?Version=v19.0) | [source](https://community.rockrms.com/documentation/church-management/check-in/labels) |
-| Printing | rock_documentation | [Intro to Printing](/documentation/church-management/check-in/printing/intro-to-printing?Version=v19.0) [How to Print Labels](/documentation/church-management/check-in/printing/how-to-print-labels?Version=v19.0) [Reprint a Label](/documentation/church-management/check-in/printing/reprint-a-label?Version=v19.0) [Cut Labels](/documentation/church-management/check-in/printing/cut-labels?Version=v19.0) [Common... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing) |
+| Cut Labels | rock_documentation | You can easily configure your cutter-enabled label printer to automatically cut at the end of the set of labels. So, if there are a set of three kids checking in, it will automatically cut once after all labels for each child have been printed. As you’ll see later, you can take this to the next level and control cutting to a great extent. Tip **Printers with Cutters**If you’re in the market for a label printer with... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/cut-labels) |
 
 ### Mobile Check-In
 
@@ -288,15 +288,15 @@ Keywords: `troubleshooting, error, printer, issue, failed`
 | How to Print Labels | rock_documentation | When we break down the printing process, there are two bits of information that need to be determined: where to print and how to print. Let's look at each in detail. ## Where to Print The flowchart below breaks down the logic of how Rock determines where to print the check-in labels. 1. **Override** - If using the iPad or Windows application, you can set a printer override that diverts all printing to the printer... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/how-to-print-labels) |
 | Intro to Printing | rock_documentation | Rock's check-in is very flexible. This is especially true when it comes to printing. What printer you print to and where the printing takes place (client or server) is completely customizable. While this is very powerful, it can be a bit confusing. To help get you started, we have outlined a simple approach that should work for most organizations. We'll also dive a little deeper in the following articles for those... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/intro-to-printing) |
 | Clone a Schedule | rock_documentation | For many organizations, creating schedules for special events often requires duplicating the complex setup of regular services. Manually verifying that every location is correctly included in a new schedule can be a cumbersome and stressful process, especially for larger organizations managing hundreds of locations where the risk of manual error is high. To streamline this workflow and ensure accuracy, Rock allows... | [source](https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/clone-a-schedule) |
-| Plan Your Configuration | rock_documentation | Before jumping into the configuration of the check-in system, it's important to take a step back and do some planning. No matter how well you know your organization's structure in your head, it's critical that you put it all down on paper. This will help you get the configuration done right the first time and reduce the chance for error. Be sure to consider the following: * What groups will you be checking into? *... | [source](https://community.rockrms.com/documentation/church-management/check-in/prepare-for-check-in/plan-your-configuration) |
 | Define Printers in Rock | rock_documentation | Note **For Simplified Printing**If you are using the simplified printer setup where you are printing from the client and specifying the printer in the iPad or Windows application, you do not need to define the printers in Rock. To add printers in Rock for selection when configuring locations, group-types or kiosks, follow the steps below: 1. Navigate to the Devices page under `Admin Tools > Check-in > Devices`. 2.... | [source](https://community.rockrms.com/documentation/church-management/check-in/printing/define-printers-in-rock) |
+| Plan Your Configuration | rock_documentation | Before jumping into the configuration of the check-in system, it's important to take a step back and do some planning. No matter how well you know your organization's structure in your head, it's critical that you put it all down on paper. This will help you get the configuration done right the first time and reduce the chance for error. Be sure to consider the following: * What groups will you be checking into? *... | [source](https://community.rockrms.com/documentation/church-management/check-in/prepare-for-check-in/plan-your-configuration) |
 | Episode 47: Special Edition Lee Peterson Transcript Insight | rock_podcast_rss | This RockCast profile adds public-safe context for check-in implementation work: real deployments can require long troubleshooting cycles, church-specific process mapping, and low-level label-printing knowledge such as ZPL. It is useful routing evidence for check-in, implementation, and developer troubleshooting topics. | [source](https://shows.acast.com/rock-cast/episodes/episode-47-special-edition-lee-peterson) |
 
 
 ## Source Lifecycle
 
 - Official article records routed here: `76`
-- Upstream check range: `2026-08-04T15:01:10+00:00` through `2026-08-11T16:40:46+00:00`
+- Upstream check range: `2026-08-12T06:18:03+00:00` through `2026-08-12T06:18:07+00:00`
 - Source-native typed articles: `17` of `76`
 - Legacy source summaries retired: `17`; still active: `59`
 - Migration status: `partial`

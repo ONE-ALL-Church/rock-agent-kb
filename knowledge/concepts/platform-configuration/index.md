@@ -2,12 +2,12 @@
 id: concept-platform-configuration
 title: Platform Configuration
 generated: true
-last_built: 2026-08-12T03:17:10+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:21:49+00:00
+source_last_checked_at: 2026-08-12T06:18:32+00:00
 source_native_migration_status: not_started
 source_native_article_coverage: 0/27
 legacy_summary_retirement_coverage: 0/27
@@ -345,7 +345,7 @@ Keywords: `campus, campuses, global attribute, system setting, configuration`
 ## Source Lifecycle
 
 - Official article records in the bounded guide selection: `27`
-- Upstream check range: `2026-07-10T17:16:10+00:00` through `2026-08-12T02:21:49+00:00`
+- Upstream check range: `2026-07-10T17:16:10+00:00` through `2026-08-12T06:18:32+00:00`
 - Source-native typed articles: `0` of `27`
 - Legacy source summaries retired: `0`; still active: `27`
 - Migration status: `not_started`

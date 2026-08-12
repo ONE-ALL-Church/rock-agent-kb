@@ -8,11 +8,16 @@ tags and follow semantic versioning for public client and service contracts.
 
 ### Changed
 
-- The reviewed source-native bundle now covers 87 official prose records and
-  498 typed artifacts. Apple TV articles 120, 128, 139, 146, and 173; Roku
-  articles 186, 315, and 318; and Helix articles 348 and 358 now use the
-  source-native path with 29 explicit legacy replacements and one reviewed
-  partial retention.
+- The reviewed source-native bundle now covers 117 official prose records and
+  559 typed artifacts. A deterministic 30-record migration batch processed 450
+  source units into 61 reviewed artifacts, recorded 59 additional exact legacy
+  replacements, and preserved all seven prior source-native artifact migration
+  decisions. Knowledge was distilled from each complete source record; legacy
+  rows were used only to prevent silent loss and bind explicit replacement
+  decisions.
+- Apple TV articles 120, 128, 139, 146, and 173; Roku articles 186, 315, and
+  318; and Helix articles 348 and 358 now use the source-native path with 29
+  explicit legacy replacements and one reviewed partial retention.
 - The Rock developer-documentation source was refreshed from its public API;
   generated source summaries, concept indexes, and dependency metadata now
   reflect the current 361-record normalized projection.
@@ -24,6 +29,16 @@ tags and follow semantic versioning for public client and service contracts.
 - Source-native model-output merging preserves required nullable contract
   fields, and migration promotion preserves hash-matching verification
   resolutions while appending a reviewed batch.
+- Metadata-only refreshes of legacy source-summary projections now use an
+  explicit fail-closed, transactional rebind path. It independently verifies
+  the current legacy projection, updates only reviewed legacy hash and input
+  bindings, replaces the complete canonical directory, and restores the prior
+  bundle if installation fails.
+- Hydrated migration risk policy v8 recognizes persistent mutation contracts,
+  HTTP mutation routes, and permission-gated administration surfaces. Applying
+  the corrected policy to the first 30-record pilot classifies 27 records as
+  low risk and three as high risk; all three had already received explicit
+  maintainer review, but they are no longer represented as low-risk evidence.
 - Exact independent questions now retain precedence over nearby paraphrases,
   while high-overlap source-native recipes can outrank generic task cards for
   matching how-to questions without receiving an unconditional recipe boost.

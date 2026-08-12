@@ -2,15 +2,15 @@
 id: concept-ai-agents-automation
 title: AI Agents And Automation
 generated: true
-last_built: 2026-08-12T03:17:12+00:00
+last_built: 2026-08-12T12:45:00+00:00
 guide_status: generated_needs_review
 rebuild_policy: source_hash_changed_or_weekly
 source_count: 80
 source_freshness_status: complete
-source_last_checked_at: 2026-08-12T02:21:51+00:00
-source_native_migration_status: not_started
-source_native_article_coverage: 0/24
-legacy_summary_retirement_coverage: 0/24
+source_last_checked_at: 2026-08-12T06:22:00+00:00
+source_native_migration_status: partial
+source_native_article_coverage: 6/24
+legacy_summary_retirement_coverage: 6/24
 depends_on_topics:
   - security
   - api-integrations
@@ -157,8 +157,8 @@ These are reviewed, source-backed public claims routed to this concept. Communit
 | Agents | rock_developer | ## Overview Agents are the central point of how AI works in Rock. An agent defines the skills and tools that are available for use. It also provides instructions to the language model about how the agent should behave. This means you might have multiple agents configured in Rock. One might be for general staff to use and includes the majority of tools. This would probably be the primary agent used in Rock. When you... | [source](https://community.rockrms.com/developer/ai-agents/agents) |
 | Context Anchors | rock_developer | ## Overview Normally when you are chatting with an agent, your context shifts over time. Questions you ask and responses from the agent can shift the context of "who" you are talking about, even if you didn't intend that to happen. Imagine the following conversion. `Me:` Does Ted Decker have children? `Agent:` Ted's children are Noah and Alex. `Me:` How old is Noah? `Agent:` Noah is 8 years old. `Me:` What about his... | [source](https://community.rockrms.com/developer/ai-agents/agents/context-anchors) |
 | AI Agents | rock_developer | Rock has a heavy load, holding all the data that your organization runs on, and we know that you have a heavy load too. Rock has always been about empowering staff and simplifying processes so people can focus on ministry. Agents are the next step. Think of them as digital helpers that free you up for ministry or for that task you've been putting off for months. As a developer building agents and the tools that... | [source](https://community.rockrms.com/developer/ai-agents) |
-| Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
+| Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | Rock Tool Helper | rock_developer | ## Overview There is a lot of logic and error checking involved when writing *Native Tools*, and much of it is repetitive. To reduce that overhead, Rock provides the *Rock Tool Helper*, a centralized class that standardizes common patterns like validation, error collection, pagination and safe entity access so your tools stay more consistent and the AI agent receives clearer, more actionable feedback. For example,... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) |
 | Types of Tools | rock_developer | We have broken tools down into a number of recommended types, which are identified by the verb prefix on the tool name. You will likely run into cases where you are not sure if your tool should be `List` or `Lookup` for certain entities. This will be especially true for small result sets, such as Campus as it could fit either option. Do your best to think through the most likely use case. To see these, navigate to... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/types-of-tools) |
 | AI Summit: The Community's First Look at Rock's AI Agents Transcript Insight | rock_youtube | This official Rock AI Summit recording introduces Rock IQ and walks through the full AI Agent framework: staff chat, MCP and voice demonstrations; agent, skill and tool security; Connected Services onboarding; early church and partner prototypes; exploratory MCP UI and knowledge-base ideas; and detailed Lava tool-building guidance. Use the recording for product context, demonstrations and rollout lessons, while using current written documentation, release notes and live configuration as the authority for implementation and availability. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
@@ -215,8 +215,8 @@ Keywords: `custom tool, lookup tool, native tool, available attributes, agent to
 | Title | Source | Summary | Citation |
 | --- | --- | --- | --- |
 | Lookup Tools | rock_developer | ## Overview `Lookup`*Tools* help Rock AI agents find the exact information they need and return it in a format the agent can use. There are basically three steps to a `Lookup`. 1. Load data 2. Format data 3. Return data ## Load Data ``` {% sql return:'results' %} SELECT DISTINCT [Id], [Name] FROM [GroupType] {% endsql %} ``` As you can see, this is quite simple. We just run a simple select statement to retrieve the... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools/lookup-tools) |
-| Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | Native Tools | rock_developer | *[Lava Tools](/documentation/ai-agents/writing-custom-tools/lava-tools)* are great for fast, low-code development inside Rock. Native Tools go further by using compiled C# and the full Rock infrastructure. By creating custom classes that inherit from `AgentSkillComponent`, you can build more advanced tools for complex logic, external API integrations and heavier database work, while still giving the AI agent clear... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools) |
+| Writing Custom Tools | rock_developer | ## Overview Tools are the actual actions your agents take. Rock comes with many tools out of the box that have been tested and refined, ready to use in Rock, but you're not limited to the skills and tools that come out of the box. You can write your own using native code (C#) or Lava. We provide information on each below. ### Tool Security Every tool you build inherits Rock's security. A person can only run a tool... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
 | Rock Tool Helper | rock_developer | ## Overview There is a lot of logic and error checking involved when writing *Native Tools*, and much of it is repetitive. To reduce that overhead, Rock provides the *Rock Tool Helper*, a centralized class that standardizes common patterns like validation, error collection, pagination and safe entity access so your tools stay more consistent and the AI agent receives clearer, more actionable feedback. For example,... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/rock-tool-helper) |
 | Gotchas | rock_developer | ## Overview Things to look out for when writing native tools. ## Queryable object creation must be identical When using a queryable to get the data directly from the database, as opposed to materializing full entity objects and then pulling out the specific properties you want, you may run into the following error: > The type 'Rock.AI.Agent.Classes.Entity.PersonResult' appears in two structurally incompatible... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/gotchas) |
 | Lookup Tools | rock_developer | ## Overview Lookup tools usually take no parameters and are straightforward to implement. There are basically three steps. 1. Load data 2. Format data 3. Return data Typically, steps one and two will be the same since you can often do both in a single query or cache request. For clarity, we will list them separately. ## Load Data Whenever possible, use cache objects if they are available. Let's take a look at a... | [source](https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/lookup-tools) |
@@ -307,10 +307,10 @@ Keywords: `verification, review gate, approval, evidence, hallucination, live ve
 ## Source Lifecycle
 
 - Official article records routed here: `24`
-- Upstream check range: `2026-08-12T02:21:50+00:00` through `2026-08-12T02:21:51+00:00`
-- Source-native typed articles: `0` of `24`
-- Legacy source summaries retired: `0`; still active: `24`
-- Migration status: `not_started`
+- Upstream check range: `2026-08-12T06:13:11+00:00` through `2026-08-12T06:22:00+00:00`
+- Source-native typed articles: `6` of `24`
+- Legacy source summaries retired: `6`; still active: `18`
+- Migration status: `partial`
 
 A recent source check or concept rebuild does not imply that every legacy summary has been replaced by reviewed source-native artifacts.
 

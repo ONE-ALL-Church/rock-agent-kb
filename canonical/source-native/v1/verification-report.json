@@ -1,18 +1,18 @@
 {
   "by_disposition": {
-    "confirms": 38,
-    "corrects": 24,
-    "narrows": 16
+    "confirms": 41,
+    "corrects": 26,
+    "narrows": 17
   },
   "by_state": {
-    "verified": 78
+    "verified": 84
   },
   "by_surface": {
     "maintainer_review": 27,
     "official_api": 1,
-    "public_source_code": 50
+    "public_source_code": 56
   },
-  "checked_at": "2026-08-12T03:15:00Z",
+  "checked_at": "2026-08-12T12:30:00+00:00",
   "default_cutover_blocker_count": 0,
   "items": [
     {
@@ -321,6 +321,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-317:roku-navigation-command-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:5d230f4630c689f37bb1095b",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_mobile_docs:article-437:app-factory-triumph-hosted-app-delisting-risk"
       ],
       "reviewed_at": "2026-08-02T03:15:00Z",
@@ -414,10 +424,20 @@
       "artifact_ids": [
         "source-native:task_card:rock_developer:article-376:task-start-obsidian-debugger-from-rock-workspace"
       ],
-      "reviewed_at": "2026-08-11T19:00:00Z",
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:75e42de408ad015e491957bf",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-674:rock-v17-qr-code-color-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:7f9c3cd7563d56d89a31383a",
       "verification_surface": "public_source_code"
     },
     {
@@ -613,6 +633,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-671:add-dynamic-breadcrumb-to-legacy-block"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:b4f248d294ece57402e74fa4",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1160:check-in-kiosk-configuration-fields"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -653,10 +683,20 @@
     },
     {
       "artifact_ids": [
+        "source-native:recipe:rock_developer:article-672:add-custom-slide-out-administration-controls"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:bec50e19169e273f891743f9",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:claim:rock_developer:article-376:claim-vscode-obsidian-breakpoint-gutter",
         "source-native:structured_reference:rock_developer:article-376:reference-vscode-obsidian-debugger-controls"
       ],
-      "reviewed_at": "2026-08-11T19:00:00Z",
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:bf61f0946e939030f9a9f3d0",
@@ -690,6 +730,16 @@
       "stale_reasons": [],
       "status": "verified",
       "verification_id": "source-native-verification:c9a52fc02dd434ce28beb952",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-356:rock-control-parameter-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:d1c3d1f475dc65658d644b89",
       "verification_surface": "public_source_code"
     },
     {
@@ -794,6 +844,16 @@
     },
     {
       "artifact_ids": [
+        "source-native:structured_reference:rock_developer:article-674:rock-qr-code-handler-reference"
+      ],
+      "reviewed_at": "2026-08-12T12:30:00+00:00",
+      "stale_reasons": [],
+      "status": "verified",
+      "verification_id": "source-native-verification:f726648d0419fba8eb0bb179",
+      "verification_surface": "public_source_code"
+    },
+    {
+      "artifact_ids": [
         "source-native:structured_reference:rock_documentation:article-1150:built-in-service-time-check-in-window-examples"
       ],
       "reviewed_at": "2026-08-04T23:10:00Z",
@@ -814,10 +874,10 @@
     }
   ],
   "live_check_performed": false,
-  "queue_count": 78,
-  "resolution_count": 78,
+  "queue_count": 84,
+  "resolution_count": 84,
   "schema": "rock-kb-source-native-verification-report-v1",
   "status": "ok",
   "unresolved_count": 0,
-  "verified_count": 78
+  "verified_count": 84
 }

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -24,7 +25,9 @@ from rock_kb.source_native import (
     source_native_model_input_hash,
 )
 from rock_kb.source_native_migration import (
+    _install_rebound_bundle_transactionally,
     build_source_native_legacy_migration_inputs,
+    promote_rebound_source_native_legacy_migrations,
     public_record_hash,
     rebind_source_native_legacy_migration_output,
     source_native_legacy_migration_input_hash,
@@ -344,6 +347,8 @@ def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
     previous = migration_input()
     refreshed = copy.deepcopy(previous)
     refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+    refreshed["source_snapshot"]["last_checked_at"] = "2026-08-12T10:00:00Z"
+    refreshed["source_snapshot"]["observation_status"] = "unchanged"
     artifact = SourceNativeArtifactCandidate.model_validate(
         migration_output()["articles"][0]["artifacts"][0]
     )
@@ -398,6 +403,261 @@ def test_migration_rebind_accepts_only_hash_binding_changes(tmp_path):
             output_path=output_path,
             destination=destination,
         )
+
+
+def test_migration_rebind_materializes_historical_nullable_fields(tmp_path):
+    previous = migration_input()
+    refreshed = copy.deepcopy(previous)
+    refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+
+    reviewed = migration_output()
+    reviewed_artifact = reviewed["articles"][0]["artifacts"][0]
+    reviewed_artifact["artifact_type"] = "source_summary"
+    reviewed["articles"][0]["unit_decisions"][0]["disposition"] = (
+        "source_summary"
+    )
+    del reviewed_artifact["claim_type"]
+    del reviewed_artifact["evidence_class"]
+
+    materialized_artifact = copy.deepcopy(reviewed_artifact)
+    materialized_artifact["claim_type"] = None
+    materialized_artifact["evidence_class"] = None
+    artifact = SourceNativeArtifactCandidate.model_validate(materialized_artifact)
+    snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+    artifact_id = source_native_artifact_id(snapshot, artifact)
+    refreshed["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": artifact_id,
+            "artifact_hash": public_record_hash(artifact),
+            "artifact": artifact.public_dump(),
+        }
+    ]
+    rehash_migration_input(refreshed)
+
+    previous_path = tmp_path / "previous.jsonl"
+    refreshed_path = tmp_path / "refreshed.jsonl"
+    output_path = tmp_path / "reviewed-output.json"
+    destination = tmp_path / "rebound-output.json"
+    write_jsonl(previous_path, [previous])
+    write_jsonl(refreshed_path, [refreshed])
+    output_path.write_text(json.dumps(reviewed) + "\n", encoding="utf-8")
+
+    result = rebind_source_native_legacy_migration_output(
+        previous_input_path=previous_path,
+        refreshed_input_path=refreshed_path,
+        output_path=output_path,
+        destination=destination,
+    )
+
+    rebound_artifact = json.loads(destination.read_text(encoding="utf-8"))[
+        "articles"
+    ][0]["artifacts"][0]
+    assert result["materialized_nullable_field_count"] == 2
+    assert rebound_artifact["claim_type"] is None
+    assert rebound_artifact["evidence_class"] is None
+
+
+def test_migration_rebind_promotion_updates_only_hash_bindings(
+    monkeypatch,
+    tmp_path,
+):
+    previous = migration_input()
+    refreshed = copy.deepcopy(previous)
+    refreshed["legacy_items"][0]["legacy_content_hash"] = "f" * 64
+    artifact = SourceNativeArtifactCandidate.model_validate(
+        migration_output()["articles"][0]["artifacts"][0]
+    )
+    snapshot = SourceSnapshot.model_validate(refreshed["source_snapshot"])
+    artifact_id = source_native_artifact_id(snapshot, artifact)
+    refreshed["existing_source_native_artifacts"] = [
+        {
+            "artifact_id": artifact_id,
+            "artifact_hash": public_record_hash(artifact),
+            "artifact": artifact.public_dump(),
+        }
+    ]
+    rehash_migration_input(refreshed)
+
+    reviewed = migration_output()
+    reviewed["articles"][0]["migration_input_hash"] = refreshed[
+        "migration_input_hash"
+    ]
+    reviewed["articles"][0]["legacy_decisions"][0][
+        "legacy_content_hash"
+    ] = "f" * 64
+    reviewed["articles"][0]["existing_artifact_decisions"] = [
+        {
+            "existing_artifact_id": artifact_id,
+            "existing_artifact_hash": public_record_hash(artifact),
+            "disposition": "retain_identity",
+            "replacement_artifact_key": artifact.artifact_key,
+            "rationale": (
+                "The current artifact exactly matches the reviewed output, so "
+                "its stable identity is retained."
+            ),
+        }
+    ]
+    reviewed_record = ReviewedSourceNativeArtifact(
+        schema="rock-kb-reviewed-source-native-artifact-v1",
+        artifact_id=artifact_id,
+        source_candidate_id=refreshed["candidate_id"],
+        generation_activity_id="generation:test",
+        artifact=artifact,
+        review_state="reviewer_approved",
+        reviewer="test-reviewer",
+        reviewed_at="2026-08-04T00:00:00Z",
+        source_input_hash=refreshed["source_input_hash"],
+    )
+    decision = reviewed["articles"][0]["legacy_decisions"][0]
+    existing_migration = ReviewedSourceNativeLegacyMigration(
+        schema="rock-kb-reviewed-source-native-legacy-migration-v1",
+        migration_id="source-native-legacy-migration:test",
+        source_record_id=str(snapshot.source_record_id),
+        source_snapshot_id=snapshot.source_snapshot_id,
+        source_snapshot_content_hash=snapshot.content_hash,
+        legacy_knowledge_unit_id=decision["legacy_knowledge_unit_id"],
+        legacy_result_ids=refreshed["legacy_items"][0]["legacy_result_ids"],
+        legacy_knowledge_type="claim",
+        legacy_ingestion_mode="legacy_reviewed_claim_projection",
+        legacy_content_hash="e" * 64,
+        migration_input_hash=previous["migration_input_hash"],
+        migration_input_hash_version="2",
+        replacement_artifact_id=artifact_id,
+        replacement_artifact_hash=public_record_hash(artifact),
+        rationale=decision["rationale"],
+        generation_model="test-model",
+        generation_prompt_id="source-native-legacy-migration-v1",
+        generation_prompt_version="1.3.1",
+        generated_article_hash="1" * 64,
+        reviewed_article_hash="2" * 64,
+        review_correction_count=1,
+        reviewer="original-reviewer",
+        reviewed_at="2026-08-04T00:00:00Z",
+    )
+    base_bundle = {
+        "source_snapshots": [snapshot],
+        "source_units": [],
+        "generation_activities": [],
+        "reviewed_artifacts": [reviewed_record],
+        "relationships": [],
+        "evaluation_set": [],
+        "verification_queue": [],
+        "verification_resolutions": [],
+        "legacy_migrations": [existing_migration],
+        "artifact_migrations": [],
+    }
+    monkeypatch.setattr(
+        "rock_kb.source_native.load_source_native_pilot_directory",
+        lambda _path: base_bundle,
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native.write_source_native_manifest",
+        lambda path: (path / "manifest.json").write_text(
+            "{}\n", encoding="utf-8"
+        ),
+    )
+    monkeypatch.setattr(
+        "rock_kb.source_native_migration._active_legacy_projection",
+        lambda _repo_root: (
+            {
+                str(snapshot.source_record_id): [
+                    copy.deepcopy(refreshed["legacy_items"][0])
+                ]
+            },
+            {},
+        ),
+    )
+
+    input_path = tmp_path / "refreshed.jsonl"
+    output_path = tmp_path / "rebound.json"
+    base_dir = tmp_path / "base"
+    destination = tmp_path / "destination"
+    base_dir.mkdir()
+    destination.mkdir()
+    write_jsonl(destination / "artifact-migrations.jsonl", [{"stale": True}])
+    write_jsonl(input_path, [refreshed])
+    output_path.write_text(json.dumps(reviewed) + "\n", encoding="utf-8")
+    write_jsonl(
+        base_dir / "legacy-migrations.jsonl",
+        [existing_migration.public_dump()],
+    )
+
+    fabricated = copy.deepcopy(refreshed)
+    fabricated["legacy_items"][0]["legacy_content_hash"] = "a" * 64
+    rehash_migration_input(fabricated)
+    fabricated_output = copy.deepcopy(reviewed)
+    fabricated_output["articles"][0]["migration_input_hash"] = fabricated[
+        "migration_input_hash"
+    ]
+    fabricated_output["articles"][0]["legacy_decisions"][0][
+        "legacy_content_hash"
+    ] = "a" * 64
+    fabricated_input_path = tmp_path / "fabricated.jsonl"
+    fabricated_output_path = tmp_path / "fabricated-output.json"
+    write_jsonl(fabricated_input_path, [fabricated])
+    fabricated_output_path.write_text(
+        json.dumps(fabricated_output) + "\n", encoding="utf-8"
+    )
+    with pytest.raises(ValueError, match="current legacy projection"):
+        promote_rebound_source_native_legacy_migrations(
+            input_path=fabricated_input_path,
+            output_path=fabricated_output_path,
+            destination=destination,
+            base_dir=base_dir,
+        )
+
+    result = promote_rebound_source_native_legacy_migrations(
+        input_path=input_path,
+        output_path=output_path,
+        destination=destination,
+        base_dir=base_dir,
+    )
+
+    promoted = next(iter(read_jsonl(destination / "legacy-migrations.jsonl")))
+    assert result["migration_count"] == 1
+    assert promoted["legacy_content_hash"] == "f" * 64
+    assert promoted["migration_input_hash"] == refreshed["migration_input_hash"]
+    assert promoted["generation_prompt_version"] == "1.3.1"
+    assert promoted["reviewer"] == "original-reviewer"
+    assert not (destination / "artifact-migrations.jsonl").exists()
+
+
+def test_migration_rebind_transaction_restores_previous_bundle_on_install_failure(
+    monkeypatch,
+    tmp_path,
+):
+    destination = tmp_path / "canonical"
+    staging = tmp_path / ".canonical.rebind-promotion-staging-test"
+    destination.mkdir()
+    staging.mkdir()
+    (destination / "marker.txt").write_text("previous\n", encoding="utf-8")
+    (staging / "marker.txt").write_text("replacement\n", encoding="utf-8")
+
+    original_replace = Path.replace
+
+    def fail_staging_install(path: Path, target: Path) -> Path:
+        if path == staging:
+            raise OSError("simulated install failure")
+        return original_replace(path, target)
+
+    monkeypatch.setattr(Path, "replace", fail_staging_install)
+
+    with pytest.raises(OSError, match="simulated install failure"):
+        _install_rebound_bundle_transactionally(
+            staging=staging,
+            destination=destination,
+        )
+
+    assert (destination / "marker.txt").read_text(encoding="utf-8") == (
+        "previous\n"
+    )
+    assert not staging.exists()
+    assert not (
+        tmp_path / ".canonical.rebind-promotion-journal.json"
+    ).exists()
+    assert not list(
+        tmp_path.glob(".canonical.rebind-promotion-backup-*")
+    )
 
 
 def test_migration_output_requires_exact_legacy_coverage():

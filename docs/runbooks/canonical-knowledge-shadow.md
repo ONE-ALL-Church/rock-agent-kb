@@ -352,6 +352,11 @@ uv run kb tools source-native-migration-rebind \
   --refreshed-input <refreshed-migration-input.jsonl> \
   --output <reviewed-output.json> \
   --destination <rebound-reviewed-output.json>
+uv run kb tools source-native-migration-rebind-promote \
+  --input <refreshed-migration-input.jsonl> \
+  --output <rebound-reviewed-output.json> \
+  --base canonical/source-native/v1 \
+  --destination canonical/source-native/v1
 ```
 
 The command first validates the prior review against its original input. It
@@ -360,6 +365,9 @@ approved artifacts may be materialized only when their stable IDs and semantic
 hashes exactly match the reviewed output. Any source, source-unit, artifact,
 retrieval text, concept, relationship, or identity change fails closed and
 requires a new review.
+The separate promotion command updates only the validated legacy and migration
+hash bindings plus the signed manifest. It does not recreate artifacts,
+generation activities, prompt metadata, review timestamps, or relationships.
 
 After promotion, rebuild the identity baseline and run the production-worker
 retrieval shadow. A migration batch is not releasable unless verification has

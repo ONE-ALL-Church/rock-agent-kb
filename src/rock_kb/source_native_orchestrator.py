@@ -59,7 +59,7 @@ BATCH_REVIEW_VALIDATION_MANIFEST_SCHEMA = (
     "rock-kb-source-native-review-validation-manifest-v1"
 )
 BATCH_POLICY_VERSION = "2"
-RISK_POLICY_VERSION = "7"
+RISK_POLICY_VERSION = "8"
 MAX_BATCH_RECORD_COUNT = 50
 MAX_PREFLIGHT_POOL_RECORD_COUNT = 70
 RISK_ORDER = {"low": 0, "standard": 1, "high": 2}
@@ -130,6 +130,36 @@ HYDRATED_HIGH_RISK_TERMS = {
     "security",
     "web request",
 }
+HYDRATED_HIGH_RISK_PATTERNS = (
+    (
+        "hydrated_mutation_contract",
+        "persistent add, update, edit, or delete contract",
+        (
+            r"\baddorupdate\b|\badd\s+or\s+update\b|"
+            r"\badding\s+(?:new\s+)?(?:items|entities|records)\s+and\s+"
+            r"updating\s+existing\b|"
+            r"\b(?:create|add|edit|update|delete|persist|write)\s+"
+            r"(?:an?\s+|the\s+)?(?:entity|entities|item|record|database)\b"
+        ),
+    ),
+    (
+        "hydrated_http_mutation",
+        "HTTP mutation request",
+        (
+            r"\bhx-(?:post|put|patch|delete)\b|"
+            r"\b(?:post|put|patch|delete)\s+(?:request|endpoint|route)\b"
+        ),
+    ),
+    (
+        "hydrated_permission_gate",
+        "permission-gated administration or configuration surface",
+        (
+            r"\b(?:edit|administrative|administration|configuration)\s+"
+            r"(?:access|permission|permissions|control|controls)\b|"
+            r"\b(?:canconfig|canedit|getadministratecontrols)\b"
+        ),
+    ),
+)
 HYDRATED_STANDARD_RISK_PATTERNS = (
     (
         "hydrated_internal_api",
@@ -643,6 +673,13 @@ def classify_hydrated_candidate_risk(
             "hydrated_sensitive_terms",
             "hydrated source contains sensitive terms: " + ", ".join(matched_terms),
         )
+    for code, label, pattern in HYDRATED_HIGH_RISK_PATTERNS:
+        if re.search(pattern, lowered):
+            raise_to(
+                "high",
+                code,
+                f"hydrated source contains {label}",
+            )
     for code, label, pattern in HYDRATED_STANDARD_RISK_PATTERNS:
         if re.search(pattern, lowered):
             raise_to(

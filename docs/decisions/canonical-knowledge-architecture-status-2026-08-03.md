@@ -60,14 +60,40 @@ being copied onto unrelated C# articles.
 
 ## Current Evidence
 
-The tracked source-native bundle now covers five source families, 77 articles,
-27 concept facets, 2,013 addressable source units, and 466 reviewed artifacts:
-123 claims, 28 recipes, 83 source summaries, 166 structured references, and 66
-task cards. It also contains 595 typed relationships and 492 source-native
-evaluation cases. All 77 generation activities use `gpt-5.6-sol` and input
+The tracked source-native bundle now covers five source families, 117 articles,
+27 concept facets, 2,620 addressable source units, and 559 reviewed artifacts:
+139 claims, 47 recipes, 97 source summaries, 208 structured references, and 68
+task cards. It also contains 707 typed relationships and 585 source-native
+evaluation cases. All 117 generation activities use `gpt-5.6-sol` and input
 hash version `2`. The manifest preserves the exact prompt history: four initial
 distillations at version `2.3.1`, 26 migration activities at wrapper version
-`1.3.0`, and 47 at wrapper version `1.3.1`.
+`1.3.0`, 57 at wrapper version `1.3.1`, and the 30-record migration pilot at
+wrapper version `1.3.3`.
+
+The 2026-08-12 deterministic migration pilot selected 30 current source records
+exactly once and processed 450 source units into 61 reviewed artifacts. Twelve
+model outputs required maintainer changes across 47 exact correction paths.
+Promotion recorded 59 additional legacy replacements and no new source-native
+artifact migration, bringing the bundle to 181 exact legacy migrations and
+seven artifact migrations. Hydrated risk policy v8 subsequently classified 27
+of those records as low risk and three as high risk because they document
+persistent mutation or permission-gated administration surfaces. Those three
+records had explicit source-level maintainer review, so their knowledge remains
+reviewed, but the mixed batch is not evidence for a 30-record low-risk run. The
+compiler distilled each complete source record without trying to reproduce each
+legacy row. Legacy knowledge is an explicit loss-prevention ledger: it must be
+replaced, retained, or retired, but it neither caps artifact count nor prevents
+the source from yielding useful knowledge that had no legacy counterpart.
+
+The prior 10-record developer batch processed 157 units into 33 generated and
+32 reviewed artifacts; five articles changed across 72 exact correction paths.
+The coordinated pilot processed three times as many articles and 2.9 times as
+many units, while correction paths fell from 7.2 to 1.6 per article. The source
+mix differs, so this is useful process evidence rather than a controlled model
+quality experiment. Preparation, assembly, and review validation took 17.530,
+0.022, and 0.034 seconds respectively; active human review time, model token
+counts, and billing records were not captured and remain explicitly
+unavailable.
 
 The final 12 prompt-`2.3.0` documentation records were refreshed before
 reprocessing. Their upstream content hashes were unchanged, so the change
@@ -179,8 +205,8 @@ useful evidence, but the project does not currently have a realistic external
 sample. The maintainer therefore approved a reversible technical cutover rather
 than leaving the demonstrably better reader in an indefinite canary.
 
-The canonical projection still identifies measurable migration debt: 555
-legacy claims and 5,503 legacy source summaries remain alongside 466
+The canonical projection still identifies measurable migration debt: 536
+legacy claims and 5,464 legacy source summaries remain alongside 559
 source-native artifacts and deterministic typed families. That inventory is a
 migration queue, not a reason to discard the working system.
 
@@ -201,7 +227,7 @@ rows, and seven notes, with no missing URL or stale dependency findings.
 The 2026-08-03 live review closed the three technical and content-quality items
 that were open at the start of the review:
 
-1. The current source-native verification layer reports 71 of 71 resolutions
+1. The current source-native verification layer reports 84 of 84 resolutions
    verified against
    exact source snapshots, immutable public source, or bounded official API
    observations, with zero unresolved rows, zero stale evidence, and zero
@@ -215,7 +241,9 @@ that were open at the start of the review:
    conclusions to current official page hashes without changing their reviewed
    corrections or narrowings. The August 11 pass compacted the active queue to
    71 fully resolved decisions and added the SQL Server, unsubscribe, Check-In,
-   cache, File Manager, and content-channel corrections described above.
+   cache, File Manager, and content-channel corrections described above. The
+   August 12 pilot added 13 reviewed verification decisions, leaving 84 fully
+   resolved decisions and no blocker.
    Immutable Rock source separately confirms the Helix endpoint authorization
    map and the Default Enabled Lava Commands fallback introduced by the prior
    batch.
@@ -250,20 +278,22 @@ no missing external data is represented as if it existed.
 
 ## Next Sequence
 
-The reviewed source-native bundle now records 122 exact legacy migrations and
-seven source-native artifact migrations. The final projection has 466 typed
-artifacts; 555 legacy claims and 5,503 legacy source summaries remain. The
+The reviewed source-native bundle now records 181 exact legacy migrations and
+seven source-native artifact migrations. The final projection has 559 typed
+artifacts; 536 legacy claims and 5,464 legacy source summaries remain. The
 661-question production-worker shadow reported 497 improvements, 164 ties, no
 shared failures, and zero retrieval, exact-lookup, authority, no-answer, or
-endpoint regressions. All 71 current verification rows remain resolved with no
+endpoint regressions. All 84 current verification rows remain resolved with no
 blocker.
 
-The regenerated deterministic migration-priority queue contains 1,578 active
-legacy source records: 1,562 are actionable, 1,267 are migration-ready, 295
-need a source refresh first, and 16 are reviewed retentions. It has zero
-unresolved source identities and five reconciled aliases after the Lava alias
-and exact-route work. The highest current ready cluster is developer TV-app
-content spanning Apple TV and Roku, followed by Helix/Lava developer records.
+The regenerated deterministic migration-priority queue contains 1,540 active
+legacy source records: 1,523 are actionable, 1,248 are migration-ready, 275
+need a source refresh first, and 17 are reviewed retentions. It has zero
+unresolved source identities and six reconciled aliases after the Lava alias
+and exact-route work. The highest current ready cluster is Obsidian developer
+content. The legacy-backed queue is not the complete source inventory; each
+source family must also be audited for current public records that have no
+legacy projection so fresh-source knowledge is not omitted.
 The queue must be regenerated after every reviewed batch; stale counts from a
 prior batch must not drive selection.
 
