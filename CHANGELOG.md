@@ -31,6 +31,12 @@ tags and follow semantic versioning for public client and service contracts.
 
 ### Fixed
 
+- Managed agent checks compare MCP configuration semantically, so Codex
+  normalization between nested and inline TOML header tables no longer creates
+  a recurring false skill-update prompt. Skill content, MCP endpoint, and
+  anonymous telemetry-header drift now have distinct statuses, bounded reason
+  codes, and correct commands; not-due checks cannot emit cached update advice,
+  and applied installs verify both files by readback.
 - Exact source-record candidate generation now requires explicit concept
   routing instead of silently inheriting the balanced-pilot defaults.
 - Source-native model-output merging preserves required nullable contract

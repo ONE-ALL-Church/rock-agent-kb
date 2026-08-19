@@ -60,6 +60,13 @@ uvx rock-kb skill status --format json
 uvx rock-kb skill policy notify
 ```
 
+`skill check` reports skill content and managed MCP configuration separately.
+Use `skill update` for stale skill content. For configuration-only drift, first
+review `install-agent --dry-run`, then apply `install-agent`; repeatedly running
+`skill update` will not claim to repair that state. Parsed-equivalent TOML and
+JSON formatting remains untouched, and bounded reason codes distinguish the
+MCP endpoint from anonymous telemetry headers without printing their values.
+
 `notify` is the default. A human can explicitly choose `auto` for a user-level
 installation or `pinned` to remain on the installed version. Project-level
 automatic updates are rejected so the changed skill can be reviewed through
