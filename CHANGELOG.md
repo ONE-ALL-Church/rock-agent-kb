@@ -6,6 +6,8 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.24.0] - 2026-08-19
+
 ### Changed
 
 - The reviewed source-native bundle now covers 147 official prose records,
