@@ -41,6 +41,7 @@ class InstallPlan:
     paths: AgentPaths
     updated_config: str
     config_changed: bool
+    config_update_reasons: tuple[str, ...]
     skill_changed: bool
 
 
@@ -117,6 +118,7 @@ def install_agents(
         fetch_text=fetch_text,
         fetch_json=fetch_json,
         client_version=client_version,
+        allow_config_only=True,
     )
     report["schema"] = "rock-kb-agent-install-v1"
     return report
@@ -149,6 +151,8 @@ def update_agents(
             fetch_json=fetch_json,
             client_version=client_version,
         )
+        if not report.get("skill_update_available"):
+            return report
         report["status"] = "pinned"
         report["next"] = "Run rock-kb skill update --unpin to clear the pin and install the current reviewed skill."
         return report
@@ -169,6 +173,7 @@ def update_agents(
         fetch_text=fetch_text,
         fetch_json=fetch_json,
         client_version=client_version,
+        allow_config_only=False,
     )
 
 
@@ -185,6 +190,7 @@ def sync_agents(
     fetch_text: Callable[[str], str],
     fetch_json: Callable[[str], object],
     client_version: str,
+    allow_config_only: bool,
 ) -> dict:
     if not agents:
         return {
@@ -201,6 +207,9 @@ def sync_agents(
         raise RuntimeError("Hosted Rock KB health check did not return status=ok")
     release = fetch_skill_release(base_url, fetch_text, fetch_json, client_version)
     plans = plan_agent_sync(base_url, agents, scope, home, project_dir, release.installed_text)
+    skill_update_available = any(plan.skill_changed for plan in plans)
+    config_update_available = any(plan.config_changed for plan in plans)
+    config_only_deferred = bool(config_update_available and not skill_update_available and not allow_config_only)
 
     reports = []
     any_changed = False
@@ -208,10 +217,11 @@ def sync_agents(
     for plan in plans:
         paths = plan.paths
         backups: list[str] = []
-        any_changed = any_changed or plan.config_changed or plan.skill_changed
+        apply_config = bool(plan.config_changed and not config_only_deferred)
+        any_changed = any_changed or apply_config or plan.skill_changed
 
         if not dry_run:
-            if plan.config_changed:
+            if apply_config:
                 backup = backup_file(paths.config)
                 if backup:
                     backups.append(str(backup))
@@ -225,14 +235,42 @@ def sync_agents(
                 paths.skill.write_text(release.installed_text, encoding="utf-8")
             if paths.skill.exists():
                 installed_file_sha256[plan.agent] = sha256_text(paths.skill.read_text(encoding="utf-8"))
+            current_config = paths.config.read_text(encoding="utf-8") if paths.config.exists() else ""
+            request_headers = telemetry_headers(telemetry_state_path(home)) if scope == "user" else {}
+            remaining_config_reasons = config_update_reasons(
+                current_config,
+                paths.format,
+                paths.server_key,
+                f"{base_url}/mcp",
+                request_headers,
+            )
+            skill_current = paths.skill.exists() and paths.skill.read_text(encoding="utf-8") == release.installed_text
+            if apply_config and remaining_config_reasons:
+                raise RuntimeError(f"Rock KB {plan.agent} MCP configuration did not match after installation")
+            if plan.skill_changed and not skill_current:
+                raise RuntimeError(f"Rock KB {plan.agent} skill did not match after installation")
+        else:
+            remaining_config_reasons = plan.config_update_reasons
+            skill_current = not plan.skill_changed
 
         reports.append(
             {
                 "agent": plan.agent,
                 "config_path": str(paths.config),
                 "skill_path": str(paths.skill),
-                "config_action": "would_update" if dry_run and plan.config_changed else "updated" if plan.config_changed else "unchanged",
+                "config_action": (
+                    "would_update"
+                    if dry_run and plan.config_changed
+                    else "deferred_to_install_agent"
+                    if config_only_deferred and plan.config_changed
+                    else "updated"
+                    if apply_config
+                    else "unchanged"
+                ),
+                "config_status": "update_available" if remaining_config_reasons else "current",
+                "config_update_reasons": list(remaining_config_reasons),
                 "skill_action": "would_update" if dry_run and plan.skill_changed else "updated" if plan.skill_changed else "unchanged",
+                "skill_status": "current" if skill_current else "update_available",
                 "backups": backups,
             }
         )
@@ -254,7 +292,7 @@ def sync_agents(
             "agents": sorted(set(state.get("agents") or []) | set(agents)),
             "last_checked_at": now,
             "last_attempted_at": now,
-            "last_status": "updated" if any_changed else "current",
+            "last_status": "agent_config_update_available" if config_only_deferred else "updated" if any_changed else "current",
             "remote_manifest": release.manifest,
             "installed_skill_version": release.manifest["skill_version"],
             "installed_source_sha256": release.source_sha256,
@@ -265,10 +303,11 @@ def sync_agents(
         state.pop("last_error", None)
         write_skill_state(state_path, state)
 
+    status = "dry_run" if dry_run else "agent_config_update_available" if config_only_deferred else "ok"
     return {
         "schema": "rock-kb-skill-sync-v1",
         "operation": operation,
-        "status": "dry_run" if dry_run else "ok",
+        "status": status,
         "scope": scope,
         "policy": policy,
         "service_health": health,
@@ -276,8 +315,17 @@ def sync_agents(
         "state_path": str(state_path),
         "state_written": not dry_run,
         "agents": reports,
+        "skill_update_available": bool(dry_run and skill_update_available),
+        "agent_config_update_available": bool((dry_run and config_update_available) or config_only_deferred),
+        "applied_components": [
+            name
+            for name, changed in (("skill", skill_update_available), ("agent_config", config_update_available and not config_only_deferred))
+            if changed and not dry_run
+        ],
         "restart_required": bool(not dry_run and any_changed and release.manifest.get("restart_required", True)),
         "review_required": bool(scope == "project" and any_changed),
+        "recommended_action": recommended_action(status, policy),
+        "recommended_command": recommended_command(status),
     }
 
 
@@ -296,7 +344,16 @@ def plan_agent_sync(
         config_text = paths.config.read_text(encoding="utf-8") if paths.config.exists() else ""
         updated_config = update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers)
         local_skill = paths.skill.read_text(encoding="utf-8") if paths.skill.exists() else ""
-        plans.append(InstallPlan(agent, paths, updated_config, updated_config != config_text, local_skill != skill_text))
+        plans.append(
+            InstallPlan(
+                agent,
+                paths,
+                updated_config,
+                updated_config != config_text,
+                config_update_reasons(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers),
+                local_skill != skill_text,
+            )
+        )
     return plans
 
 
@@ -319,7 +376,19 @@ def check_agents(
     agents = effective_agents(agents, state)
     if if_due and not skill_check_due(state):
         report = skill_status(base_url=base_url, agents=agents, scope=scope, home=home, project_dir=project_dir)
-        report.update({"schema": "rock-kb-skill-check-v1", "operation": "check", "status": "not_due", "state_written": False})
+        report.update(
+            {
+                "schema": "rock-kb-skill-check-v1",
+                "operation": "check",
+                "cached_status": report.get("status"),
+                "status": "not_due",
+                "state_written": False,
+                "skill_update_available": False,
+                "agent_config_update_available": False,
+                "recommended_action": "none",
+                "recommended_command": None,
+            }
+        )
         return report
     if not agents:
         return {
@@ -343,17 +412,19 @@ def check_agents(
             "config_path": str(plan.paths.config),
             "skill_path": str(plan.paths.skill),
             "config_action": "would_update" if plan.config_changed else "unchanged",
+            "config_status": "update_available" if plan.config_changed else "current",
+            "config_update_reasons": list(plan.config_update_reasons),
             "skill_action": "would_update" if plan.skill_changed else "unchanged",
+            "skill_status": "update_available" if plan.skill_changed else "current",
         }
         for plan in plans
     ]
-    update_available = any(plan.config_changed or plan.skill_changed for plan in plans)
+    skill_update_available = any(plan.skill_changed for plan in plans)
+    config_update_available = any(plan.config_changed for plan in plans)
     policy = str(state.get("policy") or release.manifest.get("default_update_policy") or "notify")
     if policy not in SKILL_POLICIES or (scope == "project" and policy == "auto"):
         policy = "notify"
-    status = "update_available" if update_available else "current"
-    if update_available and policy == "pinned":
-        status = "pinned_update_available"
+    status = lifecycle_status(skill_update_available, config_update_available, policy)
 
     now = utc_now()
     installed_hashes = dict(state.get("installed_file_sha256") or {})
@@ -388,8 +459,11 @@ def check_agents(
         "state_written": True,
         "checked_at": now,
         "agents": reports,
+        "skill_update_available": skill_update_available,
+        "agent_config_update_available": config_update_available,
         "restart_required": False,
         "recommended_action": recommended_action(status, policy),
+        "recommended_command": recommended_command(status),
     }
 
 
@@ -400,12 +474,15 @@ def skill_status(*, base_url: str, agents: list[str], scope: str, home: Path, pr
     agents = effective_agents(agents, state)
     reports = [local_agent_status(base_url, agent, scope, home, project_dir, state) for agent in agents]
     statuses = {str(report["status"]) for report in reports}
+    policy = "notify" if scope == "project" and state.get("policy") == "auto" else str(state.get("policy") or "notify")
+    skill_update_available = any(report.get("skill_status") == "update_available" for report in reports)
+    config_update_available = any(report.get("config_status") == "update_available" for report in reports)
     if "locally_modified" in statuses:
         status = "locally_modified"
     elif "invalid_configuration" in statuses:
         status = "invalid_configuration"
-    elif "update_available" in statuses:
-        status = "update_available"
+    elif skill_update_available or config_update_available:
+        status = lifecycle_status(skill_update_available, config_update_available, policy)
     elif reports and statuses == {"current"}:
         status = "current"
     elif reports and statuses == {"not_installed"}:
@@ -418,7 +495,7 @@ def skill_status(*, base_url: str, agents: list[str], scope: str, home: Path, pr
         "status": status,
         "service": base_url,
         "scope": scope,
-        "policy": "notify" if scope == "project" and state.get("policy") == "auto" else str(state.get("policy") or "notify"),
+        "policy": policy,
         "state_path": str(state_path),
         "state_exists": state_path.exists(),
         "last_checked_at": state.get("last_checked_at"),
@@ -426,6 +503,10 @@ def skill_status(*, base_url: str, agents: list[str], scope: str, home: Path, pr
         "check_due": skill_check_due(state),
         "remote_manifest": public_skill_manifest(state.get("remote_manifest") or {}),
         "agents": reports,
+        "skill_update_available": skill_update_available,
+        "agent_config_update_available": config_update_available,
+        "recommended_action": recommended_action(status, policy),
+        "recommended_command": recommended_command(status),
     }
 
 
@@ -525,23 +606,50 @@ def passive_skill_checks(
                 client_version=client_version,
                 if_due=True,
             )
-            if report.get("status") != "update_available":
+            status = str(report.get("status") or "")
+            skill_update_available = bool(report.get("skill_update_available"))
+            config_update_available = bool(report.get("agent_config_update_available"))
+            if not skill_update_available and not config_update_available:
                 continue
             if report.get("policy") == "auto" and scope == "user":
-                update = update_agents(
-                    base_url=base_url,
-                    agents=agents,
-                    scope=scope,
-                    home=home,
-                    project_dir=project_dir,
-                    verify=False,
-                    fetch_text=fetch_text,
-                    fetch_json=fetch_json,
-                    client_version=client_version,
-                )
-                notices.append({"scope": scope, "status": "updated", "restart_required": update.get("restart_required", False)})
+                if skill_update_available:
+                    update = update_agents(
+                        base_url=base_url,
+                        agents=agents,
+                        scope=scope,
+                        home=home,
+                        project_dir=project_dir,
+                        verify=False,
+                        fetch_text=fetch_text,
+                        fetch_json=fetch_json,
+                        client_version=client_version,
+                    )
+                else:
+                    update = install_agents(
+                        base_url=base_url,
+                        agents=agents,
+                        scope=scope,
+                        home=home,
+                        project_dir=project_dir,
+                        dry_run=False,
+                        verify=False,
+                        fetch_text=fetch_text,
+                        fetch_json=fetch_json,
+                        client_version=client_version,
+                    )
+                components = [name for name, available in (("skill", skill_update_available), ("agent_config", config_update_available)) if available]
+                notices.append({"scope": scope, "status": "updated", "components": components, "restart_required": update.get("restart_required", False)})
+            elif status == "pinned_skill_update_available":
+                continue
             else:
-                notices.append({"scope": scope, "status": "update_available", "policy": report.get("policy")})
+                notices.append(
+                    {
+                        "scope": scope,
+                        "status": status,
+                        "policy": report.get("policy"),
+                        "recommended_command": report.get("recommended_command"),
+                    }
+                )
         except Exception as exc:  # A passive check must never block the requested KB operation.
             record_skill_check_error(state_path, exc)
     return notices
@@ -659,46 +767,85 @@ def local_agent_status(base_url: str, agent: str, scope: str, home: Path, projec
     latest_sha256 = str((state.get("remote_manifest") or {}).get("sha256") or "")
     managed_hash = str((state.get("installed_file_sha256") or {}).get(agent) or "")
     if not installed:
-        status = "not_installed"
+        skill_status = "not_installed"
     elif managed_hash and managed_hash != file_sha256:
-        status = "locally_modified"
+        skill_status = "locally_modified"
     elif latest_sha256 and source_sha256 == latest_sha256:
-        status = "current"
+        skill_status = "current"
     elif latest_sha256:
-        status = "update_available"
+        skill_status = "update_available"
     else:
-        status = "unknown"
+        skill_status = "unknown"
+    config_reasons: tuple[str, ...] = ()
     try:
         config_text = paths.config.read_text(encoding="utf-8") if paths.config.exists() else ""
         request_headers = telemetry_headers(telemetry_state_path(home)) if scope == "user" else {}
-        config_status = "current" if update_config(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers) == config_text else "update_available"
+        config_reasons = config_update_reasons(config_text, paths.format, paths.server_key, f"{base_url}/mcp", request_headers)
+        config_status = "update_available" if config_reasons else "current"
     except (ValueError, json.JSONDecodeError, tomllib.TOMLDecodeError):
         config_status = "invalid"
-    if status != "locally_modified" and config_status == "invalid":
+    policy = str(state.get("policy") or "notify")
+    if skill_status == "locally_modified":
+        status = "locally_modified"
+    elif config_status == "invalid":
         status = "invalid_configuration"
-    elif status in {"current", "unknown"} and config_status == "update_available":
-        status = "update_available"
+    elif skill_status == "not_installed":
+        status = "not_installed"
+    elif skill_status == "unknown" and config_status == "current":
+        status = "unknown"
+    else:
+        status = lifecycle_status(skill_status == "update_available", config_status == "update_available", policy)
     return {
         "agent": agent,
         "installed": installed,
         "status": status,
+        "skill_status": skill_status,
         "skill_version": metadata.get("rock-kb-skill-version"),
         "source_sha256": source_sha256 or None,
         "file_sha256": file_sha256 or None,
         "skill_path": str(paths.skill),
         "config_path": str(paths.config),
         "config_status": config_status,
+        "config_update_reasons": list(config_reasons),
     }
 
 
 def recommended_action(status: str, policy: str) -> str:
-    if status == "current":
+    if status in {"current", "not_due", "ok", "dry_run"}:
         return "none"
-    if policy == "pinned":
-        return "remain_pinned"
-    if policy == "auto":
+    if status == "agent_config_update_available":
+        return "run_install_agent"
+    if status in {"skill_update_available", "skill_and_agent_config_update_available"}:
         return "run_skill_update"
-    return "notify_human_before_update"
+    if status in {"pinned_skill_update_available", "pinned_skill_and_agent_config_update_available", "pinned"}:
+        return "remain_pinned"
+    if status == "invalid_configuration":
+        return "review_agent_configuration"
+    if status == "locally_modified":
+        return "review_local_skill"
+    return "none"
+
+
+def recommended_command(status: str) -> str | None:
+    if status == "agent_config_update_available":
+        return "uvx rock-kb install-agent"
+    if status in {"skill_update_available", "skill_and_agent_config_update_available"}:
+        return "uvx rock-kb skill update"
+    if status == "pinned_skill_and_agent_config_update_available":
+        return "uvx rock-kb install-agent --dry-run"
+    if status == "invalid_configuration":
+        return "uvx rock-kb install-agent --dry-run"
+    return None
+
+
+def lifecycle_status(skill_update_available: bool, config_update_available: bool, policy: str) -> str:
+    if skill_update_available and config_update_available:
+        return "pinned_skill_and_agent_config_update_available" if policy == "pinned" else "skill_and_agent_config_update_available"
+    if skill_update_available:
+        return "pinned_skill_update_available" if policy == "pinned" else "skill_update_available"
+    if config_update_available:
+        return "agent_config_update_available"
+    return "current"
 
 
 def effective_agents(agents: list[str], state: dict) -> list[str]:
@@ -825,15 +972,17 @@ def update_config(text: str, format_name: str, server_key: str, mcp_url: str, he
     headers = headers or {}
     if format_name == "toml":
         return update_toml_config(text, mcp_url, headers)
-    entry = {"type": "remote", "url": mcp_url, "enabled": True} if format_name == "opencode" else {"type": "http", "url": mcp_url}
-    if headers:
-        entry["headers"] = headers
+    entry = expected_config_entry(format_name, mcp_url, headers)
     return update_json_config(text, server_key, "rock-kb", entry)
 
 
 def update_toml_config(text: str, mcp_url: str, headers: dict[str, str] | None = None) -> str:
+    headers = headers or {}
     if text.strip():
-        tomllib.loads(text)
+        parsed = tomllib.loads(text)
+        actual = ((parsed.get("mcp_servers") or {}).get("rock-kb") if isinstance(parsed.get("mcp_servers"), dict) else None)
+        if config_entries_equal(actual, expected_config_entry("toml", mcp_url, headers)):
+            return text
     section = f'[mcp_servers.rock-kb]\nurl = {json.dumps(mcp_url)}\n'
     if headers:
         values = ", ".join(f"{json.dumps(key)} = {json.dumps(value)}" for key, value in sorted(headers.items()))
@@ -869,6 +1018,9 @@ def update_json_config(text: str, server_key: str, server_name: str, entry: dict
     parsed = json.loads(text)
     if not isinstance(parsed, dict):
         raise ValueError("Agent config root must be a JSON object")
+    servers = parsed.get(server_key)
+    if isinstance(servers, dict) and config_entries_equal(servers.get(server_name), entry):
+        return text
 
     root_members, root_close = json_object_members(text, text.index("{"))
     entry_text = json.dumps(entry, separators=(", ", ": "))
@@ -884,6 +1036,69 @@ def update_json_config(text: str, server_key: str, server_name: str, entry: dict
         value_start, value_end = server_members[server_name]
         return text[:value_start] + entry_text + text[value_end:]
     return insert_json_member(text, server_close, server_name, entry_text, bool(server_members))
+
+
+def expected_config_entry(format_name: str, mcp_url: str, headers: dict[str, str]) -> dict:
+    if format_name == "toml":
+        entry: dict = {"url": mcp_url}
+        if headers:
+            entry["http_headers"] = headers
+        return entry
+    entry = {"type": "remote", "url": mcp_url, "enabled": True} if format_name == "opencode" else {"type": "http", "url": mcp_url}
+    if headers:
+        entry["headers"] = headers
+    return entry
+
+
+def config_entries_equal(actual: object, expected: dict) -> bool:
+    if not isinstance(actual, dict):
+        return False
+    normalized_actual = dict(actual)
+    normalized_expected = dict(expected)
+    for key in ("headers", "http_headers"):
+        if normalized_actual.get(key) == {}:
+            normalized_actual.pop(key)
+        if normalized_expected.get(key) == {}:
+            normalized_expected.pop(key)
+    return normalized_actual == normalized_expected
+
+
+def config_update_reasons(
+    text: str,
+    format_name: str,
+    server_key: str,
+    mcp_url: str,
+    headers: dict[str, str] | None = None,
+) -> tuple[str, ...]:
+    headers = headers or {}
+    expected = expected_config_entry(format_name, mcp_url, headers)
+    if format_name == "toml":
+        parsed = tomllib.loads(text) if text.strip() else {}
+        servers = parsed.get(server_key)
+    else:
+        parsed = json.loads(text or "{}\n")
+        if not isinstance(parsed, dict):
+            raise ValueError("Agent config root must be a JSON object")
+        servers = parsed.get(server_key)
+    if servers is not None and not isinstance(servers, dict):
+        raise ValueError(f"Agent config {server_key} value must be an object")
+    actual = servers.get("rock-kb") if isinstance(servers, dict) else None
+    if config_entries_equal(actual, expected):
+        return ()
+    if actual is not None and not isinstance(actual, dict):
+        raise ValueError("Agent config rock-kb value must be an object")
+
+    reasons: list[str] = []
+    actual = actual or {}
+    endpoint_keys = {"url"} if format_name == "toml" else {"type", "url", "enabled"} if format_name == "opencode" else {"type", "url"}
+    if any(actual.get(key) != expected.get(key) for key in endpoint_keys):
+        reasons.append("mcp_endpoint")
+    header_key = "http_headers" if format_name == "toml" else "headers"
+    if actual.get(header_key, {}) != expected.get(header_key, {}):
+        reasons.append("telemetry_headers")
+    if set(actual) - endpoint_keys - {header_key}:
+        reasons.append("managed_entry")
+    return tuple(reasons or ["managed_entry"])
 
 
 def json_object_members(text: str, object_start: int) -> tuple[dict[str, tuple[int, int]], int]:

@@ -373,7 +373,7 @@ def main(argv: list[str] | None = None) -> int:
     add_skill_target_options(skill_check)
     skill_check.add_argument("--if-due", action="store_true", help="Skip the network check when a successful check is less than 24 hours old.")
     skill_check.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
-    skill_update = skill_subparsers.add_parser("update", help="Back up and update the managed skill and MCP configuration.")
+    skill_update = skill_subparsers.add_parser("update", help="Back up and update stale skill content; use install-agent for MCP configuration-only changes.")
     add_skill_target_options(skill_update)
     skill_update.add_argument("--unpin", action="store_true", help="Clear a pinned policy before updating.")
     skill_update.add_argument("--skip-verify", action="store_true", help="Skip the hosted health check.")
@@ -429,9 +429,17 @@ def main(argv: list[str] | None = None) -> int:
         ):
             if notice.get("status") == "updated":
                 suffix = " Restart or reload the agent before the next task." if notice.get("restart_required") else ""
-                print(f"Rock KB agent skill updated automatically.{suffix}", file=sys.stderr)
-            elif notice.get("status") == "update_available":
+                components = set(notice.get("components") or [])
+                label = "skill and MCP configuration" if components == {"skill", "agent_config"} else "MCP configuration" if components == {"agent_config"} else "skill"
+                print(f"Rock KB agent {label} updated automatically.{suffix}", file=sys.stderr)
+            elif notice.get("status") == "agent_config_update_available":
+                print("Rock KB agent MCP configuration update available. Review: uvx rock-kb install-agent --dry-run; apply: uvx rock-kb install-agent", file=sys.stderr)
+            elif notice.get("status") == "skill_update_available":
                 print("Rock KB agent skill update available. Run: uvx rock-kb skill update", file=sys.stderr)
+            elif notice.get("status") == "skill_and_agent_config_update_available":
+                print("Rock KB agent skill and MCP configuration updates available. Run: uvx rock-kb skill update", file=sys.stderr)
+            elif notice.get("status") == "pinned_skill_and_agent_config_update_available":
+                print("Rock KB agent MCP configuration update available while the skill is pinned. Review: uvx rock-kb install-agent --dry-run", file=sys.stderr)
     if args.command == "test-round":
         if args.submit and not (args.review or args.review_file):
             parser.error("test-round --submit requires --review or --review-file")
@@ -818,7 +826,7 @@ def main(argv: list[str] | None = None) -> int:
                 unpin=bool(args.unpin),
             )
             print_json(report)
-            return 0 if report.get("status") not in {"no_agents_detected", "pinned"} else 1
+            return 0 if report.get("status") not in {"no_agents_detected", "pinned", "agent_config_update_available"} else 1
         if args.skill_command == "status":
             report = skill_status(base_url=base_url, agents=agents, scope=args.scope, home=home, project_dir=project_dir)
             if args.format == "text":
@@ -869,7 +877,9 @@ def add_skill_target_options(parser: argparse.ArgumentParser) -> None:
 
 def format_skill_status(report: dict) -> str:
     lines = [
-        f"Rock KB skill: {report.get('status', 'unknown')}",
+        f"Rock KB integration: {report.get('status', 'unknown')}",
+        f"Skill content update: {'yes' if report.get('skill_update_available') else 'no'}",
+        f"MCP configuration update: {'yes' if report.get('agent_config_update_available') else 'no'}",
         f"Policy: {report.get('policy', 'notify')}",
         f"Scope: {report.get('scope', 'user')}",
         f"Check due: {'yes' if report.get('check_due') else 'no'}",
@@ -877,7 +887,7 @@ def format_skill_status(report: dict) -> str:
     if report.get("last_checked_at"):
         lines.append(f"Last checked: {report['last_checked_at']}")
     for agent in report.get("agents") or []:
-        lines.append(f"{agent['agent']}: {agent['status']} ({agent['skill_path']})")
+        lines.append(f"{agent['agent']}: skill={agent.get('skill_status', 'unknown')}, config={agent.get('config_status', 'unknown')} ({agent['skill_path']})")
     return "\n".join(lines) + "\n"
 
 

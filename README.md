@@ -23,8 +23,8 @@ uvx rock-kb install-agent
 ```
 
 The installed skill is versioned. Check without changing agent configuration
-or skill content, apply an approved update, or inspect the persisted policy and
-source hash:
+or skill content, apply an approved skill update, or inspect the persisted
+policy and source hash:
 
 ```bash
 uvx rock-kb skill check
@@ -32,9 +32,15 @@ uvx rock-kb skill update
 uvx rock-kb skill status --format json
 ```
 
+Checks distinguish stale skill content from managed MCP configuration. A skill
+notice points to `skill update`; an MCP endpoint or anonymous telemetry-header
+notice points to `install-agent --dry-run` and `install-agent`. Equivalent TOML
+formatting is not treated as an update. See [Agent Skill Lifecycle](docs/agent-skill-lifecycle.md)
+for the complete status and policy contract.
+
 The default policy is `notify`; `skill policy auto` requires explicit human
 permission and is user-scope only, while `skill policy pinned` holds the
-installed version. See [Agent Skill Lifecycle](docs/agent-skill-lifecycle.md).
+installed version.
 
 Or query the same hosted knowledge from a terminal:
 

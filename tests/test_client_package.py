@@ -1860,7 +1860,7 @@ def test_agent_installer_applies_and_removes_private_telemetry_headers(monkeypat
 
 def test_agent_installer_replaces_legacy_nested_toml_headers():
     load_client_cli()
-    from rock_kb_client.installer import update_toml_config
+    from rock_kb_client.installer import config_update_reasons, update_toml_config
 
     original = """# keep this comment
 [mcp_servers.rock-kb]
@@ -1895,6 +1895,76 @@ x-rock-kb-installation-id = "old-installation-id"
     assert "[mcp_servers.rock-kb.http_headers]" not in updated
     assert updated.count("[mcp_servers.rock-kb]") == 1
     assert "# keep this comment" in updated
+    assert config_update_reasons(
+        original,
+        "toml",
+        "mcp_servers",
+        "https://old.test/mcp",
+        {
+            "x-rock-kb-cohort": "maintainer",
+            "x-rock-kb-installation-id": "new-installation-id",
+        },
+    ) == ("telemetry_headers",)
+
+
+def test_agent_installer_preserves_semantically_current_nested_toml_headers():
+    load_client_cli()
+    from rock_kb_client.installer import config_update_reasons, update_toml_config
+
+    original = """# Codex may normalize managed headers into a nested table.
+[mcp_servers.rock-kb]
+url = "https://kb.test/mcp"
+
+[mcp_servers.rock-kb.http_headers]
+x-rock-kb-cohort = "maintainer"
+x-rock-kb-installation-id = "same-installation-id"
+"""
+    headers = {
+        "x-rock-kb-cohort": "maintainer",
+        "x-rock-kb-installation-id": "same-installation-id",
+    }
+
+    assert update_toml_config(original, "https://kb.test/mcp", headers) == original
+    assert config_update_reasons(original, "toml", "mcp_servers", "https://kb.test/mcp", headers) == ()
+
+
+def test_passive_check_does_not_prompt_when_codex_normalizes_current_headers_to_nested_toml(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    assert cli.main(["telemetry", "enable", "--cohort", "maintainer", "--consent-attested"]) == 0
+    telemetry = json.loads(capsys.readouterr().out)
+    telemetry_state = json.loads(Path(telemetry["state_path"]).read_text(encoding="utf-8"))
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    install = json.loads(capsys.readouterr().out)
+
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(
+        "[mcp_servers.rock-kb]\n"
+        'url = "https://example.test/mcp"\n\n'
+        "[mcp_servers.rock-kb.http_headers]\n"
+        'x-rock-kb-cohort = "maintainer"\n'
+        f'x-rock-kb-installation-id = {json.dumps(telemetry_state["installation_id"])}\n',
+        encoding="utf-8",
+    )
+    lifecycle_path = Path(install["state_path"])
+    lifecycle = json.loads(lifecycle_path.read_text(encoding="utf-8"))
+    lifecycle["last_checked_at"] = "2026-07-15T00:00:00Z"
+    lifecycle["last_attempted_at"] = "2026-07-15T00:00:00Z"
+    lifecycle_path.write_text(json.dumps(lifecycle), encoding="utf-8")
+    monkeypatch.setattr(cli.Path, "home", lambda: tmp_path)
+
+    assert cli.main(["--url", "https://example.test", "search", "labels"]) == 0
+    captured = capsys.readouterr()
+    assert "update available" not in captured.err
+    status = cli.skill_status(
+        base_url="https://example.test",
+        agents=["codex"],
+        scope="user",
+        home=tmp_path,
+        project_dir=Path.cwd(),
+    )
+    assert status["status"] == "current"
+    assert status["agents"][0]["config_status"] == "current"
 
 
 def test_agent_installer_dry_run_is_non_mutating(monkeypatch, tmp_path, capsys):
@@ -1943,6 +2013,7 @@ def test_agent_installer_surgically_updates_json_config():
     assert parsed["mcpServers"]["other"] == {"url": "https://other.test/mcp"}
     assert parsed["mcpServers"]["rock-kb"] == {"type": "http", "url": "https://kb.test/mcp"}
     assert '    "theme": {"font": "large"}' in updated
+    assert update_json_config(updated, "mcpServers", "rock-kb", {"type": "http", "url": "https://kb.test/mcp"}) == updated
 
 
 def test_agent_installer_preflights_all_hosts_before_writing(monkeypatch, tmp_path, capsys):
@@ -1980,8 +2051,11 @@ def test_skill_check_is_non_mutating_and_update_is_backup_protected(monkeypatch,
 
     assert cli.main(["--url", "https://example.test", "skill", "check", "--agent", "codex", "--home", str(tmp_path)]) == 0
     check = json.loads(capsys.readouterr().out)
-    assert check["status"] == "update_available"
-    assert check["recommended_action"] == "notify_human_before_update"
+    assert check["status"] == "skill_update_available"
+    assert check["skill_update_available"] is True
+    assert check["agent_config_update_available"] is False
+    assert check["recommended_action"] == "run_skill_update"
+    assert check["recommended_command"] == "uvx rock-kb skill update"
     assert skill_path.read_text(encoding="utf-8") == installed_before
     assert second_source != first_source
 
@@ -1993,6 +2067,104 @@ def test_skill_check_is_non_mutating_and_update_is_backup_protected(monkeypatch,
     assert "rock-kb-skill-version: 1.0.1" in installed_after
     assert second_manifest["sha256"] in installed_after
     assert list(skill_path.parent.glob("SKILL.md.rock-kb-backup-*"))
+
+
+def test_current_skill_with_stale_config_uses_install_agent_not_skill_update(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    args = ["--url", "https://example.test", "--agent", "codex", "--home", str(tmp_path)]
+    assert cli.main([args[0], args[1], "install-agent", *args[2:]]) == 0
+    install = json.loads(capsys.readouterr().out)
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+    stale_config = config_path.read_text(encoding="utf-8")
+
+    assert cli.main([args[0], args[1], "skill", "check", *args[2:]]) == 0
+    check = json.loads(capsys.readouterr().out)
+    assert check["status"] == "agent_config_update_available"
+    assert check["skill_update_available"] is False
+    assert check["agent_config_update_available"] is True
+    assert check["agents"][0]["skill_status"] == "current"
+    assert check["agents"][0]["config_update_reasons"] == ["mcp_endpoint"]
+    assert check["recommended_action"] == "run_install_agent"
+    assert check["recommended_command"] == "uvx rock-kb install-agent"
+
+    assert cli.main([args[0], args[1], "skill", "update", *args[2:]]) == 1
+    wrong_command = json.loads(capsys.readouterr().out)
+    assert wrong_command["status"] == "agent_config_update_available"
+    assert wrong_command["agents"][0]["config_action"] == "deferred_to_install_agent"
+    assert config_path.read_text(encoding="utf-8") == stale_config
+
+    assert cli.main([args[0], args[1], "install-agent", *args[2:], "--dry-run"]) == 0
+    dry_run = json.loads(capsys.readouterr().out)
+    assert dry_run["agents"][0]["config_action"] == "would_update"
+    assert dry_run["agents"][0]["skill_action"] == "unchanged"
+    assert config_path.read_text(encoding="utf-8") == stale_config
+
+    assert cli.main([args[0], args[1], "install-agent", *args[2:]]) == 0
+    applied = json.loads(capsys.readouterr().out)
+    assert applied["agents"][0]["config_status"] == "current"
+    assert applied["agents"][0]["skill_status"] == "current"
+    assert applied["agent_config_update_available"] is False
+    assert applied["applied_components"] == ["agent_config"]
+    assert Path(install["state_path"]).exists()
+
+    assert cli.main([args[0], args[1], "skill", "status", *args[2:]]) == 0
+    status = json.loads(capsys.readouterr().out)
+    assert status["status"] == "current"
+    assert status["agents"][0]["config_status"] == "current"
+
+
+def test_passive_notify_labels_config_only_drift_as_mcp_configuration(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    assert cli.main(["--url", "https://example.test", "install-agent", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    install = json.loads(capsys.readouterr().out)
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+    state_path = Path(install["state_path"])
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["last_checked_at"] = "2026-07-15T00:00:00Z"
+    state["last_attempted_at"] = "2026-07-15T00:00:00Z"
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    monkeypatch.setattr(cli.Path, "home", lambda: tmp_path)
+
+    assert cli.main(["--url", "https://example.test", "search", "labels"]) == 0
+    captured = capsys.readouterr()
+    assert "MCP configuration update available" in captured.err
+    assert "agent skill update available" not in captured.err
+    assert "install-agent --dry-run" in captured.err
+
+
+def test_stale_skill_and_config_are_reported_and_updated_together(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    base = ["--url", "https://example.test"]
+    target = ["--agent", "codex", "--home", str(tmp_path)]
+    assert cli.main([*base, "install-agent", *target]) == 0
+    capsys.readouterr()
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+
+    second_source = skill_source("1.0.1")
+    second_manifest = skill_manifest(second_source, "1.0.1")
+    monkeypatch.setattr(cli, "get_json", lambda url: second_manifest if url.endswith("/skill/manifest.json") else {"status": "ok", "version": "test"})
+    monkeypatch.setattr(cli, "get_text", lambda _url: second_source)
+
+    assert cli.main([*base, "skill", "check", *target]) == 0
+    check = json.loads(capsys.readouterr().out)
+    assert check["status"] == "skill_and_agent_config_update_available"
+    assert check["skill_update_available"] is True
+    assert check["agent_config_update_available"] is True
+    assert check["recommended_command"] == "uvx rock-kb skill update"
+
+    assert cli.main([*base, "skill", "update", *target]) == 0
+    update = json.loads(capsys.readouterr().out)
+    assert update["status"] == "ok"
+    assert update["applied_components"] == ["skill", "agent_config"]
+    assert update["agents"][0]["skill_status"] == "current"
+    assert update["agents"][0]["config_status"] == "current"
+    assert "https://example.test/mcp" in config_path.read_text(encoding="utf-8")
 
 
 def test_skill_status_and_policy_are_stable_and_project_auto_is_rejected(monkeypatch, tmp_path, capsys):
@@ -2039,6 +2211,19 @@ def test_pinned_skill_requires_explicit_unpin_before_update(monkeypatch, tmp_pat
     monkeypatch.setattr(cli, "get_json", lambda url: new_manifest if url.endswith("/skill/manifest.json") else {"status": "ok", "version": "test"})
     monkeypatch.setattr(cli, "get_text", lambda url: new_source)
 
+    assert cli.main(["--url", "https://example.test", "skill", "check", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    check = json.loads(capsys.readouterr().out)
+    assert check["status"] == "pinned_skill_update_available"
+    assert check["recommended_action"] == "remain_pinned"
+    assert check["recommended_command"] is None
+
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+    assert cli.main(["--url", "https://example.test", "skill", "check", "--agent", "codex", "--home", str(tmp_path)]) == 0
+    combined = json.loads(capsys.readouterr().out)
+    assert combined["status"] == "pinned_skill_and_agent_config_update_available"
+    assert combined["recommended_command"] == "uvx rock-kb install-agent --dry-run"
+
     assert cli.main(["--url", "https://example.test", "skill", "update", "--agent", "codex", "--home", str(tmp_path)]) == 1
     pinned = json.loads(capsys.readouterr().out)
     assert pinned["status"] == "pinned"
@@ -2049,6 +2234,33 @@ def test_pinned_skill_requires_explicit_unpin_before_update(monkeypatch, tmp_pat
     assert "rock-kb-skill-version: 1.0.1" in skill_path.read_text(encoding="utf-8")
 
 
+def test_pinned_policy_does_not_mislabel_config_only_drift_as_skill_update(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    mock_skill_service(monkeypatch, cli)
+    target = ["--agent", "codex", "--home", str(tmp_path)]
+    assert cli.main(["--url", "https://example.test", "install-agent", *target]) == 0
+    capsys.readouterr()
+    assert cli.main(["--url", "https://example.test", "skill", "policy", "pinned", *target]) == 0
+    capsys.readouterr()
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+
+    assert cli.main(["--url", "https://example.test", "skill", "check", *target]) == 0
+    check = json.loads(capsys.readouterr().out)
+    assert check["status"] == "agent_config_update_available"
+    assert check["policy"] == "pinned"
+    assert check["skill_update_available"] is False
+    assert check["agent_config_update_available"] is True
+    assert check["recommended_command"] == "uvx rock-kb install-agent"
+
+    stale_config = config_path.read_text(encoding="utf-8")
+    assert cli.main(["--url", "https://example.test", "skill", "update", *target]) == 1
+    update = json.loads(capsys.readouterr().out)
+    assert update["status"] == "agent_config_update_available"
+    assert update["recommended_command"] == "uvx rock-kb install-agent"
+    assert config_path.read_text(encoding="utf-8") == stale_config
+
+
 def test_if_due_check_skips_network_and_passive_auto_update_uses_persisted_consent(monkeypatch, tmp_path, capsys):
     cli = load_client_cli()
     mock_skill_service(monkeypatch, cli)
@@ -2057,10 +2269,18 @@ def test_if_due_check_skips_network_and_passive_auto_update_uses_persisted_conse
     assert cli.main(["--url", "https://example.test", "skill", "policy", "auto", "--agent", "codex", "--home", str(tmp_path)]) == 0
     capsys.readouterr()
 
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
     calls: list[str] = []
     monkeypatch.setattr(cli, "get_json", lambda url: calls.append(url) or {"status": "ok"})
     assert cli.main(["--url", "https://example.test", "skill", "check", "--if-due", "--agent", "codex", "--home", str(tmp_path)]) == 0
-    assert json.loads(capsys.readouterr().out)["status"] == "not_due"
+    not_due = json.loads(capsys.readouterr().out)
+    assert not_due["status"] == "not_due"
+    assert not_due["cached_status"] == "agent_config_update_available"
+    assert not_due["recommended_action"] == "none"
+    assert not_due["recommended_command"] is None
+    assert not_due["skill_update_available"] is False
+    assert not_due["agent_config_update_available"] is False
     assert calls == []
 
     state_path = Path(install["state_path"])
@@ -2087,3 +2307,43 @@ def test_if_due_check_skips_network_and_passive_auto_update_uses_persisted_conse
     captured = capsys.readouterr()
     assert "updated automatically" in captured.err
     assert "rock-kb-skill-version: 1.0.1" in (tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md").read_text(encoding="utf-8")
+
+
+def test_passive_auto_policy_repairs_config_only_drift_without_skill_notice(monkeypatch, tmp_path, capsys):
+    cli = load_client_cli()
+    source = mock_skill_service(monkeypatch, cli)
+    target = ["--agent", "codex", "--home", str(tmp_path)]
+    assert cli.main(["--url", "https://example.test", "install-agent", *target]) == 0
+    install = json.loads(capsys.readouterr().out)
+    skill_path = tmp_path / ".codex" / "skills" / "rock-kb-agent" / "SKILL.md"
+    skill_before = skill_path.read_text(encoding="utf-8")
+    assert cli.main(["--url", "https://example.test", "skill", "policy", "auto", *target]) == 0
+    capsys.readouterr()
+
+    config_path = tmp_path / ".codex" / "config.toml"
+    config_path.write_text(config_path.read_text(encoding="utf-8").replace("https://example.test/mcp", "https://old.test/mcp"), encoding="utf-8")
+    state_path = Path(install["state_path"])
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["last_checked_at"] = "2026-07-15T00:00:00Z"
+    state["last_attempted_at"] = "2026-07-15T00:00:00Z"
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    manifest = skill_manifest(source)
+
+    def service_json(url: str):
+        if url.endswith("/skill/manifest.json"):
+            return manifest
+        if url.endswith("/health"):
+            return {"status": "ok", "version": "test"}
+        if "/search?" in url:
+            return {"schema": "rock-kb-search-result-v3", "results": []}
+        raise AssertionError(url)
+
+    monkeypatch.setattr(cli, "get_json", service_json)
+    monkeypatch.setattr(cli, "get_text", lambda _url: source)
+    monkeypatch.setattr(cli.Path, "home", lambda: tmp_path)
+    assert cli.main(["--url", "https://example.test", "search", "labels"]) == 0
+    captured = capsys.readouterr()
+    assert "MCP configuration updated automatically" in captured.err
+    assert "skill update available" not in captured.err
+    assert "https://example.test/mcp" in config_path.read_text(encoding="utf-8")
+    assert skill_path.read_text(encoding="utf-8") == skill_before

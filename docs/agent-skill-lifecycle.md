@@ -26,11 +26,41 @@ Run a check that does not change the installed skill or agent configuration:
 uvx rock-kb skill check
 ```
 
-Apply an available update:
+Apply stale skill content:
 
 ```bash
 uvx rock-kb skill update
 ```
+
+Preview and apply an MCP endpoint or anonymous telemetry-header configuration
+change:
+
+```bash
+uvx rock-kb install-agent --dry-run
+uvx rock-kb install-agent
+```
+
+Checks report skill content and managed MCP configuration independently:
+
+| Status | Meaning | Command |
+| --- | --- | --- |
+| `skill_update_available` | Only the reviewed skill content is stale. | `uvx rock-kb skill update` |
+| `agent_config_update_available` | Only the managed MCP entry is stale. | `uvx rock-kb install-agent` |
+| `skill_and_agent_config_update_available` | Both components are stale. | `uvx rock-kb skill update` |
+| `pinned_skill_update_available` | New skill content exists, but the installed version is intentionally pinned. | None unless the human chooses `skill update --unpin`. |
+| `pinned_skill_and_agent_config_update_available` | The pinned skill and managed MCP entry are both stale. | Review `install-agent --dry-run`; unpin only if the human also approves the skill update. |
+
+`skill update` does not apply configuration-only drift. It exits with
+`agent_config_update_available` and points to `install-agent`, so repeatedly
+refreshing an already-current skill cannot be mistaken for a configuration
+repair. When skill content and configuration are both stale, one approved
+`skill update` keeps the two managed components aligned.
+
+The installer compares parsed TOML or JSON values, not formatting. For example,
+Codex's nested `[mcp_servers.rock-kb.http_headers]` table and the equivalent
+inline `http_headers = { ... }` form are both current. Reports expose bounded
+`config_update_reasons` values such as `mcp_endpoint`, `telemetry_headers`, or
+`managed_entry`; they never expose private header values.
 
 Inspect stable local state for scripting or agent use:
 
@@ -39,10 +69,12 @@ uvx rock-kb skill status --format json
 ```
 
 `skill check --if-due` skips the network request when the most recent
-successful check is less than 24 hours old. Ordinary hosted CLI use performs
-the same bounded passive check no more than once per day when managed state
-exists. The check records its timestamp and result in private lifecycle state.
-A failed passive check never blocks the requested Rock KB operation.
+successful check is less than 24 hours old. Its status is `not_due`, its
+recommended action is `none`, and it cannot produce an update notice from
+cached local state. Ordinary hosted CLI use performs the same bounded passive
+check no more than once per day when managed state exists. The check records
+its timestamp and result in private lifecycle state. A failed passive check
+never blocks the requested Rock KB operation.
 
 Restart or reload the agent only when an update reports
 `restart_required: true`.
@@ -59,11 +91,12 @@ uvx rock-kb skill policy pinned
 ```
 
 - `notify` reports an update and waits for explicit approval.
-- `auto` applies trusted Rock KB updates during the daily check. It is available
-  only for user-scoped installations.
+- `auto` applies trusted skill or managed MCP configuration updates during the
+  daily check. It is available only for user-scoped installations.
 - `pinned` records the installed version and prevents `skill update` from
   changing it. Use `skill update --unpin` to deliberately return to the current
-  reviewed version.
+  reviewed version. Configuration-only drift remains separately visible because
+  pinning the skill does not make the MCP endpoint or consented headers current.
 
 The decision is stored in private local state, not sent to the hosted service.
 Agents should ask the human once before choosing `auto`, and should not infer
