@@ -1043,6 +1043,75 @@ def test_client_okf_generic_conformance_is_not_rock_distribution_verification(tm
     assert any("okf-manifest.json" in error for error in strict["errors"])
 
 
+def test_client_okf_conformance_surfaces_portability_and_provenance_warnings(tmp_path):
+    load_client_cli()
+    from rock_kb_client.okf import conform_okf
+
+    bundle = tmp_path / "generic-warnings"
+    bundle.mkdir()
+    (bundle / "index.md").write_text(
+        "---\nokf_version: 0.2\n---\n\n# Index\n\n- Count: 1\n",
+        encoding="utf-8",
+    )
+    (bundle / "knowledge.md").write_text(
+        "---\n"
+        "type: Attested Computation\n"
+        "title: Example\n"
+        "generated:\n"
+        "  by: process:test\n"
+        "  at: '2026-07-09'\n"
+        "sources:\n"
+        "  - resource: https://example.test/source\n"
+        "    last_modified: '2026-02-30'\n"
+        "status: unknown\n"
+        "stale_after: '2026-07-09T00:00:00Z'\n"
+        "---\n\n[[Wiki Link]]\n",
+        encoding="utf-8",
+    )
+    (bundle / "Notes.mdx").write_text("# MDX\n", encoding="utf-8")
+    (bundle / "nested").mkdir()
+    (bundle / "nested" / "Index.md").write_text(
+        "---\ntype: Reference\n---\n\n# Wrong casing\n",
+        encoding="utf-8",
+    )
+
+    report = conform_okf(bundle)
+
+    assert report["status"] == "ok"
+    assert any("non-navigation list entry" in warning for warning in report["warnings"])
+    assert any("quoted version string" in warning for warning in report["warnings"])
+    assert any("invalid generated.at" in warning for warning in report["warnings"])
+    assert any("invalid source last_modified" in warning for warning in report["warnings"])
+    assert any("invalid lifecycle status" in warning for warning in report["warnings"])
+    assert any("invalid stale_after date" in warning for warning in report["warnings"])
+    assert any("missing runtime" in warning for warning in report["warnings"])
+    assert any("non-portable wiki link" in warning for warning in report["warnings"])
+    assert any("non-portable MDX" in warning for warning in report["warnings"])
+    assert any("reserved filename casing" in warning for warning in report["warnings"])
+
+
+def test_client_okf_verifier_rejects_invalid_v02_provenance_datetime(tmp_path):
+    load_client_cli()
+    from rock_kb_client.okf import verify_okf
+
+    bundle = write_rock_okf_fixture(tmp_path / "bundle-v02-invalid-provenance", "0.2")
+    claim = bundle / "claims" / "example.md"
+    claim.write_text(
+        claim.read_text(encoding="utf-8").replace(
+            '"at": "2026-07-27T23:00:00Z"',
+            '"at": "Sun, 27 Jul 2026 23:00:00 GMT"',
+            1,
+        ),
+        encoding="utf-8",
+    )
+    rewrite_okf_fixture_checksums(bundle)
+
+    report = verify_okf(bundle)
+
+    assert report["status"] == "failed"
+    assert any("invalid generated.at" in error for error in report["errors"])
+
+
 def test_client_okf_verifier_requires_complete_checksum_coverage(tmp_path):
     load_client_cli()
     from rock_kb_client.okf import validate_checksums

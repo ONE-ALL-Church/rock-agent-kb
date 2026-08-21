@@ -6,6 +6,7 @@ import posixpath
 import re
 import tarfile
 import zipfile
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 from urllib import request
 
@@ -33,6 +34,10 @@ ROCK_OKF_CONTRACTS = {
 RESERVED_FILENAMES = {"index.md", "log.md"}
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 LOG_DATE_RE = re.compile(r"^## \d{4}-\d{2}-\d{2}$")
+DATE_ONLY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+INDEX_LIST_RE = re.compile(r"^\s*[-*+]\s+")
+INDEX_LINK_RE = re.compile(r"^\s*[-*+]\s+\[[^\]]+\]\([^)]+\)")
+WIKI_LINK_RE = re.compile(r"\[\[[^\[\]\n]+\]\]")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 PRIVATE_MARKERS = (
     "/Users/",
@@ -146,6 +151,106 @@ def inspect_okf(path: Path) -> dict:
     }
 
 
+def is_okf_datetime(value: object) -> bool:
+    text = str(value or "").strip()
+    if not text or DATE_ONLY_RE.fullmatch(text):
+        return False
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None
+
+
+def is_okf_date(value: object) -> bool:
+    text = str(value or "").strip()
+    if not DATE_ONLY_RE.fullmatch(text):
+        return False
+    try:
+        datetime.strptime(text, "%Y-%m-%d")
+    except ValueError:
+        return False
+    return True
+
+
+def has_wiki_link_outside_code(text: str) -> bool:
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+    in_fence = False
+    fence_marker = ""
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if stripped.startswith(("```", "~~~")):
+            marker = stripped[:3]
+            if not in_fence:
+                in_fence = True
+                fence_marker = marker
+            elif marker == fence_marker:
+                in_fence = False
+                fence_marker = ""
+            continue
+        if in_fence:
+            continue
+        if WIKI_LINK_RE.search(re.sub(r"`[^`]*`", "", line)):
+            return True
+    return False
+
+
+def okf_metadata_warnings(relative: str, metadata: dict) -> list[str]:
+    warnings: list[str] = []
+    for key in ("title", "description", "resource"):
+        if key in metadata and (not isinstance(metadata[key], str) or not metadata[key].strip()):
+            warnings.append(f"{relative} has invalid optional {key} frontmatter")
+    if "tags" in metadata and (
+        not isinstance(metadata["tags"], list)
+        or any(not isinstance(tag, str) or not tag.strip() for tag in metadata["tags"])
+    ):
+        warnings.append(f"{relative} has invalid optional tags frontmatter")
+
+    generated = metadata.get("generated")
+    if generated is not None:
+        if not isinstance(generated, dict) or not isinstance(generated.get("by"), str) or not generated["by"].strip():
+            warnings.append(f"{relative} has invalid generated.by provenance")
+        elif generated.get("at") is not None and not is_okf_datetime(generated.get("at")):
+            warnings.append(f"{relative} has invalid generated.at provenance datetime")
+
+    sources = metadata.get("sources")
+    if sources is not None:
+        if not isinstance(sources, list):
+            warnings.append(f"{relative} has invalid sources provenance")
+        else:
+            for source in sources:
+                if (
+                    not isinstance(source, dict)
+                    or not isinstance(source.get("resource"), str)
+                    or not source["resource"].strip()
+                ):
+                    warnings.append(f"{relative} has invalid sources provenance entry")
+                    break
+                if source.get("last_modified") is not None and not is_okf_date(source.get("last_modified")):
+                    warnings.append(f"{relative} has invalid source last_modified date")
+                    break
+
+    verified = metadata.get("verified")
+    if verified is not None:
+        events = verified if isinstance(verified, list) else [verified]
+        if not events or any(
+            not isinstance(event, dict)
+            or not isinstance(event.get("by"), str)
+            or not event["by"].strip()
+            or not is_okf_datetime(event.get("at"))
+            for event in events
+        ):
+            warnings.append(f"{relative} has invalid verified provenance event")
+
+    if metadata.get("status") is not None and metadata.get("status") not in {"draft", "stable", "deprecated"}:
+        warnings.append(f"{relative} has invalid lifecycle status")
+    if metadata.get("stale_after") is not None and not is_okf_date(metadata.get("stale_after")):
+        warnings.append(f"{relative} has invalid stale_after date")
+    if metadata.get("type") == "Attested Computation" and not str(metadata.get("runtime") or "").strip():
+        warnings.append(f"{relative} Attested Computation is missing runtime")
+    return warnings
+
+
 def conform_okf(path: Path) -> dict:
     errors: list[str] = []
     warnings: list[str] = []
@@ -158,6 +263,11 @@ def conform_okf(path: Path) -> dict:
     markdown_count = 0
     declared_versions: set[str] = set()
     for relative, content in sorted(files.items()):
+        name = PurePosixPath(relative).name
+        if relative.lower().endswith(".mdx"):
+            warnings.append(f"{relative} uses non-portable MDX")
+        if name.lower() in RESERVED_FILENAMES and name not in RESERVED_FILENAMES:
+            warnings.append(f"{relative} uses incorrect reserved filename casing")
         if not relative.endswith(".md"):
             continue
         markdown_count += 1
@@ -166,18 +276,32 @@ def conform_okf(path: Path) -> dict:
         except UnicodeDecodeError:
             errors.append(f"{relative} is not valid UTF-8")
             continue
-        name = PurePosixPath(relative).name
         metadata = parse_frontmatter(text)
         if name not in RESERVED_FILENAMES and not metadata.get("type"):
             errors.append(f"{relative} missing parseable non-empty type frontmatter")
         elif name == "index.md" and relative != "index.md" and text.startswith("---\n"):
             errors.append(f"reserved file must not have frontmatter: {relative}")
+        if name == "index.md":
+            for line in text.splitlines():
+                if INDEX_LIST_RE.match(line) and not INDEX_LINK_RE.match(line):
+                    warnings.append(f"{relative} has non-navigation list entry: {line[:500]}")
+            if relative == "index.md" and "okf_version" in metadata and not isinstance(metadata["okf_version"], str):
+                warnings.append("index.md okf_version should be a quoted version string")
         elif name == "log.md":
             if text.startswith("---\n"):
                 errors.append(f"reserved file must not have frontmatter: {relative}")
+            dates: list[str] = []
             for line in text.splitlines():
                 if line.startswith("## ") and not LOG_DATE_RE.match(line):
                     errors.append(f"{relative} has non-ISO date heading: {line}")
+                if LOG_DATE_RE.match(line):
+                    dates.append(line.removeprefix("## "))
+            if dates != sorted(dates, reverse=True):
+                errors.append(f"{relative} date headings are not newest first")
+        elif name not in RESERVED_FILENAMES:
+            warnings.extend(okf_metadata_warnings(relative, metadata))
+        if has_wiki_link_outside_code(text):
+            warnings.append(f"{relative} contains non-portable wiki link")
         version = str(metadata.get("okf_version") or "").strip()
         if version:
             declared_versions.add(version)
@@ -305,11 +429,12 @@ def verify_okf(path: Path) -> dict:
                         errors.append(f"{relative} has self relationship")
             if manifest_version == "0.2" and name not in RESERVED_FILENAMES:
                 metadata = parse_frontmatter(text)
+                errors.extend(okf_metadata_warnings(relative, metadata))
                 generated = metadata.get("generated")
                 if (
                     not isinstance(generated, dict)
                     or generated.get("by") != "process:rock-kb-okf-export"
-                    or not generated.get("at")
+                    or not is_okf_datetime(generated.get("at"))
                 ):
                     errors.append(f"{relative} missing Rock OKF v0.2 generated provenance")
                 sources = metadata.get("sources")

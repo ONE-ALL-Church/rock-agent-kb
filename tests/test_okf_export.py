@@ -13,8 +13,16 @@ from rock_kb.okf_export import (
     audit_okf_export,
     build_okf_export,
     create_okf_archives,
+    explicit_stale_after_for_row,
+    is_okf_date,
+    is_okf_datetime,
+    lifecycle_status_for_row,
+    normalize_okf_date,
+    normalize_okf_datetime,
     read_frontmatter,
     related_paths_for_row,
+    row_timestamp,
+    verified_metadata_for_row,
     write_update_log,
 )
 
@@ -65,6 +73,13 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     }
     assert "timestamp" not in root_metadata
     assert "complete read-only Open Knowledge Format distribution" in root_index
+    assert "| Record type | Count |" in root_index
+    assert "| Field | Value |" in root_index
+    assert not [
+        line
+        for line in root_index.splitlines()
+        if line.startswith("- ") and not line.startswith("- [")
+    ]
     assert "## 2026-07-09" in (destination / "log.md").read_text(encoding="utf-8")
     assert "2026-07-09T12:00:00" not in (destination / "log.md").read_text(encoding="utf-8")
 
@@ -92,9 +107,14 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
         metadata = read_frontmatter(path.read_text(encoding="utf-8"))
         seen_types.add(str(metadata["type"]))
         assert metadata["generated"]["by"] == "process:rock-kb-okf-export"
-        assert metadata["generated"]["at"]
+        assert is_okf_datetime(metadata["generated"]["at"])
         assert metadata["sources"]
         assert all(source["resource"] for source in metadata["sources"])
+        assert all(
+            not source.get("last_modified") or is_okf_date(source["last_modified"])
+            for source in metadata["sources"]
+        )
+        assert all(is_okf_datetime(event["at"]) for event in metadata.get("verified") or [])
         if metadata.get("id"):
             assert metadata["id"] not in seen_ids
             seen_ids.add(str(metadata["id"]))
@@ -113,6 +133,9 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert (destination / str(recipe_metadata["structured_record"]).lstrip("/")).exists()
     assert {row["type"] for row in recipe_metadata["relationships"]} >= {"about", "supersedes"}
     assert recipe_metadata["sources"][0]["id"] == "rock-kb-canonical"
+    assert recipe_metadata["generated"]["at"] == "2026-07-09T12:00:00+00:00"
+    assert "status" not in recipe_metadata
+    assert "verified" not in recipe_metadata
     assert "/blob/0123456789abcdef/" not in recipe_metadata["sources"][0]["resource"]
     assert "/blob/main/" in recipe_metadata["sources"][0]["resource"]
     recipe_body = recipe.read_text(encoding="utf-8")
@@ -132,11 +155,38 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     group_record = json.loads((destination / str(group_metadata["structured_record"]).lstrip("/")).read_text())
     assert "property_groups" in group_record["payload"]
 
-    relationship_rows = [json.loads(line) for line in (destination / "relationships.jsonl").read_text(encoding="utf-8").splitlines()]
-    assert {row["type"] for row in relationship_rows} >= {"about", "supported_by", "uses_model", "related_model", "supersedes"}
+    relationship_rows = [
+        json.loads(line)
+        for line in (destination / "relationships.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert {row["type"] for row in relationship_rows} >= {
+        "about",
+        "supported_by",
+        "uses_model",
+        "related_model",
+        "supersedes",
+    }
     assert all(row["schema"] == "rock-kb-okf-relationship-v1" for row in relationship_rows)
     assert all(not row["source"].startswith("Claim:claim:") for row in relationship_rows)
     assert all(row["source"] != row["target"] for row in relationship_rows)
+
+    reviewed_claim = next(
+        row
+        for row in read_jsonl(Path("claims/approved-claims.jsonl"))
+        if (row.get("derived_from") or {}).get("reviewer")
+    )
+    claim = find_document(destination, str(reviewed_claim["claim_id"]))
+    claim_metadata = read_frontmatter(claim.read_text(encoding="utf-8"))
+    assert "status" not in claim_metadata
+    assert claim_metadata["verified"] == [
+        {
+            "by": f"process:{reviewed_claim['derived_from']['reviewer']}",
+            "at": normalize_okf_datetime(reviewed_claim["updated_at"]),
+        }
+    ]
+    assert claim_metadata["sources"][0]["last_modified"] == normalize_okf_date(
+        reviewed_claim["updated_at"]
+    )
 
     claim_paths = list((destination / "claims").glob("*/*/*.md"))
     assert claim_paths, "claims must be sharded below concept and hash-prefix directories"
@@ -226,6 +276,44 @@ def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_pat
     assert report["okf_profile"] == "rock-kb-okf-profile-v2"
 
 
+def test_okf_datetime_and_review_metadata_are_evidence_bounded():
+    assert normalize_okf_datetime("Fri, 13 Mar 2020 13:00:56 GMT") == "2020-03-13T13:00:56+00:00"
+    assert normalize_okf_datetime("2026-07-09") == ""
+    assert normalize_okf_date("2026-07-09") == "2026-07-09"
+    assert normalize_okf_date("2026-07-09T12:00:00-07:00") == "2026-07-09"
+    assert normalize_okf_date("2026-02-30") == ""
+    assert is_okf_date("2026-07-09")
+    assert not is_okf_date("2026-07-09T12:00:00+00:00")
+    assert row_timestamp(
+        {"payload": {"updated_at": "2026-07-09", "retrieved_at": "2026-07-10T01:02:03Z"}},
+        fallback="2026-08-01T00:00:00Z",
+    ) == "2026-07-10T01:02:03+00:00"
+    assert row_timestamp(
+        {"payload": {"updated_at": "2026-07-09"}},
+        fallback="2026-08-01T00:00:00Z",
+    ) == "2026-08-01T00:00:00+00:00"
+
+    reviewed = {
+        "payload": {
+            "review_status": "reviewer_approved",
+            "reviewed_at": "2026-07-10T01:02:03Z",
+            "reviewer": "codex-review",
+        }
+    }
+    assert verified_metadata_for_row(reviewed) == [
+        {"by": "process:codex-review", "at": "2026-07-10T01:02:03+00:00"}
+    ]
+    assert verified_metadata_for_row(
+        {"payload": {"review_status": "reviewer_approved", "reviewed_at": "2026-07-10T01:02:03Z"}}
+    ) == []
+    assert lifecycle_status_for_row(reviewed) == ""
+    assert lifecycle_status_for_row({"payload": {"okf_status": "draft"}}) == "draft"
+    assert lifecycle_status_for_row({"payload": {"temporal_status": "retired"}}) == "deprecated"
+    assert explicit_stale_after_for_row(
+        {"payload": {"stale_after": "2026-07-10T01:02:03Z"}}
+    ) == "2026-07-10"
+    assert explicit_stale_after_for_row({"payload": {"stale_after": "2026-02-30"}}) == ""
+
 
 def test_okf_archive_packaging_is_versioned_and_rooted(tmp_path: Path, monkeypatch):
     monkeypatch.setenv("SOURCE_DATE_EPOCH", "1783598400")
@@ -285,16 +373,29 @@ def test_okf_update_log_reports_real_snapshot_delta(tmp_path: Path):
 
 
 def test_okf_audit_rejects_untyped_broken_private_and_bad_log_nodes(tmp_path: Path):
-    (tmp_path / "index.md").write_text("---\nokf_version: '0.1'\n---\n\n# Index\n", encoding="utf-8")
+    (tmp_path / "index.md").write_text(
+        "---\nokf_version: '0.1'\n---\n\n# Index\n\n- Count: 1\n",
+        encoding="utf-8",
+    )
     (tmp_path / "log.md").write_text("# Log\n\n## 2026-07-09T12:00:00Z\n", encoding="utf-8")
-    (tmp_path / "bad.md").write_text("[Missing](missing.md)\n/Users/private/path\n", encoding="utf-8")
+    (tmp_path / "bad.md").write_text(
+        "[Missing](missing.md)\n[[Wiki Link]]\n/Users/private/path\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "Notes.mdx").write_text("# MDX\n", encoding="utf-8")
+    (tmp_path / "nested").mkdir()
+    (tmp_path / "nested" / "Index.md").write_text("# Wrong casing\n", encoding="utf-8")
 
     errors = audit_okf_export(tmp_path)
 
     assert "bad.md missing non-empty type frontmatter" in errors
     assert "bad.md has unresolved link: missing.md" in errors
     assert "bad.md contains private marker: /Users/" in errors
+    assert "bad.md contains non-portable wiki link" in errors
     assert "log.md has non-ISO date heading: ## 2026-07-09T12:00:00Z" in errors
+    assert "index.md has non-navigation list entry: - Count: 1" in errors
+    assert "Notes.mdx uses non-portable MDX" in errors
+    assert "nested/Index.md uses incorrect reserved filename casing" in errors
 
 
 def find_document(destination: Path, document_id: str) -> Path:

@@ -42,11 +42,29 @@ Every non-reserved Markdown document in a Rock v2 distribution has:
 
 - `generated.by: process:rock-kb-okf-export`.
 - `generated.at`: the canonical record's meaningful-change time when known,
-  otherwise the deterministic distribution generation time.
+  otherwise the deterministic distribution generation time. Date-only and
+  RFC 2822 inputs are not copied into this field; accepted values are ISO 8601
+  datetimes with an explicit timezone.
 - a non-empty `sources` list. The canonical public repository record is
   included when a public source path exists. Registered evidence sources link
   to their bundle `references/` concept, and additional public citations retain
   their external resource URL.
+
+Optional standard lifecycle fields are evidence-bounded:
+
+- `sources[].last_modified` is an ISO 8601 calendar date emitted only when the
+  canonical row contains an explicit source modified/created date. A precise
+  timestamp is normalized to its represented date; retrieval time is not
+  substituted.
+- `verified` is emitted only for an approved review state with both an explicit
+  reviewer and review timestamp. Generic workflow or model reviewer names are
+  represented as `process:` actors, never inferred human identities.
+- `status` is emitted only from explicit lifecycle metadata. Review state is
+  represented by `verified`, not overloaded onto lifecycle. Per OKF v0.2,
+  absence already means stable and is not evidence that a review occurred.
+- `stale_after` is a calendar date emitted only from an explicit canonical
+  expiry value. Source cadence and retrieval age are not converted into
+  document expiry.
 
 Document-level source links remain in a human-readable `## Sources` body
 section when present. The `sources` frontmatter is authoritative for OKF v0.2
@@ -93,7 +111,9 @@ and accompanied by GitHub release digests and provenance attestations.
 Strict Rock verification enforces the exact supported contract tuple:
 OKF version, manifest schema, Rock profile, and reviewed upstream commit. It
 also enforces public/private boundaries, generated/source provenance,
-structured-record integrity, archive limits, and checksum coverage.
+typed provenance and lifecycle dates/timestamps, portable Markdown and
+reserved-file conventions, structured-record integrity, archive limits, and
+checksum coverage.
 
 The current client continues to verify published Rock v0.1 bundles using their
 legacy v1 manifest/profile/spec tuple. It does not reinterpret a mixed or
