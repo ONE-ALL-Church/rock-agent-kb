@@ -15,3 +15,23 @@ jobs:
       - uses: actions/checkout@v7
       - name: Check pinned OKF specification
         run: python3 scripts/check_okf_upstream.py
+
+  openknowledge-compatibility:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v9.0.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Build current OKF profiles
+        run: |
+          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)"
+          uv run kb publish okf --profile full
+          uv run kb publish okf --profile core --destination data/okf-export-core
+      - name: Run pinned OpenKnowledge advisory linter
+        run: >-
+          uv run python scripts/validate_okf_openknowledge.py
+          data/okf-export data/okf-export-core

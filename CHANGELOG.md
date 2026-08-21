@@ -6,6 +6,25 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+### Changed
+
+- OKF v0.2 exports normalize meaningful-change and review timestamps to
+  timezone-aware ISO 8601 datetimes, use calendar dates for source modification
+  and document expiry, emit verification and lifecycle metadata only from their
+  distinct explicit evidence, and use portable table metadata in the root index.
+- Generic client conformance now reports portable Markdown, provenance,
+  lifecycle, and timestamp concerns while strict Rock verification enforces
+  those requirements for Rock v0.2 distributions.
+
+### Fixed
+
+- Published podcast, blog, and recipe OKF documents no longer copy RFC 2822 or
+  date-only values into `generated.at`; deterministic generation time is used
+  when no exact source datetime exists.
+- A pinned, nonblocking weekly OpenKnowledge compatibility job now checks both
+  OKF profiles without granting external write access or weakening Rock's
+  reviewed specification and release gates.
+
 ## [0.24.0] - 2026-08-19
 
 ### Changed

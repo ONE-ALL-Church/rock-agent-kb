@@ -14,6 +14,7 @@ import tomllib
 import zipfile
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 from urllib.parse import urljoin
@@ -42,6 +43,16 @@ CHECKSUMS_NAME = "checksums.sha256"
 RESERVED_FILENAMES = {"index.md", "log.md"}
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 LOG_DATE_RE = re.compile(r"^## (\d{4}-\d{2}-\d{2})$")
+DATE_ONLY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+INDEX_LIST_RE = re.compile(r"^\s*[-*+]\s+")
+INDEX_LINK_RE = re.compile(r"^\s*[-*+]\s+\[[^\]]+\]\([^)]+\)")
+WIKI_LINK_RE = re.compile(r"\[\[[^\[\]\n]+\]\]")
+APPROVED_REVIEW_STATUSES = {
+    "approved_for_answer_pack",
+    "approved_for_public_distillation",
+    "community_reviewed",
+    "reviewer_approved",
+}
 PRIVATE_MARKERS = (
     "/Users/",
     "data/review/",
@@ -231,6 +242,7 @@ def build_okf_export(
         payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
         canonical_id = canonical_record_id(row)
         record_path = write_structured_record(destination, row, profile=profile)
+        document_timestamp = row_timestamp(row, fallback=generated_at)
         frontmatter = compact_frontmatter(
             {
                 "type": kind_type,
@@ -241,7 +253,10 @@ def build_okf_export(
                 "description": description,
                 "resource": primary_resource_url(row),
                 "tags": row_tags(row, concept_ids),
-                "generated": generated_metadata(row_timestamp(row) or generated_at),
+                "generated": generated_metadata(document_timestamp),
+                "verified": verified_metadata_for_row(row),
+                "status": lifecycle_status_for_row(row),
+                "stale_after": explicit_stale_after_for_row(row),
                 "sources": source_entries_for_row(
                     row,
                     source_path=rendered_source_path,
@@ -622,12 +637,186 @@ def row_description(row: dict[str, Any]) -> str:
     return compact_text(body, 240)
 
 
-def row_timestamp(row: dict[str, Any]) -> str:
+def normalize_okf_datetime(value: Any) -> str:
+    text = str(value or "").strip()
+    if not text or DATE_ONLY_RE.fullmatch(text):
+        return ""
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            parsed = parsedate_to_datetime(text)
+        except (TypeError, ValueError):
+            return ""
+    if parsed.tzinfo is None:
+        return ""
+    return parsed.isoformat()
+
+
+def is_okf_datetime(value: Any) -> bool:
+    text = str(value or "").strip()
+    if not text or DATE_ONLY_RE.fullmatch(text):
+        return False
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None
+
+
+def normalize_okf_date(value: Any) -> str:
+    text = str(value or "").strip()
+    if DATE_ONLY_RE.fullmatch(text):
+        try:
+            datetime.strptime(text, "%Y-%m-%d")
+        except ValueError:
+            return ""
+        return text
+    normalized = normalize_okf_datetime(value)
+    return normalized[:10] if normalized else ""
+
+
+def is_okf_date(value: Any) -> bool:
+    return bool(normalize_okf_date(value) == str(value or "").strip())
+
+
+def row_timestamp(row: dict[str, Any], *, fallback: str = "") -> str:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
     for key in ("updated_at", "created_at", "timestamp", "last_built", "retrieved_at"):
-        if payload.get(key):
-            return str(payload[key])
+        normalized = normalize_okf_datetime(payload.get(key))
+        if normalized:
+            return normalized
+    return normalize_okf_datetime(fallback)
+
+
+def row_modified_date(row: dict[str, Any]) -> str:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    for key in ("updated_at", "created_at", "timestamp", "last_built"):
+        normalized = normalize_okf_date(payload.get(key))
+        if normalized:
+            return normalized
     return ""
+
+
+def reviewer_actor(value: Any) -> str:
+    reviewer = str(value or "").strip()
+    if not reviewer:
+        return ""
+    if reviewer.startswith(("human:", "process:")):
+        return reviewer
+    if "/" in reviewer and not re.search(r"\s", reviewer):
+        return reviewer
+    return f"process:{safe_slug(reviewer)}"
+
+
+def verified_metadata_for_row(row: dict[str, Any]) -> list[dict[str, str]]:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    review_status = str(payload.get("review_status") or payload.get("review_state") or "").strip()
+    if review_status not in APPROVED_REVIEW_STATUSES:
+        return []
+    derived_from = payload.get("derived_from") if isinstance(payload.get("derived_from"), dict) else {}
+    actor = reviewer_actor(
+        payload.get("reviewed_by")
+        or payload.get("reviewer")
+        or derived_from.get("reviewer")
+    )
+    reviewed_at = normalize_okf_datetime(
+        payload.get("reviewed_at")
+        or payload.get("updated_at")
+        or payload.get("created_at")
+    )
+    if not actor or not reviewed_at:
+        return []
+    return [{"by": actor, "at": reviewed_at}]
+
+
+def lifecycle_status_for_row(row: dict[str, Any]) -> str:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    explicit = str(payload.get("okf_status") or "").strip().lower()
+    if explicit in {"draft", "stable", "deprecated"}:
+        return explicit
+    temporal_status = str(payload.get("temporal_status") or "").strip().lower()
+    if temporal_status in {"deprecated", "retired", "superseded"}:
+        return "deprecated"
+    return ""
+
+
+def explicit_stale_after_for_row(row: dict[str, Any]) -> str:
+    payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
+    return normalize_okf_date(payload.get("stale_after") or payload.get("okf_stale_after"))
+
+
+def okf_v02_metadata_errors(relative: str, metadata: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    generated = metadata.get("generated")
+    if not isinstance(generated, dict) or not isinstance(generated.get("by"), str) or not generated["by"].strip():
+        errors.append(f"{relative} missing Rock OKF v0.2 generated provenance")
+    elif not is_okf_datetime(generated.get("at")):
+        errors.append(f"{relative} has invalid Rock OKF v0.2 generated.at datetime")
+
+    sources = metadata.get("sources")
+    if not isinstance(sources, list) or not sources:
+        errors.append(f"{relative} missing Rock OKF v0.2 sources provenance")
+    else:
+        source_ids: set[str] = set()
+        for source in sources:
+            if (
+                not isinstance(source, dict)
+                or not isinstance(source.get("resource"), str)
+                or not source["resource"].strip()
+            ):
+                errors.append(f"{relative} has invalid OKF v0.2 source entry")
+                continue
+            source_id = str(source.get("id") or "")
+            if source_id and source_id in source_ids:
+                errors.append(f"{relative} has duplicate OKF v0.2 source id: {source_id}")
+            source_ids.add(source_id)
+            if source.get("last_modified") and not is_okf_date(source.get("last_modified")):
+                errors.append(f"{relative} has invalid OKF v0.2 source last_modified date")
+
+    verified = metadata.get("verified")
+    if verified:
+        events = verified if isinstance(verified, list) else [verified]
+        for event in events:
+            if (
+                not isinstance(event, dict)
+                or not isinstance(event.get("by"), str)
+                or not event["by"].strip()
+                or not is_okf_datetime(event.get("at"))
+            ):
+                errors.append(f"{relative} has invalid OKF v0.2 verified event")
+                break
+
+    if metadata.get("status") and metadata.get("status") not in {"draft", "stable", "deprecated"}:
+        errors.append(f"{relative} has invalid OKF v0.2 status")
+    if metadata.get("stale_after") and not is_okf_date(metadata.get("stale_after")):
+        errors.append(f"{relative} has invalid OKF v0.2 stale_after date")
+    if metadata.get("type") == "Attested Computation" and not str(metadata.get("runtime") or "").strip():
+        errors.append(f"{relative} Attested Computation is missing runtime")
+    return errors
+
+
+def has_wiki_link_outside_code(text: str) -> bool:
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
+    in_fence = False
+    fence_marker = ""
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if stripped.startswith(("```", "~~~")):
+            marker = stripped[:3]
+            if not in_fence:
+                in_fence = True
+                fence_marker = marker
+            elif marker == fence_marker:
+                in_fence = False
+                fence_marker = ""
+            continue
+        if in_fence:
+            continue
+        without_inline_code = re.sub(r"`[^`]*`", "", line)
+        if WIKI_LINK_RE.search(without_inline_code):
+            return True
+    return False
 
 
 def generated_metadata(timestamp: str) -> dict[str, str]:
@@ -660,18 +849,27 @@ def source_entries_for_row(
     seen_ids: set[str] = set()
     seen_resources: set[str] = set()
 
-    def add(source_id: str, resource: str, title: str) -> None:
+    def add(source_id: str, resource: str, title: str, *, last_modified: Any = "") -> None:
         source_id = safe_slug(source_id)
         resource = resource.strip()
         if not source_id or not resource or source_id in seen_ids or resource in seen_resources:
             return
-        entries.append({"id": source_id, "resource": resource, "title": title.strip() or resource})
+        entry = {"id": source_id, "resource": resource, "title": title.strip() or resource}
+        normalized_last_modified = normalize_okf_date(last_modified)
+        if normalized_last_modified:
+            entry["last_modified"] = normalized_last_modified
+        entries.append(entry)
         seen_ids.add(source_id)
         seen_resources.add(resource)
 
     canonical_url = canonical_source_url(source_path, commit)
     if canonical_url:
-        add("rock-kb-canonical", canonical_url, "Rock KB canonical public record")
+        add(
+            "rock-kb-canonical",
+            canonical_url,
+            "Rock KB canonical public record",
+            last_modified=row_modified_date(row),
+        )
 
     for source_id in sorted(source_ids_for_row(row)):
         if source_id not in reference_paths:
@@ -1223,18 +1421,25 @@ def write_root_index(
         "",
         "## Counts",
         "",
-        *[f"- {key.replace('_', ' ').title()}: {value}" for key, value in sorted(counts.items())],
+        "| Record type | Count |",
+        "| --- | ---: |",
+        *[
+            f"| {key.replace('_', ' ').title()} | {value} |"
+            for key, value in sorted(counts.items())
+        ],
         "",
         "## Distribution Metadata",
         "",
-        f"- OKF version: `{OKF_VERSION}`",
-        f"- Distribution version: `{version}`",
-        f"- Distribution profile: `{profile}`",
-        f"- Source commit: `{commit}`",
-        f"- Generated at: `{generated_at}`",
-        f"- Manifest: [`{MANIFEST_NAME}`]({MANIFEST_NAME})",
-        f"- Checksums: [`{CHECKSUMS_NAME}`]({CHECKSUMS_NAME})",
-        "- Licensing: [`LICENSE.txt`](LICENSE.txt) and [`NOTICE.txt`](NOTICE.txt)",
+        "| Field | Value |",
+        "| --- | --- |",
+        f"| OKF version | `{OKF_VERSION}` |",
+        f"| Distribution version | `{version}` |",
+        f"| Distribution profile | `{profile}` |",
+        f"| Source commit | `{commit}` |",
+        f"| Generated at | `{generated_at}` |",
+        f"| Manifest | [`{MANIFEST_NAME}`]({MANIFEST_NAME}) |",
+        f"| Checksums | [`{CHECKSUMS_NAME}`]({CHECKSUMS_NAME}) |",
+        "| Licensing | [`LICENSE.txt`](LICENSE.txt) and [`NOTICE.txt`](NOTICE.txt) |",
     ]
     (destination / "index.md").write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
@@ -1327,6 +1532,12 @@ def archive_epoch() -> int:
 
 def audit_okf_export(destination: Path) -> list[str]:
     errors: list[str] = []
+    for path in sorted(item for item in destination.rglob("*") if item.is_file()):
+        relative = path.relative_to(destination).as_posix()
+        if path.suffix.lower() == ".mdx":
+            errors.append(f"{relative} uses non-portable MDX")
+        if path.name.lower() in RESERVED_FILENAMES and path.name not in RESERVED_FILENAMES:
+            errors.append(f"{relative} uses incorrect reserved filename casing")
     root_index = destination / "index.md"
     root_log = destination / "log.md"
     if not root_index.exists():
@@ -1345,30 +1556,25 @@ def audit_okf_export(destination: Path) -> list[str]:
         if path.name in RESERVED_FILENAMES:
             if relative != "index.md" and text.startswith("---\n"):
                 errors.append(f"reserved file must not have frontmatter: {relative}")
+            if path.name == "index.md":
+                for line in text.splitlines():
+                    if INDEX_LIST_RE.match(line) and not INDEX_LINK_RE.match(line):
+                        errors.append(f"{relative} has non-navigation list entry: {line}")
             if path.name == "log.md":
+                dates: list[str] = []
                 for line in text.splitlines():
                     if line.startswith("## ") and not LOG_DATE_RE.match(line):
                         errors.append(f"{relative} has non-ISO date heading: {line}")
+                    match = LOG_DATE_RE.match(line)
+                    if match:
+                        dates.append(match.group(1))
+                if dates != sorted(dates, reverse=True):
+                    errors.append(f"{relative} date headings are not newest first")
         else:
             frontmatter = read_frontmatter(text)
             if not frontmatter.get("type"):
                 errors.append(f"{relative} missing non-empty type frontmatter")
-            generated = frontmatter.get("generated")
-            if not isinstance(generated, dict) or not generated.get("by") or not generated.get("at"):
-                errors.append(f"{relative} missing Rock OKF v0.2 generated provenance")
-            sources = frontmatter.get("sources")
-            if not isinstance(sources, list) or not sources:
-                errors.append(f"{relative} missing Rock OKF v0.2 sources provenance")
-            else:
-                source_ids: set[str] = set()
-                for source in sources:
-                    if not isinstance(source, dict) or not source.get("resource"):
-                        errors.append(f"{relative} has invalid OKF v0.2 source entry")
-                        continue
-                    source_id = str(source.get("id") or "")
-                    if source_id and source_id in source_ids:
-                        errors.append(f"{relative} has duplicate OKF v0.2 source id: {source_id}")
-                    source_ids.add(source_id)
+            errors.extend(okf_v02_metadata_errors(relative, frontmatter))
             structured_record = str(frontmatter.get("structured_record") or "").lstrip("/")
             if structured_record and not (destination / structured_record).exists():
                 errors.append(f"{relative} has missing structured record: {structured_record}")
@@ -1390,6 +1596,8 @@ def audit_okf_export(destination: Path) -> list[str]:
             for relation in frontmatter.get("relationships") or []:
                 if isinstance(relation, dict) and str(relation.get("target") or "").lstrip("/") == relative:
                     errors.append(f"{relative} has self relationship")
+        if has_wiki_link_outside_code(text):
+            errors.append(f"{relative} contains non-portable wiki link")
         for target in markdown_targets(text):
             resolved = resolve_markdown_target(relative, target)
             if resolved:

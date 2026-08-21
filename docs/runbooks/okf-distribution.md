@@ -59,7 +59,7 @@ uvx rock-kb okf verify rock-agent-kb-okf-vX.Y.Z.zip
 uvx rock-kb okf download --profile core
 ```
 
-`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Prefer `--profile core` for a smaller local agent index; use `full` when the consumer needs Rock issue records, routing-only claims, source summaries, and contribution provenance. Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `inspect` exposes the OKF/profile/spec tuple and legacy status. `conformance` applies generic OKF v0.1/v0.2 rules and reports unresolved links or unknown versions as warnings. `verify` applies the exact supported Rock contract plus integrity, provenance, licensing, structured-record, archive-limit, and public-safety rules. `validate` remains an alias for `verify` for older agents.
+`download` retrieves the latest full ZIP by default and requires a matching release checksum or GitHub asset digest. Prefer `--profile core` for a smaller local agent index; use `full` when the consumer needs Rock issue records, routing-only claims, source summaries, and contribution provenance. Use `--format tar.gz`, `--version X.Y.Z`, or `--destination <path>` when needed. `inspect` exposes the OKF/profile/spec tuple and legacy status. `conformance` applies generic OKF v0.1/v0.2 rules and reports portability, optional provenance, unresolved-link, and unknown-version concerns as warnings. `verify` applies the exact supported Rock contract plus strict timestamp, lifecycle, integrity, provenance, licensing, structured-record, archive-limit, and public-safety rules. `validate` remains an alias for `verify` for older agents.
 
 The same commands work after a permanent client install:
 
@@ -88,6 +88,20 @@ uv run kb publish okf-validate data/okf-export
 uv run kb publish okf-validate data/okf-export-core
 ```
 
+An optional compatibility check runs the same pinned OpenKnowledge linter used
+by the weekly advisory monitor:
+
+```bash
+uv run python scripts/validate_okf_openknowledge.py \
+  data/okf-export data/okf-export-core
+```
+
+The command needs Node.js 24 and downloads the exact package version declared
+by the script. It writes no persistent OpenKnowledge configuration and removes
+its temporary `.ok/` directory after each bundle. Treat its findings as a
+third-party interoperability signal, not as authority over Rock's reviewed
+profile or release gates.
+
 To produce release archives:
 
 ```bash
@@ -101,7 +115,14 @@ The ignored export directories are generated output, not contributor edit target
 
 ## Conformance And Safety
 
-Generic conformance enforces the required OKF `type` frontmatter and reserved-file structure while tolerating broken links and unknown versions as the upstream specification recommends. Rock v0.2 producers place meaningful-change provenance in `generated`, document provenance in `sources`, and use file-relative graph links accepted by the reviewed upstream reference parser. Strict Rock verification additionally enforces exact v0.1 or v0.2 contract tuples, generated/source provenance for v0.2, complete checksums, exact structured-record links, archive entry/size/compression limits, duplicate-path rejection, licensing, and public/private boundaries. The release workflow verifies the previous v0.1 full/core assets, then runs Google's pinned v0.2 reference parser against both new profiles. The weekly monitor fails only when the reviewed upstream specification commit changes again.
+Generic conformance enforces the required OKF `type` frontmatter and reserved-file structure while surfacing portable Markdown, recommended provenance, lifecycle, broken-link, and unknown-version concerns as warnings. Rock v0.2 producers place meaningful-change provenance in `generated`, document provenance in `sources`, and use file-relative graph links accepted by the reviewed upstream reference parser. Strict Rock verification additionally enforces exact v0.1 or v0.2 contract tuples, calendar dates for source modification and timezone-aware generated/review timestamps for v0.2, complete checksums, exact structured-record links, archive entry/size/compression limits, duplicate-path rejection, licensing, and public/private boundaries. The release workflow verifies the previous v0.1 full/core assets, then runs Google's pinned v0.2 reference parser against both new profiles.
+
+The weekly upstream workflow has two separate signals. The specification-pin job
+remains blocking when the reviewed Google OKF commit changes. A nonblocking
+compatibility job builds both profiles and runs the pinned OpenKnowledge beta
+linter. New warnings there require maintainer triage but cannot autonomously
+change the format, block a release, publish content, or give OpenKnowledge write
+access. Package upgrades are reviewed changes, never floating weekly updates.
 
 ## Import Policy
 
