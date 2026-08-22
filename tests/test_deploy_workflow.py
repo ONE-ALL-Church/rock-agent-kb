@@ -19,6 +19,15 @@ def projection_workflow() -> str:
     ).read_text(encoding="utf-8")
 
 
+def release_workflow() -> str:
+    return (
+        Path(__file__).resolve().parents[1]
+        / ".github"
+        / "workflows"
+        / "release-client.yml"
+    ).read_text(encoding="utf-8")
+
+
 def test_hosted_smoke_test_retries_cloudflare_propagation_failures():
     workflow = deploy_workflow()
     smoke_step = workflow.split("- name: Smoke-test hosted service", 1)[1].split(
@@ -51,6 +60,26 @@ def test_ci_quality_gates_use_bounded_local_worker_concurrency():
             repo_root / ".github" / "workflows" / name
         ).read_text(encoding="utf-8")
         assert "uv run kb quality-gate --concurrency 3" in workflow
+
+
+def test_release_uses_generic_conformance_for_immutable_previous_archives():
+    workflow = release_workflow()
+    build_step = workflow.split("- name: Build and validate OKF distribution", 1)[1].split(
+        "- name: Attest OKF release archives", 1
+    )[0]
+
+    assert 'rock-kb okf conformance "${full_path}"' in build_step
+    assert 'rock-kb okf conformance "${core_path}"' in build_step
+    assert 'rock-kb okf verify "${full_path}"' not in build_step
+    assert 'rock-kb okf verify "${core_path}"' not in build_step
+    assert (
+        'rock-kb okf verify "release-assets/rock-agent-kb-okf-v${version}.zip"'
+        in build_step
+    )
+    assert (
+        'rock-kb okf verify "release-assets/rock-agent-kb-okf-core-v${version}.zip"'
+        in build_step
+    )
 
 
 def test_projection_workflow_is_guarded_reversible_and_serialized_with_deploys():
