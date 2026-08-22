@@ -6,7 +6,7 @@ import json
 from urllib import request
 
 
-DEFAULT_EXPECTED_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+DEFAULT_EXPECTED_COMMIT = "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
 COMMITS_URL = (
     "https://api.github.com/repos/GoogleCloudPlatform/knowledge-catalog/commits"
     "?path=okf/SPEC.md&per_page=1"

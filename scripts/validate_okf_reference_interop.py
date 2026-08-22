@@ -11,7 +11,7 @@ from pathlib import Path, PurePosixPath
 
 
 UPSTREAM_REPOSITORY = "https://github.com/GoogleCloudPlatform/knowledge-catalog.git"
-UPSTREAM_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+UPSTREAM_COMMIT = "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
 RESERVED = {"index.md", "log.md"}
 CLIENT_SOURCE = Path(__file__).resolve().parents[1] / "clients" / "python" / "src"
 

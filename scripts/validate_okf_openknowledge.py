@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 
-OPENKNOWLEDGE_PACKAGE = "@inkeep/open-knowledge@0.61.0"
+OPENKNOWLEDGE_PACKAGE = "@inkeep/open-knowledge@0.61.3"
 CONFIG_TEXT = "contentRules:\n  okf:\n    enabled: true\n"
 
 
