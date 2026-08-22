@@ -6,6 +6,8 @@ tags and follow semantic versioning for public client and service contracts.
 
 ## [Unreleased]
 
+## [0.24.1] - 2026-08-22
+
 ### Changed
 
 - OKF v0.2 exports normalize meaningful-change and review timestamps to
