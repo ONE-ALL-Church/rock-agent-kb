@@ -17,7 +17,7 @@ GITHUB_RELEASES_API = "https://api.github.com/repos/ONE-ALL-Church/rock-agent-kb
 MANIFEST_NAME = "okf-manifest.json"
 CHECKSUMS_NAME = "checksums.sha256"
 FILE_MANIFEST_NAME = "file-manifest.jsonl"
-OKF_SPEC_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+OKF_SPEC_COMMIT = "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
 SUPPORTED_OKF_VERSIONS = {"0.1", "0.2"}
 ROCK_OKF_CONTRACTS = {
     "0.1": {
@@ -162,17 +162,6 @@ def is_okf_datetime(value: object) -> bool:
     return parsed.tzinfo is not None
 
 
-def is_okf_date(value: object) -> bool:
-    text = str(value or "").strip()
-    if not DATE_ONLY_RE.fullmatch(text):
-        return False
-    try:
-        datetime.strptime(text, "%Y-%m-%d")
-    except ValueError:
-        return False
-    return True
-
-
 def has_wiki_link_outside_code(text: str) -> bool:
     text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
     in_fence = False
@@ -226,8 +215,10 @@ def okf_metadata_warnings(relative: str, metadata: dict) -> list[str]:
                 ):
                     warnings.append(f"{relative} has invalid sources provenance entry")
                     break
-                if source.get("last_modified") is not None and not is_okf_date(source.get("last_modified")):
-                    warnings.append(f"{relative} has invalid source last_modified date")
+                if source.get("last_modified") is not None and not is_okf_datetime(
+                    source.get("last_modified")
+                ):
+                    warnings.append(f"{relative} has invalid source last_modified datetime")
                     break
 
     verified = metadata.get("verified")
@@ -244,8 +235,10 @@ def okf_metadata_warnings(relative: str, metadata: dict) -> list[str]:
 
     if metadata.get("status") is not None and metadata.get("status") not in {"draft", "stable", "deprecated"}:
         warnings.append(f"{relative} has invalid lifecycle status")
-    if metadata.get("stale_after") is not None and not is_okf_date(metadata.get("stale_after")):
-        warnings.append(f"{relative} has invalid stale_after date")
+    if metadata.get("stale_after") is not None and not is_okf_datetime(
+        metadata.get("stale_after")
+    ):
+        warnings.append(f"{relative} has invalid stale_after datetime")
     if metadata.get("type") == "Attested Computation" and not str(metadata.get("runtime") or "").strip():
         warnings.append(f"{relative} Attested Computation is missing runtime")
     return warnings

@@ -883,7 +883,7 @@ def write_rock_okf_fixture(bundle: Path, okf_version: str) -> Path:
         "0.2": {
             "schema": "rock-kb-okf-distribution-v2",
             "profile": "rock-kb-okf-profile-v2",
-            "spec": "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96",
+            "spec": "62432a095456147ee71e70ac6e4dc0d2dea3ac30",
         },
     }
     contract = contracts[okf_version]
@@ -1064,7 +1064,7 @@ def test_client_okf_conformance_surfaces_portability_and_provenance_warnings(tmp
         "  - resource: https://example.test/source\n"
         "    last_modified: '2026-02-30'\n"
         "status: unknown\n"
-        "stale_after: '2026-07-09T00:00:00Z'\n"
+        "stale_after: '2026-07-09'\n"
         "---\n\n[[Wiki Link]]\n",
         encoding="utf-8",
     )
@@ -1083,7 +1083,7 @@ def test_client_okf_conformance_surfaces_portability_and_provenance_warnings(tmp
     assert any("invalid generated.at" in warning for warning in report["warnings"])
     assert any("invalid source last_modified" in warning for warning in report["warnings"])
     assert any("invalid lifecycle status" in warning for warning in report["warnings"])
-    assert any("invalid stale_after date" in warning for warning in report["warnings"])
+    assert any("invalid stale_after datetime" in warning for warning in report["warnings"])
     assert any("missing runtime" in warning for warning in report["warnings"])
     assert any("non-portable wiki link" in warning for warning in report["warnings"])
     assert any("non-portable MDX" in warning for warning in report["warnings"])

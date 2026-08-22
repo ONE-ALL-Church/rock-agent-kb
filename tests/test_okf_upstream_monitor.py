@@ -39,7 +39,7 @@ def test_okf_upstream_monitor_accepts_reviewed_v02_commit(monkeypatch, capsys):
     assert check_okf_upstream.main() == 0
     report = json.loads(capsys.readouterr().out)
     assert report["status"] == "current"
-    assert report["expected_commit"] == "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+    assert report["expected_commit"] == "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
 
 
 def test_okf_upstream_monitor_still_requires_review_for_new_drift(monkeypatch, capsys):

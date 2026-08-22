@@ -14,10 +14,8 @@ from rock_kb.okf_export import (
     build_okf_export,
     create_okf_archives,
     explicit_stale_after_for_row,
-    is_okf_date,
     is_okf_datetime,
     lifecycle_status_for_row,
-    normalize_okf_date,
     normalize_okf_datetime,
     read_frontmatter,
     related_paths_for_row,
@@ -42,7 +40,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
     assert report["schema"] == "rock-kb-okf-distribution-v2"
     assert report["okf_version"] == "0.2"
     assert report["okf_profile"] == "rock-kb-okf-profile-v2"
-    assert report["okf_spec_commit"] == "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+    assert report["okf_spec_commit"] == "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
     assert report["distribution_version"] == "9.8.7"
     assert report["source_commit"] == "0123456789abcdef"
     assert report["read_only"] is True
@@ -111,7 +109,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
         assert metadata["sources"]
         assert all(source["resource"] for source in metadata["sources"])
         assert all(
-            not source.get("last_modified") or is_okf_date(source["last_modified"])
+            not source.get("last_modified") or is_okf_datetime(source["last_modified"])
             for source in metadata["sources"]
         )
         assert all(is_okf_datetime(event["at"]) for event in metadata.get("verified") or [])
@@ -184,7 +182,7 @@ def test_okf_export_is_complete_typed_linked_and_conformant(tmp_path: Path, monk
             "at": normalize_okf_datetime(reviewed_claim["updated_at"]),
         }
     ]
-    assert claim_metadata["sources"][0]["last_modified"] == normalize_okf_date(
+    assert claim_metadata["sources"][0]["last_modified"] == normalize_okf_datetime(
         reviewed_claim["updated_at"]
     )
 
@@ -279,11 +277,7 @@ def test_okf_core_profile_is_smaller_and_keeps_canonical_agent_knowledge(tmp_pat
 def test_okf_datetime_and_review_metadata_are_evidence_bounded():
     assert normalize_okf_datetime("Fri, 13 Mar 2020 13:00:56 GMT") == "2020-03-13T13:00:56+00:00"
     assert normalize_okf_datetime("2026-07-09") == ""
-    assert normalize_okf_date("2026-07-09") == "2026-07-09"
-    assert normalize_okf_date("2026-07-09T12:00:00-07:00") == "2026-07-09"
-    assert normalize_okf_date("2026-02-30") == ""
-    assert is_okf_date("2026-07-09")
-    assert not is_okf_date("2026-07-09T12:00:00+00:00")
+    assert normalize_okf_datetime("2026-07-09T12:00:00-07:00") == "2026-07-09T12:00:00-07:00"
     assert row_timestamp(
         {"payload": {"updated_at": "2026-07-09", "retrieved_at": "2026-07-10T01:02:03Z"}},
         fallback="2026-08-01T00:00:00Z",
@@ -311,7 +305,8 @@ def test_okf_datetime_and_review_metadata_are_evidence_bounded():
     assert lifecycle_status_for_row({"payload": {"temporal_status": "retired"}}) == "deprecated"
     assert explicit_stale_after_for_row(
         {"payload": {"stale_after": "2026-07-10T01:02:03Z"}}
-    ) == "2026-07-10"
+    ) == "2026-07-10T01:02:03+00:00"
+    assert explicit_stale_after_for_row({"payload": {"stale_after": "2026-07-10"}}) == ""
     assert explicit_stale_after_for_row({"payload": {"stale_after": "2026-02-30"}}) == ""
 
 

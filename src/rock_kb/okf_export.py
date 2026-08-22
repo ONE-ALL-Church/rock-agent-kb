@@ -31,7 +31,7 @@ from .timestamps import generated_at_iso
 
 
 OKF_VERSION = "0.2"
-OKF_SPEC_COMMIT = "3fcbb9f828c2f23d109c855ee403c3a4c81f3a96"
+OKF_SPEC_COMMIT = "62432a095456147ee71e70ac6e4dc0d2dea3ac30"
 OKF_PROFILE_SCHEMA = "rock-kb-okf-profile-v2"
 OKF_MANIFEST_SCHEMA = "rock-kb-okf-distribution-v2"
 OKF_GENERATOR_ACTOR = "process:rock-kb-okf-export"
@@ -664,22 +664,6 @@ def is_okf_datetime(value: Any) -> bool:
     return parsed.tzinfo is not None
 
 
-def normalize_okf_date(value: Any) -> str:
-    text = str(value or "").strip()
-    if DATE_ONLY_RE.fullmatch(text):
-        try:
-            datetime.strptime(text, "%Y-%m-%d")
-        except ValueError:
-            return ""
-        return text
-    normalized = normalize_okf_datetime(value)
-    return normalized[:10] if normalized else ""
-
-
-def is_okf_date(value: Any) -> bool:
-    return bool(normalize_okf_date(value) == str(value or "").strip())
-
-
 def row_timestamp(row: dict[str, Any], *, fallback: str = "") -> str:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
     for key in ("updated_at", "created_at", "timestamp", "last_built", "retrieved_at"):
@@ -689,10 +673,10 @@ def row_timestamp(row: dict[str, Any], *, fallback: str = "") -> str:
     return normalize_okf_datetime(fallback)
 
 
-def row_modified_date(row: dict[str, Any]) -> str:
+def row_modified_datetime(row: dict[str, Any]) -> str:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
     for key in ("updated_at", "created_at", "timestamp", "last_built"):
-        normalized = normalize_okf_date(payload.get(key))
+        normalized = normalize_okf_datetime(payload.get(key))
         if normalized:
             return normalized
     return ""
@@ -743,7 +727,7 @@ def lifecycle_status_for_row(row: dict[str, Any]) -> str:
 
 def explicit_stale_after_for_row(row: dict[str, Any]) -> str:
     payload = row.get("payload") if isinstance(row.get("payload"), dict) else {}
-    return normalize_okf_date(payload.get("stale_after") or payload.get("okf_stale_after"))
+    return normalize_okf_datetime(payload.get("stale_after") or payload.get("okf_stale_after"))
 
 
 def okf_v02_metadata_errors(relative: str, metadata: dict[str, Any]) -> list[str]:
@@ -771,8 +755,8 @@ def okf_v02_metadata_errors(relative: str, metadata: dict[str, Any]) -> list[str
             if source_id and source_id in source_ids:
                 errors.append(f"{relative} has duplicate OKF v0.2 source id: {source_id}")
             source_ids.add(source_id)
-            if source.get("last_modified") and not is_okf_date(source.get("last_modified")):
-                errors.append(f"{relative} has invalid OKF v0.2 source last_modified date")
+            if source.get("last_modified") and not is_okf_datetime(source.get("last_modified")):
+                errors.append(f"{relative} has invalid OKF v0.2 source last_modified datetime")
 
     verified = metadata.get("verified")
     if verified:
@@ -789,8 +773,8 @@ def okf_v02_metadata_errors(relative: str, metadata: dict[str, Any]) -> list[str
 
     if metadata.get("status") and metadata.get("status") not in {"draft", "stable", "deprecated"}:
         errors.append(f"{relative} has invalid OKF v0.2 status")
-    if metadata.get("stale_after") and not is_okf_date(metadata.get("stale_after")):
-        errors.append(f"{relative} has invalid OKF v0.2 stale_after date")
+    if metadata.get("stale_after") and not is_okf_datetime(metadata.get("stale_after")):
+        errors.append(f"{relative} has invalid OKF v0.2 stale_after datetime")
     if metadata.get("type") == "Attested Computation" and not str(metadata.get("runtime") or "").strip():
         errors.append(f"{relative} Attested Computation is missing runtime")
     return errors
@@ -855,7 +839,7 @@ def source_entries_for_row(
         if not source_id or not resource or source_id in seen_ids or resource in seen_resources:
             return
         entry = {"id": source_id, "resource": resource, "title": title.strip() or resource}
-        normalized_last_modified = normalize_okf_date(last_modified)
+        normalized_last_modified = normalize_okf_datetime(last_modified)
         if normalized_last_modified:
             entry["last_modified"] = normalized_last_modified
         entries.append(entry)
@@ -868,7 +852,7 @@ def source_entries_for_row(
             "rock-kb-canonical",
             canonical_url,
             "Rock KB canonical public record",
-            last_modified=row_modified_date(row),
+            last_modified=row_modified_datetime(row),
         )
 
     for source_id in sorted(source_ids_for_row(row)):

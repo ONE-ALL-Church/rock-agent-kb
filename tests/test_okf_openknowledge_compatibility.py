@@ -22,7 +22,7 @@ def test_openknowledge_compatibility_runner_is_pinned_and_cleans_config(monkeypa
     (bundle / "index.md").write_text("# Index\n", encoding="utf-8")
 
     def fake_run(command, *, cwd, env, check, capture_output, text):
-        assert command[:3] == ["npx", "--yes", "@inkeep/open-knowledge@0.61.0"]
+        assert command[:3] == ["npx", "--yes", "@inkeep/open-knowledge@0.61.3"]
         assert cwd == bundle.resolve()
         assert env["NODE_NO_WARNINGS"] == "1"
         assert (cwd / ".ok" / "config.yml").read_text(encoding="utf-8") == compatibility.CONFIG_TEXT

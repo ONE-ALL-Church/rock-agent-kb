@@ -10,13 +10,17 @@ tags and follow semantic versioning for public client and service contracts.
 
 ### Changed
 
-- OKF v0.2 exports normalize meaningful-change and review timestamps to
-  timezone-aware ISO 8601 datetimes, use calendar dates for source modification
-  and document expiry, emit verification and lifecycle metadata only from their
+- OKF v0.2 exports normalize every emitted timestamp-valued field to a
+  timezone-aware ISO 8601 datetime, omit date-only source modification and
+  expiry evidence, emit verification and lifecycle metadata only from their
   distinct explicit evidence, and use portable table metadata in the root index.
 - Generic client conformance now reports portable Markdown, provenance,
   lifecycle, and timestamp concerns while strict Rock verification enforces
   those requirements for Rock v0.2 distributions.
+- Rock's v0.2 profile now pins the reviewed upstream timestamp clarification:
+  every emitted timestamp-valued field requires an explicit UTC offset, and
+  date-only source modification or expiry evidence is omitted rather than
+  coerced to an arbitrary instant.
 
 ### Fixed
 
@@ -26,6 +30,9 @@ tags and follow semantic versioning for public client and service contracts.
 - A pinned, nonblocking weekly OpenKnowledge compatibility job now checks both
   OKF profiles without granting external write access or weakening Rock's
   reviewed specification and release gates.
+- Release builds apply generic conformance to immutable historical OKF archives
+  while retaining strict verification for every newly generated archive, so a
+  corrected release is not blocked by known defects in its predecessor.
 
 ## [0.24.0] - 2026-08-19
 
