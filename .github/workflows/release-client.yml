@@ -64,8 +64,8 @@ jobs:
           core_path="$(find previous-okf -maxdepth 1 -name 'rock-agent-kb-okf-core-v*.zip' -print -quit)"
           test -z "${full_path}" || full_previous=(--previous-bundle "${full_path}")
           test -z "${core_path}" || core_previous=(--previous-bundle "${core_path}")
-          test -z "${full_path}" || uv run --project clients/python rock-kb okf verify "${full_path}"
-          test -z "${core_path}" || uv run --project clients/python rock-kb okf verify "${core_path}"
+          test -z "${full_path}" || uv run --project clients/python rock-kb okf conformance "${full_path}"
+          test -z "${core_path}" || uv run --project clients/python rock-kb okf conformance "${core_path}"
           uv run python scripts/check_okf_upstream.py
           uv run kb publish okf --profile full --version "${version}" --source-commit "${commit}" --archive-dir release-assets "${full_previous[@]}"
           uv run kb publish okf --profile core --destination data/okf-export-core --version "${version}" --source-commit "${commit}" --archive-dir release-assets "${core_previous[@]}"
