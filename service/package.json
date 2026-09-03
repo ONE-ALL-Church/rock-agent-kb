@@ -13,14 +13,19 @@
   "devDependencies": {
     "@modelcontextprotocol/client": "2.0.0",
     "@types/node": "^25.9.3",
-    "miniflare": "^4.20260722.1",
+    "miniflare": "4.20260730.0",
     "typescript": "^5.8.3",
-    "wrangler": "^4.115.0"
+    "wrangler": "^4.128.0"
   },
   "overrides": {
     "@hono/node-server": "2.0.12",
+    "browserslist": "4.28.8",
     "esbuild": "^0.28.1",
-    "fast-uri": "3.1.4"
+    "fast-uri": "3.1.7",
+    "hono": "4.13.5",
+    "ip-address": "10.7.0",
+    "qs": "6.16.0",
+    "undici": "7.29.0"
   },
   "dependencies": {
     "@cloudflare/codemode": "0.5.1",
