@@ -598,71 +598,170 @@
   "approved_media_dependency_hashes": {},
   "approved_media_hash": "36f85f09122e6e7082f04e4c92a4be0e8bc778ff9dc072fac876e7e0fcdd4bb9",
   "approved_media_path": "knowledge/concepts/helix/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:14+00:00",
   "concept_id": "helix",
-  "guide_hash": "542e1f359d9a79ff5b03d7bf5a5db37a75798abaed44b576d17926645c2acfa7",
-  "guide_line_count": 1126,
+  "guide_hash": "530126ea61ddb27dacb074e8d4545fdb7ac09d9d13666b24626e98ea6f067850",
+  "guide_line_count": 631,
   "guide_path": "knowledge/concepts/helix/guide.md",
-  "guide_word_count": 9793,
+  "guide_word_count": 6747,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-developer",
-      "content_hash": "130344e5790ff6bf4971247bccbcfa8fa52cd7233c365dcae2d2782ace424a6a",
-      "excerpt_hash": "8e44d1660b148862891af38d27a2674b27d01e6acf75ad0cb116730f42d91ed4",
+      "content_hash": "c22391a1a3bb42cb3c041e84b10037c931bafd98c75c1ba99034e8d80dc10ce5",
+      "excerpt_hash": "1b281ca397dded1847363906f89dc2d2711a05a811df301be2c747d838d2b87b",
       "source_id": "rock_developer",
       "source_key": "802567c280193bd0",
-      "source_record_id": "rock_developer:802567c280193bd0",
+      "source_record_id": "rock_developer:article:331",
       "url": "https://community.rockrms.com/developer/helix/overview"
     },
     {
       "authority": "official-developer",
-      "content_hash": "ddf920730ee3f51d232fa712817ba89c507f75a5a43246e0c31eeed259aec362",
-      "excerpt_hash": "d19b526fabe39fe16233a393406432e4365d8eb1ac4c15a5d00b249aff170397",
+      "content_hash": "dadf04eb9643cc1a0fe66f93359bdfaacbc6541cafc6a54c31432cf85540f284",
+      "excerpt_hash": "2255910f288f803654cefc18a700b79894c729c99d681aec223dea6874394203",
+      "source_id": "rock_developer",
+      "source_key": "dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:article:336",
+      "url": "https://community.rockrms.com/developer/helix/overview/security"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "17e9959157b900d971456271f59c84e19b6600de775105a31b29b376c2d9a3d9",
+      "excerpt_hash": "047c660c6c70636b4593ea3ebe9cf68b45658254b18b6ebd861b32f29e2d9dcc",
+      "source_id": "rock_developer",
+      "source_key": "366c62c0274cf5af",
+      "source_record_id": "rock_developer:article:338",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "195b5f58f6aa35a5b4799d94cc22f2f7d9d3a7de23c70482b0fecc43bf81f89e",
+      "excerpt_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "source_id": "rock_developer",
       "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:article:345",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
     },
     {
       "authority": "official-developer",
-      "content_hash": "3194b16b1d15c37a3d850e800d34c77abf069a0141eddfee0dc7089eb5198e53",
-      "excerpt_hash": "679a23f0698bd9daaf0c8572be2a643a40a418f434dfd7a4a9a2db19445d21fb",
+      "content_hash": "03bb1fb8f7b298646244fd3c60d4eb8b47caf5a934b8de46cfeca6721a4cbe8d",
+      "excerpt_hash": "860e0222ba87874baed1b09d657de94b514d4dde4bbb767d2255c43976338bd5",
+      "source_id": "rock_lava_docs",
+      "source_key": "c934e1779dd6267f",
+      "source_record_id": "rock_lava_docs:c934e1779dd6267f",
+      "url": "https://community.rockrms.com/lava/commands/http-response"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "5a7106478eee38cf530ae65158c6e4bd15b27e36fbd4459130c763e194383336",
+      "excerpt_hash": "fe83a0b623739c45e6de8f375efe4bb52e552bb3d5b7111479867b15e09e0688",
       "source_id": "rock_developer",
       "source_key": "fd3fd2bfe8a855c0",
-      "source_record_id": "rock_developer:fd3fd2bfe8a855c0",
+      "source_record_id": "rock_developer:article:346",
       "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
       "authority": "official-developer",
-      "content_hash": "d3750956b6f44cabe51220e9d801caa8e1407cb854a4a992a20c799e027dd060",
-      "excerpt_hash": "ad4688c238c53d1c5b184afd5f3bfa792e7e263d9cd30d08c567eb3de359661e",
+      "content_hash": "245373d25726744288ae3e3bf7c2d3b2c3ca8274bf4b6e5028e7f7e91743dda5",
+      "excerpt_hash": "35f28188c58bf377829243bf7b70ecfb1079b0cfe52558551e5be8f1b79a7369",
+      "source_id": "rock_developer",
+      "source_key": "789454b4b23d582c",
+      "source_record_id": "rock_developer:article:339",
+      "url": "https://community.rockrms.com/developer/helix/lava-commands"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a2b2222b328e02acfcd17fa79370aca18929cc65defb1f05855c75f2c9e0b032",
+      "excerpt_hash": "780b64a14ee6a1ec6a3e8340b9cf502760ac91f7961738fdcb783ff47dd642af",
+      "source_id": "rock_developer",
+      "source_key": "f9cdef870297ac22",
+      "source_record_id": "rock_developer:article:332",
+      "url": "https://community.rockrms.com/developer/helix/overview/customizing-rock"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "15db6ca875a0fe8dcc008118a09de066eed3f8a0f8786d2658057819306d3e1e",
+      "excerpt_hash": "961d7427af217798634508adc98a0a804976b28edbb383c608a0eb948d63aa8b",
+      "source_id": "rock_developer",
+      "source_key": "7e7dfe8f61fb6139",
+      "source_record_id": "rock_developer:article:335",
+      "url": "https://community.rockrms.com/developer/helix/overview/roadmap"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "0c9506a2bdcb54c3073db2dc415204e1d2cde5c9e77689b9428aa25bdbd4c371",
+      "excerpt_hash": "c35e04ee612098be5d624c9cf7af769dc40a6b71ab33724badf29b93fc976bb2",
       "source_id": "rock_developer",
       "source_key": "1b6ba28ced999d83",
-      "source_record_id": "rock_developer:1b6ba28ced999d83",
+      "source_record_id": "rock_developer:article:343",
       "url": "https://community.rockrms.com/developer/helix/htmx/syntax-style-guides"
     },
     {
       "authority": "official-developer",
-      "content_hash": "7bed3646fed718e1660864bab56494ee18a056326b367b59d272dc103772c6a1",
-      "excerpt_hash": "d5221e8e902939c2b1c79fc498f6c48d4176c0d4a1eb55f713c80835e630edc5",
+      "content_hash": "ab65e78b53d654251307d40459a1975f4c4dedcda02d0aaf071c2084ec5131c0",
+      "excerpt_hash": "e270a5f645c2daa90a3ad4c1afbd98725d593c8a0a5e147d63146d3ddd84ed06",
       "source_id": "rock_developer",
-      "source_key": "dfd0cdc56d97fa7f",
-      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
-      "url": "https://community.rockrms.com/developer/helix/overview/security"
+      "source_key": "e6485e4722d85706",
+      "source_record_id": "rock_developer:article:359",
+      "url": "https://community.rockrms.com/developer/helix/strategies/tips"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "a87487737073a27e4a66ed968f629a3496f6b4cc3d3af54811c62874952c06cc",
+      "excerpt_hash": "cbd573f36fc305504148e370571d9b5e300bf04e2b273423dd9dc0aa8a0b3183",
+      "source_id": "rock_developer",
+      "source_key": "0b279f737b839e4a",
+      "source_record_id": "rock_developer:article:342",
+      "url": "https://community.rockrms.com/developer/helix/htmx/learning-more"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "328436e776830c9f26cc90ae2e17509d572bbac1e43e11e8ffbdb809f3b8ef4e",
+      "excerpt_hash": "053528034782d60f962fb5a45288b86adfe5c2763f746eb445bff4145a79fd6e",
+      "source_id": "rock_developer",
+      "source_key": "8f9847f0880303e0",
+      "source_record_id": "rock_developer:article:344",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
+      "excerpt_hash": "60702e3e01f0e83856ac2421db1d6c24299d4ff0440aa82a36cfcee8628bbe9e",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2fb7a29f4e7cec2a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "beb5342f8ead718275d6b3cc3f2a80c96483e0cefd48f7947ce5e36d2b5e78e2",
+      "excerpt_hash": "0995a78135633e48c97fe8baa26269bc7cef6247d89b014fe8986e87a6421327",
+      "source_id": "rock_developer",
+      "source_key": "9d3715414e399928",
+      "source_record_id": "rock_developer:article:347",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "4812e9302023571fbf94dc9a32152b9501be43d461d6932c7285ec2c5664b7af",
+      "excerpt_hash": "6703beec98c9e5e2f3e1e91f37bd6b2eaf81408dcb4722a6bf7f1e24d89536bb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "83fa4a8a47bc810b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointHttpMethod.cs"
+    },
+    {
+      "authority": "source-code",
+      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
+      "excerpt_hash": "41423ecb80fff817c009316389376128556b0a769ec4f3bc275bec63205675fe",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "bfe076d3907fc3a1",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
     },
     {
       "authority": "official-release",
-      "content_hash": "8a4103466267de24017ec90ce002eb06b74e69068d3588f4f029f2e4f0ca7886",
-      "excerpt_hash": "8decef628b497f8c56544931a8a08905e5dc3a477703e3bf7412b6f12499c75d",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "3577a9dd4344af5a111641c22245e825ed8cc79f201652378202d01eb92062e6",
       "source_id": "rock_core_release_notes",
       "source_key": "776256c424368312",
       "source_record_id": "rock_core_release_notes:bbded414ac6e328f",
@@ -670,25 +769,205 @@
     },
     {
       "authority": "official-developer",
-      "content_hash": "c2be5c19aaf5736601e3d571659f318176ee223cbebcd48b4836065a364cd53d",
-      "excerpt_hash": "cbbfd9af512b8506c25f60a18cbb4b759bc404b4c9c88e0911036053b768e0bf",
+      "content_hash": "5dbe7d0d8daeb0b79f214edb3b848a3423c2f4cf6c6ee21de487c1055e405bec",
+      "excerpt_hash": "172e46304260757e6b8ee4a048931c2fb9ca78bea55c8ddec6afbc9a3dba9c26",
+      "source_id": "rock_lava_docs",
+      "source_key": "6ef56558ce58d4fa",
+      "source_record_id": "rock_lava_docs:6ef56558ce58d4fa",
+      "url": "https://community.rockrms.com/lava/commands/db-transaction"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
+      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
+      "source_id": "rock_lava_docs",
+      "source_key": "52c683d5cc0018da",
+      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
+      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "df54d7732e36668eca1fc96517901fa6bef7337bc6b5feec25a65a43ce6b7f7f",
+      "excerpt_hash": "b26beacb69e75e9add1bf125f9aac8f0e5a57ae0cd91cb797e6ea721ea8e2d61",
+      "source_id": "rock_developer",
+      "source_key": "c877aeede8d53f3d",
+      "source_record_id": "rock_developer:article:354",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "b820c4feb2a26cc1b1922daa8dfa70121946a4ea36e9c90c830139460f29d0c2",
+      "excerpt_hash": "9a10d45c58c0661631b3cd1672559d71fb23d2807fc85ddcd200a44d57387aa1",
+      "source_id": "rock_developer",
+      "source_key": "6b64c81c19c97a26",
+      "source_record_id": "rock_developer:article:355",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/using-form-controls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "7cdabf6efa64e4cbdb3cebaa24821444e9e853c09b544c85ba669d4f30826c1e",
+      "excerpt_hash": "d537b757f75ac05b5cc3ba51583dac33341096d4d5500603b30877024a4cf214",
+      "source_id": "rock_developer",
+      "source_key": "dfe176db3de773f7",
+      "source_record_id": "rock_developer:article:356",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "dabc0112de12f544f8f2cc62cb18c609afdf96f2c3732c5b1f91d9cf06459cf5",
+      "excerpt_hash": "2ad8c2771403c850f66819b40d58c1adb0639ead2a2a0771d9b244d3a228ea8e",
+      "source_id": "rock_developer",
+      "source_key": "554e0dda0bc287c2",
+      "source_record_id": "rock_developer:article:357",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "2aab52bcb3817be53902ac5bb5d0cf8b42d27594e7c4518b4a76b71de379634c",
+      "excerpt_hash": "1d0e06bbffe1d114c56b042710b2f066b10867de2bfc5c37b3436d5e0ed63126",
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:article:358",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "81738e688c0582b9218b48dde28a30db4f988d0da9175e5a689a8510332781ca",
+      "excerpt_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:article:348",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
+    },
+    {
+      "authority": "official",
+      "content_hash": "8b0d8d0a9faf013af33f8618a19c9e8e1489007de0daf99e7e1c6b27abdf2288",
+      "excerpt_hash": "f14cecad232ef44532089360ffb42a0d32f01ba77d12a51f4fb37fe898d5b703",
+      "source_id": "rock_documentation",
+      "source_key": "e0bf73a6f90963b4",
+      "source_record_id": "rock_documentation:article:2118",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability/intro-to-observability"
+    },
+    {
+      "authority": "official",
+      "content_hash": "e0610d2db490f7df45f3b1e02054bd6dd230f11735253c7a9f32ae616714e9b2",
+      "excerpt_hash": "cf0a3e8bf8f7249e2ab7d67c5b56f5b314c3e57735539f1f0483734dc687ff4d",
+      "source_id": "rock_documentation",
+      "source_key": "2bc4e055fa122127",
+      "source_record_id": "rock_documentation:article:1074",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "9453b0c53cdcfa53692987d2e1ea787304fb90c9c42f5c87d15d01d9999ef10f",
+      "excerpt_hash": "f445db4a368f7b1ea536ec6d7e74a6d75c3190ca20dcc5a3a1c35dddce572b55",
+      "source_id": "rock_developer",
+      "source_key": "c9d3d496d37c624d",
+      "source_record_id": "rock_developer:article:361",
+      "url": "https://community.rockrms.com/developer/helix/strategies/limitations"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "cfb33ebc12255c91441f3a5218a1425e24618376f14a31a413517b65b0ee46ee",
+      "excerpt_hash": "a8ca2952f56e702b555a39eec90b2ad420793bb67840702c401de9f6fd5718b8",
+      "source_id": "rock_developer",
+      "source_key": "6246c13b7e3be896",
+      "source_record_id": "rock_developer:article:360",
+      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities"
+    },
+    {
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "02f59e87ae964075",
+      "source_record_id": "org_contribution:oneall:communication-history-active-search",
+      "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
+    },
+    {
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "8d2e384458fd1290",
+      "source_record_id": "org_contribution:oneall:rendered-helix-dashboard-validation",
+      "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "4599b99340657ff2053634fd4c9a2cd632c6d5b0330b381e5778626a8a76781d",
+      "excerpt_hash": "35f4c0cb1dd4d634f83ca16fe8a3344b9f01c183d77c4afb2ffd01dd486593ac",
+      "source_id": "rock_recipes",
+      "source_key": "e0db41b4ca576c2c",
+      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
+      "url": "https://community.rockrms.com/recipes/497"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "ed6d9cca02ee0a18789943f6705e48033a22c93b10f694b85a1323969f19d151",
+      "excerpt_hash": "b32a53d8b73297b08488123c4c43a0c0d7d4b1ee250cbf2f2a2891a8bf43f65a",
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:article:184",
+      "url": "https://community.rockrms.com/developer/helix"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "bf92b9cc0e01b88642743fe000ae11b8e389104c1f2f1c0bf4482a3d4a36a60b",
+      "excerpt_hash": "cb8ac11a744a7f16238443f13d82958cacfac4d4d75e269530f4067fd4934d32",
+      "source_id": "rock_developer",
+      "source_key": "777226ca29c00837",
+      "source_record_id": "rock_developer:article:333",
+      "url": "https://community.rockrms.com/developer/helix/overview/plugin-installation"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8be08c52cb77283d1281489a037712502e559f80c34b662ceaad9d49ec1f6c9d",
+      "excerpt_hash": "46cfcc834c58791fd88e25abc7c4955ccd9d7ef93b70dd418a4345b6f778f082",
       "source_id": "rock_developer",
       "source_key": "6fb948dbfe87bbf1",
-      "source_record_id": "rock_developer:6fb948dbfe87bbf1",
+      "source_record_id": "rock_developer:article:334",
       "url": "https://community.rockrms.com/developer/helix/overview/faq"
     },
     {
       "authority": "official-developer",
-      "content_hash": "fda2ffec7e543e25c32a73d7126815bda96fa46d2927b29bfd541a01e3652430",
-      "excerpt_hash": "5946c49dc4baa1743dbe6ef91a81626619265333fc5e41212feb9838e75bcb4d",
+      "content_hash": "52ff4e2ea0b05c3f900c17e7a75b2d274a9801b1165e82e955429ceeebf41bbd",
+      "excerpt_hash": "ec1a062a982ed29b8879b433db2583b6289829e0547f76efc23c505d241effb0",
       "source_id": "rock_developer",
-      "source_key": "48cabcef2f22cabd",
-      "source_record_id": "rock_developer:48cabcef2f22cabd",
-      "url": "https://community.rockrms.com/developer/helix"
+      "source_key": "b8af2a0e80b2efe7",
+      "source_record_id": "rock_developer:article:337",
+      "url": "https://community.rockrms.com/developer/helix/htmx"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "5f681012de0ce1db3c54ac6561b157cc466426868a533ad8e24219a7f49fa6d7",
+      "excerpt_hash": "851b4bd24318a91c03cce34b8423420eb6e9063dae7f8f5a2c2556f6c62bd050",
+      "source_id": "rock_developer",
+      "source_key": "c597e729f3063cb4",
+      "source_record_id": "rock_developer:article:340",
+      "url": "https://community.rockrms.com/developer/helix/forms-controls"
+    },
+    {
+      "authority": "official-developer",
+      "content_hash": "8cf7c5464d6cfc5d1a3cac86195362fef4860fbf0febd895c4f85f50510edba7",
+      "excerpt_hash": "b10173a485b6171a741df3bf64bb7015805d6f2a8784ac0e2be03dd0ef8126bc",
+      "source_id": "rock_developer",
+      "source_key": "8331df94a7814389",
+      "source_record_id": "rock_developer:article:341",
+      "url": "https://community.rockrms.com/developer/helix/strategies"
+    },
+    {
+      "authority": "official",
+      "content_hash": "fcf75a269770b3153fdb5e99220c5b98f39c395c39e43cda801962c9c3dc2302",
+      "excerpt_hash": "926ec55fe59e32143de7b3630f816a038ede8fc500acb475a2543d3a8121d5af",
+      "source_id": "rock_documentation",
+      "source_key": "309e9ba9860f9843",
+      "source_record_id": "rock_documentation:article:1059",
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability"
     },
     {
       "authority": "official-model-map",
-      "content_hash": "510c429d32c1474a942ee6f9f344cffe08b40ba8c0e33b3be3f6f487d1b783af",
+      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
       "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "source_id": "rock_model_map",
       "source_key": "bce31f25cb8a199e",
@@ -697,1364 +976,581 @@
     },
     {
       "authority": "source-code",
-      "content_hash": "e972f62b58a363377ea0631f4140b896d774d906baa86f98e48324e0fe23ef0c",
-      "excerpt_hash": "0d226ad48200a67d1f392aad47ea0e6c01b74245b6dab22df1d84c684942f5a4",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "01e2937a59f94ae2",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "8d6c68b48f3ce71b6d9c014926325c9fc72c6170c0fc032bb4a8e558bc3c571d",
-      "excerpt_hash": "a183cf39e20f9c69290189e65f168031ad3a1a73b6f3dabda03551dff833751e",
-      "source_id": "rock_developer",
-      "source_key": "8f9847f0880303e0",
-      "source_record_id": "rock_developer:8f9847f0880303e0",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "d6a15daaa9c0a0d84fbdacaae734cf84dd95d4f8ffc84abd9c2e65ba0b9c0f10",
-      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
-      "source_id": "rock_developer",
-      "source_key": "366c62c0274cf5af",
-      "source_record_id": "rock_developer:366c62c0274cf5af",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "da2e68bc4c7c543875f12a29e0135e89f9dbf610c36686a3994b0cd5d54f725c",
-      "excerpt_hash": "83cc6c58bbe7fadac05bf27053e2f6fefb36379c41116989f3216663763599bb",
-      "source_id": "rock_developer",
-      "source_key": "c877aeede8d53f3d",
-      "source_record_id": "rock_developer:c877aeede8d53f3d",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "87bdd5c4655083f1c2097978340d3388412125bfbf5e44c3b11d8bca4a3dd7b2",
-      "excerpt_hash": "4c4ede8dd37097e7e75544225ac30d2cc22735adc6bf4dd4ec164d9f2b6c975d",
-      "source_id": "rock_developer",
-      "source_key": "6b64c81c19c97a26",
-      "source_record_id": "rock_developer:6b64c81c19c97a26",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/using-form-controls"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8f372d704d06fba3403e1134531a96075d08649bdbaa3d2a08c3bdaf8379252e",
-      "excerpt_hash": "41423ecb80fff817c009316389376128556b0a769ec4f3bc275bec63205675fe",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "427e5301d593e4bc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "01e5213c20b015ef1b29e4c063f72a1acc0e8bb03b8d3c29fc5575f246499e1a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "15ce530d27ee0925003905577f74fcaecb1dcc1e62525a5577aa8ea59174e5d6",
-      "excerpt_hash": "409856b663ac7b7d5c340f21e5d4ea9d9aaf4cd45d909e3bcb3465c97499d5ea",
-      "source_id": "rock_developer",
-      "source_key": "f9cdef870297ac22",
-      "source_record_id": "rock_developer:f9cdef870297ac22",
-      "url": "https://community.rockrms.com/developer/helix/overview/customizing-rock"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "d6d1a7a8e09be8852a9c84300fd75327fa5d8ae1b60e72894fdbe8ee5a6e4d1f",
-      "excerpt_hash": "5a4f8e0063f9c8d8558f7cce56d6641205f2fce899cd2e466fd3cc067abaf8bd",
-      "source_id": "rock_developer",
-      "source_key": "777226ca29c00837",
-      "source_record_id": "rock_developer:777226ca29c00837",
-      "url": "https://community.rockrms.com/developer/helix/overview/plugin-installation"
-    },
-    {
-      "authority": "source-code",
       "content_hash": "300e7aaf21d16b7d5f14cf0cc8a157fdfa206cd87263e0c7384e9ae77dc206a5",
       "excerpt_hash": "914eeb4acf63aa983b782b15b40122aed2fd70b568cd421ea118a440615597cb",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "2ae8e144de067f9b",
+      "source_key": "385e0d108cab7eee",
       "source_record_id": "SparkDevNetwork/Rock:docs/cms/lava-applications.md",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "4b2423e177f134b84eab99ca5fa6145cd015ea9e0d2a13d7dd51628af3823b48",
-      "excerpt_hash": "e52e4a015474dd65d73d854e01b00458c38216ec4036d2ca457fef45eb44f266",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4c50fa0d0cd41b3f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/docs/cms/lava-applications.md"
     },
     {
       "authority": "source-code",
       "content_hash": "7c40a4762335d2ee4f7b0eeff7b99401c5dfd2d3dc0d1ef9fc7d6f335657133b",
       "excerpt_hash": "31f0f7ab5875b2efb9702595c8bc35b01f0a4ac674573d43955a1cb5440bb8e7",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "e4867c77e2d22f41",
+      "source_key": "b76decf4a1bb3ace",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 18.0/Version 18.0/202505072235453_AddLavaApplications.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "4812e9302023571fbf94dc9a32152b9501be43d461d6932c7285ec2c5664b7af",
-      "excerpt_hash": "6703beec98c9e5e2f3e1e91f37bd6b2eaf81408dcb4722a6bf7f1e24d89536bb",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1a60b2e868f34dc1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointHttpMethod.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "2f68af0d652e84b5de98908858c625617e126014161de39b63010a755be180c1",
-      "excerpt_hash": "7ae8e81ee06abb39b0eddfb8980ad400b01233865df617141fccf25a6c4d52ca",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4340c249486c5a46",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "08f484fc4139541ba3e94124112c550eb37b79aa35e8f2425acc734ad3e71a71",
-      "excerpt_hash": "63840c92666b152f54bd8f8f9ed6677eea2b622a9a8f7f373660b4a0793f4241",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3a9ee613aa17191d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
-      "excerpt_hash": "60702e3e01f0e83856ac2421db1d6c24299d4ff0440aa82a36cfcee8628bbe9e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9d693bdfb00ebabc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "03fa2300ec6c8e2a7af7f08b363d9221b218e1c06edcaaa4efc65101fbb1975a",
-      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
-      "source_id": "rock_developer",
-      "source_key": "379b8b3e079b94e5",
-      "source_record_id": "rock_developer:379b8b3e079b94e5",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "250e67d8811b9b6f843d4354688e7dead3f83267eaeed8b8459eef4e88d320f3",
-      "excerpt_hash": "65feb49bfbe36a5cdba822cf6a37ea7aaaeba3183174c5aac57f794f20ebe3d7",
-      "source_id": "rock_developer",
-      "source_key": "554e0dda0bc287c2",
-      "source_record_id": "rock_developer:554e0dda0bc287c2",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "744c606fb791074e5ba9a96e06fd12ca1ba8c85713fd3d0dfa67c9ed2e99bd9b",
-      "excerpt_hash": "95fe8d4a783290a8cf8b6d131b8bc472e8f220c0ddfd94b5b2124fd10b9bc908",
-      "source_id": "rock_recipes",
-      "source_key": "e0db41b4ca576c2c",
-      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
-      "url": "https://community.rockrms.com/recipes/497"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": "6efe882a6c3846b4aadf742c0c17fdf0af6af2cd15ec61040cbaa5ca57e78bba",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "triumph_resources",
-      "source_key": "73dd22236e939189",
-      "source_record_id": "triumph_resources:73dd22236e939189",
-      "url": "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a90e417eff4c7971f1b7cb1d40d2af9424be8a9731599175d47d42d2d86ddd43",
-      "excerpt_hash": "8fd6e109c9e69a8206cd592c126e15cb41d27b94afabc84b01006bd015bd793d",
-      "source_id": "rock_developer",
-      "source_key": "7e7dfe8f61fb6139",
-      "source_record_id": "rock_developer:7e7dfe8f61fb6139",
-      "url": "https://community.rockrms.com/developer/helix/overview/roadmap"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "09bd1188f1fd760d291ef7ee22d07f2b040aa2cf41af337ec9275a26a4ed21cf",
-      "excerpt_hash": "3fd0f066fc1d2f713d3d9c307ee099fa4a28d55f838ba29ab95b2236ae7f49fb",
-      "source_id": "rock_developer",
-      "source_key": "e6485e4722d85706",
-      "source_record_id": "rock_developer:e6485e4722d85706",
-      "url": "https://community.rockrms.com/developer/helix/strategies/tips"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "370a2f9197135e15acecb89908493e8672c9e43ffb76604f729b5945f650b42d",
-      "excerpt_hash": "95b910111bab4aa6b282f89617f296cf3e40bb32b420e7d1fcfbae195c3aefd0",
-      "source_id": "rock_developer",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_developer:30be60a23d3d0317",
-      "url": "https://community.rockrms.com/lava/commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f8f9b78406de88c64520a9fc361482f3f6212612b644976af880cba438bd438b",
-      "excerpt_hash": "a9384fa38dd73b346590d11558f608f1c97a8237c1cc7b3c694be9878d926603",
-      "source_id": "rock_developer",
-      "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:789454b4b23d582c",
-      "url": "https://community.rockrms.com/developer/helix/lava-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f9916367920e33bfc99dcae4662e2e2a3a90350cdd96d2edead7951466ce65c6",
-      "excerpt_hash": "ce7215b59019d412105b381f4a81773fb04ab4ea93d1a8cc0438535308c0532e",
-      "source_id": "rock_developer",
-      "source_key": "dfe176db3de773f7",
-      "source_record_id": "rock_developer:dfe176db3de773f7",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "0df0b120fbad167d0e17ddd48d11024c4fcdda97a4c728d0cc8d791382a38255",
-      "excerpt_hash": "2bdab7c10b9a4d2e5a6d833e1d9dc2fa01c674f5867ff473566353377c7fcef0",
-      "source_id": "rock_developer",
-      "source_key": "62578d1f5bcde8a6",
-      "source_record_id": "rock_developer:62578d1f5bcde8a6",
-      "url": "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "c6d7c64223dfdd4805a166d79034e3c59939b3c0db8109e6f97b8d16adf0af99",
-      "excerpt_hash": "6107af50e2ba6c5dbe62b25251113d5fae4411ca39bf3a017f74f23327d003ea",
-      "source_id": "rock_developer",
-      "source_key": "242a3ac9b87c1e0c",
-      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f5f0aa9c33588f3a14894c2804095c8df0cd1eb19fee47245c965c2a7c6a9249",
-      "excerpt_hash": "2a01e9241fbc78a723ae60fe427aaef46c6bed3d5f36a449d60b6e7470550d64",
-      "source_id": "rock_developer",
-      "source_key": "6f19b884e4da0469",
-      "source_record_id": "rock_developer:6f19b884e4da0469",
-      "url": "https://community.rockrms.com/lava/filters/attribute-filters"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "93a6d296e901a5022e5684dcb1f19d72b58696092721510903a2701f514d5499",
-      "excerpt_hash": "e9bd3e14f652f98b1b678dd43ea5e7a29f92f74bec2b3eedd40a8a072cb85cc4",
-      "source_id": "rock_developer",
-      "source_key": "8a5899b11a6ccbbe",
-      "source_record_id": "rock_developer:8a5899b11a6ccbbe",
-      "url": "https://community.rockrms.com/lava/tags/observe"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "4b60623e40e9379f02cccef7177663d8cf6099e90c629e1ab26114d16e54082b",
-      "excerpt_hash": "bedecf35e6f73b292fe510bc07dff6af3677f14ef1f77c13d6e087374fc013e0",
-      "source_id": "rock_developer",
-      "source_key": "6246c13b7e3be896",
-      "source_record_id": "rock_developer:6246c13b7e3be896",
-      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "116da7a9359399a03eadcd7af45c999aa4b2318edb5d752b6a0218943ce523d0",
-      "excerpt_hash": "627bc36b07ffa032b6ca7dc3272b829a63b7be08a3136741c6f0f9409cf2d8af",
-      "source_id": "rock_developer",
-      "source_key": "c9d3d496d37c624d",
-      "source_record_id": "rock_developer:c9d3d496d37c624d",
-      "url": "https://community.rockrms.com/developer/helix/strategies/limitations"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "754a5d12d6ca8aa35272076cf7119f547161c83ce88ddfe6115702650e88c360",
-      "excerpt_hash": "a484cdfa76591764eb932a4381c7f00edd62cdaf3b87b38e009b5552db80f1aa",
-      "source_id": "rock_developer",
-      "source_key": "044170dca04e8bbb",
-      "source_record_id": "rock_developer:044170dca04e8bbb",
-      "url": "https://community.rockrms.com/lava"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a64e7bdc24c13e0ef2c5ad5d38668c0d26311e4750e9b07d7d019a7d62d0a6f3",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
-      "source_id": "rock_developer",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_developer:14e4b0253d1428ca",
-      "url": "https://community.rockrms.com/api-docs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "e434ffdd2442b3d8cfdd99a1a6398b870599d9ddfdd6eb2e5884cbb8118afaf5",
-      "excerpt_hash": "dd0a586b874afaee1532bb0b5cd52ba09884fbfd9e256415513cf5fbee12bec1",
-      "source_id": "rock_developer",
-      "source_key": "b8af2a0e80b2efe7",
-      "source_record_id": "rock_developer:b8af2a0e80b2efe7",
-      "url": "https://community.rockrms.com/developer/helix/htmx"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f7606d6e68bdb1df6fdfdff8f88760a0a713451aab0a3f3df5734b7f9bc2e912",
-      "excerpt_hash": "b02bdff4928e338f020de148219635dbf5e547487706cbd166aca515640b7205",
-      "source_id": "rock_developer",
-      "source_key": "9d3715414e399928",
-      "source_record_id": "rock_developer:9d3715414e399928",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "65324b26ed7b877b748945f58041c228160bc695c55c42882aaaa64c5ce4413a",
-      "excerpt_hash": "b50f72b1d5ebb8890414368f0bb8b409d2bc3efbbebee022db1f40508f9f457d",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "af3c7989909a45eb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplicationService.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8c57faa913739d1f6046515a71458c67528b4e98bdeb5b9af2fa78a98e686213",
-      "excerpt_hash": "28732e442830ff8ea050fd5a372977761c1b841778125f6a9d42fa1211ab57d5",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f5b53ea059214a46",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
-      "excerpt_hash": "87598d973c2686895cee20761fa459af9d62f603df1d936b50ebcc190c8a95db",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "983ad6bce37e8e15",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "775b78943d43ff40",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/page/3761"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "bccb3c481f124a47684382ce681a86f95b835e49d46163c55868c6eda0c13e9f",
-      "excerpt_hash": "e1869c8777d45ff6288b413031b550e5e209b585dff8b7d890f79963192ad086",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "fb321ee8fa99b1e4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "848db9953c57a7f8ef061905d5fe14aff92e0749e5c3158e973acb78af393c33",
-      "excerpt_hash": "f6255bf899ec0631220bdedfc37e06d653ec9e17238c683c87f0b733768494aa",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "780667b2714ece4a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "a48003feed65487477ea0280118bb7f76403233e9a69aa5ac80fd132a5522e7d",
-      "excerpt_hash": "265bc10e98ca7888f591799b6e72a4cc64701473a485bbd8b52a9fc88051b1c9",
-      "source_id": "rock_developer",
-      "source_key": "0b279f737b839e4a",
-      "source_record_id": "rock_developer:0b279f737b839e4a",
-      "url": "https://community.rockrms.com/developer/helix/htmx/learning-more"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "9b9a34805b5355c424c939dc196e84f8ea152b818a5beed8c07c4042c2d82ed5",
-      "excerpt_hash": "e0bcb01379c3453142e906d3ba97a3a76f34f5cc698c84149ddead86eff0802f",
-      "source_id": "rock_developer",
-      "source_key": "c597e729f3063cb4",
-      "source_record_id": "rock_developer:c597e729f3063cb4",
-      "url": "https://community.rockrms.com/developer/helix/forms-controls"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "d43820871e19d46e23c80be6bc357e90b51ba69105cdcca08daa09c2f02a5afb",
-      "excerpt_hash": "b53319271a5af2d3c7348acb91594b959bf8e5fffa810cea0103ff68976eda1a",
-      "source_id": "rock_developer",
-      "source_key": "8331df94a7814389",
-      "source_record_id": "rock_developer:8331df94a7814389",
-      "url": "https://community.rockrms.com/developer/helix/strategies"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "2d0dcb975cc203def9951ccff9c6977f8f2981dc0b034d2f31d58e7b524129e1",
-      "excerpt_hash": "8f2d6ed887b62f7a96d588f3542869db5388ca30f1289f78f6318bf207dbdf16",
-      "source_id": "rock_developer",
-      "source_key": "3d7f0942c946fafb",
-      "source_record_id": "rock_developer:3d7f0942c946fafb",
-      "url": "https://community.rockrms.com/lava/commands/entity-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "cab2e558de588c280ec5159b6fd192ecb11de82c936a4908a7aa62397ddca3ed",
-      "excerpt_hash": "ada2df1f77bd12dac23c54242021d55f7b183da37ac0438d9aa21764533832b0",
-      "source_id": "rock_developer",
-      "source_key": "78b1a0a9975427ba",
-      "source_record_id": "rock_developer:78b1a0a9975427ba",
-      "url": "https://community.rockrms.com/lava/commands/cache-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "e550c06ce7bbda5e37447635145e6a10a3959aba5cbd62f8c291a7f08541474a",
-      "excerpt_hash": "8e7320da7176f0e832393ab5ba0a86fee46b9601da0f5575b7226ca94f85ea87",
-      "source_id": "rock_developer",
-      "source_key": "fe094e82abfc4adf",
-      "source_record_id": "rock_developer:fe094e82abfc4adf",
-      "url": "https://community.rockrms.com/lava/commands/web-request-commands"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "395916b12e93abb98b156e4a85231d5271eeeb7ef107ad74a1d3bd8dafc3ea59",
-      "excerpt_hash": "7a91811f0a3768084a7d083f6a774d84fd6dcc45c557933fdd169b37ddece610",
-      "source_id": "rock_developer",
-      "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
-      "url": "https://community.rockrms.com/lava/lava-api"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "57b692eee77e345f005976550e5120627ad7fb1e2074793a87311dc9ee7933e2",
-      "excerpt_hash": "c16df98b1697de13d6e53ef37e2f93790f077575ee9fbd991336827e13d7511a",
-      "source_id": "rock_developer",
-      "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
-      "url": "https://community.rockrms.com/lava/remote-lava"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "598a20b5c4a335bf5f245eb3a66a62cc3b26b9677001097a66fb340ad0ac3270",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
       "confidence": "normal",
-      "end_line": 45,
-      "heading": "1. Executive Summary For Agents",
+      "end_line": 25,
+      "heading": "Agent Summary",
       "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
+      "section_id": "agent-summary",
       "source_keys": [
         "802567c280193bd0",
-        "6a9eebe7a077d89a",
-        "fd3fd2bfe8a855c0",
-        "1b6ba28ced999d83",
         "dfd0cdc56d97fa7f",
-        "776256c424368312",
-        "6fb948dbfe87bbf1"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "normal",
-      "end_line": 81,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": false,
-      "section_id": "2-scope-and-terminology",
-      "source_keys": [
-        "48cabcef2f22cabd",
-        "bce31f25cb8a199e",
-        "01e2937a59f94ae2",
-        "8f9847f0880303e0",
         "366c62c0274cf5af",
-        "8f9847f0880303e0",
+        "6a9eebe7a077d89a"
+      ],
+      "start_line": 18
+    },
+    {
+      "confidence": "normal",
+      "end_line": 43,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": false,
+      "section_id": "scope-and-boundaries",
+      "source_keys": [
+        "c934e1779dd6267f"
+      ],
+      "start_line": 26
+    },
+    {
+      "confidence": "normal",
+      "end_line": 68,
+      "heading": "Mental Model",
+      "needs_live_verification": false,
+      "section_id": "mental-model",
+      "source_keys": [
+        "366c62c0274cf5af",
         "fd3fd2bfe8a855c0",
-        "c877aeede8d53f3d",
-        "6b64c81c19c97a26",
-        "427e5301d593e4bc",
-        "543ea1d48ed32f6d"
+        "dfd0cdc56d97fa7f"
       ],
-      "start_line": 46
+      "start_line": 44
     },
     {
       "confidence": "normal",
-      "end_line": 112,
-      "heading": "3. Helix Mental Model",
-      "needs_live_verification": true,
-      "section_id": "3-helix-mental-model",
+      "end_line": 82,
+      "heading": "Overview And Roadmap",
+      "needs_live_verification": false,
+      "section_id": "overview-and-roadmap",
       "source_keys": [
-        "dfd0cdc56d97fa7f",
-        "f9cdef870297ac22"
+        "802567c280193bd0",
+        "789454b4b23d582c",
+        "f9cdef870297ac22",
+        "7e7dfe8f61fb6139"
       ],
-      "start_line": 82
+      "start_line": 69
     },
     {
       "confidence": "normal",
-      "end_line": 127,
-      "heading": "4. Source Authority And How To Use This Guide",
+      "end_line": 105,
+      "heading": "HTMX",
       "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
+      "section_id": "htmx",
       "source_keys": [
-        "777226ca29c00837",
+        "1b6ba28ced999d83",
+        "e6485e4722d85706",
+        "0b279f737b839e4a"
+      ],
+      "start_line": 83
+    },
+    {
+      "confidence": "normal",
+      "end_line": 118,
+      "heading": "Lava Applications",
+      "needs_live_verification": true,
+      "section_id": "lava-applications",
+      "source_keys": [
+        "8f9847f0880303e0",
+        "8f9847f0880303e0",
+        "2fb7a29f4e7cec2a"
+      ],
+      "start_line": 106
+    },
+    {
+      "confidence": "normal",
+      "end_line": 136,
+      "heading": "Lava Application Content block",
+      "needs_live_verification": false,
+      "section_id": "lava-applications-lava-application-content-block",
+      "source_keys": [
+        "fd3fd2bfe8a855c0",
+        "fd3fd2bfe8a855c0",
+        "dfd0cdc56d97fa7f"
+      ],
+      "start_line": 119
+    },
+    {
+      "confidence": "normal",
+      "end_line": 140,
+      "heading": "Editing with Magnus",
+      "needs_live_verification": true,
+      "section_id": "lava-applications-editing-with-magnus",
+      "source_keys": [
+        "9d3715414e399928"
+      ],
+      "start_line": 137
+    },
+    {
+      "confidence": "normal",
+      "end_line": 144,
+      "heading": "Lava Endpoints",
+      "needs_live_verification": true,
+      "section_id": "lava-endpoints",
+      "source_keys": [
+        "6a9eebe7a077d89a"
+      ],
+      "start_line": 141
+    },
+    {
+      "confidence": "normal",
+      "end_line": 158,
+      "heading": "Routing and HTTP methods",
+      "needs_live_verification": false,
+      "section_id": "lava-endpoints-routing-and-http-methods",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "83fa4a8a47bc810b",
+        "6a9eebe7a077d89a",
+        "dfd0cdc56d97fa7f"
+      ],
+      "start_line": 145
+    },
+    {
+      "confidence": "normal",
+      "end_line": 169,
+      "heading": "Security modes",
+      "needs_live_verification": true,
+      "section_id": "lava-endpoints-security-modes",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "bfe076d3907fc3a1"
+      ],
+      "start_line": 159
+    },
+    {
+      "confidence": "normal",
+      "end_line": 187,
+      "heading": "Request merge fields",
+      "needs_live_verification": true,
+      "section_id": "lava-endpoints-request-merge-fields",
+      "source_keys": [
+        "6a9eebe7a077d89a",
         "776256c424368312",
-        "6fb948dbfe87bbf1",
-        "2ae8e144de067f9b"
+        "dfd0cdc56d97fa7f"
       ],
-      "start_line": 113
+      "start_line": 170
+    },
+    {
+      "confidence": "normal",
+      "end_line": 197,
+      "heading": "Enabled commands and endpoint responses",
+      "needs_live_verification": true,
+      "section_id": "lava-endpoints-enabled-commands-and-endpoint-responses",
+      "source_keys": [
+        "6a9eebe7a077d89a",
+        "c934e1779dd6267f",
+        "6ef56558ce58d4fa",
+        "52c683d5cc0018da"
+      ],
+      "start_line": 188
     },
     {
       "confidence": "structural",
-      "end_line": 129,
-      "heading": "5. Core Configuration And Data Model",
+      "end_line": 199,
+      "heading": "Forms And Controls",
       "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
+      "section_id": "forms-and-controls",
       "source_keys": [
-        "8f9847f0880303e0",
-        "01e2937a59f94ae2",
-        "4c50fa0d0cd41b3f",
-        "e4867c77e2d22f41",
-        "1a60b2e868f34dc1",
-        "4340c249486c5a46",
-        "427e5301d593e4bc",
-        "fd3fd2bfe8a855c0"
+        "c877aeede8d53f3d",
+        "6b64c81c19c97a26",
+        "dfe176db3de773f7",
+        "554e0dda0bc287c2",
+        "dfd0cdc56d97fa7f",
+        "242a3ac9b87c1e0c"
       ],
-      "start_line": 128
+      "start_line": 198
     },
     {
       "confidence": "normal",
-      "end_line": 153,
-      "heading": "Lava Application Configuration",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-lava-application-configuration",
-      "source_keys": [
-        "8f9847f0880303e0",
-        "01e2937a59f94ae2",
-        "4c50fa0d0cd41b3f",
-        "e4867c77e2d22f41"
-      ],
-      "start_line": 130
-    },
-    {
-      "confidence": "normal",
-      "end_line": 172,
-      "heading": "Lava Endpoint Configuration",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-lava-endpoint-configuration",
-      "source_keys": [
-        "1a60b2e868f34dc1",
-        "4340c249486c5a46",
-        "427e5301d593e4bc",
-        "e4867c77e2d22f41"
-      ],
-      "start_line": 154
-    },
-    {
-      "confidence": "normal",
-      "end_line": 195,
-      "heading": "Content Block Configuration",
+      "end_line": 203,
+      "heading": "Lava Forms",
       "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-content-block-configuration",
+      "section_id": "forms-and-controls-lava-forms",
       "source_keys": [
-        "fd3fd2bfe8a855c0",
-        "fd3fd2bfe8a855c0"
+        "c877aeede8d53f3d"
       ],
-      "start_line": 173
+      "start_line": 200
+    },
+    {
+      "confidence": "normal",
+      "end_line": 209,
+      "heading": "Control shortcodes",
+      "needs_live_verification": true,
+      "section_id": "forms-and-controls-control-shortcodes",
+      "source_keys": [
+        "6b64c81c19c97a26",
+        "dfe176db3de773f7"
+      ],
+      "start_line": 204
+    },
+    {
+      "confidence": "normal",
+      "end_line": 215,
+      "heading": "Validation",
+      "needs_live_verification": false,
+      "section_id": "forms-and-controls-validation",
+      "source_keys": [
+        "554e0dda0bc287c2",
+        "554e0dda0bc287c2",
+        "dfd0cdc56d97fa7f"
+      ],
+      "start_line": 210
     },
     {
       "confidence": "normal",
       "end_line": 226,
-      "heading": "6. Primary Entities And Relationships",
+      "heading": "Loading indicators",
       "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships",
+      "section_id": "forms-and-controls-loading-indicators",
       "source_keys": [
-        "2ae8e144de067f9b",
-        "3a9ee613aa17191d",
-        "366c62c0274cf5af",
-        "8f9847f0880303e0",
-        "9d693bdfb00ebabc",
-        "6a9eebe7a077d89a"
+        "242a3ac9b87c1e0c",
+        "242a3ac9b87c1e0c"
       ],
-      "start_line": 196
+      "start_line": 216
     },
     {
       "confidence": "structural",
       "end_line": 228,
-      "heading": "7. Common Helix Workflows",
+      "heading": "Security And Observability",
       "needs_live_verification": false,
-      "section_id": "7-common-helix-workflows",
+      "section_id": "security-and-observability",
       "source_keys": [
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
         "dfd0cdc56d97fa7f",
-        "554e0dda0bc287c2",
-        "e0db41b4ca576c2c",
-        "73dd22236e939189"
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "e0bf73a6f90963b4",
+        "2bc4e055fa122127"
       ],
       "start_line": 227
     },
     {
       "confidence": "normal",
-      "end_line": 251,
-      "heading": "Read-Only Partial Refresh",
+      "end_line": 247,
+      "heading": "Endpoint security review",
       "needs_live_verification": true,
-      "section_id": "7-common-helix-workflows-read-only-partial-refresh",
+      "section_id": "security-and-observability-endpoint-security-review",
       "source_keys": [
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5"
+        "dfd0cdc56d97fa7f",
+        "6a9eebe7a077d89a"
       ],
       "start_line": 229
     },
     {
       "confidence": "normal",
-      "end_line": 267,
-      "heading": "State-Changing Action",
+      "end_line": 255,
+      "heading": "Observability",
       "needs_live_verification": false,
-      "section_id": "7-common-helix-workflows-state-changing-action",
+      "section_id": "security-and-observability-observability",
       "source_keys": [
-        "dfd0cdc56d97fa7f",
-        "554e0dda0bc287c2"
+        "379b8b3e079b94e5",
+        "379b8b3e079b94e5",
+        "e0bf73a6f90963b4",
+        "2bc4e055fa122127"
       ],
-      "start_line": 252
+      "start_line": 248
     },
     {
-      "confidence": "community-supported",
-      "end_line": 280,
-      "heading": "Admin Utility",
-      "needs_live_verification": true,
-      "section_id": "7-common-helix-workflows-admin-utility",
+      "confidence": "normal",
+      "end_line": 261,
+      "heading": "Strategies And Limitations",
+      "needs_live_verification": false,
+      "section_id": "strategies-and-limitations",
       "source_keys": [
+        "c9d3d496d37c624d",
+        "6a9eebe7a077d89a",
+        "6246c13b7e3be896"
+      ],
+      "start_line": 256
+    },
+    {
+      "confidence": "normal",
+      "end_line": 274,
+      "heading": "Reviewed community patterns",
+      "needs_live_verification": true,
+      "section_id": "strategies-and-limitations-reviewed-community-patterns",
+      "source_keys": [
+        "fd3fd2bfe8a855c0",
+        "dfd0cdc56d97fa7f",
+        "fd3fd2bfe8a855c0",
+        "02f59e87ae964075",
+        "8d2e384458fd1290",
         "e0db41b4ca576c2c"
       ],
-      "start_line": 268
+      "start_line": 262
     },
     {
-      "confidence": "citation-only",
-      "end_line": 293,
-      "heading": "Guided Search Or Finder",
+      "confidence": "normal",
+      "end_line": 286,
+      "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
-      "section_id": "7-common-helix-workflows-guided-search-or-finder",
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "73dd22236e939189"
+        "776256c424368312",
+        "48cabcef2f22cabd",
+        "777226ca29c00837",
+        "6fb948dbfe87bbf1",
+        "6a9eebe7a077d89a",
+        "776256c424368312",
+        "776256c424368312"
       ],
-      "start_line": 281
+      "start_line": 275
+    },
+    {
+      "confidence": "structural",
+      "end_line": 288,
+      "heading": "Troubleshooting Decision Tree",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree",
+      "source_keys": [
+        "fd3fd2bfe8a855c0",
+        "e6485e4722d85706",
+        "366c62c0274cf5af",
+        "6a9eebe7a077d89a",
+        "8f9847f0880303e0",
+        "776256c424368312",
+        "c877aeede8d53f3d",
+        "554e0dda0bc287c2",
+        "242a3ac9b87c1e0c",
+        "c9d3d496d37c624d",
+        "379b8b3e079b94e5",
+        "2bc4e055fa122127"
+      ],
+      "start_line": 287
+    },
+    {
+      "confidence": "normal",
+      "end_line": 298,
+      "heading": "An HTMX action does nothing or updates the wrong region",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-htmx-action-does-nothing-or-updates-the-wrong-region",
+      "source_keys": [
+        "fd3fd2bfe8a855c0",
+        "e6485e4722d85706"
+      ],
+      "start_line": 289
     },
     {
       "confidence": "normal",
       "end_line": 308,
-      "heading": "8. Overview And Roadmap Deep Dive",
+      "heading": "The endpoint returns not found or the wrong handler runs",
       "needs_live_verification": true,
-      "section_id": "8-overview-and-roadmap-deep-dive",
+      "section_id": "troubleshooting-decision-tree-the-endpoint-returns-not-found-or-the-wrong-handler-runs",
       "source_keys": [
-        "802567c280193bd0",
-        "7e7dfe8f61fb6139",
-        "48cabcef2f22cabd",
-        "776256c424368312",
-        "777226ca29c00837",
-        "6fb948dbfe87bbf1",
-        "776256c424368312"
+        "366c62c0274cf5af",
+        "6a9eebe7a077d89a"
       ],
-      "start_line": 294
+      "start_line": 299
     },
     {
       "confidence": "normal",
-      "end_line": 352,
-      "heading": "9. HTMX Deep Dive",
+      "end_line": 318,
+      "heading": "A user is denied while an administrator succeeds",
       "needs_live_verification": true,
-      "section_id": "9-htmx-deep-dive",
+      "section_id": "troubleshooting-decision-tree-a-user-is-denied-while-an-administrator-succeeds",
       "source_keys": [
-        "fd3fd2bfe8a855c0",
-        "1b6ba28ced999d83",
-        "e6485e4722d85706"
+        "8f9847f0880303e0",
+        "6a9eebe7a077d89a",
+        "776256c424368312"
       ],
       "start_line": 309
     },
     {
       "confidence": "normal",
-      "end_line": 376,
-      "heading": "10. Lava Applications Deep Dive",
-      "needs_live_verification": true,
-      "section_id": "10-lava-applications-deep-dive",
+      "end_line": 328,
+      "heading": "Form validation is skipped or nested-form behavior is inconsistent",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree-form-validation-is-skipped-or-nested-form-behavior-is-inconsistent",
       "source_keys": [
-        "366c62c0274cf5af",
-        "f9cdef870297ac22"
+        "c877aeede8d53f3d",
+        "554e0dda0bc287c2"
       ],
-      "start_line": 353
+      "start_line": 319
     },
     {
       "confidence": "normal",
-      "end_line": 410,
-      "heading": "Configuration Rigging Strategy",
+      "end_line": 337,
+      "heading": "Body or RawBody is empty or unavailable",
       "needs_live_verification": true,
-      "section_id": "10-lava-applications-deep-dive-configuration-rigging-strategy",
+      "section_id": "troubleshooting-decision-tree-body-or-rawbody-is-empty-or-unavailable",
       "source_keys": [
-        "8f9847f0880303e0"
+        "6a9eebe7a077d89a",
+        "776256c424368312"
+      ],
+      "start_line": 329
+    },
+    {
+      "confidence": "normal",
+      "end_line": 346,
+      "heading": "A loading spinner is missing",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-loading-spinner-is-missing",
+      "source_keys": [
+        "242a3ac9b87c1e0c"
+      ],
+      "start_line": 338
+    },
+    {
+      "confidence": "normal",
+      "end_line": 354,
+      "heading": "Endpoint-injected styles or scripts do not load",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-endpoint-injected-styles-or-scripts-do-not-load",
+      "source_keys": [
+        "c9d3d496d37c624d"
+      ],
+      "start_line": 347
+    },
+    {
+      "confidence": "normal",
+      "end_line": 364,
+      "heading": "An endpoint is slow or makes excessive database calls",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-endpoint-is-slow-or-makes-excessive-database-calls",
+      "source_keys": [
+        "379b8b3e079b94e5",
+        "2bc4e055fa122127"
+      ],
+      "start_line": 355
+    },
+    {
+      "confidence": "normal",
+      "end_line": 374,
+      "heading": "Sorting or filtering resets after refresh",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-sorting-or-filtering-resets-after-refresh",
+      "source_keys": [
+        "fd3fd2bfe8a855c0"
+      ],
+      "start_line": 365
+    },
+    {
+      "confidence": "structural",
+      "end_line": 376,
+      "heading": "Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "agent-task-recipes",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5",
+        "fd3fd2bfe8a855c0",
+        "dfd0cdc56d97fa7f",
+        "554e0dda0bc287c2",
+        "6ef56558ce58d4fa",
+        "c934e1779dd6267f",
+        "52c683d5cc0018da",
+        "8d2e384458fd1290",
+        "f9cdef870297ac22"
+      ],
+      "start_line": 375
+    },
+    {
+      "confidence": "normal",
+      "end_line": 413,
+      "heading": "Recipe: Inspect an existing Helix application before changing it",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-inspect-an-existing-helix-application-before-changing-it",
+      "source_keys": [
+        "366c62c0274cf5af",
+        "6a9eebe7a077d89a",
+        "379b8b3e079b94e5"
       ],
       "start_line": 377
     },
     {
       "confidence": "normal",
-      "end_line": 424,
-      "heading": "Application Security",
-      "needs_live_verification": false,
-      "section_id": "10-lava-applications-deep-dive-application-security",
-      "source_keys": [
-        "8f9847f0880303e0",
-        "9d693bdfb00ebabc"
-      ],
-      "start_line": 411
-    },
-    {
-      "confidence": "normal",
-      "end_line": 428,
-      "heading": "11. Lava Endpoints Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "11-lava-endpoints-deep-dive",
-      "source_keys": [
-        "6a9eebe7a077d89a"
-      ],
-      "start_line": 425
-    },
-    {
-      "confidence": "normal",
-      "end_line": 449,
-      "heading": "Routing",
+      "end_line": 444,
+      "heading": "Recipe: Build a read-only HTMX result fragment",
       "needs_live_verification": true,
-      "section_id": "11-lava-endpoints-deep-dive-routing",
+      "section_id": "agent-task-recipes-recipe-build-a-read-only-htmx-result-fragment",
       "source_keys": [
         "fd3fd2bfe8a855c0",
-        "2ae8e144de067f9b"
+        "dfd0cdc56d97fa7f",
+        "379b8b3e079b94e5"
       ],
-      "start_line": 429
-    },
-    {
-      "confidence": "normal",
-      "end_line": 464,
-      "heading": "HTTP Methods",
-      "needs_live_verification": false,
-      "section_id": "11-lava-endpoints-deep-dive-http-methods",
-      "source_keys": [
-        "1a60b2e868f34dc1",
-        "dfd0cdc56d97fa7f"
-      ],
-      "start_line": 450
+      "start_line": 414
     },
     {
       "confidence": "normal",
       "end_line": 479,
-      "heading": "Security Modes",
-      "needs_live_verification": false,
-      "section_id": "11-lava-endpoints-deep-dive-security-modes",
+      "heading": "Recipe: Build a validated mutation form",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-validated-mutation-form",
       "source_keys": [
-        "6a9eebe7a077d89a",
-        "427e5301d593e4bc"
+        "554e0dda0bc287c2",
+        "dfd0cdc56d97fa7f",
+        "6ef56558ce58d4fa",
+        "c934e1779dd6267f"
       ],
-      "start_line": 465
+      "start_line": 445
     },
     {
       "confidence": "normal",
-      "end_line": 498,
-      "heading": "Enabled Lava Commands",
+      "end_line": 500,
+      "heading": "Recipe: Render endpoint content on first paint",
       "needs_live_verification": false,
-      "section_id": "11-lava-endpoints-deep-dive-enabled-lava-commands",
+      "section_id": "agent-task-recipes-recipe-render-endpoint-content-on-first-paint",
       "source_keys": [
-        "30be60a23d3d0317",
-        "789454b4b23d582c"
+        "52c683d5cc0018da"
       ],
       "start_line": 480
     },
     {
-      "confidence": "normal",
-      "end_line": 504,
-      "heading": "Merge Fields And Request Body",
+      "confidence": "community-supported",
+      "end_line": 527,
+      "heading": "Recipe: Validate a rendered Helix dashboard",
       "needs_live_verification": true,
-      "section_id": "11-lava-endpoints-deep-dive-merge-fields-and-request-body",
+      "section_id": "agent-task-recipes-recipe-validate-a-rendered-helix-dashboard",
       "source_keys": [
-        "776256c424368312",
-        "2ae8e144de067f9b"
+        "8d2e384458fd1290"
       ],
-      "start_line": 499
+      "start_line": 501
     },
     {
       "confidence": "normal",
-      "end_line": 508,
-      "heading": "12. Forms And Controls Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "12-forms-and-controls-deep-dive",
-      "source_keys": [
-        "c877aeede8d53f3d"
-      ],
-      "start_line": 505
-    },
-    {
-      "confidence": "normal",
-      "end_line": 532,
-      "heading": "Lava Form Pattern",
+      "end_line": 544,
+      "heading": "Recipe: Decide whether to replace a Lava Application",
       "needs_live_verification": true,
-      "section_id": "12-forms-and-controls-deep-dive-lava-form-pattern",
+      "section_id": "agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application",
       "source_keys": [
-        "6b64c81c19c97a26"
+        "f9cdef870297ac22"
       ],
-      "start_line": 509
+      "start_line": 528
     },
     {
-      "confidence": "normal",
-      "end_line": 547,
-      "heading": "Control Shortcodes",
+      "confidence": "needs-citation",
+      "end_line": 575,
+      "heading": "Known Gaps And Live Verification",
       "needs_live_verification": false,
-      "section_id": "12-forms-and-controls-deep-dive-control-shortcodes",
+      "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "6b64c81c19c97a26",
-        "6b64c81c19c97a26",
-        "dfe176db3de773f7",
-        "62578d1f5bcde8a6"
+        "f9cdef870297ac22"
       ],
-      "start_line": 533
-    },
-    {
-      "confidence": "normal",
-      "end_line": 560,
-      "heading": "Validation",
-      "needs_live_verification": false,
-      "section_id": "12-forms-and-controls-deep-dive-validation",
-      "source_keys": [
-        "554e0dda0bc287c2",
-        "554e0dda0bc287c2"
-      ],
-      "start_line": 548
-    },
-    {
-      "confidence": "normal",
-      "end_line": 572,
-      "heading": "Loading Indicators",
-      "needs_live_verification": true,
-      "section_id": "12-forms-and-controls-deep-dive-loading-indicators",
-      "source_keys": [
-        "242a3ac9b87c1e0c"
-      ],
-      "start_line": 561
+      "start_line": 545
     },
     {
       "confidence": "structural",
-      "end_line": 574,
-      "heading": "13. Security And Observability Deep Dive",
+      "end_line": 577,
+      "heading": "Source Map",
       "needs_live_verification": false,
-      "section_id": "13-security-and-observability-deep-dive",
-      "source_keys": [
-        "dfd0cdc56d97fa7f",
-        "6f19b884e4da0469",
-        "379b8b3e079b94e5",
-        "8a5899b11a6ccbbe"
-      ],
-      "start_line": 573
-    },
-    {
-      "confidence": "normal",
-      "end_line": 594,
-      "heading": "Security Principles",
-      "needs_live_verification": true,
-      "section_id": "13-security-and-observability-deep-dive-security-principles",
-      "source_keys": [
-        "dfd0cdc56d97fa7f",
-        "6f19b884e4da0469"
-      ],
-      "start_line": 575
-    },
-    {
-      "confidence": "normal",
-      "end_line": 622,
-      "heading": "Observability",
-      "needs_live_verification": true,
-      "section_id": "13-security-and-observability-deep-dive-observability",
-      "source_keys": [
-        "379b8b3e079b94e5",
-        "8a5899b11a6ccbbe",
-        "8a5899b11a6ccbbe"
-      ],
-      "start_line": 595
-    },
-    {
-      "confidence": "normal",
-      "end_line": 640,
-      "heading": "14. Strategies And Limitations Deep Dive",
-      "needs_live_verification": true,
-      "section_id": "14-strategies-and-limitations-deep-dive",
-      "source_keys": [
-        "6246c13b7e3be896",
-        "c9d3d496d37c624d",
-        "e6485e4722d85706"
-      ],
-      "start_line": 623
-    },
-    {
-      "confidence": "structural",
-      "end_line": 642,
-      "heading": "15. Related Rock Areas: Lava, Api Integrations, Security, Cms, Workflows, Forms, Htmx, Observability",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability",
-      "source_keys": [
-        "044170dca04e8bbb",
-        "14e4b0253d1428ca",
-        "bce31f25cb8a199e",
-        "c877aeede8d53f3d",
-        "b8af2a0e80b2efe7",
-        "379b8b3e079b94e5",
-        "8a5899b11a6ccbbe"
-      ],
-      "start_line": 641
-    },
-    {
-      "confidence": "normal",
-      "end_line": 646,
-      "heading": "Lava",
-      "needs_live_verification": true,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-lava",
-      "source_keys": [
-        "044170dca04e8bbb"
-      ],
-      "start_line": 643
-    },
-    {
-      "confidence": "normal",
-      "end_line": 650,
-      "heading": "API Integrations",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-api-integrations",
-      "source_keys": [
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 647
-    },
-    {
-      "confidence": "structural",
-      "end_line": 654,
-      "heading": "Security",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-security",
-      "source_keys": [
-        "14e4b0253d1428ca"
-      ],
-      "start_line": 651
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 658,
-      "heading": "CMS",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-cms",
-      "source_keys": [
-        "bce31f25cb8a199e"
-      ],
-      "start_line": 655
-    },
-    {
-      "confidence": "structural",
-      "end_line": 662,
-      "heading": "Workflows",
-      "needs_live_verification": true,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-workflows",
-      "source_keys": [
-        "bce31f25cb8a199e"
-      ],
-      "start_line": 659
-    },
-    {
-      "confidence": "normal",
-      "end_line": 666,
-      "heading": "Forms",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-forms",
-      "source_keys": [
-        "c877aeede8d53f3d"
-      ],
-      "start_line": 663
-    },
-    {
-      "confidence": "normal",
-      "end_line": 670,
-      "heading": "HTMX",
-      "needs_live_verification": true,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-htmx",
-      "source_keys": [
-        "b8af2a0e80b2efe7"
-      ],
-      "start_line": 667
-    },
-    {
-      "confidence": "normal",
-      "end_line": 674,
-      "heading": "Observability",
-      "needs_live_verification": false,
-      "section_id": "15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-observability",
-      "source_keys": [
-        "379b8b3e079b94e5",
-        "8a5899b11a6ccbbe"
-      ],
-      "start_line": 671
-    },
-    {
-      "confidence": "normal",
-      "end_line": 703,
-      "heading": "16. Administration And Operational Guardrails",
-      "needs_live_verification": true,
-      "section_id": "16-administration-and-operational-guardrails",
-      "source_keys": [
-        "9d3715414e399928"
-      ],
-      "start_line": 675
-    },
-    {
-      "confidence": "normal",
-      "end_line": 725,
-      "heading": "17. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": true,
-      "section_id": "17-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "2ae8e144de067f9b",
-        "01e2937a59f94ae2",
-        "4c50fa0d0cd41b3f",
-        "9d693bdfb00ebabc",
-        "af3c7989909a45eb",
-        "3a9ee613aa17191d",
-        "427e5301d593e4bc",
-        "1a60b2e868f34dc1",
-        "f5b53ea059214a46",
-        "983ad6bce37e8e15",
-        "e4867c77e2d22f41",
-        "30be60a23d3d0317",
-        "775b78943d43ff40",
-        "f5b53ea059214a46",
-        "983ad6bce37e8e15"
-      ],
-      "start_line": 704
-    },
-    {
-      "confidence": "normal",
-      "end_line": 762,
-      "heading": "18. Reporting, Analytics, And Model Map",
-      "needs_live_verification": true,
-      "section_id": "18-reporting-analytics-and-model-map",
-      "source_keys": [
-        "bce31f25cb8a199e",
-        "fb321ee8fa99b1e4",
-        "780667b2714ece4a"
-      ],
-      "start_line": 726
-    },
-    {
-      "confidence": "normal",
-      "end_line": 784,
-      "heading": "19. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "19-version-and-release-caveats",
-      "source_keys": [
-        "8a5899b11a6ccbbe",
-        "044170dca04e8bbb",
-        "6f19b884e4da0469",
-        "776256c424368312",
-        "242a3ac9b87c1e0c",
-        "242a3ac9b87c1e0c",
-        "776256c424368312",
-        "e0db41b4ca576c2c"
-      ],
-      "start_line": 763
-    },
-    {
-      "confidence": "structural",
-      "end_line": 786,
-      "heading": "20. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "20-implementation-playbooks",
-      "source_keys": [
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "242a3ac9b87c1e0c"
-      ],
-      "start_line": 785
-    },
-    {
-      "confidence": "normal",
-      "end_line": 803,
-      "heading": "Playbook A: Build A Read-Only Results Panel",
-      "needs_live_verification": true,
-      "section_id": "20-implementation-playbooks-playbook-a-build-a-read-only-results-panel",
-      "source_keys": [
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "242a3ac9b87c1e0c"
-      ],
-      "start_line": 787
-    },
-    {
-      "confidence": "normal",
-      "end_line": 820,
-      "heading": "Playbook B: Build A Safe Update Form",
-      "needs_live_verification": true,
-      "section_id": "20-implementation-playbooks-playbook-b-build-a-safe-update-form",
-      "source_keys": [
-        "366c62c0274cf5af"
-      ],
-      "start_line": 804
-    },
-    {
-      "confidence": "structural",
-      "end_line": 833,
-      "heading": "Playbook C: Convert A Static Lava Page To Helix",
-      "needs_live_verification": true,
-      "section_id": "20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix",
-      "source_keys": [
-        "366c62c0274cf5af"
-      ],
-      "start_line": 821
-    },
-    {
-      "confidence": "structural",
-      "end_line": 847,
-      "heading": "Playbook D: Audit An Existing Helix App",
-      "needs_live_verification": true,
-      "section_id": "20-implementation-playbooks-playbook-d-audit-an-existing-helix-app",
-      "source_keys": [
-        "366c62c0274cf5af"
-      ],
-      "start_line": 834
-    },
-    {
-      "confidence": "structural",
-      "end_line": 849,
-      "heading": "21. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree",
-      "source_keys": [
-        "e6485e4722d85706",
-        "554e0dda0bc287c2",
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 848
-    },
-    {
-      "confidence": "normal",
-      "end_line": 862,
-      "heading": "The button does nothing",
-      "needs_live_verification": true,
-      "section_id": "21-troubleshooting-decision-tree-the-button-does-nothing",
-      "source_keys": [
-        "e6485e4722d85706"
-      ],
-      "start_line": 850
-    },
-    {
-      "confidence": "structural",
-      "end_line": 875,
-      "heading": "The request is sent but endpoint is not found",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree-the-request-is-sent-but-endpoint-is-not-found",
-      "source_keys": [
-        "e6485e4722d85706"
-      ],
-      "start_line": 863
-    },
-    {
-      "confidence": "structural",
-      "end_line": 887,
-      "heading": "The endpoint returns login markup or unauthorized",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree-the-endpoint-returns-login-markup-or-unauthorized",
-      "source_keys": [
-        "e6485e4722d85706"
-      ],
-      "start_line": 876
-    },
-    {
-      "confidence": "structural",
-      "end_line": 900,
-      "heading": "The endpoint works in UI but fails when called directly",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree-the-endpoint-works-in-ui-but-fails-when-called-directly",
-      "source_keys": [
-        "e6485e4722d85706"
-      ],
-      "start_line": 888
-    },
-    {
-      "confidence": "normal",
-      "end_line": 911,
-      "heading": "Validation does not run",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree-validation-does-not-run",
-      "source_keys": [
-        "554e0dda0bc287c2"
-      ],
-      "start_line": 901
-    },
-    {
-      "confidence": "structural",
-      "end_line": 921,
-      "heading": "Spinner does not show",
-      "needs_live_verification": false,
-      "section_id": "21-troubleshooting-decision-tree-spinner-does-not-show",
-      "source_keys": [
-        "554e0dda0bc287c2"
-      ],
-      "start_line": 912
-    },
-    {
-      "confidence": "normal",
-      "end_line": 938,
-      "heading": "Endpoint is slow",
-      "needs_live_verification": true,
-      "section_id": "21-troubleshooting-decision-tree-endpoint-is-slow",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 922
-    },
-    {
-      "confidence": "structural",
-      "end_line": 954,
-      "heading": "Endpoint modifies wrong data",
-      "needs_live_verification": true,
-      "section_id": "21-troubleshooting-decision-tree-endpoint-modifies-wrong-data",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 939
-    },
-    {
-      "confidence": "structural",
-      "end_line": 956,
-      "heading": "22. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "22-agent-task-recipes",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 955
-    },
-    {
-      "confidence": "structural",
-      "end_line": 968,
-      "heading": "Recipe: Find The Endpoint Behind A Button",
-      "needs_live_verification": true,
-      "section_id": "22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 957
-    },
-    {
-      "confidence": "structural",
-      "end_line": 981,
-      "heading": "Recipe: Determine Whether A Helix App Is Public-Safe",
-      "needs_live_verification": false,
-      "section_id": "22-agent-task-recipes-recipe-determine-whether-a-helix-app-is-public-safe",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 969
-    },
-    {
-      "confidence": "structural",
-      "end_line": 994,
-      "heading": "Recipe: Upgrade A Plugin-Era Helix App",
-      "needs_live_verification": true,
-      "section_id": "22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 982
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1007,
-      "heading": "Recipe: Review A Community Recipe Before Use",
-      "needs_live_verification": true,
-      "section_id": "22-agent-task-recipes-recipe-review-a-community-recipe-before-use",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 995
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1018,
-      "heading": "Recipe: Add Observability To A Complex Endpoint",
-      "needs_live_verification": false,
-      "section_id": "22-agent-task-recipes-recipe-add-observability-to-a-complex-endpoint",
-      "source_keys": [
-        "379b8b3e079b94e5"
-      ],
-      "start_line": 1008
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1044,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "c877aeede8d53f3d",
-        "6a9eebe7a077d89a",
-        "379b8b3e079b94e5",
-        "242a3ac9b87c1e0c",
-        "6a9eebe7a077d89a",
-        "9d3715414e399928",
-        "242a3ac9b87c1e0c",
-        "fd3fd2bfe8a855c0",
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "f9cdef870297ac22",
-        "1b6ba28ced999d83"
-      ],
-      "start_line": 1019
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1051,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
-      "source_keys": [
-        "c877aeede8d53f3d",
-        "6a9eebe7a077d89a",
-        "379b8b3e079b94e5",
-        "242a3ac9b87c1e0c",
-        "6a9eebe7a077d89a",
-        "9d3715414e399928",
-        "242a3ac9b87c1e0c",
-        "fd3fd2bfe8a855c0",
-        "366c62c0274cf5af",
-        "379b8b3e079b94e5",
-        "f9cdef870297ac22",
-        "1b6ba28ced999d83"
-      ],
-      "start_line": 1045
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1126,
-      "heading": "23. Source Map And Dependency Notes",
-      "needs_live_verification": true,
-      "section_id": "23-source-map-and-dependency-notes",
+      "section_id": "source-map",
       "source_keys": [
         "48cabcef2f22cabd",
         "802567c280193bd0",
@@ -2064,12 +1560,12 @@
         "7e7dfe8f61fb6139",
         "dfd0cdc56d97fa7f",
         "b8af2a0e80b2efe7",
-        "0b279f737b839e4a",
         "1b6ba28ced999d83",
+        "0b279f737b839e4a",
         "366c62c0274cf5af",
         "8f9847f0880303e0",
-        "6a9eebe7a077d89a",
         "fd3fd2bfe8a855c0",
+        "6a9eebe7a077d89a",
         "9d3715414e399928",
         "379b8b3e079b94e5",
         "c597e729f3063cb4",
@@ -2080,54 +1576,127 @@
         "242a3ac9b87c1e0c",
         "8331df94a7814389",
         "e6485e4722d85706",
-        "6246c13b7e3be896",
         "c9d3d496d37c624d",
-        "044170dca04e8bbb",
-        "30be60a23d3d0317",
+        "6246c13b7e3be896",
         "789454b4b23d582c",
-        "8a5899b11a6ccbbe",
-        "6f19b884e4da0469",
-        "3d7f0942c946fafb",
-        "78b1a0a9975427ba",
-        "fe094e82abfc4adf",
-        "53ad1133e1cb2d0a",
-        "1a7cdd8d2a7f15eb",
-        "14e4b0253d1428ca",
+        "c934e1779dd6267f",
+        "6ef56558ce58d4fa",
+        "52c683d5cc0018da",
+        "309e9ba9860f9843",
+        "e0bf73a6f90963b4",
+        "2bc4e055fa122127",
         "776256c424368312",
         "bce31f25cb8a199e",
-        "d275b5b94a9da833",
-        "2ae8e144de067f9b",
+        "bfe076d3907fc3a1",
+        "83fa4a8a47bc810b",
+        "2fb7a29f4e7cec2a",
+        "385e0d108cab7eee",
+        "b76decf4a1bb3ace",
         "e0db41b4ca576c2c",
-        "73dd22236e939189"
+        "02f59e87ae964075",
+        "8d2e384458fd1290"
       ],
-      "start_line": 1052
+      "start_line": 576
+    },
+    {
+      "confidence": "normal",
+      "end_line": 606,
+      "heading": "Official Helix documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-helix-documentation",
+      "source_keys": [
+        "48cabcef2f22cabd",
+        "802567c280193bd0",
+        "f9cdef870297ac22",
+        "777226ca29c00837",
+        "6fb948dbfe87bbf1",
+        "7e7dfe8f61fb6139",
+        "dfd0cdc56d97fa7f",
+        "b8af2a0e80b2efe7",
+        "1b6ba28ced999d83",
+        "0b279f737b839e4a",
+        "366c62c0274cf5af",
+        "8f9847f0880303e0",
+        "fd3fd2bfe8a855c0",
+        "6a9eebe7a077d89a",
+        "9d3715414e399928",
+        "379b8b3e079b94e5",
+        "c597e729f3063cb4",
+        "c877aeede8d53f3d",
+        "6b64c81c19c97a26",
+        "dfe176db3de773f7",
+        "554e0dda0bc287c2",
+        "242a3ac9b87c1e0c",
+        "8331df94a7814389",
+        "e6485e4722d85706",
+        "c9d3d496d37c624d",
+        "6246c13b7e3be896"
+      ],
+      "start_line": 578
+    },
+    {
+      "confidence": "high",
+      "end_line": 618,
+      "heading": "Supporting official documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-supporting-official-documentation",
+      "source_keys": [
+        "789454b4b23d582c",
+        "c934e1779dd6267f",
+        "6ef56558ce58d4fa",
+        "52c683d5cc0018da",
+        "309e9ba9860f9843",
+        "e0bf73a6f90963b4",
+        "2bc4e055fa122127",
+        "776256c424368312",
+        "bce31f25cb8a199e"
+      ],
+      "start_line": 607
+    },
+    {
+      "confidence": "normal",
+      "end_line": 626,
+      "heading": "Immutable implementation evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-immutable-implementation-evidence",
+      "source_keys": [
+        "bfe076d3907fc3a1",
+        "83fa4a8a47bc810b",
+        "2fb7a29f4e7cec2a",
+        "385e0d108cab7eee",
+        "b76decf4a1bb3ace"
+      ],
+      "start_line": 619
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 631,
+      "heading": "Community examples",
+      "needs_live_verification": false,
+      "section_id": "source-map-community-examples",
+      "source_keys": [
+        "e0db41b4ca576c2c",
+        "02f59e87ae964075",
+        "8d2e384458fd1290"
+      ],
+      "start_line": 627
     }
   ],
-  "source_pack_hydrated_at": "2026-06-08T17:55:43+00:00",
+  "source_pack_hydrated_at": "2026-09-03T14:05:42+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "130344e5790ff6bf4971247bccbcfa8fa52cd7233c365dcae2d2782ace424a6a",
-      "excerpt_hash": "8e44d1660b148862891af38d27a2674b27d01e6acf75ad0cb116730f42d91ed4",
+      "content_hash": "c22391a1a3bb42cb3c041e84b10037c931bafd98c75c1ba99034e8d80dc10ce5",
+      "excerpt_hash": "1b281ca397dded1847363906f89dc2d2711a05a811df301be2c747d838d2b87b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "802567c280193bd0",
-      "source_record_id": "rock_developer:802567c280193bd0",
+      "source_record_id": "rock_developer:article:331",
       "title": "Overview",
       "topics": [
         "api",
@@ -2143,85 +1712,15 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "ddf920730ee3f51d232fa712817ba89c507f75a5a43246e0c31eeed259aec362",
-      "excerpt_hash": "d19b526fabe39fe16233a393406432e4365d8eb1ac4c15a5d00b249aff170397",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6a9eebe7a077d89a",
-      "source_record_id": "rock_developer:6a9eebe7a077d89a",
-      "title": "Endpoints",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "3194b16b1d15c37a3d850e800d34c77abf069a0141eddfee0dc7089eb5198e53",
-      "excerpt_hash": "679a23f0698bd9daaf0c8572be2a643a40a418f434dfd7a4a9a2db19445d21fb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fd3fd2bfe8a855c0",
-      "source_record_id": "rock_developer:fd3fd2bfe8a855c0",
-      "title": "Content Block",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "d3750956b6f44cabe51220e9d801caa8e1407cb854a4a992a20c799e027dd060",
-      "excerpt_hash": "ad4688c238c53d1c5b184afd5f3bfa792e7e263d9cd30d08c567eb3de359661e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "1b6ba28ced999d83",
-      "source_record_id": "rock_developer:1b6ba28ced999d83",
-      "title": "Syntax Style Guides",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/htmx/syntax-style-guides",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "7bed3646fed718e1660864bab56494ee18a056326b367b59d272dc103772c6a1",
-      "excerpt_hash": "d5221e8e902939c2b1c79fc498f6c48d4176c0d4a1eb55f713c80835e630edc5",
+      "content_hash": "dadf04eb9643cc1a0fe66f93359bdfaacbc6541cafc6a54c31432cf85540f284",
+      "excerpt_hash": "2255910f288f803654cefc18a700b79894c729c99d681aec223dea6874394203",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "dfd0cdc56d97fa7f",
-      "source_record_id": "rock_developer:dfd0cdc56d97fa7f",
+      "source_record_id": "rock_developer:article:336",
       "title": "Security",
       "topics": [
         "api",
@@ -2235,159 +1734,18 @@
       "version": null
     },
     {
-      "authority": "official-release",
-      "authority_score": 95,
-      "change_type": "new_feature",
-      "content_hash": "8a4103466267de24017ec90ce002eb06b74e69068d3588f4f029f2e4f0ca7886",
-      "excerpt_hash": "8decef628b497f8c56544931a8a08905e5dc3a477703e3bf7412b6f12499c75d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": "December 8, 2025",
-      "severity": "normal",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:bbded414ac6e328f",
-      "title": "Rock Core Release Notes",
-      "topics": [
-        "releases",
-        "development",
-        "operations"
-      ],
-      "url": "https://www.rockrms.com/releasenotes",
-      "version": "18.1"
-    },
-    {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "c2be5c19aaf5736601e3d571659f318176ee223cbebcd48b4836065a364cd53d",
-      "excerpt_hash": "cbbfd9af512b8506c25f60a18cbb4b759bc404b4c9c88e0911036053b768e0bf",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6fb948dbfe87bbf1",
-      "source_record_id": "rock_developer:6fb948dbfe87bbf1",
-      "title": "FAQ",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/overview/faq",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "fda2ffec7e543e25c32a73d7126815bda96fa46d2927b29bfd541a01e3652430",
-      "excerpt_hash": "5946c49dc4baa1743dbe6ef91a81626619265333fc5e41212feb9838e75bcb4d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "48cabcef2f22cabd",
-      "source_record_id": "rock_developer:48cabcef2f22cabd",
-      "title": "🧬 Helix",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/helix",
-      "version": null
-    },
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "change_type": null,
-      "content_hash": "510c429d32c1474a942ee6f9f344cffe08b40ba8c0e33b3be3f6f487d1b783af",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_model_map",
-      "source_key": "bce31f25cb8a199e",
-      "source_record_id": "rock_model_map:43088bf9e69d67e4",
-      "title": "Lava Application",
-      "topics": [
-        "api",
-        "cms",
-        "data",
-        "lava",
-        "model-map"
-      ],
-      "url": "https://community.rockrms.com/ModelMap",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "e972f62b58a363377ea0631f4140b896d774d906baa86f98e48324e0fe23ef0c",
-      "excerpt_hash": "0d226ad48200a67d1f392aad47ea0e6c01b74245b6dab22df1d84c684942f5a4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava app",
-        "lavaapp",
-        "lava",
-        "cms"
-      ],
-      "path": "Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "01e2937a59f94ae2",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs",
-      "title": "Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "8d6c68b48f3ce71b6d9c014926325c9fc72c6170c0fc032bb4a8e558bc3c571d",
-      "excerpt_hash": "a183cf39e20f9c69290189e65f168031ad3a1a73b6f3dabda03551dff833751e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "8f9847f0880303e0",
-      "source_record_id": "rock_developer:8f9847f0880303e0",
-      "title": "Applications",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "d6a15daaa9c0a0d84fbdacaae734cf84dd95d4f8ffc84abd9c2e65ba0b9c0f10",
-      "excerpt_hash": "f573a888ab4328f7c8b41066013b36061dcc00e6801564039c38da99fbf66066",
+      "content_hash": "17e9959157b900d971456271f59c84e19b6600de775105a31b29b376c2d9a3d9",
+      "excerpt_hash": "047c660c6c70636b4593ea3ebe9cf68b45658254b18b6ebd861b32f29e2d9dcc",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "366c62c0274cf5af",
-      "source_record_id": "rock_developer:366c62c0274cf5af",
+      "source_record_id": "rock_developer:article:338",
       "title": "Lava Applications",
       "topics": [
         "api",
@@ -2403,47 +1761,305 @@
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "da2e68bc4c7c543875f12a29e0135e89f9dbf610c36686a3994b0cd5d54f725c",
-      "excerpt_hash": "83cc6c58bbe7fadac05bf27053e2f6fefb36379c41116989f3216663763599bb",
+      "content_hash": "195b5f58f6aa35a5b4799d94cc22f2f7d9d3a7de23c70482b0fecc43bf81f89e",
+      "excerpt_hash": "30ab3a5cad88f7806ceac4076a90400a711610a03c26a96894ec48d39bd8ef5b",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "c877aeede8d53f3d",
-      "source_record_id": "rock_developer:c877aeede8d53f3d",
-      "title": "Understanding Forms",
+      "source_key": "6a9eebe7a077d89a",
+      "source_record_id": "rock_developer:article:345",
+      "title": "Endpoints",
       "topics": [
         "api",
         "development",
         "lava",
-        "obsidian"
+        "obsidian",
+        "security"
       ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "87bdd5c4655083f1c2097978340d3388412125bfbf5e44c3b11d8bca4a3dd7b2",
-      "excerpt_hash": "4c4ede8dd37097e7e75544225ac30d2cc22735adc6bf4dd4ec164d9f2b6c975d",
+      "content_hash": "03bb1fb8f7b298646244fd3c60d4eb8b47caf5a934b8de46cfeca6721a4cbe8d",
+      "excerpt_hash": "860e0222ba87874baed1b09d657de94b514d4dde4bbb767d2255c43976338bd5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "c934e1779dd6267f",
+      "source_record_id": "rock_lava_docs:c934e1779dd6267f",
+      "title": "HTTP Response",
+      "topics": [
+        "cms",
+        "development",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/http-response",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5a7106478eee38cf530ae65158c6e4bd15b27e36fbd4459130c763e194383336",
+      "excerpt_hash": "fe83a0b623739c45e6de8f375efe4bb52e552bb3d5b7111479867b15e09e0688",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
-      "source_key": "6b64c81c19c97a26",
-      "source_record_id": "rock_developer:6b64c81c19c97a26",
-      "title": "Using Form Controls",
+      "source_key": "fd3fd2bfe8a855c0",
+      "source_record_id": "rock_developer:article:346",
+      "title": "Content Block",
       "topics": [
         "api",
         "development",
         "lava",
         "obsidian"
       ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/using-form-controls",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block",
       "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "245373d25726744288ae3e3bf7c2d3b2c3ca8274bf4b6e5028e7f7e91743dda5",
+      "excerpt_hash": "35f28188c58bf377829243bf7b70ecfb1079b0cfe52558551e5be8f1b79a7369",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "789454b4b23d582c",
+      "source_record_id": "rock_developer:article:339",
+      "title": "Lava Commands",
+      "topics": [
+        "api",
+        "development",
+        "finance",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-commands",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a2b2222b328e02acfcd17fa79370aca18929cc65defb1f05855c75f2c9e0b032",
+      "excerpt_hash": "780b64a14ee6a1ec6a3e8340b9cf502760ac91f7961738fdcb783ff47dd642af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "f9cdef870297ac22",
+      "source_record_id": "rock_developer:article:332",
+      "title": "Customizing Rock",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview/customizing-rock",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "15db6ca875a0fe8dcc008118a09de066eed3f8a0f8786d2658057819306d3e1e",
+      "excerpt_hash": "961d7427af217798634508adc98a0a804976b28edbb383c608a0eb948d63aa8b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "7e7dfe8f61fb6139",
+      "source_record_id": "rock_developer:article:335",
+      "title": "Roadmap",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview/roadmap",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "0c9506a2bdcb54c3073db2dc415204e1d2cde5c9e77689b9428aa25bdbd4c371",
+      "excerpt_hash": "c35e04ee612098be5d624c9cf7af769dc40a6b71ab33724badf29b93fc976bb2",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "1b6ba28ced999d83",
+      "source_record_id": "rock_developer:article:343",
+      "title": "Syntax Style Guides",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/htmx/syntax-style-guides",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ab65e78b53d654251307d40459a1975f4c4dedcda02d0aaf071c2084ec5131c0",
+      "excerpt_hash": "e270a5f645c2daa90a3ad4c1afbd98725d593c8a0a5e147d63146d3ddd84ed06",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "e6485e4722d85706",
+      "source_record_id": "rock_developer:article:359",
+      "title": "Tips",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies/tips",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "a87487737073a27e4a66ed968f629a3496f6b4cc3d3af54811c62874952c06cc",
+      "excerpt_hash": "cbd573f36fc305504148e370571d9b5e300bf04e2b273423dd9dc0aa8a0b3183",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "0b279f737b839e4a",
+      "source_record_id": "rock_developer:article:342",
+      "title": "Learning More",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/htmx/learning-more",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "328436e776830c9f26cc90ae2e17509d572bbac1e43e11e8ffbdb809f3b8ef4e",
+      "excerpt_hash": "053528034782d60f962fb5a45288b86adfe5c2763f746eb445bff4145a79fd6e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8f9847f0880303e0",
+      "source_record_id": "rock_developer:article:344",
+      "title": "Applications",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/applications",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
+      "excerpt_hash": "60702e3e01f0e83856ac2421db1d6c24299d4ff0440aa82a36cfcee8628bbe9e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "lava application",
+        "lavaapplication",
+        "lava applications",
+        "lavaapplications",
+        "lava app",
+        "lavaapp",
+        "lava",
+        "cms"
+      ],
+      "path": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "2fb7a29f4e7cec2a",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
+      "title": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "beb5342f8ead718275d6b3cc3f2a80c96483e0cefd48f7947ce5e36d2b5e78e2",
+      "excerpt_hash": "0995a78135633e48c97fe8baa26269bc7cef6247d89b014fe8986e87a6421327",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "9d3715414e399928",
+      "source_record_id": "rock_developer:article:347",
+      "title": "Magnus",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "4812e9302023571fbf94dc9a32152b9501be43d461d6932c7285ec2c5664b7af",
+      "excerpt_hash": "6703beec98c9e5e2f3e1e91f37bd6b2eaf81408dcb4722a6bf7f1e24d89536bb",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "lava endpoint",
+        "lavaendpoint",
+        "lava",
+        "cms",
+        "http method",
+        "httpmethod"
+      ],
+      "path": "Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "83fa4a8a47bc810b",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
+      "title": "Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointHttpMethod.cs"
     },
     {
       "authority": "source-code",
@@ -2468,75 +2084,430 @@
       "path": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "427e5301d593e4bc",
+      "source_key": "bfe076d3907fc3a1",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
       "title": "Rock.Enums/Cms/LavaEndpointSecurityMode.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointSecurityMode.cs"
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "d32995c635b79f5c9affa1a3c619178fefb9bb7c3d9713f42f63c13329d0e0a5",
-      "excerpt_hash": "01e5213c20b015ef1b29e4c063f72a1acc0e8bb03b8d3c29fc5575f246499e1a",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava endpoints",
-        "lavaendpoints",
-        "endpoint security",
-        "endpointsecurity",
-        "lava",
-        "security",
-        "cms",
-        "security mode",
-        "securitymode"
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "3577a9dd4344af5a111641c22245e825ed8cc79f201652378202d01eb92062e6",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:bbded414ac6e328f",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
       ],
-      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "543ea1d48ed32f6d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts"
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "15ce530d27ee0925003905577f74fcaecb1dcc1e62525a5577aa8ea59174e5d6",
-      "excerpt_hash": "409856b663ac7b7d5c340f21e5d4ea9d9aaf4cd45d909e3bcb3465c97499d5ea",
+      "content_hash": "5dbe7d0d8daeb0b79f214edb3b848a3423c2f4cf6c6ee21de487c1055e405bec",
+      "excerpt_hash": "172e46304260757e6b8ee4a048931c2fb9ca78bea55c8ddec6afbc9a3dba9c26",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "f9cdef870297ac22",
-      "source_record_id": "rock_developer:f9cdef870297ac22",
-      "title": "Customizing Rock",
+      "source_id": "rock_lava_docs",
+      "source_key": "6ef56558ce58d4fa",
+      "source_record_id": "rock_lava_docs:6ef56558ce58d4fa",
+      "title": "DB Transaction",
       "topics": [
-        "api",
+        "cms",
         "development",
+        "finance",
         "lava",
-        "obsidian"
+        "workflow"
       ],
-      "url": "https://community.rockrms.com/developer/helix/overview/customizing-rock",
+      "url": "https://community.rockrms.com/lava/commands/db-transaction",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "d6d1a7a8e09be8852a9c84300fd75327fa5d8ae1b60e72894fdbe8ee5a6e4d1f",
-      "excerpt_hash": "5a4f8e0063f9c8d8558f7cce56d6641205f2fce899cd2e466fd3cc067abaf8bd",
+      "content_hash": "e3db2ba289e8d534df5d9aa8924843b825080676df7e4b4f406259b74bc68306",
+      "excerpt_hash": "dc1cfdb23e2927e4c013caebae05c80c732d3e18b86a272075d6a158d5103572",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_lava_docs",
+      "source_key": "52c683d5cc0018da",
+      "source_record_id": "rock_lava_docs:52c683d5cc0018da",
+      "title": "Render Lava Endpoint",
+      "topics": [
+        "cms",
+        "development",
+        "lava",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/lava/commands/render-lava-endpoint",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "df54d7732e36668eca1fc96517901fa6bef7337bc6b5feec25a65a43ce6b7f7f",
+      "excerpt_hash": "b26beacb69e75e9add1bf125f9aac8f0e5a57ae0cd91cb797e6ea721ea8e2d61",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c877aeede8d53f3d",
+      "source_record_id": "rock_developer:article:354",
+      "title": "Understanding Forms",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "b820c4feb2a26cc1b1922daa8dfa70121946a4ea36e9c90c830139460f29d0c2",
+      "excerpt_hash": "9a10d45c58c0661631b3cd1672559d71fb23d2807fc85ddcd200a44d57387aa1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6b64c81c19c97a26",
+      "source_record_id": "rock_developer:article:355",
+      "title": "Using Form Controls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/using-form-controls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "7cdabf6efa64e4cbdb3cebaa24821444e9e853c09b544c85ba669d4f30826c1e",
+      "excerpt_hash": "d537b757f75ac05b5cc3ba51583dac33341096d4d5500603b30877024a4cf214",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "dfe176db3de773f7",
+      "source_record_id": "rock_developer:article:356",
+      "title": "Creating New Controls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "dabc0112de12f544f8f2cc62cb18c609afdf96f2c3732c5b1f91d9cf06459cf5",
+      "excerpt_hash": "2ad8c2771403c850f66819b40d58c1adb0639ead2a2a0771d9b244d3a228ea8e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "554e0dda0bc287c2",
+      "source_record_id": "rock_developer:article:357",
+      "title": "Form Validation",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "security"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "2aab52bcb3817be53902ac5bb5d0cf8b42d27594e7c4518b4a76b71de379634c",
+      "excerpt_hash": "1d0e06bbffe1d114c56b042710b2f066b10867de2bfc5c37b3436d5e0ed63126",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "242a3ac9b87c1e0c",
+      "source_record_id": "rock_developer:article:358",
+      "title": "Loading Indicator",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "81738e688c0582b9218b48dde28a30db4f988d0da9175e5a689a8510332781ca",
+      "excerpt_hash": "50199d477d7e5e10777d24ed61ddf1575ac026939cda245d7001981e99211341",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "379b8b3e079b94e5",
+      "source_record_id": "rock_developer:article:348",
+      "title": "Observability",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian",
+        "sql"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "8b0d8d0a9faf013af33f8618a19c9e8e1489007de0daf99e7e1c6b27abdf2288",
+      "excerpt_hash": "f14cecad232ef44532089360ffb42a0d32f01ba77d12a51f4fb37fe898d5b703",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "e0bf73a6f90963b4",
+      "source_record_id": "rock_documentation:article:2118",
+      "title": "Intro to Observability",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability/intro-to-observability",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "e0610d2db490f7df45f3b1e02054bd6dd230f11735253c7a9f32ae616714e9b2",
+      "excerpt_hash": "cf0a3e8bf8f7249e2ab7d67c5b56f5b314c3e57735539f1f0483734dc687ff4d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "2bc4e055fa122127",
+      "source_record_id": "rock_documentation:article:1074",
+      "title": "Configure Observability",
+      "topics": [
+        "admin",
+        "api",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "9453b0c53cdcfa53692987d2e1ea787304fb90c9c42f5c87d15d01d9999ef10f",
+      "excerpt_hash": "f445db4a368f7b1ea536ec6d7e74a6d75c3190ca20dcc5a3a1c35dddce572b55",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c9d3d496d37c624d",
+      "source_record_id": "rock_developer:article:361",
+      "title": "Limitations",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies/limitations",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "cfb33ebc12255c91441f3a5218a1425e24618376f14a31a413517b65b0ee46ee",
+      "excerpt_hash": "a8ca2952f56e702b555a39eec90b2ad420793bb67840702c401de9f6fd5718b8",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6246c13b7e3be896",
+      "source_record_id": "rock_developer:article:360",
+      "title": "Related Entities",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities",
+      "version": null
+    },
+    {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:communication-history-active-search",
+      "contribution_type": "recipe",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "02f59e87ae964075",
+      "source_record_id": "org_contribution:oneall:communication-history-active-search",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search",
+        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints"
+      ],
+      "title": "Communication History Active Search",
+      "topics": [
+        "communications",
+        "helix",
+        "lava",
+        "security-permissions"
+      ],
+      "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search"
+    },
+    {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:rendered-helix-dashboard-validation",
+      "contribution_type": "task_card",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "8d2e384458fd1290",
+      "source_record_id": "org_contribution:oneall:rendered-helix-dashboard-validation",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard",
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/helix/overview/security"
+      ],
+      "title": "Validate rendered Helix dashboards after exact content readback",
+      "topics": [
+        "helix",
+        "lava",
+        "data-views-reports",
+        "security-permissions"
+      ],
+      "url": "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
+    },
+    {
+      "authority": "community-example",
+      "authority_score": 55,
+      "change_type": null,
+      "content_hash": "4599b99340657ff2053634fd4c9a2cd632c6d5b0330b381e5778626a8a76781d",
+      "excerpt_hash": "35f4c0cb1dd4d634f83ca16fe8a3344b9f01c183d77c4afb2ffd01dd486593ac",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_recipes",
+      "source_key": "e0db41b4ca576c2c",
+      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
+      "title": "Manage Following records with Helix (a.k.a. Lava Applications)",
+      "topics": [
+        "api",
+        "integrations",
+        "lava",
+        "recipes",
+        "security",
+        "sql",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/recipes/497",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "ed6d9cca02ee0a18789943f6705e48033a22c93b10f694b85a1323969f19d151",
+      "excerpt_hash": "b32a53d8b73297b08488123c4c43a0c0d7d4b1ee250cbf2f2a2891a8bf43f65a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "48cabcef2f22cabd",
+      "source_record_id": "rock_developer:article:184",
+      "title": "🧬 Helix",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "bf92b9cc0e01b88642743fe000ae11b8e389104c1f2f1c0bf4482a3d4a36a60b",
+      "excerpt_hash": "cb8ac11a744a7f16238443f13d82958cacfac4d4d75e269530f4067fd4934d32",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_developer",
       "source_key": "777226ca29c00837",
-      "source_record_id": "rock_developer:777226ca29c00837",
+      "source_record_id": "rock_developer:article:333",
       "title": "Plugin Installation",
       "topics": [
         "api",
@@ -2545,6 +2516,145 @@
         "obsidian"
       ],
       "url": "https://community.rockrms.com/developer/helix/overview/plugin-installation",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8be08c52cb77283d1281489a037712502e559f80c34b662ceaad9d49ec1f6c9d",
+      "excerpt_hash": "46cfcc834c58791fd88e25abc7c4955ccd9d7ef93b70dd418a4345b6f778f082",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "6fb948dbfe87bbf1",
+      "source_record_id": "rock_developer:article:334",
+      "title": "FAQ",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "mobile",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/overview/faq",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "52ff4e2ea0b05c3f900c17e7a75b2d274a9801b1165e82e955429ceeebf41bbd",
+      "excerpt_hash": "ec1a062a982ed29b8879b433db2583b6289829e0547f76efc23c505d241effb0",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "b8af2a0e80b2efe7",
+      "source_record_id": "rock_developer:article:337",
+      "title": "HTMX",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/htmx",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "5f681012de0ce1db3c54ac6561b157cc466426868a533ad8e24219a7f49fa6d7",
+      "excerpt_hash": "851b4bd24318a91c03cce34b8423420eb6e9063dae7f8f5a2c2556f6c62bd050",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "c597e729f3063cb4",
+      "source_record_id": "rock_developer:article:340",
+      "title": "Forms & Controls",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/forms-controls",
+      "version": null
+    },
+    {
+      "authority": "official-developer",
+      "authority_score": 90,
+      "change_type": null,
+      "content_hash": "8cf7c5464d6cfc5d1a3cac86195362fef4860fbf0febd895c4f85f50510edba7",
+      "excerpt_hash": "b10173a485b6171a741df3bf64bb7015805d6f2a8784ac0e2be03dd0ef8126bc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_developer",
+      "source_key": "8331df94a7814389",
+      "source_record_id": "rock_developer:article:341",
+      "title": "Strategies",
+      "topics": [
+        "api",
+        "development",
+        "lava",
+        "obsidian"
+      ],
+      "url": "https://community.rockrms.com/developer/helix/strategies",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "fcf75a269770b3153fdb5e99220c5b98f39c395c39e43cda801962c9c3dc2302",
+      "excerpt_hash": "926ec55fe59e32143de7b3630f816a038ede8fc500acb475a2543d3a8121d5af",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "309e9ba9860f9843",
+      "source_record_id": "rock_documentation:article:1059",
+      "title": "Observability",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/supporting-rock/data/observability",
+      "version": null
+    },
+    {
+      "authority": "official-model-map",
+      "authority_score": 86,
+      "change_type": null,
+      "content_hash": "9b49a05018d41473215ec81b67d935a31bde0529daea94cb4b15cb0706c5498e",
+      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_model_map",
+      "source_key": "bce31f25cb8a199e",
+      "source_record_id": "rock_model_map:43088bf9e69d67e4",
+      "title": "Lava Application",
+      "topics": [
+        "api",
+        "cms",
+        "data",
+        "lava",
+        "model-map"
+      ],
+      "url": "https://community.rockrms.com/ModelMap",
       "version": null
     },
     {
@@ -2567,33 +2677,10 @@
       "path": "docs/cms/lava-applications.md",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "2ae8e144de067f9b",
+      "source_key": "385e0d108cab7eee",
       "source_record_id": "SparkDevNetwork/Rock:docs/cms/lava-applications.md",
       "title": "docs/cms/lava-applications.md",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "4b2423e177f134b84eab99ca5fa6145cd015ea9e0d2a13d7dd51628af3823b48",
-      "excerpt_hash": "e52e4a015474dd65d73d854e01b00458c38216ec4036d2ca457fef45eb44f266",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava app",
-        "lavaapp",
-        "lava",
-        "cms"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4c50fa0d0cd41b3f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/docs/cms/lava-applications.md"
     },
     {
       "authority": "source-code",
@@ -2614,901 +2701,18 @@
       "path": "Rock.Migrations/Migrations/Version 18.0/Version 18.0/202505072235453_AddLavaApplications.cs",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "e4867c77e2d22f41",
+      "source_key": "b76decf4a1bb3ace",
       "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 18.0/Version 18.0/202505072235453_AddLavaApplications.cs",
       "title": "Rock.Migrations/Migrations/Version 18.0/Version 18.0/202505072235453_AddLavaApplications.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "4812e9302023571fbf94dc9a32152b9501be43d461d6932c7285ec2c5664b7af",
-      "excerpt_hash": "6703beec98c9e5e2f3e1e91f37bd6b2eaf81408dcb4722a6bf7f1e24d89536bb",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava",
-        "cms",
-        "http method",
-        "httpmethod"
-      ],
-      "path": "Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1a60b2e868f34dc1",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
-      "title": "Rock.Enums/Cms/LavaEndpointHttpMethod.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointHttpMethod.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "2f68af0d652e84b5de98908858c625617e126014161de39b63010a755be180c1",
-      "excerpt_hash": "7ae8e81ee06abb39b0eddfb8980ad400b01233865df617141fccf25a6c4d52ca",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava",
-        "cms",
-        "http method",
-        "httpmethod"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4340c249486c5a46",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "08f484fc4139541ba3e94124112c550eb37b79aa35e8f2425acc734ad3e71a71",
-      "excerpt_hash": "63840c92666b152f54bd8f8f9ed6677eea2b622a9a8f7f373660b4a0793f4241",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava endpoints",
-        "lavaendpoints",
-        "lava",
-        "cms"
-      ],
-      "path": "Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "3a9ee613aa17191d",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs",
-      "title": "Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c02b6ec41c06e41475ffaf0073e9e335fc84bc5fde7f7a11d09d512f98f1a7c2",
-      "excerpt_hash": "60702e3e01f0e83856ac2421db1d6c24299d4ff0440aa82a36cfcee8628bbe9e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava applications",
-        "lavaapplications",
-        "lava app",
-        "lavaapp",
-        "lava",
-        "cms"
-      ],
-      "path": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9d693bdfb00ebabc",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "title": "Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "03fa2300ec6c8e2a7af7f08b363d9221b218e1c06edcaaa4efc65101fbb1975a",
-      "excerpt_hash": "f64ec75ddf176c3f92b08d7c7cfaeb281da3f80db1c8e2443b944cc838ef4a16",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "379b8b3e079b94e5",
-      "source_record_id": "rock_developer:379b8b3e079b94e5",
-      "title": "Observability",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/observability",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "250e67d8811b9b6f843d4354688e7dead3f83267eaeed8b8459eef4e88d320f3",
-      "excerpt_hash": "65feb49bfbe36a5cdba822cf6a37ea7aaaeba3183174c5aac57f794f20ebe3d7",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "554e0dda0bc287c2",
-      "source_record_id": "rock_developer:554e0dda0bc287c2",
-      "title": "Form Validation",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/form-validation",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "744c606fb791074e5ba9a96e06fd12ca1ba8c85713fd3d0dfa67c9ed2e99bd9b",
-      "excerpt_hash": "95fe8d4a783290a8cf8b6d131b8bc472e8f220c0ddfd94b5b2124fd10b9bc908",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "e0db41b4ca576c2c",
-      "source_record_id": "rock_recipes:e0db41b4ca576c2c",
-      "title": "Manage Following records with Helix (a.k.a. Lava Applications)",
-      "topics": [
-        "api",
-        "integrations",
-        "lava",
-        "recipes",
-        "security",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/497",
-      "version": null
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "change_type": null,
-      "content_hash": "6efe882a6c3846b4aadf742c0c17fdf0af6af2cd15ec61040cbaa5ca57e78bba",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "triumph_resources",
-      "source_key": "73dd22236e939189",
-      "source_record_id": "triumph_resources:73dd22236e939189",
-      "title": "Enhancing Community Connection: Triumph’s Guided Group Finder, Powered by Helix",
-      "topics": [
-        "ai",
-        "github",
-        "implementation",
-        "operations",
-        "releases",
-        "resources",
-        "triumph"
-      ],
-      "url": "https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a90e417eff4c7971f1b7cb1d40d2af9424be8a9731599175d47d42d2d86ddd43",
-      "excerpt_hash": "8fd6e109c9e69a8206cd592c126e15cb41d27b94afabc84b01006bd015bd793d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "7e7dfe8f61fb6139",
-      "source_record_id": "rock_developer:7e7dfe8f61fb6139",
-      "title": "Roadmap",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/overview/roadmap",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "09bd1188f1fd760d291ef7ee22d07f2b040aa2cf41af337ec9275a26a4ed21cf",
-      "excerpt_hash": "3fd0f066fc1d2f713d3d9c307ee099fa4a28d55f838ba29ab95b2236ae7f49fb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "e6485e4722d85706",
-      "source_record_id": "rock_developer:e6485e4722d85706",
-      "title": "Tips",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/strategies/tips",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "370a2f9197135e15acecb89908493e8672c9e43ffb76604f729b5945f650b42d",
-      "excerpt_hash": "95b910111bab4aa6b282f89617f296cf3e40bb32b420e7d1fcfbae195c3aefd0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_developer:30be60a23d3d0317",
-      "title": "Getting Started",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f8f9b78406de88c64520a9fc361482f3f6212612b644976af880cba438bd438b",
-      "excerpt_hash": "a9384fa38dd73b346590d11558f608f1c97a8237c1cc7b3c694be9878d926603",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "789454b4b23d582c",
-      "source_record_id": "rock_developer:789454b4b23d582c",
-      "title": "Lava Commands",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f9916367920e33bfc99dcae4662e2e2a3a90350cdd96d2edead7951466ce65c6",
-      "excerpt_hash": "ce7215b59019d412105b381f4a81773fb04ab4ea93d1a8cc0438535308c0532e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "dfe176db3de773f7",
-      "source_record_id": "rock_developer:dfe176db3de773f7",
-      "title": "Creating New Controls",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "0df0b120fbad167d0e17ddd48d11024c4fcdda97a4c728d0cc8d791382a38255",
-      "excerpt_hash": "2bdab7c10b9a4d2e5a6d833e1d9dc2fa01c674f5867ff473566353377c7fcef0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "62578d1f5bcde8a6",
-      "source_record_id": "rock_developer:62578d1f5bcde8a6",
-      "title": "Authoring Shortcodes",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/shortcodes/authoring-shortcodes",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "c6d7c64223dfdd4805a166d79034e3c59939b3c0db8109e6f97b8d16adf0af99",
-      "excerpt_hash": "6107af50e2ba6c5dbe62b25251113d5fae4411ca39bf3a017f74f23327d003ea",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "242a3ac9b87c1e0c",
-      "source_record_id": "rock_developer:242a3ac9b87c1e0c",
-      "title": "Loading Indicator",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls/loading-indicator",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f5f0aa9c33588f3a14894c2804095c8df0cd1eb19fee47245c965c2a7c6a9249",
-      "excerpt_hash": "2a01e9241fbc78a723ae60fe427aaef46c6bed3d5f36a449d60b6e7470550d64",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6f19b884e4da0469",
-      "source_record_id": "rock_developer:6f19b884e4da0469",
-      "title": "Attributes",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/filters/attribute-filters",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "93a6d296e901a5022e5684dcb1f19d72b58696092721510903a2701f514d5499",
-      "excerpt_hash": "e9bd3e14f652f98b1b678dd43ea5e7a29f92f74bec2b3eedd40a8a072cb85cc4",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "8a5899b11a6ccbbe",
-      "source_record_id": "rock_developer:8a5899b11a6ccbbe",
-      "title": "Observe",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/tags/observe",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "4b60623e40e9379f02cccef7177663d8cf6099e90c629e1ab26114d16e54082b",
-      "excerpt_hash": "bedecf35e6f73b292fe510bc07dff6af3677f14ef1f77c13d6e087374fc013e0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "6246c13b7e3be896",
-      "source_record_id": "rock_developer:6246c13b7e3be896",
-      "title": "Related Entities",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/strategies/related-entities",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "116da7a9359399a03eadcd7af45c999aa4b2318edb5d752b6a0218943ce523d0",
-      "excerpt_hash": "627bc36b07ffa032b6ca7dc3272b829a63b7be08a3136741c6f0f9409cf2d8af",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c9d3d496d37c624d",
-      "source_record_id": "rock_developer:c9d3d496d37c624d",
-      "title": "Limitations",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/strategies/limitations",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "754a5d12d6ca8aa35272076cf7119f547161c83ce88ddfe6115702650e88c360",
-      "excerpt_hash": "a484cdfa76591764eb932a4381c7f00edd62cdaf3b87b38e009b5552db80f1aa",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "044170dca04e8bbb",
-      "source_record_id": "rock_developer:044170dca04e8bbb",
-      "title": "Lava",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a64e7bdc24c13e0ef2c5ad5d38668c0d26311e4750e9b07d7d019a7d62d0a6f3",
-      "excerpt_hash": "b04d98ccc7eb500b3ff44da1ca247c814830dfdd41dad33991568de14487aa70",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "14e4b0253d1428ca",
-      "source_record_id": "rock_developer:14e4b0253d1428ca",
-      "title": "API Documentation",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/api-docs",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e434ffdd2442b3d8cfdd99a1a6398b870599d9ddfdd6eb2e5884cbb8118afaf5",
-      "excerpt_hash": "dd0a586b874afaee1532bb0b5cd52ba09884fbfd9e256415513cf5fbee12bec1",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b8af2a0e80b2efe7",
-      "source_record_id": "rock_developer:b8af2a0e80b2efe7",
-      "title": "HTMX",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/htmx",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f7606d6e68bdb1df6fdfdff8f88760a0a713451aab0a3f3df5734b7f9bc2e912",
-      "excerpt_hash": "b02bdff4928e338f020de148219635dbf5e547487706cbd166aca515640b7205",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "9d3715414e399928",
-      "source_record_id": "rock_developer:9d3715414e399928",
-      "title": "Magnus",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/magnus",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "65324b26ed7b877b748945f58041c228160bc695c55c42882aaaa64c5ce4413a",
-      "excerpt_hash": "b50f72b1d5ebb8890414368f0bb8b409d2bc3efbbebee022db1f40508f9f457d",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava applications",
-        "lavaapplications",
-        "lava app",
-        "lavaapp",
-        "lava",
-        "cms"
-      ],
-      "path": "Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "af3c7989909a45eb",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "title": "Rock/Model/CMS/LavaApplication/LavaApplicationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplicationService.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8c57faa913739d1f6046515a71458c67528b4e98bdeb5b9af2fa78a98e686213",
-      "excerpt_hash": "28732e442830ff8ea050fd5a372977761c1b841778125f6a9d42fa1211ab57d5",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava applications",
-        "lavaapplications",
-        "lava app",
-        "lavaapp",
-        "lava",
-        "control"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "f5b53ea059214a46",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "88884d5d52093af73a98791edc12b3b7f5375950eb30c069c157600b6cd01669",
-      "excerpt_hash": "87598d973c2686895cee20761fa459af9d62f603df1d936b50ebcc190c8a95db",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava endpoints",
-        "lavaendpoints",
-        "lava",
-        "control"
-      ],
-      "path": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "983ad6bce37e8e15",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "title": "Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "775b78943d43ff40",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/page/3761",
-      "url": "https://community.rockrms.com/page/3761"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "bccb3c481f124a47684382ce681a86f95b835e49d46163c55868c6eda0c13e9f",
-      "excerpt_hash": "e1869c8777d45ff6288b413031b550e5e209b585dff8b7d890f79963192ad086",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava application",
-        "lavaapplication",
-        "lava applications",
-        "lavaapplications",
-        "lava app",
-        "lavaapp",
-        "lava"
-      ],
-      "path": "Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "fb321ee8fa99b1e4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs",
-      "title": "Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "848db9953c57a7f8ef061905d5fe14aff92e0749e5c3158e973acb78af393c33",
-      "excerpt_hash": "f6255bf899ec0631220bdedfc37e06d653ec9e17238c683c87f0b733768494aa",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "lava endpoint",
-        "lavaendpoint",
-        "lava endpoints",
-        "lavaendpoints",
-        "lava"
-      ],
-      "path": "Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "780667b2714ece4a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs",
-      "title": "Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "a48003feed65487477ea0280118bb7f76403233e9a69aa5ac80fd132a5522e7d",
-      "excerpt_hash": "265bc10e98ca7888f591799b6e72a4cc64701473a485bbd8b52a9fc88051b1c9",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "0b279f737b839e4a",
-      "source_record_id": "rock_developer:0b279f737b839e4a",
-      "title": "Learning More",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/htmx/learning-more",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "9b9a34805b5355c424c939dc196e84f8ea152b818a5beed8c07c4042c2d82ed5",
-      "excerpt_hash": "e0bcb01379c3453142e906d3ba97a3a76f34f5cc698c84149ddead86eff0802f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "c597e729f3063cb4",
-      "source_record_id": "rock_developer:c597e729f3063cb4",
-      "title": "Forms & Controls",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/forms-controls",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "d43820871e19d46e23c80be6bc357e90b51ba69105cdcca08daa09c2f02a5afb",
-      "excerpt_hash": "b53319271a5af2d3c7348acb91594b959bf8e5fffa810cea0103ff68976eda1a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "8331df94a7814389",
-      "source_record_id": "rock_developer:8331df94a7814389",
-      "title": "Strategies",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/developer/helix/strategies",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "2d0dcb975cc203def9951ccff9c6977f8f2981dc0b034d2f31d58e7b524129e1",
-      "excerpt_hash": "8f2d6ed887b62f7a96d588f3542869db5388ca30f1289f78f6318bf207dbdf16",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "3d7f0942c946fafb",
-      "source_record_id": "rock_developer:3d7f0942c946fafb",
-      "title": "Entity",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/entity-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "cab2e558de588c280ec5159b6fd192ecb11de82c936a4908a7aa62397ddca3ed",
-      "excerpt_hash": "ada2df1f77bd12dac23c54242021d55f7b183da37ac0438d9aa21764533832b0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "78b1a0a9975427ba",
-      "source_record_id": "rock_developer:78b1a0a9975427ba",
-      "title": "Cache",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/cache-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "e550c06ce7bbda5e37447635145e6a10a3959aba5cbd62f8c291a7f08541474a",
-      "excerpt_hash": "8e7320da7176f0e832393ab5ba0a86fee46b9601da0f5575b7226ca94f85ea87",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "fe094e82abfc4adf",
-      "source_record_id": "rock_developer:fe094e82abfc4adf",
-      "title": "Web Request",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/commands/web-request-commands",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "395916b12e93abb98b156e4a85231d5271eeeb7ef107ad74a1d3bd8dafc3ea59",
-      "excerpt_hash": "7a91811f0a3768084a7d083f6a774d84fd6dcc45c557933fdd169b37ddece610",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "53ad1133e1cb2d0a",
-      "source_record_id": "rock_developer:53ad1133e1cb2d0a",
-      "title": "Creating APIs Using Lava",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/lava-api",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "57b692eee77e345f005976550e5120627ad7fb1e2074793a87311dc9ee7933e2",
-      "excerpt_hash": "c16df98b1697de13d6e53ef37e2f93790f077575ee9fbd991336827e13d7511a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "1a7cdd8d2a7f15eb",
-      "source_record_id": "rock_developer:1a7cdd8d2a7f15eb",
-      "title": "Using Lava Remotely",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "security"
-      ],
-      "url": "https://community.rockrms.com/lava/remote-lava",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "change_type": null,
-      "content_hash": "598a20b5c4a335bf5f245eb3a66a62cc3b26b9677001097a66fb340ad0ac3270",
-      "excerpt_hash": "64dfebf9314da77e18408f18c3542225909b747039b9bb9bfea470cbb5f33ee3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs"
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "3f491523f1f74bdf50c552bbdb164b386550c469eb83cff08949ba18dbe17387"
+  }
 }

@@ -3,566 +3,495 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
+        "Attendance",
+        "Person",
+        "Step",
         "Device",
-        "Check-in Configuration"
+        "Family"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-no-check-in-locations-are-active",
-      "id": "symptom-no-check-in-locations-are-active",
+      "guide_section_id": "troubleshooting-decision-tree-a-person-or-family-cannot-be-found",
+      "id": "a-person-or-family-cannot-be-found",
       "inspect": [
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
+        "Attendance",
+        "Person",
+        "Step",
         "Device",
-        "Check-in Configuration"
+        "Family"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/10/266"
+        "https://community.rockrms.com/documentation/church-management/check-in/check-in-fundamentals/check-in-relationships",
+        "https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry"
       ],
       "start_with": [
-        "Current server time and time zone.",
-        "Check-in schedule start/end windows.",
-        "Group location schedule assignment.",
-        "Location active status.",
-        "Check-in configuration active dates.",
-        "Device configuration.",
-        "Campus context.",
-        "Whether the wrong check-in configuration is loaded."
+        "Confirm whether the flow expects login, phone lookup, another search method, or an already recognized mobile device.",
+        "Search thoroughly before creating a new person or family.",
+        "Verify that the person record and family membership are correct.",
+        "If someone outside the family should act for a child, inspect the person’s known relationship and the relationship role’s `Can Check-in` setting.",
+        "If using mobile check-in, confirm that the identity step actually completed before interpreting eligibility results.",
+        "Stop before creating a duplicate when an existing record might be incomplete or matched under another family. Check-in Relationships,"
       ],
-      "title": "Symptom: No Check-In Locations Are Active",
-      "when": "Symptom: No Check-In Locations Are Active"
+      "title": "A person or family cannot be found",
+      "when": "A person or family cannot be found"
     },
     {
       "do_not_assume": [
-        "Do not assume missing search results mean the person is not in Rock."
+        "Do not use Device Manager override until the failed eligibility rule is understood."
       ],
       "entities": [
+        "Attendance",
         "Person",
-        "Family"
+        "Group",
+        "Location",
+        "Schedule",
+        "Device"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-family-search-finds-nothing",
-      "id": "symptom-family-search-finds-nothing",
+      "guide_section_id": "troubleshooting-decision-tree-a-person-is-found-but-has-no-check-in-options",
+      "id": "a-person-is-found-but-has-no-check-in-options",
       "inspect": [
+        "Attendance",
         "Person",
-        "Family"
+        "Group",
+        "Location",
+        "Schedule",
+        "Device"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/configure-settings-for-a-check-in-type",
+        "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk"
+      ],
       "start_with": [
-        "Search mode and required digit count.",
-        "Phone number exists on the adult/family record.",
-        "Phone number formatting.",
-        "Person record active status.",
-        "Family membership.",
-        "Duplicate records.",
-        "Search keys.",
-        "Kiosk configuration."
+        "Identify the exact configuration, kiosk, and enabled areas for the active session.",
+        "Confirm the current schedule window.",
+        "Verify that the group is linked to the intended location and schedule.",
+        "Confirm that the kiosk serves that location.",
+        "Check whether the room is open and below its applicable thresholds.",
+        "Compare the person’s age, grade, birthdate, ability level, inactive status, and prior attendance against the selected configuration rules.",
+        "Inspect duplicate or concurrent check-in prevention.",
+        "Check for manager-side room closures or attendance edits."
       ],
-      "title": "Symptom: Family Search Finds Nothing",
-      "when": "Symptom: Family Search Finds Nothing"
+      "title": "A person is found but has no check-in options",
+      "when": "A person is found but has no check-in options"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Attendance",
         "Group",
+        "Location",
+        "Schedule",
+        "Device"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-room-is-unavailable-only-during-one-service",
+      "id": "a-room-is-unavailable-only-during-one-service",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Device"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk"
+      ],
+      "start_with": [
+        "Confirm the current date and service window.",
+        "Inspect the group-location relationship.",
+        "Inspect the schedule linked to that group-location pair.",
+        "Confirm that the room has not been closed in Check-In Manager or Device Manager.",
+        "Check the normal and absolute thresholds.",
+        "Compare other services using the same location before changing a location-level threshold.",
+        "Stop when the evidence only proves the desired schedule exists but not that it is linked to the group-location pair."
+      ],
+      "title": "A room is unavailable only during one service",
+      "when": "A room is unavailable only during one service"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Location",
+        "Schedule",
+        "Campus",
+        "Device",
         "Check-in Configuration",
-        "Family",
         "Block"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-family-found-child-missing",
-      "id": "symptom-family-found-child-missing",
+      "guide_section_id": "troubleshooting-decision-tree-mobile-check-in-reports-no-campus-no-service-or-location-failure",
+      "id": "mobile-check-in-reports-no-campus-no-service-or-location-failure",
       "inspect": [
-        "Attendance",
-        "Group",
+        "Person",
+        "Location",
+        "Schedule",
+        "Campus",
+        "Device",
         "Check-in Configuration",
-        "Family",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs"
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs"
       ],
       "start_with": [
-        "Child is in the primary family.",
-        "Child record is active.",
-        "Child age/grade is in range.",
-        "Check-in configuration prevents inactive people.",
-        "Relationship or custody restrictions.",
-        "Group membership mode: `Already Belongs` vs `Add On Check In` (Checking-out Check-in).",
-        "Required group membership exists.",
-        "Can-check-in relationship settings, especially if Rapid Attendance Entry or other family relationship display is involved (RapidAttendanceEntry.ascx.cs)."
+        "Confirm HTTPS and the required geofencing API configuration.",
+        "Prove that the same person can use the underlying normal check-in configuration.",
+        "Verify that the launcher enables the intended virtual kiosk devices, configuration, and areas.",
+        "Verify each device’s campus geofence and associated locations.",
+        "Check whether browser location permission was granted.",
+        "If location services are intentionally disabled, confirm that the intended campus-selection option is available.",
+        "Verify the current schedule window and room availability.",
+        "Read the exact fallback message before changing configuration; no kiosk match, no active service, and no eligible person are different failures. Mobile Check-in Configuration,"
       ],
-      "title": "Symptom: Family Found, Child Missing",
-      "when": "Symptom: Family Found, Child Missing"
+      "title": "Mobile check-in reports no campus, no service, or location failure",
+      "when": "Mobile check-in reports no campus, no service, or location failure"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "DataView",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus"
+      "do_not_assume": [
+        "Do not assume scanning the QR creates attendance; the approved workflow treats it as a label-printing handoff."
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-child-present-no-rooms-available",
-      "id": "symptom-child-present-no-rooms-available",
-      "inspect": [
-        "DataView",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Group type included in configuration.",
-        "Group active.",
-        "Group location assigned.",
-        "Location active.",
-        "Schedule active now.",
-        "Capacity not full.",
-        "Campus context.",
-        "Age/grade/ability rules."
-      ],
-      "title": "Symptom: Child Present, No Rooms Available",
-      "when": "Symptom: Child Present, No Rooms Available"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Attendance",
-        "AttendanceOccurrence",
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Family"
+        "Label",
+        "Workflow"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-wrong-room-selected",
-      "id": "symptom-wrong-room-selected",
+      "guide_section_id": "troubleshooting-decision-tree-a-mobile-qr-code-does-not-print-labels",
+      "id": "a-mobile-qr-code-does-not-print-labels",
       "inspect": [
         "Attendance",
-        "AttendanceOccurrence",
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Family"
+        "Label",
+        "Workflow"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks",
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+      ],
       "start_with": [
-        "Location selection strategy.",
-        "Capacity/fill behavior.",
-        "Available locations for that group.",
-        "Campus filter.",
-        "The selected schedule.",
-        "Whether the family selected manually.",
-        "Whether mobile/kiosk contexts differ.",
-        "Actual `AttendanceOccurrence.LocationId`."
+        "Verify that check-in completed and attendance exists before diagnosing the QR code.",
+        "Confirm that QR display is enabled for the mobile flow.",
+        "Identify whether the QR was generated by Classic Mobile Check-in or another check-in implementation.",
+        "Confirm that the scanning kiosk type, camera, theme, and platform support that QR path.",
+        "Verify label assignments, printer route, and active printer.",
+        "Do not assume scanning the QR creates attendance; the approved workflow treats it as a label-printing handoff. Configure Kiosks,"
       ],
-      "title": "Symptom: Wrong Room Selected",
-      "when": "Symptom: Wrong Room Selected"
+      "title": "A mobile QR code does not print labels",
+      "when": "A mobile QR code does not print labels"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attendance",
-        "Group",
-        "Location",
-        "Device",
+        "Person",
         "Label"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-attendance-saved-but-label-did-not-print",
+      "guide_section_id": "troubleshooting-decision-tree-symptom-attendance-saved-but-label-did-not-print",
       "id": "symptom-attendance-saved-but-label-did-not-print",
       "inspect": [
         "Attendance",
-        "Group",
-        "Location",
-        "Device",
+        "Person",
         "Label"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/labels/use-the-label-designer",
+        "https://community.rockrms.com/documentation/church-management/check-in/labels/link-labels-to-check-in"
+      ],
       "start_with": [
-        "Attendance rows exist.",
-        "Label configuration for the check-in area/group.",
-        "Print routing: device vs location printer.",
-        "Assigned printer record.",
-        "Printer connectivity.",
-        "Label engine type.",
-        "Label template errors.",
-        "Font dependencies."
+        "Confirm that attendance was saved.",
+        "Identify the expected label type and resulting print count.",
+        "Verify that the label is linked to the selected check-in area.",
+        "Preview the label with representative attendance data.",
+        "Inspect merge data and conditions.",
+        "Confirm the active kiosk’s print method.",
+        "Confirm the selected printer and its network path.",
+        "Check whether the issue affects all labels, one label type, one room, or one person."
       ],
       "title": "Symptom: Attendance Saved But Label Did Not Print",
       "when": "Symptom: Attendance Saved But Label Did Not Print"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not rewrite the template until the active attendance context is understood."
+      ],
       "entities": [
         "Attendance",
-        "AttendanceOccurrence",
         "Person",
-        "Group",
         "Location",
-        "Schedule",
-        "Campus",
         "Label"
       ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-label-printed-but-data-wrong",
-      "id": "symptom-label-printed-but-data-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-label-prints-with-wrong-or-duplicated-data",
+      "id": "a-label-prints-with-wrong-or-duplicated-data",
       "inspect": [
         "Attendance",
-        "AttendanceOccurrence",
         "Person",
-        "Group",
         "Location",
-        "Schedule",
-        "Campus",
         "Label"
       ],
-      "source_urls": [],
-      "start_with": [
-        "`AttendanceOccurrence` group/location/schedule.",
-        "`Attendance.CampusId`.",
-        "Label field source.",
-        "Custom Lava merge fields.",
-        "Next-gen label formatter.",
-        "Whether person checked into multiple occurrences.",
-        "Whether stale or cached label definition is used."
-      ],
-      "title": "Symptom: Label Printed But Data Wrong",
-      "when": "Symptom: Label Printed But Data Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Schedule",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-check-in-manager-cannot-delete-or-checkout",
-      "id": "symptom-check-in-manager-cannot-delete-or-checkout",
-      "inspect": [
-        "Attendance",
-        "Schedule",
-        "Page",
-        "Block"
-      ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/10/266"
+        "https://community.rockrms.com/documentation/church-management/check-in/labels/label-types"
       ],
       "start_with": [
-        "Rock version.",
-        "User security roles.",
-        "Block/page security.",
-        "Delete attendance security verb.",
-        "Checkout enabled for Check-In Manager.",
-        "Schedule filter.",
-        "Attendance row has not already been checked out.",
-        "Attendance row belongs to selected manager context."
+        "Compare the chosen label type with its documented print cardinality.",
+        "Inspect the exact attendance records generated by the session.",
+        "Verify whether the merge field is top-level, person-scoped, attendance-scoped, or location-scoped.",
+        "For dynamic Lava, inspect the object available to the selected label type.",
+        "Preview against an attendance case that reproduces the problem.",
+        "Test multiple services and multiple rooms separately.",
+        "Do not rewrite the template until the active attendance context is understood."
       ],
-      "title": "Symptom: Check-In Manager Cannot Delete Or Checkout",
-      "when": "Symptom: Check-In Manager Cannot Delete Or Checkout"
+      "title": "A label prints with wrong or duplicated data",
+      "when": "A label prints with wrong or duplicated data"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Attendance",
-        "Group",
-        "Campus",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape",
-      "id": "symptom-rapid-attendance-entry-too-slow-or-wrong-shape",
-      "inspect": [
-        "Attendance",
-        "Group",
-        "Campus",
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/ask/using/2804",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/RapidAttendanceEntry.ascx.cs"
-      ],
-      "start_with": [
-        "Rapid Attendance Entry.",
-        "Group Attendance block.",
-        "Mobile Group Attendance Entry.",
-        "Custom workflow.",
-        "QR code workflow.",
-        "SMS keyword workflow."
-      ],
-      "title": "Symptom: Rapid Attendance Entry Too Slow Or Wrong Shape",
-      "when": "Symptom: Rapid Attendance Entry Too Slow Or Wrong Shape"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Person",
-        "DataView",
-        "Group",
-        "GroupType",
-        "Schedule",
-        "Campus"
-      ],
-      "guide_section_id": "11-troubleshooting-deep-dive-symptom-analytics-do-not-match-headcount",
-      "id": "symptom-analytics-do-not-match-headcount",
-      "inspect": [
-        "Attendance",
-        "Person",
-        "DataView",
-        "Group",
-        "GroupType",
-        "Schedule",
-        "Campus"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Are analytics counting individuals or occurrences?",
-        "Does the source use `DidAttend = 1`?",
-        "Are multiple service times counted separately?",
-        "Are date filters based on `SundayDate`?",
-        "Are campus filters including null campuses?",
-        "Are schedule filters applied?",
-        "Is the correct group type selected?",
-        "Is group-specific mode enabled?"
-      ],
-      "title": "Symptom: Analytics Do Not Match Headcount",
-      "when": "Symptom: Analytics Do Not Match Headcount"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "DataView",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Device",
-        "Family",
-        "Workflow",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved",
-      "id": "a-is-the-problem-before-attendance-is-saved",
-      "inspect": [
-        "Person",
-        "DataView",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Device",
-        "Family",
-        "Workflow",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/rocku/check-in",
-        "https://community.rockrms.com/rocku/check-in/types-and-groups",
-        "https://community.rockrms.com/rocku/check-in/locations",
-        "https://community.rockrms.com/rocku/check-in/schedules"
-      ],
-      "start_with": [
-        "Kiosk unavailable.",
-        "Search fails.",
-        "Family/person selection fails.",
-        "Opportunity selection fails.",
-        "Save fails.",
-        "Check device.",
-        "Check configuration.",
-        "Check schedule windows."
-      ],
-      "title": "A. Is The Problem Before Attendance Is Saved?",
-      "when": "A. Is The Problem Before Attendance Is Saved?"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
         "Device",
         "Label",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-b-was-attendance-saved",
-      "id": "b-was-attendance-saved",
+      "guide_section_id": "troubleshooting-decision-tree-a-label-cannot-be-reprinted",
+      "id": "a-label-cannot-be-reprinted",
       "inspect": [
-        "Person",
         "Device",
         "Label",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Reproduce with test person.",
-        "Inspect exception logs.",
-        "Inspect Check-In Manager.",
-        "Inspect database rows.",
-        "Inspect block/device logs if available.",
-        "Proceed to labels, roster, or analytics."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/printing/reprint-a-label"
       ],
-      "title": "B. Was Attendance Saved?",
-      "when": "B. Was Attendance Saved?"
+      "start_with": [
+        "Determine whether reprinting is being attempted from Device Manager, Check-In Manager, or a mobile check-in.",
+        "Confirm that reprinting is enabled on the relevant block.",
+        "Confirm that the operator has the `Reprint Labels` security permission.",
+        "For Check-In Manager, verify server printing.",
+        "For kiosk Device Manager, verify the configured device or server printing route.",
+        "Stop if the original transaction was mobile check-in; the documented reprint feature does not support that case."
+      ],
+      "title": "A label cannot be reprinted",
+      "when": "A label cannot be reprinted"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attendance",
-        "Label"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-c-is-the-problem-labels",
-      "id": "c-is-the-problem-labels",
-      "inspect": [
-        "Attendance",
-        "Label"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Attendance exists?",
-        "Label enabled?",
-        "Print route correct?",
-        "Printer assigned?",
-        "Printer online?",
-        "Label template valid?",
-        "Mobile QR handoff complete?",
-        "Inspect attendance occurrence."
-      ],
-      "title": "C. Is The Problem Labels?",
-      "when": "C. Is The Problem Labels?"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Schedule",
+        "Person",
+        "Step",
         "Page",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager",
-      "id": "d-is-the-problem-check-in-manager",
+      "guide_section_id": "troubleshooting-decision-tree-check-in-manager-attendance-updates-lag",
+      "id": "check-in-manager-attendance-updates-lag",
       "inspect": [
         "Attendance",
-        "Schedule",
+        "Person",
+        "Step",
         "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Verify version.",
-        "Verify page/block.",
-        "Verify security.",
-        "Verify roster filters.",
-        "Verify schedule filter.",
-        "Verify checkout enablement.",
-        "Verify delete attendance verb.",
-        "Verify attendance rows."
+      "source_urls": [
+        "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=262s",
+        "https://community.rockrms.com/documentation/church-management/check-in/check-in-manager/check-in-manager-person-profile"
       ],
-      "title": "D. Is The Problem Check-In Manager?",
-      "when": "D. Is The Problem Check-In Manager?"
+      "start_with": [
+        "Confirm that the installation is running the expected v19 block.",
+        "Verify browser connectivity.",
+        "Compare the roster with the underlying attendance state.",
+        "Confirm that the browser is on the intended page and active configuration.",
+        "Inspect whether the attendance was edited, moved, checked out, or deleted.",
+        "Refresh only as a diagnostic step; persistent dependence on refresh indicates the real-time path still needs investigation. v19 Check-In Manager feature,"
+      ],
+      "title": "Check-In Manager attendance updates lag",
+      "when": "Check-In Manager attendance updates lag"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not assume every Rapid Attendance Entry page exposes every supported action."
+      ],
       "entities": [
+        "Attendance",
         "Group",
-        "GroupType",
+        "Location",
         "Schedule",
-        "Campus",
-        "Block"
+        "Family",
+        "Workflow",
+        "Page",
+        "Block",
+        "Attribute"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-e-is-the-problem-analytics",
-      "id": "e-is-the-problem-analytics",
+      "guide_section_id": "troubleshooting-decision-tree-rapid-attendance-entry-is-missing-expected-actions",
+      "id": "rapid-attendance-entry-is-missing-expected-actions",
       "inspect": [
+        "Attendance",
         "Group",
-        "GroupType",
+        "Location",
         "Schedule",
-        "Campus",
-        "Block"
+        "Family",
+        "Workflow",
+        "Page",
+        "Block",
+        "Attribute"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry"
+      ],
       "start_with": [
-        "Verify block settings.",
-        "Verify group types/groups.",
-        "Verify campus and null-campus filters.",
-        "Verify schedule filters.",
-        "Verify date basis.",
-        "Verify `DidAttend`.",
-        "Verify stored procedure version.",
-        "Verify custom report logic."
+        "Confirm which page variant and block instance the operator is using.",
+        "Verify the selected group and attendance date.",
+        "Confirm whether location and schedule should appear for that group context.",
+        "Inspect block settings for attendance, family addition, notes, prayer requests, workflows, and navigation pages.",
+        "Confirm that the desired workflow and correctly typed group, location, or schedule attributes exist.",
+        "Do not assume every Rapid Attendance Entry page exposes every supported action."
       ],
-      "title": "E. Is The Problem Analytics?",
-      "when": "E. Is The Problem Analytics?"
+      "title": "Rapid Attendance Entry is missing expected actions",
+      "when": "Rapid Attendance Entry is missing expected actions"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attendance",
-        "Campus",
+        "Person",
+        "Group",
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Workflow",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-f-is-the-problem-mobile",
-      "id": "f-is-the-problem-mobile",
+      "guide_section_id": "troubleshooting-decision-tree-attendance-self-entry-does-not-record-attendance",
+      "id": "attendance-self-entry-does-not-record-attendance",
       "inspect": [
         "Attendance",
-        "Campus",
+        "Person",
+        "Group",
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Workflow",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Verify mobile app/shell version.",
-        "Verify block settings.",
-        "Verify virtual kiosk.",
-        "Verify geofence/campus.",
-        "Verify authentication.",
-        "Verify shared engine assumptions.",
-        "Verify QR handoff.",
-        "Compare mobile attendance rows to kiosk attendance rows."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/attendance/attendance-self-entry"
       ],
-      "title": "F. Is The Problem Mobile?",
-      "when": "F. Is The Problem Mobile?"
+      "start_with": [
+        "Verify the block’s selected check-in configuration.",
+        "Confirm the current time relative to configured schedules.",
+        "Verify that the appropriate group is associated with the intended location.",
+        "If no schedule matches, inspect whether a fallback group without a location or schedule exists.",
+        "Confirm that valid person records were created or resolved.",
+        "Inspect any post-submit workflow or redirect separately from attendance creation."
+      ],
+      "title": "Attendance Self Entry does not record attendance",
+      "when": "Attendance Self Entry does not record attendance"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Person",
+        "Location",
+        "Schedule",
+        "Campus"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-proximity-attendance-records-the-wrong-service-or-area",
+      "id": "proximity-attendance-records-the-wrong-service-or-area",
+      "inspect": [
+        "Attendance",
+        "Person",
+        "Location",
+        "Schedule",
+        "Campus"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance"
+      ],
+      "start_with": [
+        "Confirm the person opted in and the mobile app has Beacon Monitoring enabled.",
+        "Inspect the campus and location beacon identifiers.",
+        "Check for nearby overlapping beacon coverage.",
+        "Check for overlapping service windows.",
+        "Compare the recorded attendance with the documented automatic schedule-selection behavior.",
+        "Reduce ambiguity in beacon placement or scheduling before changing attendance after the fact."
+      ],
+      "title": "Proximity attendance records the wrong service or area",
+      "when": "Proximity attendance records the wrong service or area"
+    },
+    {
+      "do_not_assume": [
+        "Do not treat a successful REST response as proof that the intended relationship was created."
+      ],
+      "entities": [
+        "Group",
+        "Location",
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links",
+      "id": "a-rest-integration-creates-unexpected-schedules-or-links",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
+      ],
+      "start_with": [
+        "Stop further mutations.",
+        "Read back the created `GroupLocation`, schedule records, and group-location schedule relationships.",
+        "Determine whether the request included partial navigation objects instead of scalar relationship fields.",
+        "Prove that any unexpected schedule is accidental and unreferenced before considering deletion.",
+        "Use only a tested, authorized endpoint for cleanup.",
+        "Read back every relationship after cleanup.",
+        "Do not treat a successful REST response as proof that the intended relationship was created."
+      ],
+      "title": "A REST integration creates unexpected schedules or links",
+      "when": "A REST integration creates unexpected schedules or links"
+    },
+    {
+      "do_not_assume": [
+        "The recipe is neither reviewed nor endorsed by the Rock core team and intercepts endpoint traffic, so do not apply it as a general v19 fix."
+      ],
+      "entities": [
+        "Attendance",
+        "Group",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation",
+      "id": "attendance-appears-to-save-but-the-page-gives-no-confirmation",
+      "inspect": [
+        "Attendance",
+        "Group",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/recipes/461"
+      ],
+      "start_with": [],
+      "title": "Attendance appears to save but the page gives no confirmation",
+      "when": "Attendance appears to save but the page gives no confirmation"
     }
   ],
   "concept_id": "check-in",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T17:10:54+00:00",
   "guide_sections": [
-    "8-labels-deep-dive-label-troubleshooting-branches",
-    "11-troubleshooting-deep-dive",
-    "11-troubleshooting-deep-dive-symptom-no-check-in-locations-are-active",
-    "11-troubleshooting-deep-dive-symptom-family-search-finds-nothing",
-    "11-troubleshooting-deep-dive-symptom-family-found-child-missing",
-    "11-troubleshooting-deep-dive-symptom-child-present-no-rooms-available",
-    "11-troubleshooting-deep-dive-symptom-wrong-room-selected",
-    "11-troubleshooting-deep-dive-symptom-attendance-saved-but-label-did-not-print",
-    "11-troubleshooting-deep-dive-symptom-label-printed-but-data-wrong",
-    "11-troubleshooting-deep-dive-symptom-check-in-manager-cannot-delete-or-checkout",
-    "11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape",
-    "11-troubleshooting-deep-dive-symptom-analytics-do-not-match-headcount",
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-a-is-the-problem-before-attendance-is-saved",
-    "18-troubleshooting-decision-tree-b-was-attendance-saved",
-    "18-troubleshooting-decision-tree-c-is-the-problem-labels",
-    "18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager",
-    "18-troubleshooting-decision-tree-e-is-the-problem-analytics",
-    "18-troubleshooting-decision-tree-f-is-the-problem-mobile",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in",
-    "19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label",
-    "19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows",
-    "19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms",
-    "19-agent-task-recipes-recipe-validate-mobile-check-in-readiness"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-person-or-family-cannot-be-found",
+    "troubleshooting-decision-tree-a-person-is-found-but-has-no-check-in-options",
+    "troubleshooting-decision-tree-a-room-is-unavailable-only-during-one-service",
+    "troubleshooting-decision-tree-mobile-check-in-reports-no-campus-no-service-or-location-failure",
+    "troubleshooting-decision-tree-a-mobile-qr-code-does-not-print-labels",
+    "troubleshooting-decision-tree-symptom-attendance-saved-but-label-did-not-print",
+    "troubleshooting-decision-tree-a-label-prints-with-wrong-or-duplicated-data",
+    "troubleshooting-decision-tree-a-label-cannot-be-reprinted",
+    "troubleshooting-decision-tree-check-in-manager-attendance-updates-lag",
+    "troubleshooting-decision-tree-rapid-attendance-entry-is-missing-expected-actions",
+    "troubleshooting-decision-tree-attendance-self-entry-does-not-record-attendance",
+    "troubleshooting-decision-tree-proximity-attendance-records-the-wrong-service-or-area",
+    "troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links",
+    "troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-preflight-a-standard-kiosk-session",
+    "agent-task-recipes-recipe-preflight-mobile-check-in",
+    "agent-task-recipes-recipe-validate-a-next-gen-label-end-to-end",
+    "agent-task-recipes-recipe-triage-a-live-service-incident",
+    "agent-task-recipes-recipe-create-a-focused-rapid-attendance-entry-page",
+    "agent-task-recipes-recipe-build-an-attendance-analysis",
+    "agent-task-recipes-recipe-prepare-a-new-family-arrival-path",
+    "agent-task-recipes-recipe-reprint-a-damaged-label"
   ]
 }

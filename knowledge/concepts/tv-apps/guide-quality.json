@@ -1,27 +1,23 @@
 {
   "authority_coverage": [
-    "community-answer",
-    "official-api",
     "official-developer",
-    "official-model-map",
-    "official-release",
     "official-triumph",
     "source-code"
   ],
   "checks": [
     {
       "id": "min_words",
-      "message": "Guide has 11847 words; expected at least 1200.",
+      "message": "Guide has 6448 words; expected at least 1200.",
       "passed": true
     },
     {
       "id": "bounded_length",
-      "message": "Guide has 11847 words; expected no more than 9000.",
-      "passed": false
+      "message": "Guide has 6448 words; expected no more than 9000.",
+      "passed": true
     },
     {
       "id": "min_sections",
-      "message": "Guide has 82 sections; expected at least 9.",
+      "message": "Guide has 43 sections; expected at least 9.",
       "passed": true
     },
     {
@@ -41,7 +37,7 @@
     },
     {
       "id": "entity_coverage",
-      "message": "Guide has 11 entity rows; expected at least 3.",
+      "message": "Guide has 9 entity rows; expected at least 3.",
       "passed": true
     },
     {
@@ -60,32 +56,32 @@
       "passed": true
     },
     {
-      "id": "community_marked",
-      "message": "Guides using community sources must label them as examples or patterns, not official guidance.",
+      "id": "claim_first_evidence",
+      "message": "Guide should visibly ground its factual spine in approved answer-bearing claims.",
       "passed": true
     }
   ],
   "concept_id": "tv-apps",
   "contribution_record_count": 0,
-  "entity_count": 11,
-  "generated_at": "2026-08-12T12:50:00+00:00",
-  "guide_line_count": 1108,
-  "guide_word_count": 11847,
+  "entity_count": 9,
+  "generated_at": "2026-09-03T16:51:17+00:00",
+  "guide_line_count": 601,
+  "guide_word_count": 6448,
   "metrics": {
     "actionable_task_card_ratio": 1.0,
-    "answer_claim_count_in_pack": 0,
-    "answer_claim_reference_count": 0,
-    "entity_count": 11,
-    "section_count": 82,
-    "source_count": 72,
-    "substantive_uncited_section_ratio": 0.0172,
+    "answer_claim_count_in_pack": 10,
+    "answer_claim_reference_count": 10,
+    "entity_count": 9,
+    "section_count": 43,
+    "source_count": 36,
+    "substantive_uncited_section_ratio": 0.0286,
     "task_card_count": 6,
-    "word_count": 11847
+    "word_count": 6448
   },
   "private_draft_contribution_record_count": 0,
-  "score": 90,
-  "section_count": 82,
-  "source_count": 72,
-  "status": "fail",
+  "score": 100,
+  "section_count": 43,
+  "source_count": 36,
+  "status": "pass",
   "task_card_count": 6
 }

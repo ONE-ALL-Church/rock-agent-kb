@@ -18,24 +18,23 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 
 ## Primary Tasks
 
-- [Recipe: Identify A Person Safely](tasks/recipe-identify-a-person-safely.md): Then verify whether any referenced workflow, attendance, communication, registration, or financial record uses `PersonAliasId` or alias GUID.
-- [Recipe: Inspect A Person Attribute](tasks/recipe-inspect-a-person-attribute.md): Complete Inspect A Person Attribute with evidence-backed checks and a verifiable outcome.
-- [Recipe: Determine If A Value Is Person Id Or Alias Guid](tasks/recipe-determine-if-a-value-is-person-id-or-alias-guid.md): Complete Determine If A Value Is Person Id Or Alias Guid with evidence-backed checks and a verifiable outcome.
-- [Recipe: Audit A Family For Check-In](tasks/recipe-audit-a-family-for-check-in.md): Source landmarks: Check-In RockU (Check-In), `FindFamilies.cs` (source), `FindRelationships.cs` (source).
-- [Recipe: Review A Person Profile Customization](tasks/recipe-review-a-person-profile-customization.md): Complete Review A Person Profile Customization with evidence-backed checks and a verifiable outcome.
-- [Recipe: Triage An Accidental Merge](tasks/recipe-triage-an-accidental-merge.md): Complete Triage An Accidental Merge with evidence-backed checks and a verifiable outcome.
-- [Recipe: Track New Record Source](tasks/recipe-track-new-record-source.md): Complete Track New Record Source with evidence-backed checks and a verifiable outcome.
-- [Recipe: Build A Staff Directory From Person Attributes](tasks/recipe-build-a-staff-directory-from-person-attributes.md): Complete Build A Staff Directory From Person Attributes with evidence-backed checks and a verifiable outcome.
-- [Recipe: Add A Bookmarked Groups-Like Profile Panel](tasks/recipe-add-a-bookmarked-groups-like-profile-panel.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Add a person or family without creating a duplicate](tasks/recipe-add-a-person-or-family-without-creating-a-duplicate.md): The correct person records are attached to the correct family with no avoidable duplicate.
+- [Recipe: Correct a family structure or household move](tasks/recipe-correct-a-family-structure-or-household-move.md): Family membership, primary-family context, address history, and downstream behavior reflect the reviewed household reality.
+- [Recipe: Design or review a person or family attribute](tasks/recipe-design-or-review-a-person-or-family-attribute.md): The attribute has a clear owner, correct entity, maintainable value, appropriate display, and bounded security.
+- [Recipe: Audit Person Note governance](tasks/recipe-audit-person-note-governance.md): Notes are categorized, visible, and consumed according to documented staff purpose and authorization.
+- [Recipe: Prepare a duplicate-person merge for authorized review](tasks/recipe-prepare-a-duplicate-person-merge-for-authorized-review.md): A reviewer receives a bounded comparison and can merge without relying on recency alone.
+- [Recipe: Validate family preregistration end to end](tasks/recipe-validate-family-preregistration-end-to-end.md): A visitor can preregister without producing preventable duplicates, and the resulting people data leads to check-in and staff action.
+- [Recipe: Diagnose a connection request from the person record](tasks/recipe-diagnose-a-connection-request-from-the-person-record.md): The failure is classified as person context, request state, opportunity configuration, assignment, activity, or automation.
+- [Recipe: Run a bounded people-data cleanup](tasks/recipe-run-a-bounded-people-data-cleanup.md): A defined population is corrected by a testable rule with before-and-after evidence.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-55: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 56-103: 2. Scope And Terminology (normal)
-- `3-people-and-families-mental-model` lines 104-140: 3. People And Families Mental Model (high)
-- `4-source-authority-and-how-to-use-this-guide` lines 141-178: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-person` lines 183-208: Person (normal)
-- `5-core-configuration-and-data-model-personalias` lines 209-224: PersonAlias (normal)
+- `agent-summary` lines 18-30: Agent Summary (normal)
+- `mental-model` lines 54-70: Mental Model (normal)
+- `person-model-and-record-lifecycle-creating-and-locating-people` lines 73-78: Creating and locating people (normal)
+- `person-model-and-record-lifecycle-editing-inactivating-and-preserving-history` lines 79-90: Editing, inactivating, and preserving history (normal)
+- `person-model-and-record-lifecycle-derived-person-data` lines 91-96: Derived person data (normal)
+- `person-profile-and-access-boundaries` lines 97-113: Person Profile And Access Boundaries (normal)
 
 ## Core Entities
 
@@ -43,25 +42,19 @@ Person records, families, aliases, attributes, relationships, and data hygiene.
 - `Attribute`: Rock concept/entity referenced by the people-families guide.
 - `Block`: Rock concept/entity referenced by the people-families guide.
 - `Campus`: Rock concept/entity referenced by the people-families guide.
-- `Check-in Configuration`: Rock concept/entity referenced by the people-families guide.
-- `DataView`: Rock concept/entity referenced by the people-families guide.
-- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the people-families guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `GroupMember`: Rock concept/entity referenced by the people-families guide.
-- `GroupType`: Rule container for groups, including attendance/check-in settings and inherited behavior.
 - `Label`: Rock concept/entity referenced by the people-families guide.
+- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
+- `Page`: Rock concept/entity referenced by the people-families guide.
+- `Person`: Rock concept/entity referenced by the people-families guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Step`: Person-specific engagement milestone instance.
 
 ## Version Caveats
 
 - `18.3`: Fixed two issues in the Giving History API. When "Combine Giving With" was blank, the API incorrectly returned family giving data instead of only the individual's authorized giving. When family giving (includeGivingGroup
 - `18.2`: Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as
-- `18.1`: Improved the Person Record Source feature by adding support for setting a Record Source within the Get Person From Fields Workflow Action and the internal Add Family page. Also added a configuration option to define a de
-- `19.1`: Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729
-- `19.1`: Added Registrant eligibility rules to the Registration Template Detail Block and updated the Registration Entry Block to prevent incorrect family member registrations. Added new "Registrant Eligibility" settings to the R
-- `19.1`: Fixed an issue where editing an Event Occurrence Attribute on the Event Item Detail block would incorrectly reject the attribute key value with a validation error, preventing the attribute from being saved.
-- `18.2`: Fixed an issue where submitting a registration would disable an individual's SMS setting when the "Show SMS Opt-In" option on the Registration Template was set to False. The registration process will now preserve the ind
-- `18.2`: Fixed an issue where creating a Benevolence Request from a Person Profile did not automatically associate the current person, requiring the individual to be manually selected after the request was created. Fixes: #6631
 
 ## Files For Agents
 

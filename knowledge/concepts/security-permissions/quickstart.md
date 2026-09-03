@@ -18,37 +18,37 @@ Authorization, roles, security inheritance, API auth, block/page security, and o
 
 ## Primary Tasks
 
-- [Recipe: Answer “Who Has Access To This?”](tasks/recipe-answer-who-has-access-to-this.md): Do not answer from direct `Auth` rows alone unless the question is explicitly “what rules are configured?” The role inspector recipe warns direct rows do not account for inheritance (Security Role Permissions Inspector).
-- [Recipe: Answer “Why Was I Denied?”](tasks/recipe-answer-why-was-i-denied.md): Do not stop at direct `Auth` rows: Rock security includes inherited authority and code-level action checks, and the role inspector recipe explicitly warns that direct row listings do not account for inheritance (Rock Security, Security Role Permissions Inspector).
-- [Recipe: Review A Permission Change Request](tasks/recipe-review-a-permission-change-request.md): Then implement the smallest change and test.
-- [Recipe: Review A Custom Agent Tool](tasks/recipe-review-a-custom-agent-tool.md): Source: Writing Custom Tools.
-- [Recipe: Review A Public Route](tasks/recipe-review-a-public-route.md): Sources: IdKey guidance, Helix security, and remote Lava warnings (Rock Security, Helix Security, Using Lava Remotely).
-- [Recipe: Review A Security Role](tasks/recipe-review-a-security-role.md): Complete Review A Security Role with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review After Upgrade](tasks/recipe-review-after-upgrade.md): Sources: Release Notes, GitHub Spotlight: 9/6/2024, GitHub Spotlight: 5/21/2026.
+- [Recipe: Explain an effective permission result](tasks/recipe-explain-an-effective-permission-result.md): A sourced explanation of why one person is allowed or denied one action.
+- [Recipe: Publish a page or block with bounded access](tasks/recipe-publish-a-page-or-block-with-bounded-access.md): The intended audience can use the surface while unauthorized users cannot.
+- [Recipe: Preflight a least-privilege REST integration](tasks/recipe-preflight-a-least-privilege-rest-integration.md): A documented integration identity with only the access required for known routes and methods.
+- [Recipe: Secure a Lava API or Helix endpoint](tasks/recipe-secure-a-lava-api-or-helix-endpoint.md): A directly callable endpoint with explicit identity, authorization, validation, and bounded output.
+- [Recipe: Audit Person Profile notes](tasks/recipe-audit-person-profile-notes.md): Sensitive notes are categorized, visible, and consumed only as intended.
+- [Recipe: Validate an AI agent tool before production](tasks/recipe-validate-an-ai-agent-tool-before-production.md): A bounded tool whose availability, authorization, input handling, and output have been demonstrated.
+- [Recipe: Run a security-sensitive upgrade preflight](tasks/recipe-run-a-security-sensitive-upgrade-preflight.md): A version-aware plan that distinguishes security fixes from feature changes.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-55: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology-key-terms` lines 88-119: Key Terms (normal)
-- `3-security-and-permissions-mental-model-the-actor-layer` lines 126-143: The Actor Layer (normal)
-- `3-security-and-permissions-mental-model-the-object-layer` lines 144-159: The Object Layer (normal)
-- `3-security-and-permissions-mental-model-the-action-layer` lines 160-165: The Action Layer (normal)
-- `3-security-and-permissions-mental-model-the-code-layer` lines 198-212: The Code Layer (normal)
+- `1-executive-summary-for-agents` lines 18-34: 1. Executive Summary For Agents (normal)
+- `scope-and-boundaries` lines 35-58: Scope And Boundaries (normal)
+- `3-security-and-permissions-mental-model-the-object-layer` lines 65-68: The Object Layer (normal)
+- `3-security-and-permissions-mental-model-the-action-layer` lines 69-84: The Action Layer (high)
+- `authorization-and-security-roles` lines 85-92: Authorization And Security Roles (normal)
+- `authorization-and-security-roles-permission-evaluation` lines 93-106: Permission evaluation (normal)
 
 ## Core Entities
 
-- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the security-permissions guide.
 - `Block`: Rock concept/entity referenced by the security-permissions guide.
+- `Campus`: Rock concept/entity referenced by the security-permissions guide.
+- `Check-in Configuration`: Rock concept/entity referenced by the security-permissions guide.
 - `DataView`: Rock concept/entity referenced by the security-permissions guide.
+- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the security-permissions guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `GroupMember`: Rock concept/entity referenced by the security-permissions guide.
-- `GroupType`: Rule container for groups, including attendance/check-in settings and inherited behavior.
-- `Label`: Rock concept/entity referenced by the security-permissions guide.
+- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the security-permissions guide.
 - `Person`: Rock concept/entity referenced by the security-permissions guide.
-- `Workflow`: Rock concept/entity referenced by the security-permissions guide.
+- `Step`: Person-specific engagement milestone instance.
 
 ## Version Caveats
 

@@ -6,1218 +6,566 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "51f9d38672cb5339f187f347aae78be183e7155702794c00c21315cb7fc6d17f"
 ---
 
 # Communications
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Treat every communication as a governed operation with six independently verified parts:
 
-- Concept data-model landmarks: [Communications index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+1. **Audience** — the intended people, the source of that audience and each recipient’s eligibility.
+2. **Sender** — the visible identity, reply path, authorized operator and applicable sender domain or phone number.
+3. **Message** — the approved template or content, rendered personalization, links and attachments.
+4. **Channel** — email, SMS or another enabled medium connected to the correct transport.
+5. **Consent and classification** — personal versus bulk treatment, list membership, medium preference and opt-out state.
+6. **Evidence** — the communication record, recipient outcomes, provider-reported events and any required approval.
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+Rock’s v19 documentation covers preparation, email, SMS, sending, preferences and reports as connected parts of one communication system. Do not validate only the editor screen and assume the rest is ready. [Communications documentation](https://community.rockrms.com/documentation/engagement/communications)
 
-## 1. Executive Summary For Agents
+For operational work, verify the audience, sender, template, channel, consent and reporting behavior in the installed Rock environment before acting on broad training or community advice. Email safeguards also belong to governance and deliverability: review sender policy, access, templates and version-specific behavior together. [Approved claim `claim:33cbfdb2d0556acc66ff` — Rock Communication](https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5fa) [Approved claim `claim:21e74a6bcebdab9c194a` — Email Safeguards](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema)
 
-Rock Communications is not one feature. It is a coordinated system for authoring messages, selecting recipients, honoring communication preferences, sending through configured transports, recording delivery outcomes, and reporting engagement. Agents working in this area should treat every communication problem as a path through four layers:
+A successful save, preview, approval or provider handoff is not proof that every intended recipient received the message. Completion requires the appropriate readback: communication status, recipient-level results, provider events when available and a representative real inbox or device test.
 
-1. **Audience selection**: Who is eligible to receive the message?
-2. **Medium selection**: Is the message email, SMS, push, or a recipient-preference blend?
-3. **Transport execution**: Which configured provider or component actually sends it?
-4. **Recipient history and analytics**: What did Rock record about delivery, unsubscribe, engagement, and response?
+## Scope And Boundaries
 
-The official `Communicating With Rock` manual is the primary operational source for the communication engine, mediums, transports, send job, unsubscribes, bounced mail, templates, lists, preferences, analytics, and SMS detail ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). RockU provides feature-level training paths for the modern Communication Wizard, templates, lists, preferences, flows, analytics, saturation reporting, SMS conversations, and SMS pipeline ([RockU Communication](https://community.rockrms.com/rocku/communication)). Release notes are required when working in modern Rock versions because communications changed materially in 17.x, 18.x, and 19.x ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+This guide owns the operational path from audience selection through delivery reporting for email and SMS. It includes communication lists, templates, system communications, transports, mediums, the Communication Wizard, the Simple Editor, approval, preferences, flows, SMS Conversations, the SMS Pipeline and communication reports. Those are the major surfaces identified by the v19 communications documentation. [Communications documentation](https://community.rockrms.com/documentation/engagement/communications)
 
-For practical agent work, start from the record or block actually involved:
+Related concepts remain in their own guides:
 
-- For a sent or pending message, inspect the `Communication` and `CommunicationRecipient` records.
-- For a list send, inspect the communication list group, active group members, member communication preferences, segments, and the recipient detail logic.
-- For template problems, inspect `CommunicationTemplate`, category, active state, version, wizard support, template security, preview image, Lava fields, and whether the message is a system-wide template or a Communication Flow template.
-- For SMS problems, inspect system phone numbers, SMS pipeline, SMS actions, the person's mobile phone record, SMS enabled state, opt-out handling, and the SMS Conversations action.
-- For analytics problems, determine whether the communication was sent by a path that supports analytics, whether the transport supplies open/click data, and whether Rock has recipient engagement rows to report.
-- For security problems, inspect block security, template security, communication detail access mode, approver permissions, list visibility, and the v19.1 `View All` behavior for Communication Detail ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+- **People** owns person records, aliases, email and phone data quality.
+- **Groups** owns group membership and Group Sync mechanics.
+- **Data Views and Reports** owns targeting-query design.
+- **Workflows** owns workflow lifecycle, actions and processing.
+- **Lava** owns merge logic and safe rendering.
+- **Security and Permissions** owns authorization design.
+- **Learning Management** owns programs, courses, classes and training completion.
+- **Connections** owns connection-request state and follow-up.
+- **Mobile** owns Rock Mobile and push-notification configuration.
 
-Do not assume a communication was sent simply because a user saw a blue message bubble, a communication row exists, or a workflow completed. Confirm the recipient status, medium entity type, selected transport, send date, status note, and any exception or job history. For SMS, also confirm that the recipient's mobile phone is SMS enabled and not opted out; community operational examples show staff can believe a reply was sent even when the recipient's phone record prevents SMS delivery ([Disabled SMS Mobile Phone Warning](https://community.rockrms.com/recipes/438)).
+This guide may describe how those concepts affect communications, but it does not reproduce their full configuration.
 
-The most important version caveats are:
+The evidence pack primarily documents Rock v19. Version-specific statements are labeled. Community recipes are optional patterns requiring local review and testing; they are not core Rock guarantees. Public source-code excerpts describe implementation at an immutable commit and do not establish an installation’s version, configuration or behavior.
 
-- v17 introduced communication-template versioning and recipient-detail fixes, including corrected SMS eligibility logic and `GroupMember.CommunicationPreference` handling in the recipient detail stored procedure ([migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)).
-- v17.4 improved duplicate-recipient removal for large communications ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- v18.1 added Communication Flows, improved analytics, saturation reporting, refreshed preferences/list surfaces, and an Obsidian Communication Detail block ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8), [Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- v18.2 and v18.3 fixed several Communication Entry Wizard, approval, template, and allowed-type enforcement issues ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- v19.1 adds Communication Detail access control changes and a `View All` security action; agents must verify block configuration and permissions after upgrading ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+## Mental Model
 
-## 2. Scope And Terminology
+A Rock communication is more than message content. An agent should reason through the following chain:
 
-This guide covers Rock RMS Communications as an operational and data-model concept: email, SMS, push-related communication fields, communication templates, transports, communication lists and segments, preferences, conversations, system communications, flow communications, analytics, reporting, security, and agent troubleshooting. It depends on People, Workflows, Lava, and Security because communications are usually selected from people records, often triggered by workflows, rendered through Lava, and constrained by security rules.
+**Audience source → recipient eligibility → communication classification → medium → transport → provider or carrier → recipient event → Rock history and reporting**
 
-A **Communication** is a message instance. It represents the authored send: subject, message content, sender metadata, type/medium data, future send time, status, approval state, attachments, and related recipients. The Model Map lists `Communication` as a core model in the Communication category ([Model Map](https://community.rockrms.com/ModelMap)).
+A communication list is a group of a specific type. Its members can be maintained manually or synchronized from a Data View through Group Sync. The sender then chooses recipients, a medium and usually a template. The medium supplies channel-level rules and points to a transport; the transport hands the message to a delivery provider. Rock stores communication and recipient context, while available delivery and engagement evidence depends on what the transport reports back. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) [Communication Mediums](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums) [Communication Transports](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-transports)
 
-A **Communication Recipient** is an individual recipient row tied to a communication. It carries recipient-level send state such as pending/delivered/failure status, medium, person alias, send time, unsubscribe information, and status note. The Model Map lists `Communication Recipient` separately from `Communication`, which is critical: most delivery investigations should happen at recipient level, not only at the parent communication ([Model Map](https://community.rockrms.com/ModelMap)). Rock also exposes a v2 model endpoint for communication recipients, guarded by model read/write security actions ([CommunicationRecipientsController source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/CommunicationRecipientsController.CodeGenerated.cs)).
+Recipient eligibility is channel-specific. A supplied v19 source snapshot shows the communication-entry recipient model carrying separate values for email preference, bulk-email allowance, active email state, email allowance, SMS allowance, push allowance and the selected SMS number. This is implementation evidence that “the person exists in the audience” and “the person is eligible for this channel” are different questions. [Rock source at `471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts)
 
-A **Medium** is the logical channel, such as email or SMS. The official manual separates mediums from transports: the medium decides the communication channel and the transport is the implementation that sends through a configured provider or component ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
+Reporting is also layered. A communication can have a Rock status and recipient records while open, click, bounce, spam or unsubscribe details remain incomplete because the provider integration or webhook is not reporting them. Link delivery evidence back to the Rock communication and person context when possible, then summarize provider events into staff-facing operational reports without exposing unnecessary raw event data. [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics) [Approved claim `claim:fb85d514f4ed765acad4` — provider events and Rock context](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) [Approved claim `claim:cd52138ec6ca3848cae9` — operational reporting](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5)
 
-A **Transport** is the implementation used by a medium. Email might use SMTP, Mailgun, or another configured email transport. SMS might use Twilio, a test transport, or another SMS transport. Community recipes show real installations using SMTP-compatible services like Mailtrap for development testing and AWS SES through Rock's SMTP transport, but those examples should be treated as community guidance and verified against the current transport component and provider configuration ([Mailtrap Email Testing](https://community.rockrms.com/recipes/138), [AWS SES SMTP Transport](https://community.rockrms.com/recipes/171)).
+## Communication Foundations
 
-A **Communication Template** is reusable message structure and sender metadata. Modern template records include fields for email, SMS, push-related options, category, active state, starter state, template version, CSS inlining, preview image, logo, Lava fields, and attachments according to Obsidian template detail view models and the official communication manual ([Communication Template Detail source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts), [Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
+Before testing content, establish the installed communication foundation:
 
-A **System Communication** is a reusable communication definition used by Rock's internal features and system workflows, such as receipts, scheduling responses, and notifications. It is a different concept from user-created communication templates. The Model Map lists `System Communication` in the Communication category ([Model Map](https://community.rockrms.com/ModelMap)), and RockU includes a System Communications module ([System Communications](https://community.rockrms.com/rocku/communication/system-emails)).
+1. Confirm the Rock version and whether the page uses the current wizard, Simple Editor or a legacy surface.
+2. Confirm the required communication medium is active.
+3. Confirm that medium points to the intended active transport.
+4. Confirm provider credentials and webhook configuration without exposing credentials.
+5. Confirm sender-domain or system-phone-number configuration.
+6. Confirm page, block, template, list and approval permissions.
+7. Confirm preference, unsubscribe and reporting surfaces.
+8. Use a bounded test audience before any broad send.
 
-A **Communication List** is a group used as a subscribable or sendable audience. RockU notes that shipped lists are not automatically synced; if an organization wants to use them, it should wire them to organizational data views or another membership sync strategy ([Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)). Agents must not assume list membership reflects current attendance, membership, giving, serving, or campus state unless a live sync path is verified.
+Rock v19 exposes transports at `Admin Tools > Settings > Communication Transports`. Its documented built-in email transport choices include SMTP, Mailgun HTTP and SendGrid HTTP. SMTP testing also requires the server or service to permit relay from the Rock server. [Communication Transports](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-transports)
 
-A **Segment** is a personalization or filtering layer used to refine recipients. The recipient detail stored procedure accepts a personalization segment list and a match type for OR or AND behavior, then filters recipient people by `PersonAliasPersonalization` rows ([recipient detail SQL source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)).
+Communication Mediums at `Admin Tools > Settings > Communication Mediums` represent available methods and connect a medium to its transport. The v19 Email medium also contains settings for unsubscribe markup, non-HTML content, CSS inlining, the bulk threshold, an unsubscribe-request address, one-click unsubscribe and an alternate unsubscribe URL. Transport capabilities can limit features such as CSS inlining, so the presence of a medium setting does not prove that the selected transport implements it. [Communication Mediums](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums) [Configure Email](https://community.rockrms.com/documentation/engagement/communications/email/configure-email)
 
-A **Communication Flow** is a v18.1+ automation feature for multi-step communication sequences across email, SMS, and push notifications, with progress and conversion tracking ([Rock Release Notes](https://www.rockrms.com/releasenotes), [Communication Flows](https://community.rockrms.com/rocku/communication/communication-flows)). The Model Map includes `Communication Flow`, `Communication Flow Communication`, `Communication Flow Instance`, `Communication Flow Instance Recipient`, `Communication Flow Instance Communication`, and conversion-related models ([Model Map](https://community.rockrms.com/ModelMap)).
+## Audiences, Communication Lists And Segments
 
-An **SMS Pipeline** is the inbound SMS routing/action system. It determines how inbound texts, keywords, and conversation messages are processed. RockU has SMS Pipeline training ([SMS Pipeline](https://community.rockrms.com/rocku/communication/sms-pipeline)), and the Model Map lists `Sms Pipeline` and `Sms Action` ([Model Map](https://community.rockrms.com/ModelMap)).
+Rock communication lists are groups of a designated type. Inspect them at `Admin Tools > Settings > Communication Lists`. Because the list is a group, membership may be manual or maintained through Group Sync from a Data View. Recipient troubleshooting should therefore inspect both the group and its synchronization source rather than assuming that the current Data View result automatically equals current list membership. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) [Approved claim `claim:a774892d024b8bbe0560` — Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)
 
-**Nameless People** and anonymous recipients are communication edge cases. Source code has explicit anonymous recipient creation for both email and SMS message recipients, meaning not every send target necessarily maps to a full Person record ([RockEmailMessageRecipient source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs), [RockSMSMessageRecipient source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs)). RockU also includes a Nameless People module in the communication training path ([Nameless People](https://community.rockrms.com/rocku/communication/nameless-people)).
+Categories organize lists and participate in visibility. The v19 subscribe block can be restricted to selected categories; category security determines whether a person can see associated lists. Campus context can filter displayed lists, while an “always include subscribed lists” setting can preserve already-subscribed lists that campus filtering would otherwise hide. [Configure Communication List Subscriptions](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions)
 
-## 3. Communications Mental Model
+The v2 Communication Wizard changes older communication-segment behavior toward Personalization Segments. Existing Data Views may be used in that model, but the segment category must match the Personalization Segment Category selected in the block settings. Treat unexpected segment results as a version-and-block-configuration problem until those conditions have been checked. [Communication Lists — Segments](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)
 
-A Rock communication moves through a lifecycle:
+A reviewed community pattern recommends refreshing a Data View-backed list immediately before a send and comparing the resulting group count with the source result. It also recommends testing a personalized call-to-action with a representative valid person or alias. This is a useful preflight pattern, not a core guarantee: the source calculation, refresh mechanism and count comparison require local verification. [Community contribution: refresh and verify source count](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists)
 
-1. **Create**: A user, block, workflow, system process, mobile block, or flow creates a communication.
-2. **Resolve recipients**: Rock loads people, person aliases, list members, entity-set members, connection-request contacts, or explicit anonymous addresses/numbers.
-3. **Evaluate eligibility**: Rock considers deceased status, email/SMS availability, active email, bulk email preference, SMS enabled state, medium preference, push eligibility, list subscription, and segment filters.
-4. **Author content**: The sender selects a template or writes message content, subject, SMS body, push content, additional details, sender metadata, attachments, and Lava merge fields.
-5. **Approve**: If required, the communication waits for an approver or is auto-approved based on block and security settings.
-6. **Queue or send**: Immediate sends may be queued directly; scheduled or future sends rely on the communications job path.
-7. **Transport**: The medium routes to the configured transport. The transport sends and returns recipient-level results.
-8. **Persist results**: Rock updates recipient statuses, send dates, status notes, delivery/engagement data, and history.
-9. **Report and respond**: Admins review detail pages, analytics, saturation, unsubscribe reports, recipient grids, SMS conversations, or flow analytics.
+## Templates And System Communications
 
-This model is more reliable than navigating by page names because the same underlying communication behavior can be reached from different blocks: Simple Communication Entry, Communication Entry Wizard, mobile Communication Entry, list pages, group member lists, workflow actions, system notifications, connections, prayer, finance receipts, and Communication Flows.
+Communication Templates provide reusable content for email, SMS and push. In v19 they can be categorized, marked as starter templates, given preview images and individually secured for View, Edit or Administrate access. A template missing from the wizard may be hidden by permissions or may not be configured for that wizard version. [Communication Templates](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates) [Communication Wizard](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-wizard)
 
-The official documentation frames communications around Rock's communication engine, mediums and transports, and the send job ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Source code shows transport components turning communication/message objects into transport-specific sends. `EmailTransportComponent` validates a From address, builds a template email message with merge fields and global attributes, then sends recipient tasks with a configurable async parallelization path where supported ([EmailTransportComponent source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs)). The SMS test transport re-queries the communication, checks that it is approved and due, counts pending recipients for the SMS medium, requires a From system phone number, gathers attachments, and sends pending recipients in parallel batches ([SmsTest source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)).
+The v19 template documentation distinguishes Legacy templates from a Beta template version. Legacy templates use HTML for email and have stated SMS/push limitations; the Beta option includes the drag-and-drop builder and additional capabilities. Do not convert, recreate or troubleshoot a template without first identifying its version and the editor that consumes it. [Communication Templates](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates)
 
-For agents, the recipient layer is the decisive layer. Parent communication status can be misleading if only some recipients are eligible, if duplicate removal changed the final list, if the communication is approved but future-dated, or if the parent communication was created by a path that later failed in a transport. Inspect individual `CommunicationRecipient` rows and their status notes before concluding.
+System Communications are templates used for specific, commonly automated messages such as password-reset communications. They can support email or SMS, are maintained under `Admin Tools > Settings > System Communications`, must have a category and can have per-item security. Their preview can render against a selected person and, when applicable, a selected date; a test can then be sent to a supplied address. [System Communications](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/system-communications)
 
-## 4. Source Authority And How To Use This Guide
+Do not treat a correct template preview as delivery proof. Preview verifies a chosen render context. Operational verification must separately cover the triggering action, actual recipient resolution, medium, transport and recorded result.
 
-Use sources in this order:
+## Email
 
-1. **Official documentation and release notes** for current configuration, feature behavior, version caveats, and upgrade action. The primary manual is [Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8). Current version changes come from [Rock Release Notes](https://www.rockrms.com/releasenotes).
-2. **Source code and generated view models** for implementation landmarks, exact field names, route prefixes, and data shape. Examples include `EmailTransportComponent`, `SmsTest`, `CommunicationTemplateDetail` bags, and REST model controllers.
-3. **RockU training** for UI workflow orientation. RockU's communication playlist covers lists, templates, wizard, preferences, analytics, flows, saturation reporting, system communications, SMS pipeline, SMS conversations, and sending email/SMS in simple mode ([RockU Communication](https://community.rockrms.com/rocku/communication)).
-4. **Model Map** for entity inventory and category membership. It confirms models but usually does not supply relationship depth in the compact source pack ([Model Map](https://community.rockrms.com/ModelMap)).
-5. **Community recipes and Q&A** for operational examples and patterns. Recipes can be useful but are not official; the recipe pages themselves warn that community recipes are not reviewed or endorsed by the core team and may affect performance or security. Treat them as patterns requiring local review, not authoritative configuration instructions.
+Rock sends email through a communication transport. The v19 documentation identifies Mailgun and SendGrid as included provider integrations and recommends a delivery service that can return information such as bounces, opens and clicks. Other integrations may be available through the Rock Shop, so installed provider support must be verified locally. [Intro to Email](https://community.rockrms.com/documentation/engagement/communications/email/intro-to-email) [Configure Email](https://community.rockrms.com/documentation/engagement/communications/email/configure-email)
 
-This guide intentionally avoids reproducing long source passages. It synthesizes the source pack into an operational manual for agents. When a behavior is likely instance-specific or the pack is thin, this guide names the live object to inspect rather than inventing certainty.
+For an email transport review, inspect:
 
-## 5. Core Configuration And Data Model
+- Whether the transport is active.
+- Whether the Email medium points to it.
+- Whether its sending domain matches the provider’s configured domain.
+- Whether provider credentials and webhook-signing values are present.
+- Whether open, click, unsubscribe, bounce and spam reporting are enabled where supported.
+- Whether sender addresses comply with the configured safe-sender policy.
+- Whether DNS and provider authentication are complete.
+- Whether a representative message reaches real inboxes and returns the expected events.
 
-### Communication transports
+Mailgun documentation notes that differing sender and From domains can produce “on behalf of” presentation and advises aligning the domains. It also documents separate Mailgun API and HTTP webhook-signing key fields for Rock 14.4, 15.4, 16.1 and later. SendGrid setup likewise requires its Rock transport, the Email medium assignment and provider-side event webhook configuration. [Email Integrations](https://community.rockrms.com/documentation/engagement/communications/email/email-integrations)
 
-The transport layer is configured under Rock's communication administration area. The official manual distinguishes mediums and transports, and community configuration examples refer to `Admin Tools > Communications > Communication Transports` for transport selection and provider credentials ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8), [Mailtrap Email Testing](https://community.rockrms.com/recipes/138)).
+The Email medium can add unsubscribe behavior and classify messages as bulk based on a configured threshold. When Mailgun is used, Rock’s v19 Mediums documentation advises reviewing provider tracking settings so recipients do not receive duplicate unsubscribe options. [Communication Mediums](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums)
 
-Operational checks:
+Domain-authentication and inbox-logo work should be kept conceptually separate. A reviewed community distillation discusses SPF, DKIM, DMARC and BIMI-style branding as related sender-trust work, while emphasizing that logo display is not itself proof of deliverability. Provider requirements and mailbox behavior can change, so verify them against current provider documentation before implementation. [Community media insight: email logo branding](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/X6mkVJ2BJW)
 
-- Inspect the active transport component for the medium.
-- Confirm provider credentials and endpoint settings.
-- Confirm whether the transport supports analytics, open tracking, click tracking, bounces, delivery callbacks, MMS, or opt-out events.
-- Confirm whether the transport is disabled in lower environments.
-- Confirm whether the communications send job is enabled if the communication is scheduled or queued rather than immediate.
+## SMS
 
-For development instances, use a trap or test transport. A community Mailtrap recipe describes routing all development email to a captured inbox by configuring Mailtrap as an SMTP transport and selecting SMTP as the Email medium transport container ([Mailtrap Email Testing](https://community.rockrms.com/recipes/138)). Treat this as a pattern: in any live instance, verify actual SMTP host, port, SSL, username, password, active state, and selected medium transport.
+Rock v19 SMS setup begins with a provider-backed phone number, an active SMS transport, the SMS medium assigned to that transport and a corresponding System Phone Number. System Phone Numbers are maintained at `Admin Tools > Settings > System Phone Numbers`; the documented settings include active state, SMS enablement, forwarding, an optional received-message workflow, a notification group and per-number security. [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms)
 
-For SMTP-based providers such as AWS SES, a community recipe notes that standard SMTP send can deliver mail but may not automatically write open/click analytics back into Rock ([AWS SES SMTP Transport](https://community.rockrms.com/recipes/171)). If an analytics investigation involves a non-native provider, verify both provider-side tracking and Rock-side callback/integration support.
+A person must opt in before being texted. Before sending, verify the intended audience’s SMS eligibility and the selected sending number rather than assuming that a populated mobile phone field is sufficient. [Intro to SMS](https://community.rockrms.com/documentation/engagement/communications/sms/intro-to-sms)
 
-### Communication mediums
+Per-number security does not automatically transfer to SMS Conversations, the Communication Wizard or Simple Communication blocks. Review security on those surfaces separately. Communication History also carries a documented warning that the personalized history block does not respect SMS view access configured on the communication. Treat SMS content visibility as a cross-surface security review, not merely a phone-number permission. [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms) [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics)
 
-The medium controls the channel. Common mediums include email, SMS, and push notifications. Recipient-preference sends use recipient-level preference and eligibility to choose a medium where supported by the entry block and configuration.
+### SMS Conversations
 
-The v17 recipient detail stored procedure returns the data needed to determine whether a person can receive email, SMS, or push notifications, and it accepts either a communication list ID or communication ID as the input list type ([recipient detail SQL source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)). Agents should treat this as a key implementation landmark for list and recipient eligibility issues in modern Rock.
+`People > Communications > SMS Conversations` provides a staff surface for starting and continuing conversations, filtering recipients, switching among active SMS numbers, adding notes or reminders and inserting SMS snippets. Incoming messages may arrive there directly or be routed there from the SMS Pipeline. [SMS Conversations](https://community.rockrms.com/documentation/engagement/communications/sms/sms-conversations)
 
-### Communication templates
+When response-recipient forwarding is enabled, Rock can relay a response to the assigned person’s mobile number with a response code. A reply containing that code can be matched back to the original conversation. Verify the assigned response recipient, their valid SMS number and the correct handling of response codes before relying on this workflow. [SMS Conversations](https://community.rockrms.com/documentation/engagement/communications/sms/sms-conversations)
 
-Template configuration is central because templates influence content, sender metadata, available channels, wizard support, preview behavior, and security. The official manual describes template categories, starter templates, preview images, permissions, and where to create templates in `Admin Tools > Settings > Communication Templates` ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). RockU has both modern and legacy template training ([Communication Templates](https://community.rockrms.com/rocku/communication/communication-templates), [Communication Templates Legacy](https://community.rockrms.com/rocku/communication/communication-templates-legacy)).
+### SMS Pipeline
 
-Modern template detail data includes:
+The SMS Pipeline is the entry point for incoming SMS messages. Messages move through ordered actions whose filters determine whether an action runs. An action with no filters applies to every message that reaches it, so unfiltered actions require deliberate review. Supported documented patterns include sending a reply, routing to SMS Conversations and launching a workflow. [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline)
 
-- attachments
-- BCC and CC email addresses
-- category
-- description
-- from email
-- from name
-- preview image file
-- active state
-- CSS inlining enabled
-- starter state
-- Lava fields
-- logo binary file
-- email message content
-- template name
-- push message and push options
-- reply-to email
-- SMS From system phone number
-- SMS message
-- email subject
-- template version
+In v19, a pipeline send action can enable **Save Response**. When enabled, Rock retains the automated response as a Communication or Communication Response and exposes it in SMS Conversations, Communication History and the person’s history. Enable this when auditability is required, while accounting for the additional retained history. [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline) [Approved claim `claim:c8435f854b9e7075ab76` — v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=684s)
 
-These fields are visible in the Obsidian `CommunicationTemplateDetailCommunicationTemplateBag` and initialization box source records ([template detail bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts), [template initialization box](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailInitializationBox.d.ts)).
+MMS delivery depends on carrier and device support. The documentation advises representative testing across carriers and phone types; it also documents provider attachment limits and configurable long-code throttling. Treat the configured rate and provider policy as local, time-sensitive conditions. [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms) [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline)
 
-Important distinctions:
+A community recipe for Rock 17.2 adds a browser-side SMS segment and credit estimator to the communication page. It explicitly describes its total as an estimate, not a provider quote, and depends on page DOM selectors and recipient-label wording. Use it only as an optional reviewed customization; validate encoding, segment calculation, current editor compatibility and provider billing independently. [Community recipe: SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol)
 
-- A system-wide Communication Template is not the same thing as a Communication Flow template. The official manual notes that email templates inside Communication Flows differ from system-wide communication templates ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
-- Template visibility depends on security. If a user cannot see a template, inspect permissions and whether it is set up for use with the relevant wizard or block ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
-- v17 added a `Version` column to `CommunicationTemplate` ([v17 migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)).
-- v18.3 fixed template saving failures when special characters in the template name affected preview image generation ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+## Sending, Classification And Approval
 
-### Communication lists and segments
+The Communication Wizard supports recipient selection, medium selection, templates, sender settings, message construction, scheduling and confirmation. The Simple Editor provides a smaller surface for direct communications and can start from a selected grid, Data View, group or manually entered recipients. [Intro to Sending](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/intro-to-sending) [Communication Wizard](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-wizard) [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor)
 
-Communication lists are group-backed audiences. The key operational warning from RockU is that shipped lists are not automatically synced and may need to be wired to data views if used organizationally ([Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)). Agents should inspect the group, group type, group members, sync jobs, data view rules, and member statuses before trusting a list name.
+For each send, verify:
 
-Segment filtering is implemented through the recipient detail path. The source snippet shows inputs for personalization segment IDs and match type: `1 = OR` and `2 = AND`. The procedure loads group members, excludes deceased people, requires active group-member status, then applies personalization segment filtering if provided ([recipient detail SQL source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)).
+1. The internal communication name and topic.
+2. The recipient source and final eligible count.
+3. The personal or bulk classification.
+4. The enabled mediums.
+5. The sender, From address or number and reply path.
+6. The template and rendered content.
+7. Links, images and attachments.
+8. Duplicate-prevention behavior where contact details are shared.
+9. Scheduled time and time-zone interpretation.
+10. Approval status.
+11. The test result.
+12. The post-send recipient outcomes.
 
-Live checks:
+The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages. Block settings can customize those labels and descriptions. Use local wording that helps senders classify messages consistently because the choice affects audience trust and sender reputation. [Approved claim `claim:809519cf51bf3b32119f` — v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=627s)
 
-- Does the group membership represent the intended audience?
-- Are group members active?
-- Are deceased people excluded?
-- Are segments supplied?
-- Is the segment match mode OR or AND?
-- Are `PersonAliasPersonalization` rows present for the people expected to match?
-- Is the list using a sync job or manual membership?
+In the Simple Editor, bulk communications include an unsubscribe link and exclude people who have declined bulk email. If the bulk option is hidden, the documentation says the communication is being treated as bulk. The editor can also expose duplicate prevention so a shared email address or phone number receives one message rather than one per selected person. [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor)
 
-### System phone numbers and SMS pipeline
+A test send renders merge fields using the first recipient while sending the result to the logged-in person. Therefore, a successful test proves only that specific render path; test representative recipients for important personalization branches. [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor)
 
-For SMS, the From number is not cosmetic. SMS transport code expects a communication's SMS From system phone number to exist, and the SMS test transport throws if it gets to send time without a From number ([SmsTest source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)). Operationally, inspect:
+By default, v19 documentation says email communications to 300 or more recipients require approval, although the threshold is configurable in the applicable communication-entry block. Pending communications notify the `RSR - Communication Approvers` group by email and remain unsent until a person with approval access approves them. Approval access and notification membership are separate controls and should both be inspected. [Advanced Email](https://community.rockrms.com/documentation/engagement/communications/email/advanced-email)
 
-- System phone number record
-- assigned person, if any
-- security on the number
-- provider/Twilio phone number state
-- SMS capability
-- voice behavior if people call the number
-- pipeline actions
-- opt-in/opt-out settings
-- forwarding behavior, if configured
+## Preferences, Consent And Sender Reputation
 
-SMS Pipeline training is part of RockU ([SMS Pipeline](https://community.rockrms.com/rocku/communication/sms-pipeline)). Release notes indicate v18.1 added configuration options to system phone number settings for SMS opt-in and opt-out handling, and fixed missing START/STOP keyword visibility in SMS Conversations when the SMS Pipeline includes the SMS Conversations action ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+Communication preferences are operational state, not merely a footer link. Rock v19 provides a static Communication Preferences mode and a link-driven Unsubscribe mode. Depending on configuration, a person can update their email address, change global email preference, manage list subscriptions and choose a medium preference for a list. Preference changes are recorded in person history. [Set Subscription Preferences](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences)
 
-### Communication jobs
+The global email choices documented for v19 distinguish receiving all email, personal email without mass email and no email. Unsubscribe behavior can also operate at list, flow, bulk or global scope. Diagnose the exact scope before editing membership or interpreting a missing recipient. [Set Subscription Preferences](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences) [Unsubscribe Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report)
 
-The official manual includes the Communications Send Job as part of the engine ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). The agent pattern is simple:
+The external Communication List Subscribe block is available under `Connect > Subscribe`. Its block settings control list categories, medium-preference display, campus-context filtering and whether already-subscribed lists remain visible despite campus filtering. A list being public is necessary for the documented public-list scenario but does not replace category, page and block authorization checks. [Configure Communication List Subscriptions](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions)
 
-- Immediate approved sends may queue directly, especially after v18.1 improvements for communications scheduled for "now" after approval ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- Future-dated or scheduled communications depend on job processing.
-- If a communication exists but did not send, inspect status, approval, future send time, job state, job history, exceptions, and recipient pending counts.
+Rock’s documentation recommends making unsubscribe easy, enabling one-click unsubscribe and processing requests promptly. Because mailbox-provider policies and legal obligations change, an agent should verify the organization’s current obligations with authoritative legal and provider guidance rather than treating an older threshold, deadline or penalty amount as permanently current. [Intro to Communication Preferences](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/intro-to-communication-preferences)
 
-## 6. Primary Entities And Relationships
+When Mailgun or SendGrid reports a spam complaint through the configured integration, Rock can inactivate the person’s email address and add a note documenting the complaint. This depends on the relevant provider webhook being configured. [Advanced Email](https://community.rockrms.com/documentation/engagement/communications/email/advanced-email)
 
-### Communication
+## Communication Flows And Automation Boundaries
 
-`Communication` is the parent send record. It connects to recipients, attachments, sender metadata, message content, status, future send time, template usage, and history. The Model Map lists it in the Communication category ([Model Map](https://community.rockrms.com/ModelMap)). Source transports re-query the communication before sending; this matters because stale in-memory objects should not be trusted in operational debugging ([EmailTransportComponent source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs), [SmsTest source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)).
+Communication Flows create sequences of email, SMS or push messages around a defined audience and goal. The documented v19 flow types are recurring, on-demand and one-time. Recurring flows rebuild their audience from a Data View for each scheduled instance; on-demand flows add people through events such as a workflow action; one-time flows run on a fixed schedule without recurrence. [Communication Flows](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows)
 
-Inspect:
+A flow can define conversion goals based on completed forms or workflows, joining a group or group type, completing a Step, completing a registration or entering a Data View. Each message can have its own delay and send time. A recipient can exit after the last message, an email open, an email click or conversion. Use the earliest meaningful exit condition to avoid continuing a sequence after its purpose has been achieved. [Communication Flows](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows)
 
-- `Id`, `Guid`
-- `Status`
-- `CommunicationType`
-- `Subject`
-- message/SMS/push content fields
-- sender fields
-- `FutureSendDateTime`
-- `CreatedByPersonAlias`
-- template references, if present
-- `SmsFromSystemPhoneNumber`
-- attachments
-- approval fields and audit fields
+Flow email templates are distinct from system-wide Communication Templates. Saving an email within a flow makes it available for flow use, not necessarily as a general communication template. Pausing a flow by making it inactive stops messages, new instances and conversion tracking until it is reactivated. [Communication Flows](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows)
 
-### CommunicationRecipient
+Adjacent automation requires its owning concept’s controls:
 
-`CommunicationRecipient` is the recipient delivery record. It links a person alias to a communication and tracks status, medium, send time, status note, unsubscribe date, and unsubscribe level. The Model Map lists it as its own Communication model ([Model Map](https://community.rockrms.com/ModelMap)). The v2 REST controller exposes model CRUD endpoints with secured read/write actions ([CommunicationRecipientsController source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/CommunicationRecipientsController.CodeGenerated.cs)).
+- In v19, selected connection requests can initiate SMS or email alongside other bulk actions. The result still depends on templates, snippets, phone eligibility and user permissions. [Approved claim `claim:5eedd5acf0194a87c5ce` — v19 Connections](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s)
+- Rock v19 adds workflow actions for Rock Chat channel and direct messages. Verify Chat configuration, recipient resolution, workflow security and delivery before operational use. [Approved claim `claim:f8380a3e786ab33df98f` — v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1056s)
+- Agent integrations should be controlled at individual-tool level. Drafting can be enabled while sending remains disabled, and destructive tools can be omitted. Tool availability and Rock permissions are both required controls. [Approved claim `claim:903c8ff9b5d2590fd616` — RockIQ Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
+- LMS completion can participate in group, Group Sync and workflow follow-up patterns. Training may include acknowledgements, required video, quizzes, uploads and facilitator-scored activities, so any resulting communication workflow must distinguish learner actions from staff review responsibilities. This is a community-reviewed integration pattern, not a universal LMS configuration. [Approved claims `claim:4bc0aee305fa6b1bd524` and `claim:882208fdf2bb82703931` — LMS Media Watch](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
 
-Inspect:
+## History, Analytics And Deliverability Reporting
 
-- `CommunicationId`
-- `PersonAliasId`
-- `MediumEntityTypeId`
-- `Status`
-- `StatusNote`
-- `SendDateTime`
-- `UnsubscribeDateTime`
-- `UnsubscribeLevel`
-- recipient merge data, if available
-- failures or pending rows
+Communication History is available at `People > Communication Reports > Communication History` and can be filtered by medium, status, topic, date and other list settings. A person’s History tab also exposes communications associated with that individual. [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics)
 
-### CommunicationAttachment and CommunicationTemplateAttachment
+A communication’s detail can show creator, approver, sender details, content, recipient list, channel variants and recipient-level outcomes. Duplicating a communication copies its stored recipient list; it does not rerun a dynamic source such as a Data View. Recalculate the audience when current membership matters. [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics)
 
-The Model Map lists both `Communication Attachment` and `Communication Template Attachment` ([Model Map](https://community.rockrms.com/ModelMap)). Runtime communications can have attachments, and templates can define default attachments. The SMS test transport also checks communication SMS attachments through `GetAttachmentBinaryFileIds( CommunicationType.SMS )` before sending ([SmsTest source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)).
+Email Analytics summarizes opens, clicks, client usage and top links over selectable time windows. Unique-link counts record one click per recipient. These measures depend on data returned by the configured transport; missing or low analytics may represent missing provider tracking rather than low engagement. [Email Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics)
 
-When attachments are missing or unexpected, inspect:
+The Communication Saturation Report can be filtered by date, Data View, connection status, medium and bulk status. Its chart, recipient and communication views help identify people receiving many messages and communications with broad reach. Use this as a targeting and cadence diagnostic, not as an automatic rule that a specific count is excessive for every audience. [Communication Saturation Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report)
 
-- template attachments
-- communication attachments
-- binary file type and file security
-- medium-specific attachment support
-- provider support for MMS or attachments
-- template-to-communication copy behavior
+The v19 Unsubscribe Report shows recent opt-outs and their scope, including list, flow, bulk or all-email outcomes. The `All` filter means global unsubscribes, not every report row. Approved v19 evidence also identifies recipient, send and unsubscribe timing, communication type or topic and sender as useful investigative fields. Use patterns to coach senders; do not assign a single cause to every unsubscribe. [Unsubscribe Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report) [Approved claim `claim:147ee6dbc7db220dc7ba` — v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=714s)
 
-### CommunicationTemplate
+A reviewed community Helix pattern separates a communication-history filter shell from its results endpoint, allowlists enum values and page sizes, parameterizes text search, pages before calculating recipient aggregates and keeps message bodies and recipient-level details out of the initial staff view. This is an optional community design requiring local security, performance and live-data verification. [Community contribution: Communication History Active Search](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search)
 
-`CommunicationTemplate` stores reusable message content and metadata. It has an explicit version in v17+ ([v17 migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)). Obsidian view models show fields such as active state, starter state, CSS inlining, Lava fields, category, preview image, logo, message, SMS message, push message, subject, sender, reply-to, and selected system phone number ([template detail bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts)).
+## Version And Authority Caveats
 
-### SystemCommunication
+Most official documentation in this pack targets Rock v19.0. Verify the installed version, block generation and transport/plugin versions before applying a path or setting exactly as written.
 
-`System Communication` is listed in the Model Map ([Model Map](https://community.rockrms.com/ModelMap)) and covered by RockU ([System Communications](https://community.rockrms.com/rocku/communication/system-emails)). It is often used by workflows and system features. Recipes show common modifications to system communications, such as giving receipts and scheduling responses, but agents must review Lava commands, security, and finance/privacy impact before implementing community snippets ([Giving Receipt System Email Shortcodes](https://community.rockrms.com/recipes/510), [Decline Reason in Scheduling Response Email](https://community.rockrms.com/recipes/419)).
+Version-specific evidence includes:
 
-### CommunicationResponse and CommunicationResponseAttachment
+- **v17 implementation:** An immutable migration adds a `Version` column to `CommunicationTemplate` and changes communication-recipient detail logic. This is implementation evidence, not proof that an installation has applied the migration. [Rock source at `471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)
+- **v18.2:** Release notes say approvers are redirected to the editor appropriate to the communication’s original creation surface. Earlier versions may exhibit the old redirect behavior. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- **v18.3:** Release notes say template names are sanitized when producing preview images, fixing failures caused by unsupported special characters. Confirm patch level when reproducing that symptom. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- **v19:** The pack’s approved release claims cover personal-versus-bulk classification, the Unsubscribe Report, optional SMS Pipeline response retention, connection-request communication actions and Rock Chat workflow actions.
+- **v19.5:** The supplied release-note excerpt reports fixes for the wizard medium picker, Mailgun HTTP plain-text bodies, Chat workflow actions without attachments, drafts with no recipients and Internal Communication View paging. These fixes should not be assumed on earlier v19 patch levels. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- **v20.0 alpha:** The supplied release notes identify v20 as alpha and describe improved SMS opt-out association, a Create Connection Request pipeline action and Communication List selection in the Simple Communication Entry block. Do not present these as stable v19 behavior. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-The Model Map lists response models, implying separate records for responses and response attachments ([Model Map](https://community.rockrms.com/ModelMap)). When troubleshooting inbound replies or conversation-like behavior, do not assume everything is stored only in the original communication row.
+The supplied v20-oriented source snapshot shows an SMS opt-out transaction attempting to associate an opt-out with the most recent delivered SMS recipient record within 60 days for people who may share the originating number. The source comments describe this as best effort and potentially imperfect. This implementation observation must not be generalized to v19 or treated as infallible attribution. [Rock source at `471fd303d111b2e46218228dbc1e93dba8856fa3`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs)
 
-### SmsPipeline and SmsAction
+Legacy RockU communication analytics material may still provide training context, but it is explicitly labeled legacy. Confirm the current replacement surface before using its implementation instructions. [Communication Analytics — Legacy](https://community.rockrms.com/rocku/communication/communication-analytics-legacy)
 
-The Model Map lists `Sms Pipeline` and `Sms Action` ([Model Map](https://community.rockrms.com/ModelMap)). SMS pipeline configuration determines inbound message handling. Release notes specifically tie START/STOP keyword visibility in SMS Conversations to whether the SMS Pipeline includes the SMS Conversations action ([Rock Release Notes](https://www.rockrms.com/releasenotes)). For inbound SMS issues, the pipeline is the first admin object to inspect after provider webhook delivery.
+## Troubleshooting Decision Tree
 
-### CommunicationFlow entities
+### Intended recipients are missing or shown as ineligible
 
-Communication Flows are modeled separately:
+1. Confirm the original audience source: manual selection, grid, communication list, Data View, group or stored communication.
+2. If it is a communication list, inspect the underlying group and its current active membership.
+3. If membership is synchronized, confirm the Group Sync source and last successful refresh.
+4. Check whether Personalization Segments, category settings or match behavior reduce the audience.
+5. Inspect the person’s email or SMS eligibility, bulk preference, list membership and medium preference.
+6. Check whether the person is deceased, inactive for the relevant address or otherwise excluded by the current recipient logic.
+7. Verify the selected medium and sending number.
+8. Compare the final eligible count with the intended source count.
+9. Stop before sending if unexplained differences remain. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor)
 
-- `Communication Flow`
-- `Communication Flow Communication`
-- `Communication Flow Instance`
-- `Communication Flow Instance Communication`
-- `Communication Flow Instance Recipient`
-- `Communication Flow Instance Communication Conversion`
+### Email appears sent but delivery or analytics are missing
 
-The Model Map lists these as Communication category models ([Model Map](https://community.rockrms.com/ModelMap)). Release notes describe Communication Flows as automated multi-step sequences across email, SMS, and push, tracking opens, clicks, forms, registrations, group joins, step progress, and flow analytics ([Rock Release Notes](https://www.rockrms.com/releasenotes)). Flow recipient metrics view models include sent date, opened date, clicked date, conversion date, unsubscribe date, person, and parent flow instance communication identifiers ([recipient metrics source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts)).
+1. Locate the communication in Communication History and inspect recipient statuses.
+2. Distinguish pending, failed, delivered and interacted records.
+3. Confirm the Email medium points to the intended active transport.
+4. Inspect provider-side acceptance and delivery events without exposing credentials or raw recipient data.
+5. Verify bounce, open, click, unsubscribe and spam webhooks or tracking options.
+6. Check whether the transport supports the expected analytic event.
+7. Send a bounded test to representative mailbox providers.
+8. Stop when the Rock record, provider event and test inbox establish where the chain breaks. [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics) [Email Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics)
 
-## 7. Common Communications Workflows
+### Email shows an unexpected sender or “on behalf of” label
 
-### Sending a standard email
+1. Inspect the communication’s From and Reply-To values.
+2. Confirm the sender domain permitted by local policy.
+3. Compare the visible From domain with the domain configured in the provider and Rock transport.
+4. Verify provider-domain authentication and DNS state.
+5. Retest with the exact production sender pattern.
+6. Do not change DNS or transport credentials without authorized change control. [Email Integrations](https://community.rockrms.com/documentation/engagement/communications/email/email-integrations) [Configure Email](https://community.rockrms.com/documentation/engagement/communications/email/configure-email)
 
-Use the Communication Wizard or Simple Communication Entry depending on the page and block configuration. RockU has separate modern Communication Wizard and legacy/simple mode training ([Communication Wizard](https://community.rockrms.com/rocku/communication/communication-wizard), [Sending Email Simple Mode](https://community.rockrms.com/rocku/communication/sending-email-legacy)). The official manual covers sending communications and template selection ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
+### Two unsubscribe options appear in an email
 
-Agent checklist:
+1. Inspect Rock’s Email medium unsubscribe HTML and one-click setting.
+2. Inspect the provider’s tracking or unsubscribe insertion.
+3. Determine which layer should own each visible option.
+4. For Mailgun, compare the configuration with Rock’s instruction to avoid overlapping tracking behavior.
+5. Send a new test and inspect both the header and body.
+6. Stop when the unsubscribe path is clear, functional and not duplicated unintentionally. [Communication Mediums](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums)
 
-1. Identify the entry block used.
-2. Identify recipients and source: list, group, grid action, entity set, connection requests, workflow, or manual entry.
-3. Confirm allowed communication types in block settings.
-4. Confirm selected template supports the medium and wizard path.
-5. Confirm from name, from email, reply-to, subject, body, attachments, and Lava fields.
-6. Confirm approval requirements.
-7. Confirm send time.
-8. Confirm recipient statuses after sending.
+### A template is missing or cannot be saved
 
-v18.2 fixed an approval redirect issue where approvers were sent to the wrong editing page when a communication came from Simple Communication rather than the wizard ([Rock Release Notes](https://www.rockrms.com/releasenotes)). If approvers report wrong navigation on an older instance, check version first.
+1. Confirm whether the editor expects a Legacy, Beta or flow-specific template.
+2. Check template Active state, category and View/Edit permissions.
+3. Confirm whether it is enabled for the current wizard or editor.
+4. Check the Rock patch level.
+5. If saving fails when the name contains special characters, determine whether the installation includes the v18.3 fix before applying a workaround.
+6. Retest with a bounded copy; do not overwrite a production template merely to diagnose visibility. [Communication Templates](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates) [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-### Sending SMS
+### A communication remains pending approval
 
-SMS sends require a valid From system phone number, recipients with SMS-capable/allowed phone records, a configured SMS medium/transport, and content that fits the provider's cost and encoding expectations. RockU covers Sending SMS in Simple Mode and SMS Conversations ([Sending SMS Simple Mode](https://community.rockrms.com/rocku/communication/sending-sms-legacy), [SMS Conversations](https://community.rockrms.com/rocku/communication/sms-conversations)).
+1. Confirm whether its recipient count triggered the configured approval threshold.
+2. Inspect its `Pending Approval` status in Communication History.
+3. Confirm the approver has block-level Approve permission.
+4. Confirm the approval-notification recipients are members of `RSR - Communication Approvers`.
+5. Inspect the configured approval System Communication and email transport.
+6. If the approver lands in the wrong editor, check whether the installation predates the v18.2 redirect fix.
+7. Do not bypass approval by recreating the communication on another surface. [Advanced Email](https://community.rockrms.com/documentation/engagement/communications/email/advanced-email) [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-Agent checklist:
+### Incoming SMS does not reach the expected conversation or workflow
 
-1. Confirm SMS medium is enabled for the block.
-2. Confirm From system phone number exists and is available to the sender.
-3. Confirm recipient phone type is mobile where required.
-4. Confirm recipient SMS enabled state.
-5. Confirm opt-out state.
-6. Confirm message content length, encoding, and MMS/attachment behavior.
-7. Confirm pipeline/action for replies.
-8. Confirm recipient statuses after send.
+1. Confirm the provider number and public webhook URL target the intended Rock endpoint or pipeline.
+2. Confirm the transport and System Phone Number are active and SMS-enabled.
+3. Inspect the pipeline attached to the number.
+4. Walk actions in order and inspect every filter.
+5. Pay special attention to unfiltered actions because they execute for every message reaching them.
+6. Confirm the workflow type, input mapping and security if an action launches a workflow.
+7. Confirm forwarding, assigned recipient and notification settings separately.
+8. Test with one controlled inbound message and verify the resulting conversation, workflow or reply. [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms) [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline)
 
-A community SMS segment calculator recipe highlights a practical operational issue: Unicode characters can change SMS encoding and segment counts, increasing credits across a recipient list ([SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542)). Use this as a reminder to inspect content length and encoding before large sends; do not assume one visible message equals one billable segment.
+### An automated SMS reply is absent from history
 
-### Sending to a communication list
+1. Confirm that the expected pipeline action actually executed.
+2. Inspect whether **Save Response** is enabled on that action.
+3. Check SMS Conversations, Communication History and the person’s History tab.
+4. Confirm that the message was associated with the intended person.
+5. If auditability is required, enable retention only through an authorized configuration change and account for the additional stored history.
+6. Retest with one controlled message. [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline)
 
-RockU notes shipped lists are not automatically synced and should be wired to data views if an organization wants them to reflect current criteria ([Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)). A list send is only as good as its group membership.
+### SMS segments, cost or delivery differ from expectations
 
-Agent checklist:
+1. Inspect the final rendered message, not only the template text.
+2. Check characters that may change encoding and segment count.
+3. Confirm the final eligible recipient count.
+4. Compare any local calculator result with the provider’s actual segmentation and billing rules.
+5. Inspect provider throttling, attachment limits and delivery events.
+6. Test representative carriers and device types for MMS.
+7. Treat community calculators as estimates and revalidate them after editor changes. [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms) [Community recipe: SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol)
 
-1. Inspect the communication list group.
-2. Confirm group members and active status.
-3. Confirm sync source, if any.
-4. Confirm data view criteria, if used.
-5. Confirm segments and AND/OR match behavior.
-6. Confirm member communication preferences.
-7. Confirm unsubscribes and list subscriptions.
-8. Preview recipient detail counts before sending.
+### An unsubscribe appears unexpected
 
-### Managing communication preferences
+1. Determine whether the scope is list, flow, bulk or all email.
+2. Identify the communication, sender, topic and relevant timing where the report provides them.
+3. Review the person’s current preference and history.
+4. Check recent saturation across channels.
+5. Inspect whether the message was correctly classified and targeted.
+6. Review provider complaint or unsubscribe events when available.
+7. Coach from patterns across multiple records; do not assign motive from one event.
+8. For v20 SMS opt-out attribution, account for the documented best-effort association behavior. [Unsubscribe Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report) [Communication Saturation Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report)
 
-Communication Preferences is a first-class user and admin concern. RockU has modern and legacy preference modules ([Communication Preferences](https://community.rockrms.com/rocku/communication/communication-preferences), [Communication Preferences Legacy](https://community.rockrms.com/rocku/communication/communication-preferences-legacy)). The v18.1 documentation update identifies the refreshed Email Preferences block as the go-to place for communication preferences and list subscriptions ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
+## Agent Task Recipes
 
-Agents should distinguish:
+### Recipe: Preflight a broad email communication
 
-- person-level email preference
-- phone-level SMS enabled state
-- group/list subscription
-- group member communication preference
-- unsubscribe from a specific communication
-- unsubscribe from a list
-- global/all unsubscribe
-- provider-level opt-out or suppression
-- push notification preference
+**Outcome:** A reviewed draft whose audience, sender, classification, content, consent and delivery path are ready for the organization’s approval process.
 
-The v17 stored procedure explicitly added `GroupMember.CommunicationPreference` into recipient details ([v17 migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)). If recipient-preference behavior looks wrong, inspect both the person and group-member preference layers.
+1. Record the installed Rock version, editor surface and intended send time.
+2. Identify the authoritative audience source and calculate its current result.
+3. Refresh any synchronized communication-list group through its approved mechanism.
+4. Compare source count, group count and final eligible-recipient count.
+5. Investigate exclusions rather than adding people manually to force count alignment.
+6. Confirm personal-versus-bulk classification.
+7. Confirm From, Reply-To, sender domain, topic and template.
+8. Preview representative personalization cases and every important call-to-action.
+9. Send bounded tests to representative mailbox providers.
+10. Confirm the transport, tracking and unsubscribe behavior.
+11. Save as draft or submit for approval.
+12. After authorization and sending, verify Communication History and recipient outcomes.
 
-### Using Communication Flows
+**Inspect:**
 
-Communication Flows are for strategic multi-step journeys, not one-off sends. They were added in v18.1 under Admin Tools > Communications, with support for automated sequences across email, SMS, and push, plus tracking for opens, clicks, forms, registrations, group joins, step progress, and analytics ([Rock Release Notes](https://www.rockrms.com/releasenotes)). RockU has a Communication Flows module ([Communication Flows](https://community.rockrms.com/rocku/communication/communication-flows)).
+- List and Group Sync source
+- Recipient exclusions
+- Template version and permissions
+- Medium and transport
+- Unsubscribe path
+- Approval threshold and status
 
-Use flows when the objective is a goal over time: onboarding, next steps, event follow-up, serving recruitment, re-engagement, donor journeys, or ministry nurture. Do not use a flow when a one-time communication, system communication, or workflow notification is simpler and more auditable.
+**Do not assume:**
 
-Agent checklist:
+- A Data View reruns when an old communication is duplicated.
+- Every selected person is eligible.
+- A preview proves provider delivery.
 
-1. Identify flow goal and conversion event.
-2. Inspect flow communications and templates.
-3. Confirm entry criteria.
-4. Confirm exit criteria.
-5. Confirm message timing and delays.
-6. Confirm medium configuration.
-7. Confirm analytics expectations.
-8. Inspect flow instance and recipient records for a specific person.
+**Stop when:**
 
-### Using mobile communication blocks
+- Counts do not reconcile.
+- Sender identity is unclear.
+- A required test or approval is missing. [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor) [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics)
 
-Rock Mobile includes communication blocks, including Communication Entry, Communication List Subscribe, Communication View, SMS Conversation List, and SMS Conversation in the mobile docs communication section ([Mobile Communication Blocks](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication)).
+### Recipe: Diagnose one missing recipient
 
-The mobile Communication Entry block allows email/SMS communications to a group of recipients and requires an `EntitySetGuid` page parameter whose entity set type should be Person. The docs note that Group Member List can generate those parameters. Settings include enabling email, enabling SMS, showing From Name, and showing Reply To, among others ([Mobile Communication Entry](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry)).
+**Outcome:** A specific, evidence-backed reason the person was included, excluded or routed to a different medium.
 
-Mobile Communication List Subscribe lets users subscribe or unsubscribe from communication lists, can show descriptions, medium preferences, push notifications as a medium preference, filter by campus context, and always include subscribed lists ([Mobile Communication List Subscribe](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe)).
+1. Confirm the person belongs in the authoritative targeting result.
+2. Confirm current membership in the communication-list group.
+3. Inspect sync state and applicable segment filters.
+4. Inspect the person’s email address, SMS number and channel-specific eligibility.
+5. Inspect global email preference, list subscription and medium preference.
+6. Confirm whether the communication was personal or bulk.
+7. Confirm duplicate prevention did not consolidate a shared destination.
+8. Inspect the stored recipient result for the communication.
+9. Report the exact failing layer without changing consent or contact data.
 
-Mobile SMS Conversation List manages SMS conversation inboxes, with settings for allowed SMS numbers, showing only personal SMS numbers, hiding personal SMS numbers, months of conversations, max conversations, database timeout, conversation page, and person search behavior ([Mobile SMS Conversation List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list)).
+**Do not assume:**
 
-Mobile Communication View handles push notification "Show Details" behavior and uses additional details entered in the communication authoring path ([Mobile Communication View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-view)).
+- Group membership equals email eligibility.
+- A mobile number is SMS-eligible.
+- Shared contact information should generate duplicate messages.
 
-## 8. Email Deep Dive
+**Stop when:** The exclusion is explained or a data-owner decision is required. [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) [Set Subscription Preferences](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences)
 
-### Email authoring
+### Recipe: Validate an email transport and its event loop
 
-Email authoring combines subject, body, sender metadata, reply-to, CC/BCC, attachments, template choice, Lava merge fields, and previewing. The official manual describes choosing templates, using categories, and preview images ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Obsidian template view models confirm email-specific fields such as `fromEmail`, `fromName`, `replyToEmail`, `ccEmails`, `bccEmails`, `subject`, `message`, `attachments`, and CSS inlining ([template detail bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts)).
+**Outcome:** A bounded test proves Rock-to-provider handoff, inbox delivery and expected event return.
 
-Agents should verify:
+1. Confirm the active Email medium and assigned transport.
+2. Review transport configuration without copying secrets into notes.
+3. Confirm the sending domain and safe-sender policy.
+4. Confirm provider webhooks and selected tracking events.
+5. Send a uniquely named test to a bounded recipient set.
+6. Confirm the Rock communication and recipient records.
+7. Confirm provider acceptance.
+8. Confirm real inbox delivery.
+9. Generate only the approved test events, such as an open or link click.
+10. Confirm those events return to the corresponding Rock record.
+11. Record which events the transport does and does not provide.
 
-- Sender domain alignment with the transport provider.
-- Reply-to behavior.
-- Whether CC/BCC are intended and allowed.
-- Template category and starter behavior.
-- Template permissions.
-- Whether CSS inlining is enabled and appropriate.
-- Whether images and links are absolute and public.
-- Whether Lava fields render for the current recipient and preview person.
-- Whether the template supports the wizard being used.
+**Stop when:** Any layer is unverified; do not interpret missing analytics as recipient disengagement until tracking is proven. [Configure Email](https://community.rockrms.com/documentation/engagement/communications/email/configure-email) [Email Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics)
 
-### Email transport and validation
+### Recipe: Validate inbound SMS routing
 
-`EmailTransportComponent` is the main code landmark for how Rock prepares email transport sends. It validates that a From address exists, builds a template email message, gets global attributes, and sends to recipients with async parallelization where supported ([EmailTransportComponent source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs)). Email transport tests show that Rock normalizes certain header-style inputs, including subject newline trimming and reply-to composition behavior ([EmailTransportComponentTests source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Tests.Integration/Communications/EmailTransportComponentTests.cs)).
+**Outcome:** One controlled inbound message reaches exactly the intended conversation, reply or workflow path.
 
-A transport response carries a recipient status and status note through `EmailSendResponse` ([EmailSendResponse source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/EmailSendResponse.cs)). When investigating delivery, inspect the recipient status note before checking provider dashboards.
+1. Confirm the provider number and Rock System Phone Number.
+2. Confirm the SMS transport and medium.
+3. Confirm the webhook targets the intended endpoint or pipeline.
+4. Review pipeline actions and filters in execution order.
+5. Review workflow inputs and security for any workflow-launch action.
+6. Decide whether automated replies must be saved to history.
+7. Send one controlled inbound message.
+8. Verify the expected conversation, reply, workflow and retained history.
+9. Confirm no unrelated action executed.
+10. Repeat with one negative-filter case when routing depends on keywords.
 
-### Deliverability and provider setup
+**Do not assume:** An unfiltered action is harmless; it applies to every message reaching it.
 
-Deliverability depends on Rock configuration and external provider configuration. This source pack does not include full deliverability documentation for SPF, DKIM, DMARC, suppression lists, provider webhooks, or bounce processing. Agents should inspect live provider DNS records, domain authentication, webhook endpoints, bounce processing settings, and suppression state rather than infer them.
+**Stop when:** More than the intended path executes or the sender cannot be resolved safely. [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline) [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms)
 
-The official manual includes bounced mail and unsubscribing sections ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Community recipes show alternate SMTP provider setups, but they should be reviewed for current provider pricing, security, and analytics limitations ([AWS SES SMTP Transport](https://community.rockrms.com/recipes/171), [Mailtrap Email Testing](https://community.rockrms.com/recipes/138)).
+### Recipe: Create a communication flow without over-messaging
 
-### Email analytics
+**Outcome:** A version-appropriate flow with a current audience, measurable goal and explicit exit behavior.
 
-RockU includes Communication Analytics training ([Communication Analytics](https://community.rockrms.com/rocku/communication/communication-analytics)). The v18.1 documentation update says analytics were enhanced with charts and metrics for opens, clicks, and other engagement indicators ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Communication Flow recipient metrics include opened date, clicked date, sent date, conversion date, and unsubscribe date ([recipient metrics source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts)).
+1. Choose recurring, on-demand or one-time behavior.
+2. Define the authoritative audience or activation event.
+3. Define a measurable conversion goal supported by Rock.
+4. Set the goal window and target.
+5. Add only evidence-supported email, SMS or push messages.
+6. Define the buffer and send time for each message.
+7. Choose when recipients exit.
+8. Verify consent and channel eligibility for each medium.
+9. Test representative recipients and conversion paths.
+10. Activate only after audience, timing and exit behavior are approved.
+11. Monitor recipient logs, conversion and unsubscribe results.
+12. Pause the flow if targeting or timing is wrong.
 
-Do not assume analytics exist for every email path. A community Q&A reports a scenario where Mailgun tracking worked for Communication Wizard emails but not workflow emails, with no answers in the source pack ([Mailgun Tracking Q&A](https://community.rockrms.com/ask/using/2824)). For such cases, verify:
+**Do not assume:** Flow templates and system-wide Communication Templates are interchangeable.
 
-- whether the workflow action creates a `Communication` record or sends a direct email
-- whether communication tracking is enabled for that action
-- whether the selected transport injects tracking links/pixels for that path
-- whether provider webhooks post back to Rock
-- whether Rock has recipient engagement data
-- whether the email was sent through the same medium and transport as wizard emails
+**Stop when:** A converted person would continue receiving unnecessary messages or the recurring Data View is not trusted. [Communication Flows](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows)
 
-### Email preview and preheaders
+### Recipe: Investigate rising unsubscribes or saturation
 
-A community recipe documents a Communication Wizard pattern for email preview/preheader content using an element with a `preheader-text` ID in the template ([Control Email Preview Contents](https://community.rockrms.com/recipes/179)). Treat it as a useful but non-official pattern. In a live instance, inspect the actual template HTML and wizard behavior before relying on it.
+**Outcome:** A bounded operational finding identifies affected audiences, senders or message patterns without over-attributing individual motives.
 
-### View email on webpage
+1. Select a consistent date window.
+2. Review the Unsubscribe Report by scope.
+3. Review saturation across the same window and mediums.
+4. Identify recurring senders, topics, lists, flows or broad communications.
+5. Inspect classification and targeting for representative messages.
+6. Compare provider spam complaints where available.
+7. Separate isolated events from repeated patterns.
+8. Recommend a concrete audience, cadence, template or training adjustment.
+9. Measure the same reports after the change.
 
-A community recipe describes rendering a communication on a webpage by passing a communication GUID and displaying its message with Lava ([View Email On Webpage](https://community.rockrms.com/recipes/297)). This can be useful for "view in browser" links but has security implications. Before implementing, verify:
+**Do not assume:** Every unsubscribe has the same cause.
 
-- page security
-- whether the communication GUID is sufficient access control
-- whether message content contains sensitive personalized data
-- whether `RunLava` is safe in that context
-- whether SQL Lava is enabled only where appropriate
-- whether unsubscribe and tracking behavior remains correct
+**Stop when:** The report lacks enough context to identify a defensible pattern. [Unsubscribe Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report) [Communication Saturation Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report)
 
-### Email template design systems
+### Recipe: Retest a workflow-backed communication safely
 
-A community recipe describes using an external email builder while keeping Rock as the communication and tracking system ([Empower Your Teams to Easily Create Beautiful Emails](https://community.rockrms.com/recipes/305)). The operational lesson is sound: template governance matters. If staff can freely paste inconsistent HTML, sender reputation, accessibility, branding, and mobile rendering suffer.
+**Outcome:** One intended communication action is exercised without broadly reopening unrelated workflow work.
 
-For production template systems:
+1. Prefer a new test workflow instance.
+2. If an existing marked test instance must be reused, preflight the exact recipient, action criteria, current template, action order and baseline side-effect counts.
+3. Leave earlier setters, record-creation actions and unrelated communication actions complete.
+4. Reopen only the target action and the minimum containing workflow state required by the reviewed procedure.
+5. Save once through the supported Workflow Detail surface.
+6. Inspect workflow logs and Communication History before considering any retry.
+7. Verify exactly one intended communication, its recipient, rendered content and final workflow state.
+8. Confirm no unrelated timestamps or records changed.
 
-- establish approved categories
-- mark only high-use templates as starter templates
-- restrict template edit rights
-- review CSS inlining
-- test Outlook, Gmail, mobile, and webmail rendering
-- test Lava rendering for multiple recipient types
-- preserve unsubscribe and organization footer requirements
-- avoid unreviewed external scripts in email content
+**Do not assume:** A workflow Status label alone determines activation.
 
-## 9. SMS Deep Dive
+**Stop when:**
 
-### SMS recipient eligibility
+- The recipient or template is uncertain.
+- The instance is not clearly marked for testing.
+- The first processing attempt has an unexplained result.
+- A retry could duplicate an irreversible send.
 
-SMS eligibility is not just "person has a number." The recipient detail logic and view models separate `smsNumber` and `isSmsAllowed` ([CommunicationEntryRecipientBag source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts), [CommunicationEntryWizardRecipientBag source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts)). The v17 migration explicitly fixed SMS eligibility logic in the recipient details stored procedure ([v17 migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)).
+This is a reviewed community pattern grounded in an immutable Rock source reference. It requires live verification and does not authorize direct database updates. [Community contribution: controlled workflow-action retest](https://github.com/SparkDevNetwork/Rock/blob/7d31f3f144c14b8a7d86bf7a41760d9d0a49fe07/Rock/Model/Workflow/Workflow/Workflow.Logic.cs)
 
-Inspect:
+### Recipe: Bound an agent that can draft communications
 
-- phone number record
-- phone type
-- cleaned number
-- SMS enabled flag
-- opt-out state
-- country/format provider support
-- duplicate people sharing the same phone number
-- communication recipient medium and status
-- status note
+**Outcome:** An agent can assist with preparation without gaining unintended send or destructive authority.
 
-### SMS opt-out and opt-in
+1. List the exact communication tasks the agent needs.
+2. Enable only the required tools.
+3. Separate draft, preview, audience-inspection, approval and send capabilities.
+4. Leave send disabled when the task is drafting or analysis.
+5. Omit destructive tools unless explicitly required.
+6. Verify the Rock identity and permissions used by the integration.
+7. Test denied operations as well as allowed ones.
+8. Require action-time authorization before any external send.
 
-Rock includes SMS opt-out processing. Source code shows `IdentifySmsOptOutCommunicationRecipientTransaction` attempts to associate an opt-out event with the most recent delivered SMS communication recipient in the last 60 days for people sharing the originating number. It then stamps unsubscribe date and sets unsubscribe level to all if a matching delivered recipient is found ([IdentifySmsOptOutCommunicationRecipientTransaction source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs)).
+**Do not assume:** Hiding a user-interface control removes the underlying tool, or enabling a tool bypasses Rock permissions. [Approved claim `claim:903c8ff9b5d2590fd616` — RockIQ Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
 
-This is explicitly best-effort behavior. If multiple people share a phone number or messages were sent from different contexts, agents must inspect actual person phone rows, person aliases, recipient records, and provider webhook payloads.
+## Known Gaps And Live Verification
 
-Release caveats:
+The evidence pack does not establish the configuration of any target Rock installation. Before operational use, verify:
 
-- v18.1 fixed missing START/STOP keyword history in SMS Conversations when the SMS Pipeline includes the SMS Conversations action. If that action is not configured, the keywords remain omitted ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- v18.2 fixed a registration issue where submitting a registration could disable SMS when `Show SMS Opt-In` was false. The fix preserves existing SMS values unless opt-in is shown and answered ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-- v19.1 includes a fix so bad-number errors from Twilio are not incorrectly treated as actual opt-outs ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
+- Installed Rock version and patch level.
+- Wizard, Simple Editor and legacy block versions.
+- Installed communication plugins and provider packages.
+- Active mediums and their assigned transports.
+- Provider credentials, DNS authentication, sender domains and webhooks.
+- Current mailbox-provider and carrier requirements.
+- Current legal requirements for email and SMS consent and opt-out handling.
+- System Phone Numbers, routing URLs, forwarding and number-level security.
+- Page and block security for SMS Conversations, Communication History, templates and approval.
+- Group Sync schedules and current list membership.
+- Personalization Segment categories and block settings.
+- Local approval thresholds and approver membership.
+- Duplicate-prevention configuration.
+- Flow schedules, audiences, goals and exit conditions.
+- Provider event retention and staff-facing report exposure.
+- Real inbox, carrier and device behavior.
 
-### SMS conversations
+Reviewed read-only evidence associated with several approved claims confirmed that relevant communication, recipient, template, person-linkage, report, workflow, group and LMS structural surfaces existed in one examined environment. That supports the feasibility of the described inspections, but it does not prove another installation’s schema version, configuration, permissions, data quality or provider behavior.
 
-SMS Conversations is the staff-facing conversation surface. RockU has SMS Conversations training ([SMS Conversations](https://community.rockrms.com/rocku/communication/sms-conversations)). Mobile docs provide SMS Conversation List configuration options, including allowed SMS numbers, personal-number filtering, non-personal-number hiding, conversation age, max conversations, database timeout, conversation page, and person search threshold ([Mobile SMS Conversation List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list)).
+No live send, inbox delivery, SMS exchange, workflow execution, provider-event callback or target-instance security review occurred as part of this guide. Those checks remain required wherever the operational conclusion depends on them.
 
-Operational checks:
+The anonymous SMS verification contribution is also only a community pattern. Its proposed controls—one exact person match, a bounded server-side challenge, no alias exposure to the browser and atomic consumption before the protected action—require application-security review and live verification before adoption. [Community contribution: Workflow-Backed SMS Verification](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
 
-- Is the inbound provider webhook reaching Rock?
-- Is the SMS Pipeline active?
-- Does the pipeline include the SMS Conversations action?
-- Does the selected system phone number allow this staff person to view the conversation?
-- Is the system phone number assigned to a person?
-- Are block filters hiding the conversation?
-- Is the conversation older than the configured months threshold?
-- Is database timeout too low for the query?
-- Are security rules on the block or page limiting access?
+## Source Map
 
-### Staff-specific texting numbers
-
-A community recipe describes staff-specific Twilio numbers, separate SMS pipeline setup, system phone number assignment, and block-level security so staff see only their number while admins can see all ([Staff Specific Texting Numbers](https://community.rockrms.com/recipes/357)). This pattern is operationally useful because it combines privacy, accountability, and staff workflow. Before adopting it, verify:
-
-- provider phone number ownership
-- SMS capability
-- system phone number setup
-- assigned person
-- page/block security
-- pipeline actions
-- after-hours expectations
-- retention/audit policies
-- child/youth safety policies
-- whether calls to the texting number should forward, route to voicemail, or play a message
-
-### Calls to SMS numbers
-
-People may call SMS numbers. Community recipes document both voicemail and forwarding patterns for Twilio numbers ([Create a Voicemail Message](https://community.rockrms.com/recipes/224), [Use Your Twilio Texting Number for Incoming Calls](https://community.rockrms.com/recipes/507)). These are not core Rock behavior by default; they require provider voice configuration and often Lava webhook or Twilio configuration. In live work, inspect provider settings directly.
-
-### SMS cost, segments, and encoding
-
-SMS billing is provider-specific, but segment count and encoding are universal operational concerns. A community calculator recipe shows a local widget that estimates GSM-7 vs UCS-2 encoding, character count, credits per recipient, and total credits across recipients ([SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542)). Agents should check for:
-
-- smart quotes
-- emojis
-- non-GSM characters
-- long URLs
-- personalization that changes length per recipient
-- MMS attachments
-- recipient count
-- provider long-code throttling or campaign rules
-
-### Disabled SMS warnings
-
-A community recipe describes staff confusion when replies appear visually sent but are not delivered because the recipient's mobile phone is not SMS enabled ([Disabled SMS Mobile Phone Warning](https://community.rockrms.com/recipes/438)). Agents should always inspect `isSmsAllowed`, phone SMS enabled state, and recipient status rather than relying on UI impression alone.
-
-## 10. Related Rock Areas: People, Workflows, Lava, Security
-
-### People
-
-Communications depend on Person and PersonAlias. Source recipients are built from Person records for known people and can be anonymous for raw email addresses or SMS numbers ([RockEmailMessageRecipient source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs), [RockSMSMessageRecipient source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs)). Recipient detail logic excludes deceased people in list and communication recipient paths ([recipient detail SQL source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)).
-
-Person checks:
-
-- Is the person deceased?
-- Is there a primary alias?
-- Is email active?
-- Is email preference set to allow bulk?
-- Does the person have a mobile phone?
-- Is SMS enabled?
-- Are multiple people sharing one number?
-- Are family members receiving through the expected adult/child rules?
-- Does campus context filter the list or preference block?
-
-### Workflows
-
-Workflows can send emails, trigger communications, activate utility workflows, and create custom notification paths. Recipes show workflows used for first-gift emails, urgent prayer emails, Teams posts, quick replies, and system communication enhancements ([Automated First Gift Thank You](https://community.rockrms.com/recipes/133), [Email Urgent Prayer Requests](https://community.rockrms.com/recipes/338), [Post to Teams From a Workflow](https://community.rockrms.com/recipes/435), [Quick Email Reply](https://community.rockrms.com/recipes/466)).
-
-Agent workflow checks:
-
-- Does the workflow send through a Rock communication action or a direct email action?
-- Does it create `Communication` and `CommunicationRecipient` records?
-- Does it support analytics?
-- Which Lava commands are enabled?
-- Which person alias is the sender/current person?
-- Does it run under a system account?
-- Does it bypass user approval policies?
-- Are workflow type view permissions hardened in the current version? v19.1 release notes include workflow type security hardening in the broader release context ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Lava
-
-Lava is used in templates, system communications, workflow messages, shortcodes, webhooks, and custom blocks. Communication template detail models include `lavaFields`, and initialization comments note a convention where keys ending in `Color` indicate color picker values ([template initialization box](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailInitializationBox.d.ts)).
-
-Community recipes demonstrate Lava in communication contexts, including giving receipt shortcodes, view-email web pages, external builder shortcodes, scheduling response customization, and Teams workflow activation ([Giving Receipt System Email Shortcodes](https://community.rockrms.com/recipes/510), [View Email On Webpage](https://community.rockrms.com/recipes/297), [Empower Your Teams](https://community.rockrms.com/recipes/305), [Decline Reason](https://community.rockrms.com/recipes/419), [Post to Teams](https://community.rockrms.com/recipes/435)).
-
-Security warning: enabling SQL, Rock Entity, or `RunLava` in communication-facing blocks can expose data or execute expensive queries. Verify allowed Lava commands and page/block security before implementing recipes.
-
-### Security
-
-Communication security is layered:
-
-- page security
-- block security
-- template security
-- category security
-- system phone number security
-- communication list/group security
-- communication detail access
-- REST model security
-- workflow type security
-- Lava command permissions
-
-The official manual notes template permissions and that users may not see templates without proper permission or wizard support ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Communication Template List source includes options for whether the security column is visible and whether the current user can edit the block ([CommunicationTemplateListOptions source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts)).
-
-v19.1 adds a `Communication Access Mode` setting to Communication Detail and a `View All` security action. The default mode is `Strict`, limiting detail viewing to the creator/sender unless the viewer has `View All` ([Rock Release Notes](https://www.rockrms.com/releasenotes)). After upgrades, agents must verify communication detail pages for admins, communications staff, ministry staff, and approvers.
-
-## 11. Administration And Operational Guardrails
-
-### Governance
-
-The official [Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8) manual defines the communication, template, transport, approval, preference, and saturation surfaces. Apply those controls to the target instance's actual roles, categories, transports, system phone numbers, and recipient policies before approving broad sends.
-
-Use communication governance to prevent over-sending, inconsistent branding, privacy mistakes, and deliverability problems.
-
-Recommended guardrails:
-
-- Limit who can send to large lists.
-- Require approval above recipient thresholds.
-- Use starter templates for approved high-use designs.
-- Restrict template edit rights.
-- Maintain separate categories for ministry, finance, events, care, and general communications.
-- Keep system communications under admin ownership.
-- Use development transports that cannot reach real recipients.
-- Review Lava commands enabled in blocks and templates.
-- Audit system phone number access.
-- Review saturation reporting before broad campaigns.
-- Monitor bounces, unsubscribes, and opt-outs.
-
-### Saturation and over-communication
-
-RockU includes Communication Saturation Report training ([Communication Saturation Report](https://community.rockrms.com/rocku/communication/communication-saturation-report)). The v18.1 documentation update describes the report as a way to monitor recipients who may be overwhelmed by communication volume ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). Agents should use saturation data when asked whether a group is receiving too many emails or texts.
-
-### Approval policies
-
-Approval behavior depends on block configuration, security, maximum recipient settings, and version. Release notes mention improvements and fixes around `Send When Approved`, immediate queuing after approval, appropriate redirect after approval, and maximum-recipient auto-approval bugs ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-Inspect:
-
-- block settings for approval
-- maximum recipients
-- allowed communication types
-- approver security
-- communication status
-- approval fields
-- whether send is future-dated
-- version-specific known bugs
-
-### Template operations
-
-For template lifecycle management:
-
-1. Create templates in the official template admin surface.
-2. Assign categories.
-3. Mark only common templates as starter.
-4. Add a preview image for recognition.
-5. Configure email, SMS, and push fields intentionally.
-6. Test CSS inlining.
-7. Test Lava fields with multiple preview people.
-8. Restrict edit permissions.
-9. Verify wizard support.
-10. Review after Rock upgrades, especially v17+ template version behavior and v18.3 special-character fixes.
-
-### Lower environment safety
-
-Never let development or staging accidentally email or text real people. Community Mailtrap guidance demonstrates the concept of trapping outbound email in a development inbox ([Mailtrap Email Testing](https://community.rockrms.com/recipes/138)). For SMS, use provider test numbers, inactive transports, or SMS test transport where appropriate. Confirm scheduled jobs are disabled or pointed to test transports.
-
-## 12. Developer, API, Lava, And Source-Code Landmarks
-
-### Transport components
-
-- `Rock/Communication/EmailTransportComponent.cs`: email send preparation, validation, merge fields, async send behavior ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs)).
-- `Rock/Communication/Transport/SmsTest.cs`: SMS test transport, approved/due communication checks, pending recipient count, From number requirement, attachment handling ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)).
-- `Rock/Communication/Transport/EmailSendResponse.cs`: email transport response status and status note ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/EmailSendResponse.cs)).
-
-### Recipient objects
-
-- `RockEmailMessageRecipient`: wraps a person email or anonymous email address ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs)).
-- `RockSMSMessageRecipient`: wraps a person SMS number or anonymous SMS number ([source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs)).
-
-### Recipient detail stored procedure
-
-`spCommunicationRecipientDetails` is a key SQL landmark. The v17 migration source says it fixes SMS eligibility logic and adds `GroupMember.CommunicationPreference` ([migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)). The SQL accepts communication list vs communication input, match type, and personalization segments, then returns data needed for the Communication Wizard ([SQL source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)).
-
-### Obsidian communication blocks
-
-Relevant generated view models include:
-
-- Communication Entry recipient request/recipient state ([request bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryGetRecipientsRequestBag.d.ts), [recipient bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts)).
-- Communication Entry Wizard template and recipient bags ([template detail](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateDetailBag.d.ts), [template list item](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardCommunicationTemplateListItemBag.d.ts), [recipient bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntryWizard/communicationEntryWizardRecipientBag.d.ts)).
-- Communication Detail recipient grid settings and personal template request ([recipient grid options](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/communicationRecipientGridOptionsBag.d.ts), [recipient grid settings](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/communicationRecipientGridSettingsBag.d.ts), [personal template request](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/createPersonalTemplateRequestBag.d.ts)).
-- Communication Template Detail and Template List ([template detail](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateDetail/communicationTemplateDetailCommunicationTemplateBag.d.ts), [template list options](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationTemplateList/communicationTemplateListOptionsBag.d.ts)).
-- Communication Flow templates and metrics ([flow template bag](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowDetail/communicationFlowDetailCommunicationTemplateBag.d.ts), [recipient metrics](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationFlowInstanceMessageMetrics/recipientMetricsBag.d.ts)).
-
-The Obsidian component structure documentation explains the general component file shape: template, imports, properties/events, and logic ([Obsidian Component Structure](https://community.rockrms.com/developer/obsidian/obsidian-component-structure)). Use it when tracing or extending Obsidian communication blocks.
-
-### REST endpoints
-
-The v2 generated controller for Communication Recipients uses route prefix `api/v2/models/communicationrecipients` and secured read/write actions ([CommunicationRecipientsController source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/CommunicationRecipientsController.CodeGenerated.cs)). Flow instance recipients similarly expose `api/v2/models/communicationflowinstancerecipients` ([CommunicationFlowInstanceRecipientsController source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/CommunicationFlowInstanceRecipientsController.CodeGenerated.cs)).
-
-When using APIs, verify current instance version, API availability, auth method, security actions, and whether model endpoints are appropriate for the task. For operational reads, prefer least-privilege access.
-
-## 13. Reporting, Analytics, And Model Map
-
-### Communication analytics
-
-Modern communication analytics report opens, clicks, and other engagement indicators, with improvements noted in v18.1 documentation ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)). RockU includes a Communication Analytics module ([Communication Analytics](https://community.rockrms.com/rocku/communication/communication-analytics)) and a legacy module ([Communication Analytics Legacy](https://community.rockrms.com/rocku/communication/communication-analytics-legacy)).
-
-Agent interpretation rules:
-
-- Opens can be inflated or blocked by email clients.
-- Clicks are stronger engagement signals than opens.
-- Delivery does not mean read.
-- Provider analytics and Rock analytics may differ.
-- Workflow-sent emails may not behave like wizard-created communications.
-- Flow analytics are not identical to one-off communication analytics.
-
-### Saturation reporting
-
-The Communication Saturation Report helps identify recipients receiving too much communication ([Communication Saturation Report](https://community.rockrms.com/rocku/communication/communication-saturation-report)). Use it for campaign governance and staff planning.
-
-### Unsubscribe reporting
-
-RockU's current playlist includes an Unsubscribe Report item in the communication section source excerpts ([RockU Communication](https://community.rockrms.com/rocku/communication)). When troubleshooting unsubscribes, inspect recipient unsubscribe fields, list subscription state, SMS opt-out handling, and provider-level suppressions.
-
-### Model Map coverage
-
-The Model Map confirms Communication category models:
-
-- Communication
-- Communication Attachment
-- Communication Recipient
-- Communication Response
-- Communication Response Attachment
-- Communication Template
-- Communication Template Attachment
-- Communication Flow
-- Communication Flow Communication
-- Communication Flow Instance
-- Communication Flow Instance Communication
-- Communication Flow Instance Communication Conversion
-- Communication Flow Instance Recipient
-- Email Section
-- Notification Recipient
-- Sms Action
-- Sms Pipeline
-- System Communication
-
-Use Model Map for entity discovery, then verify relationships in source code, database schema, or a live Rock instance because the source pack's Model Map records are compact ([Model Map](https://community.rockrms.com/ModelMap)).
-
-### Business Intelligence
-
-RockU's BI Template training points to a Power BI template for Rock v7-era BI work ([BI Template](https://community.rockrms.com/rocku/business-intelligence-bi/bi-template)). This source pack does not establish modern communication-specific BI model details. If asked for communication BI reporting, inspect the current Rock BI job output, available BI models, and whether Communication/CommunicationRecipient are included in the organization's extract.
-
-## 14. Version And Release Caveats
-
-### v17.x
-
-v17 introduced a `Version` column on `CommunicationTemplate` and included recipient-detail stored procedure changes to fix SMS eligibility and include group-member communication preference ([v17 migration source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)).
-
-v17.1 added a `Remove All` button to recipient modals in Simple Communication Entry and Communication Entry Wizard, useful when resetting copied communications ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-v17.4 fixed delays/errors preparing large communications with duplicate recipients by improving duplicate removal ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-v17.5 improved system notifications so certain messages check whether SMS is enabled before choosing SMS vs email ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v18.1
-
-v18.1 is a major communications release. It added Communication Flows, improved analytics, refreshed communication preferences, added saturation reporting, refreshed the communication list surface, and added an Obsidian Communication Detail block ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8), [Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-v18.1 also fixed SMS START/STOP keyword history visibility when SMS Conversations action is included in the SMS Pipeline and improved approval/send-now queue behavior ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v18.2
-
-v18.2 fixed:
-
-- approvers redirected to the correct page depending on whether communication was created in Simple Communication or Wizard
-- recipient exclusion after changing communication type mid-wizard
-- registration SMS opt-in preservation when `Show SMS Opt-In` is false
-
-These are important when troubleshooting missing recipients, approval navigation, or registration-related SMS preference changes ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v18.3
-
-v18.3 fixed:
-
-- allowed Communication Types enforcement in Obsidian Communication Entry Wizard when a communication is started externally, such as a grid `Communicate` action
-- Communication Template saving failure when special characters in template names affected preview image file generation
-- Simple Communication Entry error when sending a template without changes, according to release note excerpts
-
-These caveats affect policy enforcement, template operations, and user-facing send errors ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### v19.1
-
-v19.1 adds Communication Detail access control changes: `Communication Access Mode`, default `Strict` behavior, and a `View All` security action. This is high-impact because users who previously viewed communication details may lose access unless permissions are adjusted ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-v19.1 release notes also include a fix preventing bad-number Twilio errors from being incorrectly marked as opt-outs ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 15. Implementation Playbooks
-
-### Playbook: Configure a safe email transport in development
-
-1. Disable real production email transports or ensure they are not selected by the Email medium.
-2. Configure a trap/test SMTP transport such as Mailtrap, following current provider documentation and Rock transport fields.
-3. Set the Email medium transport container to the test SMTP transport.
-4. Disable scheduled communication jobs unless testing scheduled sends.
-5. Send a test communication to a real-looking recipient and verify it is captured, not delivered.
-6. Inspect `CommunicationRecipient` status and provider inbox.
-7. Document the lower-environment transport policy.
-
-Community Mailtrap guidance demonstrates the pattern, but verify current credentials and settings in the live development instance ([Mailtrap Email Testing](https://community.rockrms.com/recipes/138)).
-
-### Playbook: Build a governed template library
-
-1. Inventory existing templates.
-2. Create categories matching organizational ownership.
-3. Remove or deactivate obsolete templates.
-4. Set starter templates for the few most-used approved designs.
-5. Add preview images for recognition.
-6. Restrict edit/admin rights to communications admins or ministry owners.
-7. Verify wizard support and template version.
-8. Test email, SMS, and push fields where used.
-9. Test Lava merge fields and CSS inlining.
-10. Record owner, purpose, and last review date.
-
-Use the official manual for category, starter, preview, and permission behavior ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
-
-### Playbook: Create or audit a communication list
-
-1. Identify the group behind the list.
-2. Confirm group type and security.
-3. Confirm active group members.
-4. Confirm whether the list is manually managed or synced.
-5. If synced, inspect the data view and sync job.
-6. Validate campus, age, membership, attendance, or giving criteria.
-7. Check list subscriptions and member communication preference.
-8. Test recipient preview with and without segments.
-9. Compare list count to expected source count.
-10. Document the membership source of truth.
-
-Remember that shipped lists are not automatically synced ([Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)).
-
-### Playbook: Launch staff SMS conversations
-
-1. Buy or assign provider numbers with SMS capability.
-2. Create or verify system phone number records.
-3. Assign numbers to staff where appropriate.
-4. Configure SMS transport and provider webhooks.
-5. Create or verify SMS Pipeline and SMS Conversations action.
-6. Configure SMS Conversations page or mobile block.
-7. Apply number-specific and block-specific security.
-8. Test inbound, outbound, START, STOP, and bad-number behavior.
-9. Decide what happens when someone calls the texting number.
-10. Train staff to verify SMS enabled state and message status.
-
-Use RockU for SMS pipeline/conversation orientation ([SMS Pipeline](https://community.rockrms.com/rocku/communication/sms-pipeline), [SMS Conversations](https://community.rockrms.com/rocku/communication/sms-conversations)). Staff-specific number and voice-routing recipes are useful patterns but must be security-reviewed ([Staff Specific Texting Numbers](https://community.rockrms.com/recipes/357), [Use Your Twilio Texting Number for Incoming Calls](https://community.rockrms.com/recipes/507)).
-
-### Playbook: Implement a Communication Flow
-
-1. Define the goal and measurable conversion.
-2. Identify entry audience and exclusion criteria.
-3. Choose channels per step: email, SMS, push.
-4. Create flow-specific templates.
-5. Define timing and delays.
-6. Configure conversion triggers.
-7. Test on internal people.
-8. Verify analytics and recipient metrics.
-9. Monitor saturation and unsubscribes.
-10. Review after the first full cycle.
-
-Communication Flows were added in v18.1 and track step progress and conversion signals ([Rock Release Notes](https://www.rockrms.com/releasenotes), [Communication Flows](https://community.rockrms.com/rocku/communication/communication-flows)).
-
-## 16. Troubleshooting Decision Tree
-
-### A communication did not send
-
-1. Find the `Communication` record.
-2. Check status: draft, pending approval, approved, sent, failed, or future-dated.
-3. Check `FutureSendDateTime`.
-4. Check approval state and approver permissions.
-5. Check Communications Send Job state and history.
-6. Check recipient rows: are there pending recipients?
-7. Check medium entity type on recipients.
-8. Check transport active/configured state.
-9. Check exceptions and status notes.
-10. Check version caveats for approval/send-now behavior.
-
-### Some recipients are missing
-
-1. Identify recipient source: list, communication, grid, entity set, workflow, connection requests.
-2. If list-based, inspect group membership and active status.
-3. Check deceased status.
-4. Check segments and AND/OR match behavior.
-5. Check duplicate removal.
-6. Check email/SMS/push eligibility.
-7. Check communication type changes during wizard authoring.
-8. Check v18.2 recipient exclusion fix if the user changed communication type mid-wizard ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-9. Check v17 recipient detail behavior if on an older version.
-10. Re-run recipient preview if available.
-
-### Email delivered but analytics are missing
-
-1. Confirm the send created `CommunicationRecipient` records.
-2. Confirm it used the expected email medium.
-3. Confirm transport supports analytics.
-4. Confirm tracking is enabled for this send path.
-5. Confirm provider webhooks/callbacks.
-6. Confirm Rock has opens/clicks in the relevant analytics table or model.
-7. Compare with a wizard-sent test email.
-8. If workflow-sent, verify whether the workflow action path supports communication analytics. A community Q&A reports this exact difference for Mailgun but does not provide a confirmed fix in the source pack ([Mailgun Tracking Q&A](https://community.rockrms.com/ask/using/2824)).
-
-### SMS reply is not visible
-
-1. Check provider inbound webhook delivery.
-2. Check SMS Pipeline.
-3. Confirm SMS Conversations action is present.
-4. Check system phone number.
-5. Check conversation block filters and allowed numbers.
-6. Check assigned person and personal-number filters.
-7. Check conversation age/month limit.
-8. Check page/block security.
-9. Check v18.1 START/STOP keyword caveat ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### SMS recipient did not receive message
-
-1. Check recipient `CommunicationRecipient` status and status note.
-2. Check person's phone record.
-3. Confirm mobile phone type.
-4. Confirm SMS enabled state.
-5. Confirm opt-out state.
-6. Confirm bad-number provider errors.
-7. Confirm From number and provider send logs.
-8. Check whether the UI only appeared to send. Community experience shows staff can miss pending/failure state without stronger UI warnings ([Disabled SMS Mobile Phone Warning](https://community.rockrms.com/recipes/438)).
-9. Check v19.1 bad-number vs opt-out fix if relevant ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Template is missing from wizard
-
-1. Check template active state.
-2. Check category filter.
-3. Check template permissions.
-4. Check whether template supports the wizard.
-5. Check template version.
-6. Check block allowed communication types.
-7. Check whether it is a Communication Flow template rather than a system-wide Communication Template.
-8. Check whether the current user has edit/view rights, as the official manual notes templates may be hidden by permissions or setup ([Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8)).
-
-### User cannot view communication detail
-
-1. Check page and block security.
-2. Check whether the user created or sent the communication.
-3. Check Communication Detail `Communication Access Mode`.
-4. Check `View All` security action in v19.1+.
-5. Check whether strict access is expected.
-6. Review release notes and tech bulletin for the current version ([Rock Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 17. Agent Task Recipes
-
-### Recipe: Audit a single sent communication
-
-Collect:
-
-- Communication ID/GUID
-- created by
-- sender fields
-- subject/content summary
-- communication type
-- status
-- future send date
-- approval state
-- template
-- recipient count by status
-- recipient count by medium
-- failures with status notes
-- unsubscribe count
-- open/click metrics if available
-- transport used
-- job/exceptions if relevant
-
-Report:
-
-- whether it was sent
-- who was eligible
-- who failed and why
-- whether analytics are available
-- what to inspect next
-
-### Recipe: Explain why a person did not get an email
-
-Inspect:
-
-- Person email
-- email active
-- email preference
-- deceased status
-- list membership
-- subscription state
-- recipient row
-- medium entity type
-- status/status note
-- unsubscribe fields
-- transport/provider logs
-- bounce/suppression state
-
-Answer in evidence form: "Person was in audience but excluded by preference", "Person was not in audience", "Person had pending recipient row but transport failed", or "Rock sent successfully; provider logs must be checked."
-
-### Recipe: Explain why a person did not get SMS
-
-Inspect:
-
-- mobile phone exists
-- SMS enabled
-- opt-out state
-- phone type
-- cleaned number
-- shared number
-- recipient row
-- status note
-- From system phone number
-- provider send log
-- pipeline only if inbound/reply issue
-
-Use source-code awareness that Rock models separate `smsNumber` from `isSmsAllowed` ([CommunicationEntryRecipientBag source](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryRecipientBag.d.ts)).
-
-### Recipe: Audit communication list freshness
-
-Inspect:
-
-- list group ID/name
-- group type
-- member count
-- active/inactive members
-- sync job
-- data view
-- last sync time
-- expected source population
-- segment usage
-- subscription/preference settings
-- security
-
-Flag if the list is one of Rock's shipped lists and no sync path exists, because RockU notes shipped lists are not automatically synced ([Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)).
-
-### Recipe: Review a communication template
-
-Inspect:
-
-- name
-- category
-- active
-- starter
-- version
-- wizard support
-- template security
-- preview image
-- from/reply/cc/bcc
-- subject
-- message
-- SMS message
-- push message/options
-- attachments
-- CSS inlining
-- Lava fields
-- logo/image references
-
-Test:
-
-- preview as multiple people
-- send to internal test recipients
-- mobile rendering
-- unsubscribe link
-- link tracking
-- spam/deliverability signals if available
-
-### Recipe: Investigate SMS conversation access
-
-Inspect:
-
-- system phone number
-- assigned person
-- block allowed numbers
-- "show only personal" setting
-- "hide personal" setting
-- page security
-- block security
-- conversation age setting
-- database timeout
-- pipeline action
-- inbound provider logs
-
-Use mobile docs configuration names as the inspection checklist ([Mobile SMS Conversation List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list)).
-
-### Recipe: Determine whether a workflow email supports analytics
-
-Inspect:
-
-- workflow action type
-- whether a `Communication` record is created
-- whether recipients are `CommunicationRecipient` rows
-- selected medium/transport
-- tracking setting
-- provider tracking/webhook state
-- comparison send through wizard
-- recipient engagement rows
-
-Do not promise analytics for workflow emails unless confirmed in the live instance. The source pack includes an unanswered community question showing this can differ by path ([Mailgun Tracking Q&A](https://community.rockrms.com/ask/using/2824)).
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `15`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | configuration | Rock communication lists are groups of a specific type; membership can be managed manually or synchronized from data views, so recipient troubleshooting should inspect the underlying group and its sync configuration. | [source](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) |
-| official | release_caveat | The v19 Unsubscribe Report can show recipient, send and unsubscribe timing, communication type or topic, and sender. Use it to investigate patterns and coach senders rather than assuming every unsubscribe has one cause. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | Selected v19 connection requests can be reassigned, moved to another status, completed, updated by state, sent to a workflow or activity, and used to initiate SMS or email. Each action remains subject to configured templates, snippets, phone eligibility and user permissions. | [source](https://www.youtube.com/watch?v=7rxTGLLhlrU) |
-| official | release_caveat | The v19 Communication Wizard distinguishes personal or need-to-know messages from bulk or marketing messages, and block settings can customize the labels and descriptions. Clear local wording helps senders choose the classification that protects audience trust and sender reputation. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | Agent capabilities are intended to be controlled at the individual tool level, allowing an organization to enable drafting while disabling sending, or to omit destructive tools such as delete operations. Tool availability and Rock permissions should both be treated as required controls. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| official | release_caveat | A v19 SMS Pipeline send action can save its response so the automated message appears in Communication History, the person's history and SMS Conversations. Enable this deliberately when auditability is needed and account for the additional retained communication history. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | Rock v19 adds workflow actions for sending a Rock Chat channel message or direct message. Verify Rock Chat configuration, recipient resolution, workflow security and delivery behavior before operational use. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | For communications work, email safeguards should be reviewed as a governance and deliverability topic, including sender policy, access, templates, and current Rock version behavior. | [source](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) |
-| community-reviewed | operational_guidance | Communications guidance should verify audience, sender, template, channel, consent, and reporting behavior in Rock before acting on broad podcast-level advice. | [source](https://shows.acast.com/rock-cast/episodes/5ae33294443021c473c0f5fa) |
-| community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | Provider event data should be summarized into operational reports that help staff understand delivery health without exposing unnecessary raw event detail. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5) |
-| More |  | 3 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `35`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Communication Analytics Transcript Insight](https://community.rockrms.com/rocku/communication/communication-analytics) | approved_for_public_distillation | 3 | media-insight:e08bd9ab6c410d25 |
-| [Communication Analytics [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-analytics-legacy) | approved_for_public_distillation | 2 | media-insight:d1aacd14e5660e87 |
-| [Communication Flows Transcript Insight](https://community.rockrms.com/rocku/communication/communication-flows) | approved_for_public_distillation | 3 | media-insight:349e6f04286e8cab |
-| [Communication Lists & Segments Transcript Insight](https://community.rockrms.com/rocku/communication/communication-lists--segments) | approved_for_public_distillation | 3 | media-insight:387bdcba06ac8a09 |
-| [Communication Overview Transcript Insight](https://community.rockrms.com/rocku/communication/communication-overview) | approved_for_public_distillation | 3 | media-insight:cb96416a43f75f86 |
-| [Communication Preferences Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences) | approved_for_public_distillation | 3 | media-insight:d0e322520f4ef2bc |
-| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
-| [Communication Saturation Report Transcript Insight](https://community.rockrms.com/rocku/communication/communication-saturation-report) | approved_for_public_distillation | 3 | media-insight:5548c23004402975 |
-| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 18. Source Map And Dependency Notes
-
-Primary official sources:
-
-- [Communicating With Rock](https://community.rockrms.com/documentation/bookcontent/8): communication engine, sending, templates, mediums, transports, send job, unsubscribes, bounced mail, version update notes.
-- [RockU Communication](https://community.rockrms.com/rocku/communication): training index for lists, templates, wizard, SMS conversations, preferences, analytics, pipeline, system communications, flows, overview, saturation, unsubscribe report.
-- [Rock Release Notes](https://www.rockrms.com/releasenotes): v17-v19 communication fixes, features, access control changes, SMS opt-in/opt-out behavior, flows, analytics, detail blocks.
-
-Key RockU modules:
-
-- [Communication Lists & Segments](https://community.rockrms.com/rocku/communication/communication-lists--segments)
-- [Communication Templates](https://community.rockrms.com/rocku/communication/communication-templates)
-- [Communication Wizard](https://community.rockrms.com/rocku/communication/communication-wizard)
-- [Communication Preferences](https://community.rockrms.com/rocku/communication/communication-preferences)
-- [Communication Analytics](https://community.rockrms.com/rocku/communication/communication-analytics)
-- [Communication Flows](https://community.rockrms.com/rocku/communication/communication-flows)
-- [Communication Saturation Report](https://community.rockrms.com/rocku/communication/communication-saturation-report)
-- [SMS Pipeline](https://community.rockrms.com/rocku/communication/sms-pipeline)
-- [SMS Conversations](https://community.rockrms.com/rocku/communication/sms-conversations)
-- [System Communications](https://community.rockrms.com/rocku/communication/system-emails)
-
-Developer and source-code landmarks:
-
-- [EmailTransportComponent](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/EmailTransportComponent.cs)
-- [SmsTest Transport](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/SmsTest.cs)
-- [EmailSendResponse](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/Transport/EmailSendResponse.cs)
-- [RockEmailMessageRecipient](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockEmailMessageRecipient.cs)
-- [RockSMSMessageRecipient](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Communication/RockSMSMessageRecipient.cs)
-- [Identify SMS Opt-Out Recipient Transaction](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Transactions/IdentifySmsOptOutCommunicationRecipientTransaction.cs)
-- [v17 Communication Template Version and Recipient Detail Migration](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP.cs)
-- [spCommunicationRecipientDetails SQL](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2017.0/Version%2017.0/202504021715459_AddVersionToCommunicationTemplateAndFixRecipientDetailsSP_spCommunicationRecipientDetails.sql)
-- [Communication Recipient API Controller](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/CommunicationRecipientsController.CodeGenerated.cs)
-
-Mobile and Obsidian docs:
-
-- [Mobile Communication Blocks](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication)
-- [Mobile Communication Entry](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-entry)
-- [Mobile Communication List Subscribe](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-list-subscribe)
-- [Mobile SMS Conversation List](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/sms-conversation-list)
-- [Mobile Communication View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/communication/communication-view)
-- [Obsidian Component Structure](https://community.rockrms.com/developer/obsidian/obsidian-component-structure)
-
-Community examples requiring review before implementation:
-
-- [Mailtrap Email Testing](https://community.rockrms.com/recipes/138)
-- [AWS SES Email SMTP Transport](https://community.rockrms.com/recipes/171)
-- [Control Email Preview Contents](https://community.rockrms.com/recipes/179)
-- [View Email On Webpage](https://community.rockrms.com/recipes/297)
-- [Empower Your Teams to Easily Create Beautiful Emails](https://community.rockrms.com/recipes/305)
-- [SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542)
-- [Disabled SMS Mobile Phone Warning](https://community.rockrms.com/recipes/438)
-- [Staff Specific Texting Numbers](https://community.rockrms.com/recipes/357)
-- [Create a Voicemail Message for Twilio SMS Accounts](https://community.rockrms.com/recipes/224)
-- [Use Your Twilio Texting Number for Incoming Calls](https://community.rockrms.com/recipes/507)
-- [Unread SMS Badge](https://community.rockrms.com/recipes/520)
-- [Giving Receipt System Email Shortcodes](https://community.rockrms.com/recipes/510)
-- [Decline Reason in Scheduling Response Email](https://community.rockrms.com/recipes/419)
-- [Email Urgent Prayer Requests](https://community.rockrms.com/recipes/338)
-- [Post to Teams From a Workflow](https://community.rockrms.com/recipes/435)
-
-Dependency notes:
-
-- **People**: recipient identity, aliases, deceased status, email preference, phone/SMS state.
-- **Workflows**: automated sends, direct email actions, system communications, utility notifications.
-- **Lava**: personalization, templates, shortcodes, webhooks, custom reporting, and significant security risk when SQL/Rock Entity/RunLava are enabled.
-- **Security**: template visibility, communication detail access, phone number access, block/page access, model API access, workflow type visibility, and v19.1 `View All` behavior.
-
-Review status: this guide should be validated against a live Rock instance before operational use, especially for version-specific behavior, provider transport settings, analytics support, SMS opt-in/out behavior, and security configuration.
+| Source | Authority and use |
+| --- | --- |
+| [Rock Communications documentation](https://community.rockrms.com/documentation/engagement/communications) | Official v19 section map for preparation, email, SMS, sending, preferences and reports. |
+| [Communication Lists](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists) | Official v19 evidence for group-backed lists, Group Sync, categories and segments. |
+| [Communication Templates](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates) | Official v19 evidence for template versions, categories, starter state and security. |
+| [System Communications](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/system-communications) | Official v19 evidence for automated templates, categories, preview and security. |
+| [Communication Transports](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-transports) | Official v19 evidence for transport purpose, built-in choices and SMTP relay caveat. |
+| [Communication Mediums](https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums) | Official v19 evidence for medium activation, transport assignment, classification and unsubscribe settings. |
+| [Configure Email](https://community.rockrms.com/documentation/engagement/communications/email/configure-email) | Official v19 email transport, tracking and safe-sender configuration context. |
+| [Email Integrations](https://community.rockrms.com/documentation/engagement/communications/email/email-integrations) | Official provider-specific Mailgun and SendGrid configuration context. |
+| [Advanced Email](https://community.rockrms.com/documentation/engagement/communications/email/advanced-email) | Official v19 approval and spam-reporting behavior. |
+| [Configure SMS](https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms) | Official v19 System Phone Number, provider, forwarding, workflow and throttling context. |
+| [SMS Conversations](https://community.rockrms.com/documentation/engagement/communications/sms/sms-conversations) | Official v19 two-way conversation and response-forwarding behavior. |
+| [SMS Pipeline](https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline) | Official v19 inbound-routing, action-filter, workflow and response-retention behavior. |
+| [Communication Wizard](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-wizard) | Official v19 wizard, template and message-building behavior. |
+| [Simple Editor](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor) | Official v19 direct-send, bulk, test, duplicate-prevention and scheduling behavior. |
+| [Communication Flows](https://community.rockrms.com/documentation/engagement/communications/send-a-communication/communication-flows) | Official v19 flow types, goals, timing, exit behavior and analytics. |
+| [Set Subscription Preferences](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/set-subscription-preferences) | Official v19 preference, subscription and unsubscribe modes. |
+| [Configure Communication List Subscriptions](https://community.rockrms.com/documentation/engagement/communications/communication-preferences/configure-communication-list-subscriptions) | Official v19 subscribe-block, category, campus and medium-preference behavior. |
+| [Communication History & Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics) | Official v19 communication, person-history, recipient and security context. |
+| [Email Analytics](https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics) | Official v19 provider-dependent open, click and client reporting. |
+| [Communication Saturation Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report) | Official v19 cadence and audience-load reporting. |
+| [Unsubscribe Report](https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report) | Official v19 unsubscribe scope and investigation context. |
+| [Rock Core Release Notes](https://www.rockrms.com/releasenotes) | Official version-specific fixes and alpha release caveats. |
+| [v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ) | Approved official release claims for classification, SMS response retention, unsubscribe reporting and Rock Chat actions. |
+| [Rock source snapshot](https://github.com/SparkDevNetwork/Rock/tree/471fd303d111b2e46218228dbc1e93dba8856fa3) | Immutable implementation evidence; not proof of installed configuration. |
+| [Email Safeguards](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) | Community-reviewed governance guidance with a reviewed public-safe structural verification conclusion. |
+| [SMS Credit/Segment Calculator](https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol) | Community recipe and estimate; not official provider billing behavior. |
+| [ONE&ALL public communication recipes](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes) | Reviewed community implementation patterns requiring local security and live verification. |

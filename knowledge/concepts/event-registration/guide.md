@@ -6,1385 +6,515 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "3c44b5acb7f2cad5c3d70b2f389e70b46eef26a88a66c8b265462e3f99657b70"
 ---
 
 # Event Registration
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock Event Registration coordinates reusable registration configuration, event-specific registration instances, registrars and registrants, forms, costs, payments, communications, capacity, wait lists, groups, calendar occurrences, and follow-up processes.
 
-- Concept data-model landmarks: [Event Registration index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+Use this operating model:
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+1. Start with the registration template. It holds most reusable settings, including fields, costs or cost behavior, fees, payment options, eligibility, communications, workflows, signatures, and group-related configuration.
+2. Create a registration instance for the specific offering. The instance supplies event-specific details such as dates, contact information, capacity, and—when configured at the instance level—cost and finance settings.
+3. Link the instance to the correct event occurrence, calendar, campus, and group when those relationships are required.
+4. Test the public journey with representative people before publishing it.
+5. During operations, keep registrations, registrants, payments, fees, discounts, wait-list status, and group placement distinct.
+6. Require live verification for installed configuration, provider behavior, custom integrations, reports, and version-dependent features.
 
-## 1. Executive Summary For Agents
+Rock explicitly distinguishes a registration record from the people registered through it: one registration can contain multiple registrants. Account, fee, and payment information is managed separately, so reports and automations must state their intended grain. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-Event Registration in Rock RMS is the system area that turns an event invitation into a structured operational workflow: a person or family opens a registration link, selects registrants, answers form questions, chooses options and fees, optionally signs documents, pays or commits to pay, receives communications, and becomes visible to staff for follow-up, reporting, placement, finance reconciliation, and event execution.
+## Scope And Boundaries
 
-For agents, the most important mental model is this:
+This guide covers:
 
-- A **Registration Template** defines the reusable form, rules, cost model, payment behavior, confirmation/reminder communication, eligibility, signature requirements, fields, fees, discounts, and placement structure.
-- A **Registration Instance** is the concrete registration configured for a specific offering, trip, class, camp, event date, or ministry use case.
-- A **Registration** is one submitted transaction or submission, usually tied to the person who submitted it.
-- A **Registrant** is the actual person being registered. One registration can contain multiple registrants.
-- An **Event Item Occurrence linkage** connects calendar/event display to a registration instance and public-facing registration path.
-- Finance records, payment plans, batches, gateway activity, workflows, groups, communications, and attributes may all participate depending on configuration.
+- Registration templates and instances
+- Public and staff-entered registrations
+- Forms, identity matching, eligibility, workflows, and communications
+- Costs, fees, discounts, partial payments, payment plans, payment matching, and refunds
+- Capacity and wait lists
+- Calendars, event items, occurrences, linkages, campuses, groups, and promotion
+- Group placement and check-in handoff
+- Operational reporting and reconciliation
+- Family preregistration as a reviewed community pattern
 
-The official [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29) is the primary documentation authority for event registration configuration and operations. [RockU Event Registration](https://community.rockrms.com/rocku/event-registration) is useful for training sequence and topic coverage. Release notes are authoritative for version-specific behavior, especially current changes in v18.3 and v19.1 affecting signature documents, eligibility rules, duplicate prevention, wait list fields, and discount-code display behavior in event registration blocks ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+This guide does not replace the owning concepts for finance, groups, check-in, workflows, communications, people and families, or general calendar administration. For example, it explains when a registration payment or group linkage matters but does not define an organization’s accounting controls, check-in configuration, identity policy, or workflow security model.
 
-When working in a live Rock instance, do not infer registration state from a public page alone. Inspect the registration template, registration instance, event item occurrence linkage, registration entry block settings, payment gateway settings, registrants, payments, discounts, attributes, workflow hooks, and related groups. Registration bugs often come from the boundary between these objects rather than from the form itself.
+Do not treat the existence of a registration, group, workflow, or payment record as proof that the complete ministry process works. The approved preregistration evidence confirms that these surfaces can be traced together, but it does not prove that a particular implementation is correctly configured. [Community-reviewed preregistration guidance at 02:10](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-## 2. Scope And Terminology
+## Mental Model
 
-This guide covers Rock RMS Event Registration as a concept and operating surface: templates, instances, forms, registrants, payments, fees, discounts, wait lists, group placement, event/calendar linkages, communications, workflows, reporting, and developer landmarks.
+Rock’s documented v19 structure can be read as several related layers:
 
-It depends on five adjacent Rock areas:
+- **Template:** Reusable configuration shared by registration instances.
+- **Instance:** One specific registration offering created from a template.
+- **Registration:** The transaction-like container created by a registrar; it can include multiple registrants.
+- **Registrant:** One person being registered.
+- **Finance:** Cost, fees, discounts, payments, balance, account, gateway, and any payment plan.
+- **Calendar:** The calendar contains event items; event occurrences supply the scheduled, campus, contact, and location context.
+- **Linkage:** Connects an occurrence to a registration instance and optionally a group, campus context, public name, and URL slug.
+- **Group placement:** Moves registered people into operational groups used for rosters, activities, teams, or check-in.
+- **Workflow and communications:** Turn captured registration data into confirmation, reminders, payment follow-up, or ministry action.
 
-- **Events**: Event Items, Event Item Occurrences, calendars, public event display, iCalendar feeds, and linkages.
-- **Finance**: payment gateways, financial transactions, batches, registration matching, refunds, discounts, partial payments, and payment plans.
-- **Workflows**: automated follow-up, custom approval/change flows, reminders, ministry notifications, and exception handling.
-- **Communications**: confirmation emails, payment reminders, staff alerts, registrant updates, merge fields, and delivery health.
-- **Groups**: placement groups, group member creation, team/cabin/room assignment, event teams, and capacity management.
+Templates carry most shared configuration, while instances supply the details that differ between offerings. A recurring class can therefore reuse one template across multiple dated instances, while a substantially different annual event may use a dedicated template and instance. [Official v19 documentation: Intro to Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations)
 
-Terminology to normalize before troubleshooting:
+The registrar and registrant are not necessarily the same person. A parent, household member, or other registrar may submit one registration containing several registrants. An agent must therefore avoid using “registration,” “registrar,” “registrant,” and “person” interchangeably. [Official v19 documentation: Intro to Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations)
 
-**Registrar**
-The person submitting the registration. In many cases this is a parent, spouse, staff user, ministry leader, or attendee. The registrar may or may not be one of the registrants. The [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29) explicitly distinguishes registrar and registrant as a foundational concept.
+## Registration Instances
 
-**Registrant**
-The person being registered. A children’s camp registration may have a parent as registrar and a child as registrant. A staff-entered registration may have an admin user as registrar and a participant as registrant.
+### Build reusable behavior in the template
 
-**Registration Template**
-The reusable definition for the registration experience. It controls the shape of the form, cost rules, fields, communications, payment/reminder behavior, wait list settings, and, in newer versions, eligibility and duplicate-prevention behavior.
+Most registration configuration belongs in the template. The supplied v19 documentation supports template settings for activation and categorization, person and group behavior, custom forms, conditional fields, registration attributes, eligibility, confirmation and reminder communications, costs, gateways, partial payments, payment plans, workflows, electronic signatures, and customized terms. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-**Registration Instance**
-The concrete registration built from a template. Instances carry operational dates, active status, capacity, public names/linkages, accounting configuration, payment settings, and event-specific context. The documentation identifies instance settings such as **Registration Instance Name**, **Active**, **Registration Starts**, and **Registration Ends** ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)).
+Deactivating an obsolete template is materially different from deleting it. The documentation warns that deleting a template also deletes the registrations that use it. Treat deletion as a destructive operation requiring a confirmed retention decision; deactivation is the bounded choice when the goal is simply to prevent future use. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-**Registration**
-A submitted registration record. It groups one or more registrants under one submission and usually stores registrar/contact, confirmation email, payment totals, balances, and links to financial activity.
+A template category can help organize and secure templates. Template creation and template administration are also permission-sensitive; access to an instance does not imply permission to create or administer its template. [Official v19 documentation: Secure Events and Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars)
 
-**Registration Form**
-The step or group of fields shown to collect answers. Template form fields can become registrant fields, registration-level fields, or wait-list-visible fields depending on configuration and Rock version.
+### Put occurrence-specific settings on the instance
 
-**Fee**
-An optional or required cost component beyond the base per-registrant cost. Fees can represent shirts, lodging, ticket levels, add-ons, quantity-based items, or selectable options. RockU separates registration fees, additional fees, discounts, partial payments, and payment plans as distinct training topics ([Registration Fees](https://community.rockrms.com/rocku/event-registration/registration-fees), [Additional Registration Fees](https://community.rockrms.com/rocku/event-registration/additional-registration-fees), [Registration Discounts](https://community.rockrms.com/rocku/event-registration/registration-discounts), [Partial Payments](https://community.rockrms.com/rocku/event-registration/partial-payments), [Payment Plans](https://community.rockrms.com/rocku/event-registration/payment-plans)).
+Create an instance for a particular offering and confirm its event-specific values. The Event Wizard documentation identifies fields such as registration start and end dates, contact, maximum attendees, payment deadline, account, and—when the template does not own them—cost, minimum initial payment, and default payment amount. [Official v19 documentation: Event Wizard](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/event-wizard)
 
-**Discount Code**
-A configured code that reduces registration cost or fees. Discount visibility and reporting have version caveats. In v19.1, Rock fixed a Registration Instance Registration List issue where the Discount Code column could be hidden when the template had no per-registrant cost even though a discount applied to fees ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+The Event Wizard is optional. It provides a constrained staff-facing process that can use allowed templates and optionally create or select a group, event item, occurrence, campus, schedule, and finance settings. Its block configuration controls which templates are available, whether a group is required, whether the created instance starts active, whether calendar events are enabled, and whether staff can create a new calendar event. [Official v19 documentation: Event Wizard](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/event-wizard)
 
-**Wait List**
-A registrant state used when capacity is full or the template/instance permits waiting-list capture. The Obsidian/WebForms list surfaces wait-list state; source snippets show `IsOnWaitList` driving the “WL” warning label in registration grids ([RegistrantInfoBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs), [registrantInfoBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts)).
+Use the wizard when its configured choices match the operating model. Do not assume that completing the wizard proves that the resulting group, calendar linkage, public route, payment gateway, or communications have been tested.
 
-**Linkage**
-The relationship between an event occurrence and a registration instance, commonly involving a URL slug and public display configuration. RockU includes Linkages as a dedicated event registration training topic ([Linkages](https://community.rockrms.com/rocku/event-registration/linkages)). A community Q&A example shows that API consumers may find `RegistrationInstanceId` through `EventItemOccurrences?$expand=Linkages` but still need to verify where the public URL is resolved in their Rock version and page setup ([API Q&A](https://community.rockrms.com/ask/developing/2547)).
+### Manage at the correct grain
 
-## 3. Event Registration Mental Model
+The instance detail surface separates operational concerns into registrations, registrants, payments, fees, discounts, linkages, and wait-list views. The Registrations tab shows registration containers, which may each contain multiple people; the Registrants tab lists individual registrants. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-A Rock event registration is not just a form. It is a chain of objects and decisions.
+A registration can be moved only to another instance using the same template, because different templates can have incompatible fields, costs, fees, and discounts. Staff can also manually add a registration or add another registrant to an existing registration from the documented management surface. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-The typical chain is:
+## Forms, Identity, Eligibility, And Communications
 
-1. A calendar or event item occurrence describes the event.
-2. A registration template defines the registration rules.
-3. A registration instance uses that template for a specific event offering.
-4. A linkage connects the occurrence, public display, slug, and registration instance.
-5. A public page with a Registration Entry block renders the form.
-6. The registrar selects registrants, answers fields, chooses fees, and submits payment or unpaid balance.
-7. Rock creates Registration and RegistrationRegistrant records.
-8. Rock creates or associates financial records when money is collected.
-9. Rock sends configured communications.
-10. Staff manage registrants, balances, discounts, placement, notes, exports, and follow-up from internal event registration pages.
+### Design the form around the record being updated
 
-The failure points follow the same chain. If the event page says registration is closed, check the instance dates and active flag. If the page has no button, check the linkage and registration URL. If the form opens but a person cannot be selected, inspect family-member rules, registrant eligibility, duplicate prevention, and same-family settings. If payment fails, inspect gateway configuration, allowed payment methods, saved account options, and finance exceptions. If reports are wrong, confirm whether the report is using registrations, registrants, fees, financial transactions, or gateway payment-plan state.
+Rock supports custom entry forms, person and registration fields, registration attributes, conditional fields, confirmation and reminder emails, workflows, and electronic signatures through template configuration. Decide whether each value belongs to the person, registration, registrant, group member, or another related entity before building the form. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-For agents, the safe operating posture is:
+Requiring login can reduce the chance of creating a duplicate registrar record, but it adds the cost of requiring the guest to authenticate or create a login. This is not the same control as preventing a matched person from being registered twice for one instance. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-- Treat **template settings** as the source of form/rule behavior.
-- Treat **instance settings** as the source of event-specific open/closed, capacity, accounting, and operational state.
-- Treat **linkages and block attributes** as the source of public URL behavior.
-- Treat **registrant rows** as the source of participant state.
-- Treat **financial transactions and gateway records** as the source of money movement.
-- Treat **payment plans** as partly external to Rock because the documentation states payment schedules are controlled by the external payment gateway, and balance changes in Rock do not automatically synchronize an existing payment plan ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)).
+When conditional or custom update logic is added outside the standard registration flow, treat identity resolution and preservation of omitted values as local implementation concerns. A reviewed community pattern recommends resolving the intended person on the server, reading back saved values, and preserving existing attribute values when a conditional path omits them. This is not universal core behavior and requires live verification against the endpoint, workflow, and installed schema. [Reviewed community pattern: person resolution and conditional attribute preservation](https://community.rockrms.com/lava/commands/entity-commands)
 
-## 4. Source Authority And How To Use This Guide
+### Test combined eligibility
 
-Use sources in this order when resolving a real issue:
+For v19 registrant eligibility, the approved official claim states that a registrant must satisfy every enabled criterion. Test combined age, gender, grade, and Data View rules using representative people before opening registration; testing each criterion independently is not enough. [Official v19 feature guidance at 07:25](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s)
 
-1. **Live Rock instance evidence**
-   Inspect the exact template, instance, occurrence, linkage, block, registration, registrant, payment, workflow, group, or communication. Live state wins over general documentation.
+Do not infer that a person is eligible from one visible field. Grade, age, gender, Data View membership, stored person data, effective dates, and the exact enabled criteria all need inspection when a representative person is rejected.
 
-2. **Official Rock documentation**
-   The [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29) is the highest-authority narrative source in this pack. It includes registration concepts, instance settings, payment plans, matching, group placement, SSL, URL slug requirements, and event/calendar context.
+### Evaluate duplicate-prevention disclosure
 
-3. **Release notes**
-   The [Rock Core Release Notes](https://www.rockrms.com/releasenotes) are authoritative for version-specific features and fixes. In this source pack, the most important recent changes are v18.3 signature document handling and v19.1 eligibility, duplicate-prevention, discount-code display, empty-form exception logging, and wait-list field behavior.
+The v19-era Prevent Duplicate Registrants capability blocks a matched person from being registered twice for the same instance. The supplied v19.1 release record says validation occurs during the registrant step and again before submission, including every person in a multi-registrant entry. The v19 template documentation further notes that matching is based on Person ID and does not detect or merge separate duplicate person records. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates) [Official release notes](https://www.rockrms.com/releasenotes)
 
-4. **RockU training**
-   [RockU Event Registration](https://community.rockrms.com/rocku/event-registration) is strong for topic coverage and mental sequencing. Its module list is useful because it separates templates, instances, attributes, fees, discounts, partial payments, wait lists, calendar linkages, iCalendar, electronic signatures, payment plans, and group placement.
+The approved release caveat identifies a privacy tradeoff: someone who knows enough matching identity information may learn from the warning that the person is already registered. Evaluate that disclosure before enabling the setting for sensitive events. [Official feature guidance at 05:57](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s)
 
-5. **Developer docs and source-code landmarks**
-   Developer docs identify block inputs, page parameters, merge fields, and mobile behavior. For example, the mobile Calendar Event Item Occurrence View block takes an `EventOccurrenceGuid` page parameter and exposes merge fields including `RegistrationUrl`, `EventItemOccurrence`, `Event`, `RegistrationStatusLabel`, and `RegistrationStatusLabels` ([Calendar Event Item Occurrence View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view)).
+### Verify communications as part of the lifecycle
 
-6. **Community recipes and Q&A**
-   Recipes can be operationally useful but must be treated as contributed patterns, not official behavior. The recipe pages themselves include a disclaimer that community recipes are not reviewed or endorsed by the Rock core team and should be evaluated for performance and security ([Registration Instance Totals Report](https://community.rockrms.com/recipes/348), [Registration Instance Fees Report](https://community.rockrms.com/recipes/400), [Show Active Registration Discount Codes](https://community.rockrms.com/recipes/472), [Registration Notes](https://community.rockrms.com/recipes/245)).
+Template configuration can include confirmation, event reminder, and payment reminder emails. The supplied documentation notes that event reminders include people on the wait list and can depend on the instance’s additional reminder details for event timing. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-Do not copy recipe SQL or Lava directly into production. Use recipes to learn what data relationships people commonly need, then rebuild using parameterized, permission-scoped, version-appropriate implementation.
+Do not stop at confirming that a communication template is selected. Test its audience, merge fields, links, event details, payment state, wait-list wording, and delivery behavior using non-sensitive test records.
 
-## 5. Core Configuration And Data Model
+## Payments
 
-### Configuration Surfaces
+### Configure the finance path deliberately
 
-A complete event registration configuration usually spans these surfaces:
+Rock documents free and paid registrations, partial payments, additional fees, percentage or fixed discounts, payment plans, and payment reminders. The template can select the financial gateway and determine whether costs are shared by all instances or set on each instance. A financial account is required when the Event Wizard creates a paid instance. [Official v19 documentation: Intro to Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations) [Official v19 documentation: Event Wizard](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/event-wizard)
 
-**Registration Template**
-Controls reusable rules and form behavior. Inspect it first when behavior applies across many registrations or when the same problem occurs on every instance using the template.
+Staff can manually enter a payment from the registration’s details and Payments area. At the instance level, the Payments tab lists payments and links to the corresponding financial transaction; the documented transaction detail path is where a refund can be processed by an authorized user. [Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances) [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-Template-level areas commonly include:
+Permissions differ: the supplied v19 security documentation says staff and staff-like roles can add registration payments, while the default refund path requires Finance Administration. Verify local block and entity security because an installation can be more restrictive. [Official v19 documentation: Secure Events and Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars)
 
-- Name and administrative description.
-- Forms and fields.
-- Per-registrant cost behavior.
-- Additional fees and fee options.
-- Discount codes.
-- Payment and partial-payment behavior.
-- Payment reminder email configuration.
-- Confirmation email configuration.
-- Wait list behavior.
-- Signature document requirement.
-- Group placement settings.
-- Registrants-in-same-family behavior.
-- Eligibility rules in v19.1 and later.
-- Prevent Duplicate Registrants in v19.1 and later.
-- Placement settings if using registration placement.
-- Security and staff access.
+### Partial payments and payment plans are different
 
-When exact fields differ by version or customization, inspect the live Registration Template Detail block rather than relying on a static checklist.
+A positive minimum initial payment enables partial-payment behavior, and a default payment amount can prefill the amount due today when the minimum is greater than zero. The registrar may lower the prefilled amount to the configured minimum. [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-**Registration Instance**
-Controls the concrete registration offering. Official documentation explicitly identifies instance settings such as Registration Instance Name, Active, Registration Starts, and Registration Ends ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)). Other common instance-level concerns include capacity, contact, accounting, public display, linkage, event occurrence, campus, group placement, and fee availability.
+Payment plans require template enablement and a compatible payment gateway. The documented payment schedule is controlled by the external gateway rather than Rock. Later changes to the registration balance—for example, applying a discount—do not automatically update the gateway-controlled payment plan. Administrators must reconcile the remaining registration balance with the external schedule; deleting a plan cancels its remaining payments, and continuing afterward requires a new plan. [Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-When diagnosing public access, inspect at minimum:
+The supplied v20 release snapshot, labeled alpha, adds a template setting requiring either payment in full or a payment plan covering the remaining balance before registration can complete. Do not describe that as established v19 behavior or enable it without confirming the installed release. [Official release notes](https://www.rockrms.com/releasenotes)
 
-- Is the instance active?
-- Has registration started?
-- Has registration ended?
-- Is the URL slug present where required?
-- Is the instance linked to the intended Event Item Occurrence?
-- Is capacity full?
-- Is wait list enabled?
-- Is the template active/valid?
-- Does the public page’s Registration Entry block route to this instance?
-- Are permissions blocking the public user?
+### Apply discounts with balance consequences in mind
 
-**Event Item And Event Item Occurrence**
-These belong to the Events/calendar side. They provide public event context, event date/time, calendar visibility, and occurrence-specific linkage. RockU includes calendar overview, calendars/events, linkages, event attributes, and iCalendar feed as part of the event registration training sequence ([Calendar Overview](https://community.rockrms.com/rocku/event-registration/calendar-overview), [Calendars and Events](https://community.rockrms.com/rocku/event-registration/calendars-and-events), [Linkages](https://community.rockrms.com/rocku/event-registration/linkages), [Event Attributes](https://community.rockrms.com/rocku/event-registration/event-attributes), [iCalendar Feed](https://community.rockrms.com/rocku/event-registration/icalendar-feed)).
+The documented finance surface supports discount codes, quantity discounts, early-bird and automatic discounts, limits on usage, and discount reporting. The Discounts tab reports which discounts were used, by whom, usage counts, and total discount cost. [Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances) [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-**Registration Entry Block**
-This is the public-facing form renderer. Troubleshooting needs the page, route, block attributes, page parameters, and URL slug behavior. If an issue appears only on one website/page, inspect the block instance and page route before changing a template.
+A person with an unpaid balance can apply a post-registration discount through the documented registration block. The supplied v19 documentation says this is unavailable after the registration is paid in full or after another discount code has already been used. A discount larger than the remaining amount can produce a negative registration balance, which requires a manual refund to return the balance to zero. [Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-**Internal Registration Blocks**
-Internal tools include registration instance lists, registration details, registrant lists, fee lists, payment lists, payment reminders, group placement, and registrant detail pages. Source snippets show block-specific view models for registration instance registration lists, registrant lists, fee lists, payment lists, and payment reminders in both WebForms and Obsidian surfaces ([RegistrationInstanceRegistrantList.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs), [RegistrationInstancePaymentListOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs), [RegistrationInstanceFeeListOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs)).
+### Match externally entered transactions
 
-### Data Model Orientation
+Event Registration Matching operates on one registration instance at a time and matches transactions from a selected open batch to registrations. The batch must be Open, not Pending. The tool is located under `Finance > Event Registration Matching` in the supplied v19 documentation. [Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-The core relationship chain is:
+Do not treat the presence of a transaction in a batch as proof that it is attached to the intended registration. Verify the batch state, template, instance, registration, amount, and post-match balance.
 
-`RegistrationTemplate -> RegistrationInstance -> Registration -> RegistrationRegistrant`
+## Wait Lists And Capacity
 
-Then additional relationships attach:
+Wait lists are enabled on the template, while maximum registrant capacity is configured on the instance. When capacity is exhausted, the public flow can offer a wait-list position. If one place remains in a multi-person entry, Rock can fully register one person and place the next person on the wait list. [Official v19 documentation: Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists)
 
-- `RegistrationRegistrant -> PersonAlias -> Person`
-- `RegistrationInstance -> EventItemOccurrence linkage`
-- `Registration/Registrant -> AttributeValues`
-- `Registration -> FinancialTransaction(s)` or transaction details, depending on payment path
-- `Registration -> PaymentPlan` or gateway-managed recurring/payment-plan arrangement where enabled
-- `RegistrationRegistrant -> SignatureDocument` when signatures are required and completed
-- `RegistrationRegistrant -> GroupMember` or placement group membership where group placement is used
-- `Registration -> Communication` or communication recipient history where emails are sent
-- `Registration/Registrant -> Workflow` when custom automations are triggered
+Wait-listed people are not charged during their initial wait-list entry. They are not added to the linked group at that point, so Rock cannot store Group Member Attributes for them. Those fields are hidden during initial wait-list entry, while first and last name must be shown to avoid anonymous records. [Official v19 documentation: Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists)
 
-Because Rock installations can have plugins, migrations, Obsidian/WebForms differences, and custom pages, agents should verify the actual table and property names in the live model map or schema before writing SQL. Community examples commonly join `RegistrationRegistrant`, `Registration`, `PersonAlias`, and `Person` to produce registrant reports, but those examples are not a substitute for live schema validation ([Single Page Registrant Info recipe](https://community.rockrms.com/recipes/313)).
+Moving someone from the wait list makes the person a full registrant and adds them to configured groups. The documented administration flow can send an email asking the person to finish registration. That completion step matters because it collects any payment due and fields skipped during wait-list entry, including applicable Group Member Attributes. Without completion, the registration can remain operationally incomplete. [Official v19 documentation: Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists)
 
-## 6. Primary Entities And Relationships
+Keep confirmed and wait-listed populations explicit in exports, dashboards, rosters, communications, and check-in tools. The supplied implementation excerpt for the registration list models wait-list status per registrant, reinforcing that status belongs at the person-within-registration grain. [Core source at immutable commit](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs)
 
-### Registration Template
+## Event Calendar
 
-The template is the reusable design. It should be treated like code: changes can affect every current and future instance using it.
+### Separate calendars, event items, and occurrences
 
-Operational questions to ask:
+Rock’s documented calendar model has three components: calendars, event items, and event occurrences. The event item represents the reusable event concept, while an occurrence carries the scheduled manifestation. This supports one event type with multiple upcoming occurrences. An event can appear on more than one calendar. [Official v19 documentation: Intro to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/intro-to-calendars)
 
-- Is this template shared across many ministries?
-- Are current active registrations using it?
-- Would a form change alter already submitted registrations or exports?
-- Are payment reminders, discounts, fees, or signature documents configured here?
-- Does the template use new v19.1 eligibility or duplicate prevention features?
-- Is wait-list field visibility configured correctly?
-- Are staff allowed to edit only instances, or can they edit templates?
+An occurrence can supply campus, contact information, location description, schedule, occurrence notes, attributes, and linkages. A single occurrence may use a one-time or recurring schedule. [Official v19 documentation: Add Event Occurrences](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-event-occurrences)
 
-A common permission pattern is that ministry staff can manage instances but not templates. The [Show Active Registration Discount Codes](https://community.rockrms.com/recipes/472) recipe exists because some staff could edit instances but could not see template-level discount details. In a governed Rock environment, that is not a bug by itself; it is a permission design decision. If staff need discount visibility, prefer a read-only, reviewed reporting surface over broad template edit rights.
+The supplied pre-alpha core source models an occurrence with its event item, next start time, campus, contact, location, schedule description, and registration/group linkages. Treat this as implementation evidence for the upcoming agent surface, not proof that an installed Rock instance exposes or authorizes the same tool. [Core source at immutable commit](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Classes/Skills/EventCalendarSkill/EventItemOccurrenceResult.cs)
 
-### Registration Instance
+### Link the occurrence, registration, and group
 
-The instance is the operating record for a specific registration. The [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29) describes instance settings and emphasizes the displayed importance of the Registration Instance Name during the registration process.
+The documented sequence is to create the event group, create the calendar event and occurrence, and then add a linkage. The linkage can create a new registration instance from an existing template, connect an existing instance, or create a public slug without requiring registration. Afterward, the occurrence can optionally be connected to content channel items for promotion. [Official v19 documentation: Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars)
 
-Agents should collect these values for any incident:
+When a calendar occurrence is linked to a registration, the public event detail can display a Register button. A registration may also be promoted using its direct registration URL. For edits, a registration URL can include `StartAtBeginning=true` when the person should review every step instead of opening at the summary. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-- Instance Id and Guid.
-- Template Id and name.
-- Instance name and public name if linkages provide one.
-- Active flag.
-- Registration start and end date/time.
-- Capacity or spots available settings.
-- Wait list setting.
-- Cost basis.
-- Payment gateway.
-- Financial account/batch naming behavior.
-- Confirmation email and contact email.
-- Linked event item occurrence.
-- URL slug.
-- Campus or audience scope.
-- Group placement configuration.
-- Current counts: registrations, registrants, wait-listed registrants, canceled/dropped records if retained, paid, due, discounts, refunds.
+The v19 documentation states that the URL slug is required for registrants to be placed automatically into the correct linked group. Include the slug in launch testing rather than assuming that an instance-to-group relationship alone proves placement. [Official v19 documentation: Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars)
 
-### Registration
+A linkage can also establish campus association. If no campus linkage exists, the registration flow can use a `CampusId` URL parameter; if a campus linkage does exist, the linkage campus takes precedence over the URL parameter. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-A registration is the submitted container. It answers “what submission happened?” It may include one or more registrants. It commonly carries the confirmation email used for payment reminders. Source-code snippets for the payment reminder block state that reminder email addresses are pulled from the registration’s confirmation email and that selected registrations are identified by registration IdKeys ([RegistrationBalanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs), [sendPaymentRemindersRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts)).
+Content channel items are attached to the occurrence. The content channels available for that operation are configured at the calendar level. An administrator can create a new content item or link an existing one. [Official v19 documentation: Link Content Channel Items](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-content-channel-items)
 
-Inspect registration-level data when:
+## Groups, Placement, And Check-In Handoff
 
-- The registrar says they registered multiple people but only one appears.
-- Payment was made once for several registrants.
-- Confirmation email went to the wrong person.
-- Balance due looks incorrect.
-- A payment reminder did or did not send.
-- A discount code was applied to a submission.
-- A workflow refers to the registration rather than an individual registrant.
+A registration can place registrants into a linked group, although group placement is not required for every registration. Groups are commonly the handoff surface for rosters and check-in. Multiple registrations can feed one group when that matches the event design. [Official v19 documentation: Intro to Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations)
 
-### RegistrationRegistrant
+Post-registration placement is configured on the template. Each placement specifies a destination Group Type and can allow either one or multiple group assignments per registrant. Shared destination groups can be available across instances using the template, while instance-specific groups can be added during operations. [Official v19 documentation: Group Placement](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement)
 
-A registrant is the person being registered. It is the operational row for attendance, roster, wait list, signature, placement, and person-specific form answers.
+The immutable core excerpts show that the current registrant-list implementation represents each template placement with its identifier, name, icon, and multiple-placement setting, and reports each registrant’s placement group count and names. This confirms implementation structure, not the placement configuration of any installation. [Placement configuration source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementConfigBag.cs) [Registrant placement source](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementBag.cs)
 
-Source snippets show that registrant list grids include a registrant display name and wait-list indicator ([RegistrantInfoBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs)). The legacy WebForms registrant list block includes filters for registration date range, first name, last name, in-group state, signed document state, and dynamic registrant form field filters ([RegistrationInstanceRegistrantList.ascx](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx)).
+A reviewed community pattern for check-in dashboards recommends combining the registration roster with allowed manually placed group members and deriving check-in state from relevant attendance records. It also recommends treating “registered but not placed,” “group-only,” and “checked in” as separate states. This is a custom read-only reporting pattern, not core registration behavior, and it requires live validation of group roles, attendance scope, permissions, and event-specific fields. [Reviewed community source context](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-Inspect registrant-level data when:
+## Family Preregistration And Follow-Up
 
-- A person appears on a roster but the registration payment is under someone else.
-- A wait-list label appears or does not appear.
-- A signed document is missing or wrong.
-- A group placement is missing.
-- A child/adult eligibility rule blocked selection.
-- A duplicate-prevention setting blocked submission.
-- A registrant field answer is missing from an export.
-- A family-member selection produced the wrong person.
+Family preregistration is valuable when it reduces first-visit friction and improves the quality of person, family, and child information before check-in. The public page should explain that value and should be designed to avoid duplicate or partial records that staff must clean manually. These are community-reviewed operating patterns, not a universal configuration supplied by Rock. [Community-reviewed guidance at 01:16](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) [Community-reviewed guidance at 03:50](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-### Event Item Occurrence And Linkage
+Connect new-family preregistration to a clear workflow or connection process so captured information produces an assigned ministry action. A public form that creates records but does not trigger an owned follow-up process is incomplete from an operational perspective. [Community-reviewed guidance at 00:37](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-An event occurrence describes the event’s scheduled occurrence. A linkage connects it to registration. Developer docs for the mobile Calendar Event Item Occurrence View block show that the page parameter is `EventOccurrenceGuid`, and the template has merge fields including `RegistrationUrl`, `EventItemOccurrence`, `Event`, and registration status labels ([Calendar Event Item Occurrence View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view)).
+Before broad launch, test the complete path from the public form through family record creation, check-in eligibility, and staff follow-up. The supplied read-only review verified that the relevant registration, form-field, person, group, workflow, connection, and check-in surfaces existed in one reviewed environment; it did not certify any particular preregistration configuration. [Community-reviewed guidance at 02:10](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-The important operational detail is that there may be more than one path to the same registration:
+A reviewed community recipe demonstrates transferring registrant context into a native Connection Request while preserving the source registration reference and copying only reviewed attributes. Treat that as a custom implementation option requiring local workflow, connection type, campus, attribute, permission, and end-to-end verification. [Reviewed community recipe at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request)
 
-- Direct registration instance page parameter.
-- Slug-based public URL.
-- Event occurrence page with registration URL merge field.
-- Mobile event occurrence block.
-- Calendar item card.
-- Email link.
-- Custom Lava link.
-- QR code or external landing page.
+## Reporting And Reconciliation
 
-When URLs differ, inspect the linkage, public page route, Registration Entry block, slug, and any custom Lava that rewrites the title or link.
+Name both the grain and population of every metric:
 
-### Attributes And Form Fields
+- Count registrant records when the metric means people registered.
+- Count distinct registration records when the metric means registrations or registrar submissions.
+- Keep confirmed and wait-listed people separate.
+- Do not assume payment rows, fee selections, discounts, and registration balances share the same grain.
+- Reconcile any custom segment to the population it claims to partition.
 
-Event registration uses attributes in several places:
+The registration-versus-registrant distinction is official documented behavior. More detailed reconciliation rules below are reviewed community reporting patterns that need validation against the installed data model and custom definitions. [Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
 
-- Event attributes.
-- Registration instance attributes.
-- Registration-level form fields.
-- Registrant-level form fields.
-- Wait-list-visible fields.
-- Attribute filters in internal grids.
+A reviewed community dashboard pattern recommends testing at least a multi-person registration, a wait-listed person, and a recent registrant; defining population predicates once; and checking that mutually exclusive segments sum to the confirmed population. For historical pace, it aligns events by days remaining until registration close rather than calendar date. [Reviewed community dashboard at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
 
-RockU separates Event Registration Attributes and Event Attributes as distinct training topics ([Event Registration Attributes](https://community.rockrms.com/rocku/event-registration/event-registration-attributes), [Event Attributes](https://community.rockrms.com/rocku/event-registration/event-attributes)). In practice, agents must identify which entity owns the attribute before querying or editing.
+Staff, serving, and department segments are not universal Rock meanings. A reviewed community pattern recommends documenting the local source groups, using active non-archived memberships, declaring precedence for mutually exclusive segments, and disclosing when one person can count in multiple departments. Disable such a module if the organization cannot define and validate its truth sources. [Reviewed community dashboard at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
 
-If a field is missing from a grid or export:
+The community Registration Instance Totals Report is an example rather than official behavior. Its own page warns that community recipes are not reviewed or endorsed by the core team. Audit its Lava, permissions, data grain, performance, and arithmetic before adoption. [Community recipe: Registration Instance Totals Report](https://community.rockrms.com/recipes/348)
 
-1. Identify whether it is a registration field, registrant field, event field, occurrence field, or instance attribute.
-2. Inspect whether the field is set to show on grid/export.
-3. In v19.1 and later, inspect wait-list field visibility because Rock updated handling of “Show On Wait List” for registrant fields and requires First Name and Last Name to remain visible on wait lists ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-4. Confirm the block’s dynamic filters or export behavior include that attribute.
-5. Verify the value exists on the expected entity.
+## Permissions And Operational Control
 
-## 7. Common Event Registration Workflows
+In the documented default roles:
 
-### Basic Public Registration
+- Staff Workers and Staff Like Workers can create registration instances.
+- Event Registration Administration can create registration templates.
+- A person can edit a specific template through Administrate permission on that template.
+- Edit permission on the template-management block can allow editing any template exposed through that block.
+- Staff and staff-like roles can add payments.
+- Finance Administration is required by default to process refunds.
 
-RockU separates this journey into templates, instances, attributes, fees, discounts, payments, wait lists, and related operations, which is a useful checklist for locating the stage that failed ([RockU Event Registration](https://community.rockrms.com/rocku/event-registration), [Event Registration Attributes](https://community.rockrms.com/rocku/event-registration/event-registration-attributes)). Version-specific eligibility and entry behavior should still be checked against the [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+These are documented defaults, not proof of local authorization. Inspect the installed role memberships, template security, block security, page security, account access, and financial permissions before allowing an action. [Official v19 documentation: Secure Events and Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars)
 
-The common public flow is:
+For custom public forms or endpoints, do not trust browser-only identity or verification state. A reviewed community SMS-verification pattern recommends exact server-side matching, a persisted expiring challenge with bounded attempts, withholding the matched person alias from the browser, and server-side consumption immediately before the intended action. This is a security-sensitive custom pattern and requires local threat modeling and live verification. [Reviewed community recipe at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
 
-1. Person opens an event detail page, calendar page, mobile event occurrence, or direct registration URL.
-2. Rock resolves the registration instance by page parameter or slug.
-3. Registration Entry checks whether registration is active, open by date, not full, and eligible for registration or wait list.
-4. Registrar enters contact information.
-5. Registrar selects one or more registrants.
-6. Registrar answers form fields.
-7. Registrar selects fee options.
-8. Rock calculates cost, discounts, minimum due, balance, and payment choices.
-9. Registrar pays, partially pays, or submits without payment depending on configuration.
-10. Rock creates registration and registrant records.
-11. Rock sends confirmation communication.
-12. Staff see the registration in internal tools.
+## Version And Authority Caveats
 
-Troubleshooting branch: if the public form does not open, check instance active flag, start/end dates, slug/linkage, public page block configuration, authentication requirements, capacity/wait-list behavior, and template validity.
+Most official documentation supplied for this guide is scoped to Rock v19.0. Confirm the installed Rock version and the version selector on the documentation before applying exact settings or navigation.
 
-### Family And Guest Registration
+Specific supplied release evidence includes:
 
-Family registration creates frequent mistakes because the registrar and registrant differ. In v19.1, Rock added registrant eligibility rules and updated the Registration Entry block so that when “Registrants In Same Family” is “Yes” or “Ask”, the Family Member to Register dropdown defaults blank when the registrant page first loads, reducing accidental self-registration ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+- The duplicate-registrant capability is described in the approved v19 guidance, while the supplied release record identifies its addition in v19.1. Confirm the exact installed minor release.
+- Rock v18.3 fixed internal registration blocks that could show a signature document by matching on the person instead of the registrant relationship, and included a migration for qualifying missing relationships.
+- Rock v19.3 fixed several registration issues, including payment completion after moving someone off a wait list or exceeding capacity, staff linkage editing, and saved-account display for certain anonymous registrars.
+- The supplied release snapshot labels v20.0 as alpha. Its new payment-completion requirement and event-linkage changes are upcoming behavior, not a safe assumption for v19 installations.
 
-For agents, this means modern troubleshooting should include:
+[Official release notes](https://www.rockrms.com/releasenotes)
 
-- What Rock version is running?
-- Is `Registrants In Same Family` set to Yes, No, or Ask?
-- Are family members filtered by eligibility?
-- Was the first family member auto-selected in this version, or must the user choose intentionally?
-- Did the user register themselves when they meant to register a child?
-- Does the registrant row’s PersonAlias point to the expected person?
+The supplied RockU pages provide approved training context, but several hydrated pages returned navigation rather than substantive lesson content. Their titles must not be promoted into unsupported instructions. The legacy group-placement training is explicitly labeled legacy; use the current v19 Group Placement documentation for operational steps. [Official v19 documentation: Group Placement](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement)
 
-### Paid Registration
+Community contributions and recipes in this guide are examples. Each requires live verification before implementation. Core source excerpts are tied to immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3` and describe implementation at that commit, not an organization’s installed configuration.
 
-Paid registration adds finance dependencies:
+## Troubleshooting Decision Tree
 
-- Payment gateway configuration.
-- Accepted payment methods.
-- Saved account payment options.
-- Gateway-specific ACH/card rules.
-- Cost and fee calculation.
-- Discounts.
-- Partial payments.
-- Payment plans.
-- Financial account routing.
-- Batches.
-- Transaction matching.
+### The public event has no Register button
 
-RockU treats registration fees, additional fees, discounts, partial payments, and payment plans as separate topics, which is the right diagnostic shape ([Registration Fees](https://community.rockrms.com/rocku/event-registration/registration-fees), [Additional Registration Fees](https://community.rockrms.com/rocku/event-registration/additional-registration-fees), [Registration Discounts](https://community.rockrms.com/rocku/event-registration/registration-discounts), [Partial Payments](https://community.rockrms.com/rocku/event-registration/partial-payments), [Payment Plans](https://community.rockrms.com/rocku/event-registration/payment-plans)).
+1. Confirm that the intended calendar event occurrence exists and is the occurrence being displayed.
+2. Inspect its linkage and verify that it points to the intended registration instance.
+3. Confirm that the registration instance is active and within its intended public registration window.
+4. Verify the page route or direct registration URL being used.
+5. If group placement depends on the linkage, confirm that the URL slug is present.
+6. If the problem began after an upgrade, compare the installed release with the supplied v19.3 linkage-editing fix and v20 pre-alpha friendly-route fix.
+7. Stop when the public event detail opens the intended registration and a representative test can reach the correct entry form.
 
-Do not treat “paid” as a single flag. Inspect total cost, paid amount, balance due, discount amount, transaction status, gateway status, refund status, and payment plan state.
+[Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) [Official v19 documentation: Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars)
 
-### Wait List Registration
+### A representative person is unexpectedly ineligible
 
-Wait-list behavior depends on capacity and template settings. The source-code view models identify wait-list state as a registrant-level display property in internal grids ([RegistrantInfoBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs)). The mobile event occurrence developer doc notes that registration status labels can return “Full” when spots available is less than one unless wait-list behavior changes the status label; verify exact wording in the live block/version ([Calendar Event Item Occurrence View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view)).
+1. Record the exact instance, template, person, and rejection point.
+2. Inspect every enabled eligibility criterion: age, gender, grade, and Data View.
+3. Verify the person values used by those criteria.
+4. Evaluate the criteria together; v19 requires the person to satisfy all enabled criteria.
+5. Retest with one person expected to pass and one expected to fail each combined rule.
+6. Stop when the observed results match a written eligibility matrix.
 
-For wait-list issues, inspect:
+[Official v19 feature guidance at 07:25](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s)
 
-- Instance capacity and remaining spots.
-- Whether wait list is enabled.
-- Whether the registrant is on wait list or fully registered.
-- Whether required wait-list fields are configured.
-- In v19.1, whether First Name and Last Name are always shown on wait list, and whether new fields default to Show On Wait List ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Whether payment is required for wait-list entries.
-- Whether staff moved someone off the wait list manually.
-- Whether group placement excludes wait-listed registrants.
+### A duplicate-registration warning exposes sensitive participation
 
-### Group Placement
+1. Confirm that Prevent Duplicate Registrants is enabled on the template.
+2. Confirm the installed minor version and actual warning behavior.
+3. Identify what identity information an unauthenticated or unrelated person must know to trigger the match.
+4. Classify whether merely revealing prior registration is sensitive for this event.
+5. If the disclosure is unacceptable, pause launch and choose a reviewed identity or staff-mediated process.
+6. Do not assume the setting resolves duplicate person records; it follows matched Person IDs.
 
-Group placement is used for teams, cabins, rooms, tracks, serving groups, classroom rosters, and other post-registration assignment flows. RockU includes both legacy group placement and revamped group placement training topics ([Group Placements [Legacy]](https://community.rockrms.com/rocku/event-registration/group-placement-in-event-registration), [Group Placement](https://community.rockrms.com/rocku/event-registration/group-placement)). The [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29) says Rock 18.1 documentation was updated for revamped Registration Group Placement and includes placement rule/default details.
+[Official feature guidance at 05:57](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s) [Official v19 documentation: Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
 
-The documentation excerpt identifies parameters and placement concepts such as:
+### A person moved from the wait list is missing payment or form data
 
-- `DestinationGroupType`
-- `DestinationGroup`
-- `RegistrationInstanceId`
-- `RegistrationTemplateId`
-- `RegistrationTemplatePlacementId`
-- Registration Mode
-- Group Mode
-- Entity Set Mode
-- Allowing a person to be placed in more than one group
+1. Confirm the registrant is now marked as a full registrant.
+2. Confirm that configured group placement occurred.
+3. Verify whether the move email was sent.
+4. Open its completion link as a test recipient and confirm it requests payment and fields omitted during wait-list entry.
+5. Check whether the person completed that follow-up flow.
+6. If payment completion fails, compare the installed version with the supplied v19.3 fix.
+7. Stop when status, required data, payment, and group placement all reconcile.
 
-Before changing placement behavior, inspect the live template placement configuration and identify which placement mode is being used.
+[Official v19 documentation: Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists) [Official release notes](https://www.rockrms.com/releasenotes)
 
-### Payment Reminder Workflow
+### A registration balance no longer matches its payment plan
 
-Payment reminders are internal tools for registrations with outstanding balances. Source-code snippets show the Obsidian payment reminder block has initialization state for outstanding balance rows, default From Name, From Email, Subject, message body, preview HTML, instructions, preselected registration keys, and selected registration IdKeys ([RegistrationInstanceSendPaymentReminderInitializationBox.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs), [sendPaymentRemindersRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts)).
+1. Inspect registration cost, fees, discounts, payments, and current balance.
+2. Identify any change made after the plan started.
+3. Inspect the schedule at the external gateway.
+4. Do not assume Rock changed that gateway schedule when the balance changed.
+5. Decide whether the gateway schedule must be adjusted or the plan canceled and recreated.
+6. Verify the resulting registration balance and future gateway payments independently.
+7. Stop when both systems agree with the approved collection plan.
 
-Key operational details from the source snippets:
+[Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-- Balance rows include cost, paid, balance due, email, registration date, and last reminder date.
-- The email is pulled from registration confirmation email.
-- Reminder body is Lava and is resolved per registration at send time.
-- Preview rendering resolves Lava against a sample registration.
-- Recently reminded rows may be visually inactive based on the template’s payment reminder time span, but that state is display guidance rather than necessarily a hard send prohibition.
-- Registrations without confirmation email are skipped and not counted as sent ([sendPaymentRemindersResponseBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts)).
+### A batch transaction is not attached to the registration
 
-## 8. Registration Instances Deep Dive
+1. Confirm that the batch is Open rather than Pending.
+2. Confirm the intended registration template and instance.
+3. Open Event Registration Matching and select that single instance.
+4. Find the intended registration at registration grain, not merely a registrant with a matching name.
+5. Match the transaction and verify the resulting payment and balance from the registration details.
+6. Stop when the financial transaction and registration both show the intended relationship.
 
-### Instance Identity
+[Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-The instance name matters. The documentation notes the Registration Instance Name is shown during registration and used in confirmation-style wording ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)). Do not use purely internal naming conventions if the instance name surfaces publicly in your version/page setup. If a church needs different public and internal naming, use supported public-name/linkage features where available and verify the page output.
+### Registrants are not entering the expected group
 
-A community recipe attempted to control public titles with slug and public name, but that recipe is unpublished because of SQL injection risk ([Control the Title on The Event Registration Page](https://community.rockrms.com/recipes/361)). Treat it as a cautionary example: solve public-title needs with supported configuration or carefully reviewed, parameterized code, not raw page-parameter SQL.
+1. Confirm that the registration instance is linked to the intended group.
+2. Confirm that the registration is being entered through the intended event linkage and URL slug.
+3. Separate full registrants from wait-listed people; initial wait-list entries are not added to the group.
+4. Inspect the registrant’s group membership and, if used, placement state.
+5. For post-registration placement, confirm the template placement, Group Type, destination group, and single-versus-multiple placement rule.
+6. If a custom REST loader created the membership, read the created member back and verify the registrant points to the intended active member. This last step is a reviewed community integration pattern requiring local API verification.
+7. Stop when every expected full registrant has the intended active membership and wait-list exceptions are documented.
 
-### Active And Date Windows
+[Official v19 documentation: Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars) [Official v19 documentation: Group Placement](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement) [Community integration source context](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs)
 
-The minimum open/closed decision is:
+### Dashboard totals disagree
 
-- Instance active?
-- Current date/time greater than or equal to Registration Starts?
-- Current date/time before or equal to Registration Ends?
-- Capacity available, or wait list allowed?
-- Public URL valid?
-- Required payment/signature/settings valid?
+1. Label each metric as registration, registrant, payment, fee, discount, group membership, or another explicit grain.
+2. Define confirmed and wait-list predicates once.
+3. Test one multi-person registration, one wait-list registrant, and one recent registrant.
+4. Reconcile mutually exclusive segments to confirmed registrants.
+5. Do not require overlapping department categories to total unique people.
+6. Compare historical pace at the same days-remaining stage if events have different calendars.
+7. Stop when every discrepancy is explained by grain, population, overlap, timing, or a verified defect.
 
-When a user says “registration is closed but it should be open,” inspect instance values first. Do not begin with CSS, browser cache, or workflow unless the database state is correct.
+[Official v19 documentation: Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) [Reviewed community dashboard at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
 
-### Capacity And Spots
+### A signature document is missing or belongs to the wrong registration
 
-Capacity may be represented at the instance level, fee-option level, group/placement level, or a combination depending on setup. The community [Registration Change Tool](https://community.rockrms.com/recipes/518/registration-change-tool) illustrates a real operational edge case: staff may need to add someone when a registration instance or a fee option is full. It recommends a custom tool and workflow, but because it is a recipe with plugin dependency, use it as a pattern rather than authority.
+1. Confirm that the template requires a signature document.
+2. Inspect the affected registrant rather than matching only by person.
+3. Confirm the installed Rock version.
+4. If the installation predates or recently crossed v18.3, review the supplied signature-document fix and migration applicability.
+5. Retest the internal registration list, registration details, and registrant details surfaces.
+6. Stop when the displayed document follows the intended registrant relationship.
 
-Operationally, full-capacity changes require care:
+[Official release notes](https://www.rockrms.com/releasenotes)
 
-- Increasing instance spots can expose public capacity to anyone with the URL.
-- Obscure slugs are not true security.
-- Adding someone to a full fee option can violate capacity assumptions.
-- Manual inserts can bypass business logic.
-- Payment, wait list, and placement state must remain consistent.
-- Auditable staff notes are valuable.
+## Agent Task Recipes
 
-Preferred playbook: temporarily close public registration, make an admin-controlled change through supported UI or reviewed workflow, document the reason, validate counts, then reopen if needed.
+### Recipe: Create a reusable registration and one event instance
 
-### URL Slug And Public Linkage
+**Outcome:** A configured but not yet broadly launched instance with explicit ownership of shared and event-specific settings.
 
-The official guide includes a “URL Slug Required” section in its event registration content map ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)). The exact behavior can vary by route and block setup, so inspect:
+1. Define the registrant population, registrar model, required fields, cost model, capacity, group destination, communications, and follow-up owner.
+2. Reuse an appropriate template or create one with authorized template administration.
+3. Put reusable form, eligibility, finance, communication, workflow, signature, and placement settings on the template.
+4. Create the instance and set its registration dates, contact, capacity, payment deadline, and any instance-owned finance settings.
+5. Create or select the operational group if the event requires a roster or check-in.
+6. Create or select the event item and occurrence.
+7. Add the registration, group, campus, public name, and URL slug linkage as required.
+8. Leave the instance inactive when the workflow requires review before publication.
+9. Test representative free or paid, single- or multi-person, eligible and ineligible paths.
+10. Activate only after public routing, communications, payments, placement, and permissions pass.
 
-- Event Item Occurrence linkage.
-- Registration Instance linkage fields.
-- URL slug.
-- Public name.
-- Registration Entry page route.
-- Page parameters used by the route.
-- Any event calendar/detail block registration URL setting.
-- Mobile block registration URL setting.
+**Inspect:**
 
-A developer Q&A shows that querying EventItemOccurrences with expanded Linkages may reveal `RegistrationInstanceID` while not directly yielding the desired public URL in `UrlSlug` ([API Q&A](https://community.rockrms.com/ask/developing/2547)). For integrations, build URLs from the same route and linkage logic the site uses, and verify against live rendered links.
+- Installed Rock version
+- Template and block security
+- Registration window and capacity
+- Financial account and gateway
+- Event occurrence and linkage
+- Group and role
+- Confirmation and reminder content
 
-### Attributes
+**Do not assume:**
 
-Registration instance attributes are useful for operational metadata: campus-specific labels, ministry owner, event season, external IDs, rooming deadlines, export flags, custom reporting tags, or integration state. They are not the same as registrant form answers.
+- Wizard completion equals launch readiness
+- A calendar event automatically has a registration
+- An instance automatically places people into a group
+- A selected gateway supports payment plans
 
-When an agent needs an attribute:
+[Official v19 documentation: Event Wizard](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/event-wizard) [Official v19 documentation: Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars)
 
-- Identify entity type.
-- Confirm attribute key, field type, and qualifier values.
-- Confirm whether the value is stored on the instance, registration, registrant, event item, event occurrence, group, or person.
-- Confirm whether it is included in grids, exports, APIs, or Lava merge fields.
-- Avoid assuming attribute keys are short or stable. A Triumph Tech release spotlight mentions a fix for Registration Instance List filtering when an attribute key exceeded 250 characters ([GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-182025)); verify current version behavior before building reports around unusual keys.
+### Recipe: Validate a paid registration before launch
 
-## 9. Payments Deep Dive
+**Outcome:** Evidence that representative costs and payment paths produce the intended registration and financial state.
 
-### Cost Model
+1. Confirm whether cost is owned by the template or instance.
+2. Verify the financial account and gateway.
+3. Test base cost, every required or optional fee used by the event, and representative discounts.
+4. If partial payments are enabled, test the minimum initial payment and default amount.
+5. If payment plans are enabled, verify provider compatibility and inspect the plan at the gateway.
+6. Confirm payment, total cost, balance, fees, and discounts on the registration.
+7. Test confirmation and payment-reminder communications.
+8. Test an authorized manual payment and refund in a safe environment or approved reversible scenario.
+9. Document how post-registration balance changes will be reconciled with gateway schedules.
+10. Stop before launch if Rock and the gateway disagree.
 
-Event registration money can come from multiple layers:
+[Official v19 documentation: Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
 
-- Base per-registrant cost.
-- Additional fees.
-- Quantity-based fees.
-- Optional selections.
-- Discounts.
-- Minimum due or deposit.
-- Partial payments.
-- Payment plan schedules.
-- Manual payments.
-- Refunds or adjustments.
+### Recipe: Promote a wait-listed person to full registration
 
-Do not diagnose payment issues from only the visible balance. Recalculate from source records:
+**Outcome:** The person becomes a complete, paid-as-required registrant with the intended group membership.
 
-1. Registrants included.
-2. Base cost per registrant.
-3. Fee selections per registrant or registration.
-4. Quantity selections.
-5. Discount code and discount rules.
-6. Payments received.
-7. Refunds or failed payments.
-8. Payment plan state.
-9. Manual adjustments.
-10. Gateway transaction status.
+1. Confirm available capacity and identify the exact wait-listed registrant.
+2. Move that registrant from the Wait List tab.
+3. Send the completion email unless a reviewed alternative follow-up is in place.
+4. Confirm the person opens the correct registration.
+5. Collect any payment and questions omitted during wait-list entry.
+6. Verify the full-registration status.
+7. Verify configured group membership and any required Group Member Attributes.
+8. Reconcile capacity and the remaining wait-list order.
+9. Stop when the registrant is complete across status, data, finance, and group placement.
 
-RockU’s separate modules for fees, additional fees, discounts, partial payments, and payment plans are useful because each layer can be configured or fail independently ([Event Registration](https://community.rockrms.com/rocku/event-registration)).
+[Official v19 documentation: Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists)
 
-### Discounts
+### Recipe: Audit an event-registration dashboard
 
-Discount codes are typically template-level configuration. If staff can manage instances but not templates, they may not see discount rules. The [Show Active Registration Discount Codes](https://community.rockrms.com/recipes/472) recipe describes adding a read-only panel to expose active or scheduled discount codes to staff with limited rights. Use this as an operational pattern, not as official implementation guidance.
+**Outcome:** Every published metric has an explicit grain, population, and reconciliation test.
 
-Troubleshoot discounts by checking:
+1. Inventory all metrics and label their grain.
+2. Define confirmed, wait-listed, canceled, and other local populations.
+3. Trace a multi-person registration through registration-level and registrant-level metrics.
+4. Trace a wait-listed person through every chart.
+5. Reconcile fee, payment, discount, and balance metrics separately.
+6. Document local sources and precedence for staff, serving, or department segments.
+7. Mark overlapping dimensions as non-additive.
+8. If comparing events, align them by the chosen lifecycle stage.
+9. Restrict participant drilldowns to the intended staff audience.
+10. Stop publication if a metric cannot be reconciled or its local truth source cannot be validated.
 
-- Code spelling and case behavior in the live UI.
-- Active/scheduled date window.
-- Usage limits.
-- Whether the discount applies to base cost, fees, or both.
-- Whether the template has per-registrant cost.
-- Whether the Registration List block version correctly displays the Discount Code column for fee-only discounts. v19.1 fixed a bug in this area ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Whether a payment plan was created before discount changes. Payment plans may not auto-sync with balance changes ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)).
+[Reviewed community dashboard at immutable commit](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
 
-### Partial Payments
+### Recipe: Launch family preregistration with follow-up
 
-Partial payments allow a registration to be submitted with a balance due. This is operationally useful for camps, retreats, mission trips, and high-cost events. It also creates collection risk.
+**Outcome:** A family can preregister without unnecessary friction, records are usable at check-in, and staff receive an owned follow-up action.
 
-Before enabling partial payments:
+1. State the benefit to the family on the public page.
+2. Define how adults, children, families, aliases, and existing records will be resolved.
+3. Minimize duplicate and partial record creation.
+4. Define the workflow or connection process that receives the submission.
+5. Assign an owner and expected follow-up state.
+6. Test a new family, an existing family, a partial submission, and likely duplicate inputs.
+7. Confirm family records and child data are usable by the intended check-in configuration.
+8. Confirm the workflow or connection request appears with the intended person, campus, and reviewed attributes.
+9. Confirm staff can complete the follow-up without relying on private troubleshooting data.
+10. Stop broad launch if record quality, check-in eligibility, or follow-up ownership is unresolved.
 
-- Confirm the minimum amount due.
-- Configure reminder communication.
-- Decide who monitors balances.
-- Decide whether registrants with balances can attend.
-- Decide when to cancel unpaid registrations.
-- Confirm whether payment plans are allowed or separate.
-- Test confirmation email wording.
-- Test staff views for balance due.
+[Community-reviewed preregistration guidance](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
 
-Payment reminder block source shows balance rows include total cost, paid amount, balance due, registered date, last reminder date, and email ([RegistrationBalanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs)). That is the right minimum data set for operational collection.
+## Known Gaps And Live Verification
 
-### Payment Plans
+The evidence pack does not establish the following for any target installation:
 
-Payment plans require extra caution. The official guide says payment plan management happens in the same screens used for event registrations and that a calendar icon appears next to Balance Due when a payment plan is in place. It also states payment plan changes do not automatically synchronize when a registration balance changes, because schedules are controlled by an external payment gateway such as My Well ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)).
+- Installed Rock version, applied migrations, or applicability of v18.3, v19.1, v19.3, or v20 changes
+- Which registration blocks are Obsidian, legacy, customized, or replaced
+- Actual template, instance, page, block, account, calendar, group, workflow, or refund permissions
+- Active gateways and their support for saved accounts, redirects, ACH, cards, partial payments, or payment plans
+- Exact form fields, conditional logic, attributes, signatures, and identity-matching behavior
+- Whether public routes, URL slugs, campus precedence, and Register buttons work end to end
+- Whether registration groups are configured for check-in
+- Whether reminders, confirmations, wait-list promotions, or payment emails are delivered
+- Whether a preregistration workflow creates correct family records and owned follow-up actions
+- Whether custom dashboards, REST loaders, Helix endpoints, SMS verification, or Connection Request workflows are installed or safe
+- Whether custom reporting predicates match local confirmed, wait-list, staff, serving, campus, source, and department definitions
 
-Agent rules for payment plans:
+A bounded live review should use read-only inspection first. It should identify the version and relevant configuration, reproduce the issue with approved test records, and return only a public-safe conclusion. Do not publish raw person data, financial details, organization-specific identifiers, secrets, or SQL output.
 
-- Never assume changing a Rock registration balance updates the gateway schedule.
-- Inspect both Rock and gateway state.
-- If a discount, refund, fee change, registrant removal, or manual adjustment happened after plan creation, verify gateway schedule separately.
-- Confirm whether a payment plan is active, completed, canceled, or failed.
-- Confirm whether the balance due display has been adjusted for active payment plan state.
-- Communicate to finance staff when Rock and gateway state diverge.
+The supplied live-verified preregistration claims confirm only that relevant feature surfaces existed in one reviewed environment. They do not certify a target installation or make that organization’s configuration universal.
 
-### Payment Gateways And Saved Accounts
+## Source Map
 
-Gateway configuration affects available payment options. A Triumph Tech spotlight notes a v16.10 issue where the Obsidian Event Registration block could still show an individual’s saved ACH option even when ACH was disabled in Financial Gateway settings ([GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-182025)). Treat gateway/payment-option behavior as version-sensitive.
+### Approved official claims
 
-When payment methods look wrong:
+- [Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations): registration versus registrant grain
+- [New Features & Enhancements Coming to v19 at 07:25](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s): combined eligibility criteria
+- [New Features & Enhancements Coming to v19 at 05:57](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s): duplicate-prevention disclosure caveat
 
-- Inspect the Financial Gateway settings.
-- Inspect whether ACH/card is enabled.
-- Inspect saved account behavior.
-- Check whether the block is WebForms or Obsidian.
-- Check Rock version and release notes.
-- Test with a user who has saved accounts and a user who does not.
-- Verify the gateway transaction logs.
+### Official documentation
 
-### Batches And Matching
+- [Intro to Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/intro-to-event-registrations)
+- [Registration Templates](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates)
+- [Event Wizard](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/event-wizard)
+- [Manage Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations)
+- [Registration Finances](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances)
+- [Manage Wait Lists](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists)
+- [Group Placement](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement)
+- [Intro to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/intro-to-calendars)
+- [Add Event Occurrences](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/add-event-occurrences)
+- [Link Events to Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars)
+- [Link Content Channel Items](https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-content-channel-items)
+- [Secure Events and Calendars](https://community.rockrms.com/documentation/church-management/event-calendar/advanced-events/secure-events-and-calendars)
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-The official guide describes Event Registration Matching with open batches, registration template, and registration instance; it notes that the batch must be open and not pending ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)). This is finance-side reconciliation, not public registration configuration.
+### Approved community guidance and examples
 
-When reconciling:
+- [Family preregistration community guidance](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz)
+- [Registration-to-Connection Request recipe](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request)
+- [Event Registration Analytics Dashboard](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
+- [Workflow-Backed SMS Verification](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
+- [Registration Instance Totals Report](https://community.rockrms.com/recipes/348)
 
-- Select the correct open batch.
-- Select the correct template.
-- Select the correct instance.
-- Match one registration instance at a time unless the live tool explicitly supports otherwise.
-- Confirm transaction dates and amounts.
-- Watch for partial payments and payment plans.
-- Confirm refunds and failed gateway transactions.
-- Keep finance permissions tight.
+### Immutable implementation evidence
 
-## 10. Related Rock Areas: Events, Finance, Workflows, Communications, Groups
-
-### Events And Calendars
-
-Event registration often begins with Event Item and Event Item Occurrence configuration. RockU includes calendar overview, calendars/events, linkages, event attributes, and iCalendar feed in the same Event Registration training section ([RockU Event Registration](https://community.rockrms.com/rocku/event-registration)).
-
-Use the Events side to answer:
-
-- Where should this event appear?
-- Which calendar owns it?
-- Which occurrence is linked to registration?
-- Does the public event detail page show the right registration status?
-- Does the mobile app show the same registration link/status?
-- Are event attributes driving visibility, filtering, or layout?
-- Does the iCalendar feed need the event but not the registration?
-
-### Finance
-
-Finance owns real money. Event registration owns the registration workflow. The boundary matters.
-
-Finance checks:
-
-- Payment gateway.
-- Financial account.
-- Batch naming.
-- Transaction detail mapping.
-- Discounts.
-- Refunds.
-- Payment plans.
-- Failed transactions.
-- Reconciliation.
-- Permissions for staff who can adjust costs.
-
-Community reporting recipes for totals and fees show common operational needs: organizers want quick views of paid, due, discounted, and fee-option totals ([Registration Instance Totals Report](https://community.rockrms.com/recipes/348), [Registration Instance Fees Report](https://community.rockrms.com/recipes/400)). Build production reporting with reviewed SQL/Lava or native reporting tools, not unreviewed copy-paste.
-
-### Workflows
-
-Workflows are common around event registration:
-
-- Approval required before registration is final.
-- Staff notification on submission.
-- Scholarship review.
-- Cancellation request.
-- Change request.
-- Wait-list promotion.
-- Roommate/team preference processing.
-- Payment reminder escalation.
-- Required document chase.
-- Background check or leader approval.
-- External system sync.
-
-The [Registration Change Tool](https://community.rockrms.com/recipes/518/registration-change-tool) recipe demonstrates a custom page plus workflow pattern for controlled registration edits. If implementing similar behavior, prefer safe entity services, workflow actions, and permission checks over raw SQL inserts.
-
-### Communications
-
-Communications include:
-
-- Confirmation email.
-- Payment reminders.
-- Staff notifications.
-- Wait-list messages.
-- Signature reminders.
-- Cancellation notices.
-- Event updates.
-- Merge templates.
-- Communication history.
-
-Source snippets for payment reminders show message bodies are Lava, default sender/subject/body can come from the registration template, and previews resolve against sample registration data ([RegistrationInstanceSendPaymentReminderInitializationBox.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs), [ResolvePreviewRequestBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs)).
-
-For communication issues:
-
-- Confirm the template has the expected sender, subject, and body.
-- Confirm merge fields render for a sample registration.
-- Confirm confirmation email exists on the registration.
-- Check communication queue/history.
-- Check email delivery provider logs.
-- Check suppressions/bounces.
-- Confirm reminders skip registrations without confirmation email, per source-code response behavior ([sendPaymentRemindersResponseBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts)).
-
-### Groups
-
-Groups are used for event rosters, placement, teams, cabins, classes, serving assignments, and post-registration follow-up. The official guide’s group placement update and RockU group placement modules make clear that group placement is a first-class event registration concern ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29), [Group Placement](https://community.rockrms.com/rocku/event-registration/group-placement)).
-
-When groups are involved:
-
-- Identify the source registration instance/template.
-- Identify destination group type.
-- Identify destination groups.
-- Confirm group capacity if relevant.
-- Confirm whether a person can be placed in more than one group.
-- Confirm whether placement is manual or automatic.
-- Confirm wait-listed registrants should be included or excluded.
-- Confirm whether group membership drives check-in, communication, or attendance.
-
-## 11. Administration And Operational Guardrails
-
-### Permissions
-
-Event registration touches public forms, personal data, payment data, group placement, and communications. Permission design should separate:
-
-- Template administrators.
-- Instance managers.
-- Finance users.
-- Ministry viewers.
-- Group placement users.
-- Communication senders.
-- Developers/integration users.
-- Public/anonymous users.
-
-Do not grant template edit rights merely because staff need discount visibility or registrant totals. Build read-only reporting surfaces where appropriate.
-
-### Naming
-
-Use names that support both internal operations and public clarity. If public name differs from internal naming, use supported public-name/linkage behavior and verify output. Avoid hacks that depend on raw slug SQL. The unpublished SQL-injection-risk recipe for title control is a useful warning ([Control the Title on The Event Registration Page](https://community.rockrms.com/recipes/361)).
-
-### Change Management
-
-For active registrations, changes are risky. Before changing a template or instance:
-
-- Count active registrations and registrants.
-- Export or snapshot key values.
-- Identify whether changes affect future submissions only or existing records.
-- Confirm finance impact.
-- Confirm payment plan impact.
-- Test public form.
-- Test confirmation email.
-- Notify ministry owner.
-- Document the change.
-
-High-risk changes include:
-
-- Fees.
-- Discounts.
-- Payment gateway.
-- Partial payment minimum.
-- Required fields.
-- Signature documents.
-- Eligibility rules.
-- Duplicate prevention.
-- Capacity.
-- Wait list behavior.
-- Group placement rules.
-- URL slug.
-
-### Notes And Auditability
-
-Community practice includes adding Notes blocks to registration detail pages to preserve context around drops, changes, and exceptions ([Registration Notes](https://community.rockrms.com/recipes/245)). If your instance needs this, configure a proper Note Type and secure it. Notes are especially useful when staff remove or alter registrants and later need to know why.
-
-### Security
-
-Event registration customizations often expose SQL/Lava risk because page parameters, registration IDs, slugs, and person IDs are tempting shortcuts.
-
-Treat the official registration workflow as the product baseline, and apply the Lava SQL requirement to use parameters for untrusted values whenever a customization crosses into SQL ([Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations), [SQL Commands](https://community.rockrms.com/lava/commands/sql-commands)).
-
-Guardrails:
-
-- Do not put raw page parameters into SQL.
-- Prefer entity commands, Lava filters, or server-side code with authorization checks.
-- If SQL is necessary, parameterize and restrict.
-- Do not expose internal IDs in public links unless Rock’s route requires them and permissions are appropriate.
-- Do not trust obscure slugs as access control.
-- Do not expose discount code lists publicly.
-- Do not include sensitive medical or child data in broad exports.
-- Review community recipes before use.
-
-### Operational Health Checks
-
-Use the official [Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations) documentation and [Registration Walk-through](https://community.rockrms.com/rocku/event-registration/registration-walk-through) as the intended configuration baseline, then verify the active instance, gateway, communications, security, and reconciliation path in the target environment.
-
-For each active registration, agents should be able to report:
-
-- Public URL works.
-- Registration status label is accurate.
-- Instance is active and date window is correct.
-- Capacity and wait list behavior are intentional.
-- Test registration can be submitted in staging or approved test mode.
-- Payment gateway works with intended methods.
-- Confirmation email renders.
-- Staff can view registrants.
-- Required reports exist.
-- Finance reconciliation path is known.
-- Group placement path is known.
-- Payment reminders are configured if balances can remain.
-- Version-specific caveats have been checked.
-
-## 12. Developer, API, Lava, And Source-Code Landmarks
-
-### Public/Mobile Event Occurrence Rendering
-
-The mobile Calendar Event Item Occurrence View block is a useful developer landmark. It uses `EventOccurrenceGuid` as a page parameter and has a configurable Registration URL plus a rendering template. Its merge fields include `RegistrationUrl`, `EventItemOccurrence`, `Event`, `RegistrationStatusLabel`, and `RegistrationStatusLabels` ([Calendar Event Item Occurrence View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view)).
-
-Use this when building or debugging mobile/event-detail surfaces:
-
-- Confirm the occurrence Guid.
-- Confirm the block’s Registration URL setting.
-- Inspect merge-field output.
-- Compare first-instance status label vs all status labels.
-- Test full/wait-list edge cases.
-- Confirm mobile and web use the same registration target when intended.
-
-### API Linkage Caveat
-
-A community Q&A shows a developer querying `EventItemOccurrences` filtered by Event Item Id and expanding `Linkages`, receiving a valid `RegistrationInstanceID` but not the expected public URL slug ([API Q&A](https://community.rockrms.com/ask/developing/2547)). Because the Q&A has no authoritative answer in the source pack, agents should not invent a universal API path.
-
-Instead, inspect live:
-
-- `EventItemOccurrence` linkage records.
-- Registration instance route/slug fields.
-- Public page route.
-- Registration Entry block page parameters.
-- Lava used by event cards.
-- Mobile block Registration URL setting.
-- API shape in the running Rock version.
-
-### Internal Registrant List
-
-The legacy WebForms `RegistrationInstanceRegistrantList` block displays registrants related to a Registration Instance and has linked pages for registration details and group placement. Source snippets show filters for registration date range, first name, last name, in-group state, signed document state, and registrant form field filters ([RegistrationInstanceRegistrantList.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs), [RegistrationInstanceRegistrantList.ascx](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx)).
-
-Use this landmark to troubleshoot:
-
-- Why a registrant is not visible.
-- Whether a signed document filter is excluding records.
-- Whether a group placement link is configured.
-- Whether dynamic form field filters exist.
-- Whether export columns include expected fields.
-
-### Registration List Wait-List Indicator
-
-Obsidian view models include registrant display name and `IsOnWaitList`, which drives a wait-list warning label in grids ([RegistrantInfoBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs), [registrantInfoBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/registrantInfoBag.d.ts)). Use this to distinguish display issues from data issues: if the database says a registrant is wait-listed but the grid does not show it, check block version and model binding.
-
-### Fee And Payment List Blocks
-
-The Obsidian fee and payment list option bags identify export configuration and currency information surfaces ([RegistrationInstanceFeeListOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceFeeList/RegistrationInstanceFeeListOptionsBag.cs), [RegistrationInstancePaymentListOptionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstancePaymentList/RegistrationInstancePaymentListOptionsBag.cs)). These are developer landmarks for customizing or debugging internal list exports.
-
-### Payment Reminder Block
-
-The payment reminder source snippets are unusually operationally rich. They identify:
-
-- Outstanding balance grid initialization.
-- Empty-state behavior.
-- Default From Name, From Email, Subject, and Body from template values.
-- Lava message preview against a sample registration.
-- Preselected registrations based on reminder timing.
-- Selected registration keys sent to the server.
-- Skipping registrations without confirmation email.
-- Success message with sent count.
-
-Use these source files when payment reminder behavior is disputed:
-
-- [RegistrationBalanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs)
-- [RegistrationInstanceSendPaymentReminderInitializationBox.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs)
-- [ResolvePreviewRequestBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewRequestBag.cs)
-- [ResolvePreviewResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/ResolvePreviewResponseBag.cs)
-- [sendPaymentRemindersRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts)
-- [sendPaymentRemindersResponseBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts)
-
-### Agent Skills
-
-Rock developer docs describe Skills as a way to group related tools and shared context for agents, using Event Registration as an example of a skill that explains how templates, instances, registrations, and registrants relate ([Skills](https://community.rockrms.com/developer/ai-agents/skills)). For a Rock agent environment, Event Registration is a strong candidate for a dedicated skill because it has repeatable object navigation, permissions, live-state checks, and cross-domain dependencies.
-
-## 13. Reporting, Analytics, And Model Map
-
-### Core Metrics
-
-For a registration instance, agents should be able to compute:
-
-- Total registrations.
-- Total registrants.
-- Wait-listed registrants.
-- Canceled/dropped registrants if retained.
-- Total capacity.
-- Remaining capacity.
-- Total cost.
-- Total paid.
-- Balance due.
-- Total discounts.
-- Fee totals by fee option.
-- Registrants by campus, grade, age, gender, group, or attribute.
-- Missing signatures.
-- Missing required form answers.
-- Outstanding payment reminders.
-- Registrants not placed in groups.
-- Registrants without valid confirmation email.
-
-### Reporting Entity Choice
-
-Choose the reporting root carefully:
-
-- Use **RegistrationInstance** for instance-level dashboards.
-- Use **Registration** for payment/balance/contact submission reporting.
-- Use **RegistrationRegistrant** for roster, person, wait-list, signature, and placement reporting.
-- Use **FinancialTransaction** or related finance tables for actual money movement.
-- Use **AttributeValue** only after confirming entity type and attribute id/key.
-- Use **GroupMember** for placement outcomes.
-- Use **Communication** records for send/delivery history.
-
-Community recipes illustrate the demand for instance totals, fee totals, registrant packets, discount visibility, and notes ([Registration Instance Totals Report](https://community.rockrms.com/recipes/348), [Registration Instance Fees Report](https://community.rockrms.com/recipes/400), [Single Page Registrant Info](https://community.rockrms.com/recipes/313), [Show Active Registration Discount Codes](https://community.rockrms.com/recipes/472), [Registration Notes](https://community.rockrms.com/recipes/245)). Use them to identify user needs, then implement reports in a secured, reviewed way.
-
-### Model Map Verification
-
-When the source material is thin or version-sensitive, inspect the live model map or schema. Verify:
-
-- Table names.
-- Property names.
-- Navigation properties.
-- Obsidian vs WebForms block availability.
-- Attribute entity type ids.
-- Enum values.
-- Financial transaction relationships.
-- Signature document relationship.
-- Payment plan tables/foreign keys.
-- Group placement tables.
-- Linkage table and slug fields.
-
-Do not assume a community SQL snippet is correct for the current Rock version. The source pack includes examples that join `RegistrationRegistrant`, `Registration`, `PersonAlias`, and `Person` for roster output ([Single Page Registrant Info](https://community.rockrms.com/recipes/313)), but agents should validate schema before adapting.
-
-### Analytics Checks
-
-For leadership or ministry dashboards, include definitions:
-
-- **Registered**: registrants not on wait list and not canceled/dropped, if cancellation is tracked.
-- **Wait-listed**: registrants with wait-list flag.
-- **Paid in full**: registration balance due equals zero and payments are settled.
-- **Outstanding**: balance due greater than zero after discounts, refunds, and active payment plan adjustments.
-- **Placed**: registrant has expected group membership or placement record.
-- **Ready for event**: registered, paid or approved, required forms complete, signature complete, placement complete.
-
-Each definition must be adapted to the organization’s Rock version and operational policy.
-
-Community roster examples illustrate why grain must be explicit: a useful registrant report commonly joins `RegistrationRegistrant` to `Registration`, `PersonAlias`, and `Person`, so it must not label registrant rows as registration transactions ([Single Page Registrant Info](https://community.rockrms.com/recipes/313)).
-
-## 14. Version And Release Caveats
-
-### Rock 18.1
-
-The official Event & Calendar Guide notes updates for Rock 18.1, including revamped Registration Group Placement for sorting registrants into groups such as sports teams and camps ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)). If a site has recently upgraded around v18, compare old legacy group placement patterns to the revamped workflow.
-
-### Rock 18.3
-
-Release notes for v18.3 include a bug fix for internal Event Registration blocks: Registration Instance - Registration List, Registration Details, and Registrant Details could show an incorrect Signature Document for a registrant without a valid `SignatureDocumentId` because documents were matched by person instead of the registrant record. The fix updated blocks to use the registrant’s SignatureDocument relationship and included a data migration to backfill missing values when a matching valid document exists, excluding legacy templates ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Operational implication: if a signature document looks wrong, verify Rock version and inspect the registrant’s actual signature document relationship, not just person-level documents.
-
-### Rock 19.1
-
-The v19.1 Event release notes in this pack include several important changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)):
-
-- **Registrant eligibility rules** were added to Registration Template Detail and enforced in Registration Entry. Rules can limit registrants by age, grade, gender, and age classification. When multiple rules are enabled, registrants must meet all selected criteria.
-- **Family member dropdown behavior** changed so that when Registrants In Same Family is Yes or Ask, the dropdown defaults blank on initial load, requiring intentional selection.
-- **Prevent Duplicate Registrants** was added to Registration Template to prevent the same person record from registering for the same Registration Instance more than once. Validation occurs during registrant selection and before submission, including multi-registrant entries.
-- **Discount Code column display** was fixed for registrations where no per-registrant cost exists but a discount applies to fees.
-- **Empty registration template form exception logging** was corrected so empty form-field configurations do not create false-positive exceptions during submission.
-- **Show On Wait List handling** changed so First Name and Last Name are always shown on wait list and new fields default to Show On Wait List.
-
-Operational implication: a v19.1 registration may block people who could register in earlier versions because eligibility or duplicate-prevention settings are now active. Conversely, some old accidental family-member registration behavior should be reduced.
-
-### v16.10 / v17.0 Spotlight
-
-A Triumph Tech GitHub spotlight reports v16.10 highlights including an optional `SignatureDetails` merge field for electronic signature templates and an Obsidian Event Registration ACH saved-payment-option fix when ACH is disabled in the gateway ([GitHub Spotlight](https://www.triumph.tech/resources/github-spotlight-182025)). Treat this as secondary release commentary; verify against official release notes and live version before relying on it.
-
-## 15. Implementation Playbooks
-
-### Playbook A: Create A Standard Paid Event Registration
-
-Follow [Registration Templates](https://community.rockrms.com/rocku/event-registration/registration-templates), [Registration Instances](https://community.rockrms.com/rocku/event-registration/registration-instances), and [Additional Registration Fees](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) for the supported object and cost model; test the exact public and payment flow before opening registration.
-
-1. Define the event goal, audience, date, capacity, and owner.
-2. Decide whether the registration is individual, family, guest, or multi-registrant.
-3. Choose or create a Registration Template.
-4. Configure forms and required fields.
-5. Configure base cost and additional fees.
-6. Configure discounts if needed.
-7. Configure partial payments or require full payment.
-8. Configure payment gateway and financial account.
-9. Configure confirmation email.
-10. Configure payment reminders if balances can remain.
-11. Configure wait list if capacity may fill.
-12. Configure signature documents if required.
-13. Create the Registration Instance.
-14. Set Active, Registration Starts, and Registration Ends.
-15. Configure capacity/spots.
-16. Link the instance to the Event Item Occurrence.
-17. Configure URL slug/public name.
-18. Test public registration as anonymous and logged-in users.
-19. Test payment in approved test mode or staging.
-20. Verify internal registration, registrant, payment, and fee lists.
-21. Verify confirmation email.
-22. Document owner, support path, and finance reconciliation path.
-
-### Playbook B: Add Eligibility Rules In v19.1+
-
-1. Confirm Rock version supports registrant eligibility rules.
-2. Open the Registration Template Detail.
-3. Locate Registrant Eligibility settings.
-4. Decide age minimum/maximum, grade minimum/maximum, gender, and age classification.
-5. Confirm rules should combine with AND behavior, because release notes state registrants must meet all selected criteria ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-6. Test with eligible and ineligible family members.
-7. Confirm the Family Member to Register dropdown filters correctly.
-8. Attempt final submission with an ineligible selected registrant if possible in staging to confirm server-side validation.
-9. Update staff instructions.
-
-### Playbook C: Prevent Duplicate Registrants In v19.1+
-
-1. Confirm the event should prevent duplicate person records in the same instance.
-2. Enable Prevent Duplicate Registrants on the Registration Template.
-3. Test a single registrant already registered.
-4. Test a multi-registrant submission where one person is already registered.
-5. Confirm the user-facing message is clear.
-6. Define staff override procedure for legitimate exceptions.
-7. Document whether duplicate prevention applies only to the same person record, not duplicate names or unresolved guests.
-
-### Playbook D: Configure Payment Reminders
-
-Use [Event Registrations](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations) for the balance workflow and the version-matched [RegistrationInstanceSendPaymentReminderInitializationBox](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs) contract for recipient selection and preview behavior.
-
-1. Confirm partial payments or outstanding balances are allowed.
-2. Configure template payment reminder sender, subject, body, and time span.
-3. Use Lava carefully; preview against a sample registration.
-4. Open the payment reminder block for the instance.
-5. Confirm outstanding balances exist.
-6. Confirm confirmation emails exist.
-7. Review preselected rows and recently reminded rows.
-8. Send to a small test set if possible.
-9. Verify communication history and sent count.
-10. Follow up on skipped registrations without confirmation email.
-
-### Playbook E: Diagnose A Missing Public Registration Button
-
-1. Open the event page and capture the exact URL.
-2. Identify the Event Item Occurrence.
-3. Inspect linkage to Registration Instance.
-4. Confirm Registration URL/block settings.
-5. Confirm instance is Active.
-6. Confirm Registration Starts/Ends window.
-7. Confirm capacity and wait list.
-8. Confirm public page route and page parameters.
-9. Confirm the public user has view access.
-10. Confirm no custom Lava hides the button.
-11. Compare web and mobile status labels if applicable.
-
-### Playbook F: Build A Read-Only Registration Dashboard
-
-1. Define audience: ministry, finance, executive, check-in, camp admin.
-2. Define metrics and entity roots.
-3. Prefer native reporting or reviewed SQL.
-4. Include registrations, registrants, wait list, paid, due, discounts, fee totals, missing signatures, and placement status.
-5. Secure by event owner or staff role.
-6. Avoid exposing sensitive child/medical fields by default.
-7. Validate totals against internal Registration Instance pages.
-8. Document definitions.
-
-## 16. Troubleshooting Decision Tree
-
-### Public page says registration is closed
-
-Check:
-
-- Instance Active.
-- Registration Starts.
-- Registration Ends.
-- Current server time/time zone.
-- Capacity/spots.
-- Wait list enabled.
-- Linkage points to correct instance.
-- Public page block resolves correct instance.
-- Template is valid.
-- Version-specific status label behavior.
-
-If all database settings look open, inspect block configuration and custom Lava.
-
-### User cannot select the intended family member
-
-Check:
-
-- Rock version.
-- Registrants In Same Family setting.
-- v19.1 eligibility rules.
-- Age, grade, gender, and age classification data on the person.
-- Whether the person is in the same family.
-- Duplicate-prevention setting.
-- Existing registrant records for the same instance.
-- Person merge/duplicate records.
-
-### Duplicate registration is blocked
-
-Check:
-
-- Whether v19.1 Prevent Duplicate Registrants is enabled.
-- Existing RegistrationRegistrant rows for the same person record and instance.
-- Whether wait-listed registrants count for the duplicate check in the live version.
-- Whether a staff override path exists.
-- Whether the person has duplicate Person records.
-
-### Discount code does not work
-
-Check:
-
-- Template discount configuration.
-- Code spelling.
-- Active/scheduled dates.
-- Usage limits.
-- Applies-to scope.
-- Fee-only vs base-cost discount.
-- Registration date/time.
-- Already-applied codes.
-- v19.1 display fix if the issue is only grid visibility.
-
-### Balance due is wrong
-
-Check:
-
-- Base cost.
-- Fee selections.
-- Quantity fees.
-- Discounts.
-- Payments.
-- Failed payments.
-- Refunds.
-- Manual adjustments.
-- Payment plan state.
-- Gateway state.
-- Whether a post-payment discount or fee change failed to sync to payment plan.
-
-### Payment plan amount is wrong
-
-Check:
-
-- Rock balance.
-- Gateway schedule.
-- Date payment plan was created.
-- Discounts or fees changed after plan creation.
-- Gateway cancellation/update history.
-- Finance notes.
-- The official warning that payment plan changes do not auto-sync from balance changes ([Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29)).
-
-### Signature document shown for wrong registrant
-
-Check:
-
-- Rock version.
-- v18.3 signature document fix/migration.
-- Registrant `SignatureDocumentId`.
-- Person-level signature documents.
-- Required template.
-- Legacy template exclusion.
-- Internal block version.
-
-### Registrant missing from group placement
-
-Check:
-
-- Is registrant wait-listed?
-- Is registrant fully registered?
-- Placement mode.
-- Destination group type/group.
-- Template placement id.
-- Group capacity.
-- Allow multiple placements.
-- Existing group member record.
-- Placement block/page configuration.
-
-### Payment reminder did not send
-
-Check:
-
-- Outstanding balance.
-- Confirmation email.
-- Selected row.
-- Recently reminded visual state.
-- Template reminder time span.
-- Sender/from email.
-- Communication queue/history.
-- Email provider delivery.
-- Source-code behavior that skips registrations without confirmation email ([sendPaymentRemindersResponseBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts)).
-
-## 17. Agent Task Recipes
-
-### Recipe: Summarize A Registration Instance
-
-Collect and return:
-
-- Instance name, Id, Guid.
-- Template name and Id.
-- Active/start/end state.
-- Public URL and linkage.
-- Capacity, registered count, wait-list count.
-- Total registrations and registrants.
-- Total paid, due, discounts.
-- Fee totals.
-- Missing signatures.
-- Unplaced registrants.
-- Payment plans.
-- Recent errors or exceptions.
-- Version caveats.
-
-### Recipe: Verify A Public Registration URL
-
-Inspect:
-
-- URL route and parameters.
-- Event occurrence linkage.
-- Registration Instance Id.
-- Slug/public name.
-- Registration Entry block settings.
-- Instance active/date/capacity.
-- Rendered status label.
-- Mobile equivalent if applicable.
-- Anonymous access.
-
-Return whether the URL targets the intended registration and why it is open, closed, full, wait-listing, or broken.
-
-### Recipe: Audit Payment Risk
-
-Inspect:
-
-- Registrations with balance due.
-- Confirmation emails present/missing.
-- Last reminder date.
-- Payment plans active.
-- Gateway schedule state.
-- Failed transactions.
-- Discounts applied after plan creation.
-- Event date proximity.
-- Staff owner.
-
-Return a prioritized collection list.
-
-### Recipe: Audit Discount Codes
-
-Inspect:
-
-- Template discount configuration.
-- Active and scheduled codes.
-- Usage counts.
-- Applies-to scope.
-- Current instances using the template.
-- Staff visibility requirements.
-- v19.1 discount column behavior.
-
-Return codes only to authorized staff.
-
-### Recipe: Audit Wait List
-
-Inspect:
-
-- Capacity.
-- Wait-list enabled setting.
-- Wait-listed registrants.
-- Required wait-list fields.
-- First/Last name visibility in v19.1.
-- Payment requirements.
-- Promotion process.
-- Communication sent to wait-listed people.
-
-Return who is waiting, what data is missing, and what staff action is needed.
-
-### Recipe: Build A Registrant Packet Export
-
-Use the [Single Page Registrant Info](https://community.rockrms.com/recipes/313) recipe only as a concept reference. Build a reviewed report that:
-
-- Filters by RegistrationInstanceId.
-- Excludes wait-listed registrants unless requested.
-- Joins registrant to person through PersonAlias.
-- Pulls only needed attributes.
-- Avoids exposing sensitive data broadly.
-- Sorts predictably.
-- Supports printing/page breaks if needed.
-- Uses safe parameter handling.
-
-### Recipe: Add Staff Notes To Registration Detail
-
-Use the [Registration Notes](https://community.rockrms.com/recipes/245) recipe as a pattern:
-
-- Create a Note Type.
-- Add a Notes block to the appropriate internal registration detail page.
-- Scope note permissions.
-- Decide whether notes attach to registration, registrant, or another entity.
-- Test retention when registrants are removed or changed.
-- Train staff on note standards.
-
-### Recipe: Investigate API Registration URL Issues
-
-Do not assume expanded Linkages contain a complete public URL. Inspect:
-
-- EventItemOccurrence.
-- Linkage record.
-- RegistrationInstanceId.
-- Slug/public name fields.
-- Page route.
-- Registration Entry block.
-- Mobile Registration URL setting.
-- Custom Lava.
-- Current API response shape.
-
-Use the [API Q&A](https://community.rockrms.com/ask/developing/2547) as evidence that this is a known integration question, not as an answered recipe.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `7`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | operational_guidance | Rock distinguishes a registration from its registrants: one registration can contain multiple registrants, while account, fee, and payment information is managed separately. Reports should choose the intended grain explicitly. | [source](https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations) |
-| official | release_caveat | When multiple v19 registrant-eligibility rules are enabled, a registrant must satisfy all selected criteria. Test combined age, gender, grade and Data View rules with representative people before opening registration. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| official | release_caveat | The v19 Prevent Duplicate Registrants option blocks a matched person from being registered twice, but the warning can reveal that a person is already registered to someone who knows matching identity details. Evaluate that disclosure risk before enabling it for sensitive events. | [source](https://www.youtube.com/watch?v=c-wycR9HEuQ) |
-| community-reviewed | implementation_pattern | Before launching preregistration broadly, teams should test the full path from public form through family record creation, check-in eligibility, and staff follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | implementation_pattern | New-family preregistration should be connected to a clear follow-up workflow or connection process so the data captured before arrival leads to ministry action. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | operational_guidance | Family preregistration is useful when it reduces first-visit friction and improves the quality of people, family, and child data before check-in. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-| community-reviewed | operational_guidance | A public preregistration page should explain the value to families and avoid creating duplicate or partial records that staff later need to clean manually. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDdgePqz) |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `23`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Additional Registration Fees Transcript Insight](https://community.rockrms.com/rocku/event-registration/additional-registration-fees) | approved_for_public_distillation | 1 | media-insight:6600e5869dac2651 |
-| [Calendar Overview Transcript Insight](https://community.rockrms.com/rocku/event-registration/calendar-overview) | approved_for_public_distillation | 1 | media-insight:b7cb6e0f0354451c |
-| [Calendars and Events Transcript Insight](https://community.rockrms.com/rocku/event-registration/calendars-and-events) | approved_for_public_distillation | 1 | media-insight:45d14ff6240ffaca |
-| [Electronic Signatures Transcript Insight](https://community.rockrms.com/rocku/event-registration/electronic-signatures) | approved_for_public_distillation | 2 | media-insight:7ededa8a19f050ad |
-| [Episode 111: Special Edition with Tim Dear Transcript Insight](https://shows.acast.com/rock-cast/episodes/podcast-episode-111-special-edition-with-tim-dear) | approved_for_public_distillation | 3 | media-insight:05f4fce834300a65 |
-| [Episode 37: Special Edition Garrett Johnson Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-37-special-edition-garrett-johnson) | approved_for_public_distillation | 3 | media-insight:97a12ee26ba9575f |
-| [Event Attributes Transcript Insight](https://community.rockrms.com/rocku/event-registration/event-attributes) | approved_for_public_distillation | 1 | media-insight:9799f4791807924b |
-| [Event Registration Attributes Transcript Insight](https://community.rockrms.com/rocku/event-registration/event-registration-attributes) | approved_for_public_distillation | 1 | media-insight:0936a5104d35e615 |
-| More |  | 15 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 18. Source Map And Dependency Notes
-
-Primary authority:
-
-- [Event & Calendar Guide](https://community.rockrms.com/documentation/bookcontent/29): official guide for event registration concepts, instance settings, payment plans, matching, group placement, SSL, URL slugs, events, and calendars.
-- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): authoritative source for v18.3 and v19.1 event registration behavior changes and fixes.
-- [RockU Event Registration](https://community.rockrms.com/rocku/event-registration): training map for registration walk-through, structure, templates, instances, attributes, fees, discounts, partial payments, wait lists, calendar linkages, electronic signatures, payment plans, and group placement.
-
-Training topic citations:
-
-- [Registration Walk-through](https://community.rockrms.com/rocku/event-registration/registration-walk-through)
-- [Registration Structure](https://community.rockrms.com/rocku/event-registration/registration-structure)
-- [Registration Templates](https://community.rockrms.com/rocku/event-registration/registration-templates)
-- [Registration Instances](https://community.rockrms.com/rocku/event-registration/registration-instances)
-- [Event Registration Attributes](https://community.rockrms.com/rocku/event-registration/event-registration-attributes)
-- [Registration Fees](https://community.rockrms.com/rocku/event-registration/registration-fees)
-- [Additional Registration Fees](https://community.rockrms.com/rocku/event-registration/additional-registration-fees)
-- [Registration Discounts](https://community.rockrms.com/rocku/event-registration/registration-discounts)
-- [Partial Payments](https://community.rockrms.com/rocku/event-registration/partial-payments)
-- [Wait Lists](https://community.rockrms.com/rocku/event-registration/wait-lists)
-- [Electronic Signatures](https://community.rockrms.com/rocku/event-registration/electronic-signatures)
-- [Payment Plans](https://community.rockrms.com/rocku/event-registration/payment-plans)
-- [Group Placement](https://community.rockrms.com/rocku/event-registration/group-placement)
-
-Developer/source landmarks:
-
-- [Calendar Event Item Occurrence View](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-item-occurrence-view): mobile block page parameter, registration URL setting, merge fields, and registration status labels.
-- [AI Agents Skills](https://community.rockrms.com/developer/ai-agents/skills): agent skill concept using Event Registration as an example domain.
-- [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock): source repository.
-- [RegistrationInstanceRegistrantList.ascx.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx.cs): internal registrant list block attributes and page links.
-- [RegistrationInstanceRegistrantList.ascx](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Event/RegistrationInstanceRegistrantList.ascx): internal registrant list filters and grid shape.
-- [RegistrantInfoBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs): registrant grid display name and wait-list indicator.
-- [RegistrationBalanceBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationBalanceBag.cs): outstanding balance row fields.
-- [RegistrationInstanceSendPaymentReminderInitializationBox.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/RegistrationInstanceSendPaymentReminderInitializationBox.cs): payment reminder initialization data.
-- [sendPaymentRemindersRequestBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersRequestBag.d.ts): payment reminder send request shape.
-- [sendPaymentRemindersResponseBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts): payment reminder send response and skipped-email behavior.
-
-Community examples, use with review:
-
-- [Registration Instance Totals Report](https://community.rockrms.com/recipes/348): organizer totals for paid, due, and discounted amounts.
-- [Registration Instance Fees Report](https://community.rockrms.com/recipes/400): fee totals by option/quantity.
-- [Single Page Registrant Info](https://community.rockrms.com/recipes/313): registrant packet/reporting pattern.
-- [Show Active Registration Discount Codes](https://community.rockrms.com/recipes/472): read-only discount visibility pattern for limited staff permissions.
-- [Registration Notes](https://community.rockrms.com/recipes/245): notes block pattern for registration detail pages.
-- [Registration Change Tool](https://community.rockrms.com/recipes/518/registration-change-tool): custom workflow/page pattern for controlled registration changes.
-- [Control the Title on The Event Registration Page](https://community.rockrms.com/recipes/361): cautionary unpublished recipe with SQL injection risk.
-- [API registration URL Q&A](https://community.rockrms.com/ask/developing/2547): unresolved example of API consumers needing to trace event occurrence linkage to public registration URL.
-
-Dependency notes:
-
-- Event Registration depends on Events for public discovery and occurrence linkage.
-- It depends on Finance for payment, discounts, batches, matching, gateways, refunds, and payment plans.
-- It depends on Communications for confirmations and reminders.
-- It depends on Groups for placement and rosters.
-- It depends on Workflows for custom review, change, scholarship, notification, and exception processes.
-- It depends on live Rock version because recent releases materially changed eligibility, duplicate prevention, wait-list field handling, signature document display, and discount-code grid behavior.
+- [Occurrence result model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Classes/Skills/EventCalendarSkill/EventItemOccurrenceResult.cs)
+- [Registrant-list block](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Event/RegistrationInstanceRegistrantList.cs)
+- [Placement configuration model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementConfigBag.cs)
+- [Registrant placement model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrantList/RegistrantPlacementBag.cs)
+- [Wait-list display model](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Event/RegistrationInstanceRegistrationList/RegistrantInfoBag.cs)

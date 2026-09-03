@@ -18,33 +18,32 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 
 ## Primary Tasks
 
-- [Recipe: Inventory Hosting](tasks/recipe-inventory-hosting.md): Complete Inventory Hosting with evidence-backed checks and a verifiable outcome.
-- [Recipe: Validate Azure Hosting](tasks/recipe-validate-azure-hosting.md): Complete Validate Azure Hosting with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review SQL Performance](tasks/recipe-review-sql-performance.md): Cite release notes before recommending index changes Rock Core Release Notes.
-- [Recipe: Review Backup And Restore](tasks/recipe-review-backup-and-restore.md): Complete Review Backup And Restore with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review Web Farm](tasks/recipe-review-web-farm.md): Complete Review Web Farm with evidence-backed checks and a verifiable outcome.
-- [Recipe: Public Launch Hosting Gate](tasks/recipe-public-launch-hosting-gate.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Select a hosting model](tasks/recipe-select-a-hosting-model.md): A documented hosting choice with explicit ownership, workload, security, and verification conditions.
+- [Recipe: Build an Azure capacity baseline](tasks/recipe-build-an-azure-capacity-baseline.md): A provisional Azure tier supported by workload evidence and marked for validation.
+- [Recipe: Prepare a SaaS migration](tasks/recipe-prepare-a-saas-migration.md): A provider-ready migration plan with a reserved test window and clear responsibility boundary.
+- [Recipe: Provision the documented Azure layout](tasks/recipe-provision-the-documented-azure-layout.md): A resource group containing the intended Rock web VM and Azure SQL resources.
+- [Recipe: Prepare an internal Rock 19 web server](tasks/recipe-prepare-an-internal-rock-19-web-server.md): A Windows/IIS host ready for the documented Rock 19 installer.
+- [Recipe: Activate a Rock 19 web farm](tasks/recipe-activate-a-rock-19-web-farm.md): All expected Rock nodes are visible and coordinated without duplicate job runners.
+- [Recipe: Offload reports and analytics to a read-only database](tasks/recipe-offload-reports-and-analytics-to-a-read-only-database.md): Eligible Rock 19 reporting or analytics traffic uses the intended read-only target.
+- [Recipe: Diagnose a slow Rock 19 page](tasks/recipe-diagnose-a-slow-rock-19-page.md): A repeatable diagnosis identifies either a page component or a broader infrastructure constraint.
+- [Recipe: Perform a pre-launch infrastructure review](tasks/recipe-perform-a-pre-launch-infrastructure-review.md): A go/no-go record separates verified readiness from unresolved conditions.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-49: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 50-79: 2. Scope And Terminology (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-1-request-entry` lines 84-96: Layer 1: Request Entry (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-2-web-runtime` lines 97-112: Layer 2: Web Runtime (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-3-database-and-persistence` lines 113-129: Layer 3: Database And Persistence (normal)
-- `3-hosting-and-infrastructure-mental-model-layer-4-shared-services` lines 130-148: Layer 4: Shared Services (normal)
+- `agent-summary` lines 18-33: Agent Summary (normal)
+- `mental-model-1-workload` lines 65-68: 1. Workload (normal)
+- `mental-model-2-service-ownership` lines 69-74: 2. Service ownership (normal)
+- `mental-model-4-rock-specific-invariants` lines 79-91: 4. Rock-specific invariants (normal)
+- `sizing-and-service-options-choose-the-ownership-model-first` lines 100-110: Choose the ownership model first (normal)
+- `sizing-and-service-options-use-sizing-tables-as-baselines` lines 111-131: Use sizing tables as baselines (normal)
 
 ## Core Entities
 
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
-- `Attribute`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `Block`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `DataView`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Label`: Rock concept/entity referenced by the hosting-infrastructure guide.
-- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the hosting-infrastructure guide.
-- `Person`: Rock concept/entity referenced by the hosting-infrastructure guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the hosting-infrastructure guide.
@@ -54,11 +53,6 @@ Rock hosting, sizing, Azure and infrastructure guidance, web farms, backups, SSL
 - `19.1`: Added an automatic data migration that moves File Storage Provider settings from any existing legacy Azure Blob Storage provider plugin (Pillars) to the core Azure Blob Storage provider. This is required because the lega
 - `17.5`: Fixed an error that occurred when editing a Content Channel Type with Attributes of type Image, File, or Binary File. The issue happened if the storage location was set to Azure Blob Storage or File System (or newly crea
 - `17.0`: Improved database performance with new and revised indexes across multiple tables. These changes improve query efficiency for transactions, person records, group hierarchies, and interactions, based on SQL Server recomme
-- `18.1`: Added global attribute "Google API Key Server" for handling server-side Google API requests, such as geocoding and routing. This is separate from the existing client-side key used for JavaScript-based API calls. Fixes: #
-- `17.5`: Fixed an issue where loading the Obsidian Attendance History block without person context could cause severe performance issues and possible server crashes by attempting to load all attendance records. The block now prev
-- `17.1`: Fixed a performance issue in Next-Gen Check-in that caused delays when printing to Bluetooth printers. The slowdown was due to how label image data was encoded, which has now been optimized. Printing performance should n
-- `16.3`: Fixed issue where Communication Entry Wizard block becomes unusable when an SMS image attachment is auto-resized and uploaded to Azure Blob Storage. Fixes: #5719
-- `17.2`: Improved the database index fill factor from 80% to 100% to reduce table size and improve maintenance performance. In the past, this was changed due to a common practice of reserving space to reduce page splits in the ta
 
 ## Files For Agents
 

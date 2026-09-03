@@ -2,179 +2,287 @@
   "branches": [
     {
       "do_not_assume": [
-        "If SQL timeout appears, do not stop at increasing connection timeout."
+        "Stop when the slow component or infrastructure constraint is identified with repeatable evidence; do not prescribe a web farm solely from the symptom."
       ],
       "entities": [
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-site-is-down",
-      "id": "site-is-down",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/ask/using/2832"
-      ],
-      "start_with": [
-        "Confirm DNS resolves.",
-        "Confirm SSL certificate is valid.",
-        "Confirm load balancer/app gateway health.",
-        "Confirm IIS/App Service is running.",
-        "Confirm app pool is started.",
-        "Confirm database is reachable.",
-        "Confirm connection string points to expected database.",
-        "Confirm SQL login works."
-      ],
-      "title": "Site Is Down",
-      "when": "Site Is Down"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
+        "DataView",
         "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-site-is-slow",
-      "id": "site-is-slow",
+      "guide_section_id": "troubleshooting-decision-tree-a-rock-page-is-slow",
+      "id": "a-rock-page-is-slow",
       "inspect": [
+        "DataView",
         "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Identify whether slowness is global or page-specific.",
-        "Check CPU, memory, disk, SQL DTU/vCore, and SQL waits.",
-        "Check current running jobs.",
-        "Check long-running SQL queries.",
-        "Check recent content/page/block changes.",
-        "Check cache clears or app restarts.",
-        "Check file storage latency.",
-        "Check external integrations."
-      ],
-      "title": "Site Is Slow",
-      "when": "Site Is Slow"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Label"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-check-in-is-slow",
-      "id": "check-in-is-slow",
-      "inspect": [
-        "Attendance",
-        "Label"
-      ],
       "source_urls": [
-        "https://www.triumph.tech/resources/check-in-for-very-large-ministries"
+        "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-internet-information-services-iis",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-rock",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
       ],
       "start_with": [
-        "Confirm whether issue is server, network, kiosk, printer, or database.",
-        "Check weekend peak SQL utilization.",
-        "Check attendance code volume and code length for very large ministries.",
-        "Check label printing path and printer type.",
-        "Check recent Rock version.",
-        "Check jobs running during check-in.",
-        "Check wireless/network health.",
-        "Check Next-Gen Check-in release caveats."
+        "Confirm the Rock version. In v19, capture the Page Load Time diagnostic trace for the affected page.",
+        "Identify whether one block or component dominates the trace.",
+        "Reproduce at a known time and record whether the issue is constant, intermittent, or load-dependent.",
+        "Inspect IIS application-pool startup, idle timeout, preload, recycling, and dynamic-compression settings.",
+        "Determine whether the page invokes Data Views, Reports, analytics, plugins, APIs, or long-running database operations.",
+        "Inspect whether snapshot isolation is enabled and whether supported read workloads are eligible for `RockContextReadOnly` or `RockContextAnalytics`. Install Rock",
+        "Compare the symptom with CPU, database, network, and provider telemetry.",
+        "Stop when the slow component or infrastructure constraint is identified with repeatable evidence; do not prescribe a web farm solely from the symptom."
       ],
-      "title": "Check-In Is Slow",
-      "when": "Check-In Is Slow"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-file-uploads-fail",
-      "id": "file-uploads-fail",
-      "inspect": [
-        "Attribute"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Identify File Type.",
-        "Identify File Storage Provider.",
-        "Test small and large upload.",
-        "Check storage account/container permissions.",
-        "Check v19.1 Azure Blob migration status.",
-        "Check cache-control fields if CMS file attributes are involved.",
-        "Check plugin provider status.",
-        "Check exceptions and browser/network errors."
-      ],
-      "title": "File Uploads Fail",
-      "when": "File Uploads Fail"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Step"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-development-environment-sends-real-messages",
-      "id": "development-environment-sends-real-messages",
-      "inspect": [
-        "Step"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/355",
-        "https://community.rockrms.com/recipes/352"
-      ],
-      "start_with": [
-        "Disable or redirect SMTP transport.",
-        "Disable SMS transport.",
-        "Disable communication jobs.",
-        "Confirm payment gateways are test/sandbox or disabled.",
-        "Confirm webhook URLs are development-only.",
-        "Confirm Rock Shop/plugin notifications are safe.",
-        "Confirm visual environment banner.",
-        "Review refresh script."
-      ],
-      "title": "Development Environment Sends Real Messages",
-      "when": "Development Environment Sends Real Messages"
+      "title": "A Rock page is slow",
+      "when": "A Rock page is slow"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-web-farm-node-behaves-differently",
-      "id": "web-farm-node-behaves-differently",
+      "guide_section_id": "troubleshooting-decision-tree-files-or-images-work-intermittently-in-a-web-farm",
+      "id": "files-or-images-work-intermittently-in-a-web-farm",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
+      ],
+      "start_with": [
+        "Confirm that requests are reaching more than one web node.",
+        "Identify the Rock File Type or upload path used by the missing asset.",
+        "If the File Type uses node-local File System storage, move the design toward cloud-backed or database-backed storage.",
+        "If the file was uploaded directly to a node-local content directory, verify whether that directory is synchronized across nodes.",
+        "Request the same asset through each node or controlled gateway routing.",
+        "Stop when every node can serve the same asset and the storage or synchronization owner is documented."
+      ],
+      "title": "Files or images work intermittently in a web farm",
+      "when": "Files or images work intermittently in a web farm"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-check-in-loses-state-or-behaves-differently-between-requests",
+      "id": "check-in-loses-state-or-behaves-differently-between-requests",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
+      ],
+      "start_with": [
+        "Confirm that the environment uses multiple web nodes.",
+        "Inspect the gateway’s session-affinity configuration.",
+        "Trace a representative check-in client across consecutive requests.",
+        "Confirm that the client remains on the same node for the session.",
+        "Stop when the session remains stable through an end-to-end check-in journey."
+      ],
+      "title": "Check-in loses state or behaves differently between requests",
+      "when": "Check-in loses state or behaves differently between requests"
+    },
+    {
+      "do_not_assume": [
+        "Do not use v20.0 alpha shared-locking release notes as evidence that a v19 farm is safe."
+      ],
+      "entities": [
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-scheduled-job-runs-more-than-once-in-a-web-farm",
+      "id": "a-scheduled-job-runs-more-than-once-in-a-web-farm",
+      "inspect": [
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm the exact Rock version.",
+        "For Rock 19.0, inspect every node’s web configuration and identify which node is allowed to run jobs.",
+        "Ensure only one node is configured as the job runner.",
+        "Review job history and downstream effects for duplicate execution.",
+        "Do not use v20.0 alpha shared-locking release notes as evidence that a v19 farm is safe.",
+        "Stop when a single v19 job-running node is proven and a subsequent scheduled execution produces only the expected run. Configure a Rock Web Farm"
+      ],
+      "title": "A scheduled job runs more than once in a web farm",
+      "when": "A scheduled job runs more than once in a web farm"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-web-farm-node-is-missing-or-appears-unresponsive",
+      "id": "a-web-farm-node-is-missing-or-appears-unresponsive",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"
+      ],
+      "start_with": [
+        "Confirm that the Spark web-farm license is active.",
+        "Confirm that exactly one supported message-bus transport is active.",
+        "Verify that the gateway, database, and expected web nodes are running.",
+        "Confirm that Rock is installed on each node.",
+        "Restart all nodes after web-farm activation or configuration changes.",
+        "Inspect the Web Farm page and web-farm log for startup, shutdown, status, or leadership events.",
+        "Confirm that every expected node appears.",
+        "Stop when node membership and message-bus communication are stable."
+      ],
+      "title": "A web-farm node is missing or appears unresponsive",
+      "when": "A web-farm node is missing or appears unresponsive"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-new-page-route-works-on-only-some-nodes",
+      "id": "a-new-page-route-works-on-only-some-nodes",
       "inspect": [],
       "source_urls": [
         "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-a-rock-web-farm"
       ],
       "start_with": [
-        "Confirm same Rock code on every node.",
-        "Confirm same connection strings.",
-        "Confirm file storage consistency.",
-        "Confirm message bus connectivity.",
-        "Confirm node registered and metrics update.",
-        "Confirm leader election.",
-        "Confirm cache invalidation.",
-        "Confirm load balancer routing and health checks."
+        "Confirm that the environment is a Rock 19.0 web farm.",
+        "Verify that the route itself was saved correctly.",
+        "Restart each node so the route table is refreshed before the normal application-pool cycle.",
+        "Test the route against every node or through repeated controlled gateway requests.",
+        "Stop when all nodes resolve the route consistently."
       ],
-      "title": "Web Farm Node Behaves Differently",
-      "when": "Web Farm Node Behaves Differently"
+      "title": "A new page route works on only some nodes",
+      "when": "A new page route works on only some nodes"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-rock-cannot-connect-to-sql-server",
+      "id": "rock-cannot-connect-to-sql-server",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-sql-server",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/configure-a-two-server-environment"
+      ],
+      "start_with": [
+        "Identify the database type: Azure SQL Database, SQL Server on an Azure VM, or local/self-hosted SQL Server.",
+        "Verify the server name, database name, Rock-specific login, and connection target without exposing the password.",
+        "For Azure SQL Database, verify the login and `master` user, the `dbmanager` and `loginmanager` roles, and the database user’s `db_owner` membership.",
+        "For a self-hosted two-server deployment, verify TCP 1433 is permitted from the Rock web server’s address.",
+        "Confirm that SQL Server is private rather than generally internet-exposed.",
+        "Test the Rock-specific SQL login independently.",
+        "Stop when the Rock web server can connect using the intended restricted identity and network path. Configure SQL Server"
+      ],
+      "title": "Rock cannot connect to SQL Server",
+      "when": "Rock cannot connect to SQL Server"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-windows-cannot-install-a-required-server-feature",
+      "id": "windows-cannot-install-a-required-server-feature",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/install-server-roles-and-features"
+      ],
+      "start_with": [
+        "Confirm that the requested feature is part of the documented Rock web-server prerequisites.",
+        "Obtain installation media matching the Windows Server version.",
+        "Mount the media.",
+        "Set the alternate feature source to its `sources\\sxs` directory.",
+        "Retry installation.",
+        "Stop when IIS, the applicable ASP.NET 4.x role service, WebSocket Protocol, Application Initialization, and .NET Framework 3.5 Features are present."
+      ],
+      "title": "Windows cannot install a required server feature",
+      "when": "Windows cannot install a required server feature"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "DataView"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-data-view-or-report-fails-against-the-read-only-database",
+      "id": "a-data-view-or-report-fails-against-the-read-only-database",
+      "inspect": [
+        "DataView"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
+      ],
+      "start_with": [
+        "Confirm that `RockContextReadOnly` is present and points to the intended database.",
+        "Test basic connectivity and data availability.",
+        "Identify whether the Data View contains a plugin or filter that performs writes.",
+        "If writes are required, enable **Disable Use Of Read Only Context** for that specific Data View.",
+        "Retest the operation against the primary context.",
+        "Stop when the operation succeeds and its context selection is documented."
+      ],
+      "title": "A Data View or report fails against the read-only database",
+      "when": "A Data View or report fails against the read-only database"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-analytics-still-load-the-primary-database",
+      "id": "analytics-still-load-the-primary-database",
+      "inspect": [
+        "Attendance"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/configure-your-rock-context"
+      ],
+      "start_with": [
+        "Confirm the installation is Rock 19.0 or another version documented to support the setting.",
+        "Verify that the connection-string name is exactly `RockContextAnalytics`.",
+        "Confirm that it points to the intended read-only target.",
+        "Test Giving Analytics, Attendance Analytics, and Pledge Analytics separately.",
+        "Observe the target database or connection telemetry during the test.",
+        "Stop when the intended analytics traffic is observed on the target context."
+      ],
+      "title": "Analytics still load the primary database",
+      "when": "Analytics still load the primary database"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-http-does-not-redirect-to-https",
+      "id": "http-does-not-redirect-to-https",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/internal-hosting/intro-to-internal-hosting",
+        "https://community.rockrms.com/documentation/supporting-rock/hosting/scale-rock/architect-a-server-cluster"
+      ],
+      "start_with": [
+        "Confirm a valid certificate is installed and bound to the intended IIS site.",
+        "Inspect the Rock Site record for **Require Encryption**.",
+        "Enable the setting for the internal and external Rock sites where applicable.",
+        "Test direct HTTP and HTTPS requests from outside the server.",
+        "In a farm, confirm certificate coverage and binding behavior across the gateway and nodes.",
+        "Stop when HTTP consistently reaches the intended HTTPS endpoint and the presented certificate is valid. Intro to Internal Hosting"
+      ],
+      "title": "HTTP does not redirect to HTTPS",
+      "when": "HTTP does not redirect to HTTPS"
     }
   ],
   "concept_id": "hosting-infrastructure",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:01+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-site-is-down",
-    "17-troubleshooting-decision-tree-site-is-slow",
-    "17-troubleshooting-decision-tree-check-in-is-slow",
-    "17-troubleshooting-decision-tree-file-uploads-fail",
-    "17-troubleshooting-decision-tree-development-environment-sends-real-messages",
-    "17-troubleshooting-decision-tree-web-farm-node-behaves-differently",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-inventory-hosting",
-    "18-agent-task-recipes-recipe-validate-azure-hosting",
-    "18-agent-task-recipes-recipe-review-sql-performance",
-    "18-agent-task-recipes-recipe-review-backup-and-restore",
-    "18-agent-task-recipes-recipe-review-web-farm",
-    "18-agent-task-recipes-recipe-public-launch-hosting-gate"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-rock-page-is-slow",
+    "troubleshooting-decision-tree-files-or-images-work-intermittently-in-a-web-farm",
+    "troubleshooting-decision-tree-check-in-loses-state-or-behaves-differently-between-requests",
+    "troubleshooting-decision-tree-a-scheduled-job-runs-more-than-once-in-a-web-farm",
+    "troubleshooting-decision-tree-a-web-farm-node-is-missing-or-appears-unresponsive",
+    "troubleshooting-decision-tree-a-new-page-route-works-on-only-some-nodes",
+    "troubleshooting-decision-tree-rock-cannot-connect-to-sql-server",
+    "troubleshooting-decision-tree-windows-cannot-install-a-required-server-feature",
+    "troubleshooting-decision-tree-a-data-view-or-report-fails-against-the-read-only-database",
+    "troubleshooting-decision-tree-analytics-still-load-the-primary-database",
+    "troubleshooting-decision-tree-http-does-not-redirect-to-https",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-select-a-hosting-model",
+    "agent-task-recipes-recipe-build-an-azure-capacity-baseline",
+    "agent-task-recipes-recipe-prepare-a-saas-migration",
+    "agent-task-recipes-recipe-provision-the-documented-azure-layout",
+    "agent-task-recipes-recipe-prepare-an-internal-rock-19-web-server",
+    "agent-task-recipes-recipe-activate-a-rock-19-web-farm",
+    "agent-task-recipes-recipe-offload-reports-and-analytics-to-a-read-only-database",
+    "agent-task-recipes-recipe-diagnose-a-slow-rock-19-page",
+    "agent-task-recipes-recipe-perform-a-pre-launch-infrastructure-review"
   ]
 }

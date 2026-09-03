@@ -10,52 +10,39 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (269 words)
 
 ## Community-Supported Only
 
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `3-roku-apps-mental-model`: 3. Roku Apps Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-application-configuration`: Application Configuration
-- `5-core-configuration-and-data-model-page-configuration`: Page Configuration
-- `5-core-configuration-and-data-model-lava-merge-fields`: Lava Merge Fields
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `7-common-roku-apps-workflows-build-a-first-app`: Build A First App
-- `7-common-roku-apps-workflows-add-a-page`: Add A Page
-- `7-common-roku-apps-workflows-build-a-menu`: Build A Menu
-- `7-common-roku-apps-workflows-add-login`: Add Login
-- `8-roku-getting-started-deep-dive-provisioning`: Provisioning
-- `8-roku-getting-started-deep-dive-page-construction`: Page Construction
-- `8-roku-getting-started-deep-dive-device-validation`: Device Validation
-- `9-roku-commands-deep-dive-navigation-commands`: Navigation Commands
-- `9-roku-commands-deep-dive-media-commands`: Media Commands
-- `10-roku-controls-deep-dive-rock-page`: Rock:Page
-- `10-roku-controls-deep-dive-rock-button`: Rock:Button
-- `10-roku-controls-deep-dive-rock-focusgroup`: Rock:FocusGroup
-- `10-roku-controls-deep-dive-built-in-scenegraph-nodes`: Built-In SceneGraph Nodes
-- `11-roku-layouts-and-resources-deep-dive-rowlist`: RowList
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations`: API Integrations
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava`: Lava
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms`: CMS
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security`: Security
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media`: Media
-- `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps`: TV Apps
-- `13-administration-and-operational-guardrails-version-gate`: Version Gate
-- `13-administration-and-operational-guardrails-environment-separation`: Environment Separation
-- `13-administration-and-operational-guardrails-secret-handling`: Secret Handling
-- `13-administration-and-operational-guardrails-interaction-tracking`: Interaction Tracking
-- `13-administration-and-operational-guardrails-content-governance`: Content Governance
-- `15-reporting-analytics-and-model-map`: 15. Reporting, Analytics, And Model Map
-- `16-version-and-release-caveats`: 16. Version And Release Caveats
-- `17-implementation-playbooks-playbook-create-a-minimal-roku-home-page`: Playbook: Create A Minimal Roku Home Page
-- `17-implementation-playbooks-playbook-build-a-media-row`: Playbook: Build A Media Row
-- `17-implementation-playbooks-playbook-add-campus-selection`: Playbook: Add Campus Selection
-- `17-implementation-playbooks-playbook-add-login`: Playbook: Add Login
-- `17-implementation-playbooks-playbook-tune-caching`: Playbook: Tune Caching
+- `agent-summary`: Agent Summary
+- `getting-started-and-application-configuration`: Getting Started And Application Configuration
+- `page-authoring-and-caching`: Page Authoring And Caching
+- `roku-command-model`: Roku Command Model
+- `application-context-commands`: Application Context Commands
+- `remote-authentication-and-personal-commands`: Remote Authentication And Personal Commands
+- `media-playback-and-watch-progress`: Media Playback And Watch Progress
+- `layout-nodes-and-rowlist`: Layout Nodes And RowList
+- `security-and-api-guardrails`: Security And API Guardrails
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-the-roku-application-cannot-connect-to-rock`: The Roku application cannot connect to Rock
+- `troubleshooting-decision-tree-a-page-is-blank-or-does-not-render-as-expected`: A page is blank or does not render as expected
+- `troubleshooting-decision-tree-selecting-a-button-or-content-item-does-nothing`: Selecting a button or content item does nothing
+- `troubleshooting-decision-tree-back-navigation-returns-to-the-wrong-screen`: Back navigation returns to the wrong screen
+- `troubleshooting-decision-tree-personalized-content-is-stale-or-appears-for-the-wrong-person`: Personalized content is stale or appears for the wrong person
+- `troubleshooting-decision-tree-the-qr-login-flow-does-not-complete`: The QR login flow does not complete
+- `troubleshooting-decision-tree-video-or-audio-does-not-play`: Video or audio does not play
+- `troubleshooting-decision-tree-playback-resumes-but-creates-a-new-interaction`: Playback resumes but creates a new interaction
+- `troubleshooting-decision-tree-a-rowlist-has-no-rows-or-items`: A RowList has no rows or items
+- `agent-task-recipes-recipe-prepare-a-roku-development-readiness-review`: Recipe: Prepare A Roku Development Readiness Review
+- `agent-task-recipes-recipe-author-a-focusable-roku-page-skeleton`: Recipe: Author A Focusable Roku Page Skeleton
+- `agent-task-recipes-recipe-build-and-validate-a-navigation-action`: Recipe: Build And Validate A Navigation Action
+- `agent-task-recipes-recipe-add-campus-or-other-application-context`: Recipe: Add Campus Or Other Application Context
+- `agent-task-recipes-recipe-configure-a-remote-login-journey`: Recipe: Configure A Remote Login Journey
+- `agent-task-recipes-recipe-configure-resumable-media-playback`: Recipe: Configure Resumable Media Playback
+- `agent-task-recipes-recipe-review-a-roku-related-lava-endpoint`: Recipe: Review A Roku-Related Lava Endpoint
 
 ## Live Verification Clarification
 

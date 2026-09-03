@@ -3,29 +3,28 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Device",
-        "Block"
+        "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-app-does-not-load",
-      "id": "app-does-not-load",
+      "guide_section_id": "troubleshooting-decision-tree-the-roku-application-cannot-connect-to-rock",
+      "id": "the-roku-application-cannot-connect-to-rock",
       "inspect": [
-        "Device",
-        "Block"
+        "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs"
+        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/lava/lava-api"
       ],
       "start_with": [
-        "Is the Roku development/application shell provisioned?",
-        "Is the Rock URL reachable over HTTPS from the Roku device?",
-        "Is the API key configured and active?",
-        "Is the application pointing to the correct Rock environment?",
-        "Is a firewall/CDN/WAF blocking requests?",
-        "Are there Rock exceptions during app load?",
-        "Has the app package been updated after configuration changes?"
+        "Confirm that the installation is on Rock v16.7 or later.",
+        "Confirm that the organization received the documented development-application setup.",
+        "Inspect the Roku application record before inspecting page Lava.",
+        "Confirm that an API key is configured without exposing it.",
+        "Determine whether the failure concerns the normal Roku integration or a separate custom Lava endpoint.",
+        "If a Lava webhook is involved, review its authentication and enabled commands separately because webhook security is not provided by default.",
+        "Stop when confirming connectivity would require changing credentials or exposing a secret. Applications"
       ],
-      "title": "App Does Not Load",
-      "when": "App Does Not Load"
+      "title": "The Roku application cannot connect to Rock",
+      "when": "The Roku application cannot connect to Rock"
     },
     {
       "do_not_assume": [],
@@ -33,36 +32,40 @@
         "Device",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-page-loads-blank",
-      "id": "page-loads-blank",
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-blank-or-does-not-render-as-expected",
+      "id": "a-page-is-blank-or-does-not-render-as-expected",
       "inspect": [
         "Device",
         "Page"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Does Lava render valid XML?",
-        "Does the page have a `Rock:Page` root?",
-        "Does `initialFocus` reference a real node?",
-        "Are dynamic values escaped?",
-        "Are required fields missing?",
-        "Is a Lava command disabled?",
-        "Is the page cached with stale content?",
-        "Does the Roku device log an XML or component error?"
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages",
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation"
       ],
-      "title": "Page Loads Blank",
-      "when": "Page Loads Blank"
+      "start_with": [
+        "Confirm that the page contains SceneGraph-oriented output rather than CMS HTML.",
+        "Confirm that `Rock:Page` is the outermost component.",
+        "Inspect Lava conditions and the available merge fields used by the page.",
+        "Check required page parameters and application context values.",
+        "Inspect page cacheability, maximum age, and maximum shared age.",
+        "If navigation supplied `rockPageCacheControl`, inspect that setting separately.",
+        "Validate the rendered result in the applicable Roku shell; a successful Lava render alone does not prove device compatibility. Pages"
+      ],
+      "title": "A page is blank or does not render as expected",
+      "when": "A page is blank or does not render as expected"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Group",
+        "Device",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-focus-is-broken",
-      "id": "focus-is-broken",
+      "guide_section_id": "troubleshooting-decision-tree-remote-focus-starts-nowhere-or-moves-in-the-wrong-direction",
+      "id": "remote-focus-starts-nowhere-or-moves-in-the-wrong-direction",
       "inspect": [
         "Group",
+        "Device",
         "Page"
       ],
       "source_urls": [
@@ -70,230 +73,217 @@
         "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
       ],
       "start_with": [
-        "Does `Rock:Page initialFocus` point to a focusable node?",
-        "Are IDs unique?",
-        "Is the target node visible/enabled?",
-        "Should sibling controls be wrapped in `Rock:FocusGroup`?",
-        "Is `layoutDirection` set to match expected remote movement?",
-        "Are nested focus groups trapping focus?",
-        "Is the layout too complex?"
+        "Confirm that the page’s outer component is `Rock:Page`.",
+        "Confirm that `initialFocus` matches the ID of a real focusable child.",
+        "Check for duplicate or missing IDs.",
+        "If a FocusGroup is used, confirm `horiz` for left/right movement or `vert` for up/down movement.",
+        "Confirm that the intended controls are children of the relevant FocusGroup.",
+        "Stop when the markup is structurally correct but device behavior has not been reproduced; record a shell/device verification gap. Page Control"
       ],
-      "title": "Focus Is Broken",
-      "when": "Focus Is Broken"
+      "title": "Remote focus starts nowhere or moves in the wrong direction",
+      "when": "Remote focus starts nowhere or moves in the wrong direction"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not assume a command chain is transactional or that all commands execute after one fails."
+      ],
       "entities": [
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-navigation-goes-to-the-wrong-page",
-      "id": "navigation-goes-to-the-wrong-page",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is `rockCommand` spelled correctly?",
-        "Is `rockPageGuid` the correct page GUID?",
-        "Are query-string parameters valid?",
-        "Are multiple commands ordered as expected?",
-        "Is context from an earlier selection still set?",
-        "Is `replacePage` used where `pushPage` was intended?",
-        "Is a stale cached page rendering old GUIDs?"
-      ],
-      "title": "Navigation Goes To The Wrong Page",
-      "when": "Navigation Goes To The Wrong Page"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-menu-does-not-update",
-      "id": "menu-does-not-update",
+      "guide_section_id": "troubleshooting-decision-tree-selecting-a-button-or-content-item-does-nothing",
+      "id": "selecting-a-button-or-content-item-does-nothing",
       "inspect": [
         "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
+        "https://community.rockrms.com/developer/roku-docs/commands",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/button",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node"
       ],
       "start_with": [
-        "Which Lava builds the menu?",
-        "Does the query filter by Show in Menu?",
-        "Is the menu hard-coded?",
-        "Is the page/application cache stale?",
-        "Is the menu rendered for anonymous vs authenticated users differently?",
-        "Are disabled Lava commands preventing menu queries?"
+        "Confirm that the element is a supported Rock command-bearing control.",
+        "Inspect the exact `rockCommand` value.",
+        "Confirm that every required command-specific field is present.",
+        "If commands are comma-chained, test each command individually before testing the chain.",
+        "For navigation, verify the destination page identifier and optional parameters.",
+        "Do not assume a command chain is transactional or that all commands execute after one fails. Commands Button"
       ],
-      "title": "Menu Does Not Update",
-      "when": "Menu Does Not Update"
+      "title": "Selecting a button or content item does nothing",
+      "when": "Selecting a button or content item does nothing"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Label",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-login-qr-does-not-show",
-      "id": "login-qr-does-not-show",
+      "guide_section_id": "troubleshooting-decision-tree-back-navigation-returns-to-the-wrong-screen",
+      "id": "back-navigation-returns-to-the-wrong-screen",
       "inspect": [
         "Person",
-        "Label",
         "Page"
       ],
       "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/commands/navigation",
         "https://community.rockrms.com/developer/roku-docs/commands/personal"
       ],
       "start_with": [
-        "Is Authentication Page configured on the application?",
-        "Does the login command run?",
-        "Does the login page include `lgnQrPoster`?",
-        "Does it include `lgnCodeLabel`?",
-        "Is the authentication website page reachable externally?",
-        "Is the timeout too short?",
-        "Are server checks failing?",
-        "Are API key permissions sufficient?"
+        "Determine whether the action should push, replace, pop, or clear.",
+        "Inspect whether `pushPage` was used where `replacePage` was intended.",
+        "Inspect login or logout stack-clearing settings.",
+        "Confirm whether a command chain also changed the navigation stack.",
+        "Retest the exact route from the root page. Navigation"
       ],
-      "title": "Login QR Does Not Show",
-      "when": "Login QR Does Not Show"
+      "title": "Back navigation returns to the wrong screen",
+      "when": "Back navigation returns to the wrong screen"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not claim resolution until the behavior is retested across the relevant anonymous and authenticated states."
+      ],
       "entities": [
         "Person",
-        "Page",
-        "Block",
-        "Attribute"
+        "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-authenticated-content-does-not-personalize",
-      "id": "authenticated-content-does-not-personalize",
+      "guide_section_id": "troubleshooting-decision-tree-personalized-content-is-stale-or-appears-for-the-wrong-person",
+      "id": "personalized-content-is-stale-or-appears-for-the-wrong-person",
       "inspect": [
         "Person",
-        "Page",
-        "Block",
-        "Attribute"
+        "Page"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/roku-docs/getting-started/pages",
         "https://community.rockrms.com/developer/roku-docs/commands/navigation",
-        "https://community.rockrms.com/lava/filters/attribute-filters"
+        "https://community.rockrms.com/developer/roku-docs/commands/personal"
       ],
       "start_with": [
-        "Did login complete?",
-        "Is `CurrentPerson` available in the Roku page merge fields?",
-        "Is the page using public cache?",
-        "Is `rockPageCacheControl` personal/private where needed?",
-        "Did the navigation stack clear after login?",
-        "Are attributes blocked by security?",
-        "Are entity commands running with expected security settings?"
+        "Inspect the page’s cacheability type.",
+        "Inspect Max Age and Max Shared Age.",
+        "Inspect navigation-level `rockPageCacheControl`.",
+        "Determine whether a personalized request should use personal or private caching rather than public caching.",
+        "Inspect whether the navigation stack was cleared after login or logout.",
+        "Confirm the current person and context values used by the page.",
+        "Do not claim resolution until the behavior is retested across the relevant anonymous and authenticated states. Pages Navigation"
       ],
-      "title": "Authenticated Content Does Not Personalize",
-      "when": "Authenticated Content Does Not Personalize"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Device"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-video-does-not-play",
-      "id": "video-does-not-play",
-      "inspect": [
-        "Device"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs/commands/media"
-      ],
-      "start_with": [
-        "Is the source YouTube? If yes, replace it; YouTube is not supported by the Roku TV app per docs (Media).",
-        "Is the URL direct and publicly/device accessible?",
-        "Is the format MP4 or HLS where expected?",
-        "Is the certificate valid?",
-        "Does the URL require cookies or browser auth?",
-        "Is `rockVideoUrl` populated after Lava render?",
-        "If using MediaElement GUID, does it resolve to playable media?",
-        "Does Roku log a playback error?"
-      ],
-      "title": "Video Does Not Play",
-      "when": "Video Does Not Play"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
-      "id": "resume-does-not-work",
-      "inspect": [
-        "Person"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs/commands/media"
-      ],
-      "start_with": [
-        "Is `rockWatchMap` present?",
-        "Is `rockInteractionGuid` present when appending to an existing interaction?",
-        "Is a new interaction being created instead of appending?",
-        "Is the current person anonymous?",
-        "Are interactions enabled?",
-        "Does the prior interaction still exist after retention cleanup?"
-      ],
-      "title": "Resume Does Not Work",
-      "when": "Resume Does Not Work"
+      "title": "Personalized content is stale or appears for the wrong person",
+      "when": "Personalized content is stale or appears for the wrong person"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "PersonAlias",
+        "Label",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-interactions-are-missing-or-excessive",
-      "id": "interactions-are-missing-or-excessive",
+      "guide_section_id": "troubleshooting-decision-tree-the-qr-login-flow-does-not-complete",
+      "id": "the-qr-login-flow-does-not-complete",
       "inspect": [
         "Person",
-        "PersonAlias",
+        "Label",
         "Page"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
-        "https://community.rockrms.com/developer/roku-docs/commands/navigation",
-        "https://community.rockrms.com/lava/commands/interaction-write"
+        "https://community.rockrms.com/developer/roku-docs/commands/personal"
       ],
       "start_with": [
-        "Is Enable Page Views enabled?",
-        "Is `rockPageSuppressInteraction` true?",
-        "Are utility/loading pages writing interactions?",
-        "Are media commands writing separate interactions?",
-        "Is retention deleting older records?",
-        "Are invalid person aliases causing exceptions?",
-        "Are custom Lava interaction commands enabled and functioning?"
+        "Confirm that the application record references a website authentication page.",
+        "Confirm that the login command points to a Roku login page.",
+        "Confirm that the page contains `lgnQrPoster` and `lgnCodeLabel`.",
+        "Inspect timeout, polling, success-page, and timeout-page settings.",
+        "Confirm that the success and timeout destinations exist.",
+        "Test the website authentication page independently.",
+        "Stop when further testing requires changing authentication configuration or using a real account without authorization. Applications"
       ],
-      "title": "Interactions Are Missing Or Excessive",
-      "when": "Interactions Are Missing Or Excessive"
+      "title": "The QR login flow does not complete",
+      "when": "The QR login flow does not complete"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-video-or-audio-does-not-play",
+      "id": "video-or-audio-does-not-play",
+      "inspect": [
+        "Device"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
+      ],
+      "start_with": [
+        "Reject YouTube URLs for this command path.",
+        "Confirm that video is a directly playable MP4 or HLS resource, or that audio is an MP3 resource.",
+        "Confirm that the Roku device can reach the URL.",
+        "Inspect the correct command-specific URL field.",
+        "If the content is live, inspect the live-stream flag.",
+        "If a Rock Media Element is involved, inspect the media-element association.",
+        "Treat format, hosting, authorization, and device reachability as separate checks."
+      ],
+      "title": "Video or audio does not play",
+      "when": "Video or audio does not play"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-playback-resumes-but-creates-a-new-interaction",
+      "id": "playback-resumes-but-creates-a-new-interaction",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
+      ],
+      "start_with": [
+        "Confirm that `rockWatchMap` is present.",
+        "Confirm that the prior `rockInteractionGuid` is also present.",
+        "If only the watch map was supplied, expect resume behavior with a new interaction and fresh watch map.",
+        "Confirm that the supplied interaction belongs to the intended playback history.",
+        "Verify the resulting tracking behavior rather than inferring it from the command markup."
+      ],
+      "title": "Playback resumes but creates a new interaction",
+      "when": "Playback resumes but creates a new interaction"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-rowlist-has-no-rows-or-items",
+      "id": "a-rowlist-has-no-rows-or-items",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist"
+      ],
+      "start_with": [
+        "Confirm that the RowList has one root ContentNode assigned to the `content` role.",
+        "Confirm that each row is represented by a child ContentNode.",
+        "Confirm that each row contains item ContentNodes.",
+        "Inspect row titles and item `hdposterurl` values when used.",
+        "Only after validating the hierarchy, inspect sizes, spacing, visible-row count, and focus-animation settings."
+      ],
+      "title": "A RowList has no rows or items",
+      "when": "A RowList has no rows or items"
     }
   ],
   "concept_id": "roku",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:19+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-app-does-not-load",
-    "18-troubleshooting-decision-tree-page-loads-blank",
-    "18-troubleshooting-decision-tree-focus-is-broken",
-    "18-troubleshooting-decision-tree-navigation-goes-to-the-wrong-page",
-    "18-troubleshooting-decision-tree-menu-does-not-update",
-    "18-troubleshooting-decision-tree-login-qr-does-not-show",
-    "18-troubleshooting-decision-tree-authenticated-content-does-not-personalize",
-    "18-troubleshooting-decision-tree-video-does-not-play",
-    "18-troubleshooting-decision-tree-resume-does-not-work",
-    "18-troubleshooting-decision-tree-interactions-are-missing-or-excessive",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-inventory-existing-roku-app",
-    "19-agent-task-recipes-recipe-review-a-roku-page-for-safety",
-    "19-agent-task-recipes-recipe-convert-a-static-media-list-to-dynamic-rowlist",
-    "19-agent-task-recipes-recipe-diagnose-a-cache-leak",
-    "19-agent-task-recipes-recipe-add-a-safe-diagnostic-page",
-    "19-agent-task-recipes-recipe-validate-post-upgrade-roku-behavior"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-roku-application-cannot-connect-to-rock",
+    "troubleshooting-decision-tree-a-page-is-blank-or-does-not-render-as-expected",
+    "troubleshooting-decision-tree-remote-focus-starts-nowhere-or-moves-in-the-wrong-direction",
+    "troubleshooting-decision-tree-selecting-a-button-or-content-item-does-nothing",
+    "troubleshooting-decision-tree-back-navigation-returns-to-the-wrong-screen",
+    "troubleshooting-decision-tree-personalized-content-is-stale-or-appears-for-the-wrong-person",
+    "troubleshooting-decision-tree-the-qr-login-flow-does-not-complete",
+    "troubleshooting-decision-tree-video-or-audio-does-not-play",
+    "troubleshooting-decision-tree-playback-resumes-but-creates-a-new-interaction",
+    "troubleshooting-decision-tree-a-rowlist-has-no-rows-or-items",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-prepare-a-roku-development-readiness-review",
+    "agent-task-recipes-recipe-author-a-focusable-roku-page-skeleton",
+    "agent-task-recipes-recipe-build-and-validate-a-navigation-action",
+    "agent-task-recipes-recipe-add-campus-or-other-application-context",
+    "agent-task-recipes-recipe-configure-a-remote-login-journey",
+    "agent-task-recipes-recipe-configure-resumable-media-playback",
+    "agent-task-recipes-recipe-review-a-roku-related-lava-endpoint"
   ]
 }

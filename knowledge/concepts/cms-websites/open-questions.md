@@ -10,63 +10,56 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (175 words)
+- `agent-task-recipes-recipe-retire-a-seasonal-public-feature`: Recipe: Retire a seasonal public feature (100 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (252 words)
 
 ## Community-Supported Only
 
-- `5-core-configuration-and-data-model-sites`: Sites
-- `5-core-configuration-and-data-model-pages`: Pages
-- `7-common-cms-and-websites-workflows-add-a-search-or-filter-interface-for-pages`: Add A Search Or Filter Interface For Pages
-- `7-common-cms-and-websites-workflows-build-page-view-reporting`: Build Page View Reporting
-- `8-pages-and-blocks-deep-dive-page-hierarchy-and-navigation`: Page Hierarchy And Navigation
-- `9-themes-deep-dive-javascript-in-cms`: JavaScript In CMS
-- `12-administration-and-operational-guardrails-community-recipe-guardrails`: Community Recipe Guardrails
-- `14-reporting-analytics-and-model-map-page-view-analytics`: Page View Analytics
-- `18-agent-task-recipes-recipe-review-a-community-recipe-before-installing`: Recipe: “Review A Community Recipe Before Installing”
-- `18-agent-task-recipes-recipe-build-a-page-view-report`: Recipe: “Build A Page View Report”
-- `19-source-map-and-dependency-notes-secondary-and-community-sources`: Secondary And Community Sources
+- `page-parameters-filters-and-short-links`: Page Parameters, Filters, And Short Links
+- `troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer`: A Page Parameter Filter does not update its consumer
+- `troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor`: A Helix endpoint works for an administrator but fails for the intended visitor
+- `troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options`: A generated short link is blank or uses the wrong options
+- `agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer`: Recipe: Connect a Page Parameter Filter to a consumer
+- `agent-task-recipes-recipe-build-a-bounded-helix-active-search-page`: Recipe: Build a bounded Helix active-search page
+- `agent-task-recipes-recipe-publish-background-generated-video`: Recipe: Publish background-generated video
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-sites`: Sites
-- `5-core-configuration-and-data-model-pages`: Pages
-- `5-core-configuration-and-data-model-blocks`: Blocks
-- `5-core-configuration-and-data-model-layouts-and-zones`: Layouts And Zones
-- `5-core-configuration-and-data-model-themes`: Themes
-- `5-core-configuration-and-data-model-content-channel-types`: Content Channel Types
-- `5-core-configuration-and-data-model-content-channels`: Content Channels
-- `5-core-configuration-and-data-model-content-channel-items`: Content Channel Items
-- `5-core-configuration-and-data-model-media-and-linked-media-elements`: Media And Linked Media Elements
-- `6-primary-entities-and-relationships-site-to-page`: Site To Page
-- `6-primary-entities-and-relationships-page-to-layout-to-zone-to-block`: Page To Layout To Zone To Block
-- `6-primary-entities-and-relationships-page-to-block-settings`: Page To Block Settings
-- `6-primary-entities-and-relationships-block-to-lava-commands`: Block To Lava Commands
-- `6-primary-entities-and-relationships-content-channel-type-to-channel-to-item`: Content Channel Type To Channel To Item
-- `6-primary-entities-and-relationships-content-channel-item-to-media`: Content Channel Item To Media
-- `6-primary-entities-and-relationships-page-and-content-to-interactions`: Page And Content To Interactions
-- `6-primary-entities-and-relationships-files-binary-files-entity-documents-and-security`: Files, Binary Files, Entity Documents, And Security
-- `7-common-cms-and-websites-workflows-create-a-new-public-page`: Create A New Public Page
-- `7-common-cms-and-websites-workflows-add-or-edit-an-html-content-block`: Add Or Edit An HTML Content Block
-- `7-common-cms-and-websites-workflows-build-a-content-channel-listing-and-detail-flow`: Build A Content Channel Listing And Detail Flow
-- `7-common-cms-and-websites-workflows-publish-media-through-cms`: Publish Media Through CMS
-- `7-common-cms-and-websites-workflows-add-personalization-to-a-page-or-channel`: Add Personalization To A Page Or Channel
-- `8-pages-and-blocks-deep-dive-page-hierarchy-and-navigation`: Page Hierarchy And Navigation
-- `8-pages-and-blocks-deep-dive-page-parameters`: Page Parameters
-- `8-pages-and-blocks-deep-dive-block-settings`: Block Settings
-- `8-pages-and-blocks-deep-dive-block-security`: Block Security
-- `9-themes-deep-dive-what-themes-control`: What Themes Control
-- `9-themes-deep-dive-theme-selection`: Theme Selection
-- `9-themes-deep-dive-icon-systems`: Icon Systems
-- `10-content-channels-deep-dive-dates-and-ordering`: Dates And Ordering
-- `10-content-channels-deep-dive-categories-and-navigation`: Categories And Navigation
-- `10-content-channels-deep-dive-content-channel-item-view`: Content Channel Item View
-- `10-content-channels-deep-dive-content-channel-item-list`: Content Channel Item List
-- `11-related-rock-areas-lava-security-media-content-personalization-security`: Security
-- `11-related-rock-areas-lava-security-media-content-personalization-personalization`: Personalization
-- `12-administration-and-operational-guardrails-production-change-protocol`: Production Change Protocol
+- `agent-summary`: Agent Summary
+- `sites-routes-and-navigation`: Sites, Routes, And Navigation
+- `pages-layouts-zones-and-blocks`: Pages, Layouts, Zones, And Blocks
+- `advanced-html-lava-and-context`: Advanced HTML, Lava, And Context
+- `personalization`: Personalization
+- `content-channels-and-media-presentation`: Content Channels And Media Presentation
+- `page-parameters-filters-and-short-links`: Page Parameters, Filters, And Short Links
+- `obsidian-helix-htmx-and-forms`: Obsidian, Helix, HTMX, And Forms
+- `mobile-content-boundary`: Mobile Content Boundary
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-page-is-missing-or-visible-to-the-wrong-visitor`: A page is missing or visible to the wrong visitor
+- `troubleshooting-decision-tree-a-saved-page-block-route-or-style-change-does-not-appear`: A saved page, block, route, or style change does not appear
+- `troubleshooting-decision-tree-the-wrong-personalized-or-contextual-content-appears`: The wrong personalized or contextual content appears
+- `troubleshooting-decision-tree-a-content-channel-item-is-missing-duplicated-or-exposed`: A content-channel item is missing, duplicated, or exposed
+- `troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer`: A Page Parameter Filter does not update its consumer
+- `troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor`: A Helix endpoint works for an administrator but fails for the intended visitor
+- `troubleshooting-decision-tree-an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong`: An HTMX result is correct but its controls, assets, or metadata are wrong
+- `troubleshooting-decision-tree-a-page-is-slow`: A page is slow
+- `troubleshooting-decision-tree-a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions`: A web form fails validation, nests incorrectly, or receives bot submissions
+- `troubleshooting-decision-tree-mobile-content-is-stale-or-lacks-currentperson`: Mobile content is stale or lacks `CurrentPerson`
+- `troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options`: A generated short link is blank or uses the wrong options
+- `troubleshooting-decision-tree-background-generated-media-is-linked-before-it-is-ready`: Background-generated media is linked before it is ready
+- `agent-task-recipes-recipe-publish-a-page-and-block-safely`: Recipe: Publish a page and block safely
+- `agent-task-recipes-recipe-copy-a-page-hierarchy-without-carrying-stale-configuration`: Recipe: Copy a page hierarchy without carrying stale configuration
+- `agent-task-recipes-recipe-audit-an-advanced-html-or-stored-lava-surface`: Recipe: Audit an Advanced HTML or stored-Lava surface
+- `agent-task-recipes-recipe-change-a-theme-without-surprising-other-sites-or-pages`: Recipe: Change a theme without surprising other sites or pages
+- `agent-task-recipes-recipe-publish-a-content-channel-list-and-detail-experience`: Recipe: Publish a content-channel list and detail experience
+- `agent-task-recipes-recipe-build-and-verify-personalized-content`: Recipe: Build and verify personalized content
+- `agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer`: Recipe: Connect a Page Parameter Filter to a consumer
+- `agent-task-recipes-recipe-build-a-bounded-helix-active-search-page`: Recipe: Build a bounded Helix active-search page
+- `agent-task-recipes-recipe-launch-a-landing-page`: Recipe: Launch a landing page
+- `agent-task-recipes-recipe-retire-a-seasonal-public-feature`: Recipe: Retire a seasonal public feature
+- `agent-task-recipes-recipe-publish-background-generated-video`: Recipe: Publish background-generated video
+- `agent-task-recipes-recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity`: Recipe: Configure mobile CMS content with the correct freshness and identity
 
 ## Live Verification Clarification
 

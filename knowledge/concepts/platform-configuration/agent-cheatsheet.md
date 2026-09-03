@@ -10,13 +10,16 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find Available Attributes For An Add Or Update Operation](tasks/recipe-find-available-attributes-for-an-add-or-update-operation.md) | `Attribute` | `Attribute` |
-| [Recipe: Explain A Platform Configuration Object To A User](tasks/recipe-explain-a-platform-configuration-object-to-a-user.md) |  |  |
-| [Recipe: Safely Answer “Can We Delete This?”](tasks/recipe-safely-answer-can-we-delete-this.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
-| [Recipe: Build A Source-Backed Explanation](tasks/recipe-build-a-source-backed-explanation.md) | `Attribute` | `Attribute` |
-| [Recipe: Triage Attribute Security](tasks/recipe-triage-attribute-security.md) | `Block`, `Attribute` | `Block`, `Attribute` |
-| [Recipe: Convert A Free-Text Attribute To A Defined Value](tasks/recipe-convert-a-free-text-attribute-to-a-defined-value.md) | `Attribute`, `Workflow`, `Block` | `Attribute`, `Workflow`, `Block` |
-| [Recipe: Diagnose Attribute Field Type Mismatch](tasks/recipe-diagnose-attribute-field-type-mismatch.md) | `Workflow`, `Block`, `Attribute` | `Workflow`, `Block`, `Attribute` |
+| [Recipe: Add and verify a campus attribute](tasks/recipe-add-and-verify-a-campus-attribute.md) | `Campus`, `Attribute` | `Campus`, `Attribute` |
+| [Recipe: Place person attributes on a profile tab](tasks/recipe-place-person-attributes-on-a-profile-tab.md) | `Person`, `Location`, `Block`, `Attribute` | `Person`, `Location`, `Block`, `Attribute` |
+| [Recipe: Audit a Defined Value source mismatch](tasks/recipe-audit-a-defined-value-source-mismatch.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
+| [Recipe: Operate seasonal Defined Value options](tasks/recipe-operate-seasonal-defined-value-options.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
+| [Recipe: Stage a campus](tasks/recipe-stage-a-campus.md) | `Location`, `Schedule`, `Campus`, `Block`, `Attribute` | `Location`, `Schedule`, `Campus`, `Block`, `Attribute` |
+| [Recipe: Move an expensive dashboard calculation to scheduled storage](tasks/recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage.md) | `Schedule` | `Schedule` |
+| [Recipe: Secure an embedded BI report](tasks/recipe-secure-an-embedded-bi-report.md) | `Page`, `Block` | `Page`, `Block` |
+| [Recipe: Preflight a v19 configuration change](tasks/recipe-preflight-a-v19-configuration-change.md) | `Workflow`, `Block` | `Workflow`, `Block` |
+| [Recipe: Design a bounded Rock agent tool](tasks/recipe-design-a-bounded-rock-agent-tool.md) | `Person` | `Person` |
+| [Recipe: Plan a Rock upgrade as configuration change](tasks/recipe-plan-a-rock-upgrade-as-configuration-change.md) | `Workflow`, `Page`, `Block`, `Attribute` | `Workflow`, `Page`, `Block`, `Attribute` |
 
 ## Entities
 
@@ -28,16 +31,12 @@ generated: true
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Check-in Configuration` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DefinedType` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
-| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
-| `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `GroupType` | `Group` | Confirm the type takes attendance and supports the intended check-in pattern. |
 | `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
@@ -46,62 +45,50 @@ generated: true
 | --- | --- | --- |
 | `19.1` | core | Fixed an issue in multiple attribute editing blocks where the Category dropdown included Global Attribute categories instead of categories for the attribute’s actual entity type. Fixes: #6729 |
 | `17.2` | core | Fixed an issue where the list of attribute categories shown when editing a Content Channel Item attribute from the Content Channel Type Detail block included incorrect or unrelated categories. This made it difficult to assign attributes to  |
-| `18.2` | core | Fixed an issue where the Attribute Editor did not correctly save configuration changes when creating an Attribute designed to store other Attributes (e.g., an Attribute of type Attribute). This affected scenarios such as defining filters in |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `2-scope-and-terminology` | normal | live verification |
-| `3-platform-configuration-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-entity-types` | normal | live verification |
-| `5-core-configuration-and-data-model-attribute-values` | normal | live verification |
-| `5-core-configuration-and-data-model-field-types` | normal | live verification |
-| `5-core-configuration-and-data-model-categories` | high | live verification |
-| `5-core-configuration-and-data-model-global-attributes-and-system-settings` | normal | live verification |
-| `6-primary-entities-and-relationships` | structural | live verification |
-| `6-primary-entities-and-relationships-campus-relationship-map` | structural | live verification |
-| `7-common-platform-configuration-workflows-add-a-person-attribute` | normal | live verification |
-| `7-common-platform-configuration-workflows-add-a-connection-request-attribute` | normal | live verification |
-| `7-common-platform-configuration-workflows-configure-a-campus-aware-report` | normal | live verification |
-| `7-common-platform-configuration-workflows-add-mobile-site-attributes` | normal | live verification |
-| `7-common-platform-configuration-workflows-use-attributes-in-custom-blocks` | normal | live verification |
-| `8-attributes-and-attribute-values-deep-dive-attribute-definition-fields` | normal | live verification |
-| `8-attributes-and-attribute-values-deep-dive-qualifiers` | normal | live verification |
-| `8-attributes-and-attribute-values-deep-dive-raw-values-versus-formatted-values` | normal | live verification |
-| `8-attributes-and-attribute-values-deep-dive-attribute-values-in-lava` | normal | live verification |
-| `9-defined-types-and-values-deep-dive-defined-type-fields-to-inspect` | normal | live verification |
-| `9-defined-types-and-values-deep-dive-defined-value-fields-to-inspect` | normal | live verification |
-| `9-defined-types-and-values-deep-dive-categorizing-defined-values` | citation-only | live verification |
-| `10-categories-and-entity-types-deep-dive-entity-type-security` | normal | live verification |
-| `10-categories-and-entity-types-deep-dive-category-version-caveats` | normal | live verification |
-| `11-campuses-and-global-settings-deep-dive-campus-as-context` | citation-only | live verification |
-| `11-campuses-and-global-settings-deep-dive-campus-filters-in-reports` | community-supported | live verification |
-| `11-campuses-and-global-settings-deep-dive-global-attributes` | normal | live verification |
-| `11-campuses-and-global-settings-deep-dive-system-settings` | normal | live verification |
-| `12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-groups` | community-supported | community-supported |
-| `12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-data-views` | structural | live verification |
-| `13-administration-and-operational-guardrails-change-management` | structural | live verification |
-| `13-administration-and-operational-guardrails-public-exposure` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-field-types-and-field-attributes` | normal | live verification |
-| `15-reporting-analytics-and-model-map-reporting-rules` | normal | live verification |
-| `16-version-and-release-caveats-rock-v10-3` | normal | live verification |
-| `16-version-and-release-caveats-rock-v15-0` | normal | live verification |
-| `16-version-and-release-caveats-rock-v17-and-v17-5` | normal | live verification |
-| `16-version-and-release-caveats-rock-v19-1` | normal | live verification |
-| `17-implementation-playbooks-playbook-audit-an-attribute-before-editing` | structural | live verification |
-| `17-implementation-playbooks-playbook-create-a-safe-defined-type` | structural | live verification |
-| `17-implementation-playbooks-playbook-replace-a-defined-value` | structural | live verification |
-| `17-implementation-playbooks-playbook-diagnose-missing-attribute-in-a-block` | structural | live verification |
-| `17-implementation-playbooks-playbook-diagnose-lava-attribute-output` | structural | live verification |
-| `17-implementation-playbooks-playbook-build-a-campus-aware-workflow-or-report` | normal | live verification |
-| `19-agent-task-recipes-recipe-find-available-attributes-for-an-add-or-update-operation` | normal | live verification |
-| `19-agent-task-recipes-recipe-explain-a-platform-configuration-object-to-a-user` | structural | live verification |
-| `19-agent-task-recipes-recipe-safely-answer-can-we-delete-this` | structural | live verification |
-| `19-agent-task-recipes-recipe-build-a-source-backed-explanation` | normal | live verification |
-| `19-agent-task-recipes-recipe-diagnose-attribute-field-type-mismatch` | structural | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `20-source-map-and-dependency-notes` | high | live verification |
+| `agent-summary` | normal | live verification |
+| `attributes-and-attribute-values-separate-the-definition-from-stored-values` | normal | live verification |
+| `attributes-and-attribute-values-present-attributes-intentionally` | normal | live verification |
+| `attributes-and-attribute-values-account-for-channel-specific-support` | normal | live verification |
+| `defined-types-and-values-defined-value-attributes` | normal | live verification |
+| `defined-types-and-values-detect-source-mismatches` | citation-only | live verification |
+| `categories-and-entity-types-categories-are-scoped-configuration` | high | live verification |
+| `campuses-and-global-settings-campus-configuration` | normal | live verification |
+| `campuses-and-global-settings-campus-attributes` | normal | live verification |
+| `campuses-and-global-settings-room-capacity-and-schedule-availability` | citation-only | live verification |
+| `campuses-and-global-settings-global-attributes-and-system-settings` | normal | live verification |
+| `analytics-and-reporting-configuration` | community-supported | live verification |
+| `ai-agents-lava-tools-and-extensions` | normal | live verification |
+| `cross-domain-version-19-configuration-captcha` | citation-only | live verification |
+| `cross-domain-version-19-configuration-check-in` | citation-only | live verification |
+| `cross-domain-version-19-configuration-event-registration` | citation-only | live verification |
+| `cross-domain-version-19-configuration-communications-and-workflows` | citation-only | live verification |
+| `cross-domain-version-19-configuration-person-merge-and-record-provenance` | citation-only | live verification |
+| `version-and-authority-caveats` | needs-citation | needs-citation |
+| `troubleshooting-decision-tree-an-attribute-exists-but-is-not-visible` | normal | live verification |
+| `troubleshooting-decision-tree-a-workflow-stores-a-value-but-the-report-shows-the-wrong-label` | citation-only | live verification |
+| `troubleshooting-decision-tree-seasonal-options-are-missing-or-still-selectable` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-campus-selector-is-absent-or-chooses-a-campus-automatically` | normal | live verification |
+| `troubleshooting-decision-tree-a-campus-cannot-use-the-intended-location` | normal | live verification |
+| `troubleshooting-decision-tree-check-in-room-capacity-or-availability-is-wrong` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-dashboard-is-slow` | community-supported | community-supported |
+| `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed` | community-supported | live verification |
+| `troubleshooting-decision-tree-the-v19-check-in-manager-roster-does-not-update-live` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-v19-registration-rejects-an-apparently-eligible-person` | citation-only | live verification |
+| `troubleshooting-decision-tree-an-agent-chooses-the-wrong-tool-or-returns-too-much-data` | citation-only | live verification |
+| `agent-task-recipes-recipe-add-and-verify-a-campus-attribute` | normal | live verification |
+| `agent-task-recipes-recipe-place-person-attributes-on-a-profile-tab` | normal | live verification |
+| `agent-task-recipes-recipe-audit-a-defined-value-source-mismatch` | citation-only | live verification |
+| `agent-task-recipes-recipe-operate-seasonal-defined-value-options` | citation-only | live verification |
+| `agent-task-recipes-recipe-stage-a-campus` | normal | live verification |
+| `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage` | community-supported | live verification |
+| `agent-task-recipes-recipe-secure-an-embedded-bi-report` | community-supported | live verification |
+| `agent-task-recipes-recipe-preflight-a-v19-configuration-change` | citation-only | live verification |
+| `agent-task-recipes-recipe-design-a-bounded-rock-agent-tool` | citation-only | live verification |
+| `agent-task-recipes-recipe-plan-a-rock-upgrade-as-configuration-change` | citation-only | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
+| `source-map-reviewed-community-evidence` | community-supported | community-supported |

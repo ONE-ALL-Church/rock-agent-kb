@@ -18,33 +18,32 @@ Giving, transactions, batches, statements, pledges, gateways, and finance admini
 
 ## Primary Tasks
 
-- [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md): Complete Read-Only Finance Record Inspection with evidence-backed checks and a verifiable outcome.
-- [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md): Complete Statement Eligibility Explanation with evidence-backed checks and a verifiable outcome.
-- [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md): Complete Safe Account Cleanup Assessment with evidence-backed checks and a verifiable outcome.
-- [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md): The recurring-giving prompt recipe is a useful pattern but includes a clear warning about external recurring profiles not synced into Rock (Automate asking Regular Givers to Set up Recurring Giving).
-- [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Trace a public gift end to end](tasks/recipe-trace-a-public-gift-end-to-end.md): Account for a gift from donor action through its Rock records and reporting treatment.
+- [Recipe: Validate an online giving page before launch](tasks/recipe-validate-an-online-giving-page-before-launch.md): Establish that the page’s configuration expresses the intended finance path.
+- [Recipe: Reconcile an online batch](tasks/recipe-reconcile-an-online-batch.md): Explain every batch total and variance at the correct grain.
+- [Recipe: Generate and validate contribution statements](tasks/recipe-generate-and-validate-contribution-statements.md): Produce a reviewable statement set whose population and finance rules are explicit.
+- [Recipe: Build a detail-preserving finance report](tasks/recipe-build-a-detail-preserving-finance-report.md): Show each account allocation with transaction-level context without accidental row collapse.
+- [Recipe: Transfer scheduled giving to a new gateway](tasks/recipe-transfer-scheduled-giving-to-a-new-gateway.md): Route new gifts to the new provider while giving existing scheduled donors a controlled transfer path.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-63: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 64-126: 2. Scope And Terminology (high)
-- `3-giving-and-finance-mental-model` lines 127-155: 3. Giving And Finance Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 156-174: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-financial-accounts` lines 177-192: Financial Accounts (normal)
-- `5-core-configuration-and-data-model-financial-gateways` lines 193-221: Financial Gateways (high)
+- `scope-and-boundaries` lines 34-47: Scope And Boundaries (normal)
+- `mental-model` lines 48-67: Mental Model (normal)
+- `transactions` lines 68-79: Transactions (normal)
+- `payment-gateways` lines 80-94: Payment Gateways (normal)
+- `online-giving-and-receipts` lines 95-106: Online Giving And Receipts (normal)
+- `text-giving` lines 107-116: Text Giving (normal)
 
 ## Core Entities
 
 - `Attribute`: Rock concept/entity referenced by the giving-finance guide.
 - `Block`: Rock concept/entity referenced by the giving-finance guide.
 - `Campus`: Rock concept/entity referenced by the giving-finance guide.
-- `DataView`: Rock concept/entity referenced by the giving-finance guide.
 - `Family`: Rock concept/entity referenced by the giving-finance guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the giving-finance guide.
 - `Person`: Rock concept/entity referenced by the giving-finance guide.
-- `PersonAlias`: Rock concept/entity referenced by the giving-finance guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Workflow`: Rock concept/entity referenced by the giving-finance guide.
 

@@ -3,231 +3,346 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Schedule"
+        "Schedule",
+        "Label"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-job-did-not-run",
-      "id": "a-job-did-not-run",
+      "guide_section_id": "troubleshooting-decision-tree-a-scheduled-job-stopped-producing-new-history",
+      "id": "a-scheduled-job-stopped-producing-new-history",
       "inspect": [
-        "Schedule"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is the job active?",
-        "Is the schedule valid?",
-        "Is next run in the future?",
-        "Is server time correct?",
-        "Is the Rock job runner running?",
-        "Is another server responsible?",
-        "Is there any history record?",
-        "Is history retention hiding old records?"
-      ],
-      "title": "A Job Did Not Run",
-      "when": "A Job Did Not Run"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "DataView",
-        "Workflow"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-job-failed",
-      "id": "a-job-failed",
-      "inspect": [
-        "DataView",
-        "Workflow"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "What is the exact status message?",
-        "Is there a matching ExceptionLog row?",
-        "Did it fail once or repeatedly?",
-        "Did duration change?",
-        "Did input data change?",
-        "Did credentials expire?",
-        "Did a Data View/report/workflow dependency fail?",
-        "Did a release note mention this behavior?"
-      ],
-      "title": "A Job Failed",
-      "when": "A Job Failed"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-search-is-missing-results",
-      "id": "search-is-missing-results",
-      "inspect": [
-        "Attribute"
+        "Schedule",
+        "Label"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/32"
+        "https://www.rockrms.com/releasenotes",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/specs/completed/core/260731-servicejobhistory-sub-second-orphaned-incomplete-rows.md"
       ],
       "start_with": [
-        "Provider enabled?",
-        "Entity enabled?",
-        "Attribute selected?",
-        "Bulk load run?",
-        "Re-index job successful?",
-        "Site entity special setup needed?",
-        "Site crawl job exists?",
-        "Security/filtering expected?"
+        "Inspect the job’s expected schedule and its most recent consecutive history rows.",
+        "Compare start time, stop time, status, status message, and duration rather than relying on the last status label alone.",
+        "Check whether the installed version predates the v19.5 fix for jobs silently stopping after errors while recording status, writing history, or sending notifications.",
+        "If rows are duplicated, falsely `Incomplete`, or show implausible durations for extremely fast work, check applicability of the separate v19.5 sub-second-history fix.",
+        "Verify the downstream result independently; history recording and business work are related but not identical outcomes.",
+        "Stop when version applicability or the installed job configuration cannot be established without live review. Rock release notes"
       ],
-      "title": "Search Is Missing Results",
-      "when": "Search Is Missing Results"
+      "title": "A scheduled job stopped producing new history",
+      "when": "A scheduled job stopped producing new history"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "Page",
-        "Attribute"
+        "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-search-shows-sensitive-results",
-      "id": "search-shows-sensitive-results",
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-slow",
+      "id": "a-page-is-slow",
       "inspect": [
-        "Person",
-        "Page",
-        "Attribute"
+        "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/32"
+        "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=1003s",
+        "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/intro-to-caching"
       ],
       "start_with": [
-        "Is the result from Person attributes?",
-        "Was a sensitive attribute indexed?",
-        "Is the content from site crawling?",
-        "Is the page public?",
-        "Is attribute security expected but unavailable in search?",
-        "Should the entity/attribute be removed from index?",
-        "Should index be rebuilt after removal?"
+        "On v19, capture the Page Load Time diagnostic and identify the slow component.",
+        "Compare an uncached or first request with a cached request.",
+        "If the expensive work is a large reusable dataset, inspect whether a Persisted Dataset is appropriate.",
+        "If the issue is intermittent or spans multiple pages, correlate it with infrastructure telemetry and exception timestamps.",
+        "Stop before enabling broad auditing or cache statistics unless their restart or performance effects are authorized. Approved claim source"
       ],
-      "title": "Search Shows Sensitive Results",
-      "when": "Search Shows Sensitive Results"
+      "title": "A page is slow",
+      "when": "A page is slow"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not interpret an unchanged linked-key count as proof that the clear failed."
+      ],
       "entities": [
-        "DataView",
+        "Page",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-report-results-are-stale",
-      "id": "report-results-are-stale",
+      "guide_section_id": "troubleshooting-decision-tree-updated-content-remains-stale",
+      "id": "updated-content-remains-stale",
       "inspect": [
-        "DataView",
+        "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Does the report use a Data View?",
-        "Is the Data View persisted?",
-        "When did it last refresh?",
-        "Did `Update Persisted DataViews` run?",
-        "Did the Data View fail?",
-        "Is cache involved?",
-        "Is the report itself cached?",
-        "Are permissions filtering rows?"
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-manager",
+        "https://community.rockrms.com/documentation/supporting-rock/caching/cache-tags/use-cache-tags",
+        "https://community.rockrms.com/documentation/supporting-rock/caching/caching-fundamentals/cache-persisted-datasets"
       ],
-      "title": "Report Results Are Stale",
-      "when": "Report Results Are Stale"
+      "start_with": [
+        "Identify whether the block uses Item Cache, Output Cache, Lava caching, or a Persisted Dataset.",
+        "Inspect the block’s assigned cache tags.",
+        "Clear only the relevant tag when one exists.",
+        "Do not interpret an unchanged linked-key count as proof that the clear failed.",
+        "If a Persisted Dataset supplies the data, inspect its producing job rather than repeatedly clearing output cache.",
+        "Verify the rendered page after the appropriate refresh path completes. Cache Manager Use Cache Tags"
+      ],
+      "title": "Updated content remains stale",
+      "when": "Updated content remains stale"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not infer a filesystem-permission problem from this signature alone."
+      ],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
-      "id": "clear-cache-throws-an-error",
+      "guide_section_id": "troubleshooting-decision-tree-clear-cache-throws-a-missing-directory-error",
+      "id": "clear-cache-throws-a-missing-directory-error",
       "inspect": [],
       "source_urls": [
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Rock version.",
-        "Exact exception.",
-        "Does `App_Data/Cache` exist?",
-        "Did Rock Cleanup delete it?",
-        "Are file types configured to cache to server?",
-        "Is the v19.1 fix present?",
-        "Is there a file permission issue?"
+        "Record the exact exception and installed Rock version.",
+        "Check whether the error is `DirectoryNotFoundException` involving the cache directory.",
+        "Check applicability of the Rock v19.1 fix for the cache directory being removed by Rock Cleanup and not recreated.",
+        "Do not infer a filesystem-permission problem from this signature alone.",
+        "Stop if the signature or version differs; the pack supplies no broader cache-directory repair procedure."
       ],
-      "title": "Clear Cache Throws An Error",
-      "when": "Clear Cache Throws An Error"
+      "title": "Clear Cache throws a missing-directory error",
+      "when": "Clear Cache throws a missing-directory error"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-exceptions-repeat-after-a-page-or-block-change",
+      "id": "exceptions-repeat-after-a-page-or-block-change",
+      "inspect": [
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/data/advanced-data/view-the-exception-list"
+      ],
+      "start_with": [
+        "Open `Admin Tools > Settings > Exception List`.",
+        "Locate the grouped exception type and correlate its timestamps with the configuration change.",
+        "Open the exception detail and identify the affected page, block, or code path.",
+        "Revert or adjust only the configuration demonstrated to be involved.",
+        "Confirm whether the exception stops recurring.",
+        "If email alerts were absent, inspect the Exception List directly and separately verify the Email Exceptions List configuration."
+      ],
+      "title": "Exceptions repeat after a page or block change",
+      "when": "Exceptions repeat after a page or block change"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-universal-search-cannot-connect-after-an-environment-refresh",
+      "id": "universal-search-cannot-connect-after-an-environment-refresh",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/search/universal-search/installing-elasticsearch"
+      ],
+      "start_with": [
+        "Open the Universal Search Control Panel and confirm the provider connection error.",
+        "Inspect the configured provider under `Universal Search Index Components`.",
+        "Confirm that node URL, environment-specific credentials, and certificate fingerprint refer to the refreshed environment’s Elasticsearch service.",
+        "Verify the external service independently without exposing credentials.",
+        "Only after connectivity is restored, inspect entity indexing and re-index status."
+      ],
+      "title": "Universal Search cannot connect after an environment refresh",
+      "when": "Universal Search cannot connect after an environment refresh"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "DataView"
+        "Attribute"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
-      "id": "a-data-view-api-call-fails",
+      "guide_section_id": "troubleshooting-decision-tree-a-person-attribute-is-missing-from-universal-search",
+      "id": "a-person-attribute-is-missing-from-universal-search",
       "inspect": [
         "Person",
-        "DataView"
+        "Attribute"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/DataViewsActionsController.cs"
+        "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities",
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Is the caller authenticated?",
-        "Does the Data View exist?",
-        "Is ID/GUID/IdKey correct?",
-        "Does current person have View authorization?",
-        "Does caller have unrestricted read authorization?",
-        "Is entity ID valid?",
-        "Does the Data View execute?",
-        "Is a persisted stale result involved?"
+        "Confirm that Person indexing is enabled.",
+        "Confirm that the specific attribute is selected for indexing.",
+        "Assess whether the attribute is safe to expose, because Universal Search does not enforce person-attribute security.",
+        "Run the supported Person bulk load or wait for the nightly re-index.",
+        "If the installed version predates v19.3, check applicability of the documented Person Attribute Values defect.",
+        "Stop if the desired attribute is sensitive or version applicability is unknown. Specifics for Entities"
       ],
-      "title": "A Data View API Call Fails",
-      "when": "A Data View API Call Fails"
+      "title": "A person attribute is missing from Universal Search",
+      "when": "A person attribute is missing from Universal Search"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Workflow"
+        "Group",
+        "GroupType",
+        "Location",
+        "Attribute"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
-      "id": "a-lava-endpoint-exposes-too-much",
+      "guide_section_id": "troubleshooting-decision-tree-an-entity-type-returns-no-universal-search-results",
+      "id": "an-entity-type-returns-no-universal-search-results",
       "inspect": [
         "Person",
-        "Workflow"
+        "Group",
+        "GroupType",
+        "Location",
+        "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/lava-api"
+        "https://community.rockrms.com/documentation/core-concepts/search/universal-search/enable-entities-for-universal-search",
+        "https://community.rockrms.com/documentation/core-concepts/search/universal-search/specifics-for-entities"
       ],
       "start_with": [
-        "Is it a Lava webhook?",
-        "Which Defined Value route matches?",
-        "Which HTTP verbs match?",
-        "Which Lava commands are enabled?",
-        "Does the template check authorization?",
-        "Does it expose person, finance, workflow, or security data?",
-        "Is it cached?",
-        "Can route be disabled or restricted?"
+        "Confirm the provider is connected.",
+        "Confirm the entity is enabled in the Universal Search Control Panel.",
+        "Apply the entity-specific eligibility check: Group Type, Content Channel, site settings and crawl, calendar, or Person attribute.",
+        "Inspect the relevant re-index or site-crawl job history.",
+        "For sites, verify that the crawling starting location links to the missing content and that the crawler did not encounter an accessible logout link.",
+        "Re-index only after correcting eligibility or connectivity.",
+        "Verify one known eligible result after completion. Enable Entities for Universal Search"
       ],
-      "title": "A Lava Endpoint Exposes Too Much",
-      "when": "A Lava Endpoint Exposes Too Much"
+      "title": "An entity type returns no Universal Search results",
+      "when": "An entity type returns no Universal Search results"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-universal-search-works-directly-but-not-through-smart-search",
+      "id": "universal-search-works-directly-but-not-through-smart-search",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/search/universal-search/integrating-smart-search"
+      ],
+      "start_with": [
+        "Confirm Universal Search is enabled in Search Services.",
+        "Confirm its position in the component list matches the intended default behavior.",
+        "Inspect the configured results URL and its Smart Search parameter.",
+        "Confirm the target page contains the Universal Search block.",
+        "Inspect which entities are allowed to appear through Smart Search.",
+        "Treat result templates and index contents as separate checks."
+      ],
+      "title": "Universal Search works directly but not through Smart Search",
+      "when": "Universal Search works directly but not through Smart Search"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Family",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-two-person-records-may-be-duplicates-but-identity-is-uncertain",
+      "id": "two-person-records-may-be-duplicates-but-identity-is-uncertain",
+      "inspect": [
+        "Person",
+        "Family",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-duplicate-finder",
+        "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/merge-duplicate-records"
+      ],
+      "start_with": [
+        "Open the candidate in Duplicate Finder.",
+        "Compare contact, name, family, birthday, Record Source, creator, modification time, and other available evidence.",
+        "Treat confidence as a heuristic.",
+        "If evidence is insufficient, defer the decision so Rock can reassess as records gain information.",
+        "Merge only when both records are established to represent the same person and the operator can review the values that will survive.",
+        "Stop when security restrictions or incomplete attribute visibility prevent a safe comparison. Use Duplicate Finder"
+      ],
+      "title": "Two person records may be duplicates, but identity is uncertain",
+      "when": "Two person records may be duplicates, but identity is uncertain"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Location"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-address-is-missing-coordinates",
+      "id": "an-address-is-missing-coordinates",
+      "inspect": [
+        "Location"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/location-editor"
+      ],
+      "start_with": [
+        "Open `Tools > Data Integrity > Location Editor`.",
+        "Filter for locations that are not geocoded.",
+        "Open the affected location and correct its address fields.",
+        "Save so Rock can resolve coordinates again.",
+        "Verify the corrected location in the downstream feature that reported the problem."
+      ],
+      "title": "An address is missing coordinates",
+      "when": "An address is missing coordinates"
+    },
+    {
+      "do_not_assume": [
+        "Do not rerun the job until the criteria and downstream effects are understood."
+      ],
+      "entities": [
+        "DataView",
+        "Group"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-data-automation-changed-more-records-than-expected",
+      "id": "data-automation-changed-more-records-than-expected",
+      "inspect": [
+        "DataView",
+        "Group"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-data-automation",
+        "https://community.rockrms.com/documentation/supporting-rock/data/data-integrity/use-audit-information"
+      ],
+      "start_with": [
+        "Identify which automation function changed the records.",
+        "Inspect its inclusion and exclusion Data Views, inactive-reason settings, and processing limit.",
+        "Check whether affected people were also changed in groups or security roles.",
+        "Correlate the changes with the Data Automation job’s execution history and audit information already available.",
+        "Do not rerun the job until the criteria and downstream effects are understood.",
+        "If temporary auditing is proposed, account for its significant performance cost. Use Data Automation"
+      ],
+      "title": "Data Automation changed more records than expected",
+      "when": "Data Automation changed more records than expected"
     }
   ],
   "concept_id": "system-admin-ops",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:53+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-a-job-did-not-run",
-    "18-troubleshooting-decision-tree-a-job-failed",
-    "18-troubleshooting-decision-tree-search-is-missing-results",
-    "18-troubleshooting-decision-tree-search-shows-sensitive-results",
-    "18-troubleshooting-decision-tree-report-results-are-stale",
-    "18-troubleshooting-decision-tree-clear-cache-throws-an-error",
-    "18-troubleshooting-decision-tree-a-data-view-api-call-fails",
-    "18-troubleshooting-decision-tree-a-lava-endpoint-exposes-too-much",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-answer-is-the-system-healthy",
-    "19-agent-task-recipes-recipe-answer-why-is-this-data-wrong",
-    "19-agent-task-recipes-recipe-answer-can-i-clear-cache",
-    "19-agent-task-recipes-recipe-answer-why-did-this-workflow-not-start",
-    "19-agent-task-recipes-recipe-answer-why-is-this-data-view-slow",
-    "19-agent-task-recipes-recipe-answer-what-changed-in-this-version-that-matters-operationally"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-scheduled-job-stopped-producing-new-history",
+    "troubleshooting-decision-tree-a-page-is-slow",
+    "troubleshooting-decision-tree-updated-content-remains-stale",
+    "troubleshooting-decision-tree-clear-cache-throws-a-missing-directory-error",
+    "troubleshooting-decision-tree-exceptions-repeat-after-a-page-or-block-change",
+    "troubleshooting-decision-tree-universal-search-cannot-connect-after-an-environment-refresh",
+    "troubleshooting-decision-tree-a-person-attribute-is-missing-from-universal-search",
+    "troubleshooting-decision-tree-an-entity-type-returns-no-universal-search-results",
+    "troubleshooting-decision-tree-universal-search-works-directly-but-not-through-smart-search",
+    "troubleshooting-decision-tree-two-person-records-may-be-duplicates-but-identity-is-uncertain",
+    "troubleshooting-decision-tree-an-address-is-missing-coordinates",
+    "troubleshooting-decision-tree-data-automation-changed-more-records-than-expected",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-triage-a-recurring-exception",
+    "agent-task-recipes-recipe-refresh-stale-cached-output-with-minimum-scope",
+    "agent-task-recipes-recipe-create-and-assign-a-cache-tag",
+    "agent-task-recipes-recipe-audit-a-scheduled-job-s-recent-health",
+    "agent-task-recipes-recipe-restore-a-missing-universal-search-entity",
+    "agent-task-recipes-recipe-configure-a-bounded-site-index-crawl",
+    "agent-task-recipes-recipe-review-and-resolve-a-duplicate-person-candidate",
+    "agent-task-recipes-recipe-review-a-data-automation-change-before-execution"
   ]
 }

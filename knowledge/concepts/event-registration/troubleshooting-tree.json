@@ -3,253 +3,266 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Label",
-        "Page",
-        "Block"
+        "Group",
+        "Page"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
-      "id": "public-page-says-registration-is-closed",
+      "guide_section_id": "troubleshooting-decision-tree-the-public-event-has-no-register-button",
+      "id": "the-public-event-has-no-register-button",
       "inspect": [
-        "Label",
-        "Page",
-        "Block"
+        "Group",
+        "Page"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars"
+      ],
       "start_with": [
-        "Instance Active.",
-        "Registration Starts.",
-        "Registration Ends.",
-        "Current server time/time zone.",
-        "Capacity/spots.",
-        "Wait list enabled.",
-        "Linkage points to correct instance.",
-        "Public page block resolves correct instance."
+        "Confirm that the intended calendar event occurrence exists and is the occurrence being displayed.",
+        "Inspect its linkage and verify that it points to the intended registration instance.",
+        "Confirm that the registration instance is active and within its intended public registration window.",
+        "Verify the page route or direct registration URL being used.",
+        "If group placement depends on the linkage, confirm that the URL slug is present.",
+        "If the problem began after an upgrade, compare the installed release with the supplied v19.3 linkage-editing fix and v20 pre-alpha friendly-route fix.",
+        "Stop when the public event detail opens the intended registration and a representative test can reach the correct entry form."
       ],
-      "title": "Public page says registration is closed",
-      "when": "Public page says registration is closed"
+      "title": "The public event has no Register button",
+      "when": "The public event has no Register button"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Family"
+        "DataView"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
-      "id": "user-cannot-select-the-intended-family-member",
+      "guide_section_id": "troubleshooting-decision-tree-a-representative-person-is-unexpectedly-ineligible",
+      "id": "a-representative-person-is-unexpectedly-ineligible",
       "inspect": [
         "Person",
-        "Family"
+        "DataView"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=445s"
+      ],
       "start_with": [
-        "Rock version.",
-        "Registrants In Same Family setting.",
-        "v19.1 eligibility rules.",
-        "Age, grade, gender, and age classification data on the person.",
-        "Whether the person is in the same family.",
-        "Duplicate-prevention setting.",
-        "Existing registrant records for the same instance.",
-        "Person merge/duplicate records."
+        "Record the exact instance, template, person, and rejection point.",
+        "Inspect every enabled eligibility criterion: age, gender, grade, and Data View.",
+        "Verify the person values used by those criteria.",
+        "Evaluate the criteria together; v19 requires the person to satisfy all enabled criteria.",
+        "Retest with one person expected to pass and one expected to fail each combined rule.",
+        "Stop when the observed results match a written eligibility matrix."
       ],
-      "title": "User cannot select the intended family member",
-      "when": "User cannot select the intended family member"
+      "title": "A representative person is unexpectedly ineligible",
+      "when": "A representative person is unexpectedly ineligible"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume the setting resolves duplicate person records; it follows matched Person IDs."
+      ],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-duplicate-registration-warning-exposes-sensitive-participation",
+      "id": "a-duplicate-registration-warning-exposes-sensitive-participation",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-templates"
+      ],
+      "start_with": [
+        "Confirm that Prevent Duplicate Registrants is enabled on the template.",
+        "Confirm the installed minor version and actual warning behavior.",
+        "Identify what identity information an unauthenticated or unrelated person must know to trigger the match.",
+        "Classify whether merely revealing prior registration is sensitive for this event.",
+        "If the disclosure is unacceptable, pause launch and choose a reviewed identity or staff-mediated process.",
+        "Do not assume the setting resolves duplicate person records; it follows matched Person IDs."
+      ],
+      "title": "A duplicate-registration warning exposes sensitive participation",
+      "when": "A duplicate-registration warning exposes sensitive participation"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Person"
+        "Person",
+        "Group"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
-      "id": "duplicate-registration-is-blocked",
+      "guide_section_id": "troubleshooting-decision-tree-a-person-moved-from-the-wait-list-is-missing-payment-or-form-data",
+      "id": "a-person-moved-from-the-wait-list-is-missing-payment-or-form-data",
       "inspect": [
-        "Person"
+        "Person",
+        "Group"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-wait-lists",
+        "https://www.rockrms.com/releasenotes"
+      ],
       "start_with": [
-        "Whether v19.1 Prevent Duplicate Registrants is enabled.",
-        "Existing RegistrationRegistrant rows for the same person record and instance.",
-        "Whether wait-listed registrants count for the duplicate check in the live version.",
-        "Whether a staff override path exists.",
-        "Whether the person has duplicate Person records."
+        "Confirm the registrant is now marked as a full registrant.",
+        "Confirm that configured group placement occurred.",
+        "Verify whether the move email was sent.",
+        "Open its completion link as a test recipient and confirm it requests payment and fields omitted during wait-list entry.",
+        "Check whether the person completed that follow-up flow.",
+        "If payment completion fails, compare the installed version with the supplied v19.3 fix.",
+        "Stop when status, required data, payment, and group placement all reconcile."
       ],
-      "title": "Duplicate registration is blocked",
-      "when": "Duplicate registration is blocked"
+      "title": "A person moved from the wait list is missing payment or form data",
+      "when": "A person moved from the wait list is missing payment or form data"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not assume Rock changed that gateway schedule when the balance changed."
+      ],
       "entities": [
         "Schedule"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-discount-code-does-not-work",
-      "id": "discount-code-does-not-work",
+      "guide_section_id": "troubleshooting-decision-tree-a-registration-balance-no-longer-matches-its-payment-plan",
+      "id": "a-registration-balance-no-longer-matches-its-payment-plan",
       "inspect": [
         "Schedule"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Template discount configuration.",
-        "Code spelling.",
-        "Active/scheduled dates.",
-        "Usage limits.",
-        "Applies-to scope.",
-        "Fee-only vs base-cost discount.",
-        "Registration date/time.",
-        "Already-applied codes."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances"
       ],
-      "title": "Discount code does not work",
-      "when": "Discount code does not work"
+      "start_with": [
+        "Inspect registration cost, fees, discounts, payments, and current balance.",
+        "Identify any change made after the plan started.",
+        "Inspect the schedule at the external gateway.",
+        "Do not assume Rock changed that gateway schedule when the balance changed.",
+        "Decide whether the gateway schedule must be adjusted or the plan canceled and recreated.",
+        "Verify the resulting registration balance and future gateway payments independently.",
+        "Stop when both systems agree with the approved collection plan."
+      ],
+      "title": "A registration balance no longer matches its payment plan",
+      "when": "A registration balance no longer matches its payment plan"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "16-troubleshooting-decision-tree-balance-due-is-wrong",
-      "id": "balance-due-is-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-a-batch-transaction-is-not-attached-to-the-registration",
+      "id": "a-batch-transaction-is-not-attached-to-the-registration",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Base cost.",
-        "Fee selections.",
-        "Quantity fees.",
-        "Discounts.",
-        "Payments.",
-        "Failed payments.",
-        "Refunds.",
-        "Manual adjustments."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/registration-finances"
       ],
-      "title": "Balance due is wrong",
-      "when": "Balance due is wrong"
+      "start_with": [
+        "Confirm that the batch is Open rather than Pending.",
+        "Confirm the intended registration template and instance.",
+        "Open Event Registration Matching and select that single instance.",
+        "Find the intended registration at registration grain, not merely a registrant with a matching name.",
+        "Match the transaction and verify the resulting payment and balance from the registration details.",
+        "Stop when the financial transaction and registration both show the intended relationship."
+      ],
+      "title": "A batch transaction is not attached to the registration",
+      "when": "A batch transaction is not attached to the registration"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Step",
+        "Group",
+        "GroupType"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group",
+      "id": "registrants-are-not-entering-the-expected-group",
+      "inspect": [
+        "Step",
+        "Group",
+        "GroupType"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/link-events-to-calendars",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/group-placement",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
+      ],
+      "start_with": [
+        "Confirm that the registration instance is linked to the intended group.",
+        "Confirm that the registration is being entered through the intended event linkage and URL slug.",
+        "Separate full registrants from wait-listed people; initial wait-list entries are not added to the group.",
+        "Inspect the registrant’s group membership and, if used, placement state.",
+        "For post-registration placement, confirm the template placement, Group Type, destination group, and single-versus-multiple placement rule.",
+        "If a custom REST loader created the membership, read the created member back and verify the registrant points to the intended active member. This last step is a reviewed community integration pattern requiring local API verification.",
+        "Stop when every expected full registrant has the intended active membership and wait-list exceptions are documented."
+      ],
+      "title": "Registrants are not entering the expected group",
+      "when": "Registrants are not entering the expected group"
     },
     {
       "do_not_assume": [
-        "The official warning that payment plan changes do not auto-sync from balance changes (Event & Calendar Guide)."
+        "Do not require overlapping department categories to total unique people."
       ],
-      "entities": [
-        "Schedule"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
-      "id": "payment-plan-amount-is-wrong",
-      "inspect": [
-        "Schedule"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/29"
-      ],
-      "start_with": [
-        "Rock balance.",
-        "Gateway schedule.",
-        "Date payment plan was created.",
-        "Discounts or fees changed after plan creation.",
-        "Gateway cancellation/update history.",
-        "Finance notes.",
-        "The official warning that payment plan changes do not auto-sync from balance changes (Event & Calendar Guide)."
-      ],
-      "title": "Payment plan amount is wrong",
-      "when": "Payment plan amount is wrong"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Person",
-        "Block"
+        "Group",
+        "Label"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
-      "id": "signature-document-shown-for-wrong-registrant",
+      "guide_section_id": "troubleshooting-decision-tree-dashboard-totals-disagree",
+      "id": "dashboard-totals-disagree",
       "inspect": [
         "Person",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Rock version.",
-        "v18.3 signature document fix/migration.",
-        "Registrant `SignatureDocumentId`.",
-        "Person-level signature documents.",
-        "Required template.",
-        "Legacy template exclusion.",
-        "Internal block version."
-      ],
-      "title": "Signature document shown for wrong registrant",
-      "when": "Signature document shown for wrong registrant"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
         "Group",
-        "GroupType",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
-      "id": "registrant-missing-from-group-placement",
-      "inspect": [
-        "Group",
-        "GroupType",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is registrant wait-listed?",
-        "Is registrant fully registered?",
-        "Placement mode.",
-        "Destination group type/group.",
-        "Template placement id.",
-        "Group capacity.",
-        "Allow multiple placements.",
-        "Existing group member record."
-      ],
-      "title": "Registrant missing from group placement",
-      "when": "Registrant missing from group placement"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
-      "id": "payment-reminder-did-not-send",
-      "inspect": [
-        "Block"
+        "Label"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Event/RegistrationInstanceSendPaymentReminder/sendPaymentRemindersResponseBag.d.ts"
+        "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+        "https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard"
       ],
       "start_with": [
-        "Outstanding balance.",
-        "Confirmation email.",
-        "Selected row.",
-        "Recently reminded visual state.",
-        "Template reminder time span.",
-        "Sender/from email.",
-        "Communication queue/history.",
-        "Email provider delivery."
+        "Label each metric as registration, registrant, payment, fee, discount, group membership, or another explicit grain.",
+        "Define confirmed and wait-list predicates once.",
+        "Test one multi-person registration, one wait-list registrant, and one recent registrant.",
+        "Reconcile mutually exclusive segments to confirmed registrants.",
+        "Do not require overlapping department categories to total unique people.",
+        "Compare historical pace at the same days-remaining stage if events have different calendars.",
+        "Stop when every discrepancy is explained by grain, population, overlap, timing, or a verified defect."
       ],
-      "title": "Payment reminder did not send",
-      "when": "Payment reminder did not send"
+      "title": "Dashboard totals disagree",
+      "when": "Dashboard totals disagree"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-signature-document-is-missing-or-belongs-to-the-wrong-registration",
+      "id": "a-signature-document-is-missing-or-belongs-to-the-wrong-registration",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm that the template requires a signature document.",
+        "Inspect the affected registrant rather than matching only by person.",
+        "Confirm the installed Rock version.",
+        "If the installation predates or recently crossed v18.3, review the supplied signature-document fix and migration applicability.",
+        "Retest the internal registration list, registration details, and registrant details surfaces.",
+        "Stop when the displayed document follows the intended registrant relationship."
+      ],
+      "title": "A signature document is missing or belongs to the wrong registration",
+      "when": "A signature document is missing or belongs to the wrong registration"
     }
   ],
   "concept_id": "event-registration",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:06+00:00",
   "guide_sections": [
-    "16-troubleshooting-decision-tree",
-    "16-troubleshooting-decision-tree-public-page-says-registration-is-closed",
-    "16-troubleshooting-decision-tree-user-cannot-select-the-intended-family-member",
-    "16-troubleshooting-decision-tree-duplicate-registration-is-blocked",
-    "16-troubleshooting-decision-tree-discount-code-does-not-work",
-    "16-troubleshooting-decision-tree-balance-due-is-wrong",
-    "16-troubleshooting-decision-tree-payment-plan-amount-is-wrong",
-    "16-troubleshooting-decision-tree-signature-document-shown-for-wrong-registrant",
-    "16-troubleshooting-decision-tree-registrant-missing-from-group-placement",
-    "16-troubleshooting-decision-tree-payment-reminder-did-not-send",
-    "17-agent-task-recipes",
-    "17-agent-task-recipes-recipe-summarize-a-registration-instance",
-    "17-agent-task-recipes-recipe-verify-a-public-registration-url",
-    "17-agent-task-recipes-recipe-audit-payment-risk",
-    "17-agent-task-recipes-recipe-audit-discount-codes",
-    "17-agent-task-recipes-recipe-audit-wait-list",
-    "17-agent-task-recipes-recipe-build-a-registrant-packet-export",
-    "17-agent-task-recipes-recipe-add-staff-notes-to-registration-detail",
-    "17-agent-task-recipes-recipe-investigate-api-registration-url-issues"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-public-event-has-no-register-button",
+    "troubleshooting-decision-tree-a-representative-person-is-unexpectedly-ineligible",
+    "troubleshooting-decision-tree-a-duplicate-registration-warning-exposes-sensitive-participation",
+    "troubleshooting-decision-tree-a-person-moved-from-the-wait-list-is-missing-payment-or-form-data",
+    "troubleshooting-decision-tree-a-registration-balance-no-longer-matches-its-payment-plan",
+    "troubleshooting-decision-tree-a-batch-transaction-is-not-attached-to-the-registration",
+    "troubleshooting-decision-tree-registrants-are-not-entering-the-expected-group",
+    "troubleshooting-decision-tree-dashboard-totals-disagree",
+    "troubleshooting-decision-tree-a-signature-document-is-missing-or-belongs-to-the-wrong-registration",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-a-reusable-registration-and-one-event-instance",
+    "agent-task-recipes-recipe-validate-a-paid-registration-before-launch",
+    "agent-task-recipes-recipe-promote-a-wait-listed-person-to-full-registration",
+    "agent-task-recipes-recipe-audit-an-event-registration-dashboard",
+    "agent-task-recipes-recipe-launch-family-preregistration-with-follow-up"
   ]
 }

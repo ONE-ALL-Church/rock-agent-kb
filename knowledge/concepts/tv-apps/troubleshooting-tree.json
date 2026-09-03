@@ -3,57 +3,81 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
-        "Page"
+        "Page",
+        "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
-      "id": "app-does-not-launch-or-shows-wrong-content",
+      "guide_section_id": "troubleshooting-decision-tree-the-tv-application-administration-feature-is-missing",
+      "id": "the-tv-application-administration-feature-is-missing",
       "inspect": [
-        "Person",
-        "Page"
+        "Page",
+        "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app",
-        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands"
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/roku-docs",
+        "https://community.rockrms.com/developer/roku-docs/getting-started"
       ],
       "start_with": [
-        "Is the installed shell pointed at the expected Rock instance?",
-        "Is demo mode active when production settings were expected, or vice versa? For Apple TV, review demo key/testing setup (Testing Your App, Demo Commands).",
-        "Is the API key valid and assigned to the app?",
-        "Does the root/start page exist?",
-        "Is the root/start page valid TVML or SceneGraph?",
-        "Does the page render anonymous, or does Lava assume `CurrentPerson` exists?",
-        "Are cache settings returning stale content?"
+        "Identify the target platform.",
+        "Confirm the installed Rock version: Apple TV requires Rock 14 or later; Roku requires Rock 16.7 or later.",
+        "Confirm that the expected TV application administration blocks and site types exist in the installed package.",
+        "Confirm the operator has permission to view and administer the relevant CMS configuration pages.",
+        "For Roku development, verify whether the current Core-team development-application process is required and has been completed.",
+        "Stop page-level debugging until the application record can be opened. Apple TV Docs Roku Docs"
       ],
-      "title": "App Does Not Launch Or Shows Wrong Content",
-      "when": "App Does Not Launch Or Shows Wrong Content"
+      "title": "The TV application administration feature is missing",
+      "when": "The TV application administration feature is missing"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Device",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-page-is-blank",
-      "id": "page-is-blank",
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-blank-rejected-or-never-appears",
+      "id": "a-page-is-blank-rejected-or-never-appears",
       "inspect": [
-        "Device",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
+      ],
+      "start_with": [
+        "Confirm that the page belongs to the intended TV application.",
+        "Render the Lava and inspect the final output, not just the template source.",
+        "For Apple TV, validate the result as TVML.",
+        "For Roku, validate it as SceneGraph XML and confirm `Rock:Page` is the outermost component.",
+        "Check for missing or malformed data emitted through Lava.",
+        "Inspect page cache settings to rule out an older response.",
+        "Test the page in the target shell; browser rendering is not equivalent to TVML or SceneGraph rendering. Apple TV Pages"
+      ],
+      "title": "A page is blank, rejected, or never appears",
+      "when": "A page is blank, rejected, or never appears"
+    },
+    {
+      "do_not_assume": [
+        "Do not assume the Roku shell creates menus automatically from the setting."
+      ],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-roku-page-marked-show-in-menu-is-absent",
+      "id": "a-roku-page-marked-show-in-menu-is-absent",
+      "inspect": [
         "Page"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
       ],
       "start_with": [
-        "Render the saved Lava output and inspect the final XML.",
-        "Confirm platform dialect: TVML for Apple TV, SceneGraph for Roku.",
-        "Check for unescaped characters in dynamic text.",
-        "Check for missing required root element. Roku should use `Rock:Page` as outer page content (Roku Pages).",
-        "Check for invalid image/media URLs.",
-        "Check device logs for parse errors.",
-        "Temporarily replace page content with a minimal valid page. If that works, reintroduce sections incrementally."
+        "Confirm that the page setting is enabled.",
+        "Inspect the Lava that constructs the menu.",
+        "Confirm that the page collection and Show in Menu value are actually read by that Lava.",
+        "Confirm that the resulting SceneGraph contains an actionable menu item.",
+        "Do not assume the Roku shell creates menus automatically from the setting."
       ],
-      "title": "Page Is Blank",
-      "when": "Page Is Blank"
+      "title": "A Roku page marked “Show in Menu” is absent",
+      "when": "A Roku page marked “Show in Menu” is absent"
     },
     {
       "do_not_assume": [],
@@ -61,160 +85,221 @@
         "Group",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-roku-focus-does-not-move",
-      "id": "roku-focus-does-not-move",
+      "guide_section_id": "troubleshooting-decision-tree-roku-focus-does-not-move-or-starts-on-the-wrong-item",
+      "id": "roku-focus-does-not-move-or-starts-on-the-wrong-item",
       "inspect": [
         "Group",
         "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/page",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group",
+        "https://community.rockrms.com/developer/roku-docs/resources/layout-nodes/rowlist"
       ],
       "start_with": [
-        "Does the page have `Rock:Page initialFocus` pointing at an existing ID?",
-        "Are controls focusable?",
-        "Are horizontal/vertical controls wrapped in `Rock:FocusGroup`?",
-        "Is `layoutDirection` correct for the desired movement?",
-        "Are there nested groups causing focus traps?",
-        "Test with a real Roku remote."
+        "Confirm the rendered page has an outer `Rock:Page`.",
+        "Check that `initialFocus` exactly matches a rendered control ID.",
+        "Confirm the target control is present and focusable.",
+        "For a horizontal or vertical group, verify the `FocusGroup` orientation.",
+        "For a `RowList`, verify the required root, row, and item `ContentNode` hierarchy.",
+        "Reduce the page to a simple layout before introducing additional SceneGraph or custom BrightScript components. Rock Page Control Roku Focus Group"
       ],
-      "title": "Roku Focus Does Not Move",
-      "when": "Roku Focus Does Not Move"
+      "title": "Roku focus does not move or starts on the wrong item",
+      "when": "Roku focus does not move or starts on the wrong item"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Page"
+        "Page",
+        "Attribute"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-navigation-button-does-nothing",
-      "id": "navigation-button-does-nothing",
+      "guide_section_id": "troubleshooting-decision-tree-a-command-does-nothing",
+      "id": "a-command-does-nothing",
       "inspect": [
-        "Page"
+        "Page",
+        "Attribute"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/roku-docs/commands",
-        "https://community.rockrms.com/developer/roku-docs/commands/navigation"
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/button",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/content-node"
       ],
       "start_with": [
-        "Is the selectable control a Rock command-capable control such as `Rock:Button` or `Rock:ContentNode` on Roku?",
-        "Is `rockCommand` spelled correctly?",
-        "Is the command supported by that platform?",
-        "Is `rockPageGuid` a real page GUID?",
-        "If multiple commands are comma-separated, does either command fail alone?",
-        "Is the page target valid and accessible?",
-        "Is loading suppressed or hidden by a cached previous page?"
+        "Confirm that the element is a control documented to support `rockCommand`.",
+        "Check the exact command name.",
+        "Check every required command-specific parameter.",
+        "For navigation, verify the destination page belongs to the application and that any query parameters are valid.",
+        "For chained Roku commands, verify comma separation and validate each command independently before recombining them.",
+        "Inspect whether stale cached markup still contains an older command.",
+        "Test in the actual shell version because a valid attribute in documentation does not prove support in an older client. Roku Commands Rock Button"
       ],
-      "title": "Navigation Button Does Nothing",
-      "when": "Navigation Button Does Nothing"
+      "title": "A command does nothing",
+      "when": "A command does nothing"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Attribute"
+        "Person",
+        "Label",
+        "Page",
+        "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-media-does-not-play",
-      "id": "media-does-not-play",
+      "guide_section_id": "troubleshooting-decision-tree-remote-sign-in-shows-no-qr-code-or-code",
+      "id": "remote-sign-in-shows-no-qr-code-or-code",
       "inspect": [
-        "Attribute"
+        "Person",
+        "Label",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
+        "https://community.rockrms.com/developer/roku-docs/commands/personal"
+      ],
+      "start_with": [
+        "Confirm the application record points to the intended external website Authentication Page.",
+        "Confirm that page contains the Remote Authentication block.",
+        "Confirm the block is associated with the correct TV application site.",
+        "Confirm the person can reach the website route.",
+        "For Apple TV, verify the login page contains the single-brace `{ authQrCodeUrl }` and `{ authCode }` placeholders.",
+        "For Roku, verify the page contains controls with IDs `lgnQrPoster` and `lgnCodeLabel`.",
+        "Confirm the login command targets the correct login, timeout, and success TV pages. Creating an Apple TV Sign-in Page"
+      ],
+      "title": "Remote sign-in shows no QR code or code",
+      "when": "Remote sign-in shows no QR code or code"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-remote-authentication-code-is-rejected",
+      "id": "a-remote-authentication-code-is-rejected",
+      "inspect": [
+        "Device",
+        "Block"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+      ],
+      "start_with": [
+        "Confirm the website user is authenticated.",
+        "Confirm the code belongs to the currently displayed device session.",
+        "Retry with a newly generated code to eliminate expiration.",
+        "Confirm the website Remote Authentication block is associated with the same TV application site.",
+        "Check the configured expiration and throttling settings in the installed block.",
+        "Inspect server logs or the block’s returned error without exposing codes or session records.",
+        "Stop before modifying authentication records directly. At the supplied source commit, verification depends on an active session, matching code timing, and the device unique identifier. RemoteAuthentication.cs at commit 471fd303"
+      ],
+      "title": "A remote-authentication code is rejected",
+      "when": "A remote-authentication code is rejected"
+    },
+    {
+      "do_not_assume": [
+        "Do not use a YouTube page URL."
+      ],
+      "entities": [
+        "Group",
+        "Device",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-media-does-not-start",
+      "id": "media-does-not-start",
+      "inspect": [
+        "Group",
+        "Device",
+        "Page"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands",
         "https://community.rockrms.com/developer/roku-docs/commands/media"
       ],
       "start_with": [
-        "Is the URL a direct platform-playable media URL?",
-        "Is it a YouTube URL? If so, replace it; both Apple TV and Roku docs say YouTube playback is not supported (Apple TV Media Commands, Roku Media).",
-        "Is HTTPS required by the platform or deployment?",
-        "Does the media server support range requests and correct content type?",
-        "Are captions or alternate streams supported by the target platform?",
-        "Are command attributes complete?",
-        "Are interaction/watch-map fields malformed?"
+        "Confirm the command is attached to a supported actionable control.",
+        "Confirm that video uses a direct MP4 or HLS resource, or that audio uses a direct MP3 resource.",
+        "Do not use a YouTube page URL.",
+        "Confirm the TV device can reach the media URL.",
+        "Remove optional Media Element, interaction, watch-map, artwork, and related-entity parameters and test direct playback.",
+        "Add metadata and tracking parameters back one group at a time.",
+        "For live Roku video, verify the live-stream parameter and source behavior. Apple TV Media Commands"
       ],
-      "title": "Media Does Not Play",
-      "when": "Media Does Not Play"
+      "title": "Media does not start",
+      "when": "Media does not start"
     },
     {
       "do_not_assume": [],
-      "entities": [
-        "Person",
-        "PersonAlias",
-        "Device",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-remote-login-fails",
-      "id": "remote-login-fails",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Device",
-        "Page",
-        "Block"
-      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-playback-starts-at-the-wrong-position-or-creates-a-new-interaction",
+      "id": "playback-starts-at-the-wrong-position-or-creates-a-new-interaction",
+      "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
-        "https://community.rockrms.com/developer/roku-docs/commands/personal",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Security/RemoteAuthenticationSessionService.cs"
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands",
+        "https://community.rockrms.com/developer/roku-docs/commands/media"
       ],
       "start_with": [
-        "Does the TV app have a login/authentication page configured?",
-        "Does the login command include valid login, timeout, and success page GUIDs?",
-        "Does the website authentication page exist and load publicly?",
-        "Is the Remote Authentication block on that page?",
-        "Does the block point to the correct TV app site?",
-        "Is the code expired?",
-        "Does `RemoteAuthenticationSession` show a session for the device unique identifier and code?",
-        "Does `AuthorizedPersonAliasId` get populated after the user submits the code?"
+        "Confirm whether the intended outcome is resume-only or appending to an existing interaction.",
+        "For resume-only, inspect the supplied watch map.",
+        "To append, supply both the existing interaction identifier and its watch map.",
+        "If only the watch map is supplied, expect the documented behavior to use its position while creating a new interaction.",
+        "Confirm that the correct Rock Media Element identifier is supplied when Rock-managed watch tracking is expected. Apple TV Media Commands"
       ],
-      "title": "Remote Login Fails",
-      "when": "Remote Login Fails"
+      "title": "Playback starts at the wrong position or creates a new interaction",
+      "when": "Playback starts at the wrong position or creates a new interaction"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not use Public caching for personalized output without a reviewed isolation design."
+      ],
       "entities": [
+        "Person",
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-analytics-missing",
-      "id": "analytics-missing",
+      "guide_section_id": "troubleshooting-decision-tree-a-page-shows-stale-or-another-context-s-content",
+      "id": "a-page-shows-stale-or-another-context-s-content",
       "inspect": [
+        "Person",
         "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/roku-docs/getting-started/applications",
+        "https://community.rockrms.com/developer/roku-docs/getting-started/pages",
         "https://community.rockrms.com/developer/roku-docs/commands/navigation",
-        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content"
       ],
       "start_with": [
-        "Is page-view tracking enabled on the app?",
-        "Is retention set long enough?",
-        "Does navigation command suppress interactions?",
-        "Are media commands writing or appending to interactions?",
-        "Is the user anonymous or authenticated?",
-        "Are reports looking at the right interaction channel/component/entity?",
-        "Has cleanup removed old interactions?"
+        "Determine whether the rendered output varies by person, context, query parameter, or authentication state.",
+        "Inspect the page’s cacheability type, Max Age, and Max Shared Age where applicable.",
+        "Inspect command-level cache control on Roku navigation.",
+        "Do not use Public caching for personalized output without a reviewed isolation design.",
+        "Clear or bypass the relevant cache in a controlled test.",
+        "Re-render with two distinct test contexts and confirm they cannot receive each other’s output. Roku Pages Roku Navigation Commands"
       ],
-      "title": "Analytics Missing",
-      "when": "Analytics Missing"
+      "title": "A page shows stale or another context’s content",
+      "when": "A page shows stale or another context’s content"
     }
   ],
   "concept_id": "tv-apps",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:17+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-app-does-not-launch-or-shows-wrong-content",
-    "18-troubleshooting-decision-tree-page-is-blank",
-    "18-troubleshooting-decision-tree-roku-focus-does-not-move",
-    "18-troubleshooting-decision-tree-navigation-button-does-nothing",
-    "18-troubleshooting-decision-tree-media-does-not-play",
-    "18-troubleshooting-decision-tree-remote-login-fails",
-    "18-troubleshooting-decision-tree-analytics-missing",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-audit-a-tv-app-configuration",
-    "19-agent-task-recipes-recipe-trace-a-page-guid",
-    "19-agent-task-recipes-recipe-validate-remote-auth-in-data",
-    "19-agent-task-recipes-recipe-review-a-roku-page-for-focus",
-    "19-agent-task-recipes-recipe-review-apple-tv-markup",
-    "19-agent-task-recipes-recipe-decide-cache-policy"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-tv-application-administration-feature-is-missing",
+    "troubleshooting-decision-tree-a-page-is-blank-rejected-or-never-appears",
+    "troubleshooting-decision-tree-a-roku-page-marked-show-in-menu-is-absent",
+    "troubleshooting-decision-tree-roku-focus-does-not-move-or-starts-on-the-wrong-item",
+    "troubleshooting-decision-tree-a-command-does-nothing",
+    "troubleshooting-decision-tree-remote-sign-in-shows-no-qr-code-or-code",
+    "troubleshooting-decision-tree-a-remote-authentication-code-is-rejected",
+    "troubleshooting-decision-tree-media-does-not-start",
+    "troubleshooting-decision-tree-playback-starts-at-the-wrong-position-or-creates-a-new-interaction",
+    "troubleshooting-decision-tree-a-page-shows-stale-or-another-context-s-content",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-an-apple-tv-application-skeleton",
+    "agent-task-recipes-recipe-build-a-roku-content-page",
+    "agent-task-recipes-recipe-add-roku-navigation-with-application-context",
+    "agent-task-recipes-recipe-configure-remote-tv-sign-in",
+    "agent-task-recipes-recipe-add-tracked-media-playback-with-resume",
+    "agent-task-recipes-recipe-make-an-apple-tv-page-theme-aware"
   ]
 }

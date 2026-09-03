@@ -13,50 +13,37 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly`: Lava WebRequest Or External Call Behaves Unexpectedly
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-ai-agents-and-automation-mental-model`: 3. AI Agents And Automation Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model`: 5. Core Configuration And Data Model
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `7-common-ai-agents-and-automation-workflows-event-registration-support`: Event Registration Support
-- `7-common-ai-agents-and-automation-workflows-chat-message-automation`: Chat Message Automation
-- `7-common-ai-agents-and-automation-workflows-mobile-voice-agent`: Mobile Voice Agent
-- `8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools`: AvailableAttributes Tools
-- `9-permissions-and-data-boundaries-deep-dive`: 9. Permissions And Data Boundaries Deep Dive
-- `9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary`: Generated v2 Endpoint Boundary
-- `10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation`: Agent-As-Reviewer Automation
-- `11-verification-and-review-gates-deep-dive-read-only-low-risk-gate`: Read-Only Low-Risk Gate
-- `11-verification-and-review-gates-deep-dive-sensitive-read-gate`: Sensitive Read Gate
-- `11-verification-and-review-gates-deep-dive-security-review-gate`: Security Review Gate
-- `11-verification-and-review-gates-deep-dive-debugging-gate`: Debugging Gate
-- `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-security`: Security
-- `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-api-integrations`: API Integrations
-- `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration`: Platform Configuration
-- `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views`: Data Views
-- `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations`: Operations
-- `13-administration-and-operational-guardrails`: 13. Administration And Operational Guardrails
-- `14-developer-api-lava-and-source-code-landmarks-native-tool-development`: Native Tool Development
-- `14-developer-api-lava-and-source-code-landmarks-lava-tool-development`: Lava Tool Development
-- `15-reporting-analytics-and-model-map`: 15. Reporting, Analytics, And Model Map
-- `16-version-and-release-caveats`: 16. Version And Release Caveats
-- `17-implementation-playbooks-playbook-build-a-read-only-staff-agent`: Playbook: Build A Read-Only Staff Agent
-- `17-implementation-playbooks-playbook-build-a-custom-lookup-tool`: Playbook: Build A Custom Lookup Tool
-- `17-implementation-playbooks-playbook-build-a-lava-insight-tool`: Playbook: Build A Lava Insight Tool
-- `17-implementation-playbooks-playbook-build-a-native-addorupdate-tool`: Playbook: Build A Native AddOrUpdate Tool
-- `17-implementation-playbooks-playbook-add-a-skill-to-an-agent`: Playbook: Add A Skill To An Agent
-- `17-implementation-playbooks-playbook-configure-chat-message-automation`: Playbook: Configure Chat Message Automation
-- `18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool`: Agent Does Not Call The Expected Tool
-- `18-troubleshooting-decision-tree-tool-returns-no-records`: Tool Returns No Records
-- `18-troubleshooting-decision-tree-permissions-look-wrong`: Permissions Look Wrong
-- `18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly`: Lava WebRequest Or External Call Behaves Unexpectedly
-- `19-agent-task-recipes-recipe-draft-a-communication`: Recipe: “Draft A Communication”
-- `19-agent-task-recipes-recipe-create-a-connection-request`: Recipe: “Create A Connection Request”
+- `agent-summary`: Agent Summary
+- `mental-model-control-stack`: Control stack
+- `permissions-and-data-boundaries-apply-least-privilege-at-every-layer`: Apply least privilege at every layer
+- `permissions-and-data-boundaries-bound-mcp-authentication`: Bound MCP authentication
+- `prompt-and-tool-boundaries`: Prompt And Tool Boundaries
+- `automation-design-and-workflows-use-rock-workflows-as-bounded-action-surfaces`: Use Rock workflows as bounded action surfaces
+- `automation-design-and-workflows-connect-event-driven-automation-carefully`: Connect event-driven automation carefully
+- `automation-design-and-workflows-treat-generated-summaries-as-assistance`: Treat generated summaries as assistance
+- `verification-and-review-gates`: Verification And Review Gates
+- `troubleshooting-decision-tree-the-agent-does-not-show-a-tool`: The agent does not show a tool
+- `troubleshooting-decision-tree-the-agent-chooses-the-wrong-tool`: The agent chooses the wrong tool
+- `troubleshooting-decision-tree-the-agent-acts-on-the-wrong-person-or-entity`: The agent acts on the wrong person or entity
+- `troubleshooting-decision-tree-the-tool-returns-unauthorized-or-sensitive-data`: The tool returns unauthorized or sensitive data
+- `troubleshooting-decision-tree-a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages`: A list is incomplete, repeats items or becomes slow on later pages
+- `troubleshooting-decision-tree-a-lava-tool-errors-or-returns-unexpected-no-data`: A Lava tool errors or returns unexpected no-data
+- `troubleshooting-decision-tree-a-mutation-was-refused-or-changed-the-wrong-state`: A mutation was refused or changed the wrong state
+- `troubleshooting-decision-tree-a-connection-request-ai-summary-is-missing`: A connection-request AI summary is missing
+- `troubleshooting-decision-tree-an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools`: An MCP client cannot authenticate or discovers unexpected tools
+- `troubleshooting-decision-tree-a-workflow-does-not-launch`: A workflow does not launch
+- `agent-task-recipes-recipe-design-a-safe-read-only-lookup-surface`: Recipe: Design a safe read-only lookup surface
+- `agent-task-recipes-recipe-build-a-bounded-list-and-get-pair`: Recipe: Build a bounded List and Get pair
+- `agent-task-recipes-recipe-add-a-controlled-addorupdate-capability`: Recipe: Add a controlled AddOrUpdate capability
+- `agent-task-recipes-recipe-configure-a-drafting-agent-without-send-authority`: Recipe: Configure a drafting agent without send authority
+- `agent-task-recipes-recipe-launch-a-workflow-through-an-agent`: Recipe: Launch a workflow through an agent
+- `agent-task-recipes-recipe-review-a-public-agent-before-launch`: Recipe: Review a Public agent before launch
+- `agent-task-recipes-recipe-diagnose-incorrect-tool-selection`: Recipe: Diagnose incorrect tool selection
+- `agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff`: Recipe: Roll out an agent-assisted process to staff
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

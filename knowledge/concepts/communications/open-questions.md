@@ -13,63 +13,44 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `6-primary-entities-and-relationships-systemcommunication`: SystemCommunication
-- `7-common-communications-workflows-sending-sms`: Sending SMS
-- `8-email-deep-dive-email-preview-and-preheaders`: Email preview and preheaders
-- `8-email-deep-dive-view-email-on-webpage`: View email on webpage
-- `8-email-deep-dive-email-template-design-systems`: Email template design systems
-- `9-sms-deep-dive-staff-specific-texting-numbers`: Staff-specific texting numbers
-- `9-sms-deep-dive-calls-to-sms-numbers`: Calls to SMS numbers
-- `9-sms-deep-dive-sms-cost-segments-and-encoding`: SMS cost, segments, and encoding
-- `9-sms-deep-dive-disabled-sms-warnings`: Disabled SMS warnings
-- `11-administration-and-operational-guardrails-lower-environment-safety`: Lower environment safety
-- `15-implementation-playbooks-playbook-configure-a-safe-email-transport-in-development`: Playbook: Configure a safe email transport in development
-- `15-implementation-playbooks-playbook-launch-staff-sms-conversations`: Playbook: Launch staff SMS conversations
-- `16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing`: Email delivered but analytics are missing
-- `17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics`: Recipe: Determine whether a workflow email supports analytics
+- `agent-task-recipes-recipe-retest-a-workflow-backed-communication-safely`: Recipe: Retest a workflow-backed communication safely
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-communications-mental-model`: 3. Communications Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-communication-transports`: Communication transports
-- `5-core-configuration-and-data-model-communication-templates`: Communication templates
-- `5-core-configuration-and-data-model-communication-lists-and-segments`: Communication lists and segments
-- `5-core-configuration-and-data-model-system-phone-numbers-and-sms-pipeline`: System phone numbers and SMS pipeline
-- `5-core-configuration-and-data-model-communication-jobs`: Communication jobs
-- `6-primary-entities-and-relationships-communication`: Communication
-- `6-primary-entities-and-relationships-communicationrecipient`: CommunicationRecipient
-- `6-primary-entities-and-relationships-communicationattachment-and-communicationtemplateattachment`: CommunicationAttachment and CommunicationTemplateAttachment
-- `6-primary-entities-and-relationships-communicationresponse-and-communicationresponseattachment`: CommunicationResponse and CommunicationResponseAttachment
-- `6-primary-entities-and-relationships-smspipeline-and-smsaction`: SmsPipeline and SmsAction
-- `7-common-communications-workflows-sending-sms`: Sending SMS
-- `7-common-communications-workflows-sending-to-a-communication-list`: Sending to a communication list
-- `7-common-communications-workflows-managing-communication-preferences`: Managing communication preferences
-- `7-common-communications-workflows-using-communication-flows`: Using Communication Flows
-- `8-email-deep-dive-email-authoring`: Email authoring
-- `8-email-deep-dive-email-transport-and-validation`: Email transport and validation
-- `8-email-deep-dive-deliverability-and-provider-setup`: Deliverability and provider setup
-- `8-email-deep-dive-email-analytics`: Email analytics
-- `8-email-deep-dive-email-preview-and-preheaders`: Email preview and preheaders
-- `8-email-deep-dive-view-email-on-webpage`: View email on webpage
-- `8-email-deep-dive-email-template-design-systems`: Email template design systems
-- `9-sms-deep-dive-sms-recipient-eligibility`: SMS recipient eligibility
-- `9-sms-deep-dive-sms-opt-out-and-opt-in`: SMS opt-out and opt-in
-- `9-sms-deep-dive-staff-specific-texting-numbers`: Staff-specific texting numbers
-- `9-sms-deep-dive-calls-to-sms-numbers`: Calls to SMS numbers
-- `9-sms-deep-dive-disabled-sms-warnings`: Disabled SMS warnings
-- `10-related-rock-areas-people-workflows-lava-security-lava`: Lava
-- `10-related-rock-areas-people-workflows-lava-security-security`: Security
-- `11-administration-and-operational-guardrails-approval-policies`: Approval policies
-- `11-administration-and-operational-guardrails-template-operations`: Template operations
-- `11-administration-and-operational-guardrails-lower-environment-safety`: Lower environment safety
-- `12-developer-api-lava-and-source-code-landmarks-transport-components`: Transport components
-- `12-developer-api-lava-and-source-code-landmarks-rest-endpoints`: REST endpoints
-- `13-reporting-analytics-and-model-map-unsubscribe-reporting`: Unsubscribe reporting
-- `13-reporting-analytics-and-model-map-model-map-coverage`: Model Map coverage
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `communication-foundations`: Communication Foundations
+- `audiences-communication-lists-and-segments`: Audiences, Communication Lists And Segments
+- `templates-and-system-communications`: Templates And System Communications
+- `email`: Email
+- `sms`: SMS
+- `sms-sms-conversations`: SMS Conversations
+- `sms-sms-pipeline`: SMS Pipeline
+- `sending-classification-and-approval`: Sending, Classification And Approval
+- `preferences-consent-and-sender-reputation`: Preferences, Consent And Sender Reputation
+- `communication-flows-and-automation-boundaries`: Communication Flows And Automation Boundaries
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-intended-recipients-are-missing-or-shown-as-ineligible`: Intended recipients are missing or shown as ineligible
+- `troubleshooting-decision-tree-email-appears-sent-but-delivery-or-analytics-are-missing`: Email appears sent but delivery or analytics are missing
+- `troubleshooting-decision-tree-email-shows-an-unexpected-sender-or-on-behalf-of-label`: Email shows an unexpected sender or “on behalf of” label
+- `troubleshooting-decision-tree-two-unsubscribe-options-appear-in-an-email`: Two unsubscribe options appear in an email
+- `troubleshooting-decision-tree-a-template-is-missing-or-cannot-be-saved`: A template is missing or cannot be saved
+- `troubleshooting-decision-tree-a-communication-remains-pending-approval`: A communication remains pending approval
+- `troubleshooting-decision-tree-incoming-sms-does-not-reach-the-expected-conversation-or-workflow`: Incoming SMS does not reach the expected conversation or workflow
+- `troubleshooting-decision-tree-an-automated-sms-reply-is-absent-from-history`: An automated SMS reply is absent from history
+- `troubleshooting-decision-tree-sms-segments-cost-or-delivery-differ-from-expectations`: SMS segments, cost or delivery differ from expectations
+- `troubleshooting-decision-tree-an-unsubscribe-appears-unexpected`: An unsubscribe appears unexpected
+- `agent-task-recipes-recipe-preflight-a-broad-email-communication`: Recipe: Preflight a broad email communication
+- `agent-task-recipes-recipe-diagnose-one-missing-recipient`: Recipe: Diagnose one missing recipient
+- `agent-task-recipes-recipe-validate-an-email-transport-and-its-event-loop`: Recipe: Validate an email transport and its event loop
+- `agent-task-recipes-recipe-validate-inbound-sms-routing`: Recipe: Validate inbound SMS routing
+- `agent-task-recipes-recipe-create-a-communication-flow-without-over-messaging`: Recipe: Create a communication flow without over-messaging
+- `agent-task-recipes-recipe-investigate-rising-unsubscribes-or-saturation`: Recipe: Investigate rising unsubscribes or saturation
+- `agent-task-recipes-recipe-retest-a-workflow-backed-communication-safely`: Recipe: Retest a workflow-backed communication safely
+- `agent-task-recipes-recipe-bound-an-agent-that-can-draft-communications`: Recipe: Bound an agent that can draft communications
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map`: Source Map
 
 ## Live Verification Clarification
 

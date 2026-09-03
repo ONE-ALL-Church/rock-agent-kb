@@ -10,31 +10,25 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: “Find The Right Person”](tasks/recipe-find-the-right-person.md) |  |  |
-| [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md) | `Person` | `Person` |
-| [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md) | `DataView`, `Group` | `DataView`, `Group` |
-| [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md) | `Person` | `Person` |
-| [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md) | `Workflow` | `Workflow` |
-| [Recipe: “Audit Agent Security”](tasks/recipe-audit-agent-security.md) |  |  |
-| [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md) | `Person`, `Workflow` | `Person`, `Workflow` |
-| [Recipe: “Review An Agent Answer”](tasks/recipe-review-an-agent-answer.md) |  |  |
+| [Recipe: Design a safe read-only lookup surface](tasks/recipe-design-a-safe-read-only-lookup-surface.md) |  |  |
+| [Recipe: Build a bounded List and Get pair](tasks/recipe-build-a-bounded-list-and-get-pair.md) | `Page` | `Page` |
+| [Recipe: Add a controlled AddOrUpdate capability](tasks/recipe-add-a-controlled-addorupdate-capability.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
+| [Recipe: Configure a drafting agent without send authority](tasks/recipe-configure-a-drafting-agent-without-send-authority.md) | `Group` | `Group` |
+| [Recipe: Launch a workflow through an agent](tasks/recipe-launch-a-workflow-through-an-agent.md) | `Person`, `Workflow`, `Attribute` | `Person`, `Workflow`, `Attribute` |
+| [Recipe: Review a Public agent before launch](tasks/recipe-review-a-public-agent-before-launch.md) |  |  |
+| [Recipe: Diagnose incorrect tool selection](tasks/recipe-diagnose-incorrect-tool-selection.md) |  |  |
+| [Recipe: Roll out an agent-assisted process to staff](tasks/recipe-roll-out-an-agent-assisted-process-to-staff.md) | `Group`, `Workflow` | `Group`, `Workflow` |
 
 ## Entities
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
-| `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
+| `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
-| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
@@ -48,48 +42,31 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | high | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `3-ai-agents-and-automation-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model` | normal | live verification |
-| `6-primary-entities-and-relationships` | normal | live verification |
-| `7-common-ai-agents-and-automation-workflows-event-registration-support` | normal | live verification |
-| `7-common-ai-agents-and-automation-workflows-chat-message-automation` | normal | live verification |
-| `7-common-ai-agents-and-automation-workflows-mobile-voice-agent` | normal | live verification |
-| `8-agent-tools-and-lookup-surfaces-deep-dive-availableattributes-tools` | normal | live verification |
-| `9-permissions-and-data-boundaries-deep-dive` | normal | live verification |
-| `9-permissions-and-data-boundaries-deep-dive-generated-v2-endpoint-boundary` | normal | live verification |
-| `10-automation-design-and-workflows-deep-dive-agent-as-reviewer-automation` | structural | live verification |
-| `11-verification-and-review-gates-deep-dive-read-only-low-risk-gate` | structural | live verification |
-| `11-verification-and-review-gates-deep-dive-sensitive-read-gate` | structural | live verification |
-| `11-verification-and-review-gates-deep-dive-security-review-gate` | normal | live verification |
-| `11-verification-and-review-gates-deep-dive-debugging-gate` | normal | live verification |
-| `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-security` | normal | live verification |
-| `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-api-integrations` | normal | live verification |
-| `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-platform-configuration` | structural | live verification |
-| `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-data-views` | normal | live verification |
-| `12-related-rock-areas-security-api-integrations-workflows-platform-configuration-data-views-reports-operations-lava-operations` | normal | live verification |
-| `13-administration-and-operational-guardrails` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-native-tool-development` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-lava-tool-development` | normal | live verification |
-| `15-reporting-analytics-and-model-map` | citation-only | live verification |
-| `16-version-and-release-caveats` | high | live verification |
-| `17-implementation-playbooks-playbook-build-a-read-only-staff-agent` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-custom-lookup-tool` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-lava-insight-tool` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-native-addorupdate-tool` | normal | live verification |
-| `17-implementation-playbooks-playbook-add-a-skill-to-an-agent` | normal | live verification |
-| `17-implementation-playbooks-playbook-configure-chat-message-automation` | structural | live verification |
-| `18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool` | normal | live verification |
-| `18-troubleshooting-decision-tree-tool-returns-no-records` | structural | live verification |
-| `18-troubleshooting-decision-tree-permissions-look-wrong` | normal | live verification |
-| `18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly` | community-supported | live verification |
-| `19-agent-task-recipes-recipe-draft-a-communication` | structural | live verification |
-| `19-agent-task-recipes-recipe-create-a-connection-request` | structural | live verification |
-| `19-agent-task-recipes-recipe-audit-agent-security` | structural | live verification |
-| `19-agent-task-recipes-recipe-build-a-safe-public-agent` | structural | live verification |
-| `19-agent-task-recipes-recipe-review-an-agent-answer` | structural | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
-| `20-source-map-and-dependency-notes` | high | live verification |
+| `agent-summary` | normal | live verification |
+| `mental-model-control-stack` | citation-only | live verification |
+| `permissions-and-data-boundaries-apply-least-privilege-at-every-layer` | normal | live verification |
+| `permissions-and-data-boundaries-bound-mcp-authentication` | citation-only | live verification |
+| `prompt-and-tool-boundaries` | normal | live verification |
+| `automation-design-and-workflows-use-rock-workflows-as-bounded-action-surfaces` | normal | live verification |
+| `automation-design-and-workflows-connect-event-driven-automation-carefully` | normal | live verification |
+| `automation-design-and-workflows-treat-generated-summaries-as-assistance` | citation-only | live verification |
+| `verification-and-review-gates` | normal | live verification |
+| `troubleshooting-decision-tree-the-agent-does-not-show-a-tool` | normal | live verification |
+| `troubleshooting-decision-tree-the-agent-chooses-the-wrong-tool` | normal | live verification |
+| `troubleshooting-decision-tree-the-agent-acts-on-the-wrong-person-or-entity` | normal | live verification |
+| `troubleshooting-decision-tree-the-tool-returns-unauthorized-or-sensitive-data` | normal | live verification |
+| `troubleshooting-decision-tree-a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages` | normal | live verification |
+| `troubleshooting-decision-tree-a-lava-tool-errors-or-returns-unexpected-no-data` | normal | live verification |
+| `troubleshooting-decision-tree-a-mutation-was-refused-or-changed-the-wrong-state` | normal | live verification |
+| `troubleshooting-decision-tree-a-connection-request-ai-summary-is-missing` | citation-only | live verification |
+| `troubleshooting-decision-tree-an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-workflow-does-not-launch` | normal | live verification |
+| `agent-task-recipes-recipe-design-a-safe-read-only-lookup-surface` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-bounded-list-and-get-pair` | normal | live verification |
+| `agent-task-recipes-recipe-add-a-controlled-addorupdate-capability` | normal | live verification |
+| `agent-task-recipes-recipe-configure-a-drafting-agent-without-send-authority` | normal | live verification |
+| `agent-task-recipes-recipe-launch-a-workflow-through-an-agent` | normal | live verification |
+| `agent-task-recipes-recipe-review-a-public-agent-before-launch` | normal | live verification |
+| `agent-task-recipes-recipe-diagnose-incorrect-tool-selection` | normal | live verification |
+| `agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff` | citation-only | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |

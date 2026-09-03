@@ -10,65 +10,61 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (109 words)
 
 ## Community-Supported Only
 
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `7-common-lava-workflows-building-a-dynamic-report-page`: Building A Dynamic Report Page
-- `7-common-lava-workflows-formatting-data-with-shortcodes`: Formatting Data With Shortcodes
-- `9-filters-deep-dive-legacy-attribute-syntax`: Legacy Attribute Syntax
-- `12-administration-and-operational-guardrails-exception-list-checklist`: Exception List Checklist
-- `13-developer-api-lava-and-source-code-landmarks-rocku`: RockU
-- `14-reporting-analytics-and-model-map-reporting-with-lava`: Reporting With Lava
-- `14-reporting-analytics-and-model-map-model-map`: Model Map
-- `18-agent-task-recipes-recipe-find-legacy-attribute-lava`: Recipe: Find Legacy Attribute Lava
-- `18-agent-task-recipes-recipe-create-a-staff-friendly-link-copy-shortcode`: Recipe: Create A Staff-Friendly Link Copy Shortcode
-- `18-agent-task-recipes-recipe-add-a-translation-shortcode`: Recipe: Add A Translation Shortcode
-- `approved-media-coverage`: Approved Media Coverage
-- `19-source-map-and-dependency-notes-community-pattern-sources`: Community Pattern Sources
+- `filters-text-and-output-encoding`: Text and output encoding
+- `filters-where-and-short-link-caveats`: `where` and short-link caveats
+- `commands`: Commands
+- `commands-workflow-activation`: Workflow activation
+- `reporting-and-persisted-results`: Reporting And Persisted Results
+- `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration`: An entity command returns no rows or fails before iteration
+- `troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing`: A workflow starts but submitted values are missing
+- `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience`: A Helix endpoint works for administrators but not its audience
+- `agent-task-recipes-recipe-review-an-existing-lava-surface-safely`: Recipe: Review an existing Lava surface safely
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-reviewed-community-patterns`: Reviewed community patterns
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-lava-engine-liquid-framework`: Lava Engine Liquid Framework
-- `5-core-configuration-and-data-model-default-enabled-lava-commands`: Default Enabled Lava Commands
-- `5-core-configuration-and-data-model-html-block-command-enablement`: HTML Block Command Enablement
-- `5-core-configuration-and-data-model-communication-entry-command-enablement`: Communication Entry Command Enablement
-- `5-core-configuration-and-data-model-lava-shortcode-entity`: Lava Shortcode Entity
-- `5-core-configuration-and-data-model-lava-shortcode-cache`: Lava Shortcode Cache
-- `5-core-configuration-and-data-model-lava-webhooks`: Lava Webhooks
-- `5-core-configuration-and-data-model-remote-lava-rest-endpoint`: Remote Lava REST Endpoint
-- `6-primary-entities-and-relationships-block-page-site-theme-and-include-files`: Block, Page, Site, Theme, And Include Files
-- `6-primary-entities-and-relationships-entity-commands-and-rock-models`: Entity Commands And Rock Models
-- `6-primary-entities-and-relationships-attribute-and-attributevalue`: Attribute And AttributeValue
-- `6-primary-entities-and-relationships-workflow-workflow-type-activity-type-and-attributes`: Workflow, Workflow Type, Activity Type, And Attributes
-- `6-primary-entities-and-relationships-interaction-records`: Interaction Records
-- `6-primary-entities-and-relationships-devices-and-printers`: Devices And Printers
-- `6-primary-entities-and-relationships-search-index-documents`: Search Index Documents
-- `7-common-lava-workflows-building-a-dynamic-report-page`: Building A Dynamic Report Page
-- `7-common-lava-workflows-calling-external-apis`: Calling External APIs
-- `7-common-lava-workflows-adding-page-level-css`: Adding Page-Level CSS
-- `8-commands-deep-dive-entity-command`: Entity Command
-- `8-commands-deep-dive-interaction-write-commands`: Interaction Write Commands
-- `8-commands-deep-dive-adaptive-message-command`: Adaptive Message Command
-- `8-commands-deep-dive-helix-commands-and-data-modification`: Helix Commands And Data Modification
-- `9-filters-deep-dive`: 9. Filters Deep Dive
-- `9-filters-deep-dive-attribute-filter`: Attribute Filter
-- `9-filters-deep-dive-legacy-attribute-syntax`: Legacy Attribute Syntax
-- `9-filters-deep-dive-date-filters`: Date Filters
-- `9-filters-deep-dive-person-filters`: Person Filters
-- `9-filters-deep-dive-text-filters`: Text Filters
-- `9-filters-deep-dive-culture-affected-filters`: Culture-Affected Filters
-- `10-shortcodes-deep-dive-shortcode-configuration-fields`: Shortcode Configuration Fields
-- `10-shortcodes-deep-dive-enabled-commands-inside-shortcodes`: Enabled Commands Inside Shortcodes
-- `10-shortcodes-deep-dive-scope-behavior`: Scope Behavior
-- `11-related-rock-areas-cms-workflows-sql-security-cms`: CMS
-- `11-related-rock-areas-cms-workflows-sql-security-workflows`: Workflows
-- `11-related-rock-areas-cms-workflows-sql-security-sql`: SQL
-- `12-administration-and-operational-guardrails-pre-change-checklist`: Pre-Change Checklist
+- `agent-summary`: Agent Summary
+- `core-syntax-and-engine`: Core Syntax And Engine
+- `core-syntax-and-engine-fluid-and-dotliquid`: Fluid and DotLiquid
+- `filters-text-and-output-encoding`: Text and output encoding
+- `filters-dates-and-time-zones`: Dates and time zones
+- `filters-where-and-short-link-caveats`: `where` and short-link caveats
+- `commands`: Commands
+- `commands-entity-retrieval`: Entity retrieval
+- `commands-workflow-activation`: Workflow activation
+- `shortcodes`: Shortcodes
+- `execution-contexts-and-output-contracts-advanced-html-and-communications`: Advanced HTML and communications
+- `execution-contexts-and-output-contracts-rock-mobile`: Rock Mobile
+- `execution-contexts-and-output-contracts-tv-applications`: TV applications
+- `remote-lava-and-apis`: Remote Lava And APIs
+- `helix-and-lava-applications`: Helix And Lava Applications
+- `workflows-and-lava`: Workflows And Lava
+- `lava-backed-ai-tools`: Lava-Backed AI Tools
+- `troubleshooting-decision-tree-lava-renders-blank-or-a-merge-field-is-missing`: Lava renders blank or a merge field is missing
+- `troubleshooting-decision-tree-a-parser-error-points-at-an-innocent-looking-line`: A parser error points at an innocent-looking line
+- `troubleshooting-decision-tree-an-entity-command-returns-no-rows-or-fails-before-iteration`: An entity command returns no rows or fails before iteration
+- `troubleshooting-decision-tree-a-modify-command-appears-to-succeed-but-data-is-unchanged`: A modify command appears to succeed but data is unchanged
+- `troubleshooting-decision-tree-a-later-write-fails-with-an-earlier-validation-error`: A later write fails with an earlier validation error
+- `troubleshooting-decision-tree-a-workflow-starts-but-submitted-values-are-missing`: A workflow starts but submitted values are missing
+- `troubleshooting-decision-tree-a-shortcode-displays-as-raw-text`: A shortcode displays as raw text
+- `troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-its-audience`: A Helix endpoint works for administrators but not its audience
+- `troubleshooting-decision-tree-an-htmx-fragment-loses-scripts-styles-or-ui-state`: An HTMX fragment loses scripts, styles or UI state
+- `troubleshooting-decision-tree-rock-mobile-content-is-stale-anonymous-or-invalid-xaml`: Rock Mobile content is stale, anonymous or invalid XAML
+- `troubleshooting-decision-tree-a-remote-lava-route-exposes-more-than-intended`: A remote Lava route exposes more than intended
+- `agent-task-recipes-recipe-review-an-existing-lava-surface-safely`: Recipe: Review an existing Lava surface safely
+- `agent-task-recipes-recipe-build-a-bounded-read-only-entity-view`: Recipe: Build a bounded read-only entity view
+- `agent-task-recipes-recipe-preflight-a-workflow-activation`: Recipe: Preflight a workflow activation
+- `agent-task-recipes-recipe-publish-a-reusable-shortcode`: Recipe: Publish a reusable shortcode
+- `agent-task-recipes-recipe-build-a-read-only-helix-active-search-page`: Recipe: Build a read-only Helix active-search page
+- `agent-task-recipes-recipe-validate-a-rock-mobile-lava-block`: Recipe: Validate a Rock Mobile Lava block
+- `agent-task-recipes-recipe-design-a-lava-backed-ai-tool`: Recipe: Design a Lava-backed AI tool
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
+- `source-map-immutable-implementation-evidence`: Immutable implementation evidence
 
 ## Live Verification Clarification
 

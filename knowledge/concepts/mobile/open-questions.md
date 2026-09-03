@@ -10,55 +10,53 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (172 words)
+- `version-and-authority-caveats`: Version And Authority Caveats (164 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (216 words)
 
 ## Community-Supported Only
 
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `13-developer-api-lava-and-source-code-landmarks-xaml-and-lava`: XAML And Lava
-- `19-source-map-and-dependency-notes-community-examples`: Community Examples
+- `content-xaml-and-lava-escaping-xaml-producing-lava`: Escaping XAML-producing Lava
+- `troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail`: One record causes a XAML page to fail
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-rock-mobile-mental-model-deployment-flow`: Deployment Flow
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-creating-the-mobile-application`: Creating The Mobile Application
-- `5-core-configuration-and-data-model-application-type`: Application Type
-- `5-core-configuration-and-data-model-lock-orientation`: Lock Orientation
-- `5-core-configuration-and-data-model-application-pages`: Application Pages
-- `5-core-configuration-and-data-model-api-key`: API Key
-- `5-core-configuration-and-data-model-flyout-xaml`: Flyout XAML
-- `5-core-configuration-and-data-model-homepage-routing-logic`: Homepage Routing Logic
-- `5-core-configuration-and-data-model-palette-colors-and-styling-values`: Palette Colors And Styling Values
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `6-primary-entities-and-relationships-mobile-application-relationship-map`: Mobile Application Relationship Map
-- `6-primary-entities-and-relationships-page-block-and-security-relationships`: Page, Block, And Security Relationships
-- `6-primary-entities-and-relationships-check-in-source-code-landmarks`: Check-In Source-Code Landmarks
-- `7-common-rock-mobile-workflows-build-a-first-app`: Build A First App
-- `7-common-rock-mobile-workflows-change-a-page-or-block`: Change A Page Or Block
-- `7-common-rock-mobile-workflows-add-a-webview-integration`: Add A WebView Integration
-- `7-common-rock-mobile-workflows-configure-push-notifications`: Configure Push Notifications
-- `7-common-rock-mobile-workflows-upgrade-from-xamarin-forms-to-maui`: Upgrade From Xamarin Forms To MAUI
-- `8-commands-deep-dive-command-binding-pattern`: Command Binding Pattern
-- `8-commands-deep-dive-commandreference`: CommandReference
-- `8-commands-deep-dive-operational-command-troubleshooting`: Operational Command Troubleshooting
-- `9-controls-deep-dive-webview`: WebView
-- `9-controls-deep-dive-context-menu`: Context Menu
-- `9-controls-deep-dive-ondeviceplatform-and-maui-platform-support`: OnDevicePlatform And MAUI Platform Support
-- `9-controls-deep-dive-cards-and-styling`: Cards And Styling
-- `9-controls-deep-dive-media-controls`: Media Controls
-- `10-mobile-releases-deep-dive-release-version-table`: Release Version Table
-- `10-mobile-releases-deep-dive-v7-0`: v7.0
-- `10-mobile-releases-deep-dive-v6-0`: v6.0
-- `11-related-rock-areas-api-check-in-cms-security-api`: API
-- `11-related-rock-areas-api-check-in-cms-security-check-in`: Check-In
-- `12-administration-and-operational-guardrails-deployment-guardrails`: Deployment Guardrails
-- `12-administration-and-operational-guardrails-shell-update-guardrails`: Shell Update Guardrails
-- `12-administration-and-operational-guardrails-app-store-guardrails`: App Store Guardrails
-- `12-administration-and-operational-guardrails-android-keystore-guardrails`: Android Keystore Guardrails
-- `12-administration-and-operational-guardrails-in-app-giving-guardrails`: In-App Giving Guardrails
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `application-configuration-and-deployment`: Application Configuration And Deployment
+- `content-xaml-and-lava-dynamic-versus-static-content`: Dynamic versus static content
+- `content-xaml-and-lava-escaping-xaml-producing-lava`: Escaping XAML-producing Lava
+- `controls-context-menus`: Context menus
+- `controls-borders-and-migration-era-controls`: Borders and migration-era controls
+- `mobile-check-in-prerequisites-and-configuration`: Prerequisites and configuration
+- `mobile-engagement-and-background-work`: Mobile Engagement And Background Work
+- `outreach-toolbox`: Outreach Toolbox
+- `push-notifications`: Push Notifications
+- `app-publishing-android-signing`: Android signing
+- `mobile-releases-xamarin-forms-to-net-maui`: Xamarin Forms to .NET MAUI
+- `troubleshooting-decision-tree-changes-do-not-appear-in-the-app`: Changes do not appear in the app
+- `troubleshooting-decision-tree-the-app-crashes-immediately-after-opening`: The app crashes immediately after opening
+- `troubleshooting-decision-tree-personalized-content-is-blank-or-anonymous`: Personalized content is blank or anonymous
+- `troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail`: One record causes a XAML page to fail
+- `troubleshooting-decision-tree-a-command-does-nothing`: A command does nothing
+- `troubleshooting-decision-tree-a-page-layout-breaks-after-moving-to-shell-v6`: A page layout breaks after moving to Shell v6
+- `troubleshooting-decision-tree-a-context-menu-works-differently-on-android`: A context menu works differently on Android
+- `troubleshooting-decision-tree-push-notifications-are-not-arriving`: Push notifications are not arriving
+- `troubleshooting-decision-tree-mobile-check-in-cannot-find-a-kiosk`: Mobile check-in cannot find a kiosk
+- `troubleshooting-decision-tree-mobile-check-in-finds-a-kiosk-but-says-no-service-is-available`: Mobile check-in finds a kiosk but says no service is available
+- `troubleshooting-decision-tree-check-in-completes-but-labels-do-not-print`: Check-in completes but labels do not print
+- `troubleshooting-decision-tree-the-app-is-unavailable-on-newer-android-devices`: The app is unavailable on newer Android devices
+- `troubleshooting-decision-tree-outreach-toolbox-is-missing-or-reminders-do-not-fire`: Outreach Toolbox is missing or reminders do not fire
+- `agent-task-recipes-recipe-create-and-test-a-minimal-mobile-application`: Recipe: Create and test a minimal mobile application
+- `agent-task-recipes-recipe-build-personalized-content-block-output-safely`: Recipe: Build personalized Content block output safely
+- `agent-task-recipes-recipe-add-a-command-driven-interaction`: Recipe: Add a command-driven interaction
+- `agent-task-recipes-recipe-migrate-a-page-from-shell-v5-to-v6`: Recipe: Migrate a page from Shell v5 to v6+
+- `agent-task-recipes-recipe-prepare-mobile-check-in`: Recipe: Prepare mobile check-in
+- `agent-task-recipes-recipe-prepare-an-app-factory-publication`: Recipe: Prepare an App Factory publication
+- `agent-task-recipes-recipe-validate-push-notifications`: Recipe: Validate push notifications
+- `agent-task-recipes-recipe-orchestrate-slow-media-or-content-work`: Recipe: Orchestrate slow media or content work
+- `agent-task-recipes-recipe-validate-outreach-toolbox-for-ministry-use`: Recipe: Validate Outreach Toolbox for ministry use
+- `source-map-official-rock-mobile-documentation`: Official Rock Mobile documentation
 
 ## Live Verification Clarification
 

@@ -47,15 +47,15 @@ Review LMS, engagement, requirement, workflow, and communication behavior agains
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/bookcontent/43/354
-- https://www.rockrms.com/releasenotes
-- https://www.triumph.tech/resources/github-spotlight-11142025
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LearningCourseRequirementsController.CodeGenerated.cs
-- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://community.rockrms.com/rocku/engagement/adding-steps
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example
 - https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
-- https://community.rockrms.com/documentation/engagement/steps/configure-steps
-- https://community.rockrms.com/rocku/lms/lms-academic-calendar
-- https://community.rockrms.com/rocku/engagement/steps-overview
-- https://community.rockrms.com/rocku/engagement/steps-badges
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-security
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub
+- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/facilitators
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class

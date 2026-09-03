@@ -18,42 +18,43 @@ Serving teams, volunteer schedules, requirements, confirmations, attendance, vol
 
 ## Primary Tasks
 
-- [Recipe: Find The Real Object Behind A Serving Issue](tasks/recipe-find-the-real-object-behind-a-serving-issue.md): Complete Find The Real Object Behind A Serving Issue with evidence-backed checks and a verifiable outcome.
-- [Recipe: Confirm A Volunteer Is Eligible To Serve](tasks/recipe-confirm-a-volunteer-is-eligible-to-serve.md): If requirement source is unclear, say: "Inspect the group requirement definition and its backing data source in the live Rock instance."
-- [Recipe: Explain Why A Volunteer Was Not Scheduled](tasks/recipe-explain-why-a-volunteer-was-not-scheduled.md): Complete Explain Why A Volunteer Was Not Scheduled with evidence-backed checks and a verifiable outcome.
-- [Recipe: Verify Schedule Confirmation Send Health](tasks/recipe-verify-schedule-confirmation-send-health.md): Complete Verify Schedule Confirmation Send Health with evidence-backed checks and a verifiable outcome.
-- [Recipe: Safely Customize A Volunteer-Facing Page](tasks/recipe-safely-customize-a-volunteer-facing-page.md): The external schedule recipe demonstrates why copied pages may be necessary when serving teams share a toolbox with other group categories (View Serving Schedule on External Page).
-- [Recipe: Investigate Family Serving Response Request](tasks/recipe-investigate-family-serving-response-request.md): Source pattern: Manage Family Members' Serving Requests on MyAccount.
-- [Recipe: Build A Serving Health Dashboard](tasks/recipe-build-a-serving-health-dashboard.md): Cite reporting model landmarks where appropriate: Model Map, vCheckin_GroupTypeAttendance.sql.
+- [Recipe: Configure a serving team for scheduling](tasks/recipe-configure-a-serving-team-for-scheduling.md): A bounded serving group is ready for assignments at verified locations and times.
+- [Recipe: Send and triage volunteer confirmations](tasks/recipe-send-and-triage-volunteer-confirmations.md): The intended volunteers receive a confirmation request without an uncontrolled duplicate send.
+- [Recipe: Configure an RSVP-based serving invitation](tasks/recipe-configure-an-rsvp-based-serving-invitation.md): A group occurrence can collect and display bounded accept or decline responses.
+- [Recipe: Close out serving attendance](tasks/recipe-close-out-serving-attendance.md): The occurrence records who served or that the team did not meet, with discrepancies ready for human review.
+- [Recipe: Build an LMS-based volunteer training path](tasks/recipe-build-an-lms-based-volunteer-training-path.md): A volunteer completes defined learning activities and reaches an explicitly reviewed operational result.
+- [Recipe: Configure an attendance digest](tasks/recipe-configure-an-attendance-digest.md): Leaders at the intended regional level receive attendance summaries for their child attendance groups.
+- [Recipe: Secure an embedded volunteer dashboard](tasks/recipe-secure-an-embedded-volunteer-dashboard.md): The Rock page and external reporting provider both authorize only the intended viewers.
+- [Recipe: Pilot Outreach Toolbox for relationship-care follow-up](tasks/recipe-pilot-outreach-toolbox-for-relationship-care-follow-up.md): A bounded group of signed-in mobile users can see, receive, complete, and review configured outreach touchpoints.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-60: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology-core-terms` lines 67-110: Core Terms (high)
-- `3-serving-and-volunteer-operations-mental-model-layer-2-where-and-when` lines 137-146: Layer 2: Where And When (normal)
-- `3-serving-and-volunteer-operations-mental-model-layer-3-assignment-and-response` lines 147-154: Layer 3: Assignment And Response (normal)
-- `3-serving-and-volunteer-operations-mental-model-layer-4-actual-attendance` lines 155-162: Layer 4: Actual Attendance (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 184-199: 4. Source Authority And How To Use This Guide (normal)
+- `agent-summary` lines 18-32: Agent Summary (normal)
+- `mental-model-policy-team-assignment-response-and-attendance` lines 52-63: Policy, team, assignment, response, and attendance (high)
+- `mental-model-group-scheduling-and-group-rsvp-are-related-but-different` lines 64-71: Group Scheduling and Group RSVP are related but different (normal)
+- `serving-teams-and-roles-establish-the-operating-group-structure` lines 78-93: Establish the operating group structure (normal)
+- `serving-teams-and-roles-distinguish-operational-roles` lines 94-106: Distinguish operational roles (normal)
+- `serving-teams-and-roles-be-precise-when-identifying-volunteers-in-reports` lines 107-112: Be precise when identifying volunteers in reports (normal)
 
 ## Core Entities
 
 - `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
-- `AttendanceOccurrence`: Occurrence context for attendance, including group, schedule, location, date, and SundayDate.
-- `Attribute`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `Block`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `Campus`: Rock concept/entity referenced by the serving-volunteer-ops guide.
-- `Check-in Configuration`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `Family`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `GroupMember`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `GroupType`: Rule container for groups, including attendance/check-in settings and inherited behavior.
+- `Label`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 - `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the serving-volunteer-ops guide.
+- `Person`: Rock concept/entity referenced by the serving-volunteer-ops guide.
+- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
+- `Workflow`: Rock concept/entity referenced by the serving-volunteer-ops guide.
 
 ## Version Caveats
 
+- `19.3`: Fixed an issue with the RSVP Response block where the heading would show the generic "RSVP for Event" text instead of the Attendance Occurrence Name when accessed through the Accept or Decline link in an RSVP email. Fixe
 - `18.3`: Fixed the Send Attendance Reminder job so Group leaders still receive reminders when a Group only has scheduling/RSVP-related Attendance records. The job now treats those tracking records as not being “attendance” and on
-- `17.2`: Fixed an issue where the Group Scheduling Confirmation workflow could incorrectly record a response if the confirmation email was opened by an automated link-checker, or if a decline reason was required but not provided.
 
 ## Files For Agents
 

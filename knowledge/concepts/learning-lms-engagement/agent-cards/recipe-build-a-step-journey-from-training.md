@@ -49,15 +49,15 @@ Connect training completion to an engagement journey only through explicit workf
 
 ## Source Links
 
-- https://community.rockrms.com/documentation/bookcontent/39
-- https://www.triumph.tech/resources/github-spotlight-11142025
-- https://community.rockrms.com/rocku/engagement
-- https://community.rockrms.com/documentation/engagement/learning-management-system/overview/intro-to-lms
-- https://community.rockrms.com/rocku/engagement/steps-badges
-- https://community.rockrms.com/rocku/engagement/adding-steps
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/use-group-requirement-jobs
-- https://community.rockrms.com/documentation/bookcontent/43/354
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/view-group-requirements
-- https://community.rockrms.com/documentation/engagement/groups/group-requirements/intro-to-group-requirements
-- https://www.rockrms.com/releasenotes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/configure-program
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/lms-behind-the-scenes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/courses
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/edit-the-class
+- https://community.rockrms.com/documentation/engagement/learning-management-system/program-administration/classes
+- https://community.rockrms.com/documentation/engagement/learning-management-system/advanced-lms/configure-grading-systems
+- https://community.rockrms.com/documentation/engagement/learning-management-system/create-a-learning-program/create-a-course
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/intro-to-the-learning-hub
 - https://community.rockrms.com/ModelMap
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/on-demand-class-workspace-example
+- https://community.rockrms.com/documentation/engagement/learning-management-system/lms-learning-hub/academic-calendar-class-workspace-example
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Lms/LearningCourseRequirement/LearningCourseRequirementsBag.cs

@@ -18,20 +18,23 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 
 ## Primary Tasks
 
-- [Audit Prayer Configuration](tasks/audit-prayer-configuration.md): Complete Audit Prayer Configuration with evidence-backed checks and a verifiable outcome.
-- [Review A Sensitive Request](tasks/review-a-sensitive-request.md): Complete Review A Sensitive Request with evidence-backed checks and a verifiable outcome.
-- [Build A Prayer-Team Coverage Report](tasks/build-a-prayer-team-coverage-report.md): Complete Build A Prayer-Team Coverage Report with evidence-backed checks and a verifiable outcome.
-- [Investigate Person Prayer History](tasks/investigate-person-prayer-history.md): Complete Investigate Person Prayer History with evidence-backed checks and a verifiable outcome.
-- [Safely Extend Prayer Intake](tasks/safely-extend-prayer-intake.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Configure moderated public prayer intake](tasks/recipe-configure-moderated-public-prayer-intake.md): Public submissions enter the intended category and do not reach the prayer team without the chosen approval gate.
+- [Recipe: Operate the administrator moderation queue](tasks/recipe-operate-the-administrator-moderation-queue.md): Flagged and unapproved requests receive documented human disposition.
+- [Recipe: Build a secured ministry-specific prayer queue](tasks/recipe-build-a-secured-ministry-specific-prayer-queue.md): A ministry team sees only the intended category scope through a secured page.
+- [Recipe: Create and verify a group prayer route](tasks/recipe-create-and-verify-a-group-prayer-route.md): New requests are permanently associated with the correct group and appear only through that group’s prayer route.
+- [Recipe: Enable prayer-comment digests](tasks/recipe-enable-prayer-comment-digests.md): Allowed comments are delivered to request-specific email addresses within the intended category scope.
+- [Recipe: Add workflow-based care follow-up](tasks/recipe-add-workflow-based-care-follow-up.md): A qualifying prayer event creates a bounded care action without exposing the request broadly.
+- [Recipe: Introduce AI assistance with human review](tasks/recipe-introduce-ai-assistance-with-human-review.md): AI processing is limited to known categories and produces reviewable results.
+- [Recipe: Validate Outreach Toolbox for prayer touchpoints](tasks/recipe-validate-outreach-toolbox-for-prayer-touchpoints.md): A signed-in mobile user can see, complete, and receive reminders for an assigned prayer touchpoint.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-46: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 47-75: 2. Scope And Terminology (high)
-- `3-prayer-and-care-mental-model` lines 76-89: 3. Prayer And Care Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 90-102: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model-prayer-request-entry-configuration` lines 105-153: Prayer Request Entry Configuration (high)
-- `5-core-configuration-and-data-model-prayer-request-detail-configuration` lines 154-195: Prayer Request Detail Configuration (normal)
+- `agent-summary` lines 18-33: Agent Summary (normal)
+- `scope-and-boundaries` lines 34-51: Scope And Boundaries (high)
+- `mental-model` lines 52-67: Mental Model (high)
+- `prayer-request-intake-and-lifecycle` lines 68-94: Prayer Request Intake And Lifecycle (high)
+- `categories-visibility-and-page-security` lines 95-110: Categories, Visibility, And Page Security (high)
+- `teams-approval-and-human-moderation` lines 111-127: Teams, Approval, And Human Moderation (normal)
 
 ## Core Entities
 
@@ -39,24 +42,21 @@ Prayer requests, prayer teams, moderation, categories, care follow-up, visibilit
 - `Attribute`: Rock concept/entity referenced by the prayer-care guide.
 - `Block`: Rock concept/entity referenced by the prayer-care guide.
 - `Campus`: Rock concept/entity referenced by the prayer-care guide.
+- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the prayer-care guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
 - `Page`: Rock concept/entity referenced by the prayer-care guide.
 - `Person`: Rock concept/entity referenced by the prayer-care guide.
-- `PersonAlias`: Rock concept/entity referenced by the prayer-care guide.
 - `Schedule`: Time window that makes groups and locations available for check-in or attendance.
 - `Workflow`: Rock concept/entity referenced by the prayer-care guide.
 
 ## Version Caveats
 
 - `17.0`: Fixed an issue where Prayer Request Attributes not marked as "Public" were incorrectly displaying in the Obsidian version of the Prayer Request Entry block. These Attributes are now properly hidden on the Prayer Request
+- `19.3`: Fixed the Prayer Comment List block: custom grid columns can now access the prayer request and requester via the Row Lava merge field, the From-column and date-range filters work, and several performance and dead-code is
 - `19.1`: Improved the Prayer Request List block to display prayer request text at a wider width for better readability. Fixes: #6824
 - `17.5`: Fixed an issue where approving a Prayer Request in the Obsidian Prayer Request Detail block did not update the ApprovedOnDateTime and ApprovedByPersonAliasId fields. Fixes: #6403
 - `17.2`: Fixed an issue where the Prayer Request Detail block in Obsidian did not recognize the PersonId URL parameter, which prevented person data from being pre-filled when creating a new prayer request. Fixes: #6357
-- `17.0`: Added support for editing custom attributes within the Mobile Prayer Request block. This enhancement allows individuals to update custom attributes when submitting or managing prayer requests from a mobile device. Be awa
-- `18.3`: Added a Campus Type filter to the campus picker on the Prayer Request Detail block. This allows individuals to narrow the list of selectable campuses when adding a new prayer request.
-- `17.0`: Added a new feature to Prayer which will optionally run several pre-configured AI completions on saved prayer requests. If you plan on using this feature, read the Tech Bulletin item on this topic.
 
 ## Files For Agents
 

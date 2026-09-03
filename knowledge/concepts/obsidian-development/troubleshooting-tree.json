@@ -1,82 +1,84 @@
 {
   "branches": [
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Stop when authorization succeeds through an intentional rule; do not bypass the server check or trust client visibility."
+      ],
       "entities": [
+        "Person",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",
-      "id": "symptom-block-does-not-appear-in-page-zone-editor",
+      "guide_section_id": "troubleshooting-decision-tree-a-block-action-is-visible-but-returns-unauthorized",
+      "id": "a-block-action-is-visible-but-returns-unauthorized",
       "inspect": [
+        "Person",
         "Block"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/developer/obsidian/creating-ui-controls"
       ],
       "start_with": [
-        "Block Type registration.",
-        "C# class and assembly.",
-        "Component file path.",
-        "Category.",
-        "Cache state.",
-        "Server restart.",
-        "Build/deploy output.",
-        "Plugin package import."
+        "Confirm the server action checks the current person’s ordinary authorization.",
+        "If a child control needs delegated access, confirm the block created and provided a security grant.",
+        "Confirm the control injected the current token and included it in the request.",
+        "Confirm the endpoint reconstructs the grant and checks the authorization action needed for this operation.",
+        "Check whether the one-hour default token lifetime requires renewal.",
+        "Stop when authorization succeeds through an intentional rule; do not bypass the server check or trust client visibility. (Creating UI Controls)"
       ],
-      "title": "Symptom: Block Does Not Appear In Page Zone Editor",
-      "when": "Symptom: Block Does Not Appear In Page Zone Editor"
+      "title": "A Block Action Is Visible But Returns Unauthorized",
+      "when": "A Block Action Is Visible But Returns Unauthorized"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-block-renders-blank",
-      "id": "symptom-block-renders-blank",
+      "guide_section_id": "troubleshooting-decision-tree-a-save-reports-success-but-the-intended-values-do-not-persist",
+      "id": "a-save-reports-success-but-the-intended-values-do-not-persist",
       "inspect": [
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/null-vs-undefined"
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-detail-blocks",
+        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
       ],
       "start_with": [
-        "Browser console errors.",
-        "Network requests for JS bundles and component files.",
-        "Server logs.",
-        "Block action initialization response.",
-        "Missing required props.",
-        "Null vs undefined data shape (Null vs Undefined).",
-        "Component import paths.",
-        "TypeScript build output."
+        "Reload through an independent read path rather than trusting the action’s success response.",
+        "Compare the submitted JSON contract with the server action’s accepted model.",
+        "Check server-side normalization, defaults, omitted properties, and fields ignored by the save handler.",
+        "For a generated detail block, inspect the saveable-property list for both missing intended fields and UI-only fields that should have been removed.",
+        "Confirm the action reloaded and authorized the intended entity.",
+        "If the behavior depends on installed schema or configuration, perform a bounded live readback. The independent-readback practice is a reviewed community pattern, not a universal guarantee about every block action. (Creating Detail Blocks, Creating Blocks)"
       ],
-      "title": "Symptom: Block Renders Blank",
-      "when": "Symptom: Block Renders Blank"
+      "title": "A Save Reports Success But The Intended Values Do Not Persist",
+      "when": "A Save Reports Success But The Intended Values Do Not Persist"
     },
     {
       "do_not_assume": [],
       "entities": [
+        "Person",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-save-button-does-nothing",
-      "id": "symptom-save-button-does-nothing",
+      "guide_section_id": "troubleshooting-decision-tree-a-grid-action-targets-the-wrong-row-or-has-no-row-key",
+      "id": "a-grid-action-targets-the-wrong-row-or-has-no-row-key",
       "inspect": [
+        "Person",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/form-validation"
+        "https://community.rockrms.com/developer/obsidian/grid-reference/grid",
+        "https://community.rockrms.com/developer/obsidian/grids",
+        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/personcolumn"
       ],
       "start_with": [
-        "Browser click handler.",
-        "Form validation state.",
-        "`RockForm` and field validation errors (Form Validation).",
-        "Disabled/loading state.",
-        "Network request.",
-        "Block action registration.",
-        "Server authorization.",
-        "Server validation response."
+        "Confirm the Grid’s key field names a property that uniquely identifies each row.",
+        "Confirm every row includes that property.",
+        "Confirm the action handler expects the same key representation.",
+        "For `PersonColumn`, confirm the server used `AddPersonField()`.",
+        "For Person default actions outside `RockListBlockType`, confirm the grid definition uses an IdKey or GUID and that the required entity-set and communication actions exist. (Grid, Grids, PersonColumn)"
       ],
-      "title": "Symptom: Save Button Does Nothing",
-      "when": "Symptom: Save Button Does Nothing"
+      "title": "A Grid Action Targets The Wrong Row Or Has No Row Key",
+      "when": "A Grid Action Targets The Wrong Row Or Has No Row Key"
     },
     {
       "do_not_assume": [],
@@ -84,233 +86,157 @@
         "Page",
         "Attribute"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-save-succeeds-but-data-does-not-change",
-      "id": "symptom-save-succeeds-but-data-does-not-change",
+      "guide_section_id": "troubleshooting-decision-tree-a-grid-is-slow-even-with-a-small-page-size",
+      "id": "a-grid-is-slow-even-with-a-small-page-size",
       "inspect": [
         "Page",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Server action result.",
-        "Database/entity value.",
-        "Attribute value storage.",
-        "Cache.",
-        "Component state update.",
-        "Whether save response returns new data.",
-        "Whether page reload shows updated data.",
-        "Configuration key mismatch."
-      ],
-      "title": "Symptom: Save Succeeds But Data Does Not Change",
-      "when": "Symptom: Save Succeeds But Data Does Not Change"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-is-slow",
-      "id": "symptom-grid-is-slow",
-      "inspect": [
-        "Person",
         "Attribute"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/obsidian/grids"
       ],
       "start_with": [
-        "Row count.",
-        "Payload size.",
-        "Dynamic attributes.",
-        "Person fields.",
-        "Custom columns.",
-        "Client-side filtering/sorting assumption (Grids).",
-        "Server query.",
-        "Browser render time."
+        "Measure or inspect the total row count, not only the configured page size.",
+        "Confirm whether the complete result set is being transferred to the browser.",
+        "Reduce or constrain the server result set if the business requirement permits.",
+        "Reassess attribute payloads and other per-row data.",
+        "Stop when the initial transfer and browser work are acceptable; changing only client page size does not reduce the payload. (Grids)"
       ],
-      "title": "Symptom: Grid Is Slow",
-      "when": "Symptom: Grid Is Slow"
+      "title": "A Grid Is Slow Even With A Small Page Size",
+      "when": "A Grid Is Slow Even With A Small Page Size"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-sort-duplicates-or-moves-wrong-rows",
-      "id": "symptom-grid-sort-duplicates-or-moves-wrong-rows",
+      "guide_section_id": "troubleshooting-decision-tree-a-template-does-not-update-after-a-value-changes",
+      "id": "a-template-does-not-update-after-a-value-changes",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/developer/obsidian/obsidian-component-structure"
       ],
       "start_with": [
-        "`keyField`.",
-        "Unique row keys.",
-        "Row object identity.",
-        "Sort value.",
-        "Grid state.",
-        "Release notes for Dynamic Data unique key fix (Rock Core Release Notes)."
+        "Determine whether the value is an ordinary variable.",
+        "Move template-driving state into a reactive `ref` or `computed` value.",
+        "Confirm the template reads that reactive value.",
+        "Check whether the parent passed `null`, omitted the property, or supplied a different value than expected. (Obsidian Component Structure)"
       ],
-      "title": "Symptom: Grid Sort Duplicates Or Moves Wrong Rows",
-      "when": "Symptom: Grid Sort Duplicates Or Moves Wrong Rows"
+      "title": "A Template Does Not Update After A Value Changes",
+      "when": "A Template Does Not Update After A Value Changes"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-picker-can-be-cleared-or-submitted-unexpectedly",
+      "id": "a-picker-can-be-cleared-or-submitted-unexpectedly",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/obsidian/misc-notes",
+        "https://community.rockrms.com/developer/obsidian/form-validation"
+      ],
+      "start_with": [
+        "Inspect `showBlankItem` to determine whether the selection can be cleared.",
+        "Inspect the `required` rule to determine whether an empty value blocks submission.",
+        "Treat these as independent settings.",
+        "Submit through the nearest `RockForm` and verify whether its validation notice appears. (Misc Notes, Form Validation)"
+      ],
+      "title": "A Picker Can Be Cleared Or Submitted Unexpectedly",
+      "when": "A Picker Can Be Cleared Or Submitted Unexpectedly"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-grid-export-fails",
-      "id": "symptom-grid-export-fails",
+      "guide_section_id": "troubleshooting-decision-tree-a-field-type-displays-correctly-but-fails-during-an-unsaved-edit",
+      "id": "a-field-type-displays-correctly-but-fails-during-an-unsaved-edit",
       "inspect": [],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/developer/obsidian/creating-field-types/converting-core-field-types",
+        "https://community.rockrms.com/developer/obsidian/creating-field-types"
       ],
       "start_with": [
-        "Export title and Excel worksheet restrictions.",
-        "Rock version; release notes include a fix for invalid Excel worksheet names in Obsidian grid exports (Rock Core Release Notes).",
-        "Column export values.",
-        "Dynamic columns.",
-        "Field type values.",
-        "Browser download errors.",
-        "Server logs."
+        "Compare the public display and public edit representations.",
+        "Pass representative values from both forms through `getTextValue` and related formatting methods.",
+        "Update those methods to handle either representation.",
+        "Confirm the conversion back to the private stored representation.",
+        "Recheck public configuration-key compatibility before changing the contract. (Converting Core Field Types, Creating Field Types)"
       ],
-      "title": "Symptom: Grid Export Fails",
-      "when": "Symptom: Grid Export Fails"
+      "title": "A Field Type Displays Correctly But Fails During An Unsaved Edit",
+      "when": "A Field Type Displays Correctly But Fails During An Unsaved Edit"
     },
     {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-field-type-displays-raw-json",
-      "id": "symptom-field-type-displays-raw-json",
-      "inspect": [],
+      "do_not_assume": [
+        "Stop when the debugger attaches; do not treat an ordinary Chrome session as attach-enabled."
+      ],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-vs-code-cannot-attach-to-chrome",
+      "id": "vs-code-cannot-attach-to-chrome",
+      "inspect": [
+        "Block"
+      ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/developer/obsidian/core-development-environment/debugging-obsidian-in-vs-code"
       ],
       "start_with": [
-        "Field type display conversion.",
-        "Universal Field Type configuration.",
-        "Whether the stored value is expected JSON.",
-        "v18.1 Universal field type configuration fix (Rock Core Release Notes).",
-        "TypeScript `getTextValue`.",
-        "Configuration component emits."
+        "Confirm the correct Framework or Blocks attach configuration was selected.",
+        "Confirm Chrome was launched with remote debugging enabled.",
+        "Confirm the configured port is `9222`.",
+        "Restart Chrome through the correctly configured launch path if necessary.",
+        "Stop when the debugger attaches; do not treat an ordinary Chrome session as attach-enabled. (Debugging Obsidian in VS Code)"
       ],
-      "title": "Symptom: Field Type Displays Raw JSON",
-      "when": "Symptom: Field Type Displays Raw JSON"
+      "title": "VS Code Cannot Attach To Chrome",
+      "when": "VS Code Cannot Attach To Chrome"
     },
     {
       "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
-      "id": "symptom-picker-cannot-be-cleared",
-      "inspect": [],
+      "entities": [
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-older-component-fails-with-syntaxerror-15",
+      "id": "an-older-component-fails-with-syntaxerror-15",
+      "inspect": [
+        "Attribute"
+      ],
       "source_urls": [
         "https://community.rockrms.com/developer/obsidian/misc-notes"
       ],
       "start_with": [
-        "Required rule.",
-        "`showBlankItem`.",
-        "Misc Notes guidance on picker requiredness and deselection (Misc Notes).",
-        "Field type configuration.",
-        "Component props.",
-        "Server validation."
+        "Confirm the failing source is an older `.ts` component rather than a newer `.obs` file.",
+        "Inspect adjacent template attributes for missing whitespace.",
+        "Correct the attribute separation and rebuild.",
+        "If the error remains, treat the numeric code as insufficient evidence for another diagnosis. (Misc Notes)"
       ],
-      "title": "Symptom: Picker Cannot Be Cleared",
-      "when": "Symptom: Picker Cannot Be Cleared"
-    },
-    {
-      "do_not_assume": [
-        "The Lava docs say response-mutating filters such as redirects and meta tags are often unsupported in Obsidian blocks because actions do not reload the whole page (Lava With Obsidian)."
-      ],
-      "entities": [
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work",
-      "id": "symptom-lava-redirect-or-meta-tag-does-not-work",
-      "inspect": [
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/lava/obsidian"
-      ],
-      "start_with": [],
-      "title": "Symptom: Lava Redirect Or Meta Tag Does Not Work",
-      "when": "Symptom: Lava Redirect Or Meta Tag Does Not Work"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
-      "id": "symptom-security-modal-opens-but-user-cannot-save",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn"
-      ],
-      "start_with": [
-        "Current user's Administrate/Edit permission.",
-        "Entity security.",
-        "Block security.",
-        "`SecurityColumn` disabled field.",
-        "Security grants.",
-        "Server logs.",
-        "Whether the row maps to the correct entity (SecurityColumn)."
-      ],
-      "title": "Symptom: Security Modal Opens But User Cannot Save",
-      "when": "Symptom: Security Modal Opens But User Cannot Save"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
-      "id": "symptom-works-for-admin-but-not-staff",
-      "inspect": [
-        "Workflow",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Page View permission.",
-        "Block View/Edit/Administrate.",
-        "Entity authorization.",
-        "Field-level security.",
-        "Security grants.",
-        "API/block action permission.",
-        "Workflow type permissions if workflow-related.",
-        "Whether the UI hides actions or server rejects them."
-      ],
-      "title": "Symptom: Works For Admin But Not Staff",
-      "when": "Symptom: Works For Admin But Not Staff"
+      "title": "An Older Component Fails With `SyntaxError 15`",
+      "when": "An Older Component Fails With `SyntaxError 15`"
     }
   ],
   "concept_id": "obsidian-development",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:05+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-symptom-block-does-not-appear-in-page-zone-editor",
-    "18-troubleshooting-decision-tree-symptom-block-renders-blank",
-    "18-troubleshooting-decision-tree-symptom-save-button-does-nothing",
-    "18-troubleshooting-decision-tree-symptom-save-succeeds-but-data-does-not-change",
-    "18-troubleshooting-decision-tree-symptom-grid-is-slow",
-    "18-troubleshooting-decision-tree-symptom-grid-sort-duplicates-or-moves-wrong-rows",
-    "18-troubleshooting-decision-tree-symptom-grid-export-fails",
-    "18-troubleshooting-decision-tree-symptom-field-type-displays-raw-json",
-    "18-troubleshooting-decision-tree-symptom-picker-cannot-be-cleared",
-    "18-troubleshooting-decision-tree-symptom-lava-redirect-or-meta-tag-does-not-work",
-    "18-troubleshooting-decision-tree-symptom-security-modal-opens-but-user-cannot-save",
-    "18-troubleshooting-decision-tree-symptom-works-for-admin-but-not-staff",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-identify-the-source-files-behind-a-visible-obsidian-block",
-    "19-agent-task-recipes-recipe-determine-whether-a-bug-is-version-related",
-    "19-agent-task-recipes-recipe-review-an-obsidian-pull-request",
-    "19-agent-task-recipes-recipe-audit-a-block-for-security",
-    "19-agent-task-recipes-recipe-audit-a-grid-for-operational-readiness",
-    "19-agent-task-recipes-recipe-decide-whether-to-use-browser-bus"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-block-action-is-visible-but-returns-unauthorized",
+    "troubleshooting-decision-tree-a-save-reports-success-but-the-intended-values-do-not-persist",
+    "troubleshooting-decision-tree-a-grid-action-targets-the-wrong-row-or-has-no-row-key",
+    "troubleshooting-decision-tree-a-grid-is-slow-even-with-a-small-page-size",
+    "troubleshooting-decision-tree-a-template-does-not-update-after-a-value-changes",
+    "troubleshooting-decision-tree-a-picker-can-be-cleared-or-submitted-unexpectedly",
+    "troubleshooting-decision-tree-a-field-type-displays-correctly-but-fails-during-an-unsaved-edit",
+    "troubleshooting-decision-tree-vs-code-cannot-attach-to-chrome",
+    "troubleshooting-decision-tree-an-older-component-fails-with-syntaxerror-15",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-implement-a-secure-block-action",
+    "agent-task-recipes-recipe-scaffold-and-harden-a-detail-block",
+    "agent-task-recipes-recipe-build-a-grid-with-reliable-actions",
+    "agent-task-recipes-recipe-add-a-core-field-type-to-obsidian",
+    "agent-task-recipes-recipe-create-a-universal-plugin-picker",
+    "agent-task-recipes-recipe-add-a-custom-block-settings-screen",
+    "agent-task-recipes-recipe-coordinate-same-page-blocks-with-browser-bus",
+    "agent-task-recipes-recipe-cache-a-read-request",
+    "agent-task-recipes-recipe-verify-a-community-suggested-block-action-save-path"
   ]
 }

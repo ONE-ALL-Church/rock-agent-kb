@@ -3,376 +3,416 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
         "Group",
         "GroupType",
+        "Location",
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-team-does-not-appear-in-group-scheduling",
+      "id": "the-team-does-not-appear-in-group-scheduling",
+      "inspect": [
+        "Group",
+        "GroupType",
+        "Location",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule"
+      ],
+      "start_with": [
+        "Confirm that the operator is inspecting the intended group and group type.",
+        "Inspect whether `Scheduling Enabled` is active on that group type.",
+        "Confirm that the required named locations or positions exist.",
+        "Confirm that the required named schedules exist and have accurate times.",
+        "Confirm that the locations and schedules are associated with the group.",
+        "Inspect the scheduler’s current group and location selections.",
+        "If all configuration appears correct, verify permissions and the installed version before changing data."
+      ],
+      "title": "The team does not appear in Group Scheduling",
+      "when": "The team does not appear in Group Scheduling"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-volunteer-received-no-confirmation-or-reminder",
+      "id": "a-volunteer-received-no-confirmation-or-reminder",
+      "inspect": [
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications",
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs"
+      ],
+      "start_with": [
+        "Determine whether the communication was expected from a manual scheduler action or the scheduled notification job.",
+        "Inspect the group type’s confirmation and reminder communications.",
+        "Inspect the confirmation and reminder offset days.",
+        "Confirm whether the assignment had already received the relevant communication.",
+        "Inspect the `Send Group Schedule Notifications` job, including its schedule and recent result.",
+        "For SMS, verify SMS configuration, an SMS-enabled number, the System Communication medium, and effective communication preference.",
+        "Distinguish “no eligible recipients” from “eligible recipients found but delivery failed.”",
+        "Stop before resending broadly if prior delivery cannot be determined."
+      ],
+      "title": "A volunteer received no confirmation or reminder",
+      "when": "A volunteer received no confirmation or reminder"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Schedule",
+        "Label",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-volunteer-cannot-accept-an-assignment",
+      "id": "a-volunteer-cannot-accept-an-assignment",
+      "inspect": [
+        "Group",
+        "Schedule",
+        "Label",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox"
+      ],
+      "start_with": [
+        "Inspect the current assignment state in Schedule Toolbox.",
+        "Inspect whether confirmation logic is `Ask` or `Auto Accept`.",
+        "If it is `Auto Accept`, verify whether the assignment is already treated as accepted and only Decline should be offered.",
+        "Determine whether confirmation logic changed after the assignment was created but before the message was received.",
+        "Review Schedule Toolbox block settings for disabled actions or changed labels.",
+        "Test with a bounded assignment before changing confirmation logic again."
+      ],
+      "title": "A volunteer cannot accept an assignment",
+      "when": "A volunteer cannot accept an assignment"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Schedule",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-schedule-coordinator-was-not-alerted",
+      "id": "the-schedule-coordinator-was-not-alerted",
+      "inspect": [
+        "Group",
+        "Schedule",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications"
+      ],
+      "start_with": [
+        "Confirm that the group has a Schedule Coordinator.",
+        "Identify the event: Accept, Decline, or Self-schedule.",
+        "Inspect the group-level notification options.",
+        "If no group-level options are selected, inspect the group-type defaults.",
+        "If `None` is selected at group level, recognize that inherited notifications are disabled.",
+        "Inspect the Scheduling Response Email System Communication and its delivery result.",
+        "Verify the coordinator’s reachable address before replaying any notification."
+      ],
+      "title": "The Schedule Coordinator was not alerted",
+      "when": "The Schedule Coordinator was not alerted"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "GroupType"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-rsvp-features-are-missing",
+      "id": "rsvp-features-are-missing",
+      "inspect": [
+        "Group",
+        "GroupType"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp",
+        "https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp"
+      ],
+      "start_with": [
+        "Confirm that an actual group exists.",
+        "Inspect the group type and enable `Group RSVP Enabled` if authorized.",
+        "Return to the group in Group Viewer and look for the RSVP list.",
+        "Create at least one occurrence before attempting to send an RSVP request.",
+        "Inspect inherited versus group-level reminder communication and offset settings.",
+        "Verify the operator’s access if the controls remain absent."
+      ],
+      "title": "RSVP features are missing",
+      "when": "RSVP features are missing"
+    },
+    {
+      "do_not_assume": [
+        "Do not resend to the full audience merely to populate the list."
+      ],
+      "entities": [
+        "Person",
+        "Group",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-rsvp-invitee-is-missing-from-the-response-list",
+      "id": "an-rsvp-invitee-is-missing-from-the-response-list",
+      "inspect": [
+        "Person",
+        "Group",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details"
+      ],
+      "start_with": [
+        "Open the correct occurrence’s RSVP Detail page.",
+        "Verify whether the person actually responded.",
+        "Determine whether `Register Recipients` was used when the request was sent.",
+        "If it was not used, expect nonrespondents to be absent from the list.",
+        "If the person responded through another channel, update the response only after confirming identity and occurrence.",
+        "Do not resend to the full audience merely to populate the list."
+      ],
+      "title": "An RSVP invitee is missing from the response list",
+      "when": "An RSVP invitee is missing from the response list"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Group",
+        "GroupType",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-attendance-button-is-missing",
+      "id": "the-attendance-button-is-missing",
+      "inspect": [
+        "Attendance",
+        "Group",
+        "GroupType",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance",
+        "https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance"
+      ],
+      "start_with": [
+        "Confirm that the group belongs to the expected group type.",
+        "Inspect the group type’s Attendance / Check-in settings.",
+        "Confirm that `Takes Attendance` is enabled.",
+        "Reload the group in Group Viewer.",
+        "If still absent, verify page, block, and operator security without altering the group structure."
+      ],
+      "title": "The attendance button is missing",
+      "when": "The attendance button is missing"
+    },
+    {
+      "do_not_assume": [
+        "Do not treat scheduling or RSVP response records as actual attendance."
+      ],
+      "entities": [
+        "Attendance",
+        "Group",
+        "GroupType",
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-attendance-reminder-was-not-sent",
+      "id": "an-attendance-reminder-was-not-sent",
+      "inspect": [
+        "Attendance",
+        "Group",
+        "GroupType",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm that attendance reminders are enabled for the group type.",
+        "Confirm that the group was scheduled to meet.",
+        "Inspect group and group-type exclusion dates.",
+        "Determine whether actual attendance was entered or the group was marked as not meeting.",
+        "Do not treat scheduling or RSVP response records as actual attendance.",
+        "Confirm the installed Rock version and whether the v18.3 reminder fix applies.",
+        "Inspect the reminder job and delivery result."
+      ],
+      "title": "An attendance reminder was not sent",
+      "when": "An attendance reminder was not sent"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Group",
+        "Location",
+        "Schedule",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-confirmed-volunteer-appears-absent",
+      "id": "a-confirmed-volunteer-appears-absent",
+      "inspect": [
+        "Attendance",
+        "Group",
+        "Location",
+        "Schedule",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox",
+        "https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance"
+      ],
+      "start_with": [
+        "Confirm the group, occurrence date, schedule, and location.",
+        "Confirm whether the team met.",
+        "Confirm that attendance entry is complete.",
+        "Inspect whether the volunteer later cancelled or declined.",
+        "Correct data-entry errors before starting follow-up.",
+        "Treat the remaining difference as a follow-up candidate, not a proven no-show.",
+        "Inspect any local no-show workflow before launching or replaying it."
+      ],
+      "title": "A confirmed volunteer appears absent",
+      "when": "A confirmed volunteer appears absent"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Group",
         "Location",
         "Schedule",
         "Campus",
-        "Page",
+        "Workflow",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-volunteer-cannot-see-schedule",
-      "id": "volunteer-cannot-see-schedule",
+      "guide_section_id": "troubleshooting-decision-tree-rapid-attendance-entry-lacks-an-expected-location-schedule-or-action",
+      "id": "rapid-attendance-entry-lacks-an-expected-location-schedule-or-action",
       "inspect": [
-        "Person",
+        "Attendance",
         "Group",
-        "GroupType",
         "Location",
         "Schedule",
         "Campus",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
-        "https://community.rockrms.com/recipes/459"
-      ],
-      "start_with": [
-        "Is the person logged in?",
-        "Is the person in the serving group?",
-        "Is the group active and not archived?",
-        "Is the group type included by the page/block?",
-        "Does the page filter by campus, group, schedule, or location?",
-        "Does the group have a group location schedule?",
-        "Is the occurrence within the date range?",
-        "Is the volunteer scheduled?"
-      ],
-      "title": "Volunteer Cannot See Schedule",
-      "when": "Volunteer Cannot See Schedule"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Person",
-        "PersonAlias",
-        "Group",
-        "Location",
-        "Schedule",
-        "Family",
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-volunteer-cannot-accept-or-decline",
-      "id": "volunteer-cannot-accept-or-decline",
-      "inspect": [
-        "Attendance",
-        "Person",
-        "PersonAlias",
-        "Group",
-        "Location",
-        "Schedule",
-        "Family",
         "Workflow",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox",
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/recipes/489"
+        "https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry"
       ],
       "start_with": [
-        "scheduled attendance exists;",
-        "person alias matches the volunteer;",
-        "attendance occurrence matches group/date/schedule/location;",
-        "confirmation status is pending;",
-        "confirmation link has valid token/parameters;",
-        "decline reason requirement;",
-        "workflow errors;",
-        "Rock version and v17.2 fix;"
+        "Confirm the selected group.",
+        "Inspect the locations and schedules configured for that group.",
+        "Remember that a schedule selector appears only when multiple schedules apply to the selected location.",
+        "Inspect the Rapid Attendance Entry block settings.",
+        "Confirm whether attendance, notes, workflows, and related actions are enabled.",
+        "Verify campus filtering when expected locations are absent.",
+        "Stop before adding duplicate people or families; search thoroughly first."
       ],
-      "title": "Volunteer Cannot Accept Or Decline",
-      "when": "Volunteer Cannot Accept Or Decline"
+      "title": "Rapid Attendance Entry lacks an expected location, schedule, or action",
+      "when": "Rapid Attendance Entry lacks an expected location, schedule, or action"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not manually mark the person eligible until all non-LMS requirements are known."
+      ],
       "entities": [
+        "Person",
+        "LearningParticipant",
+        "Group",
         "Workflow"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-confirmation-recorded-without-volunteer-action",
-      "id": "confirmation-recorded-without-volunteer-action",
+      "guide_section_id": "troubleshooting-decision-tree-training-completion-did-not-change-serving-eligibility",
+      "id": "training-completion-did-not-change-serving-eligibility",
       "inspect": [
+        "Person",
+        "LearningParticipant",
+        "Group",
         "Workflow"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN"
       ],
       "start_with": [
-        "communication click/open logs;",
-        "response timestamp compared to send timestamp;",
-        "user agent if available;",
-        "automated email-security scanning;",
-        "Rock version;",
-        "v17.2 fix;",
-        "workflow route;",
-        "whether one-click links mutate state immediately;"
+        "Confirm the correct person, learning participant, class, and activity.",
+        "Inspect whether the activity is complete and whether facilitator scoring is still required.",
+        "Identify the intended downstream mechanism: group sync, workflow action, or staff review.",
+        "Inspect whether that mechanism ran and whether it encountered an exception.",
+        "Confirm that ministry policy permits the expected status change.",
+        "Do not manually mark the person eligible until all non-LMS requirements are known."
       ],
-      "title": "Confirmation Recorded Without Volunteer Action",
-      "when": "Confirmation Recorded Without Volunteer Action"
+      "title": "Training completion did not change serving eligibility",
+      "when": "Training completion did not change serving eligibility"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not infer a completed follow-up from a scheduled or attempted notification."
+      ],
       "entities": [
         "Person",
-        "PersonAlias",
-        "Group",
-        "Schedule",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-scheduler-shows-no-eligible-recipients",
-      "id": "scheduler-shows-no-eligible-recipients",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Group",
-        "Schedule",
-        "Block"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs"
-      ],
-      "start_with": [
-        "group members exist;",
-        "members have valid person aliases;",
-        "members have email/SMS contact;",
-        "members are in schedulable roles;",
-        "members meet requirements;",
-        "schedule assignments exist;",
-        "date range has occurrences;",
-        "communication preferences allow send;"
-      ],
-      "title": "Scheduler Shows No Eligible Recipients",
-      "when": "Scheduler Shows No Eligible Recipients"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-schedule-missing-from-group",
-      "id": "schedule-missing-from-group",
-      "inspect": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql",
-        "https://community.rockrms.com/recipes/356"
-      ],
-      "start_with": [
-        "schedule exists;",
-        "schedule active;",
-        "schedule recurrence produces target date;",
-        "schedule assigned to group location;",
-        "group has correct location;",
-        "group active and not archived;",
-        "group type schedule exclusions;",
-        "schedule day matches ministry day;"
-      ],
-      "title": "Schedule Missing From Group",
-      "when": "Schedule Missing From Group"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-check-in-does-not-show-serving-group",
-      "id": "check-in-does-not-show-serving-group",
-      "inspect": [
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Attribute"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/10/266",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "group type belongs to check-in area;",
-        "inherited group type attributes;",
-        "age/grade/ability requirements;",
-        "group active and not archived;",
-        "location configured broadly enough;",
-        "kiosk configured for location;",
-        "schedule active at current time;",
-        "group-location-schedule exists;"
-      ],
-      "title": "Check-In Does Not Show Serving Group",
-      "when": "Check-In Does Not Show Serving Group"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Group"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-attendance-reminder-not-sent",
-      "id": "attendance-reminder-not-sent",
-      "inspect": [
-        "Attendance",
-        "Group"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "job configuration;",
-        "job history;",
-        "leader role and emails;",
-        "communication failures;",
-        "attendance occurrence exists;",
-        "actual attended rows exist;",
-        "group did not meet marker;",
-        "scheduling/RSVP rows only;"
-      ],
-      "title": "Attendance Reminder Not Sent",
-      "when": "Attendance Reminder Not Sent"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Person",
-        "PersonAlias",
-        "Group",
-        "GroupType",
-        "Schedule"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-attendance-looks-too-high",
-      "id": "attendance-looks-too-high",
-      "inspect": [
-        "Attendance",
-        "Person",
-        "PersonAlias",
-        "Group",
-        "GroupType",
-        "Schedule"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql"
-      ],
-      "start_with": [
-        "scheduled rows counted as attended;",
-        "duplicate occurrences;",
-        "check-in plus manual attendance duplicates;",
-        "person alias merges;",
-        "date range includes multiple services;",
-        "group hierarchy includes child groups unexpectedly;",
-        "report joins attendance without `DidAttend`;",
-        "archived groups included;"
-      ],
-      "title": "Attendance Looks Too High",
-      "when": "Attendance Looks Too High"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "PersonAlias",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-volunteers-missing-from-preference-report",
-      "id": "volunteers-missing-from-preference-report",
-      "inspect": [
-        "Person",
-        "PersonAlias",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Campus"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/238"
-      ],
-      "start_with": [
-        "person is in a scheduling group;",
-        "group is active;",
-        "group type matches report filter;",
-        "volunteer has preferences set;",
-        "schedule id matches;",
-        "location id matches;",
-        "campus filter;",
-        "role filter;"
-      ],
-      "title": "Volunteers Missing From Preference Report",
-      "when": "Volunteers Missing From Preference Report"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "GroupType",
         "Schedule",
         "Page",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-external-schedule-page-shows-wrong-groups",
-      "id": "external-schedule-page-shows-wrong-groups",
+      "guide_section_id": "troubleshooting-decision-tree-outreach-toolbox-reminders-are-not-arriving",
+      "id": "outreach-toolbox-reminders-are-not-arriving",
       "inspect": [
-        "Group",
-        "GroupType",
+        "Person",
         "Schedule",
         "Page",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/recipes/459"
+        "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
       ],
       "start_with": [
-        "page was copied or shared;",
-        "block settings;",
-        "page parameter;",
-        "Dynamic Data SQL;",
-        "group type filter;",
-        "security;",
-        "whether small group pages share same Lava file;",
-        "cached content;"
+        "Confirm that the environment supports the documented v19 Rock Mobile experience.",
+        "Confirm that the person is signed in.",
+        "Inspect page placement, block settings, and authentication.",
+        "Confirm the person’s assignment days and reminder preferences.",
+        "Inspect the job’s configured time and recent execution.",
+        "Test push-notification delivery in the target mobile environment.",
+        "Inspect permissions for contact and touchpoint data.",
+        "Do not infer a completed follow-up from a scheduled or attempted notification."
       ],
-      "title": "External Schedule Page Shows Wrong Groups",
-      "when": "External Schedule Page Shows Wrong Groups"
+      "title": "Outreach Toolbox reminders are not arriving",
+      "when": "Outreach Toolbox reminders are not arriving"
     }
   ],
   "concept_id": "serving-volunteer-ops",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:56+00:00",
   "guide_sections": [
-    "10-volunteer-requirements-deep-dive-requirement-failure-troubleshooting",
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-volunteer-cannot-see-schedule",
-    "18-troubleshooting-decision-tree-volunteer-cannot-accept-or-decline",
-    "18-troubleshooting-decision-tree-confirmation-recorded-without-volunteer-action",
-    "18-troubleshooting-decision-tree-scheduler-shows-no-eligible-recipients",
-    "18-troubleshooting-decision-tree-schedule-missing-from-group",
-    "18-troubleshooting-decision-tree-check-in-does-not-show-serving-group",
-    "18-troubleshooting-decision-tree-attendance-reminder-not-sent",
-    "18-troubleshooting-decision-tree-attendance-looks-too-high",
-    "18-troubleshooting-decision-tree-volunteers-missing-from-preference-report",
-    "18-troubleshooting-decision-tree-external-schedule-page-shows-wrong-groups",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-find-the-real-object-behind-a-serving-issue",
-    "19-agent-task-recipes-recipe-confirm-a-volunteer-is-eligible-to-serve",
-    "19-agent-task-recipes-recipe-explain-why-a-volunteer-was-not-scheduled",
-    "19-agent-task-recipes-recipe-verify-schedule-confirmation-send-health",
-    "19-agent-task-recipes-recipe-safely-customize-a-volunteer-facing-page",
-    "19-agent-task-recipes-recipe-investigate-family-serving-response-request",
-    "19-agent-task-recipes-recipe-build-a-serving-health-dashboard"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-team-does-not-appear-in-group-scheduling",
+    "troubleshooting-decision-tree-a-volunteer-received-no-confirmation-or-reminder",
+    "troubleshooting-decision-tree-a-volunteer-cannot-accept-an-assignment",
+    "troubleshooting-decision-tree-the-schedule-coordinator-was-not-alerted",
+    "troubleshooting-decision-tree-rsvp-features-are-missing",
+    "troubleshooting-decision-tree-an-rsvp-invitee-is-missing-from-the-response-list",
+    "troubleshooting-decision-tree-the-attendance-button-is-missing",
+    "troubleshooting-decision-tree-an-attendance-reminder-was-not-sent",
+    "troubleshooting-decision-tree-a-confirmed-volunteer-appears-absent",
+    "troubleshooting-decision-tree-rapid-attendance-entry-lacks-an-expected-location-schedule-or-action",
+    "troubleshooting-decision-tree-training-completion-did-not-change-serving-eligibility",
+    "troubleshooting-decision-tree-outreach-toolbox-reminders-are-not-arriving",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-configure-a-serving-team-for-scheduling",
+    "agent-task-recipes-recipe-send-and-triage-volunteer-confirmations",
+    "agent-task-recipes-recipe-configure-an-rsvp-based-serving-invitation",
+    "agent-task-recipes-recipe-close-out-serving-attendance",
+    "agent-task-recipes-recipe-build-an-lms-based-volunteer-training-path",
+    "agent-task-recipes-recipe-configure-an-attendance-digest",
+    "agent-task-recipes-recipe-secure-an-embedded-volunteer-dashboard",
+    "agent-task-recipes-recipe-pilot-outreach-toolbox-for-relationship-care-follow-up"
   ]
 }

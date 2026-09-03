@@ -13,58 +13,32 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `7-common-giving-and-finance-workflows-external-giving-imports`: External Giving Imports
-- `8-transactions-deep-dive-transaction-attributes`: Transaction Attributes
-- `9-statements-deep-dive-receipts-vs-statements`: Receipts Vs Statements
-- `11-related-rock-areas-people-groups-workflows-security-reporting-workflows`: Workflows
-- `12-administration-and-operational-guardrails-account-governance`: Account Governance
-- `13-developer-api-lava-and-source-code-landmarks-lava-considerations`: Lava Considerations
-- `16-implementation-playbooks-playbook-import-giving-from-an-external-system`: Playbook: Import Giving From An External System
-- `18-agent-task-recipes-recipe-giving-automation-review`: Recipe: Giving Automation Review
-- `18-agent-task-recipes-recipe-pledge-progress-analysis`: Recipe: Pledge Progress Analysis
+- `source-map-community-example`: Community example
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-financial-accounts`: Financial Accounts
-- `5-core-configuration-and-data-model-financial-gateways`: Financial Gateways
-- `5-core-configuration-and-data-model-blocks-and-pages`: Blocks And Pages
-- `6-primary-entities-and-relationships-batches-and-transactions`: Batches And Transactions
-- `6-primary-entities-and-relationships-scheduled-transactions-and-payment-plans`: Scheduled Transactions And Payment Plans
-- `6-primary-entities-and-relationships-pledges`: Pledges
-- `6-primary-entities-and-relationships-people-personalias-businesses-families-and-giving-units`: People, PersonAlias, Businesses, Families, And Giving Units
-- `7-common-giving-and-finance-workflows-text-giving`: Text Giving
-- `7-common-giving-and-finance-workflows-manual-entry-and-check-processing`: Manual Entry And Check Processing
-- `7-common-giving-and-finance-workflows-external-giving-imports`: External Giving Imports
-- `8-transactions-deep-dive-transaction-dates`: Transaction Dates
-- `8-transactions-deep-dive-transaction-types`: Transaction Types
-- `8-transactions-deep-dive-transaction-security`: Transaction Security
-- `9-statements-deep-dive-statement-recipients`: Statement Recipients
-- `9-statements-deep-dive-statement-eligibility`: Statement Eligibility
-- `10-batches-deep-dive-batch-fields-to-inspect`: Batch Fields To Inspect
-- `10-batches-deep-dive-automated-batches`: Automated Batches
-- `10-batches-deep-dive-check-scanning-and-mobile-batch-processing`: Check Scanning And Mobile Batch Processing
-- `11-related-rock-areas-people-groups-workflows-security-reporting-people`: People
-- `11-related-rock-areas-people-groups-workflows-security-reporting-groups`: Groups
-- `11-related-rock-areas-people-groups-workflows-security-reporting-workflows`: Workflows
-- `11-related-rock-areas-people-groups-workflows-security-reporting-reporting`: Reporting
-- `12-administration-and-operational-guardrails-change-control`: Change Control
-- `12-administration-and-operational-guardrails-gateway-governance`: Gateway Governance
-- `12-administration-and-operational-guardrails-receipt-and-statement-controls`: Receipt And Statement Controls
-- `13-developer-api-lava-and-source-code-landmarks-api-considerations`: API Considerations
-- `13-developer-api-lava-and-source-code-landmarks-lava-considerations`: Lava Considerations
-- `13-developer-api-lava-and-source-code-landmarks-mobile-developer-landmarks`: Mobile Developer Landmarks
-- `14-reporting-analytics-and-model-map-giving-analytics`: Giving Analytics
-- `14-reporting-analytics-and-model-map-bi-financial-transaction-reporting`: BI Financial Transaction Reporting
-- `15-version-and-release-caveats`: 15. Version And Release Caveats
-- `16-implementation-playbooks-playbook-add-a-new-giving-account`: Playbook: Add A New Giving Account
-- `16-implementation-playbooks-playbook-configure-online-giving`: Playbook: Configure Online Giving
-- `16-implementation-playbooks-playbook-enable-mobile-batch-check-scanning`: Playbook: Enable Mobile Batch Check Scanning
-- `16-implementation-playbooks-playbook-build-a-giving-analytics-report`: Playbook: Build A Giving Analytics Report
-- `16-implementation-playbooks-playbook-import-giving-from-an-external-system`: Playbook: Import Giving From An External System
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `transactions`: Transactions
+- `payment-gateways`: Payment Gateways
+- `online-giving-and-receipts`: Online Giving And Receipts
+- `text-giving`: Text Giving
+- `batches`: Batches
+- `giving-units-businesses-and-pledges`: Giving Units, Businesses, And Pledges
+- `reporting-and-reconciliation`: Reporting And Reconciliation
+- `security-and-administration`: Security And Administration
+- `troubleshooting-decision-tree-a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible`: A gateway accepted a payment, but no Rock transaction is visible
+- `troubleshooting-decision-tree-a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists`: A transaction is in the wrong batch or no expected batch exists
+- `troubleshooting-decision-tree-a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people`: A statement omits a gift, includes an unexpected gift, or combines the wrong people
+- `troubleshooting-decision-tree-giving-overview-journey-or-alerts-appear-stale-or-incorrect`: Giving Overview, Journey, or alerts appear stale or incorrect
+- `troubleshooting-decision-tree-text-giving-setup-processing-refund-or-failure-messaging-does-not-work`: Text Giving setup, processing, refund, or failure messaging does not work
+- `troubleshooting-decision-tree-users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard`: Users can see finance data they should not see, or cannot see an embedded dashboard
+- `agent-task-recipes-recipe-trace-a-public-gift-end-to-end`: Recipe: Trace a public gift end to end
+- `agent-task-recipes-recipe-validate-an-online-giving-page-before-launch`: Recipe: Validate an online giving page before launch
+- `agent-task-recipes-recipe-generate-and-validate-contribution-statements`: Recipe: Generate and validate contribution statements
+- `agent-task-recipes-recipe-build-a-detail-preserving-finance-report`: Recipe: Build a detail-preserving finance report
+- `agent-task-recipes-recipe-transfer-scheduled-giving-to-a-new-gateway`: Recipe: Transfer scheduled giving to a new gateway
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

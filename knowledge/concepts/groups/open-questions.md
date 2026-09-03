@@ -13,64 +13,41 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `7-common-groups-workflows-create-a-new-group`: Create A New Group
-- `7-common-groups-workflows-add-or-move-group-members`: Add Or Move Group Members
-- `7-common-groups-workflows-copy-or-clone-groups`: Copy Or Clone Groups
-- `7-common-groups-workflows-use-groups-as-communication-audiences`: Use Groups As Communication Audiences
-- `8-group-types-deep-dive-roles`: Roles
-- `8-group-types-deep-dive-group-attributes`: Group Attributes
-- `9-group-finder-deep-dive-finder-share-links`: Finder Share Links
-- `10-group-attendance-deep-dive-attendance-configuration`: Attendance Configuration
-- `10-group-attendance-deep-dive-attendance-ux-and-confirmation`: Attendance UX And Confirmation
-- `12-administration-and-operational-guardrails-recipe-guardrails`: Recipe Guardrails
-- `13-developer-api-lava-and-source-code-landmarks-lava-landmarks`: Lava Landmarks
-- `16-implementation-playbooks-playbook-add-group-requirements`: Playbook: Add Group Requirements
-- `16-implementation-playbooks-playbook-extend-group-leader-toolbox`: Playbook: Extend Group Leader Toolbox
-- `18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page`: Recipe: Create A Custom Scheduled Volunteer Communication Page
-- `19-source-map-and-dependency-notes-community-examples`: Community Examples
+- `group-attendance-entry`: Group Attendance Entry
+- `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data`: A failed workflow may have partially changed group data
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `3-groups-mental-model`: 3. Groups Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-group-type-configuration`: Group Type Configuration
-- `5-core-configuration-and-data-model-core-entity-relationships`: Core Entity Relationships
-- `5-core-configuration-and-data-model-locations-and-schedules`: Locations And Schedules
-- `5-core-configuration-and-data-model-attributes`: Attributes
-- `6-primary-entities-and-relationships-group-type`: Group Type
-- `6-primary-entities-and-relationships-group-type-association`: Group Type Association
-- `6-primary-entities-and-relationships-group`: Group
-- `6-primary-entities-and-relationships-group-member`: Group Member
-- `6-primary-entities-and-relationships-group-type-role`: Group Type Role
-- `6-primary-entities-and-relationships-group-member-assignment`: Group Member Assignment
-- `6-primary-entities-and-relationships-group-member-requirement`: Group Member Requirement
-- `7-common-groups-workflows-create-a-new-group`: Create A New Group
-- `7-common-groups-workflows-add-or-move-group-members`: Add Or Move Group Members
-- `7-common-groups-workflows-use-groups-as-communication-audiences`: Use Groups As Communication Audiences
-- `8-group-types-deep-dive-inherited-group-types`: Inherited Group Types
-- `8-group-types-deep-dive-roles`: Roles
-- `8-group-types-deep-dive-schedule-exclusions`: Schedule Exclusions
-- `8-group-types-deep-dive-group-capacity`: Group Capacity
-- `9-group-finder-deep-dive-finder-data-inputs`: Finder Data Inputs
-- `9-group-finder-deep-dive-finder-and-schedules`: Finder And Schedules
-- `9-group-finder-deep-dive-finder-and-locations`: Finder And Locations
-- `9-group-finder-deep-dive-finder-share-links`: Finder Share Links
-- `9-group-finder-deep-dive-finder-registration-handoff`: Finder Registration Handoff
-- `10-group-attendance-deep-dive-attendance-configuration`: Attendance Configuration
-- `10-group-attendance-deep-dive-mobile-attendance-entry`: Mobile Attendance Entry
-- `10-group-attendance-deep-dive-attendance-ux-and-confirmation`: Attendance UX And Confirmation
-- `10-group-attendance-deep-dive-attendance-reporting`: Attendance Reporting
-- `11-related-rock-areas-people-attendance-security-locations-schedules-attendance`: Attendance
-- `12-administration-and-operational-guardrails-use-read-only-investigation-first`: Use Read-Only Investigation First
-- `12-administration-and-operational-guardrails-recipe-guardrails`: Recipe Guardrails
-- `12-administration-and-operational-guardrails-group-type-change-guardrail`: Group Type Change Guardrail
-- `13-developer-api-lava-and-source-code-landmarks-lava-landmarks`: Lava Landmarks
-- `14-reporting-analytics-and-model-map-model-map-coverage`: Model Map Coverage
-- `14-reporting-analytics-and-model-map-attendance-analytics-caveat`: Attendance Analytics Caveat
-- `15-version-and-release-caveats-navigation-wording`: Navigation Wording
-- `15-version-and-release-caveats-rock-18-1`: Rock 18.1
+- `agent-summary`: Agent Summary
+- `mental-model`: Mental Model
+- `creating-editing-inactivating-and-archiving-groups`: Creating, Editing, Inactivating, And Archiving Groups
+- `members-roles-statuses-and-attributes`: Members, Roles, Statuses, And Attributes
+- `group-security-and-leader-operations`: Group Security And Leader Operations
+- `locations-and-schedules`: Locations And Schedules
+- `group-finder`: Group Finder
+- `group-attendance-entry`: Group Attendance Entry
+- `group-sync-and-communication-lists`: Group Sync And Communication Lists
+- `groups-in-workflows-training-and-reporting`: Groups In Workflows, Training, And Reporting
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-add-child-to-selected-is-disabled`: Add Child to Selected is disabled
+- `troubleshooting-decision-tree-a-group-is-missing-from-group-finder`: A group is missing from Group Finder
+- `troubleshooting-decision-tree-the-day-or-time-filter-does-not-return-a-group`: The day or time filter does not return a group
+- `troubleshooting-decision-tree-a-leader-cannot-add-a-member-from-group-toolbox`: A leader cannot add a member from Group Toolbox
+- `troubleshooting-decision-tree-attendance-reminders-are-not-sent`: Attendance reminders are not sent
+- `troubleshooting-decision-tree-the-absence-notification-job-fails-or-evaluates-the-wrong-people`: The absence-notification job fails or evaluates the wrong people
+- `troubleshooting-decision-tree-a-synced-group-or-communication-list-has-unexpected-members`: A synced group or communication list has unexpected members
+- `troubleshooting-decision-tree-member-attributes-disappeared-after-a-move`: Member attributes disappeared after a move
+- `troubleshooting-decision-tree-a-location-or-schedule-link-is-wrong-after-api-work`: A location or schedule link is wrong after API work
+- `troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data`: A failed workflow may have partially changed group data
+- `agent-task-recipes-recipe-design-a-group-type-and-hierarchy`: Recipe: Design a Group Type and hierarchy
+- `agent-task-recipes-recipe-publish-a-group-through-group-finder`: Recipe: Publish a group through Group Finder
+- `agent-task-recipes-recipe-configure-focused-attendance-entry`: Recipe: Configure focused attendance entry
+- `agent-task-recipes-recipe-configure-attendance-follow-up`: Recipe: Configure attendance follow-up
+- `agent-task-recipes-recipe-enforce-a-group-type-requirement`: Recipe: Enforce a Group Type requirement
+- `agent-task-recipes-recipe-secure-leader-operations`: Recipe: Secure leader operations
+- `agent-task-recipes-recipe-enable-history-and-archive-a-group`: Recipe: Enable history and archive a group
+- `agent-task-recipes-recipe-move-group-members-safely`: Recipe: Move group members safely
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

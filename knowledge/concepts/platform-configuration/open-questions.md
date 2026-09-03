@@ -10,54 +10,58 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `version-and-authority-caveats`: Version And Authority Caveats (198 words)
 
 ## Community-Supported Only
 
-- `11-campuses-and-global-settings-deep-dive-campus-filters-in-reports`: Campus Filters In Reports
-- `12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-groups`: Groups
+- `analytics-and-reporting-configuration`: Analytics And Reporting Configuration
+- `troubleshooting-decision-tree-a-dashboard-is-slow`: A dashboard is slow
+- `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed`: An embedded BI report is inaccessible or overexposed
+- `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage`: Recipe: Move an expensive dashboard calculation to scheduled storage
+- `agent-task-recipes-recipe-secure-an-embedded-bi-report`: Recipe: Secure an embedded BI report
+- `source-map-reviewed-community-evidence`: Reviewed community evidence
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-platform-configuration-mental-model`: 3. Platform Configuration Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-entity-types`: Entity Types
-- `5-core-configuration-and-data-model-attribute-values`: Attribute Values
-- `5-core-configuration-and-data-model-field-types`: Field Types
-- `5-core-configuration-and-data-model-categories`: Categories
-- `5-core-configuration-and-data-model-global-attributes-and-system-settings`: Global Attributes And System Settings
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `6-primary-entities-and-relationships-campus-relationship-map`: Campus Relationship Map
-- `7-common-platform-configuration-workflows-add-a-person-attribute`: Add A Person Attribute
-- `7-common-platform-configuration-workflows-add-a-connection-request-attribute`: Add A Connection Request Attribute
-- `7-common-platform-configuration-workflows-configure-a-campus-aware-report`: Configure A Campus-Aware Report
-- `7-common-platform-configuration-workflows-add-mobile-site-attributes`: Add Mobile Site Attributes
-- `7-common-platform-configuration-workflows-use-attributes-in-custom-blocks`: Use Attributes In Custom Blocks
-- `8-attributes-and-attribute-values-deep-dive-attribute-definition-fields`: Attribute Definition Fields
-- `8-attributes-and-attribute-values-deep-dive-qualifiers`: Qualifiers
-- `8-attributes-and-attribute-values-deep-dive-raw-values-versus-formatted-values`: Raw Values Versus Formatted Values
-- `8-attributes-and-attribute-values-deep-dive-attribute-values-in-lava`: Attribute Values In Lava
-- `9-defined-types-and-values-deep-dive-defined-type-fields-to-inspect`: Defined Type Fields To Inspect
-- `9-defined-types-and-values-deep-dive-defined-value-fields-to-inspect`: Defined Value Fields To Inspect
-- `9-defined-types-and-values-deep-dive-categorizing-defined-values`: Categorizing Defined Values
-- `10-categories-and-entity-types-deep-dive-entity-type-security`: Entity Type Security
-- `10-categories-and-entity-types-deep-dive-category-version-caveats`: Category Version Caveats
-- `11-campuses-and-global-settings-deep-dive-campus-as-context`: Campus As Context
-- `11-campuses-and-global-settings-deep-dive-campus-filters-in-reports`: Campus Filters In Reports
-- `11-campuses-and-global-settings-deep-dive-global-attributes`: Global Attributes
-- `11-campuses-and-global-settings-deep-dive-system-settings`: System Settings
-- `12-related-rock-areas-people-groups-workflows-cms-security-data-views-reports-operations-data-views`: Data Views
-- `13-administration-and-operational-guardrails-change-management`: Change Management
-- `13-administration-and-operational-guardrails-public-exposure`: Public Exposure
-- `14-developer-api-lava-and-source-code-landmarks-field-types-and-field-attributes`: Field Types And Field Attributes
-- `15-reporting-analytics-and-model-map-reporting-rules`: Reporting Rules
-- `16-version-and-release-caveats-rock-v10-3`: Rock v10.3+
-- `16-version-and-release-caveats-rock-v15-0`: Rock v15.0+
-- `16-version-and-release-caveats-rock-v17-and-v17-5`: Rock v17 And v17.5+
-- `16-version-and-release-caveats-rock-v19-1`: Rock v19.1
-- `17-implementation-playbooks-playbook-audit-an-attribute-before-editing`: Playbook: Audit An Attribute Before Editing
+- `agent-summary`: Agent Summary
+- `attributes-and-attribute-values-separate-the-definition-from-stored-values`: Separate the definition from stored values
+- `attributes-and-attribute-values-present-attributes-intentionally`: Present attributes intentionally
+- `attributes-and-attribute-values-account-for-channel-specific-support`: Account for channel-specific support
+- `defined-types-and-values-defined-value-attributes`: Defined Value attributes
+- `defined-types-and-values-detect-source-mismatches`: Detect source mismatches
+- `categories-and-entity-types-categories-are-scoped-configuration`: Categories are scoped configuration
+- `campuses-and-global-settings-campus-configuration`: Campus configuration
+- `campuses-and-global-settings-campus-attributes`: Campus attributes
+- `campuses-and-global-settings-room-capacity-and-schedule-availability`: Room capacity and schedule availability
+- `campuses-and-global-settings-global-attributes-and-system-settings`: Global attributes and system settings
+- `analytics-and-reporting-configuration`: Analytics And Reporting Configuration
+- `ai-agents-lava-tools-and-extensions`: AI Agents, Lava Tools, And Extensions
+- `cross-domain-version-19-configuration-captcha`: CAPTCHA
+- `cross-domain-version-19-configuration-check-in`: Check-in
+- `cross-domain-version-19-configuration-event-registration`: Event registration
+- `cross-domain-version-19-configuration-communications-and-workflows`: Communications and workflows
+- `cross-domain-version-19-configuration-person-merge-and-record-provenance`: Person merge and record provenance
+- `troubleshooting-decision-tree-an-attribute-exists-but-is-not-visible`: An attribute exists but is not visible
+- `troubleshooting-decision-tree-a-workflow-stores-a-value-but-the-report-shows-the-wrong-label`: A workflow stores a value but the report shows the wrong label
+- `troubleshooting-decision-tree-seasonal-options-are-missing-or-still-selectable`: Seasonal options are missing or still selectable
+- `troubleshooting-decision-tree-a-campus-selector-is-absent-or-chooses-a-campus-automatically`: A campus selector is absent or chooses a campus automatically
+- `troubleshooting-decision-tree-a-campus-cannot-use-the-intended-location`: A campus cannot use the intended location
+- `troubleshooting-decision-tree-check-in-room-capacity-or-availability-is-wrong`: Check-in room capacity or availability is wrong
+- `troubleshooting-decision-tree-an-embedded-bi-report-is-inaccessible-or-overexposed`: An embedded BI report is inaccessible or overexposed
+- `troubleshooting-decision-tree-the-v19-check-in-manager-roster-does-not-update-live`: The v19 Check-In Manager roster does not update live
+- `troubleshooting-decision-tree-a-v19-registration-rejects-an-apparently-eligible-person`: A v19 registration rejects an apparently eligible person
+- `troubleshooting-decision-tree-an-agent-chooses-the-wrong-tool-or-returns-too-much-data`: An agent chooses the wrong tool or returns too much data
+- `agent-task-recipes-recipe-add-and-verify-a-campus-attribute`: Recipe: Add and verify a campus attribute
+- `agent-task-recipes-recipe-place-person-attributes-on-a-profile-tab`: Recipe: Place person attributes on a profile tab
+- `agent-task-recipes-recipe-audit-a-defined-value-source-mismatch`: Recipe: Audit a Defined Value source mismatch
+- `agent-task-recipes-recipe-operate-seasonal-defined-value-options`: Recipe: Operate seasonal Defined Value options
+- `agent-task-recipes-recipe-stage-a-campus`: Recipe: Stage a campus
+- `agent-task-recipes-recipe-move-an-expensive-dashboard-calculation-to-scheduled-storage`: Recipe: Move an expensive dashboard calculation to scheduled storage
+- `agent-task-recipes-recipe-secure-an-embedded-bi-report`: Recipe: Secure an embedded BI report
+- `agent-task-recipes-recipe-preflight-a-v19-configuration-change`: Recipe: Preflight a v19 configuration change
+- `agent-task-recipes-recipe-design-a-bounded-rock-agent-tool`: Recipe: Design a bounded Rock agent tool
+- `agent-task-recipes-recipe-plan-a-rock-upgrade-as-configuration-change`: Recipe: Plan a Rock upgrade as configuration change
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

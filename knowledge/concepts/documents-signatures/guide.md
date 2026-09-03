@@ -6,1384 +6,541 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "131696e179b7feadea7c11ce1ea6b377bbcfaa72da0c430057b54df6e94a0e47"
 ---
 
 # Documents And Signatures
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock separates document work into three operational systems:
 
-- Concept data-model landmarks: [Documents And Signatures index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+- **Entity Documents** attach stored files to a Rock entity such as a person or group. A document type determines the entity type and file type, while a Documents block provides the management interface. Multiple documents of the same type can be associated with one entity. ([Intro to Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents))
+- **Merge Documents** generate Word or HTML output from grid data. Lava supplies the dynamic content, but the supported Lava surface differs between Word and HTML templates. ([Intro to Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents))
+- **Electronic Signatures** generate an individual signing document from a signature document template, distinguish the document subject from the signer, and normally produce a signed PDF after completion. They can be used from workflows and event registrations. ([Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures), [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume))
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+For troubleshooting, identify which system owns the problem before changing configuration. A merge-template rendering failure, an entity-document permission failure, and an electronic-signature assignment failure may all involve files, but they have different configuration and security paths.
 
-## 1. Executive Summary For Agents
-
-Documents in Rock RMS are not one feature. They are a family of related patterns for storing files against records, generating mail-merge-style documents from grids, collecting electronic signatures, producing signed PDF artifacts, and connecting all of that to people, workflows, event registrations, security, communications, and CMS pages. The official Rock documentation groups this area under Entity Documents, Merge Documents, and Electronic Signatures in the [Documents](https://community.rockrms.com/documentation/core-concepts/documents) guide.
-
-For agent work, treat "documents and signatures" as four distinct operational surfaces:
-
-1. **Entity Documents** attach uploaded files to Rock entities such as people, groups, or other supported records. The document type defines which entity the document belongs to and which File Type controls the uploaded binary file. Rock documents this flow in [Intro to Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents), [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents), [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block), [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents), and [Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows).
-
-2. **Merge Documents** are templates used to generate output from grid data. They use Lava and can be HTML or Word based. The official docs cover usage, administration, creation, and Lava behavior in [Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents), [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents), [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates), [Creating a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document), and [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents).
-
-3. **Electronic Signatures** create a `SignatureDocument` instance from a `SignatureDocumentTemplate`, route it to an assigned signer, collect signature evidence, and optionally make a signed document valid for future use. Rock documents the feature in [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures), [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures), [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow), [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati), and [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents).
-
-4. **Generated PDFs** are signed-document artifacts produced after signing. Rock can generate these itself, but the official PDF guidance warns that server-side generation can be expensive during high-volume events and may be offloaded to an external rendering service such as browserless.io, as described in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume).
-
-The highest-risk parts of this domain are not template syntax. They are **security**, **legal/PII handling**, **version-specific behavior**, **person matching**, **registration relationships**, and **PDF generation load**. Before making changes in a live instance, inspect the exact Rock version, block generation, template configuration, File Type and Document Type security, system communications, and entity relationships.
-
-Agent rule of thumb: when asked to "fix a document issue," first classify the issue as Entity Document, Merge Document, Electronic Signature, or generated PDF. Then inspect the relevant template or document record, not just the page where the failure was observed.
-
-## 2. Scope And Terminology
+## Scope And Boundaries
 
 This guide covers:
 
-- Entity documents attached to Rock records.
-- Document Types and their connection to File Types.
-- Documents blocks used on entity detail pages.
-- Workflow-driven document upload using the Entity Document Add action.
-- Merge templates and merge documents generated from grid data.
-- HTML and Word merge document patterns.
-- Lava behavior in merge documents.
-- Signature document templates.
-- Signature document instances.
-- Signature requests and completion emails.
-- Typed and drawn signatures.
-- Generated signed PDFs.
-- Registration and workflow signature collection.
-- Model relationships and source-code landmarks.
-- Reporting and operational checks.
+- Entity document types, file-type relationships, page context, block configuration, document-level security, manual uploads, and workflow-created entity documents.
+- Personal and global merge templates, grid-to-document operations, Word and HTML templates, supported Lava patterns, and family-row behavior.
+- Signature document templates, signer roles, workflow and registration use, completion PDFs, document administration, and version-sensitive security behavior.
+- Bounded evaluation of community resend and workflow patterns.
 
-This guide does not provide legal advice. Electronic signatures can have legal significance, but an agent should not decide whether a particular waiver, consent, release, or storage practice satisfies a jurisdiction-specific legal requirement. Instead, verify the Rock configuration and route legal content, retention rules, and signature evidence requirements to the organization’s legal or compliance owner.
+Related concepts remain responsible for their broader domains:
 
-Important terms:
+- Person identity, aliases, matching, adult/child classification, and profile-page administration belong to **People**.
+- General action execution, persistence, forms, triggering, and workflow security belong to **Workflows**.
+- System Communications, recipient delivery, and email diagnostics belong to **Communications**.
+- File-type security, authorization design, and personally identifiable information policy belong to **Security**.
+- system settings and server hosting belong to **Platform Configuration**.
+- Page placement, contexts, zones, and block administration belong to **CMS**.
 
-- **Document**: A generic word that may mean an uploaded entity document, a merge output, a signature template, a signature request, or a signed PDF. Always disambiguate.
-- **Entity Document**: A file entry attached to a Rock entity through a configured Document Type.
-- **Document Type**: Configuration under `Admin Tools > Settings > Document Types` that defines what kind of document can be attached to which entity and which File Type stores the binary content, according to [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents).
-- **File Type**: Rock’s binary file configuration surface. Entity Document behavior depends on File Type storage and security, but recent versions also enforce Document Type security for document access, as noted in the v17.8 release notes on [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-- **Merge Template**: A reusable template available globally or personally for generating merge output, described in [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates).
-- **Merge Document**: Output generated by merging grid rows into a selected merge template, described in [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents).
-- **Signature Document Template**: A model in Rock’s Core category according to the [Model Map](https://community.rockrms.com/ModelMap), configured at `Admin Tools > Settings > Signature Documents`.
-- **Signature Document**: A persisted signing instance generated from a template. In source code, `SignatureDocument` represents a persisted signature execution or instance in Rock.
-- **Applies To Person**: The person the signed document applies to. This can differ from the signer, such as when a parent signs for a minor.
-- **Assigned To Person**: The person asked to sign.
-- **Signed By Person**: The person alias recorded as having signed.
-- **Signed Document Text**: The rendered document text that was shown before signing. Source-code snippets indicate it does not include signature data.
-- **Signature Verification Hash**: A computed integrity hash for signature-related data. Source snippets show Rock calculates it from signed document text, client IP, user agent, signed date/time, signed-by person alias, signature data, and signed name, and a save hook prevents changing it after set.
-- **Generated PDF**: The PDF artifact generated after signing, containing the document content and signature evidence, described in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume).
+This is a draft synthesis, not evidence that any particular Rock installation has the described blocks, permissions, file types, templates, provider state, or PDF endpoint configured. The supplied official documentation is principally scoped to Rock 19.0, with additional release-note evidence for 16.1, 17.0, 17.8, 18.3, and 19.5.
 
-## 3. Documents And Signatures Mental Model
+## Mental Model
 
-The simplest mental model is: **configuration creates allowed document shapes; operational flows create document instances; security determines who can see files and templates; workflows and registrations connect document events to ministry processes.**
+Treat each document operation as a chain with explicit ownership:
 
-### Entity Documents
+1. **Source or subject** — the entity, grid row, workflow attribute, or registrant supplying context.
+2. **Template or document type** — the configuration that defines what may be created.
+3. **Rendering or storage path** — Word/HTML merge generation, signature-to-PDF generation, or an associated binary file type.
+4. **Security path** — template, document type, file type, block, or individual-document permissions, depending on the operation and Rock version.
+5. **Resulting record or file** — an entity document, merge output, signature document, or generated signed PDF.
+6. **Delivery or downstream action** — download, completion email, workflow continuation, registration status, reporting, or eligibility reuse.
 
-Entity Documents start with configuration. An administrator defines a Document Type. That Document Type is associated with an entity type and a File Type. If a Document Type is configured for `Person`, it should be used against people. If it is configured for `Group`, it should be used against groups. The workflow documentation explicitly warns that workflow-added documents must match both the target entity and the file constraints or the action can fail, as described in [Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows).
+These systems should not be collapsed into one abstraction:
 
-The lifecycle is:
+- A **merge template** formats rows into generated Word or HTML output.
+- An **entity document type** controls which stored documents can attach to an entity and which file type stores them.
+- A **signature document template** defines the content and settings used to create individual signing documents.
+- A **signature document** represents the individual document associated with the people identified as Applies To, Assigned To, and Signed By. ([Documents](https://community.rockrms.com/documentation/core-concepts/documents), [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures))
 
-1. Create or verify a Document Type.
-2. Verify the Document Type’s entity and File Type.
-3. Place a Documents block where staff should manage the documents, unless the entity already has a built-in surface such as the Person Profile documents tab.
-4. Upload one or more files for a target record.
-5. Use Document Type and File Type security to control visibility.
-6. Report on document presence, absence, age, or type.
+When diagnosing access, inspect the precise object and Rock version rather than assuming that security configured on one layer governs every related file.
 
-### Merge Documents
+## Entity Documents
 
-Merge Documents start from a grid. Rock exposes merge actions at the bottom of many grids. The merge interface shows row count, a sample of data rows, merge fields, and a selected merge template, according to [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents). The output is not a long-lived signature record by default; it is generated output from selected data.
+### Document types and storage
 
-The lifecycle is:
+An entity document type binds documents to both a Rock entity type and a file type. Configuration is managed under `Admin Tools > Settings > Document Types`. Supported settings in the supplied Rock 19.0 documentation include:
 
-1. Start from a grid.
-2. Review the row count and sample rows.
-3. Inspect available merge fields.
-4. Select a global or personal merge template.
-5. Optionally combine family members when merging people data.
-6. Generate the merged document.
+- A descriptive name.
+- The associated file type.
+- The Rock entity type.
+- Whether the document represents an image.
+- Whether users may add it manually.
+- A maximum number of documents per entity.
+- An optional default document-name template.
+- Optional entity qualifier column and value settings.
 
-Merge templates can be global, managed under `Admin Tools > Settings > Merge Templates`, or personal, managed from the user’s settings page. Global templates can be secured, and Rock enforces that security during document creation, according to [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates).
+The qualifier settings narrow a document type to a subset of the selected entity type. For example, a document type associated with Group can be restricted by `GroupTypeId` and a particular Group Type value. These values are installation-specific and must be inspected rather than guessed. ([Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents))
 
-### Electronic Signatures
+Rock can associate multiple documents of the same document type with one entity, including a person or group, subject to any configured maximum. ([Intro to Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents), [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents))
 
-Electronic Signatures start from a Signature Document Template. The template controls the content, signature type, file type, communication templates, active state, validity settings, and provider behavior. A signing flow then creates a Signature Document instance from that template.
-
-The lifecycle is:
-
-1. Create or select a Signature Document Template under `Admin Tools > Settings > Signature Documents`, as described in [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures).
-2. Place the signature requirement in a workflow action, registration template, registration instance, or related process.
-3. Rock creates a Signature Document instance with an applies-to person, assigned-to person, document name, and optional relationship to a source entity such as registration.
-4. The assigned signer signs.
-5. Rock captures evidence such as signed name, signed date/time, client IP, user agent, signed text, signer identity, and signature data where applicable.
-6. Rock computes a verification hash and blocks later modification of that hash after it has been set.
-7. Rock generates or stores a signed PDF.
-8. Rock sends or can resend completion communications, depending on configuration and management actions.
+### Page context and Documents block
 
-The official introduction emphasizes that signatures can be used in registrations and workflows and that each electronic signature produces a signed document based on a template, as described in [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures).
+Person documents have a dedicated management surface on the Person Profile page in the documented Rock configuration. For another entity type, place a Documents block on a page that supplies the relevant entity in context and configure the block’s Entity Type to match. A block without a valid matching context displays a warning that it needs a valid context entity. ([Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block))
 
-### Generated PDFs
-
-PDF generation is a post-signature artifact step. The signed PDF is useful because the signer can receive a copy and the organization has a portable artifact. The official PDF guide warns that PDF rendering on the Rock server is resource-intensive, especially when many registrations and signatures occur at once, and recommends offloading to an external service when needed, as documented in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume).
-
-For agents, PDF issues usually fall into one of these branches:
-
-- The signature was never completed.
-- The signed document exists but no PDF exists.
-- The Binary File Type or storage provider is misconfigured.
-- External rendering is misconfigured or unavailable.
-- Server load caused delayed or failed generation.
-- The PDF preview in the template detail block does not match the final signed document.
-- The template contains Lava, CSS, image, or external asset issues that render poorly in PDF context.
-
-## 4. Source Authority And How To Use This Guide
-
-Use source authority in this order:
-
-1. **Rock official documentation** for administrative behavior and supported usage. Primary official sources in this pack include [Documents](https://community.rockrms.com/documentation/core-concepts/documents), [Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents), [Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents), and [Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures).
-2. **Rock source code and model snippets** for fields, relationships, enums, block behavior, API exposure, and implementation caveats. Source-code records in this pack point to `SignatureDocumentTemplate`, `SignatureDocument`, Obsidian blocks, view model bags, status enums, and PDF preview request models in the [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock) repository.
-3. **Release notes** for version caveats. This pack includes release notes for signature placement, inactive-template filtering, registration document relationships, and Document Type security on [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-4. **RockU training** for practical workflow and event-registration context, including electronic signatures in [RockU Event Registration](https://community.rockrms.com/rocku/event-registration/electronic-signatures), electronic signatures in [RockU Workflows](https://community.rockrms.com/rocku/workflows/electronic-signatures-1), entity documents in [RockU CMS](https://community.rockrms.com/rocku/cms/entity-documents), and merge documents in [RockU Individuals in Rock](https://community.rockrms.com/rocku/individuals-in-rock/merge-documents).
-5. **Community recipes** only as examples of local patterns, not as authoritative product behavior. The source pack includes a resend-signature recipe at [Recipe 434](https://community.rockrms.com/recipes/434) and a group requirement resend helper at [Recipe 482](https://community.rockrms.com/recipes/482). Both are useful for understanding real-world pain points, but community recipes are not core-team-reviewed product documentation.
-
-When a fact must be verified live, this guide states what to inspect. Do not infer instance-specific IDs, security rules, page routes, or configured communications from documentation alone.
-
-## 5. Core Configuration And Data Model
-
-### Entity Document Configuration
-
-Entity Documents are configured through `Admin Tools > Settings > Document Types`, according to [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents). The source pack identifies these operational fields:
-
-- **Name**: A descriptive label for the document type.
-- **File Type**: The File Type used for uploaded files.
-- **Entity Type**: The Rock entity the document can attach to.
-- **Default document name**: The management UI may pre-populate a document name if configured for the type, according to [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents).
-- **Description**: Optional explanatory metadata supplied per document entry.
-- **Attached document file**: The actual uploaded file or files associated with the entity document entry.
-
-The most important operational invariant is that the Document Type’s entity must match the entity being documented. [Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows) explicitly calls out that a Group Document Type cannot be used to add a document for a Person, and a workflow can fail when the entity or file type does not match.
-
-For live inspection:
-
-- Check `Admin Tools > Settings > Document Types`.
-- Open the Document Type detail.
-- Confirm the entity type.
-- Confirm the File Type.
-- Confirm security on the Document Type.
-- Confirm the File Type storage provider and file extension rules.
-- Confirm whether the target page has a Documents block and whether block settings restrict which document types appear.
-
-### Merge Template Configuration
-
-Global merge templates are configured under `Admin Tools > Settings > Merge Templates`, according to [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates). Personal merge templates are configured from the user’s settings page.
-
-A merge template should be checked for:
-
-- Global versus personal scope.
-- Template file format: HTML or Word.
-- Security settings on global templates.
-- Lava syntax.
-- Expected row shape.
-- Whether it assumes person rows, group member rows, or another entity type.
-- Whether it uses straight quotes rather than stylized quotes, a documented Lava caveat in [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents).
-- Whether it relies on `Row.GroupMember` when group member data is needed, as described in [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents).
-
-### Signature Document Template Configuration
-
-Signature templates are managed under `Admin Tools > Settings > Signature Documents`, according to [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures). Source-code snippets identify the `SignatureDocumentTemplate` as a Core model exposed for REST code generation and reporting, with a table named `SignatureDocumentTemplate`.
-
-Fields and properties surfaced by model and view-model snippets include:
-
-- **Name**: Required friendly name, max length 100 in source snippets.
-- **Description**: User-defined description or summary.
-- **ProviderEntityTypeId**: Legacy provider entity type. Source snippets identify templates with provider entity type values as legacy providers.
-- **ProviderTemplateKey**: Legacy provider template key.
-- **BinaryFileTypeId / BinaryFileType**: Binary File Type used for generated signed document files.
-- **InviteSystemCommunicationId**: Communication used for signature invitations.
-- **CompletionSystemCommunication**: System Communication used for completion emails.
-- **LavaTemplate**: Template used to build the signature document.
-- **IsActive**: Active flag. Release notes show inactive-template filtering has had version-specific fixes.
-- **DocumentTerm**: A plain-language term for the document, such as waiver or release form.
-- **SignatureType**: The kind of signature collected, such as typed or drawn.
-- **SignatureInputTypes**: Available signature input types surfaced to the template detail view model.
-- **PdfUrl**: PDF URL surfaced by the template detail view model.
-- **CanAdministrate**: Whether current user can administer the template in the Obsidian block.
-- **IsValidInFuture**: Whether signed documents generated by this template may remain valid for future use.
-- **ValidityDurationInDays**: Number of days a signature remains valid, honored only when `IsValidInFuture` is enabled.
+The Documents block can be restricted to selected document types. Its **Show Security Button** setting determines whether users can manage security separately for each listed document. The document types offered when adding a document are controlled jointly by the entity document type configuration and the block settings. ([Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block), [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents))
 
-The Obsidian Signature Document Template Detail block has a **Default File Type** block setting whose default Binary File Type GUID is Rock’s signed document file type, according to the source-code snippet for `SignatureDocumentTemplateDetail.cs`. That block also has a **Show Legacy Signature Providers** setting; its description warns that legacy provider support is on a removal path. The `SignatureDocumentTemplateService` source snippets mark legacy provider send and cancel methods obsolete and state that legacy signature providers are no longer supported in Rock as of the RockObsolete 19.0 marker.
-
-### Signature Document Instance Data
-
-The `SignatureDocument` model represents a persisted signing instance. The official [Documents guide](https://community.rockrms.com/documentation/core-concepts/documents) supplies the product context, while the upstream [`SignatureDocument` model](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs) is the field-level authority. Source snippets identify fields and view-model properties including:
-
-- **SignatureDocumentTemplateId**: Template used to create the signing instance.
-- **Name**: Document name.
-- **DocumentKey**: A key used to locate the document for signing or lookup.
-- **RequestDate**: Request timestamp.
-- **Status**: Signature document status.
-- **LastStatusDate**: Last time status changed.
-- **AppliesToPersonAliasId**: Person alias the document applies to.
-- **AssignedToPersonAliasId**: Person alias assigned to sign.
-- **SignedByPersonAliasId**: Person alias that signed.
-- **SignedDocumentText**: Rendered document text shown before signing, without signature data.
-- **SignedName**: Name entered or recorded at signing.
-- **SignedClientIp**: Observed client IP.
-- **SignedClientUserAgent**: Observed user agent.
-- **SignedDateTime**: Date and time signed.
-- **SignedByEmail**: Email address used for completion receipt.
-- **SignatureDataEncrypted**: Encrypted signature data for drawn signatures.
-- **SignatureVerificationHash**: Hash used to prove the signature document has not changed after signing.
-- **BinaryFileId / BinaryFile**: Generated signed file artifact.
-- **CompletionEmailSentDateTime**: When the completion email was sent.
-- **InviteCount**: Number of invites.
-- **LastInviteDate**: Last invite timestamp.
-- **EntityTypeId / EntityType**: Related entity type, such as registration.
-- **EntityId**: Related entity ID.
-- **IsLegacyDocument**: View-model flag for legacy documents.
+From the block, users can review document information, download a file, apply per-document security when that control is enabled, and delete a document. Deletion is irreversible. An agent should therefore treat deletion as a destructive operation requiring an exact record selection and explicit authorization. ([Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents))
 
-Status values are defined in the `SignatureDocumentStatus` enum:
+### Adding entity documents through workflows
 
-- `None = 0`: Document has not yet been sent.
-- `Sent = 1`: Document has been sent but not signed.
-- `Signed = 2`: Document has been signed.
-- `Cancelled = 3`: Document was cancelled.
-- `Expired = 4`: Invite expired.
+The **Entity Document Add** workflow action can add a document to an entity, but two alignments are required:
 
-## 6. Primary Entities And Relationships
+1. The workflow entity type must match the entity type configured on the selected document type.
+2. The uploaded file must satisfy applicable required preferred-file settings on the file type associated with that document type.
 
-### Entity Document Relationships
+For example, a workflow operating on Person cannot add a document through a document type configured for Group. ([Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows))
 
-The source pack gives less source-code detail for Entity Documents than for signatures, so agents should verify exact table and property names in the live model map, REST API, or database before writing reports or automation. Operationally, the relationships are clear from official docs:
+Uploading a person document requires Edit permission on both the applicable Person document type and the associated Person Document file type. Do not stop after proving access to only one of those layers. ([Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows))
 
-- A **Document Type** is associated with one **Entity Type**.
-- A **Document Type** is associated with one **File Type**.
-- An **Entity Document** attaches a file entry to a specific entity instance.
-- A **Documents block** displays and manages documents for the current entity context.
-- A **Person** can use a built-in person profile document surface.
-- Other entities, such as **Group**, need an appropriate Documents block placed on a page, as described in [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block).
+Security for workflow-created entity documents is version-sensitive. Rock 17.8 fixed a defect in which files created by the Entity Document Add action were not linked correctly to their parent Document, causing access to fall back to file-type security instead of the intended document-type security. The release also added a warning for publicly viewable document types and conditionally copied security from two paired default file types when no document-type security was already configured. Confirm the installed patch level before interpreting older records or unexpected access. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-Live verification steps:
+## Document Templates And Merge Documents
 
-- Inspect the Document Type detail to confirm the target entity.
-- Inspect the block type and settings on the page where documents are managed.
-- Confirm the block’s entity context or entity ID source.
-- Confirm File Type storage and security.
-- Confirm Document Type security, especially on Rock versions with Document Type View Permissions changes.
+### Global and personal templates
 
-### Merge Document Relationships
+Global merge templates are managed under `Admin Tools > Settings > Merge Templates`. They are database-wide in scope, but individual templates can be restricted through security on the Merge Template Detail block. Rock enforces those template security settings whenever a merge document is created. ([Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates))
 
-Merge documents are less about persisted entity relationships and more about a grid-to-template contract:
+Users can manage templates intended for their own use from **My Settings**. That page normally exposes their personal templates and can also expose global templates when its block settings are configured to do so. Personal ownership, global visibility, and authorization to run a template are separate questions. ([Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates))
 
-- A grid provides rows.
-- The merge screen shows the available merge fields.
-- The merge template references row data using Lava.
-- The selected template generates output for the selected row shape.
-- Global templates are shared and can be secured.
-- Personal templates belong to the current user.
+### Preparing and inspecting merge data
 
-The official docs note that merge templates can be used with any entity type, but are commonly used with people. They also state that group member entities are converted to people for broader template compatibility, with group member data available through the `GroupMember` property, as described in [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents).
+The merge action available from supported grids passes the grid’s rows into a selected merge template. Before running the merge, Rock can show:
 
-### Signature Document Relationships
+- The number of records.
+- The first 15 source rows.
+- The merge fields available for that data.
+- The selected merge template.
+- An option to combine family members.
 
-The signature model has richer relationships:
+Use the row preview to validate the source population and use the merge-field display to validate field availability. Neither proves that every later record has the same values as the first 15. ([Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents))
 
-- `SignatureDocumentTemplate` defines the reusable template.
-- `SignatureDocument` is the created signing instance.
-- `SignatureDocument.SignatureDocumentTemplateId` points back to the template.
-- `SignatureDocument.AppliesToPersonAliasId` identifies whom the document applies to.
-- `SignatureDocument.AssignedToPersonAliasId` identifies whom the request is assigned to.
-- `SignatureDocument.SignedByPersonAliasId` identifies who actually signed.
-- `SignatureDocument.BinaryFileId` points to the signed PDF file artifact when generated.
-- `SignatureDocument.EntityTypeId` and `EntityId` relate the signature document to a source entity such as registration.
-- Event registration records may have a `SignatureDocumentId` relationship in versions addressed by the v18.3 release note on registration blocks, documented in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+When **Combine Family Members** is enabled, Rock produces one row per family instead of one row per person and combines member values such as nicknames within that row. Templates that depend on one-person-per-row semantics should not enable this option without a deliberate template review. ([Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents))
 
-The distinction between applies-to, assigned-to, and signed-by is central. In child event registrations, the document may apply to a child while a parent or guardian is assigned to sign. Community resend workflows exist because a request can be routed to the wrong person or need to be resent to a registrar; see [Recipe 434](https://community.rockrms.com/recipes/434) as a non-authoritative example of this operational problem.
+### Word templates
 
-## 7. Common Documents And Signatures Workflows
+Word merge templates use Lava for dynamic content. The documented Word implementation supports variables, filters, and most tags, but does not support the `if`, `raw`, or `lava` tags, Lava commands, or Lava shortcodes. A template that works in a general Lava block is therefore not guaranteed to work unchanged in Word merge generation. ([Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document))
 
-### Add A Document To A Person
+Word templates have two documented record-layout patterns:
 
-Use the official [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) guidance and verify the configured Document Type and File Type before uploading.
+- Without a `{% Next %}` tag, Rock repeats the entire document for each source record.
+- With `{% Next %}`, the template can advance through records inside a shared layout, such as a page of mailing labels.
 
-Use this when staff need to store a static document such as a form, certificate, permission letter, or scanned artifact on a person record.
+Rock determines the strategy from the template. Inspect the template itself before diagnosing repeated pages as a data problem. ([Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document))
 
-Process:
+### HTML templates
 
-1. Confirm the Document Type exists for the `Person` entity.
-2. Confirm the Document Type’s File Type allows the expected file extension and storage location.
-3. Confirm Document Type and File Type security.
-4. Open the person’s profile document surface.
-5. Add the document.
-6. Set document name and optional description.
-7. Upload the file.
-8. Save.
-9. Verify that the correct staff roles can view the document and that unauthorized roles cannot.
+HTML merge templates also use Lava and are suited to browser-viewed or printed output, including layouts containing images. If an HTML merge document must display email addresses and the site is behind Cloudflare, Cloudflare Scrape Shield must be disabled because it blocks those addresses in the generated document. Verify the actual Cloudflare zone and feature state before changing it; the documentation establishes the dependency, not an installation’s current configuration. ([Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document))
 
-If the file cannot be selected or saved, inspect the File Type first. If the type is not available in the picker, inspect the Document Type’s entity and the page/block settings.
+### Lava row behavior
 
-### Add Documents To Groups Or Other Entities
+When the merge source contains `GroupMember` rows, Rock exposes each row as a person for template portability. The original membership data remains available through the person’s `GroupMember` property, including group member attributes. A documented access pattern is:
 
-Use this when documents belong to a group, event, organization-specific custom entity, or another non-person record.
+```liquid
+{{ Row.GroupMember | Attribute:'attributekey' }}
+```
 
-Process:
+Attribute keys are configuration-specific and must be verified in the target installation. ([Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents))
 
-1. Create a Document Type for the target entity, such as Group.
-2. Add or verify a page where that entity is displayed.
-3. Add the Documents block if the page does not already include one.
-4. Configure the block for the entity context.
-5. Add the document from the block.
-6. Verify security.
+Use straight quotation marks in Lava expressions. Curved or stylized quotation marks introduced by rich-text editors can cause parsing errors. ([Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents))
 
-[Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block) describes why non-person entities require this extra block placement step.
+## Electronic Signatures
 
-### Add Entity Documents From Workflows
+### Signature roles
 
-Use the Entity Document Add workflow action when an uploaded file or generated file should become an entity document.
+Rock distinguishes three people associated with a signature document:
 
-Process:
+- **Applies To** is the subject of the document.
+- **Assigned To** is the person expected to sign.
+- **Signed By** records the person who actually completed the signature.
 
-1. Confirm the workflow has the target entity available.
-2. Confirm the Document Type entity matches the target entity.
-3. Confirm the uploaded file conforms to the File Type.
-4. Add the Entity Document Add action.
-5. Test with a known entity and a known valid file.
-6. Verify that the saved file is linked to the parent document record.
+For an adult signing their own form, these may identify the same person. For a minor’s waiver, the document can apply to the child while being assigned to and signed by a parent or other responsible person. ([Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures))
 
-Version caveat: Rock v17.8 fixed a high-severity issue where files uploaded through Entity Document Add were not properly linked to their parent Document, causing access checks to fall back to File Type security instead of Document Type security. The release notes say files are now linked so Document Type security applies as intended; they also describe default security copying and public-viewable warning labels on Document Types, in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+Do not use “signer” ambiguously in automation or diagnostics. Establish whether a condition refers to the subject, intended signer, or actual signer.
 
-### Generate A Merge Document From A Grid
+### Signature document templates
 
-Use this for letters, labels, reports, personal ministry communication, printable lists, or Word/HTML output from selected records.
+In the documented Rock 19.0 interface, signature templates are created under `Admin Tools > Settings > Signature Documents`. Evidence-supported template settings include:
 
-Process:
+- Name and description.
+- A document term used in signing prompts and the standard receipt communication.
+- Typed or drawn signature input.
+- The binary file type used to store the signed document.
+- A completion System Communication.
+- Whether completed documents can remain valid for future use.
+- Lava template content and the attribute keys expected from a workflow or registration context.
 
-1. Navigate to the grid.
-2. Apply filters so the grid contains the intended records.
-3. Open the merge action.
-4. Review the count.
-5. Review sample data rows.
-6. Review available merge fields.
-7. Decide whether to combine family members.
-8. Select the merge template.
-9. Generate the document.
-10. Verify output before using it externally.
+The template creates individual documents; it is not itself proof that a particular person signed one. ([Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures))
 
-The merge interface details come from [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents).
+Rock recommends typed signatures. The official documentation states that a drawn signature is personally identifiable information and may create additional legal obligations when stored in Rock. The supplied immutable source snapshot also shows that drawn signature image data is stored through an encrypted signature-data field, but that implementation observation does not replace an organization’s legal, retention, or access-control review. ([Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures), [source at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs))
 
-### Collect A Signature In A Workflow
+By default, the signature is placed at the bottom of the generated PDF. Rock 17.0 added an optional signature-details marker that can place the signature at specific locations, including multiple locations. The Rock 19.0 documentation shows the marker as:
 
-Use this when a business process must pause for a signature, such as volunteer consent, facility use, ministry onboarding, or a custom approval flow.
+```html
+<!-- [[ SignatureDetails ]] -->
+```
 
-Process:
+Each occurrence is replaced with the signature. ([Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-1. Create a Signature Document Template.
-2. Create workflow attributes for the applies-to person, assigned-to person, and optional selected template.
-3. Add the Electronic Signature workflow action.
-4. Configure either a specific Signature Document Template or a dynamic selected template field.
-5. Configure applies-to person and assigned-to person.
-6. Configure document name.
-7. Configure any invite content or email behavior needed by the workflow.
-8. Persist the workflow before sending if the signing page must return to workflow context.
-9. Test as the assigned signer.
-10. Verify the `SignatureDocument` status, signed text, signer, PDF, and completion email.
+### Electronic signatures in workflows
 
-The workflow action is described in [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow). The official docs state that if a template is selected directly in the action, a later dynamic selected-document field is ignored; this matters when troubleshooting why a workflow is not using the expected template.
+The **Electronic Signature** workflow action can select a fixed signature document template or resolve a template ID or GUID, including from a workflow attribute. If both methods are configured, the fixed **Signature Document Template** setting takes precedence and the dynamic selection is ignored. ([Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow))
 
-### Collect A Signature In Event Registration
+The action can map workflow Person attributes to Applies To, Assigned To, and Signed By. It can also place the resulting document in a Binary File workflow attribute; the official example uses the **Digitally Signed Documents** file type. The document name is Lava-enabled. If the signer is logged in, the documented workflow behavior assigns that person as Signed By regardless of the mapped Signed By attribute. ([Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow))
 
-Use this for waivers and release forms during event registration. Rock’s docs state that if the person being registered already has a valid signed document for the required form, Rock should not require the same signature again, relying on standard person matching logic. The same article warns that electronic signatures for event registrations require the Obsidian version of the external Registration Entry block, and that block generation must match the signature document generation being used, as described in [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati).
+A reviewed community pattern addresses workflows launched both from a connection request and from a bulk audience. It recommends keeping signature, communication, and document actions independent of connection updates, then conditionally running connection mutations only when a ConnectionRequest context actually exists. This is a community operational pattern, not documented universal Rock behavior, and requires live validation against the workflow’s launch paths and conditions. ([RockU Workflows](https://community.rockrms.com/rocku/workflows))
 
-Process:
+### Electronic signatures in event registration
 
-1. Create or verify the Signature Document Template.
-2. Configure validity if the signature can be reused.
-3. Attach the required signature template to the registration template or relevant event-registration configuration.
-4. Verify the external site uses the Obsidian Registration Entry block.
-5. Run a test registration for a new person.
-6. Run a second test where the person already has a valid signed document.
-7. Verify whether Rock skips or requires signing as expected.
-8. Inspect the registrant record and related Signature Document ID.
-9. Verify completion email and generated PDF.
+In Rock 19.0, event-registration signatures require the Obsidian Registration Entry block. Using that block with a legacy signature document can break the registration flow. The required signature template is selected on the registration template under `Tools > Event Registration`. ([Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati))
 
-Version caveat: v18.3 fixed an internal Event Registration block issue where a signature document could be shown for a registrant without a valid `SignatureDocumentId`, because matching used person instead of the registrant relationship. The release notes say blocks were updated to use the registrant’s SignatureDocument relationship and that a data migration backfilled missing values when a valid matching document existed, excluding legacy templates, in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
+For each registration signature document:
 
-## 8. Document Templates Deep Dive
+- Applies To is the individual registrant.
+- Assigned To is the registrant when the registrant is an adult.
+- Assigned To is the person completing the registration when the registrant is a child.
 
-"Document template" can mean two different things in Rock conversations:
+Because this behavior distinguishes adults from children, the official documentation suggests requiring birthdate in the registration form when that classification must be reliable. ([Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati))
 
-- A **Merge Template** used for merge documents.
-- A **Signature Document Template** used for electronic signatures.
+The documented registration flow can recognize an existing valid signed document for a matched person and avoid requiring another signature. That behavior depends on person matching, the required template, and document validity. It should not be generalized to unmatched, duplicate, expired, or differently scoped records without live inspection. ([Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati))
 
-Agents must clarify which kind is involved before changing anything.
+Rock 18.3 fixed internal event-registration blocks that could show a person-matched signature document for a registrant without a valid `SignatureDocumentId`. The fix changed those blocks to use the registrant’s SignatureDocument relationship and included a migration to backfill qualifying missing relationships. Verify the installed version when investigating historical or mismatched registration signature displays. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-### Merge Templates
+## Generated PDFs And Completion Delivery
 
-A merge template is selected from a grid merge action. Rock supports HTML and Word formats, according to [Creating a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document). HTML templates are plain HTML files with Lava. Word templates allow Lava content inside a Word document, but agents should test output carefully because word-processing layout, table repetition, image placement, and syntax quoting can be fragile.
+After an electronic signature is completed, Rock normally generates a PDF containing the document content and signature so a copy can be sent to the signer. The configured completion System Communication controls the receipt communication associated with the signature template. ([Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume), [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures))
 
-Operational template rules:
+Local PDF rendering can be resource-intensive during high-volume activity. Organizations should configure a third-party rendering service through the **PDF External Render Endpoint** system setting when local rendering would impose excessive server load. An external service is required when the Rock environment cannot run Puppeteer or Chrome, including applicable Azure web-service deployments. The documented setting is under `Admin Tools > Settings > System Configuration`. Provider selection, endpoint credentials, capacity, privacy terms, and network reachability require installation-specific review. ([Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume))
 
-- Keep global templates generic and secured.
-- Put one-off personal templates in user settings.
-- Use the merge screen’s "Show Merge Fields" data to design the template.
-- Avoid assuming fields exist across grids.
-- For person-oriented templates, use fields that are likely to appear across person grids.
-- For group member data, use the documented `Row.GroupMember` access pattern if group member attributes are needed, as described in [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents).
-- Avoid smart quotes in Lava.
-- Test with sample rows before sending or printing broadly.
+The immutable source snapshot includes a PDF-preview request model carrying Lava template content, a binary file type, and a signature type. This confirms an implementation path for template preview at that commit, but it does not prove that preview succeeded, that production rendering is configured, or that the same contract exists in another version. ([source at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs))
 
-### Signature Document Templates
+## Managing Completed Signature Documents
 
-A signature document template has more lifecycle consequences than a merge template because it produces signed records. According to [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures), templates are managed under `Admin Tools > Settings > Signature Documents`, and Rock ships example templates such as Photo Release and Field Trip Release for reference.
+In Rock 19.0, administrators can navigate to `Admin Tools > Settings > Signature Documents`, select a signature template, review its document list, and open an individual record. The detail view can display the signed file and resend the completion email. ([Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents))
 
-Template fields and operational implications:
+The security authority for viewing completed documents changed across the supplied evidence:
 
-- **Name**: Use a clear name. Workflows and registration templates often present this name to admins. Ambiguous names cause incorrect template selection.
-- **Description**: Use this for admin-facing explanation, not the full legal document.
-- **Document Term**: Use a human-friendly term such as waiver, release, consent, agreement, or permission form.
-- **Lava Template**: The legal/body content rendered for the signer.
-- **Signature Type**: Determines typed versus drawn behavior.
-- **Binary File Type**: Determines where generated signed PDFs are stored.
-- **Invite Communication**: Controls request email behavior.
-- **Completion Communication**: Controls completion receipt behavior.
-- **Is Active**: Controls whether template should be selectable. Because inactive filtering has had fixes in earlier versions, verify version behavior when a disabled template still appears.
-- **Valid In Future**: Determines whether a signed document can satisfy future signing requirements.
-- **Validity Duration In Days**: Limits future validity when future validity is enabled.
-- **Legacy Provider Fields**: Provider entity type and provider template key indicate legacy provider behavior; source snippets mark legacy provider methods obsolete and no longer supported in Rock 19 context.
+- Rock 19.0 documentation states that view access is based on the associated binary file type rather than the signature document template.
+- Rock 19.5 release notes report a fix so direct signed-document downloads honor Signature Document Template security and say existing records are corrected automatically.
 
-Template design guidance:
+Treat the 19.0 rule as version-scoped, and verify the exact installed patch before diagnosing or changing access. ([Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-- Use legal language supplied by the organization.
-- Keep signer instructions plain.
-- Use Lava only for values that should be rendered at signing time.
-- Do not include private operational notes in the template body.
-- Test template preview and live signing output.
-- Verify PDF output, not just browser output.
-- Use typed signatures unless there is a strong reason for drawn signatures. The official setup article strongly recommends typed signatures and notes drawn signatures are PII, in [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures).
-- If using Rock v17.0 or later behavior, evaluate the optional `<!--[[ SignatureDetails ]]-->` placement keyword added for inserting the signer’s final signature at a specific place in the template, documented in [Rock Core Release Notes](https://www.rockrms.com/releasenotes) and summarized by [Triumph Tech GitHub Spotlight 1/8/2025](https://www.triumph.tech/resources/github-spotlight-182025).
+A reviewed community contribution recommends using actual SignatureDocument records, scoped to the intended template and linked through the Applies To person alias, when evaluating completion for reports or reminder suppression. It warns that a separate person attribute such as a signed date may drift from the document record. This is a community reporting pattern requiring schema and data verification, not an approved universal query or authorization to run SQL. ([Rock Model Map](https://community.rockrms.com/ModelMap), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-### Signature Placement
+## Version And Authority Caveats
 
-Historically, signature details were commonly appended or placed in a standard location. The v17.0 release note says Electronic Signatures were updated to allow inserting the signature at specific places using the optional `<!--[[ SignatureDetails ]]-->` keyword, on [Rock Core Release Notes](https://www.rockrms.com/releasenotes). Agents should verify the Rock version and template body before assuming this keyword is supported.
+- Most official documentation excerpts in this evidence pack identify Rock 19.0 as their current version. Claims without a processed version scope should be checked against the installed version before implementation.
+- Rock 16.1 fixed workflow template filtering so inactive signature document templates would not appear in workflow actions. Older behavior should not be projected onto later installations. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
+- Rock 17.0 introduced the optional signature-placement marker. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
+- Rock 17.8 corrected parent-document linkage and security evaluation for files uploaded through Entity Document Add workflows. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
+- Rock 18.3 corrected registrant-to-signature-document relationships in internal event-registration displays. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
+- Rock 19.0 documentation says third-party signature providers are no longer supported. The supplied source snapshot likewise marks legacy-provider send methods obsolete in 19.0. This does not prove that an upgraded installation has no legacy records or configuration remnants. ([Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures), [source at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs))
+- Rock 19.5 changed or corrected direct-download security for signed documents so that template security is honored. ([Rock Core Release Notes](https://www.rockrms.com/releasenotes))
+- The supplied release page identifies Rock 20.0 as alpha. No pack evidence establishes changed document behavior for a production-ready Rock 20 release; do not infer it from the branch or version title.
+- GitHub excerpts in this guide come from immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They describe implementation at that commit, not an installation’s deployed version or configuration.
+- Rock community recipes are explicitly community-contributed and not reviewed or endorsed by the Rock core team. Recipes that delete records, clear relationships, or execute command SQL require independent security, data-integrity, version, backup, and rollback review. ([Re-Send Signature Documents from Registrant](https://community.rockrms.com/recipes/434), [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482))
 
-If a signature appears in the wrong place:
+## Troubleshooting Decision Tree
 
-1. Confirm Rock version.
-2. Open the Signature Document Template.
-3. Search for `<!--[[ SignatureDetails ]]-->`.
-4. Verify whether the template is legacy or Rock-native.
-5. Preview the PDF.
-6. Complete a test signature and inspect the actual signed PDF.
-7. Check release notes for version-specific behavior.
+### A document type is missing from the Documents block
 
-## 9. Electronic Signatures Deep Dive
+1. Confirm that the page supplies the intended entity in context.
+2. Confirm that the Documents block’s Entity Type matches that context.
+3. Inspect the block’s selected Document Types.
+4. Inspect the document type’s Entity Type and any qualifier column and value.
+5. Confirm that the document type is manually selectable if a user is trying to add it manually.
+6. Confirm that any maximum-documents limit has not been reached. ([Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents), [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block))
 
-### Anatomy Of A Rock Electronic Signature
+### An Entity Document Add workflow fails
 
-A Rock electronic signature is a generated signature document instance based on a template. The official introduction describes a signing document based on a template and notes that each signature produces a signed document, in [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures).
+1. Identify the workflow entity type.
+2. Identify the selected document type’s configured entity type.
+3. Stop if they do not match.
+4. Inspect the document type’s associated file type.
+5. Check whether required preferred-file settings reject the uploaded file.
+6. For a person document, verify Edit permission on both the document type and the Person Document file type.
+7. If the problem concerns access after upload, determine whether the installation predates the Rock 17.8 linkage fix. ([Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-A robust agent mental model includes:
+### A user cannot view or download a document
 
-- **Template**: What is being signed.
-- **Applies-to person**: Whose participation, record, or responsibility the document concerns.
-- **Assigned-to person**: Who is asked to sign.
-- **Signer**: Who actually signs.
-- **Source**: What process generated the request, such as workflow or registration.
-- **Evidence**: Signed text, signed date/time, signed name, client IP, user agent, signer identity, signature data if drawn, and verification hash.
-- **Artifact**: Generated signed PDF stored as a binary file.
-- **Validity**: Whether this signature can satisfy future requirements.
+1. Identify whether this is an entity document, merge template, unsigned signature request, or completed signature document.
+2. For an entity document, inspect document-type, associated file-type, block, and any per-document security relevant to the installed version.
+3. For a completed signature document on Rock 19.0, inspect associated binary file-type permissions.
+4. For direct signed-document downloads on Rock 19.5 or later, inspect signature-template security and confirm the relevant fix is installed.
+5. Do not broaden permissions until the precise failing layer and version are established. ([Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents), [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-### Typed Versus Drawn Signatures
+### Lava fails in a Word merge template
 
-The official setup docs strongly recommend typed signatures over drawn signatures and note that drawn signatures are PII, in [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures). Source snippets reinforce why: drawn signature data is stored as encrypted image data in `SignatureDataEncrypted`, with the unencrypted `SignatureData` property hidden from reporting and Lava.
+1. Replace curved quotation marks with straight quotation marks.
+2. Check whether the template uses unsupported Word features: `if`, `raw`, or `lava` tags, Lava commands, or shortcodes.
+3. Inspect the available merge fields for the actual grid source.
+4. If the source contains GroupMember rows, use the exposed person row and access membership data through `Row.GroupMember`.
+5. Check whether `{% Next %}` is present and whether the desired output is one complete document per row or multiple rows in one layout. ([Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document), [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents))
 
-Agent guidance:
+### Email addresses are missing from an HTML merge document
 
-- Prefer typed signatures for new templates unless the organization has a documented requirement for drawn signature capture.
-- If drawn signatures are already used, audit who can view or export signature data.
-- Do not expose drawn signature data in reports, Lava, API responses, or public pages.
-- Verify storage encryption behavior in the current Rock version before making compliance claims.
-- Treat signed PDFs containing drawn signatures as sensitive files.
+1. Confirm the source row and merge field contain the email value.
+2. Confirm the problem occurs in HTML merge output rather than in the underlying grid.
+3. If Cloudflare is in the request path, inspect whether Scrape Shield is enabled.
+4. If enabled, evaluate disabling Scrape Shield for the relevant zone because the official documentation identifies it as blocking email addresses in HTML merge documents.
+5. Regenerate a bounded test document and verify the output. ([Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document))
 
-### Validity And Reuse
+### A workflow uses the wrong signature template
 
-Signature templates can be configured so documents may remain valid for future use. Source snippets expose `IsValidInFuture` and `ValidityDurationInDays`. The event registration docs give a practical example: if a person already has a valid signed document for the required release, Rock should not require the same form again, as described in [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati).
+1. Inspect the fixed **Signature Document Template** action setting.
+2. Inspect the dynamic template ID, GUID, or workflow attribute.
+3. If both are populated, treat the fixed template as authoritative because it takes precedence.
+4. Confirm that the selected template is active; Rock 16.1 fixed inactive-template filtering in workflow actions.
+5. Confirm that attribute values contain the expected ID or GUID representation. ([Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-When troubleshooting reuse:
+### The wrong person is expected to sign
 
-1. Confirm the template has future validity enabled.
-2. Confirm validity duration.
-3. Confirm the existing signature is for the same template.
-4. Confirm the applies-to person matches the registrant/person.
-5. Confirm person matching found the correct person.
-6. Confirm the existing signature status is signed.
-7. Confirm the signed date is within the validity window.
-8. Confirm the registration flow is using the supported Obsidian block.
-9. Inspect version-specific registration fixes around `SignatureDocumentId`.
+1. Identify the document’s Applies To person.
+2. Identify its Assigned To person.
+3. Identify the recorded Signed By person.
+4. For workflows, inspect the mapped Person attributes and whether the signer was logged in.
+5. For event registration, confirm whether the registrant is classified as an adult or child.
+6. Confirm the person completing the registration when a child is the registrant.
+7. Check whether missing birthdate data makes the adult/child classification unreliable. ([Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures), [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow), [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati))
 
-### Workflows
+### Event registration signatures break or display the wrong document
 
-The Electronic Signature workflow action presents a signing step within a workflow, similar to a workflow form, according to [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow).
+1. Confirm the external registration page uses the Obsidian Registration Entry block.
+2. Confirm the required template is a current built-in electronic-signature template rather than a legacy-provider document.
+3. Inspect the registration template’s Required Signature Document selection.
+4. Confirm the registrant’s person match, signature-document relationship, required template, and validity.
+5. Determine whether the installation includes the Rock 18.3 registrant relationship fix and migration. ([Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati), [Rock Core Release Notes](https://www.rockrms.com/releasenotes))
 
-Important workflow action configuration concepts from the source pack:
+### A signed PDF is not generated or delivery stalls
 
-- **Signature Document Template**: Direct selected template.
-- **Select Signature Document**: Dynamic template ID or GUID, often through a workflow attribute.
-- **Applies To Person**: Person the document applies to.
-- **Assigned To Person**: Person asked to sign.
-- **Document Name**: Name of the generated document.
+1. Separate rendering from communication delivery: first determine whether the signed PDF exists.
+2. Inspect the signature template’s file type and completion System Communication.
+3. Inspect the **PDF External Render Endpoint** system setting.
+4. Determine whether the host can run Puppeteer or Chrome.
+5. If local rendering is supported, review whether concurrent volume is exhausting server capacity.
+6. If external rendering is required, verify endpoint configuration and reachability without exposing credentials.
+7. After PDF generation succeeds, troubleshoot the completion email through the communications system. ([Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume), [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures))
 
-The official workflow article notes that if the direct template field is populated, the dynamic selection field is ignored. When a workflow is using the wrong template, this is one of the first settings to inspect.
+## Agent Task Recipes
 
-Workflow implementation cautions:
+### Recipe: Configure an entity document type and management surface
 
-- Persist the workflow before sending links that need workflow context.
-- Do not rely on an unpersisted workflow if the user will leave and return.
-- Store selected template, applies-to person, assigned-to person, and generated document identifiers in workflow attributes when needed for later troubleshooting.
-- Avoid SQL delete or direct mutation patterns unless reviewed by a senior Rock developer. Community recipes may use SQL deletion for local needs, but those are not core authoritative patterns.
+**Outcome:** Users can manage an approved document category for the intended entity type.
 
-### Event Registrations
+1. Identify the target entity type and whether qualifiers should restrict the type to a subset.
+2. Select the associated file type and review its security and required preferred-file settings.
+3. Create or review the entity document type under `Admin Tools > Settings > Document Types`.
+4. Configure manual selection, maximum documents, qualifiers, and default naming as needed.
+5. For Person, inspect the existing Person Profile document surface.
+6. For another entity, place a Documents block on a page with that entity in context.
+7. Configure the block’s Entity Type, allowed Document Types, and security-button visibility.
+8. Test with a non-sensitive file and an authorized test role.
+9. Verify add, list, download, and security behavior separately. ([Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents), [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block))
 
-Electronic signatures in event registrations are highly sensitive because they combine external CMS forms, person matching, payment flows, registrant records, family/minor relationships, email delivery, and signed artifacts.
+**Inspect:**
 
-Key requirements:
+- Entity and qualifier match.
+- Document-type and file-type permissions.
+- Block context and filters.
+- Installed Rock version.
 
-- Use the Obsidian Registration Entry block for current electronic signatures, per [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati).
-- Do not mix block generations and legacy signature documents without verifying compatibility.
-- Test parent-signs-for-child scenarios.
-- Test existing-valid-signature scenarios.
-- Inspect `SignatureDocumentId` relationships on registrants in versions affected by v18.3 fixes.
-- Confirm completion email delivery.
-- Confirm signed PDF generation.
+**Stop when:**
 
-### Managing Signed Documents
+- The requested qualifier value is unknown.
+- Testing would require uploading private data.
+- A permission change has not been authorized.
 
-Administrators can view signature documents by navigating to `Admin Tools > Settings > Signature Documents`, selecting a template, and reviewing documents for that template, according to [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents). The documentation notes that document names combine the source and the person’s name in the documented example, and that selecting a signed document shows detail and allows resending the completion email.
+### Recipe: Create and validate a merge template
 
-When inspecting a signed document:
+**Outcome:** A global or personal template generates the intended output from a known grid source.
 
-- Verify template.
-- Verify document name.
-- Verify applies-to person.
-- Verify assigned-to person.
-- Verify signed-by person.
-- Verify status.
-- Verify signed date/time.
-- Verify generated PDF.
-- Verify completion email sent timestamp.
-- Verify related registration or workflow source.
-- Verify that the document is not legacy unless expected.
+1. Choose personal or global scope.
+2. For a global template, configure template security before broad use.
+3. Choose Word or HTML based on the required output.
+4. Open the target grid’s merge action.
+5. inspect the row count, first 15 rows, and available merge fields.
+6. Decide whether output should remain one row per person or combine family members.
+7. Build the template using only the Lava features supported by that format.
+8. For Word, choose whole-document repetition or `{% Next %}` multi-record layout deliberately.
+9. Use straight quotation marks in all Lava expressions.
+10. Run a small representative test and inspect the generated content before using the full population. ([Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates), [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents), [Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document))
 
-## 10. Generated PDFs Deep Dive
+**Do not assume:**
 
-### What The PDF Represents
+- The first 15 rows represent every record.
+- General Lava features all work in Word.
+- GroupMember rows retain GroupMember as the top-level row type.
+- Template visibility implies authorization to generate it.
 
-After signing, Rock generates a PDF containing the signed content and signature information so the signer can receive a copy, according to [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume). This PDF is not just a visual convenience; it is an operational artifact tied to communications, storage, and later review.
+### Recipe: Configure a signature template
 
-Source snippets show `SignatureDocument` has `BinaryFileId` and view-model `binaryFile` properties, while the template references a Binary File Type. A dev SQL script in the source pack identifies the well-known Binary File Type GUID for Digitally Signed Documents as `40871411-4E2D-45C2-9E21-D9FCBA5FC340`. Agents should verify that GUID in the live instance before relying on it, especially in customized or upgraded systems.
+**Outcome:** A reviewed signature template can generate and store signed documents using the intended signer experience.
 
-### PDF Preview Versus Signed PDF
+1. Open `Admin Tools > Settings > Signature Documents`.
+2. Define a clear name, description, and document term.
+3. Select typed or drawn input; prefer typed unless an approved requirement justifies storing drawn-signature PII.
+4. Select the signed-document file type.
+5. Select the completion System Communication.
+6. Decide whether completed documents can remain valid for future use.
+7. Author the Lava body and verify that its attribute keys match the intended workflow or registration inputs.
+8. Add `<!-- [[ SignatureDetails ]] -->` wherever explicit or repeated signature placement is required.
+9. Preview or test with non-sensitive representative data.
+10. Verify the stored document and completion email as separate outcomes. ([Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures))
 
-The Obsidian Signature Document Template Detail source includes request bags for getting a PDF preview URL from:
+**Stop when:**
 
-- Lava template.
-- Binary file type.
-- Signature type.
+- Legal language is unapproved.
+- Retention or PII requirements are unresolved.
+- The storage file type or its security has not been reviewed.
 
-This implies admins can preview signature template PDF rendering before actual signing. Preview is useful but not sufficient. A real signed document includes signer-specific evidence and may run in a different context than the preview. Always test a real signing flow before treating a template as production-ready.
+### Recipe: Add an electronic signature to a workflow
 
-### Performance And Offloading
+**Outcome:** The workflow presents the correct document to the correct signer and retains the resulting signed file.
 
-The official PDF guide warns that generating PDFs on the Rock server can be resource-intensive, especially during high-traffic registration events, and recommends offloading to a third-party service such as browserless.io when needed, in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume).
+1. Decide whether the action uses one fixed template or a dynamic template ID/GUID.
+2. Do not populate the fixed field if dynamic selection is intended.
+3. Map Applies To, Assigned To, and Signed By to explicit Person attributes.
+4. Add a Binary File workflow attribute for the resulting signature document and select the intended signed-document file type.
+5. Define a Lava-enabled document name.
+6. Test logged-in and applicable non-logged-in behavior because login affects Signed By handling.
+7. Verify the template selected, subject, assigned signer, actual signer, stored PDF, and receipt delivery.
+8. If the workflow has multiple launch contexts, condition any unrelated entity mutations on the presence of their required context. ([Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow), [RockU Workflows](https://community.rockrms.com/rocku/workflows))
 
-Operational checks before a high-volume event:
+**Do not assume:**
 
-- Estimate expected registrations per hour.
-- Estimate signatures per registration.
-- Confirm whether PDF generation is local or offloaded.
-- Confirm external rendering credentials and endpoint.
-- Test PDF generation under load if possible.
-- Monitor web server CPU, memory, queue length, and exception logs.
-- Confirm completion emails are not delayed by PDF generation.
-- Confirm generated Binary Files are being stored in the expected provider.
-- Have a fallback plan if PDF generation lags but signatures are captured.
+- Assigned To and Applies To are interchangeable.
+- A dynamic template value overrides a fixed template.
+- A bulk launch contains a ConnectionRequest or another pipeline entity.
 
-### PDF Troubleshooting
+### Recipe: Configure an event-registration signature requirement
 
-Rock documents the supported generation path in [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume); diagnose that path before attempting record-level repair.
+**Outcome:** Each registrant receives the correct signature requirement through the supported registration flow.
 
-If signed documents exist but PDFs are missing:
+1. Confirm the external page uses the Obsidian Registration Entry block.
+2. Confirm the signature template uses Rock’s built-in electronic-signature system.
+3. Edit the registration template under `Tools > Event Registration`.
+4. Select the required signature document.
+5. Review whether birthdate should be required so adult/child assignment is reliable.
+6. Test an adult registering themselves.
+7. Test an adult registering a child.
+8. Test a matched person with an existing valid document for the same required template.
+9. Verify the registrant relationship and displayed completion state from the registration instance.
+10. Confirm receipt PDF generation and delivery separately. ([Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati))
 
-1. Confirm `SignatureDocument.Status = Signed`.
-2. Confirm `SignedDateTime` is set.
-3. Confirm `BinaryFileId` is null or invalid.
-4. Inspect exception logs around signing time.
-5. Inspect PDF generation configuration.
-6. Inspect Binary File Type storage provider.
-7. Inspect permissions for the storage location.
-8. If offloaded, inspect external service logs and credentials.
-9. Retry PDF generation only through supported UI or API paths.
-10. Do not directly insert fake BinaryFile records in production.
+### Recipe: Review a completed signature document and resend its receipt
 
-If PDFs render incorrectly:
+**Outcome:** An authorized administrator verifies the signed record and resends the existing completion email when appropriate.
 
-1. Compare browser signing view to PDF output.
-2. Inspect template HTML and CSS.
-3. Remove external assets or ensure they are accessible to the renderer.
-4. Verify images are HTTPS-accessible if external rendering is used.
-5. Test simple template content.
-6. Verify `<!--[[ SignatureDetails ]]-->` placement if used.
-7. Test typed and drawn signature variants if both are available.
-8. Inspect PDF preview request behavior in the template detail block.
+1. Confirm the installed Rock version and applicable security authority.
+2. Navigate to `Admin Tools > Settings > Signature Documents`.
+3. Select the exact signature document template.
+4. Locate the intended document record.
+5. Open its details and inspect the signed file.
+6. Confirm the intended recipient before resending.
+7. Use the documented resend-completion-email action.
+8. Verify communication delivery through the communications system rather than treating the button click as delivery proof. ([Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents))
 
-## 11. Related Rock Areas: People, Workflows, Communications, Security, Platform Configuration, Cms
+### Recipe: Decide whether to offload signed-PDF rendering
 
-### People
+**Outcome:** The organization has a justified local or external rendering path.
 
-People are central to signature behavior. Applies-to, assigned-to, and signed-by are all person-alias-based relationships in source snippets. Event registration reuse also depends on matching the registrant to a person who already has a valid signature, according to [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati).
+1. Identify whether the host can run Puppeteer or Chrome.
+2. If it cannot, plan an external rendering service.
+3. If it can, evaluate expected signature volume and concurrent server load.
+4. When local rendering poses excessive load, select and review an external service.
+5. Configure the **PDF External Render Endpoint** under System Configuration.
+6. Test preview, completed signing, PDF storage, and receipt delivery.
+7. Load-test only within an approved non-production or otherwise controlled scope.
+8. Document provider, privacy, credential, capacity, and failure-handling ownership. ([Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume))
 
-Agent checks:
+### Recipe: Evaluate a community resend or reset workaround
 
-- Confirm the person record.
-- Confirm person aliases.
-- Confirm family relationships when a parent signs for a child.
-- Confirm duplicate records are not causing person matching failures.
-- Confirm whether the signed document applies to the participant or the signer.
+**Outcome:** A maintainer determines whether a community recipe is safe and still necessary without executing destructive steps by default.
 
-### Workflows
+1. First test the official completed-document resend action to determine whether it satisfies the need.
+2. Define whether the desired outcome is receipt redelivery, a new signature request, clearing a group requirement, or replacing an invalid registrant signature.
+3. Review the installed Rock version and relevant fixes.
+4. Read the community recipe as a design example, not as approved core behavior.
+5. Identify every delete, relationship reset, command SQL, security-disabled entity access, and bulk-action path.
+6. Confirm backups, rollback, authorization, schema compatibility, record scope, and a non-production test plan.
+7. Prefer supported workflow actions and current core behavior where they meet the requirement.
+8. Stop before executing SQL, deleting signature documents, clearing registrant relationships, or deleting workflows unless those exact mutations are separately reviewed and authorized. ([Re-Send Signature Documents from Registrant](https://community.rockrms.com/recipes/434), [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482))
 
-Workflows can request signatures and add entity documents. RockU lists electronic signatures within workflow training in [RockU Workflows](https://community.rockrms.com/rocku/workflows/electronic-signatures-1), and official documentation covers the workflow signature action in [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow).
+## Known Gaps And Live Verification
 
-Agent checks:
+No live Rock instance was reviewed for this guide. Before applying it, verify:
 
-- Workflow type security.
-- Workflow persistence.
-- Workflow entry page.
-- Signature action configuration.
-- Dynamic template selection.
-- Person attributes.
-- Email actions.
-- Completion path.
-- Retry behavior.
+- The exact Rock version and patch level.
+- Whether the relevant pages use legacy or Obsidian blocks.
+- Which entity document types, qualifiers, file types, and preferred-file settings are installed.
+- Document-type, file-type, block, template, and individual-document security.
+- Whether historical workflow-created files were affected by the pre-17.8 parent-link defect.
+- Whether registration signature relationships were affected by the issue fixed in 18.3.
+- Whether direct signed-document downloads follow the Rock 19.0 file-type rule or the Rock 19.5 template-security fix.
+- Whether legacy signature templates or provider-linked records remain after an upgrade to Rock 19.
+- Whether signature templates are active and whether workflow attributes resolve the intended ID or GUID.
+- Whether adult/child classification and person matching support the intended registration assignment.
+- Whether existing signature documents are still valid for the intended template and policy.
+- Whether the host can run Puppeteer or Chrome and whether the PDF External Render Endpoint is configured.
+- Whether generated PDFs, stored files, and completion emails succeed under expected load.
+- Whether Cloudflare Scrape Shield is enabled on the relevant zone when HTML merge documents need email addresses.
+- Whether reports and reminders use verified SignatureDocument relationships rather than a potentially stale convenience attribute.
+- Whether workflows launched through multiple routes properly guard context-specific mutations.
+- Whether any proposed community resend workflow remains compatible with the installed schema and can avoid direct SQL or destructive record deletion.
 
-### Communications
+Evidence gaps in the supplied pack include:
 
-Signature templates can have invite and completion communications. Source snippets expose `InviteSystemCommunicationId` and `CompletionSystemCommunication`. The management doc notes that signed document detail can resend a completion email, in [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents).
+- No reviewed live configuration, file counts, permission results, or issue reproduction.
+- No approved universal SQL query for signature completion, resending, or cleanup.
+- No evidence establishing provider-specific external PDF configuration beyond the documented endpoint pattern.
+- No evidence that a completion email was delivered merely because Rock generated a PDF or invoked a resend action.
+- No production-ready Rock 20 document behavior beyond the release page identifying Rock 20.0 as alpha.
+- No legal determination that typed or drawn signatures satisfy a particular jurisdiction, agreement, retention policy, or organizational requirement.
 
-Agent checks:
+## Source Map
 
-- Invite system communication.
-- Completion system communication.
-- From address and reply-to.
-- Lava merge fields in communication.
-- Whether the assigned signer has a valid email.
-- Communication history.
-- Email transport errors.
-- Whether completion emails require a generated PDF before sending.
+### Official documentation
 
-### Security
+- [Documents](https://community.rockrms.com/documentation/core-concepts/documents) — official navigation and conceptual grouping.
+- [Intro to Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents) — entity-document purpose and multiplicity.
+- [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents) — document types, entity/file binding, qualifiers, limits, and defaults.
+- [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block) — entity context and Documents block configuration.
+- [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) — block operations, per-document security, and irreversible deletion.
+- [Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows) — workflow entity matching, file settings, and upload permissions.
+- [Intro to Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents) — Word and HTML merge formats.
+- [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates) — global and personal templates and template security.
+- [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) — grid preview, merge fields, and combined-family rows.
+- [Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) — Word/HTML construction, Word Lava limits, `{% Next %}`, and Cloudflare caveat.
+- [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) — GroupMember normalization and quotation-mark guidance.
+- [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures) — signing-document anatomy and person roles.
+- [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) — template configuration, typed-signature recommendation, signature placement, and legacy-provider warning.
+- [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow) — workflow action mappings and template precedence.
+- [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) — Obsidian requirement, assignment logic, reuse, and registration monitoring.
+- [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume) — PDF generation and external rendering.
+- [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents) — completed-document administration and Rock 19.0 access behavior.
 
-Security is the most important cross-cutting concern. Entity Documents depend on Document Type and File Type security. Merge templates can be secured. Signature documents and signed PDFs can contain sensitive personal and legal information. Drawn signatures are PII per [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures).
+### Release and implementation evidence
 
-Release-note caveat: v17.8 changed Document Type security behavior for workflow-added entity documents and surfaced public-viewable warnings on Document Types, in [Rock Core Release Notes](https://www.rockrms.com/releasenotes). Before assuming access behavior, inspect the Rock version and the current Document Type security.
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes) — version-specific signature placement and fixes for inactive templates, entity-document linkage, registrant relationships, and direct-download security.
+- [SignatureDocument source at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs) — implementation evidence for encrypted drawn-signature data.
+- [SignatureDocumentTemplateService at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs) — implementation evidence marking legacy-provider methods obsolete in Rock 19.0.
+- [PDF preview request at commit `471fd303`](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs) — implementation evidence for preview inputs.
+- [Rock Model Map](https://community.rockrms.com/ModelMap) — structured model metadata and a routing aid, not independent proof of an installation’s schema or data.
 
-Agent checks:
+### Training and community examples
 
-- Who can view the Document Type.
-- Who can view the File Type.
-- Whether the Document Type is publicly viewable.
-- Whether signed PDFs are exposed through public links.
-- Whether external site pages require authentication.
-- Whether workflow types have appropriate view permissions.
-- Whether reports expose signed document data.
-- Whether API keys can read signature documents.
-
-### Platform Configuration
-
-Platform configuration includes Binary File Types, storage providers, system communications, background jobs, external PDF services, and block settings.
-
-Agent checks:
-
-- Binary File Type for signed documents.
-- Storage provider and container/path settings.
-- File extension and size limits.
-- PDF generation configuration.
-- External rendering endpoint.
-- System communications.
-- Exception logs.
-- Rock version and release notes.
-
-### CMS
-
-CMS matters because signatures and document blocks may appear on internal and external pages. Event registration signatures require the appropriate external Registration Entry block generation, according to [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati). Entity Documents for non-person entities may require adding a Documents block to a CMS page, per [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block). RockU also places Entity Documents in CMS training context at [RockU CMS Entity Documents](https://community.rockrms.com/rocku/cms/entity-documents).
-
-Agent checks:
-
-- Page route.
-- Block type generation: WebForms versus Obsidian.
-- Block settings.
-- Page security.
-- Site type.
-- Context entity.
-- External user experience.
-- Return URL after signing.
-
-## 12. Administration And Operational Guardrails
-
-### Before Creating A New Document Type
-
-Start with the official [Documents guide](https://community.rockrms.com/documentation/core-concepts/documents) and the [RockU Entity Documents](https://community.rockrms.com/rocku/cms/entity-documents) workflow so the entity, document type, file type, and access model are chosen together.
-
-Use this checklist:
-
-- What entity is this document for?
-- Should the document be stored on Person, Group, Registration, or another entity?
-- Does a Document Type already exist?
-- Which File Type should store the file?
-- Does the File Type allow the expected file extension?
-- Who should view the document?
-- Who should upload or edit it?
-- Should the document be reportable?
-- Is the content sensitive?
-- Does retention policy apply?
-
-Do not create a new Document Type for every minor variation if one governed type with a document name or description is sufficient. But do not reuse a broad Document Type for sensitive documents if it weakens security.
-
-### Before Creating A New Signature Template
-
-Start with [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) and verify registration or workflow integration separately for the intended launch surface.
-
-Use this checklist:
-
-- Has legal/content owner approved the body text?
-- Is the template for one document type or multiple?
-- Should a signature remain valid for future use?
-- If valid in future, for how many days?
-- Should the document apply to the participant, signer, or another person?
-- Should a parent/guardian sign for a child?
-- Should the signature be typed?
-- Which Binary File Type stores the signed PDF?
-- Which invite email is used?
-- Which completion email is used?
-- Should signature placement use `<!--[[ SignatureDetails ]]-->`?
-- Has the template been tested in browser view and PDF output?
-- Has the workflow or registration path been tested end to end?
-
-### Naming Standards
-
-Suggested naming patterns:
-
-- Signature templates: `Ministry - Document Purpose - Version/Year`, for example `Kids - Field Trip Release - 2026`.
-- Document Types: `Entity - Document Category`, for example `Person - Background Check Consent`.
-- Merge templates: `Audience - Output Purpose`, for example `Family - Camp Scholarship Letter`.
-- Workflow attributes: `AppliesToPerson`, `AssignedToPerson`, `SignatureDocumentTemplate`, `SignatureDocument`, `SignedDocument`.
-
-### Security Guardrails
-
-For any public or external flow:
-
-- Never assume a signed document URL is safe because it is hard to guess.
-- Confirm page security.
-- Confirm file access checks.
-- Confirm Document Type and File Type security.
-- Confirm workflow type view permissions.
-- Confirm template detail and document list pages are staff-only.
-- Confirm public registration pages expose only the required signing step.
-- Confirm generated PDFs are not indexed or linked publicly.
-
-### Data Integrity Guardrails
-
-Do not directly update or delete signature records in production unless there is an approved remediation plan. Source snippets show Rock uses a verification hash and save hook to protect signed document integrity. Direct SQL changes can damage legal evidence, break related registrant records, or invalidate audits.
-
-If a signature request was sent to the wrong person, prefer supported resend, cancel, or reissue behavior. Community recipes such as [Recipe 434](https://community.rockrms.com/recipes/434) illustrate why organizations build helper workflows, but those recipes include direct deletion patterns and should not be treated as product-approved data correction procedures.
-
-## 13. Developer, API, Lava, And Source-Code Landmarks
-
-### Source-Code Landmarks
-
-Use the linked upstream model as the field-level authority, and treat community helpers such as [Recipe 434](https://community.rockrms.com/recipes/434) only as operational examples that still require security and data-integrity review ([SignatureDocument.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Core/SignatureDocument/SignatureDocument.cs)).
-
-The source pack includes these important Rock source-code locations:
-
-- `Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplate.cs`: Core model for signature templates, table `SignatureDocumentTemplate`, REST code generation, active flag, reporting include attributes, and fields such as name, description, provider data, binary file type, invite communication, Lava template, active state, document term, and signature type.
-- `Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplate.Logic.cs`: Defines the default Lava template placeholder.
-- `Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateExtensionMethods.cs`: Identifies legacy provider templates by provider entity type.
-- `Rock/Model/Core/SignatureDocumentTemplate/SignatureDocumentTemplateService.cs`: Marks legacy provider send/cancel methods obsolete and no longer supported.
-- `Rock.Blocks/Core/SignatureDocumentTemplateDetail.cs`: Obsidian detail block for signature document templates, with default file type and legacy provider display settings.
-- `Rock.Blocks/Core/SignatureDocumentTemplateList.cs`: Obsidian list block that counts signature documents per template and links to detail pages.
-- `Rock/Model/Core/SignatureDocument/SignatureDocument.cs`: Core model for persisted signature document instances.
-- `Rock/Model/Core/SignatureDocument/SignatureDocument.Logic.cs`: Formatted user agent and encrypted drawn signature data behavior.
-- `Rock/Model/Core/SignatureDocument/SignatureDocument.SaveHook.cs`: Protects `SignatureVerificationHash` from modification after set.
-- `Rock/Model/Core/SignatureDocument/SignatureDocumentService.cs`: Lookup by document key and deterministic signature verification hash calculation.
-- `Rock.Enums/Core/SignatureDocumentStatus.cs`: Status enum values.
-- `Rock.JavaScript.Obsidian/Framework/Enums/Core/signatureDocumentStatus.ts`: Obsidian enum mirror.
-- `Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/SignatureDocumentTemplateBag.cs`: Template detail view model fields.
-- `Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/signatureDocumentTemplateBag.d.ts`: TypeScript view model mirror.
-- `Rock.ViewModels/Blocks/Core/SignatureDocumentTemplateDetail/GetPdfPreviewUrlRequestBag.cs`: PDF preview request input fields.
-- `Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Core/SignatureDocumentDetail/signatureDocumentBag.d.ts`: Signature document detail view model fields.
-
-### API Considerations
-
-Because snippets show `[CodeGenerateRest]` on `SignatureDocumentTemplate` and `SignatureDocument`, API surfaces may exist for these models. Agents should not assume every field is safe or writable through REST. Verify:
-
-- Endpoint availability in the current version.
-- API key permissions.
-- Field-level behavior.
-- Whether signed fields are read-only after signing.
-- Whether save hooks execute through the API.
-- Whether binary files require separate upload APIs.
-- Whether current Rock security checks are enforced.
-
-### Lava In Merge Documents
-
-Rock’s merge document docs state that most Lava skills work with Merge Templates, but with specific caveats, in [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents):
-
-- Use straight quotes.
-- Group member entities may be converted to people.
-- Access group member data through `Row.GroupMember` when needed.
-- Use the merge screen’s field list rather than guessing field names.
-
-### Lava In Signature Templates
-
-The official [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) flow defines the template surface; verify the actual merge objects with preview data rather than borrowing fields from another Lava context.
-
-Signature templates use a Lava template to build the document body. Source snippets identify `LavaTemplate` as the field used to build the signature document. Because the signed document text is stored at signing time, changes to the template after signing should not be assumed to modify existing signed document text.
-
-Agent guidance:
-
-- Test Lava with realistic data.
-- Avoid expensive Lava operations in high-volume registration flows.
-- Do not embed private implementation notes.
-- Do not expose internal IDs unless required.
-- Verify whether the signing context provides the objects your Lava expects.
-- If using external images, verify PDF renderer access.
-
-## 14. Reporting, Analytics, And Model Map
-
-### Model Map
-
-The source pack includes a [Model Map](https://community.rockrms.com/ModelMap) record identifying `Signature Document Template` as a Core model. Use Model Map to confirm model names, categories, and reporting availability. For exact field lists, verify current source code or the live Rock schema.
-
-### Signature Reporting
-
-Use the [Rock Model Map](https://community.rockrms.com/ModelMap) to confirm the current model names and relationships before implementing any query, then verify sensitive field handling in the target version.
-
-Useful signature reports include:
-
-- Count of signature documents by template.
-- Count by status.
-- Pending signatures by assigned person.
-- Signed signatures by date.
-- Expired invites.
-- Missing PDFs.
-- Signature documents without completion email timestamp.
-- Registrants missing `SignatureDocumentId` when a required template exists.
-- Signatures expiring soon based on validity duration.
-- Templates with inactive status but active usage.
-- Legacy provider templates still present.
-- Signed documents with drawn signatures.
-
-When reporting, avoid exposing sensitive data. Do not include raw signature data. Treat signed document text as potentially sensitive.
-
-### Entity Document Reporting
-
-Useful entity document reports include:
-
-- People missing a required document.
-- Groups missing a required document.
-- Documents uploaded in a date range.
-- Documents by Document Type.
-- Document Types with public view access.
-- Files whose File Type security differs from Document Type security.
-- Workflow-uploaded documents created before the v17.8 security fix.
-- Documents with missing binary files.
-
-Because the source pack is thin on exact entity document model fields, verify table and model names in the live instance before writing SQL.
-
-### Merge Document Analytics
-
-Merge documents are usually generated on demand and may not have a persistent audit trail equivalent to signature documents. To answer "who generated a merge document," inspect:
-
-- Rock audit logs if enabled.
-- Communication history if the output was sent.
-- File storage if the merge output was saved.
-- Browser downloads cannot usually be reconstructed from Rock alone unless the action created a persisted artifact.
-
-## 15. Version And Release Caveats
-
-### Inactive Signature Templates
-
-Rock v15.2 fixed inactive signature document templates being selectable in event registration, according to [Rock Core Release Notes](https://www.rockrms.com/releasenotes). Rock v16.1 fixed inactive signature document templates showing in workflow actions, also in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-Agent implication: If an inactive template appears selectable, inspect the Rock version and block/action generation before assuming current behavior.
-
-### Signature Placement Keyword
-
-Rock v17.0 added support for placing signature details at specific places in a document template using `<!--[[ SignatureDetails ]]-->`, according to [Rock Core Release Notes](https://www.rockrms.com/releasenotes). [Triumph Tech GitHub Spotlight 1/8/2025](https://www.triumph.tech/resources/github-spotlight-182025) also summarized this as a v16.10 highlight in pre-alpha context. Treat the official release notes as higher authority for released behavior.
-
-Agent implication: Verify version before using the keyword.
-
-### Signature Template Detail PDF Viewer
-
-A Triumph Tech GitHub Spotlight notes that PDFViewer was added to the Obsidian Signature Document Template Detail block in a v16.7/v17 pre-alpha context, at [GitHub Spotlight 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024). Treat this as implementation context, not a substitute for current official docs.
-
-Agent implication: If preview behavior is absent, inspect Rock version and whether the page is using the Obsidian block.
-
-### Registration Signature Relationship Fix
-
-Rock v18.3 fixed internal Event Registration blocks so they use the registrant’s `SignatureDocument` relationship instead of matching by person when showing signature documents. The release note also mentions a data migration to backfill missing `SignatureDocumentId` values when a valid match exists, excluding legacy templates, in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-Agent implication: For signature display mismatches in registration detail pages, check Rock version, `RegistrationRegistrant.SignatureDocumentId`, the required template, and whether documents are legacy.
-
-### Document Type Security Fix
-
-Rock v17.8 fixed a high-severity workflow issue where Entity Document Add uploads were not linked to parent Document records, causing access to fall back to File Type security. The release notes state that files are now linked correctly and Document Type security applies; they also note default security copying for General Person Document and Giving Statement if no Document Type security existed, plus warning labels for public-viewable Document Types, in [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-Agent implication: Audit workflow-uploaded entity documents and public-viewable Document Types, especially after upgrades.
-
-### Legacy Signature Providers
-
-Source snippets mark legacy provider methods obsolete and state legacy signature providers are no longer supported in Rock, with a RockObsolete marker for 19.0. The template detail block still has an option to show legacy providers, but its description warns support is on a removal path.
-
-Agent implication: Do not build new workflows around legacy provider templates. For existing templates, plan migration to Rock-native electronic signatures.
-
-## 16. Implementation Playbooks
-
-### Playbook: Build A New Event Waiver
-
-Use [Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) as the supported integration baseline, then test the exact participant and signer relationship.
-
-1. Confirm legal text with the ministry/legal owner.
-2. Create a Signature Document Template under `Admin Tools > Settings > Signature Documents`.
-3. Name it clearly, such as `Students - Camp Waiver - 2026`.
-4. Set Document Term to `Waiver` or the organization’s preferred term.
-5. Use typed signature unless there is a documented reason for drawn.
-6. Configure Lava template body.
-7. Configure Binary File Type for signed documents.
-8. Configure invite and completion communications.
-9. Enable future validity if the waiver can be reused.
-10. Set validity duration if reuse expires.
-11. Use `<!--[[ SignatureDetails ]]-->` only if the current Rock version supports it.
-12. Preview PDF.
-13. Attach template to the registration configuration.
-14. Confirm external site uses Obsidian Registration Entry.
-15. Test a new registrant.
-16. Test parent signing for child.
-17. Test existing valid signature reuse.
-18. Confirm signed document status.
-19. Confirm generated PDF.
-20. Confirm completion email.
-21. Confirm staff can view and public users cannot view admin document pages.
-
-### Playbook: Add Documents To A Group Page
-
-1. Create Document Type for Group.
-2. Select appropriate File Type.
-3. Configure security.
-4. Open the Group detail page where documents should appear.
-5. Add Documents block.
-6. Configure block context and allowed document types.
-7. Add a test document.
-8. Verify upload, display, edit, delete, and security behavior.
-9. Train staff on naming and description standards.
-
-### Playbook: Build A Merge Letter Template
-
-Follow [Create a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) and [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) for the source-grid and field contract.
-
-1. Identify the grid users will start from.
-2. Generate a sample merge and inspect available fields.
-3. Decide HTML or Word format.
-4. Create a template using `Row` fields.
-5. If group member data is needed, use the documented `Row.GroupMember` path.
-6. Avoid smart quotes.
-7. Test with one row.
-8. Test with many rows.
-9. Test family combine behavior if people are involved.
-10. Save as personal or global template.
-11. Apply security if global.
-12. Document expected source grid for staff.
-
-### Playbook: Move From Legacy Signature Provider To Rock-Native Signatures
-
-Base the replacement design on [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures) and retain historical records until legal, reporting, and retention owners approve the migration.
-
-1. Inventory templates with `ProviderEntityTypeId` or provider template keys.
-2. Identify workflows and registration templates using those templates.
-3. Create Rock-native Signature Document Templates.
-4. Recreate legal body content as Lava templates.
-5. Configure typed signatures.
-6. Configure signed document Binary File Type.
-7. Configure communications.
-8. Replace workflow action template references.
-9. Replace registration required template references.
-10. Test signing flows.
-11. Confirm old templates are inactive.
-12. Preserve historical documents according to retention policy.
-13. Do not delete legacy records until legal and reporting owners approve.
-
-### Playbook: Audit Document Security After Upgrade
-
-1. Review Rock version and release notes.
-2. List Document Types.
-3. Identify public-viewable Document Types.
-4. Compare Document Type security with paired File Type security.
-5. Identify workflow-uploaded entity documents.
-6. Confirm files are linked to parent document records.
-7. Test access as staff and non-staff.
-8. Review signed document Binary File Type security.
-9. Review merge template security.
-10. Review workflow type view security.
-11. Remediate Document Type security first.
-12. Retest access paths.
-
-## 17. Troubleshooting Decision Tree
-
-### Start Here: What Kind Of Document Is Broken?
-
-If the issue is an uploaded file attached to a person, group, or entity, go to Entity Documents.
-
-If the issue is a Word or HTML output from a grid, go to Merge Documents.
-
-If the issue is a waiver, release, signature request, signer email, signed record, or signed PDF, go to Electronic Signatures.
-
-If the issue is only the PDF artifact after signing, go to Generated PDFs.
-
-### Entity Documents
-
-Problem: Document type is not available.
-
-- Check the Document Type’s entity.
-- Check block settings.
-- Check whether the current page has entity context.
-- Check user security.
-- Check whether the document type is active if applicable in the current version.
-
-Problem: Upload fails.
-
-- Check File Type extension rules.
-- Check File Type storage provider.
-- Check file size.
-- Check exception logs.
-- Check workflow action target entity if upload came from workflow.
-
-Problem: Wrong users can view the document.
-
-- Check Document Type security.
-- Check File Type security.
-- Check Rock version relative to v17.8 Document Type security changes ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- Check whether the file is linked to the parent Document.
-- Check public page routes and direct file URLs.
-
-### Merge Documents
-
-Use [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) to verify the starting grid, row set, and exposed fields before changing the template.
-
-Problem: Merge fields are blank.
-
-- Check the source grid’s available fields.
-- Use the merge screen’s field list.
-- Confirm template expects `Row` fields.
-- Confirm group member data is accessed through `Row.GroupMember` when needed.
-- Confirm the grid contains the expected entity type.
-
-Problem: Lava error.
-
-- Check straight quotes.
-- Check filter syntax.
-- Test with a simple template.
-- Remove complex conditionals.
-- Confirm fields exist.
-- Confirm Word did not transform characters.
-
-Problem: Wrong records merged.
-
-- Check grid filters.
-- Check selected rows.
-- Check family combine option.
-- Check whether the grid is person-based or group-member-based.
-
-### Electronic Signatures
-
-Problem: Template does not show in workflow action.
-
-- Check template `IsActive`.
-- Check Rock version relative to v16.1 inactive-template filtering.
-- Check whether the action is configured to show Rock-native or legacy templates.
-- Check security.
-
-Problem: Template does not show in registration.
-
-- Check template `IsActive`.
-- Check Rock version relative to v15.2 inactive-template filtering.
-- Check registration block generation.
-- Check required signature template configuration.
-
-Problem: Wrong template is used in workflow.
-
-- Check whether the direct Signature Document Template field is set.
-- If it is set, the dynamic selected-template field may be ignored, per [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow).
-- Check workflow attributes and Lava that compute template ID or GUID.
-
-Problem: Parent cannot sign for child.
-
-- Check applies-to person.
-- Check assigned-to person.
-- Check signer email.
-- Check registration person matching.
-- Check document name and source entity.
-- Test with a known family.
-
-Problem: Registration shows wrong signed document.
-
-- Check Rock version relative to v18.3 registration fix.
-- Inspect registrant `SignatureDocumentId`.
-- Confirm document template matches required template.
-- Confirm document applies to the correct person.
-- Confirm it is not a legacy template unless expected.
-
-Problem: Completion email did not send.
-
-- Check completion communication on template.
-- Check signer email.
-- Check `CompletionEmailSentDateTime`.
-- Check communication logs.
-- Check whether PDF generation failed before email send.
-
-### Generated PDFs
-
-Problem: No PDF.
-
-- Check status is signed.
-- Check `BinaryFileId`.
-- Check signed date/time.
-- Check PDF generation configuration.
-- Check exception logs.
-- Check external rendering service if used.
-- Check Binary File Type storage.
-
-Problem: PDF looks wrong.
-
-- Check template HTML.
-- Check CSS support.
-- Check image URLs.
-- Check signature placement keyword.
-- Check typed versus drawn rendering.
-- Compare preview and live signed output.
-
-Problem: Server slows during registration launch.
-
-- Check PDF generation load.
-- Offload rendering if needed, per [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume).
-- Monitor CPU, memory, logs, and queueing.
-- Consider staging communications or testing high-volume signing ahead of launch.
-
-## 18. Agent Task Recipes
-
-### Recipe: Find All Pending Signature Requests For A Template
-
-Inspect:
-
-- `SignatureDocumentTemplate` by name or ID.
-- Related `SignatureDocument` records where status is `Sent`.
-- Assigned-to person alias.
-- Last invite date.
-- Invite count.
-- Related entity type and ID.
-
-Report:
-
-- Template name.
-- Count pending.
-- Oldest pending request.
-- Requests with no assigned person.
-- Requests with missing email.
-- Requests tied to registration or workflow.
-
-### Recipe: Verify A Person Has A Valid Signed Waiver
-
-Inspect:
-
-- The person and aliases.
-- Signature template ID.
-- `SignatureDocument` records for applies-to person alias.
-- Status `Signed`.
-- Signed date/time.
-- Template validity settings.
-- Validity duration.
-- Binary file presence.
-- Whether document is legacy.
-
-Report:
-
-- Found or not found.
-- Signed date.
-- Expiration date if duration applies.
-- Signed by person.
-- PDF present or missing.
-- Any ambiguity due to duplicates or multiple aliases.
-
-### Recipe: Diagnose A Failed Registration Signature
-
-Inspect:
-
-- Registration instance.
-- Registration template required signature template.
-- External Registration Entry block generation.
-- Registrant person alias.
-- Registrant `SignatureDocumentId`.
-- Existing valid signatures for that person and template.
-- Signature document status.
-- Exception logs.
-
-Report:
-
-- Whether the signature was required.
-- Whether it was skipped because a valid signature already existed.
-- Whether a Signature Document was created.
-- Whether the registrant is linked to it.
-- Whether the signer completed it.
-- Whether the PDF and completion email exist.
-
-### Recipe: Audit Public Exposure Risk
-
-Inspect:
-
-- Document Types with public view.
-- File Types used by documents and signed PDFs.
-- Signature Documents admin pages.
-- Merge Template security.
-- Workflow type view security.
-- External signing page routes.
-- Direct file URL behavior.
-- API keys and roles.
-
-Report:
-
-- Publicly viewable Document Types.
-- Sensitive File Types.
-- Signed document exposure paths.
-- Misaligned Document Type/File Type security.
-- Recommended remediation order.
-
-### Recipe: Build A Staff Resend Process
-
-Prefer supported UI actions first. [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents) notes that signed document detail can resend completion email. For invite resends or reissue scenarios, inspect current Rock-supported actions before using custom workflows.
-
-If a custom workflow is required:
-
-- Do not delete signed records by default.
-- Capture applies-to person, assigned-to person, template, and source entity.
-- Create a new signature request if legally appropriate.
-- Preserve the old request for audit unless approved.
-- Log who initiated resend and why.
-- Test parent/guardian and registrar scenarios.
-
-Community examples such as [Recipe 434](https://community.rockrms.com/recipes/434) and [Recipe 482](https://community.rockrms.com/recipes/482) show real-world resend needs, but their implementation details should be reviewed before use.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `26`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | Rock merge documents support Word and HTML formats, with Lava used to supply templated content in either format. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents) |
-| official | behavior | For an event registration signature document, Applies To is each registrant; Assigned To is the registrant when the registrant is an adult, but the person completing the registration when the registrant is a child. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati) |
-| official | behavior | In Rock electronic signatures, Applies To identifies the subject of the document, Assigned To identifies the expected signer, and Signed By records the person who completed the signature. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures) |
-| official | behavior | When preparing grid data for a merge document, Rock can preview the first 15 source records and display the available merge fields before the merge is run. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents) |
-| official | behavior | The Entity Document block can manage documents for any Rock entity; the document types available for adding are determined by entity document type configuration and the block's settings. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
-| official | behavior | Entity Documents can associate multiple documents of the same document type with a single Rock entity, including a person or group. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents) |
-| official | behavior | When a merge document receives GroupMember rows, Rock exposes each row as a person and makes the original membership data available through the person's GroupMember property, including group member attributes. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents) |
-| official | behavior | After an electronic signature is completed, Rock normally generates a PDF containing the document content and signature so a copy can be sent to the signer. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume) |
-| official | configuration | The Entity Document block supports per-document security when that feature is enabled in the block settings, while deleting a listed document is irreversible. | [source](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents) |
-| official | configuration | Users can manage merge templates intended for their own use from My Settings, and the page can also expose global templates when its block settings are configured accordingly. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates) |
-| official | configuration | Cloudflare Scrape Shield must be disabled for HTML merge documents that need to display email addresses because the feature blocks those addresses in the generated document. | [source](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/create-a-merge-document) |
-| official | configuration | A workflow Electronic Signature action can use a fixed document template or resolve a template ID or GUID from a workflow attribute; the fixed template setting takes precedence when both are supplied. | [source](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow) |
-| More |  | 14 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `2`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Electronic Signatures Transcript Insight](https://community.rockrms.com/rocku/event-registration/electronic-signatures) | approved_for_public_distillation | 2 | media-insight:7ededa8a19f050ad |
-| [Electronic Signatures Transcript Insight](https://community.rockrms.com/rocku/workflows/electronic-signatures-1) | approved_for_public_distillation | 2 | media-insight:ddfbf4b112e0b7a8 |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 19. Source Map And Dependency Notes
-
-Primary official documentation:
-
-- [Documents](https://community.rockrms.com/documentation/core-concepts/documents): Top-level guide grouping Entity Documents, Merge Documents, and Electronic Signatures.
-- [Intro to Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/intro-to-entity-documents): Entity documents concept.
-- [Configure Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/configure-entity-documents): Document Types and File Types.
-- [Add the Block](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-the-block): Non-person entity document block setup.
-- [Manage Entity Documents](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/manage-entity-documents): Staff upload/manage behavior.
-- [Add Documents Using Workflows](https://community.rockrms.com/documentation/core-concepts/documents/entity-documents/add-documents-using-workflows): Workflow document add behavior and entity/file-type matching.
-- [Intro to Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/intro-to-merge-documents): Merge document concept.
-- [Use Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/use-merge-documents): Grid merge UI.
-- [Administrate Merge Templates](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/administrate-merge-templates): Global and personal merge templates.
-- [Creating a Merge Document](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/creating-a-merge-document): HTML and Word formats.
-- [Using Lava with Merge Documents](https://community.rockrms.com/documentation/core-concepts/documents/merge-documents/using-lava-with-merge-documents): Lava caveats.
-- [Intro to Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/intro-to-electronic-signatures): Signature concept and anatomy.
-- [Set Up Electronic Signatures](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/set-up-electronic-signatures): Template setup and typed/drawn recommendation.
-- [Use Electronic Signatures in a Workflow](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-a-workflow): Workflow action configuration.
-- [Use Electronic Signatures in Event Registrations](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/use-electronic-signatures-in-event-registrati): Registration signature behavior and Obsidian block requirement.
-- [Generate PDFs for Electronic Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/generate-pdfs-for-electronic-signature-docume): PDF generation and offloading.
-- [Manage Signature Documents](https://community.rockrms.com/documentation/core-concepts/documents/electronic-signatures/manage-signature-documents): Admin viewing and completion email resend.
-
-Training and context:
-
-- [RockU Event Registration Electronic Signatures](https://community.rockrms.com/rocku/event-registration/electronic-signatures): Training context for registration signatures.
-- [RockU Workflow Electronic Signatures](https://community.rockrms.com/rocku/workflows/electronic-signatures-1): Training context for workflow signatures.
-- [RockU CMS Entity Documents](https://community.rockrms.com/rocku/cms/entity-documents): Training context for entity documents.
-- [RockU Individuals Merge Documents](https://community.rockrms.com/rocku/individuals-in-rock/merge-documents): Training context for merge documents.
-
-Release and implementation notes:
-
-- [Rock Core Release Notes](https://www.rockrms.com/releasenotes): Version caveats for inactive templates, signature placement, registration signature relationships, and Document Type security.
-- [Triumph Tech GitHub Spotlight 1/8/2025](https://www.triumph.tech/resources/github-spotlight-182025): Secondary implementation context for signature details placement.
-- [Triumph Tech GitHub Spotlight 10/4/2024](https://www.triumph.tech/resources/github-spotlight-1042024): Secondary implementation context for PDFViewer in Obsidian template detail.
-- [Triumph Tech GitHub Spotlight 9/30/2025](https://www.triumph.tech/resources/github-spotlight-9302025): Secondary implementation context for Obsidian signature template list behavior.
-
-Model and source-code dependency notes:
-
-- Use the [Model Map](https://community.rockrms.com/ModelMap) to confirm model category and current naming.
-- Use SparkDevNetwork/Rock source files for exact current fields and behavior when writing code, reports, or API integrations.
-- Verify exact schema in the live instance before writing SQL, especially for Entity Documents where this source pack contains less direct model detail.
-- Treat community recipes [434](https://community.rockrms.com/recipes/434) and [482](https://community.rockrms.com/recipes/482) as operational examples only, not product authority.
-
-Live-verification dependencies:
-
-- Rock version.
-- Block generation and block settings.
-- Template active state.
-- Document Type and File Type security.
-- Binary File Type storage.
-- System communications.
-- Workflow persistence.
-- Registration template and registrant relationships.
-- Whether legacy provider templates remain.
-- Exception logs and PDF rendering service configuration.
+- [RockU Documents](https://community.rockrms.com/rocku/documents) — official training index for merge and entity documents.
+- [RockU Electronic Signatures](https://community.rockrms.com/rocku/workflows/electronic-signatures-1) — official training route for workflow-oriented signature instruction.
+- [Re-Send Signature Documents from Registrant](https://community.rockrms.com/recipes/434) — community recipe containing destructive and SQL-based operations; example only.
+- [Resend a Group Requirement Helper Workflow](https://community.rockrms.com/recipes/482) — community recipe for clearing a requirement workflow; example only.
+- [RockU Workflows](https://community.rockrms.com/rocku/workflows) — source route associated with the reviewed community pattern for guarding context-specific workflow mutations.

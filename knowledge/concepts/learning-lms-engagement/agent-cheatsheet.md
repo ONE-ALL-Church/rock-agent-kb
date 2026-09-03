@@ -22,11 +22,8 @@ generated: true
 | --- | --- | --- |
 | `Attendance` | `AttendanceOccurrence`, `PersonAlias` | Filter `DidAttend` when counting actual attendance. Do not infer group/schedule/location without joining occurrence context. |
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Data View` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Group Member Requirement` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `GroupMemberRequirement` | `GroupMember`, `Person`, `Group` | Keep LMS completion separate from serving eligibility unless a requirement explicitly connects them. |
@@ -72,52 +69,26 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | high | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model` | high | live verification |
-| `6-primary-entities-and-relationships-lms-entity-relationships` | high | live verification |
-| `7-common-learning-lms-and-engagement-workflows-create-an-on-demand-training-program` | normal | live verification |
-| `7-common-learning-lms-and-engagement-workflows-create-an-academic-calendar-program` | normal | live verification |
-| `7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff` | normal | live verification |
-| `7-common-learning-lms-and-engagement-workflows-record-a-ministry-milestone` | citation-only | live verification |
-| `7-common-learning-lms-and-engagement-workflows-automate-follow-up-from-learning-completion` | citation-only | live verification |
-| `8-courses-and-lessons-deep-dive-course-configuration-checks` | normal | live verification |
-| `8-courses-and-lessons-deep-dive-class-design` | normal | live verification |
-| `8-courses-and-lessons-deep-dive-learning-plan-activity-design` | high | live verification |
-| `8-courses-and-lessons-deep-dive-lessons-versus-activities` | citation-only | live verification |
-| `9-requirements-and-completion-deep-dive-lms-course-requirements` | normal | live verification |
-| `9-requirements-and-completion-deep-dive-completion-tracking` | normal | live verification |
-| `9-requirements-and-completion-deep-dive-activity-completion-workflows` | citation-only | live verification |
-| `10-engagement-journeys-deep-dive-step-types` | normal | live verification |
-| `10-engagement-journeys-deep-dive-adding-steps` | citation-only | live verification |
-| `10-engagement-journeys-deep-dive-achievements-and-streaks` | high | live verification |
-| `11-reporting-and-administration-deep-dive-lms-reporting` | normal | live verification |
-| `11-reporting-and-administration-deep-dive-administration` | normal | live verification |
-| `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-people` | structural | live verification |
-| `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-communications` | normal | live verification |
-| `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-workflows` | citation-only | live verification |
-| `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-event-registration` | normal | live verification |
-| `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-security` | normal | live verification |
-| `13-administration-and-operational-guardrails-guardrail-3-verify-entity-types-before-automating` | citation-only | live verification |
-| `13-administration-and-operational-guardrails-guardrail-4-preserve-customized-system-communications` | normal | live verification |
-| `13-administration-and-operational-guardrails-guardrail-7-mark-legacy-training-as-legacy` | citation-only | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-source-repository` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-lava-landmarks` | community-supported | live verification |
-| `15-reporting-analytics-and-model-map` | normal | live verification |
-| `16-version-and-release-caveats-rock-v17-0` | high | live verification |
-| `16-version-and-release-caveats-rock-v18-1` | high | live verification |
-| `16-version-and-release-caveats-rock-v18-3-and-v19-1-release-notes-in-pack` | normal | live verification |
-| `16-version-and-release-caveats-develop-branch-caveat` | structural | live verification |
-| `17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program` | normal | live verification |
-| `17-implementation-playbooks-playbook-add-a-new-course-requirement` | normal | live verification |
-| `17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-learning-dashboard` | structural | live verification |
-| `17-implementation-playbooks-playbook-upgrade-review-for-lms-and-engagement` | normal | live verification |
-| `18-troubleshooting-decision-tree-group-requirement-still-fails-after-lms-completion` | normal | live verification |
-| `19-agent-task-recipes-recipe-find-why-a-person-is-not-complete` | structural | live verification |
-| `19-agent-task-recipes-recipe-prepare-a-course-for-launch` | structural | live verification |
-| `19-agent-task-recipes-recipe-build-a-step-journey-from-training` | structural | live verification |
-| `19-agent-task-recipes-recipe-review-upgrade-risk` | structural | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
-| `20-source-map-and-dependency-notes` | high | live verification |
+| `scope-and-boundaries` | community-supported | community-supported |
+| `courses-and-lessons-revise-a-class-without-disrupting-the-current-one` | normal | live verification |
+| `activity-design-and-staff-responsibilities-file-upload` | normal | live verification |
+| `requirements-and-completion-course-requirements` | high | live verification |
+| `requirements-and-completion-grading-systems-and-class-completion` | normal | live verification |
+| `engagement-journeys-and-learner-access` | normal | live verification |
+| `groups-workflows-and-operational-follow-up` | normal | live verification |
+| `notifications-and-communications` | normal | live verification |
+| `staff-enablement-and-change-management` | citation-only | live verification |
+| `troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course` | normal | live verification |
+| `troubleshooting-decision-tree-a-learner-is-blocked-from-enrollment` | normal | live verification |
+| `troubleshooting-decision-tree-a-facilitator-cannot-open-lms-administration-pages` | normal | live verification |
+| `troubleshooting-decision-tree-an-activity-is-submitted-but-still-incomplete` | normal | live verification |
+| `troubleshooting-decision-tree-a-failed-learner-is-marked-complete` | normal | live verification |
+| `troubleshooting-decision-tree-program-completion-is-not-updating` | normal | live verification |
+| `troubleshooting-decision-tree-learning-notifications-are-delayed-or-absent` | normal | live verification |
+| `troubleshooting-decision-tree-an-lms-dashboard-is-slow` | citation-only | live verification |
+| `agent-task-recipes-recipe-create-a-self-paced-volunteer-training-course` | normal | live verification |
+| `agent-task-recipes-recipe-prepare-an-academic-calendar-class` | normal | live verification |
+| `agent-task-recipes-recipe-connect-course-completion-to-operational-follow-up` | normal | live verification |
+| `agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface` | citation-only | live verification |
+| `agent-task-recipes-recipe-build-a-bounded-lms-completion-report` | normal | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |

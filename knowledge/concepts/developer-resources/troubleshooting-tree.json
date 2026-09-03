@@ -3,182 +3,265 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Family",
-        "Page",
-        "Block"
+        "Person"
       ],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-block-does-not-render",
-      "id": "the-block-does-not-render",
+      "guide_section_id": "troubleshooting-decision-tree-a-rest-request-returns-an-authorization-error",
+      "id": "a-rest-request-returns-an-authorization-error",
       "inspect": [
-        "Family",
-        "Page",
-        "Block"
+        "Person"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer",
-        "https://community.rockrms.com/developer/303---blast-off/exception-handling"
+        "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api"
       ],
       "start_with": [
-        "Is it WebForms, Obsidian, Helix, Mobile, Apple TV, or Roku?",
-        "Is the block type installed and active?",
-        "Is the block instance placed on the expected page/layout/site?",
-        "Is the current user authorized to view the page and block?",
-        "Are required block settings missing?",
-        "Did a migration fail?",
-        "Are compiled assets missing?",
-        "Is the route/page correct?"
+        "Confirm whether the request is targeting API v1 or API v2.",
+        "Confirm that the request carries either the documented session cookie or an `Authorization-Token`.",
+        "Confirm that the credential remains present on subsequent requests.",
+        "Separate authentication failure from authorization failure: verify the Rock person and security roles represented by the credential.",
+        "Inspect the target controller or endpoint permissions.",
+        "Stop if testing would require obtaining, exposing, or broadening credentials."
       ],
-      "title": "The block does not render",
-      "when": "The block does not render"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-obsidian-block-renders-but-actions-fail",
-      "id": "the-obsidian-block-renders-but-actions-fail",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-        "https://community.rockrms.com/lava/obsidian"
-      ],
-      "start_with": [
-        "Inspect network request.",
-        "Check block action name and route.",
-        "Check server logs.",
-        "Validate input bag shape.",
-        "Check IdKey/GUID resolution.",
-        "Check authorization in the action.",
-        "Check generated TypeScript/C# view models.",
-        "Check null vs undefined behavior."
-      ],
-      "title": "The Obsidian block renders but actions fail",
-      "when": "The Obsidian block renders but actions fail"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-helix-endpoint-behaves-differently-than-the-ui",
-      "id": "the-helix-endpoint-behaves-differently-than-the-ui",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/helix/overview/security",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaEndpointDetail/lavaEndpointBag.d.ts"
-      ],
-      "start_with": [
-        "Call endpoint directly.",
-        "Check security mode.",
-        "Check CSRF setting.",
-        "Check enabled Lava commands.",
-        "Check input validation.",
-        "Check rate limit.",
-        "Check cache control.",
-        "Check whether endpoint uses raw IDs."
-      ],
-      "title": "The Helix endpoint behaves differently than the UI",
-      "when": "The Helix endpoint behaves differently than the UI"
+      "title": "A REST request returns an authorization error",
+      "when": "A REST request returns an authorization error"
     },
     {
       "do_not_assume": [
-        "Avoid using Obsidian client-side grid for unbounded data."
+        "If the original response has already been sent, do not expect legacy response mutation to work."
       ],
       "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-obsidian-action-works-but-redirect-or-metadata-lava-does-nothing",
+      "id": "an-obsidian-action-works-but-redirect-or-metadata-lava-does-nothing",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/obsidian"
+      ],
+      "start_with": [
+        "Determine whether the Lava operation tries to alter the full HTTP response.",
+        "Confirm whether it runs during initial page rendering or after an Obsidian block action.",
+        "If the original response has already been sent, do not expect legacy response mutation to work.",
+        "Move navigation to an appropriate client action or move response-header behavior to a full-response surface.",
+        "Retest the actual browser flow."
+      ],
+      "title": "An Obsidian action works but redirect or metadata Lava does nothing",
+      "when": "An Obsidian action works but redirect or metadata Lava does nothing"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-obsidian-block-shows-stale-or-mismatched-generated-types",
+      "id": "an-obsidian-block-shows-stale-or-mismatched-generated-types",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/code-generator/model-changes"
+      ],
+      "start_with": [
+        "Confirm the model change is present.",
+        "Build Rock and inspect the DLL selected by the code generator.",
+        "Run model generation.",
+        "Add any new C# files to the projects.",
+        "Build Rock and the view-model project.",
+        "Preview Obsidian view-model generation.",
+        "Investigate unexpected files before saving.",
+        "Rebuild and retest the block."
+      ],
+      "title": "An Obsidian block shows stale or mismatched generated types",
+      "when": "An Obsidian block shows stale or mismatched generated types"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block",
         "Attribute"
       ],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-grid-is-slow",
-      "id": "the-grid-is-slow",
+      "guide_section_id": "troubleshooting-decision-tree-a-webforms-to-obsidian-replacement-loses-settings",
+      "id": "a-webforms-to-obsidian-replacement-loses-settings",
       "inspect": [
+        "Page",
+        "Block",
         "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/obsidian/grids"
+        "https://community.rockrms.com/developer/developer-codex/coding-standards/obsidian-chop-swap-sneak/process-to-chop-or-swap"
       ],
       "start_with": [
-        "Count rows sent to browser.",
-        "Check whether filtering is server-side.",
-        "Check columns and nested data.",
-        "Check export behavior.",
-        "Check attribute columns.",
-        "Consider server paging or a narrower query.",
-        "Avoid using Obsidian client-side grid for unbounded data."
+        "Compare old and new block-type attribute keys and their value expectations.",
+        "Determine whether this is a first-time chop or swap, or follows a prior swap or sneak.",
+        "Treat mismatched keys or a later conversion as a complex case.",
+        "Test the migration against a backed-up local database.",
+        "Verify instances on sites, pages, and layouts.",
+        "Compare transferred block settings.",
+        "For a chop, confirm both files and the old block-type record are removed.",
+        "Stop before production if the transfer cannot be reproduced safely."
       ],
-      "title": "The grid is slow",
-      "when": "The grid is slow"
+      "title": "A WebForms-to-Obsidian replacement loses settings",
+      "when": "A WebForms-to-Obsidian replacement loses settings"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-request-does-not-update-the-target-content",
+      "id": "a-helix-request-does-not-update-the-target-content",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/overview",
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block"
+      ],
+      "start_with": [
+        "Confirm that the page uses a Lava Application Content block and that HTMX is registered.",
+        "Verify the application and endpoint slugs.",
+        "Verify the relative `^/application-slug/endpoint-slug` route or the intentionally selected full route.",
+        "Confirm that the request method matches the endpoint’s configured HTTP method.",
+        "Inspect active state, security mode, CSRF behavior, and enabled Lava commands.",
+        "Check the target selector and returned fragment.",
+        "Review caching and rate-limit settings.",
+        "Test with the intended user role. Helix Overview and"
+      ],
+      "title": "A Helix request does not update the target content",
+      "when": "A Helix request does not update the target content"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-form-submits-or-validates-unpredictably",
+      "id": "a-helix-form-submits-or-validates-unpredictably",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/forms-controls/understanding-forms"
+      ],
+      "start_with": [
+        "Identify the page-level WebForms form.",
+        "Look for nested or independently authored HTML forms.",
+        "Confirm that Helix form controls are being used according to the documented form model.",
+        "Inspect which control supplies validation and which request submits the values.",
+        "Test initial render, invalid submission, valid submission, and repeated submission separately.",
+        "Stop if the exact control contract is not present in the available evidence; open its specific documentation."
+      ],
+      "title": "A Helix form submits or validates unpredictably",
+      "when": "A Helix form submits or validates unpredictably"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-mobile-feature-works-on-one-device-but-not-another",
+      "id": "a-mobile-feature-works-on-one-device-but-not-another",
+      "inspect": [
+        "Device"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies",
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
+      ],
+      "start_with": [
+        "Record the Rock Core version.",
+        "Record the Mobile Shell version on each device.",
+        "Check both the feature’s `C` and `M` minimums.",
+        "If crossing from Shell V5 or earlier to V6 or later, review .NET MAUI migration caveats.",
+        "Compare affected XAML layout behavior.",
+        "Test on each supported shell and device class. Core & Shell Dependencies and"
+      ],
+      "title": "A mobile feature works on one device but not another",
+      "when": "A mobile feature works on one device but not another"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-roku-navigation-or-focus-is-broken",
+      "id": "roku-navigation-or-focus-is-broken",
+      "inspect": [
+        "Person",
+        "Group",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/page",
+        "https://community.rockrms.com/developer/roku-docs/commands",
+        "https://community.rockrms.com/developer/roku-docs/resources/controls/focus-group"
+      ],
+      "start_with": [
+        "Confirm that the page has an outer `Rock:Page`.",
+        "Confirm that `initialFocus` names an existing focusable control.",
+        "Inspect the control’s `rockCommand` and every required command parameter.",
+        "If commands are chained, verify their comma-separated order.",
+        "Use a `FocusGroup` where directional focus needs explicit management.",
+        "Check whether stale personalized or shared cache content is being rendered.",
+        "Test with the actual Roku client and remote-navigation flow. Roku Page, Roku Commands, and"
+      ],
+      "title": "Roku navigation or focus is broken",
+      "when": "Roku navigation or focus is broken"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-migration-failed",
-      "id": "the-migration-failed",
+      "guide_section_id": "troubleshooting-decision-tree-slingshot-imported-records-but-downstream-reporting-is-wrong",
+      "id": "slingshot-imported-records-but-downstream-reporting-is-wrong",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/developer/202---ignition/the-data-migration",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/writing-migrations"
+        "https://community.rockrms.com/developer/slingshot/about-slingshot"
       ],
       "start_with": [
-        "Identify migration type: EF, plugin, hotfix, rollup/data.",
-        "Check Rock version requirement.",
-        "Check migration history.",
-        "Check duplicate GUIDs.",
-        "Check partially applied schema/data.",
-        "Check if a plugin-to-core transition exists.",
-        "Check SQL syntax/style.",
-        "Check helper method availability for the installed version."
+        "Confirm the expected record types and time range were included.",
+        "Confirm the intended `.slingshot` file and Foreign System Key.",
+        "Verify representative imported records.",
+        "Inspect the Rock configuration required by the downstream feature.",
+        "Validate the downstream behavior, such as analytics, rather than stopping at row presence.",
+        "Document cleanup separately from extraction and import.",
+        "Stop before applying cleanup scripts that have not been reviewed for the target data."
       ],
-      "title": "The migration failed",
-      "when": "The migration failed"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "27-troubleshooting-decision-tree-the-tv-app-page-is-blank",
-      "id": "the-tv-app-page-is-blank",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs",
-        "https://community.rockrms.com/developer/roku-docs/getting-started/pages"
-      ],
-      "start_with": [
-        "Confirm Rock v14+.",
-        "Confirm app API key.",
-        "Confirm demo key points to correct app.",
-        "Validate TVML.",
-        "Check page cache settings.",
-        "Check media URL compatibility.",
-        "Check app styles and theme mode.",
-        "Check page view/auth requirements."
-      ],
-      "title": "The TV app page is blank",
-      "when": "The TV app page is blank"
+      "title": "Slingshot imported records but downstream reporting is wrong",
+      "when": "Slingshot imported records but downstream reporting is wrong"
     }
   ],
   "concept_id": "developer-resources",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:16+00:00",
   "guide_sections": [
-    "27-troubleshooting-decision-tree",
-    "27-troubleshooting-decision-tree-the-block-does-not-render",
-    "27-troubleshooting-decision-tree-the-obsidian-block-renders-but-actions-fail",
-    "27-troubleshooting-decision-tree-the-helix-endpoint-behaves-differently-than-the-ui",
-    "27-troubleshooting-decision-tree-the-grid-is-slow",
-    "27-troubleshooting-decision-tree-the-migration-failed",
-    "27-troubleshooting-decision-tree-the-tv-app-page-is-blank",
-    "28-agent-task-recipes",
-    "28-agent-task-recipes-recipe-answer-where-is-this-configured",
-    "28-agent-task-recipes-recipe-review-a-rock-pr",
-    "28-agent-task-recipes-recipe-diagnose-works-for-admin-but-not-staff",
-    "28-agent-task-recipes-recipe-build-a-source-backed-answer",
-    "28-agent-task-recipes-recipe-build-a-rock-agent-tool"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-rest-request-returns-an-authorization-error",
+    "troubleshooting-decision-tree-an-obsidian-action-works-but-redirect-or-metadata-lava-does-nothing",
+    "troubleshooting-decision-tree-an-obsidian-block-shows-stale-or-mismatched-generated-types",
+    "troubleshooting-decision-tree-a-webforms-to-obsidian-replacement-loses-settings",
+    "troubleshooting-decision-tree-a-helix-request-does-not-update-the-target-content",
+    "troubleshooting-decision-tree-a-helix-form-submits-or-validates-unpredictably",
+    "troubleshooting-decision-tree-a-mobile-feature-works-on-one-device-but-not-another",
+    "troubleshooting-decision-tree-roku-navigation-or-focus-is-broken",
+    "troubleshooting-decision-tree-slingshot-imported-records-but-downstream-reporting-is-wrong",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-select-the-correct-developer-resource",
+    "agent-task-recipes-recipe-review-an-obsidian-block-change",
+    "agent-task-recipes-recipe-regenerate-artifacts-after-a-model-change",
+    "agent-task-recipes-recipe-review-a-helix-endpoint-before-changing-it",
+    "agent-task-recipes-recipe-validate-rock-mobile-compatibility",
+    "agent-task-recipes-recipe-build-or-repair-a-roku-page",
+    "agent-task-recipes-recipe-prepare-a-plugin-or-theme-package",
+    "agent-task-recipes-recipe-validate-a-slingshot-migration",
+    "agent-task-recipes-recipe-inspect-page-content-with-a-rock-ai-agent",
+    "agent-task-recipes-recipe-verify-a-save-or-rock-managed-file-deployment"
   ]
 }

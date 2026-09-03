@@ -10,54 +10,47 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (131 words)
+- `agent-task-recipes-recipe-validate-status-automation`: Recipe: Validate status automation (143 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (240 words)
 
 ## Community-Supported Only
 
-- `6-primary-entities-and-relationships-connectionopportunity`: ConnectionOpportunity
-- `11-assignment-and-follow-up-deep-dive-connector-availability-and-workload`: Connector Availability And Workload
-- `14-developer-api-lava-and-source-code-landmarks-lava`: Lava
-- `19-agent-task-recipes-recipe-investigate-connector-workload`: Recipe: Investigate Connector Workload
-- `20-source-map-and-dependency-notes-community-examples`: Community Examples
+- `public-intake-and-cross-system-handoffs`: Public Intake And Cross-System Handoffs
+- `agent-task-recipes-recipe-connect-preregistration-to-staff-follow-up`: Recipe: Connect preregistration to staff follow-up
+- `source-map-community-reviewed-guidance-and-examples`: Community-reviewed guidance and examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-connections-mental-model`: 3. Connections Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-connection-type-configuration`: Connection Type Configuration
-- `5-core-configuration-and-data-model-connection-status-configuration`: Connection Status Configuration
-- `5-core-configuration-and-data-model-connection-opportunity-configuration`: Connection Opportunity Configuration
-- `5-core-configuration-and-data-model-connection-request-data`: Connection Request Data
-- `6-primary-entities-and-relationships-entity-relationship-map`: Entity Relationship Map
-- `7-common-connections-workflows-staff-creates-a-request`: Staff Creates A Request
-- `7-common-connections-workflows-person-self-service-signup`: Person Self-Service Signup
-- `8-opportunities-deep-dive-key-opportunity-settings-to-inspect`: Key Opportunity Settings To Inspect
-- `8-opportunities-deep-dive-opportunity-workflow-configuration`: Opportunity Workflow Configuration
-- `9-requests-and-statuses-deep-dive-status-vs-state`: Status Vs State
-- `9-requests-and-statuses-deep-dive-due-dates-and-due-soon-behavior`: Due Dates And Due-Soon Behavior
-- `9-requests-and-statuses-deep-dive-future-follow-up`: Future Follow-Up
-- `9-requests-and-statuses-deep-dive-status-automation`: Status Automation
-- `10-boards-and-lists-deep-dive-list-view`: List View
-- `10-boards-and-lists-deep-dive-grid-and-snapshot-views`: Grid And Snapshot Views
-- `11-assignment-and-follow-up-deep-dive-connector-assignment`: Connector Assignment
-- `12-related-rock-areas-people-workflows-groups-communications-security-reporting-people`: People
-- `12-related-rock-areas-people-workflows-groups-communications-security-reporting-workflows`: Workflows
-- `12-related-rock-areas-people-workflows-groups-communications-security-reporting-security`: Security
-- `13-administration-and-operational-guardrails-configuration-review-checklist`: Configuration Review Checklist
-- `14-developer-api-lava-and-source-code-landmarks-query-page-parameter-landmarks`: Query/Page Parameter Landmarks
-- `16-version-and-release-caveats-rock-v10`: Rock v10
-- `16-version-and-release-caveats-rock-v12`: Rock v12
-- `16-version-and-release-caveats-rock-v19-1-current-release-notes`: Rock v19.1 / Current Release Notes
-- `17-implementation-playbooks-playbook-create-a-new-serving-pipeline`: Playbook: Create A New Serving Pipeline
-- `17-implementation-playbooks-playbook-add-status-automation`: Playbook: Add Status Automation
-- `18-troubleshooting-decision-tree-status-change-did-something-unexpected`: Status Change Did Something Unexpected
-- `18-troubleshooting-decision-tree-signup-missing-attributes`: Signup Missing Attributes
-- `18-troubleshooting-decision-tree-list-sorting-looks-wrong`: List Sorting Looks Wrong
-- `19-agent-task-recipes-recipe-build-opportunity-cards`: Recipe: Build Opportunity Cards
-- `approved-claim-coverage`: Approved Claim Coverage
-- `20-source-map-and-dependency-notes-live-verification-required`: Live Verification Required
+- `agent-summary`: Agent Summary
+- `mental-model`: Mental Model
+- `opportunities`: Opportunities
+- `requests-and-statuses-state`: State
+- `requests-and-statuses-status`: Status
+- `requests-and-statuses-due-dates`: Due Dates
+- `boards-and-lists-list-view`: List view
+- `assignment-and-follow-up`: Assignment And Follow-Up
+- `placement-completion-and-transfer`: Placement, Completion, And Transfer
+- `workflows-and-status-automation`: Workflows And Status Automation
+- `connection-campaigns`: Connection Campaigns
+- `public-intake-and-cross-system-handoffs`: Public Intake And Cross-System Handoffs
+- `reporting-ai-and-governance`: Reporting, AI, And Governance
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-a-connector-cannot-see-an-expected-request`: A connector cannot see an expected request
+- `troubleshooting-decision-tree-a-list-field-source-grouping-option-or-view-is-missing`: A list field, source, grouping option, or view is missing
+- `troubleshooting-decision-tree-a-request-cannot-skip-to-a-later-status-or-cannot-be-completed`: A request cannot skip to a later status or cannot be completed
+- `troubleshooting-decision-tree-due-soon-or-overdue-counts-look-wrong`: Due-soon or overdue counts look wrong
+- `troubleshooting-decision-tree-a-future-follow-up-request-did-not-return-to-the-active-queue`: A future follow-up request did not return to the active queue
+- `troubleshooting-decision-tree-a-campaign-creates-no-requests-or-assigns-them-to-the-wrong-people`: A campaign creates no requests or assigns them to the wrong people
+- `troubleshooting-decision-tree-a-workflow-did-not-launch-or-a-bulk-action-affected-only-some-requests`: A workflow did not launch or a bulk action affected only some requests
+- `troubleshooting-decision-tree-an-ai-summary-is-unavailable-or-unreliable`: An AI summary is unavailable or unreliable
+- `agent-task-recipes-recipe-configure-a-new-connection-pipeline`: Recipe: Configure a new connection pipeline
+- `agent-task-recipes-recipe-triage-an-unassigned-or-overdue-queue`: Recipe: Triage an unassigned or overdue queue
+- `agent-task-recipes-recipe-transfer-and-complete-a-request-safely`: Recipe: Transfer and complete a request safely
+- `agent-task-recipes-recipe-launch-a-connection-campaign`: Recipe: Launch a connection campaign
+- `agent-task-recipes-recipe-connect-preregistration-to-staff-follow-up`: Recipe: Connect preregistration to staff follow-up
+- `agent-task-recipes-recipe-validate-status-automation`: Recipe: Validate status automation
+- `source-map-community-reviewed-guidance-and-examples`: Community-reviewed guidance and examples
 
 ## Live Verification Clarification
 

@@ -2,229 +2,242 @@
   "branches": [
     {
       "do_not_assume": [],
-      "entities": [
-        "Person",
-        "DataView",
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
-      "id": "api-call-returns-401-unauthorized",
-      "inspect": [
-        "Person",
-        "DataView",
-        "Workflow"
-      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-the-api-request-is-rejected-with-an-authorization-error",
+      "id": "the-api-request-is-rejected-with-an-authorization-error",
+      "inspect": [],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs",
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/supporting-rock/data/api/rest-keys",
+        "https://community.rockrms.com/documentation/supporting-rock/data/api/secure-the-api"
       ],
       "start_with": [
-        "Is the caller authenticated?",
-        "Is the token present and correctly named/formatted?",
-        "Is the REST key active and mapped to the expected person/API user?",
-        "Does the person/API user have execute permission on the REST action?",
-        "For v2, is the required action `EXECUTE_READ`, `EXECUTE_WRITE`, unrestricted read, or unrestricted write?",
-        "Does entity-level security also deny access?",
-        "For workflow launch, does the caller have View on the Workflow Type unless unrestricted write is granted? See WorkflowsActionsController.cs.",
-        "For DataView endpoints on older versions, is the instance affected by the v17.5 permission bug? See Rock Core Release Notes."
+        "Confirm the target environment and exact base URL.",
+        "Identify whether the caller is using a session cookie or `Authorization-Token`.",
+        "If using a REST Key, verify that the key is active without exposing its value.",
+        "Confirm the exact controller and operation.",
+        "For v2, inspect whether the identity has Execute Read or Execute Write as appropriate.",
+        "Check entity-level access before considering an unrestricted permission.",
+        "Confirm that the route exists in the installed API documentation.",
+        "Stop if the only proposed fix is a broad or unrestricted grant without an explained need. (REST Keys; Secure the API)"
       ],
-      "title": "API Call Returns 401/Unauthorized",
-      "when": "API Call Returns 401/Unauthorized"
+      "title": "The API request is rejected with an authorization error",
+      "when": "The API request is rejected with an authorization error"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
+      "do_not_assume": [
+        "Do not expose a REST Key in client-visible code."
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
-      "id": "browser-shows-cors-failed-to-fetch",
-      "inspect": [
-        "Page",
-        "Block"
-      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-request-works-in-a-server-client-but-fails-in-a-browser",
+      "id": "a-request-works-in-a-server-client-but-fails-in-a-browser",
+      "inspect": [],
       "source_urls": [
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/ask/developing/2842"
+        "https://community.rockrms.com/lava/remote-lava"
       ],
       "start_with": [
-        "Does the URL use `http` or `https`?",
-        "Is the API host reachable from the browser?",
-        "Is TLS valid?",
-        "Is the page origin configured under REST CORS Domains?",
-        "Is the exact scheme/host/port allowed?",
-        "Does preflight request succeed?",
-        "Are credentials/cookies needed, and are browser cookie policies blocking them?",
-        "Is the call from Swagger using the correct base URL?"
+        "Compare the exact method, URL, headers, body, and authenticated identity.",
+        "Determine whether the browser request crosses origins.",
+        "Check the installed REST CORS Domains configuration for the calling origin.",
+        "Inspect the browser’s CORS and network error separately from Rock authorization.",
+        "Do not expose a REST Key in client-visible code.",
+        "If the browser would need a secret, move the call behind a trusted server-side adapter. (The Rock Rest API; Using Lava Remotely)"
       ],
-      "title": "Browser Shows CORS / Failed To Fetch",
-      "when": "Browser Shows CORS / Failed To Fetch"
+      "title": "A request works in a server client but fails in a browser",
+      "when": "A request works in a server client but fails in a browser"
+    },
+    {
+      "do_not_assume": [
+        "Do not retry the same full payload until omitted/defaulted properties are understood."
+      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-v2-update-cleared-or-changed-fields-the-integration-did-not-own",
+      "id": "a-v2-update-cleared-or-changed-fields-the-integration-did-not-own",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/supporting-rock/data/api/intro-to-the-rock-api"
+      ],
+      "start_with": [
+        "Determine whether the integration used `PUT` or `PATCH`.",
+        "Inspect the installed operation help and current Model Map.",
+        "Compare the submitted payload with a pre-write snapshot.",
+        "Read the entity back through an independent path.",
+        "If the integration owns only selected fields, test the documented partial-update operation on a non-production record.",
+        "Do not retry the same full payload until omitted/defaulted properties are understood. (Intro to the Rock API)"
+      ],
+      "title": "A v2 update cleared or changed fields the integration did not own",
+      "when": "A v2 update cleared or changed fields the integration did not own"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
-      "id": "works-in-postman-but-not-browser",
+      "guide_section_id": "troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records",
+      "id": "a-relationship-write-created-unexpected-related-records",
       "inspect": [
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Browser CORS.",
-        "Missing cookie/session in browser.",
-        "Different headers.",
-        "Preflight failure.",
-        "JavaScript token exposure blocked by design.",
-        "Serialization issue triggered by browser/SWAGGER route shape.",
-        "Mixed content or invalid scheme."
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
       ],
-      "title": "Works In Postman But Not Browser",
-      "when": "Works In Postman But Not Browser"
+      "start_with": [
+        "Stop further writes.",
+        "Capture the exact target version, route, and payload without recording credentials.",
+        "Read back the primary entity and relationship records.",
+        "Determine whether partial navigation objects were submitted.",
+        "Verify that any unexpected records are accidental and unreferenced before proposing cleanup.",
+        "Retest with a scalar-only payload or the owning application/block action in a safe environment.",
+        "After approved cleanup, read back both the entity and relationship state. This is a reviewed community pattern requiring live verification. (Rock REST controller source landmark)"
+      ],
+      "title": "A relationship write created unexpected related records",
+      "when": "A relationship write created unexpected related records"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
-      "id": "lava-webhook-returns-wrong-template-or-404",
+      "guide_section_id": "troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned",
+      "id": "a-create-request-succeeds-but-no-new-identifier-is-returned",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Defined Type is `Lava Webhook`.",
-        "Defined Value value matches path after `/Webhooks/Lava.ashx/`.",
-        "Method/verb matches.",
-        "Regex/path variables are correct.",
-        "The site route/casing/rewrite is not altering path.",
-        "Template compiles.",
-        "Required Lava commands are enabled.",
-        "Errors are not swallowed by production error settings."
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
       ],
-      "title": "Lava Webhook Returns Wrong Template Or 404",
-      "when": "Lava Webhook Returns Wrong Template Or 404"
+      "start_with": [
+        "Treat the response as confirmation of request completion, not proof of the created record’s identity.",
+        "Read back using the smallest stable combination of intended identifying fields.",
+        "Require exactly one expected match before linking another record.",
+        "If zero or multiple matches exist, stop rather than guessing.",
+        "Make retries idempotent by reusing the one proven existing match.",
+        "Verify the final relationship independently. This is a reviewed community pattern requiring target-version testing. (Rock REST controller source landmark)"
+      ],
+      "title": "A create request succeeds but no new identifier is returned",
+      "when": "A create request succeeds but no new identifier is returned"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
-      "id": "lava-web-request-fails-silently-or-returns-empty-result",
+      "guide_section_id": "troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected",
+      "id": "a-lava-webhook-is-reachable-more-broadly-than-expected",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands/web-request-commands",
-        "https://community.rockrms.com/ask/developing/2708"
+        "https://community.rockrms.com/lava/lava-api"
       ],
       "start_with": [
-        "Is `webrequest` command enabled in that Lava context?",
-        "Is syntax valid for installed Rock/Lava version?",
-        "Are command parameters on a parser-compatible line/format?",
-        "Is URL absolute and reachable from the Rock server?",
-        "Is TLS/certificate valid from the server?",
-        "Are headers formatted correctly?",
-        "Is auth token valid?",
-        "Is request method correct?"
+        "Assume no default Lava-webhook security.",
+        "Inspect the active route, method, template, and enabled Lava commands.",
+        "Identify every accepted query, form, header, cookie, and body value.",
+        "Determine whether the webhook exposes data or performs mutations.",
+        "Verify the explicit caller-authentication or signature-validation mechanism.",
+        "Remove unneeded commands and returned fields.",
+        "Stop production use if authentication, input validation, or caller authorization cannot be demonstrated. (Creating APIs Using Lava; approved claim `claim:410bf6750e90b7193262`)"
       ],
-      "title": "Lava Web Request Fails Silently Or Returns Empty Result",
-      "when": "Lava Web Request Fails Silently Or Returns Empty Result"
+      "title": "A Lava webhook is reachable more broadly than expected",
+      "when": "A Lava webhook is reachable more broadly than expected"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Call the endpoint contract directly in a safe context; do not assume the UI is its security boundary."
+      ],
       "entities": [
-        "Workflow",
-        "Attribute"
+        "Person"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
-      "id": "workflow-webhook-does-not-start-workflow",
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-endpoint-behaves-differently-from-its-front-end",
+      "id": "a-helix-endpoint-behaves-differently-from-its-front-end",
       "inspect": [
-        "Workflow",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Defined Value is active.",
-        "Request filter/process Lava returns true.",
-        "URL includes expected route/filter values.",
-        "HTTP method matches provider.",
-        "Workflow Type is active.",
-        "Workflow Type security permits launch.",
-        "Required workflow attributes exist.",
-        "Attribute keys match exactly."
-      ],
-      "title": "Workflow Webhook Does Not Start Workflow",
-      "when": "Workflow Webhook Does Not Start Workflow"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow",
-        "Attribute"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
-      "id": "rest-v2-workflow-launch-fails",
-      "inspect": [
-        "Workflow",
-        "Attribute"
+        "Person"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/Actions/WorkflowsActionsController.cs"
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/helix/overview/security",
+        "https://community.rockrms.com/developer/helix/lava-applications/observability"
       ],
       "start_with": [
-        "Installed version includes v18.2 fix if applicable.",
-        "Route is `/api/v2/models/workflows/actions/launch/{workflowTypeId}`.",
-        "`workflowTypeId` is valid Id, Guid, or IdKey.",
-        "Workflow Type exists.",
-        "Workflow Type is active.",
-        "Caller has execute write on action.",
-        "Caller has View on Workflow Type unless unrestricted write.",
-        "Related entity exists and View security passes unless unrestricted write."
+        "Call the endpoint contract directly in a safe context; do not assume the UI is its security boundary.",
+        "Confirm application slug, endpoint slug, and HTTP method.",
+        "Inspect endpoint and application security settings.",
+        "Compare query, form, header, cookie, and body inputs with those sent by the UI.",
+        "Verify current-person view or edit rights.",
+        "Sanitize and validate all values before any SQL or entity operation.",
+        "Inspect endpoint observability for method, timing, and excessive database work.",
+        "Read back persisted data independently after writes. (Helix endpoints; Helix security; Observability)"
       ],
-      "title": "REST v2 Workflow Launch Fails",
-      "when": "REST v2 Workflow Launch Fails"
+      "title": "A Helix endpoint behaves differently from its front end",
+      "when": "A Helix endpoint behaves differently from its front end"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Attribute"
+        "Person"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
-      "id": "mailgun-webhook-tracking-fails",
+      "guide_section_id": "troubleshooting-decision-tree-provider-events-arrive-but-staff-cannot-interpret-delivery-health",
+      "id": "provider-events-arrive-but-staff-cannot-interpret-delivery-health",
       "inspect": [
-        "Attribute"
+        "Person"
       ],
       "source_urls": [
+        "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/YAP2VexPe5",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Installed Rock version.",
-        "API key attribute.",
-        "HTTP webhook signing key attribute.",
-        "Mailgun route configuration.",
-        "Mailgun signing key from provider.",
-        "ExceptionLog for missing key message.",
-        "Whether fallback behavior applies to installed version.",
-        "Inbound requests reach Rock."
+        "Verify that the callback passed the provider’s configured authenticity check.",
+        "Determine whether it correlates to a Rock communication, recipient, or person context.",
+        "Separate matched events from invalid or unmatched events.",
+        "Map only operationally meaningful status into staff reporting.",
+        "Keep unnecessary raw payload fields out of routine reports.",
+        "For Mailgun on applicable versions, verify that the HTTP webhook signing key is distinct from the API key. (Media Watch; Rock release notes)"
       ],
-      "title": "Mailgun Webhook Tracking Fails",
-      "when": "Mailgun Webhook Tracking Fails"
+      "title": "Provider events arrive but staff cannot interpret delivery health",
+      "when": "Provider events arrive but staff cannot interpret delivery health"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-ai-tool-can-access-more-data-or-actions-than-expected",
+      "id": "an-ai-tool-can-access-more-data-or-actions-than-expected",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=UvW68dZBcJ8",
+        "https://www.youtube.com/watch?v=dpYJiOAiJYM"
+      ],
+      "start_with": [
+        "Disable or withhold the tool from the agent until its boundary is understood.",
+        "Identify the current person, agent, skill, tool, and channel: Chat or MCP, Internal or Public.",
+        "Confirm that authorization is enforced by managed Rock code.",
+        "Check whether the tool contains open-ended SQL or unrestricted data access.",
+        "Inspect tool parameters, enabled commands, result shape, and logs.",
+        "Replace raw integer identifiers with IdKeys where supported.",
+        "Verify the released version’s OAuth, scope, permission, and revocation behavior.",
+        "Stop if safe operation depends on trusting model instructions instead of enforced authorization. (AI Summit; RockIQ Q&A)"
+      ],
+      "title": "An AI tool can access more data or actions than expected",
+      "when": "An AI tool can access more data or actions than expected"
     }
   ],
   "concept_id": "api-integrations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:13+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-api-call-returns-401-unauthorized",
-    "17-troubleshooting-decision-tree-browser-shows-cors-failed-to-fetch",
-    "17-troubleshooting-decision-tree-works-in-postman-but-not-browser",
-    "17-troubleshooting-decision-tree-lava-webhook-returns-wrong-template-or-404",
-    "17-troubleshooting-decision-tree-lava-web-request-fails-silently-or-returns-empty-result",
-    "17-troubleshooting-decision-tree-workflow-webhook-does-not-start-workflow",
-    "17-troubleshooting-decision-tree-rest-v2-workflow-launch-fails",
-    "17-troubleshooting-decision-tree-mailgun-webhook-tracking-fails",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-find-the-right-api-route",
-    "18-agent-task-recipes-recipe-audit-a-rest-key",
-    "18-agent-task-recipes-recipe-diagnose-external-website-api-failure",
-    "18-agent-task-recipes-recipe-review-a-lava-webhook-before-launch",
-    "18-agent-task-recipes-recipe-build-a-safe-agent-tool"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-api-request-is-rejected-with-an-authorization-error",
+    "troubleshooting-decision-tree-a-request-works-in-a-server-client-but-fails-in-a-browser",
+    "troubleshooting-decision-tree-a-v2-update-cleared-or-changed-fields-the-integration-did-not-own",
+    "troubleshooting-decision-tree-a-relationship-write-created-unexpected-related-records",
+    "troubleshooting-decision-tree-a-create-request-succeeds-but-no-new-identifier-is-returned",
+    "troubleshooting-decision-tree-a-lava-webhook-is-reachable-more-broadly-than-expected",
+    "troubleshooting-decision-tree-a-helix-endpoint-behaves-differently-from-its-front-end",
+    "troubleshooting-decision-tree-provider-events-arrive-but-staff-cannot-interpret-delivery-health",
+    "troubleshooting-decision-tree-an-ai-tool-can-access-more-data-or-actions-than-expected",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-preflight-a-rest-integration",
+    "agent-task-recipes-recipe-configure-and-review-a-rest-key",
+    "agent-task-recipes-recipe-perform-a-bounded-api-v2-partial-update",
+    "agent-task-recipes-recipe-review-a-lava-webhook-before-production",
+    "agent-task-recipes-recipe-review-a-helix-application-flow",
+    "agent-task-recipes-recipe-build-a-provider-event-health-report",
+    "agent-task-recipes-recipe-approve-an-ai-or-mcp-tool-boundary"
   ]
 }

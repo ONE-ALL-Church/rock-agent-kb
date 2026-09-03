@@ -1,252 +1,445 @@
 {
   "branches": [
     {
-      "do_not_assume": [],
-      "entities": [
-        "Device"
+      "do_not_assume": [
+        "Stop when the device is confirmed to be running the intended deployment and shell; do not keep editing content to compensate for a stale client."
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-app-does-not-launch",
-      "id": "app-does-not-launch",
-      "inspect": [
-        "Device"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Check shell version and OS minimums.",
-        "Check device OS.",
-        "Check app-store build.",
-        "Check iOS launch fixes if on old v2.x shells.",
-        "Check API URL reachability.",
-        "Check app-store review credentials only if failure occurs during review.",
-        "Check Rock availability and SSL."
-      ],
-      "title": "App Does Not Launch",
-      "when": "App Does Not Launch"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Device",
         "Page",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
-      "id": "app-launches-but-shows-old-content",
+      "guide_section_id": "troubleshooting-decision-tree-changes-do-not-appear-in-the-app",
+      "id": "changes-do-not-appear-in-the-app",
       "inspect": [
         "Device",
         "Page",
         "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Was the app deployed?",
-        "Was the changed content dynamic?",
-        "Did the app reload after deploy?",
-        "Is the device pointed at the correct application ID/API URL?",
-        "Is homepage routing sending the user to another page?",
-        "Is security hiding the updated block?"
-      ],
-      "title": "App Launches But Shows Old Content",
-      "when": "App Launches But Shows Old Content"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-page-is-blank",
-      "id": "page-is-blank",
-      "inspect": [
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Invalid XAML.",
-        "Block exception.",
-        "Missing shell feature.",
-        "Missing Core feature.",
-        "WebView sizing problem.",
-        "Page security.",
-        "Homepage routing issue.",
-        "API key or authorization issue."
-      ],
-      "title": "Page Is Blank",
-      "when": "Page Is Blank"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-button-or-action-does-nothing",
-      "id": "button-or-action-does-nothing",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Command unsupported in shell.",
-        "Wrong binding context.",
-        "Missing command parameter.",
-        "Invalid page GUID/URL.",
-        "Command attached to wrong property.",
-        "Disabled control.",
-        "Platform permission denied.",
-        "Page not deployed."
-      ],
-      "title": "Button Or Action Does Nothing",
-      "when": "Button Or Action Does Nothing"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Device"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-push-notification-not-received",
-      "id": "push-notification-not-received",
-      "inspect": [
-        "Person",
-        "Device"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Device permission not granted.",
-        "Push permission not requested.",
-        "Service account/provider missing.",
-        "Transport inactive.",
-        "Medium misconfigured.",
-        "Person/device not registered.",
-        "Target audience empty.",
-        "iOS shell version has known issue."
-      ],
-      "title": "Push Notification Not Received",
-      "when": "Push Notification Not Received"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-push-opens-wrong-page",
-      "id": "push-opens-wrong-page",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Open Action references non-mobile page.",
-        "Wrong mobile page GUID.",
-        "Missing query string.",
-        "Target page requires login.",
-        "Homepage routing overrides deep link.",
-        "User lacks page authorization."
-      ],
-      "title": "Push Opens Wrong Page",
-      "when": "Push Opens Wrong Page"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-webview-looks-wrong",
-      "id": "webview-looks-wrong",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Missing viewport meta tag.",
-        "Page not mobile responsive.",
-        "CSS conflicts with native nav.",
-        "WebView container size wrong.",
-        "External page uses unsupported features.",
-        "Authentication redirect inside WebView.",
-        "Platform-specific rendering issue."
-      ],
-      "title": "WebView Looks Wrong",
-      "when": "WebView Looks Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Location",
-        "Schedule",
-        "Label",
-        "Family",
-        "Page"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-check-in-fails",
-      "id": "check-in-fails",
-      "inspect": [
-        "Person",
-        "Location",
-        "Schedule",
-        "Label",
-        "Family",
-        "Page"
       ],
       "source_urls": [
-        "https://www.rockrms.com/mobilereleasenotes"
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app",
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/image-resources"
       ],
       "start_with": [
-        "Wrong configuration template.",
-        "Kiosk not configured.",
-        "Areas missing.",
-        "Schedules inactive.",
-        "Locations closed.",
-        "Page parameters not applied; v7.0 fixed a check-in page parameter loading issue (Rock Mobile Release Notes).",
-        "Family mode edge case; v7.0 fixed an error for families with only one person (Rock Mobile Release Notes).",
-        "Security code settings wrong."
+        "Identify whether the changed item is dynamic Content block output, static content, page configuration, branding or a compiled shell resource.",
+        "If it is dynamic content, reload the page and verify the server-rendering settings.",
+        "Otherwise, check the Application page’s deployment status, deploy the change and reload the app.",
+        "If the change is a compiled image or shell capability, verify that a store update was published and installed.",
+        "Stop when the device is confirmed to be running the intended deployment and shell; do not keep editing content to compensate for a stale client. Deploying Your App"
       ],
-      "title": "Check-In Fails",
-      "when": "Check-In Fails"
+      "title": "Changes do not appear in the app",
+      "when": "Changes do not appear in the app"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-test-shell-cannot-connect",
+      "id": "the-test-shell-cannot-connect",
+      "inspect": [
+        "Device"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/deploying-your-app"
+      ],
+      "start_with": [
+        "Confirm the application is deployed and shows a successful status.",
+        "Recheck the Application ID, public API URL and API key.",
+        "Confirm the server is publicly reachable; a normal device cannot connect directly to localhost.",
+        "Check whether the API key changed after the client was configured.",
+        "Stop before rotating a published application’s API key without provider coordination."
+      ],
+      "title": "The test shell cannot connect",
+      "when": "The test shell cannot connect"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-app-crashes-immediately-after-opening",
+      "id": "the-app-crashes-immediately-after-opening",
+      "inspect": [
+        "Page",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/building-your-first-app/app-configuration",
+        "https://community.rockrms.com/developer/mobile-docs/developers/core-shell-dependencies"
+      ],
+      "start_with": [
+        "Inspect Flyout XAML for Lava; Lava is not supported there.",
+        "Confirm Homepage Routing Logic returns a valid mobile page GUID.",
+        "Check whether the rendered page includes a control unavailable in the installed shell.",
+        "Validate generated XAML and escape dynamic attribute values.",
+        "Reproduce on both iOS and Android if platform-specific markup is present. App Configuration"
+      ],
+      "title": "The app crashes immediately after opening",
+      "when": "The app crashes immediately after opening"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-personalized-content-is-blank-or-anonymous",
+      "id": "personalized-content-is-blank-or-anonymous",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
+      ],
+      "start_with": [
+        "Check whether the Content block is static; static Lava has no `CurrentPerson`.",
+        "Verify Dynamic Content and Process Lava on Server.",
+        "Inspect enabled Lava commands.",
+        "Confirm that the shell user is authenticated.",
+        "If the block uses entity context, verify the entity type, page parameter name and passed GUID.",
+        "Provide a safe missing-context state instead of dereferencing a null entity."
+      ],
+      "title": "Personalized content is blank or anonymous",
+      "when": "Personalized content is blank or anonymous"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "17-troubleshooting-decision-tree-maui-upgrade-regression",
-      "id": "maui-upgrade-regression",
+      "guide_section_id": "troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail",
+      "id": "one-record-causes-a-xaml-page-to-fail",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Layout changed.",
-        "Scroll behavior changed.",
-        "Width/height request behavior changed.",
-        "Deprecated controls.",
-        "Safe area padding.",
-        "Legacy platform extension.",
-        "Popup overlay bug fixed in v7.0.",
-        "CSS property unsupported in MAUI."
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/lava"
       ],
-      "title": "MAUI Upgrade Regression",
-      "when": "MAUI Upgrade Regression"
+      "start_with": [
+        "Capture the type of value that differs: title, name, URL, query parameter or user-entered text.",
+        "Escape the value for XAML.",
+        "URL-encode values placed in a URL or query string.",
+        "Test ampersands, apostrophes, quotes, commas and other punctuation.",
+        "Confirm that the required Lava filter is available in the actual processing context."
+      ],
+      "title": "One record causes a XAML page to fail",
+      "when": "One record causes a XAML page to fail"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-command-does-nothing",
+      "id": "a-command-does-nothing",
+      "inspect": [
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/commands"
+      ],
+      "start_with": [
+        "Verify the command exists in the installed shell.",
+        "Confirm that the triggering control exposes the expected command property.",
+        "Validate the parameter shape accepted by that command.",
+        "If shorthand syntax contains commas, check its quoting.",
+        "For nested action panels, menus or templates, explicitly reference the parent binding context.",
+        "Check whether the command requires a Content-derived block or page context.",
+        "Stop when the command works in a minimal control; then restore surrounding nesting one layer at a time."
+      ],
+      "title": "A command does nothing",
+      "when": "A command does nothing"
+    },
+    {
+      "do_not_assume": [
+        "Do not expect JavaScript or links inside the WebView to invoke native shell commands directly."
+      ],
+      "entities": [
+        "Device",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-webview-is-blank-clipped-or-cannot-navigate-natively",
+      "id": "a-webview-is-blank-clipped-or-cannot-navigate-natively",
+      "inspect": [
+        "Device",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/web-view"
+      ],
+      "start_with": [
+        "Confirm the source page is reachable from the device.",
+        "Add the mobile viewport meta tag to the embedded page.",
+        "Remove the WebView from any containing `ScrollView`.",
+        "If an iframe is blank on iOS, investigate CORS against the API domain.",
+        "Do not expect JavaScript or links inside the WebView to invoke native shell commands directly."
+      ],
+      "title": "A WebView is blank, clipped or cannot navigate natively",
+      "when": "A WebView is blank, clipped or cannot navigate natively"
+    },
+    {
+      "do_not_assume": [
+        "Replace only the pattern being tested; do not apply an undifferentiated search-and-replace."
+      ],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-layout-breaks-after-moving-to-shell-v6",
+      "id": "a-page-layout-breaks-after-moving-to-shell-v6",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/tips-and-tricks/migrating-to-net-maui-v6"
+      ],
+      "start_with": [
+        "Identify the original shell and confirm the target is v6 or later.",
+        "Inventory `StackLayout`, expansion options, scrolling containers, hard size requests, `Zone`, `Frame`, `StyledView`, safe-area effects and legacy platform extensions.",
+        "Replace only the pattern being tested; do not apply an undifferentiated search-and-replace.",
+        "Use constrained grid regions where scrolling or expansion requires them.",
+        "Use a v6-compatible border control where appropriate.",
+        "Render and visually inspect every affected page on representative phone and tablet layouts."
+      ],
+      "title": "A page layout breaks after moving to Shell v6",
+      "when": "A page layout breaks after moving to Shell v6"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-context-menu-works-differently-on-android",
+      "id": "a-context-menu-works-differently-on-android",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/essentials/controls/content-controls/context-menu"
+      ],
+      "start_with": [
+        "Identify whether the missing behavior is an iOS-only title, system icon or native-menu feature.",
+        "Verify the action command and parameter independently of its icon or presentation.",
+        "Add an Android-safe visual alternative.",
+        "Test tap and long-press behavior separately when another recognizer is attached."
+      ],
+      "title": "A context menu works differently on Android",
+      "when": "A context menu works differently on Android"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Device",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-push-notifications-are-not-arriving",
+      "id": "push-notifications-are-not-arriving",
+      "inspect": [
+        "Device",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/push-notifications"
+      ],
+      "start_with": [
+        "Confirm the app has been through notification-capable publishing configuration.",
+        "Verify the Rock communication transport and push medium.",
+        "Confirm the provider service-account configuration is current without exposing it.",
+        "Check whether the device was asked for permission and whether permission is currently enabled.",
+        "Verify the recipient scope and the mobile-page destination.",
+        "If using the updated service integration, confirm the applicable Rock Core requirement and provider coordination.",
+        "Test actual delivery on both target platforms; a queued communication is not proof of device receipt."
+      ],
+      "title": "Push notifications are not arriving",
+      "when": "Push notifications are not arriving"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Location",
+        "Campus",
+        "Device",
+        "Check-in Configuration"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-mobile-check-in-cannot-find-a-kiosk",
+      "id": "mobile-check-in-cannot-find-a-kiosk",
+      "inspect": [
+        "Location",
+        "Campus",
+        "Device",
+        "Check-in Configuration"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration"
+      ],
+      "start_with": [
+        "Confirm HTTPS and the geofencing API prerequisite.",
+        "Verify location permission and the participant’s current campus or boundary.",
+        "Inspect the virtual kiosk device type, campus geofence and associated campus locations.",
+        "Confirm that the launcher enables that device.",
+        "If campus boundaries differ, confirm separate device records exist.",
+        "Test campus selection as well as location-based resolution when the configured experience offers both."
+      ],
+      "title": "Mobile check-in cannot find a kiosk",
+      "when": "Mobile check-in cannot find a kiosk"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Schedule",
+        "Family"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-mobile-check-in-finds-a-kiosk-but-says-no-service-is-available",
+      "id": "mobile-check-in-finds-a-kiosk-but-says-no-service-is-available",
+      "inspect": [
+        "Person",
+        "Schedule",
+        "Family"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+      ],
+      "start_with": [
+        "Confirm normal check-in works for the same configuration.",
+        "Check current schedules and check-in windows.",
+        "Verify the launcher’s selected configuration and areas.",
+        "Confirm the person or family has an eligible option.",
+        "Inspect the configured fallback message so it accurately explains the current stage.",
+        "Retry only after correcting the configuration or entering a valid time window."
+      ],
+      "title": "Mobile check-in finds a kiosk but says no service is available",
+      "when": "Mobile check-in finds a kiosk but says no service is available"
+    },
+    {
+      "do_not_assume": [
+        "Do not repeat the check-in transaction merely to regenerate the label handoff."
+      ],
+      "entities": [
+        "Attendance",
+        "Device",
+        "Label"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-check-in-completes-but-labels-do-not-print",
+      "id": "check-in-completes-but-labels-do-not-print",
+      "inspect": [
+        "Attendance",
+        "Device",
+        "Label"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/check-in/using-mobile-check-in"
+      ],
+      "start_with": [
+        "Confirm attendance/check-in completion separately from printing.",
+        "Verify that the QR code represents the latest completed selections.",
+        "Confirm the scanning device is the intended configured kiosk.",
+        "Test the kiosk-to-printer path using ordinary check-in.",
+        "Scan the mobile QR code and verify the print response on the kiosk.",
+        "Do not repeat the check-in transaction merely to regenerate the label handoff."
+      ],
+      "title": "Check-in completes but labels do not print",
+      "when": "Check-in completes but labels do not print"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-store-update-cannot-replace-the-existing-android-app",
+      "id": "a-store-update-cannot-replace-the-existing-android-app",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/android-keystore"
+      ],
+      "start_with": [
+        "Confirm the package and store listing being replaced.",
+        "Resolve ownership of the original signing keystore.",
+        "Check Play App Signing state in the live Google Play account.",
+        "Coordinate the required signing material through an approved secure channel.",
+        "If the signing identity cannot be recovered or transferred, stop and evaluate a new store application rather than attempting an unsigned replacement."
+      ],
+      "title": "A store update cannot replace the existing Android app",
+      "when": "A store update cannot replace the existing Android app"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-the-app-is-unavailable-on-newer-android-devices",
+      "id": "the-app-is-unavailable-on-newer-android-devices",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/mobile-docs/app-factory/shell-update-requirements"
+      ],
+      "start_with": [
+        "Identify the installed store build and its target API.",
+        "Compare it with the current Google Play requirement.",
+        "Check the latest supported Rock Mobile shell.",
+        "Request, publish and verify a shell update.",
+        "Adopt a recurring review cadence rather than waiting for delisting."
+      ],
+      "title": "The app is unavailable on newer Android devices",
+      "when": "The app is unavailable on newer Android devices"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Schedule",
+        "Device",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-outreach-toolbox-is-missing-or-reminders-do-not-fire",
+      "id": "outreach-toolbox-is-missing-or-reminders-do-not-fire",
+      "inspect": [
+        "Schedule",
+        "Device",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=LNcx8t0mlQ4"
+      ],
+      "start_with": [
+        "Confirm the installed Rock and Mobile Shell versions support the intended experience.",
+        "Verify the user is signed in.",
+        "Confirm page placement and access authorization.",
+        "Inspect the relevant block settings and contact-data permissions.",
+        "Check onboarding selections, assignment days and reminder preferences.",
+        "Verify the configured jobs and their time-of-day values.",
+        "Test an actual push notification on the target device.",
+        "Stop before treating a scheduled job run as proof of notification delivery."
+      ],
+      "title": "Outreach Toolbox is missing or reminders do not fire",
+      "when": "Outreach Toolbox is missing or reminders do not fire"
     }
   ],
   "concept_id": "mobile",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:12+00:00",
   "guide_sections": [
-    "8-commands-deep-dive-operational-command-troubleshooting",
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-app-does-not-launch",
-    "17-troubleshooting-decision-tree-app-launches-but-shows-old-content",
-    "17-troubleshooting-decision-tree-page-is-blank",
-    "17-troubleshooting-decision-tree-button-or-action-does-nothing",
-    "17-troubleshooting-decision-tree-push-notification-not-received",
-    "17-troubleshooting-decision-tree-push-opens-wrong-page",
-    "17-troubleshooting-decision-tree-webview-looks-wrong",
-    "17-troubleshooting-decision-tree-check-in-fails",
-    "17-troubleshooting-decision-tree-maui-upgrade-regression",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-inventory-a-mobile-app",
-    "18-agent-task-recipes-recipe-determine-whether-a-feature-can-be-used",
-    "18-agent-task-recipes-recipe-add-analytics-to-a-tap",
-    "18-agent-task-recipes-recipe-modernize-legacy-platform-xaml",
-    "18-agent-task-recipes-recipe-review-app-store-readiness"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-changes-do-not-appear-in-the-app",
+    "troubleshooting-decision-tree-the-test-shell-cannot-connect",
+    "troubleshooting-decision-tree-the-app-crashes-immediately-after-opening",
+    "troubleshooting-decision-tree-personalized-content-is-blank-or-anonymous",
+    "troubleshooting-decision-tree-one-record-causes-a-xaml-page-to-fail",
+    "troubleshooting-decision-tree-a-command-does-nothing",
+    "troubleshooting-decision-tree-a-webview-is-blank-clipped-or-cannot-navigate-natively",
+    "troubleshooting-decision-tree-a-page-layout-breaks-after-moving-to-shell-v6",
+    "troubleshooting-decision-tree-a-context-menu-works-differently-on-android",
+    "troubleshooting-decision-tree-push-notifications-are-not-arriving",
+    "troubleshooting-decision-tree-mobile-check-in-cannot-find-a-kiosk",
+    "troubleshooting-decision-tree-mobile-check-in-finds-a-kiosk-but-says-no-service-is-available",
+    "troubleshooting-decision-tree-check-in-completes-but-labels-do-not-print",
+    "troubleshooting-decision-tree-a-store-update-cannot-replace-the-existing-android-app",
+    "troubleshooting-decision-tree-the-app-is-unavailable-on-newer-android-devices",
+    "troubleshooting-decision-tree-outreach-toolbox-is-missing-or-reminders-do-not-fire",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-and-test-a-minimal-mobile-application",
+    "agent-task-recipes-recipe-build-personalized-content-block-output-safely",
+    "agent-task-recipes-recipe-add-a-command-driven-interaction",
+    "agent-task-recipes-recipe-migrate-a-page-from-shell-v5-to-v6",
+    "agent-task-recipes-recipe-prepare-mobile-check-in",
+    "agent-task-recipes-recipe-prepare-an-app-factory-publication",
+    "agent-task-recipes-recipe-validate-push-notifications",
+    "agent-task-recipes-recipe-orchestrate-slow-media-or-content-work",
+    "agent-task-recipes-recipe-validate-outreach-toolbox-for-ministry-use"
   ]
 }

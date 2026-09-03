@@ -1,127 +1,30 @@
 {
   "branches": [
     {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "GroupType",
-        "Page",
-        "Block"
+      "do_not_assume": [
+        "Do not move the group to the root merely to bypass the hierarchy without reviewing downstream security and digest effects."
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-group-does-not-appear-in-group-viewer",
-      "id": "a-group-does-not-appear-in-group-viewer",
-      "inspect": [
-        "Group",
-        "GroupType",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Is the group active?",
-        "Is it archived?",
-        "Is the current user authorized to view it?",
-        "Is it under the expected parent group?",
-        "Is the Group Type allowed in the viewer's tree/filter?",
-        "Is the Group Viewer block configured to show archived or inactive groups?",
-        "Does a circular inherited Group Type or hierarchy issue cause timeouts?",
-        "Is the page loading the correct parent group parameter?"
-      ],
-      "title": "A Group Does Not Appear In Group Viewer",
-      "when": "A Group Does Not Appear In Group Viewer"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
         "Group",
         "GroupType"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-child-group-type-cannot-be-added",
-      "id": "a-child-group-type-cannot-be-added",
+      "guide_section_id": "troubleshooting-decision-tree-add-child-to-selected-is-disabled",
+      "id": "add-child-to-selected-is-disabled",
       "inspect": [
         "Group",
         "GroupType"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Parent group `GroupTypeId`.",
-        "Parent Group Type allowed child group types.",
-        "Whether the intended child Group Type is active.",
-        "Whether the user has edit/administrate access.",
-        "Whether the UI is scoped to a subset of group types.",
-        "Whether the group is archived or inactive.",
-        "Whether inheritance or circular references are producing errors."
-      ],
-      "title": "A Child Group Type Cannot Be Added",
-      "when": "A Child Group Type Cannot Be Added"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Group",
-        "GroupMember",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-person-is-in-the-group-but-not-on-the-roster",
-      "id": "a-person-is-in-the-group-but-not-on-the-roster",
-      "inspect": [
-        "Person",
-        "Group",
-        "GroupMember",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "`GroupMemberStatus`.",
-        "Role filter.",
-        "Member start/end or inactive status if present.",
-        "Security rights.",
-        "Roster block settings.",
-        "Whether the person is a duplicate record.",
-        "Whether the roster page is using group ID or group GUID correctly.",
-        "Whether the member belongs to a child group, not the selected group."
-      ],
-      "title": "A Person Is In The Group But Not On The Roster",
-      "when": "A Person Is In The Group But Not On The Roster"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Attendance",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Block"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-attendance-cannot-be-entered",
-      "id": "attendance-cannot-be-entered",
-      "inspect": [
-        "Attendance",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry"
+        "https://community.rockrms.com/documentation/engagement/groups/manage-groups/add-a-group"
       ],
       "start_with": [
-        "Group Type takes attendance.",
-        "Group has a schedule if using mobile attendance.",
-        "Group has location/schedule if required by the block.",
-        "User can manage attendance.",
-        "Block days-back/days-forward settings.",
-        "Occurrence date and schedule exclusions.",
-        "Group member statuses and roles.",
-        "Browser/mobile app errors."
+        "Confirm the intended parent group is selected.",
+        "Inspect its Group Type’s allowed child types.",
+        "Determine whether the proposed child type is allowed or whether the hierarchy is intentionally closed.",
+        "Do not move the group to the root merely to bypass the hierarchy without reviewing downstream security and digest effects."
       ],
-      "title": "Attendance Cannot Be Entered",
-      "when": "Attendance Cannot Be Entered"
+      "title": "Add Child to Selected is disabled",
+      "when": "Add Child to Selected is disabled"
     },
     {
       "do_not_assume": [],
@@ -131,158 +34,385 @@
         "Location",
         "Schedule",
         "Campus",
-        "Page",
         "Block",
         "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-group-finder-missing-expected-groups",
-      "id": "group-finder-missing-expected-groups",
+      "guide_section_id": "troubleshooting-decision-tree-a-group-is-missing-from-group-finder",
+      "id": "a-group-is-missing-from-group-finder",
       "inspect": [
         "Group",
         "GroupType",
         "Location",
         "Schedule",
         "Campus",
-        "Page",
         "Block",
         "Attribute"
       ],
-      "source_urls": [],
-      "start_with": [
-        "Group active/archive status.",
-        "Group Type selected by finder block.",
-        "Campus context.",
-        "Attribute filters.",
-        "Schedule options and whether they are filterable.",
-        "Location and geocoding.",
-        "Capacity and registration rules.",
-        "Template security filtering."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-finder/intro-to-the-group-finder",
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types"
       ],
-      "title": "Group Finder Missing Expected Groups",
-      "when": "Group Finder Missing Expected Groups"
+      "start_with": [
+        "Confirm the group is marked `Public`.",
+        "Confirm its Group Type is included in the block’s configured Group Types.",
+        "Check whether the group has reached capacity and whether overcapacity groups are hidden.",
+        "Inspect location-type, campus, geofence, and attribute filters.",
+        "If filtering by day or time, confirm the group uses a Weekly schedule.",
+        "Test the public route and any alternate or mobile surface as an anonymous visitor."
+      ],
+      "title": "A group is missing from Group Finder",
+      "when": "A group is missing from Group Finder"
+    },
+    {
+      "do_not_assume": [
+        "If it is Custom or Named, do not assume the standard Group Finder can filter it by day or time."
+      ],
+      "entities": [
+        "Group",
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-day-or-time-filter-does-not-return-a-group",
+      "id": "the-day-or-time-filter-does-not-return-a-group",
+      "inspect": [
+        "Group",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/group-schedule-types"
+      ],
+      "start_with": [
+        "Inspect the group’s schedule mode.",
+        "If it is Custom or Named, do not assume the standard Group Finder can filter it by day or time.",
+        "Confirm the Weekly day and start time on the group.",
+        "Confirm the corresponding finder filter is enabled.",
+        "Retest with the exact public-facing criteria."
+      ],
+      "title": "The day or time filter does not return a group",
+      "when": "The day or time filter does not return a group"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-leader-cannot-add-a-member-from-group-toolbox",
+      "id": "a-leader-cannot-add-a-member-from-group-toolbox",
+      "inspect": [
+        "Person",
+        "Group",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-leader-toolbox/use-the-group-toolbox",
+        "https://community.rockrms.com/documentation/engagement/groups/secure-groups/secure-a-group"
+      ],
+      "start_with": [
+        "Confirm the person’s membership role and that it is actually marked as a leader or grants member management.",
+        "Inspect direct and inherited group security.",
+        "Check the Group Toolbox block’s add-member configuration.",
+        "If it uses the default database search, verify authorized access to the People REST controller.",
+        "If broad People search is inappropriate, configure and test an alternate add-member page."
+      ],
+      "title": "A leader cannot add a member from Group Toolbox",
+      "when": "A leader cannot add a member from Group Toolbox"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Group",
+        "GroupType",
+        "Workflow",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-person-was-added-even-though-a-requirement-was-unmet",
+      "id": "a-person-was-added-even-though-a-requirement-was-unmet",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Group",
+        "GroupType",
+        "Workflow",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-group-types",
+        "https://community.rockrms.com/documentation/engagement/groups/group-requirements/applying-requirements-to-groups"
+      ],
+      "start_with": [
+        "Determine whether the addition was manual or workflow-driven.",
+        "Confirm the requirement applies to the member’s role, age classification, and Data View population.",
+        "Confirm **Members must meet this requirement before adding** is enabled.",
+        "If a workflow added the person, add an explicit eligibility check to that workflow; the documented manual-add restriction does not block workflow actions.",
+        "Check for a permitted leader override."
+      ],
+      "title": "A person was added even though a requirement was unmet",
+      "when": "A person was added even though a requirement was unmet"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Attendance",
-        "AttendanceOccurrence",
-        "Person",
         "Group",
         "GroupType",
-        "GroupMember"
+        "Schedule"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-attendance-counts-are-wrong",
-      "id": "attendance-counts-are-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-attendance-reminders-are-not-sent",
+      "id": "attendance-reminders-are-not-sent",
       "inspect": [
         "Attendance",
-        "AttendanceOccurrence",
-        "Person",
         "Group",
         "GroupType",
-        "GroupMember"
+        "Schedule"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-reminders"
       ],
       "start_with": [
-        "Report entity base: Person, GroupMember, Attendance, or AttendanceOccurrence.",
-        "Selected Group Types.",
-        "Child group recursion.",
-        "Archived/inactive group filters.",
-        "Member status denominator.",
-        "Role denominator.",
-        "Did-not-occur handling.",
-        "Duplicate person records."
+        "Confirm **Send Attendance Reminder** is enabled on the Group Type.",
+        "Confirm the group has the expected schedule and start time.",
+        "Inspect the configured reminder offset and Group Type communication template.",
+        "Check the reminder job’s status and recent execution.",
+        "Inspect whether the attendance occurrence already records a reminder sent for that day.",
+        "Verify recipient roles and addresses without sending a manual substitute until duplicate risk is understood."
       ],
-      "title": "Attendance Counts Are Wrong",
-      "when": "Attendance Counts Are Wrong"
+      "title": "Attendance reminders are not sent",
+      "when": "Attendance reminders are not sent"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Person",
+        "Attendance",
         "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Page"
+        "Schedule"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-group-scheduler-looks-wrong",
-      "id": "group-scheduler-looks-wrong",
+      "guide_section_id": "troubleshooting-decision-tree-an-attendance-digest-is-missing-groups-or-reaches-the-wrong-leader",
+      "id": "an-attendance-digest-is-missing-groups-or-reaches-the-wrong-leader",
       "inspect": [
-        "Person",
+        "Attendance",
         "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Page"
+        "Schedule"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes",
-        "https://community.rockrms.com/ask/developing/2801"
+        "https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email",
+        "https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/send-group-attendance-digest"
       ],
       "start_with": [
-        "Group scheduling settings on Group Type.",
-        "Group locations and schedules.",
-        "Group member roles.",
-        "Active member status.",
-        "Schedule templates.",
-        "Person preferences.",
-        "Auto-schedule settings.",
-        "Status board display settings."
+        "Confirm there is one top parent, an intermediate region/area level, and attendance groups beneath the regions.",
+        "Confirm the configured job parent is the single top parent.",
+        "Confirm recipients belong to the region group in a role marked `Is Leader`.",
+        "Confirm attendance is recorded in the child attendance groups.",
+        "Confirm those groups use regular Weekly schedules.",
+        "Distinguish region digest recipients from the attendance group leader targeted by **Email Leader**."
       ],
-      "title": "Group Scheduler Looks Wrong",
-      "when": "Group Scheduler Looks Wrong"
+      "title": "An attendance digest is missing groups or reaches the wrong leader",
+      "when": "An attendance digest is missing groups or reaches the wrong leader"
+    },
+    {
+      "do_not_assume": [
+        "Do not set the minimum to zero; the v19 documentation says this causes failure."
+      ],
+      "entities": [
+        "Group",
+        "GroupType"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-absence-notification-job-fails-or-evaluates-the-wrong-people",
+      "id": "the-absence-notification-job-fails-or-evaluates-the-wrong-people",
+      "inspect": [
+        "Group",
+        "GroupType"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/group-leader-absence-notifications"
+      ],
+      "start_with": [
+        "Confirm the job is scoped to the intended single Group Type.",
+        "Inspect the member-role filter.",
+        "Confirm the notification communication.",
+        "Check the minimum consecutive absences.",
+        "Do not set the minimum to zero; the v19 documentation says this causes failure.",
+        "Use another job instance for another Group Type."
+      ],
+      "title": "The absence-notification job fails or evaluates the wrong people",
+      "when": "The absence-notification job fails or evaluates the wrong people"
+    },
+    {
+      "do_not_assume": [
+        "Do not infer that missing history means no changes occurred before history was enabled."
+      ],
+      "entities": [
+        "Group",
+        "GroupType"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-group-history-or-archive-is-unavailable",
+      "id": "group-history-or-archive-is-unavailable",
+      "inspect": [
+        "Group",
+        "GroupType"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-history/enable-group-history",
+        "https://community.rockrms.com/documentation/engagement/groups/common-group-jobs/process-group-history",
+        "https://community.rockrms.com/documentation/engagement/groups/group-history/view-group-history"
+      ],
+      "start_with": [
+        "Confirm **Enable Group History** is enabled on the Group Type.",
+        "Confirm the Process Group History job has run successfully since enablement.",
+        "Reopen the group after the job completes.",
+        "If restoring an archived group, use `Admin Tools > Settings > General > Archived Groups`.",
+        "Do not infer that missing history means no changes occurred before history was enabled."
+      ],
+      "title": "Group History or Archive is unavailable",
+      "when": "Group History or Archive is unavailable"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Group",
+        "GroupType"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-synced-group-or-communication-list-has-unexpected-members",
+      "id": "a-synced-group-or-communication-list-has-unexpected-members",
+      "inspect": [
+        "DataView",
+        "Group",
+        "GroupType"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-sync/configure-group-sync",
+        "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists"
+      ],
+      "start_with": [
+        "Confirm Group Sync is enabled for the Group Type.",
+        "Inspect the exact Data View result.",
+        "Inspect the role assigned by each sync definition.",
+        "Compare active group membership with the Data View population.",
+        "Check both the group sync interval and the Group Sync job’s latest execution.",
+        "Review overlapping syncs, manual memberships, and optional exit behavior.",
+        "Before a communication, refresh and reconcile the intended source count using locally reviewed procedures."
+      ],
+      "title": "A synced group or communication list has unexpected members",
+      "when": "A synced group or communication list has unexpected members"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Group",
-        "GroupMember",
-        "GroupMemberRequirement",
-        "Workflow"
+        "GroupType",
+        "Attribute"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-group-requirement-cannot-be-resent",
-      "id": "group-requirement-cannot-be-resent",
+      "guide_section_id": "troubleshooting-decision-tree-member-attributes-disappeared-after-a-move",
+      "id": "member-attributes-disappeared-after-a-move",
       "inspect": [
         "Group",
-        "GroupMember",
-        "GroupMemberRequirement",
-        "Workflow"
+        "GroupType",
+        "Attribute"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-members/move-group-members"
+      ],
       "start_with": [
-        "Requirement configuration.",
-        "Existing requirement workflow instance.",
-        "Whether auto-initiate is enabled.",
-        "Linked workflow state.",
-        "Whether the member meets the requirement now.",
-        "Whether v19.1 `GroupMemberRequirementState` behavior exists in this instance.",
-        "Whether clearing/deleting linked workflow state is allowed by policy."
+        "Identify the source and destination Group Types.",
+        "Compare the Group Member Attribute keys.",
+        "Determine whether notes were transferred.",
+        "Restore missing values only from an authorized source.",
+        "Before future moves, export or inspect values whose keys are not shared."
       ],
-      "title": "Group Requirement Cannot Be Resent",
-      "when": "Group Requirement Cannot Be Resent"
+      "title": "Member attributes disappeared after a move",
+      "when": "Member attributes disappeared after a move"
+    },
+    {
+      "do_not_assume": [
+        "Do not submit partial navigation objects or delete suspected placeholders until the target endpoint behavior and references are verified."
+      ],
+      "entities": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-location-or-schedule-link-is-wrong-after-api-work",
+      "id": "a-location-or-schedule-link-is-wrong-after-api-work",
+      "inspect": [
+        "Group",
+        "Location",
+        "Schedule",
+        "Block"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Dev%20Tools/Sql/View_GroupLocationSchedules.sql",
+        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/ApiController.cs"
+      ],
+      "start_with": [
+        "Read the target Group, GroupLocation, Location, Schedule, and GroupLocationSchedule state.",
+        "Determine whether the change affected the Location itself or only its relationship to the group and schedule.",
+        "Inspect for unintended related records before retrying.",
+        "Do not submit partial navigation objects or delete suspected placeholders until the target endpoint behavior and references are verified.",
+        "If an authorized Schedule Builder block action is available for the installed version, evaluate that supported UI action.",
+        "Read back every affected relationship after correction."
+      ],
+      "title": "A location or schedule link is wrong after API work",
+      "when": "A location or schedule link is wrong after API work"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data",
+      "id": "a-failed-workflow-may-have-partially-changed-group-data",
+      "inspect": [
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/workflows"
+      ],
+      "start_with": [
+        "Inspect workflow action order and logs.",
+        "Check whether membership, communications, or attributes changed before the failure.",
+        "Identify which action actually failed.",
+        "Make retry logic account for already-completed side effects.",
+        "Stop before retrying if duplicate membership, duplicate communication, or repeated downstream actions remain possible."
+      ],
+      "title": "A failed workflow may have partially changed group data",
+      "when": "A failed workflow may have partially changed group data"
     }
   ],
   "concept_id": "groups",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:47+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-a-group-does-not-appear-in-group-viewer",
-    "17-troubleshooting-decision-tree-a-child-group-type-cannot-be-added",
-    "17-troubleshooting-decision-tree-a-person-is-in-the-group-but-not-on-the-roster",
-    "17-troubleshooting-decision-tree-attendance-cannot-be-entered",
-    "17-troubleshooting-decision-tree-group-finder-missing-expected-groups",
-    "17-troubleshooting-decision-tree-attendance-counts-are-wrong",
-    "17-troubleshooting-decision-tree-group-scheduler-looks-wrong",
-    "17-troubleshooting-decision-tree-group-requirement-cannot-be-resent",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-identify-why-a-group-is-not-visible",
-    "18-agent-task-recipes-recipe-audit-a-group-type-before-launch",
-    "18-agent-task-recipes-recipe-debug-group-attendance-reminder-failures",
-    "18-agent-task-recipes-recipe-build-a-group-finder-qa-checklist",
-    "18-agent-task-recipes-recipe-move-members-between-groups-safely",
-    "18-agent-task-recipes-recipe-create-a-custom-scheduled-volunteer-communication-page"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-add-child-to-selected-is-disabled",
+    "troubleshooting-decision-tree-a-group-is-missing-from-group-finder",
+    "troubleshooting-decision-tree-the-day-or-time-filter-does-not-return-a-group",
+    "troubleshooting-decision-tree-a-leader-cannot-add-a-member-from-group-toolbox",
+    "troubleshooting-decision-tree-a-person-was-added-even-though-a-requirement-was-unmet",
+    "troubleshooting-decision-tree-attendance-reminders-are-not-sent",
+    "troubleshooting-decision-tree-an-attendance-digest-is-missing-groups-or-reaches-the-wrong-leader",
+    "troubleshooting-decision-tree-the-absence-notification-job-fails-or-evaluates-the-wrong-people",
+    "troubleshooting-decision-tree-group-history-or-archive-is-unavailable",
+    "troubleshooting-decision-tree-a-synced-group-or-communication-list-has-unexpected-members",
+    "troubleshooting-decision-tree-member-attributes-disappeared-after-a-move",
+    "troubleshooting-decision-tree-a-location-or-schedule-link-is-wrong-after-api-work",
+    "troubleshooting-decision-tree-a-failed-workflow-may-have-partially-changed-group-data",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-design-a-group-type-and-hierarchy",
+    "agent-task-recipes-recipe-publish-a-group-through-group-finder",
+    "agent-task-recipes-recipe-configure-focused-attendance-entry",
+    "agent-task-recipes-recipe-configure-attendance-follow-up",
+    "agent-task-recipes-recipe-enforce-a-group-type-requirement",
+    "agent-task-recipes-recipe-synchronize-a-group-from-a-data-view",
+    "agent-task-recipes-recipe-secure-leader-operations",
+    "agent-task-recipes-recipe-enable-history-and-archive-a-group",
+    "agent-task-recipes-recipe-move-group-members-safely"
   ]
 }

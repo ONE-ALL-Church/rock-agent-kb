@@ -3,230 +3,302 @@
     {
       "do_not_assume": [],
       "entities": [
-        "Group",
-        "Location",
-        "Schedule",
-        "Device",
-        "Check-in Configuration"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
-      "id": "a-schedule-is-missing-from-check-in",
-      "inspect": [
-        "Group",
-        "Location",
-        "Schedule",
-        "Device",
-        "Check-in Configuration"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/280",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Is the schedule active?",
-        "Is the current time inside the effective date/time and check-in offset window?",
-        "Is the schedule in the expected category?",
-        "Does the check-in configuration’s schedule builder show the schedule?",
-        "Is the group active and not archived?",
-        "Does the group location exist?",
-        "Does the `GroupLocationSchedule` row exist for the exact group/location/schedule?",
-        "Is the schedule excluded directly or by category?"
-      ],
-      "title": "A Schedule Is Missing From Check-In",
-      "when": "A Schedule Is Missing From Check-In"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Device",
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-a-room-is-missing-from-check-in",
-      "id": "a-room-is-missing-from-check-in",
-      "inspect": [
-        "Person",
-        "Group",
-        "Location",
-        "Schedule",
-        "Campus",
-        "Device",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterActiveLocations.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByThreshold.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsBySchedule.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/FilterLocationsByLocationSelectionStrategy.cs"
-      ],
-      "start_with": [
-        "Is `Location.IsActive` true?",
-        "Is the room closed in Check-In Manager?",
-        "Is the room under the expected campus/building parent?",
-        "Is the location assigned to the group?",
-        "Is the group/location enabled for the schedule?",
-        "Is the device allowed to see that location?",
-        "Is the room full according to soft threshold?",
-        "Did location selection strategy auto-select a different room?"
-      ],
-      "title": "A Room Is Missing From Check-In",
-      "when": "A Room Is Missing From Check-In"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
         "Attendance",
-        "Person",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Check-in Configuration",
-        "Workflow"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-volunteer-was-scheduled-but-cannot-check-in",
-      "id": "volunteer-was-scheduled-but-cannot-check-in",
-      "inspect": [
-        "Attendance",
-        "Person",
-        "Group",
-        "GroupType",
-        "Location",
-        "Schedule",
-        "Check-in Configuration",
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Workflow/Action/CheckIn/LoadSchedules.cs"
-      ],
-      "start_with": [
-        "Confirm today’s attendance occurrence exists for the group/location/schedule.",
-        "Confirm attendance or assignment has the person as scheduled/requested.",
-        "Confirm the group’s Attendance Record Required For Check-in setting.",
-        "Confirm the schedule attached to the group location matches the attendance occurrence schedule.",
-        "Confirm the person’s group membership and role are active.",
-        "Confirm group role can check in if the rule requires membership.",
-        "Confirm check-in configuration includes that group type.",
-        "Confirm the kiosk schedule and location match the assignment."
-      ],
-      "title": "Volunteer Was Scheduled But Cannot Check In",
-      "when": "Volunteer Was Scheduled But Cannot Check In"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
         "Group",
         "Location",
-        "Schedule"
-      ],
-      "guide_section_id": "17-troubleshooting-decision-tree-group-scheduler-capacity-looks-wrong",
-      "id": "group-scheduler-capacity-looks-wrong",
-      "inspect": [
-        "Group",
-        "Location",
-        "Schedule"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/531/Schedule-WithAvailableSlots",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Inspect `GroupLocationScheduleConfig` rows for the group location and schedule.",
-        "Inspect minimum, desired, maximum capacity fields.",
-        "Inspect group member assignments for matching group member, location, and schedule.",
-        "Inspect duplicate or stale assignments.",
-        "Confirm the installed version includes the v17.2 fix for deleting a schedule from one group location removing capacity settings in other group locations.",
-        "If using Sign-Ups, verify Sign-Up model relationships in the live instance."
-      ],
-      "title": "Group Scheduler Capacity Looks Wrong",
-      "when": "Group Scheduler Capacity Looks Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
         "Schedule",
         "Campus",
+        "Device",
         "Block"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-calendar-event-does-not-appear",
-      "id": "calendar-event-does-not-appear",
+      "guide_section_id": "troubleshooting-decision-tree-a-room-does-not-appear-during-check-in",
+      "id": "a-room-does-not-appear-during-check-in",
       "inspect": [
+        "Attendance",
+        "Group",
+        "Location",
         "Schedule",
         "Campus",
+        "Device",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/lava/commands/calendar-events",
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/events/calendar-event-list"
+        "https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-locations-for-a-kiosk",
+        "https://community.rockrms.com/documentation/church-management/check-in/configure-check-in/use-the-schedule-builder",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/CheckIn/RapidAttendanceEntry/rapidAttendanceEntryLocationsBag.d.ts"
       ],
       "start_with": [
-        "Confirm event item exists.",
-        "Confirm event item approval status.",
-        "Confirm event item occurrence exists.",
-        "Confirm occurrence schedule is active and in range.",
-        "Confirm calendar membership.",
-        "Confirm audience filter.",
-        "Confirm campus filter or campus context.",
-        "Confirm date range and max occurrences."
+        "Confirm the room exists as the intended Named Location and is active in the correct hierarchy.",
+        "Confirm the check-in group is associated with that location.",
+        "Open the check-in Schedule Builder and confirm the group/location row is enabled for the selected schedule.",
+        "Confirm the kiosk is configured for the applicable rooms and scope.",
+        "Check whether the room is currently closed in Check-in Manager or Device Manager.",
+        "Check the soft and absolute thresholds and current count.",
+        "If a campus filter is active, confirm it has not excluded every location.",
+        "If the room was created recently, check the installed patch level and cache behavior before rebuilding the hierarchy."
       ],
-      "title": "Calendar Event Does Not Appear",
-      "when": "Calendar Event Does Not Appear"
+      "title": "A Room Does Not Appear During Check-In",
+      "when": "A Room Does Not Appear During Check-In"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-schedule-does-not-appear-in-a-check-in-scheduling-screen",
+      "id": "a-schedule-does-not-appear-in-a-check-in-scheduling-screen",
+      "inspect": [
+        "Location",
+        "Schedule",
+        "Check-in Configuration",
+        "Block"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx.cs"
+      ],
+      "start_with": [
+        "Confirm that the schedule is active.",
+        "Confirm it represents the intended check-in time and category.",
+        "Confirm the check-in configuration and screen are the expected generation for the installed version.",
+        "Confirm the schedule has the required check-in timing configuration.",
+        "Confirm filters on the Schedule Builder or kiosk screen are not hiding it."
+      ],
+      "title": "A Schedule Does Not Appear In A Check-In Scheduling Screen",
+      "when": "A Schedule Does Not Appear In A Check-In Scheduling Screen"
     },
     {
       "do_not_assume": [
-        "Do not use old recipes that store occurrence ID directly unless the live plugin still uses that model."
+        "Confirm an assignment actually exists; preferences alone do not create one."
       ],
+      "entities": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Label",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-volunteer-cannot-see-accept-or-decline-an-assignment",
+      "id": "a-volunteer-cannot-see-accept-or-decline-an-assignment",
+      "inspect": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule",
+        "Label",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox"
+      ],
+      "start_with": [
+        "Confirm scheduling is enabled on the Group Type.",
+        "Confirm the person belongs to the applicable schedulable group.",
+        "Confirm an assignment actually exists; preferences alone do not create one.",
+        "Check whether the assignment is accepted, declined, pending or marked unavailable.",
+        "Review the Group Type’s confirmation logic and whether it changed after assignments were created.",
+        "Review block settings that can hide actions or change their labels.",
+        "If a decline reason is expected, confirm the Group Type requires one."
+      ],
+      "title": "A Volunteer Cannot See, Accept Or Decline An Assignment",
+      "when": "A Volunteer Cannot See, Accept Or Decline An Assignment"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-volunteer-is-missing-a-reminder",
+      "id": "a-volunteer-is-missing-a-reminder",
+      "inspect": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule",
+        "https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s"
+      ],
+      "start_with": [
+        "Confirm the assignment and its schedule time.",
+        "Confirm the Group Type reminder communication and offset.",
+        "Check the group member’s reminder and communication preferences.",
+        "If no group member communication preference exists, inspect the person’s profile preference.",
+        "For SMS, confirm the provider configuration, SMS-enabled phone and SMS-capable System Communication.",
+        "For Outreach Toolbox, separately inspect the reminder job time and push delivery in the target mobile environment."
+      ],
+      "title": "A Volunteer Is Missing A Reminder",
+      "when": "A Volunteer Is Missing A Reminder"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "Schedule",
+        "Campus"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-calendar-file-or-feed-is-empty-stale-or-missing-events",
+      "id": "a-calendar-file-or-feed-is-empty-stale-or-missing-events",
+      "inspect": [
+        "Person",
+        "Group",
+        "Schedule",
+        "Campus"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox",
+        "https://community.rockrms.com/documentation/church-management/event-calendar/calendars/configure-the-icalendar-feed",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Identify whether the source is a volunteer Schedule Toolbox export or an Event Calendar feed.",
+        "For Schedule Toolbox, confirm the person has at least one confirmed assignment.",
+        "For an Event Calendar feed, confirm calendar access and examine calendar, campus, audience and date parameters.",
+        "Confirm the URL still contains the required `GetEventCalendarFeed.ashx` handler.",
+        "Compare the Rock calendar occurrence with the exported result.",
+        "If a downloaded `.ics` file was used, regenerate it after schedule changes.",
+        "Check the Rock version when Group Schedule ICS summaries are unclear; the summary-format fix shipped in v17.2."
+      ],
+      "title": "A Calendar File Or Feed Is Empty, Stale Or Missing Events",
+      "when": "A Calendar File Or Feed Is Empty, Stale Or Missing Events"
+    },
+    {
+      "do_not_assume": [
+        "On pre-v19 systems, do not assume the v19 materialization model exists."
+      ],
+      "entities": [
+        "Schedule"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-date-based-query-misses-recurring-schedule-occurrences",
+      "id": "a-date-based-query-misses-recurring-schedule-occurrences",
+      "inspect": [
+        "Schedule"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=edanHiYSDIM&t=386s"
+      ],
+      "start_with": [
+        "Confirm the installed Rock version.",
+        "On v19, inspect the generated `ScheduleDate` rows for the schedule.",
+        "Use those rows for date-based SQL or Lava rather than re-expanding the iCalendar rule.",
+        "If expected rows are absent, stop and verify generation behavior for the exact installed build.",
+        "On pre-v19 systems, do not assume the v19 materialization model exists."
+      ],
+      "title": "A Date-Based Query Misses Recurring Schedule Occurrences",
+      "when": "A Date-Based Query Misses Recurring Schedule Occurrences"
+    },
+    {
+      "do_not_assume": [],
       "entities": [
         "Location",
         "Schedule",
         "Workflow"
       ],
-      "guide_section_id": "17-troubleshooting-decision-tree-reservation-and-calendar-are-out-of-sync",
-      "id": "reservation-and-calendar-are-out-of-sync",
+      "guide_section_id": "troubleshooting-decision-tree-a-reservation-and-calendar-event-do-not-match",
+      "id": "a-reservation-and-calendar-event-do-not-match",
       "inspect": [
         "Location",
         "Schedule",
         "Workflow"
       ],
       "source_urls": [
-        "https://community.rockrms.com/recipes/444",
         "https://community.rockrms.com/recipes/516/room-reservation-to-calendar-tool-20"
       ],
       "start_with": [
-        "Verify plugin and schema.",
-        "Confirm reservation approval state.",
-        "Confirm reservation schedule and locations.",
-        "Confirm linked event item occurrence.",
-        "Inspect `ReservationLinkage` or current linkage object.",
-        "Compare schedule, location, contact, and note fields.",
-        "Identify the authoritative side.",
-        "Run or design a targeted sync workflow."
+        "Confirm the Room Management plugin is installed and identify its version.",
+        "Identify the reservation and its explicit calendar linkage.",
+        "Compare schedule, location and contact fields without modifying either record.",
+        "Determine which record is authoritative under local policy.",
+        "Review the recipe generation and schema assumptions before running a workflow or SQL.",
+        "Stop before synchronizing if ownership, linkage or compatibility is ambiguous."
       ],
-      "title": "Reservation And Calendar Are Out Of Sync",
-      "when": "Reservation And Calendar Are Out Of Sync"
+      "title": "A Reservation And Calendar Event Do Not Match",
+      "when": "A Reservation And Calendar Event Do Not Match"
+    },
+    {
+      "do_not_assume": [
+        "Do not attempt broad hierarchy rewrites until the exact invalid relationship is identified."
+      ],
+      "entities": [
+        "Location"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-named-location-tree-will-not-load",
+      "id": "the-named-location-tree-will-not-load",
+      "inspect": [
+        "Location"
+      ],
+      "source_urls": [
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Check the installed Rock version and patch level.",
+        "Inspect the affected location’s parent relationship.",
+        "Check for a location set as its own parent or placed beneath one of its descendants.",
+        "Do not attempt broad hierarchy rewrites until the exact invalid relationship is identified.",
+        "If the installation predates the v18.3 fix, review the release path and correct the data through an approved, bounded process."
+      ],
+      "title": "The Named Location Tree Will Not Load",
+      "when": "The Named Location Tree Will Not Load"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Attendance",
+        "Check-in Configuration",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-check-in-manager-attendance-changes-do-not-update-in-real-time",
+      "id": "check-in-manager-attendance-changes-do-not-update-in-real-time",
+      "inspect": [
+        "Attendance",
+        "Check-in Configuration",
+        "Block"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=edanHiYSDIM&t=268s"
+      ],
+      "start_with": [
+        "Confirm the installation is on an applicable v19 build.",
+        "Verify browser connectivity.",
+        "Confirm the expected Check-In Manager block version is loaded.",
+        "Review local check-in configuration.",
+        "Compare the roster state with the authoritative attendance state before asking operators to refresh or re-enter attendance."
+      ],
+      "title": "Check-In Manager Attendance Changes Do Not Update In Real Time",
+      "when": "Check-In Manager Attendance Changes Do Not Update In Real Time"
     }
   ],
   "concept_id": "scheduling-locations",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T17:05:21+00:00",
   "guide_sections": [
-    "17-troubleshooting-decision-tree",
-    "17-troubleshooting-decision-tree-a-schedule-is-missing-from-check-in",
-    "17-troubleshooting-decision-tree-a-room-is-missing-from-check-in",
-    "17-troubleshooting-decision-tree-volunteer-was-scheduled-but-cannot-check-in",
-    "17-troubleshooting-decision-tree-group-scheduler-capacity-looks-wrong",
-    "17-troubleshooting-decision-tree-calendar-event-does-not-appear",
-    "17-troubleshooting-decision-tree-reservation-and-calendar-are-out-of-sync",
-    "18-agent-task-recipes",
-    "18-agent-task-recipes-recipe-prove-why-a-check-in-room-is-not-available",
-    "18-agent-task-recipes-recipe-audit-group-location-schedules",
-    "18-agent-task-recipes-recipe-verify-a-new-service-time",
-    "18-agent-task-recipes-recipe-build-a-facilities-daily-report",
-    "18-agent-task-recipes-recipe-build-a-calendar-feed",
-    "18-agent-task-recipes-recipe-diagnose-schedule-api-issues"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-room-does-not-appear-during-check-in",
+    "troubleshooting-decision-tree-a-schedule-does-not-appear-in-a-check-in-scheduling-screen",
+    "troubleshooting-decision-tree-a-volunteer-cannot-see-accept-or-decline-an-assignment",
+    "troubleshooting-decision-tree-a-volunteer-is-missing-a-reminder",
+    "troubleshooting-decision-tree-a-calendar-file-or-feed-is-empty-stale-or-missing-events",
+    "troubleshooting-decision-tree-a-date-based-query-misses-recurring-schedule-occurrences",
+    "troubleshooting-decision-tree-a-reservation-and-calendar-event-do-not-match",
+    "troubleshooting-decision-tree-the-named-location-tree-will-not-load",
+    "troubleshooting-decision-tree-check-in-manager-attendance-changes-do-not-update-in-real-time",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-build-a-check-in-location-hierarchy",
+    "agent-task-recipes-recipe-prove-why-a-check-in-room-is-not-available",
+    "agent-task-recipes-recipe-clone-a-check-in-schedule-for-a-special-event",
+    "agent-task-recipes-recipe-configure-a-group-type-for-volunteer-scheduling",
+    "agent-task-recipes-recipe-prepare-volunteer-availability-for-auto-schedule",
+    "agent-task-recipes-recipe-publish-and-test-an-event-calendar-feed",
+    "agent-task-recipes-recipe-evaluate-reservation-to-calendar-synchronization",
+    "agent-task-recipes-recipe-audit-a-v19-date-based-schedule-query"
   ]
 }

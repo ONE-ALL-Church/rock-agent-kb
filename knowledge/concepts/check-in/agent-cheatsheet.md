@@ -42,6 +42,7 @@ generated: true
 | `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Printer` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
+| `SecurityCode` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
@@ -54,70 +55,41 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | high | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `3-check-in-mental-model` | high | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-check-in-systems` | normal | live verification |
-| `5-core-configuration-and-data-model-check-in-type-individual-vs-family` | normal | live verification |
-| `5-core-configuration-and-data-model-search` | normal | live verification |
-| `5-core-configuration-and-data-model-group-membership-behavior` | normal | live verification |
-| `5-core-configuration-and-data-model-locations` | normal | live verification |
-| `5-core-configuration-and-data-model-schedules` | normal | live verification |
-| `5-core-configuration-and-data-model-location-selection-strategy` | normal | live verification |
-| `6-primary-entities-and-relationships-person-personalias-and-family` | normal | live verification |
-| `6-primary-entities-and-relationships-grouptype-group-groupmember` | community-supported | live verification |
-| `6-primary-entities-and-relationships-grouplocation-location-schedule` | community-supported | live verification |
-| `6-primary-entities-and-relationships-device-and-kiosk` | citation-only | live verification |
-| `6-primary-entities-and-relationships-attendance-and-attendanceoccurrence` | normal | live verification |
-| `7-common-check-in-workflows-attended-check-in` | citation-only | live verification |
-| `7-common-check-in-workflows-check-in-manager` | normal | live verification |
-| `7-common-check-in-workflows-rapid-attendance-entry` | normal | live verification |
-| `7-common-check-in-workflows-group-attendance` | normal | live verification |
-| `7-common-check-in-workflows-attendance-self-entry` | citation-only | live verification |
-| `7-common-check-in-workflows-proximity-attendance` | normal | live verification |
-| `8-labels-deep-dive-legacy-labels-and-next-gen-labels` | community-supported | live verification |
-| `8-labels-deep-dive-label-data-model` | normal | live verification |
-| `8-labels-deep-dive-security-code-formatting` | normal | live verification |
-| `8-labels-deep-dive-merge-fields-and-lava` | normal | live verification |
-| `8-labels-deep-dive-fonts-and-icons` | community-supported | live verification |
-| `8-labels-deep-dive-label-troubleshooting-branches` | normal | live verification |
-| `9-mobile-check-in-deep-dive-configuration-checklist` | citation-only | live verification |
-| `9-mobile-check-in-deep-dive-mobile-and-eligibility` | structural | live verification |
-| `9-mobile-check-in-deep-dive-mobile-group-attendance-entry` | normal | live verification |
-| `9-mobile-check-in-deep-dive-proximity-attendance` | normal | live verification |
-| `10-attendance-deep-dive-attendance-rows` | normal | live verification |
-| `10-attendance-deep-dive-attendanceoccurrence-sundaydate` | normal | live verification |
-| `10-attendance-deep-dive-attendance-analytics-block` | normal | live verification |
-| `10-attendance-deep-dive-count-only-attendance` | community-supported | live verification |
-| `11-troubleshooting-deep-dive-symptom-no-check-in-locations-are-active` | normal | live verification |
-| `11-troubleshooting-deep-dive-symptom-family-search-finds-nothing` | structural | live verification |
-| `11-troubleshooting-deep-dive-symptom-rapid-attendance-entry-too-slow-or-wrong-shape` | normal | live verification |
-| `12-related-rock-areas-attendance-groups-locations-schedules-labels-mobile-security-groups` | structural | live verification |
-| `13-administration-and-operational-guardrails-pre-service-checklist` | citation-only | live verification |
-| `13-administration-and-operational-guardrails-configuration-change-control` | structural | live verification |
-| `13-administration-and-operational-guardrails-label-safety` | structural | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-mobile-check-in-docs` | normal | live verification |
-| `14-developer-api-lava-and-source-code-landmarks-lava-and-community-patterns` | community-supported | community-supported |
-| `15-reporting-analytics-and-model-map-analytics-caveats` | normal | live verification |
-| `15-reporting-analytics-and-model-map-model-map-use` | structural | live verification |
-| `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-basic-family-check-in-area` | citation-only | live verification |
-| `17-implementation-playbooks-playbook-add-a-new-room` | citation-only | live verification |
-| `17-implementation-playbooks-playbook-configure-mobile-check-in` | citation-only | live verification |
-| `17-implementation-playbooks-playbook-configure-rapid-attendance-entry` | normal | live verification |
-| `17-implementation-playbooks-playbook-implement-a-qr-code-attendance-pattern` | community-supported | live verification |
-| `17-implementation-playbooks-playbook-implement-sms-text-attendance` | community-supported | live verification |
-| `18-troubleshooting-decision-tree-b-was-attendance-saved` | structural | live verification |
-| `18-troubleshooting-decision-tree-c-is-the-problem-labels` | structural | live verification |
-| `18-troubleshooting-decision-tree-d-is-the-problem-check-in-manager` | structural | live verification |
-| `18-troubleshooting-decision-tree-e-is-the-problem-analytics` | structural | live verification |
-| `18-troubleshooting-decision-tree-f-is-the-problem-mobile` | structural | live verification |
-| `19-agent-task-recipes-recipe-prove-why-a-child-cannot-check-in` | citation-only | live verification |
-| `19-agent-task-recipes-recipe-prove-which-printer-should-print-a-label` | structural | live verification |
-| `19-agent-task-recipes-recipe-reconcile-attendance-analytics-to-raw-rows` | structural | live verification |
-| `19-agent-task-recipes-recipe-decide-between-check-in-group-attendance-rapid-attendance-qr-and-sms` | community-supported | community-supported |
-| `19-agent-task-recipes-recipe-validate-mobile-check-in-readiness` | structural | live verification |
-| `approved-claim-coverage` | citation-only | live verification |
-| `20-source-map-and-dependency-notes` | high | live verification |
+| `agent-summary` | normal | live verification |
+| `scope-and-boundaries` | normal | live verification |
+| `mental-model-labels-depend-on-context` | citation-only | live verification |
+| `core-configuration-kiosks-locations-and-schedules-locations-schedules-and-room-state` | normal | live verification |
+| `core-configuration-kiosks-locations-and-schedules-eligibility-by-age-grade-and-birthdate` | normal | live verification |
+| `core-configuration-kiosks-locations-and-schedules-check-in-relationships` | normal | live verification |
+| `mobile-check-in-preconditions` | citation-only | live verification |
+| `mobile-check-in-participant-flow` | normal | live verification |
+| `labels-and-printing-design-link-preview-and-print` | normal | live verification |
+| `labels-and-printing-merge-data-and-dynamic-text` | normal | live verification |
+| `check-in-manager-and-device-manager` | normal | live verification |
+| `attendance-entry-and-analysis-attendance-analytics` | normal | live verification |
+| `registration-and-new-families` | normal | live verification |
+| `additional-check-in-options-nfc-check-in` | normal | live verification |
+| `version-and-authority-caveats` | high | live verification |
+| `troubleshooting-decision-tree-a-person-or-family-cannot-be-found` | normal | live verification |
+| `troubleshooting-decision-tree-a-person-is-found-but-has-no-check-in-options` | normal | live verification |
+| `troubleshooting-decision-tree-a-room-is-unavailable-only-during-one-service` | normal | live verification |
+| `troubleshooting-decision-tree-mobile-check-in-reports-no-campus-no-service-or-location-failure` | normal | live verification |
+| `troubleshooting-decision-tree-a-mobile-qr-code-does-not-print-labels` | normal | live verification |
+| `troubleshooting-decision-tree-symptom-attendance-saved-but-label-did-not-print` | normal | live verification |
+| `troubleshooting-decision-tree-a-label-prints-with-wrong-or-duplicated-data` | normal | live verification |
+| `troubleshooting-decision-tree-a-label-cannot-be-reprinted` | normal | live verification |
+| `troubleshooting-decision-tree-check-in-manager-attendance-updates-lag` | normal | live verification |
+| `troubleshooting-decision-tree-rapid-attendance-entry-is-missing-expected-actions` | normal | live verification |
+| `troubleshooting-decision-tree-attendance-self-entry-does-not-record-attendance` | normal | live verification |
+| `troubleshooting-decision-tree-proximity-attendance-records-the-wrong-service-or-area` | normal | live verification |
+| `troubleshooting-decision-tree-a-rest-integration-creates-unexpected-schedules-or-links` | community-supported | live verification |
+| `troubleshooting-decision-tree-attendance-appears-to-save-but-the-page-gives-no-confirmation` | community-supported | live verification |
+| `agent-task-recipes-recipe-preflight-a-standard-kiosk-session` | normal | live verification |
+| `agent-task-recipes-recipe-preflight-mobile-check-in` | citation-only | live verification |
+| `agent-task-recipes-recipe-validate-a-next-gen-label-end-to-end` | normal | live verification |
+| `agent-task-recipes-recipe-triage-a-live-service-incident` | normal | live verification |
+| `agent-task-recipes-recipe-create-a-focused-rapid-attendance-entry-page` | normal | live verification |
+| `agent-task-recipes-recipe-prepare-a-new-family-arrival-path` | normal | live verification |
+| `agent-task-recipes-recipe-reprint-a-damaged-label` | normal | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
+| `source-map-community-patterns` | community-supported | live verification |

@@ -18,34 +18,35 @@ Apple TV developer documentation for Rock-powered TVML applications, pages, cont
 
 ## Primary Tasks
 
-- [Recipe: Inspect An Existing Apple TV App](tasks/recipe-inspect-an-existing-apple-tv-app.md): Complete Inspect An Existing Apple TV App with evidence-backed checks and a verifiable outcome.
-- [Recipe: Diagnose A Broken Button](tasks/recipe-diagnose-a-broken-button.md): Complete Diagnose A Broken Button with evidence-backed checks and a verifiable outcome.
-- [Recipe: Add A New Page Safely](tasks/recipe-add-a-new-page-safely.md): Complete Add A New Page Safely with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review For Security](tasks/recipe-review-for-security.md): Complete Review For Security with evidence-backed checks and a verifiable outcome.
-- [Recipe: Review For Performance](tasks/recipe-review-for-performance.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Create a minimal Rock Apple TV application](tasks/recipe-create-a-minimal-rock-apple-tv-application.md): A Rock-managed application with a valid Start Screen and documented baseline settings.
+- [Recipe: Add a cache-aware TVML page](tasks/recipe-add-a-cache-aware-tvml-page.md): A new page that emits valid TVML and uses an intentional cache policy.
+- [Recipe: Implement remote sign-in](tasks/recipe-implement-remote-sign-in.md): A viewer can authenticate from a phone or computer by scanning a QR code or entering a short code.
+- [Recipe: Add tracked video or audio playback](tasks/recipe-add-tracked-video-or-audio-playback.md): A supported media file plays with intentional resume and interaction behavior.
+- [Recipe: Build a theme-safe styling pass](tasks/recipe-build-a-theme-safe-styling-pass.md): Text, badges, images, and focus states remain legible in both Light and Dark themes.
+- [Recipe: Prepare the application image package](tasks/recipe-prepare-the-application-image-package.md): A delivery set contains the documented icon, launch, Top Shelf, and optional parallax assets.
+- [Recipe: Test through demo mode](tasks/recipe-test-through-demo-mode.md): The community shell loads the intended Rock application configuration for bounded testing.
+- [Recipe: Review a Lava API before connecting it to Apple TV](tasks/recipe-review-a-lava-api-before-connecting-it-to-apple-tv.md): The agent can state what a Lava webhook exposes and whether its protection has been verified.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-50: 1. Executive Summary For Agents (normal)
-- `2-scope-and-terminology` lines 51-88: 2. Scope And Terminology (normal)
-- `3-apple-tv-apps-mental-model` lines 89-130: 3. Apple TV Apps Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 131-154: 4. Source Authority And How To Use This Guide (normal)
-- `5-core-configuration-and-data-model-apple-tv-app-record` lines 157-186: Apple TV App Record (normal)
-- `5-core-configuration-and-data-model-tv-page-record` lines 187-195: TV Page Record (normal)
+- `agent-summary` lines 18-37: Agent Summary (normal)
+- `scope-and-boundaries` lines 38-59: Scope And Boundaries (normal)
+- `mental-model` lines 60-73: Mental Model (normal)
+- `creating-and-configuring-an-application` lines 74-91: Creating And Configuring An Application (normal)
+- `pages-lava-and-cache-behavior-page-content-and-merge-fields` lines 94-114: Page content and merge fields (normal)
+- `pages-lava-and-cache-behavior-creating-page-content` lines 115-120: Creating page content (normal)
 
 ## Core Entities
 
-- `Attribute`: Rock concept/entity referenced by the apple-tv guide.
+- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Block`: Rock concept/entity referenced by the apple-tv guide.
 - `Campus`: Rock concept/entity referenced by the apple-tv guide.
 - `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Family`: Rock concept/entity referenced by the apple-tv guide.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
-- `Location`: Named physical or logical location used for rooms, campuses, buildings, and printer routing.
+- `Label`: Rock concept/entity referenced by the apple-tv guide.
 - `Page`: Rock concept/entity referenced by the apple-tv guide.
 - `Person`: Rock concept/entity referenced by the apple-tv guide.
-- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
-- `Step`: Person-specific engagement milestone instance.
 - `Workflow`: Rock concept/entity referenced by the apple-tv guide.
 
 ## Version Caveats

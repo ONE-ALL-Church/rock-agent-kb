@@ -1,214 +1,333 @@
 {
   "branches": [
     {
-      "do_not_assume": [
-        "Do not debug the stored Lava alone."
-      ],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-app-does-not-launch",
-      "id": "app-does-not-launch",
-      "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Rock version is v14+.",
-        "Shell points to correct Rock server.",
-        "Demo key or compiled settings are correct.",
-        "API key is valid.",
-        "Start Screen exists.",
-        "Start Screen TVML renders without errors.",
-        "Rock server is reachable over HTTPS.",
-        "Network, certificate, and CDN are accessible from Apple TV."
-      ],
-      "title": "App Does Not Launch",
-      "when": "App Does Not Launch"
-    },
-    {
       "do_not_assume": [],
       "entities": [
         "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-page-is-blank",
-      "id": "page-is-blank",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "The command points to the correct page GUID.",
-        "Query string parameters are valid.",
-        "Lava does not return empty required elements.",
-        "Template supports the element structure.",
-        "Images are reachable.",
-        "Cache is not serving stale or wrong content.",
-        "Signed-in-only content has a signed-out fallback.",
-        "Theme colors are not hiding text."
-      ],
-      "title": "Page Is Blank",
-      "when": "Page Is Blank"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-navigation-does-not-work",
-      "id": "navigation-does-not-work",
+      "guide_section_id": "troubleshooting-decision-tree-the-application-or-start-screen-does-not-load",
+      "id": "the-application-or-start-screen-does-not-load",
       "inspect": [
         "Page"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates/menu-bar-template"
+        "https://community.rockrms.com/developer/apple-tv-docs",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages"
       ],
       "start_with": [
-        "`rockCommand` spelling.",
-        "Required command parameters.",
-        "Multiple command formatting.",
-        "Page GUID.",
-        "Optional query string.",
-        "Shell version support.",
-        "Template-specific limitations. For Menu Bar Template, verify current shell support because docs warn navigation does not work with the current shell version they reference (Menu Bar Template)."
+        "Confirm the installed Rock version is 14 or later.",
+        "Confirm the exact TV application exists under Apple TV Apps.",
+        "Inspect its generated Start Screen and default-page configuration.",
+        "Render the page’s Lava and verify that the result is valid TVML.",
+        "Confirm the testing shell points to the intended application rather than compiled or stale demo settings.",
+        "Inspect the page cacheability setting.",
+        "Stop when resolution requires changing the shell package or an unverified production setting."
       ],
-      "title": "Navigation Does Not Work",
-      "when": "Navigation Does Not Work"
+      "title": "The application or Start Screen does not load",
+      "when": "The application or Start Screen does not load"
+    },
+    {
+      "do_not_assume": [
+        "If the same markup works in another template, do not assume equivalence; compare each template’s supported structure."
+      ],
+      "entities": [
+        "Person",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-is-blank-malformed-or-rejected",
+      "id": "a-page-is-blank-malformed-or-rejected",
+      "inspect": [
+        "Person",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tv-pages",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/templates",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/tips"
+      ],
+      "start_with": [
+        "Inspect the final TVML after Lava rendering, not only the stored template.",
+        "Confirm that the selected template accepts the elements being emitted.",
+        "Check Lava conditions involving `CurrentPerson`, `Context`, or page parameters.",
+        "Remove assumptions based on HTML, browser CSS, SVG, or WebView behavior.",
+        "Test the page in both Light and Dark themes.",
+        "If the same markup works in another template, do not assume equivalence; compare each template’s supported structure."
+      ],
+      "title": "A page is blank, malformed, or rejected",
+      "when": "A page is blank, malformed, or rejected"
     },
     {
       "do_not_assume": [],
       "entities": [
+        "Person",
         "Device",
         "Page",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-sign-in-fails",
-      "id": "sign-in-fails",
+      "guide_section_id": "troubleshooting-decision-tree-login-shows-no-qr-code-or-manual-code",
+      "id": "login-shows-no-qr-code-or-manual-code",
       "inspect": [
+        "Person",
         "Device",
         "Page",
         "Block"
       ],
-      "source_urls": [],
-      "start_with": [
-        "App has login page configured.",
-        "Login command includes login, timeout, and success page GUIDs.",
-        "Remote Authentication block exists.",
-        "Block Site setting points to the Apple TV app.",
-        "Remote Authentication page route works.",
-        "Code is not expired.",
-        "User is signed into Rock in browser.",
-        "Device unique identifier matches session."
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-a-sign-in-page",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands",
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Blocks/Tv/RemoteAuthentication.cs"
       ],
-      "title": "Sign-In Fails",
-      "when": "Sign-In Fails"
+      "start_with": [
+        "Confirm that the external Rock page contains a Remote Authentication block.",
+        "Confirm that the block is associated with the intended TV application site.",
+        "Confirm that the application’s Authentication Page points to that external page.",
+        "Confirm that the login command references the intended login, timeout, and success pages.",
+        "Confirm the page uses the case-sensitive `{ authQrCodeUrl }` and `{ authCode }` fields with single braces.",
+        "Confirm the person is authenticated on the external Rock site.",
+        "If the current installation follows the inspected source implementation, investigate code lifetime and device-identifier matching.",
+        "Stop before exposing authentication session records or identifiers in public diagnostics."
+      ],
+      "title": "Login shows no QR code or manual code",
+      "when": "Login shows no QR code or manual code"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Block"
+        "Person",
+        "Page"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-media-will-not-play",
-      "id": "media-will-not-play",
+      "guide_section_id": "troubleshooting-decision-tree-back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly",
+      "id": "back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly",
       "inspect": [
-        "Block"
+        "Person",
+        "Page"
       ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/personal-commands"
+      ],
+      "start_with": [
+        "Inspect `rockLoginClearNavigationStack`.",
+        "Inspect `rockLogoutClearNavigationStack`.",
+        "Unless the journey requires otherwise, retain the documented default of `true`.",
+        "Test Back navigation after successful login, timeout, logout, and failed authentication.",
+        "Verify the success and logout destination pages."
+      ],
+      "title": "Back navigation exposes the pre-login or personalized page unexpectedly",
+      "when": "Back navigation exposes the pre-login or personalized page unexpectedly"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-video-or-audio-does-not-play",
+      "id": "video-or-audio-does-not-play",
+      "inspect": [],
       "source_urls": [
         "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
       ],
       "start_with": [
-        "Media is not YouTube (Media Commands).",
-        "URL is HTTPS and reachable by Apple TV.",
-        "File/stream format is tvOS compatible.",
-        "Certificate is valid.",
-        "Command uses correct video/audio command.",
-        "Required parameters are present.",
-        "MediaElement data is valid.",
-        "CDN does not block Apple TV user agents."
+        "Confirm the command is `playVideo` or `playAudio`.",
+        "Confirm video uses a direct MP4 or HLS source.",
+        "Confirm audio uses a direct MP3 source.",
+        "Reject YouTube as a supported source for these commands.",
+        "Inspect the exact media URL and metadata parameters.",
+        "If Rock watch tracking is expected, inspect the Media Element and related-entity parameters.",
+        "Test the same media without interaction parameters to separate playback failure from tracking failure."
       ],
-      "title": "Media Will Not Play",
-      "when": "Media Will Not Play"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-resume-does-not-work",
-      "id": "resume-does-not-work",
-      "inspect": [
-        "Person"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Existing interaction has watch map.",
-        "`rockWatchMap` is passed.",
-        "`rockInteractionGuid` is passed only when appending.",
-        "New interaction creation behavior matches docs.",
-        "Person is signed in if resume is user-specific.",
-        "Cache is not serving stale watch-map data."
-      ],
-      "title": "Resume Does Not Work",
-      "when": "Resume Does Not Work"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Page"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-styles-do-not-apply",
-      "id": "styles-do-not-apply",
-      "inspect": [
-        "Page"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Styles are in `<head><style>`.",
-        "Page includes `{{ SiteStyles }}` if relying on global styles.",
-        "Selector matches class or id.",
-        "Property is supported by TVML.",
-        "Theme media query matches current theme.",
-        "Template allows the style on that element.",
-        "Custom controls use supported Rock control styles."
-      ],
-      "title": "Styles Do Not Apply",
-      "when": "Styles Do Not Apply"
+      "title": "Video or audio does not play",
+      "when": "Video or audio does not play"
     },
     {
       "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-images-do-not-render",
-      "id": "images-do-not-render",
+      "guide_section_id": "troubleshooting-decision-tree-playback-resumes-incorrectly-or-creates-duplicate-interactions",
+      "id": "playback-resumes-incorrectly-or-creates-duplicate-interactions",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "URL reachable from Apple TV.",
-        "Format supported.",
-        "Not SVG.",
-        "Image dimensions reasonable.",
-        "No file extension issue for embedded tvOS resources.",
-        "CDN query strings supported.",
-        "HTTPS certificate valid.",
-        "App assets meet required sizes."
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/media-commands"
       ],
-      "title": "Images Do Not Render",
-      "when": "Images Do Not Render"
+      "start_with": [
+        "Determine whether the intended outcome is resume only, append to an existing interaction, or create a new interaction from a prior position.",
+        "For resume position, inspect `rockWatchMap`.",
+        "To append progress, verify both `rockWatchMap` and `rockInteractionGuid`.",
+        "If a new interaction is intended, omit `rockInteractionGuid`.",
+        "Inspect whether resume has been explicitly disabled.",
+        "Retest with a known prior stopping point."
+      ],
+      "title": "Playback resumes incorrectly or creates duplicate interactions",
+      "when": "Playback resumes incorrectly or creates duplicate interactions"
+    },
+    {
+      "do_not_assume": [
+        "Do not treat a reference-gallery screenshot as proof that TVML can reproduce the layout."
+      ],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-colors-or-badges-disappear-in-one-theme",
+      "id": "colors-or-badges-disappear-in-one-theme",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/media-queries",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/tv-text-style"
+      ],
+      "start_with": [
+        "Determine whether the page follows the system theme or declares its own.",
+        "Inspect Light and Dark media-query branches.",
+        "Check foreground colors, badge tint, image contrast, and text shadows in both themes.",
+        "Keep shadows close to text if vertical clipping occurs.",
+        "Do not treat a reference-gallery screenshot as proof that TVML can reproduce the layout."
+      ],
+      "title": "Colors or badges disappear in one theme",
+      "when": "Colors or badges disappear in one theme"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-parallax-image-is-flat-or-missing",
+      "id": "a-parallax-image-is-flat-or-missing",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/parallax-images",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/application-images/app-icons",
+        "https://community.rockrms.com/developer/apple-tv-docs/styling/built-in-images"
+      ],
+      "start_with": [
+        "Confirm the asset is an LCR file.",
+        "Confirm the image source is a direct link to that file.",
+        "Reject an LSR file for this workflow.",
+        "For app icons, confirm three separate layers with PNG foregrounds and a JPG background.",
+        "Confirm the dimensions for the intended @1x, @2x, or App Store use.",
+        "For shell-embedded resources, remove the file extension from the resource name."
+      ],
+      "title": "A parallax image is flat or missing",
+      "when": "A parallax image is flat or missing"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow",
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-template-change-does-not-appear",
+      "id": "a-template-change-does-not-appear",
+      "inspect": [
+        "Workflow",
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/adding-content",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app",
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands"
+      ],
+      "start_with": [
+        "Confirm the shell points to the intended application.",
+        "Inspect the page’s cacheability type.",
+        "Confirm whether demo settings or compiled settings are active.",
+        "Restart the application when using the documented demo-key workflow.",
+        "Use `clearDemo` only when the intended outcome is to restore compiled settings.",
+        "Make a controlled cacheability change only after confirming that freshness, not malformed TVML, is the issue."
+      ],
+      "title": "A template change does not appear",
+      "when": "A template change does not appear"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-demo-commands-do-not-work",
+      "id": "demo-commands-do-not-work",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/javascript/commands/demo-commands",
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/testing-your-app"
+      ],
+      "start_with": [
+        "Confirm the shell was compiled with demo-mode support.",
+        "Use `showDemo` to enter the documented demo screen.",
+        "Use `updateDemo` only within that screen.",
+        "Confirm the demo key and restart flow.",
+        "Use `clearDemo` to return to compiled settings.",
+        "Stop if the demo service or Rock Core application is no longer available; current availability requires separate verification."
+      ],
+      "title": "Demo commands do not work",
+      "when": "Demo commands do not work"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-countdown-immediately-navigates-or-starts-media",
+      "id": "a-countdown-immediately-navigates-or-starts-media",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/control-reference/countdown"
+      ],
+      "start_with": [
+        "Inspect `completedCommand`.",
+        "Inspect `completedCommandSecondThreshold`.",
+        "Determine how many seconds remained when the control initialized.",
+        "Provide a completed panel even when a completion command is present.",
+        "Test initial loads immediately before and after the target time."
+      ],
+      "title": "A countdown immediately navigates or starts media",
+      "when": "A countdown immediately navigates or starts media"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-lava-webhook-exposes-more-data-than-expected",
+      "id": "a-lava-webhook-exposes-more-data-than-expected",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/lava/lava-api"
+      ],
+      "start_with": [
+        "Identify the exact Lava Webhook Defined Value matched by the request URL and verb.",
+        "Inspect the complete template output.",
+        "Inventory every enabled Lava command.",
+        "Verify the protection mechanism independently; Rock documents no default webhook security.",
+        "Remove unnecessary data and commands before considering the endpoint ready.",
+        "Stop immediately if person or other sensitive data is reachable without the intended control."
+      ],
+      "title": "A Lava webhook exposes more data than expected",
+      "when": "A Lava webhook exposes more data than expected"
     }
   ],
   "concept_id": "apple-tv",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:18+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-app-does-not-launch",
-    "18-troubleshooting-decision-tree-page-is-blank",
-    "18-troubleshooting-decision-tree-navigation-does-not-work",
-    "18-troubleshooting-decision-tree-sign-in-fails",
-    "18-troubleshooting-decision-tree-media-will-not-play",
-    "18-troubleshooting-decision-tree-resume-does-not-work",
-    "18-troubleshooting-decision-tree-styles-do-not-apply",
-    "18-troubleshooting-decision-tree-images-do-not-render",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-inspect-an-existing-apple-tv-app",
-    "19-agent-task-recipes-recipe-diagnose-a-broken-button",
-    "19-agent-task-recipes-recipe-add-a-new-page-safely",
-    "19-agent-task-recipes-recipe-review-for-security",
-    "19-agent-task-recipes-recipe-review-for-performance"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-application-or-start-screen-does-not-load",
+    "troubleshooting-decision-tree-a-page-is-blank-malformed-or-rejected",
+    "troubleshooting-decision-tree-login-shows-no-qr-code-or-manual-code",
+    "troubleshooting-decision-tree-back-navigation-exposes-the-pre-login-or-personalized-page-unexpectedly",
+    "troubleshooting-decision-tree-video-or-audio-does-not-play",
+    "troubleshooting-decision-tree-playback-resumes-incorrectly-or-creates-duplicate-interactions",
+    "troubleshooting-decision-tree-colors-or-badges-disappear-in-one-theme",
+    "troubleshooting-decision-tree-a-parallax-image-is-flat-or-missing",
+    "troubleshooting-decision-tree-a-template-change-does-not-appear",
+    "troubleshooting-decision-tree-demo-commands-do-not-work",
+    "troubleshooting-decision-tree-a-countdown-immediately-navigates-or-starts-media",
+    "troubleshooting-decision-tree-a-lava-webhook-exposes-more-data-than-expected",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-create-a-minimal-rock-apple-tv-application",
+    "agent-task-recipes-recipe-add-a-cache-aware-tvml-page",
+    "agent-task-recipes-recipe-implement-remote-sign-in",
+    "agent-task-recipes-recipe-add-tracked-video-or-audio-playback",
+    "agent-task-recipes-recipe-build-a-theme-safe-styling-pass",
+    "agent-task-recipes-recipe-prepare-the-application-image-package",
+    "agent-task-recipes-recipe-test-through-demo-mode",
+    "agent-task-recipes-recipe-review-a-lava-api-before-connecting-it-to-apple-tv"
   ]
 }

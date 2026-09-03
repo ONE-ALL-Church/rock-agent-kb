@@ -6,1858 +6,577 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "ced36397a2f4c709aa1fbdeccb5064bae106402b82e94779d502a6c645e45cd2"
 ---
 
 # Security And Permissions
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
-
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
-
-- Concept data-model landmarks: [Security And Permissions index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
-
-<!-- END GENERATED MODEL MAP POINTERS -->
-
 ## 1. Executive Summary For Agents
 
-Rock security is not a single setting. It is an authorization system layered across people, user accounts, security roles, groups, pages, blocks, entity records, entity types, API endpoints, Lava, workflows, files, documents, mobile shells, and integration keys. Agents working in Rock should treat every access question as an evidence problem: identify the authenticated actor, identify the secured thing, identify the action verb, identify whether an explicit allow or deny exists, then identify the parent or fallback authority Rock will use when no direct rule exists.
+Rock authorization is evaluated for a specific person, action, and secured item. Access may depend on role membership, explicit item rules, inherited rules, parent entities, page and block security, data-level security, and the authenticated identity behind an API or automation. Never infer authorization from a visible menu, reachable route, hidden control, opaque identifier, or successful administrator test.
 
-The core operational object behind most permission work is the `Auth` record. A community security inspector recipe correctly frames many audits as inspection of `Auth` rows for a selected role and entity, while warning that a flat list of rows does not by itself prove inherited effective access ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)). This is the central distinction agents must keep clear:
+Use this operating sequence:
 
-- **Configured security** is what has been explicitly stored on an entity, page, block, role, person, or type.
-- **Effective security** is the result Rock returns after applying the actor, the requested action, direct rules, inherited rules, parent authority, role membership, person-specific rules, allow/deny ordering, default behavior, and version-specific code paths.
+1. Identify the exact person or integration identity.
+2. Identify the secured entity and requested action.
+3. Inspect direct and inherited permission rules in their evaluated order.
+4. Inspect every surrounding boundary, such as the page, block, parent application, content entity, endpoint, workflow, or API controller.
+5. Test with the intended identity, plus an unauthorized identity when exposure is possible.
+6. Record what was verified separately from what is merely configured or inferred.
 
-For most administrative tasks, the safest workflow is:
+Rock's developer guidance treats authorization as an action evaluated against a component, while the source implementation exposes the action vocabulary used by those checks. Use the fuller inspection procedure later in this guide to evaluate ordered direct and inherited rules for the exact identity, object, and action. [Rock Security developer guidance](https://community.rockrms.com/developer/303---blast-off/rock-security), [Authorization source snapshot](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs)
 
-1. Confirm the actor: person, user login, API key user, public/anonymous context, or workflow/system context.
-2. Confirm the secured object: page, block, group, report, data view, workflow type, document type, file type, REST endpoint, Lava endpoint, API tool, or model/entity record.
-3. Confirm the action verb: common verbs include `View`, `Edit`, `Administrate`, `Approve`, `Delete`, `ViewAll`, `Interact`, `Refund`, and `ManageMembers`, as shown in the Rock source constants ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-4. Inspect explicit security entries.
-5. Inspect inherited/parent authority.
-6. Test as the actual actor or with a reliable impersonation/test account.
-7. Document the exact entity, action, role/person, and reason for the change.
+For APIs, Lava, Helix, workflows, reporting, and AI tools, authentication is only the beginning. The execution surface must authorize the requested operation, validate inputs, preserve business rules, and return only the data required for the task. Rock's authorization implementation defines the action vocabulary and evaluation surface used by these checks. [Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [Helix Security](https://community.rockrms.com/developer/helix/overview/security), [Lava Commands](https://community.rockrms.com/lava/commands), [Authorization source snapshot](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs)
 
-Security roles in Rock are generally groups used for authorization. Do not assume that adding someone to a role only affects one screen. Role membership can affect pages, blocks, groups, reports, workflows, REST/API access, Lava-powered screens, and custom blocks. A community recipe about a non-finance admin role is useful because it highlights a common reality: administrators sometimes need broad administrative capability with targeted denies for sensitive domains, but this is not a complete containment strategy against a determined Rock administrator ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
+## Scope And Boundaries
 
-For developers, page and block visibility is partly handled by the framework, but action-level functionality inside a block must still be checked by code. Official developer guidance says blocks should use authorization checks before exposing or executing sensitive actions, and custom blocks can define additional verbs with security action metadata ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Customizing and Securing Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks)).
+This guide covers:
 
-For API work, agents must separate legacy REST access from newer v2 endpoint patterns. The REST API can use an authentication cookie or an authorization token/API key, while v17 introduced a v2 API pattern that is secure by default and requires explicit authorization when endpoints are secured ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)). Never expose API keys or Lava execution endpoints in client-side JavaScript. The Lava remote endpoint documentation specifically warns that exposing the endpoint plus key allows arbitrary Lava to be sent under the linked key’s authority ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
+- Security roles and item-level authorization.
+- Allow/Deny ordering and inherited security.
+- Login, user accounts, Account Protection Profiles, passwordless login, two-factor authentication, external providers, and login history.
+- REST authentication, identity-bound links, IdKeys, Lava APIs, and Helix endpoints.
+- Page, block, content-channel, personalization, Person Profile, note, communication, reporting, and background-check exposure.
+- Operational controls for workflows, mobile check-in, Sign-Ups, AI agents, and other permission-sensitive features.
+- Version-specific security behavior and release-note checks.
 
-For agents, the most important rule is: do not infer access from the UI alone. Inspect the live security record, inheritance path, role membership, and actual action being attempted.
+This guide does not define the underlying People, Groups, CMS, API, Workflow, Check-in, Communications, or Reporting features. It addresses their authorization and exposure boundaries. It also does not prove that a particular installation is secure. The supplied evidence includes bounded read-only verification of several structural surfaces, but no target installation was inspected while authoring this guide.
 
-## 2. Scope And Terminology
+Authentication, authorization, personalization, obscurity, and abuse prevention are different controls:
 
-This guide covers Rock RMS security and permissions as they appear in core administration, custom development, API integrations, Lava, workflows, reporting, mobile apps, and agent tools. It is written for agents doing real work in a Rock instance: troubleshooting a “permission denied” error, designing a role, auditing who can see sensitive data, reviewing a custom Lava screen, hardening a workflow, or verifying an API key.
+- **Authentication** establishes an identity.
+- **Authorization** determines what that identity may see or do.
+- **Personalization** selects content for an audience; it is not a security boundary.
+- **Opaque identifiers** make guessing harder; they do not authorize access.
+- **CAPTCHA** mitigates automated abuse; it does not replace authentication, authorization, validation, or rate limiting.
 
-### In Scope
-
-This guide includes:
-
-- Authorization records and action verbs.
-- Security roles and person-specific permissions.
-- Page, block, entity, and entity type security.
-- Parent authority and inherited permissions.
-- API key and REST authorization patterns.
-- v2 API endpoint authorization patterns.
-- Lava command and remote Lava security.
-- Workflow, document, file, report, group, and mobile security caveats.
-- Developer checks using Rock authorization APIs.
-- Operational guardrails and troubleshooting branches.
-- Agent task recipes for investigation and implementation.
-
-### Out Of Scope
-
-This guide does not fully cover:
-
-- General web application security theory.
-- Network perimeter controls, WAF configuration, or server patching.
-- Payment gateway security outside Rock permission implications.
-- Full OAuth provider implementation details beyond Rock Mobile references.
-- Exact database schema for every security-related entity where the source pack does not provide a model-map record.
-
-Where a field, table, or behavior must be confirmed in the instance, this guide says what to inspect.
-
-### Key Terms
-
-**Actor**
-The person or process attempting the action. In Rock this might be a logged-in person, anonymous visitor, API key user, staff user, security role member, workflow action, Lava-rendering context, or agent tool runner.
-
-**Secured Object**
-The item protected by authorization. Common examples are pages, blocks, groups, workflow types, data views, reports, document types, file types, content channel items, API endpoints, or custom tool definitions.
-
-**Action Verb**
-The named permission being requested. Rock source defines standard constants such as `View`, `ViewAll`, `Edit`, `Delete`, `Administrate`, `Approve`, `Interact`, `Refund`, and `ManageMembers` ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)). Some blocks or entities define custom verbs.
-
-**Authorization Rule**
-A configured allow or deny entry for a specific actor or role, action, and secured object.
-
-**Security Role**
-A group used as an authorization principal. Many out-of-box roles use names like `RSR - Staff Workers`, `RSR - Staff Like Workers`, and `RSR - Rock Administration`, as reflected in release-note security hardening for workflow types ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-**Effective Permission**
-The final answer Rock returns after evaluating direct security, inherited security, actor identity, role membership, action verb, and fallback rules.
-
-**Parent Authority**
-The upstream secured object used when the current object has no direct security rule for the requested action. The developer security page identifies “Entity Parent Authority” as a core Rock security concept ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)).
-
-**IdKey**
-A shorter identifier designed to avoid exposing raw integer IDs in public-facing URLs and model-facing outputs. Rock developer guidance recommends IdKey for v14+ Obsidian public-facing blocks and agent tools ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-
-**PersonActionIdentifier**
-A token concept for identifying a person for a particular action rather than for general security. The developer security page uses RSVP as an example of an action-bound identifier ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)).
-
-**Lava Commands**
-Extra Lava capabilities that must be enabled in specific contexts and may bypass normal security or business logic if misused ([Lava Commands](https://community.rockrms.com/lava/commands)).
+These distinctions are supported across Rock’s [security documentation](https://community.rockrms.com/documentation/core-concepts/security), [Rock Security developer guidance](https://community.rockrms.com/developer/303---blast-off/rock-security), and [v19 CAPTCHA documentation](https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha).
 
 ## 3. Security And Permissions Mental Model
 
-Rock authorization is best understood as a layered decision engine. The question is never simply “does Bob have access?” The precise question is:
+Evaluate access as a chain:
 
-> For this authenticated or anonymous actor, on this secured object, for this action verb, after direct rules and inherited rules are evaluated, is the result allow or deny?
-
-### The Actor Layer
-
-Start with identity. A permission check depends on who Rock believes is acting.
-
-For a web page, the actor is usually `CurrentPerson` derived from the authenticated session or anonymous context. For REST calls, the actor may be derived from a Rock authentication cookie or from an authorization token/API key ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)). For agent tools, the actor is the person who can run the tool, because Rock’s custom tool guidance says tool access inherits Rock security ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-
-When troubleshooting, agents should inspect:
-
-- Person record.
-- User login record.
-- Security role/group memberships.
-- API key association and key purpose, if relevant.
-- Elevated security level or impersonation-related settings, if relevant.
-- Whether the context is truly logged in or anonymous.
-- Whether the action is being executed by a workflow, scheduled job, Lava endpoint, or external integration.
-
-The source pack does not include a complete model-map record for `UserLogin`, API key storage, or auth token tables. In a live instance, inspect the Security area, the person profile Security tab, API key configuration pages, and the Model Map or database schema for exact table/field names before writing automation.
+`identity → role membership → secured entity → requested action → ordered direct rules → inherited rules → surrounding boundaries → data returned or mutation performed`
 
 ### The Object Layer
 
-The secured object must be identified precisely. A page and a block are not the same object. A file type and a document type are not the same object. A report page, report block, data view, and underlying entity rows are separate security surfaces.
-
-A common operational failure is changing the page permission while the block, report, data view, or entity type still denies access. Another common failure is granting access to a list screen without granting the user access to the detail page, workflow type, or entity record the list opens.
-
-This object-specific framing follows Rock's developer security model: secured entities can have their own authority, parent authority, and action checks, so agents must identify the exact securable object before changing rules ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)).
-
-Agents should ask:
-
-- Is the failing object a page, block, entity type, entity record, or API route?
-- Is a block rendering data from a more sensitive object?
-- Is the UI hiding a button, or is the server rejecting the action?
-- Is the permission configured on the child object or inherited from a parent?
-- Is the object a legacy WebForms block, Obsidian block, Lava app, Helix endpoint, or mobile block?
+The object layer identifies the specific securable item whose rules must be evaluated. Rock secures pages, blocks, workflows, entities, data views, financial accounts, and other concrete objects independently, so access to a containing page does not prove access to its block, workflow, entity, or returned data. For a diagnosis, resolve the exact object type and identifier, then inspect its own rules and the parent hierarchy from which it may inherit. Treat route visibility or a rendered control only as discovery evidence. Pages and blocks can impose separate checks, and workflows or entity records can add authorization boundaries after the page is already visible. [Intro to Security](https://community.rockrms.com/documentation/core-concepts/security/overview/intro-to-security), [Rock Security developer guidance](https://community.rockrms.com/developer/303---blast-off/rock-security)
 
 ### The Action Layer
 
-Authorization is action-specific. `View` does not imply `Edit`. `Edit` is often broader than the name suggests and may include adding or changing properties. `Administrate` controls configuration/security-level operations. Source constants and developer docs identify standard verbs including `View`, `Edit`, `Administrate`, and `Approve`; the source code adds others such as `ViewAll`, `Delete`, `Interact`, `Refund`, and `ManageMembers` ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
+The action layer identifies the operation being requested on that object. Common actions include View, Edit, and Administrate. An immutable public source snapshot also defines action names used in parts of Rock, including Delete, Approve, Interact, Refund, and ManageMembers; this is implementation evidence, not a promise that every entity exposes every action. Object authorization therefore answers which object is being secured, while action authorization answers what the current identity may do to it. [Intro to Security](https://community.rockrms.com/documentation/core-concepts/security/overview/intro-to-security), [Authorization source snapshot](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs)
 
-Agents must verify the actual verb being checked. A user may be able to view a group but not manage members. A person may access a communication detail page but not approve or cancel the communication. The Obsidian communication permission view models expose action-specific booleans such as approve and cancel capability, which illustrates how modern blocks often send explicit permission flags to the client ([CommunicationDetailPermissionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationDetail/CommunicationDetailPermissionsBag.cs), [communicationEntryAuthorizationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryAuthorizationBag.d.ts)).
+Most secured items inherit permissions from a parent unless direct rules are added. Direct rules are evaluated from top to bottom, and the first rule matching the current person determines the result. A broad Deny above a narrower Allow can therefore block the narrower role. The security editor identifies both item permissions and inherited permissions, including the parent supplying an inherited rule. [Handle Permissions](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions)
 
-### The Direct Rule Layer
+A correct result at one layer does not prove the complete operation is authorized. For example:
 
-Direct rules are explicit allow/deny entries on the secured object for a person or role. A flat `Auth` row inspection can answer “what direct rules exist?” but not always “what does Rock effectively allow?” A role permissions inspector recipe explicitly warns that its list of `Auth` records does not account for inheritance ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
+- A visible page does not prove its block, content item, or endpoint is authorized.
+- A hidden block does not prove its underlying endpoint is protected.
+- A successful administrator test does not prove the intended role has access.
+- A valid API credential does not prove the identity has permission for the controller or entity.
+- An IdKey does not replace server-side entity authorization.
+- A personalized content rule does not protect the underlying data.
+- A tool exposed to an AI agent is not safe merely because Rock recognizes the current person.
 
-When auditing direct rules, inspect:
+## Authorization And Security Roles
 
-- Entity type.
-- Entity ID or entity GUID.
-- Action.
-- Allow or deny.
-- Person-specific principal.
-- Group/security-role principal.
-- Special all-users or anonymous/public principals, if present.
-- Order/precedence fields where available.
-- Whether the target entity still exists.
+Use security roles as the normal unit of access. Rock permits individual Allow and Deny rules, but its official guidance favors roles because person-specific rules are harder to maintain and more prone to inconsistency. Plan role scope and naming before adding roles, and review the roles shipped with Rock before creating a parallel structure. Rock documents prefixes such as `RSR`, `APP`, and `WEB`; other groups can also be marked as security roles. [Intro to Security Roles](https://community.rockrms.com/documentation/core-concepts/security/security-roles/intro-to-security-roles), [Administering Security Roles](https://community.rockrms.com/documentation/core-concepts/security/security-roles/administering-security-roles)
 
-The source pack’s community dashboard recipe calls out practical data integrity problems: duplicate rules, orphaned rules pointing to deleted pages, user-specific vs role-based permissions, and rules for people who have left ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)). Treat that as an audit pattern, not as official core behavior documentation.
+Security roles also have an Elevated Security Level that contributes to a person’s Account Protection Profile. The documented values are None, High, and Extreme. Current v19 guidance recommends Extreme for new roles that provide access inside Rock, while organizations should verify how the resulting protection profile affects login, token, merge, and passwordless behavior before rollout. [Administering Security Roles](https://community.rockrms.com/documentation/core-concepts/security/security-roles/administering-security-roles), [Configure Security Settings](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings)
 
-### The Inheritance Layer
+When copying an existing access pattern, Rock can clone a security-role group together with its security configuration, but group members are not copied. Rename the clone, review its description and settings, and explicitly assign members only after validating its inherited privileges. [Cloning Security Role Groups](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/cloning-security-role-groups)
 
-Inheritance is where many wrong conclusions happen. Page and block security may inherit from parent pages or block/page context. Entity security may inherit from parent authority. Group security may be affected by group type and hierarchy. Reporting and workflow security may involve both the container and the underlying entity.
+### Permission evaluation
 
-A Page Security Visualizer recipe demonstrates the need to inspect a page/block tree and determine not only allow/deny but the ancestor from which the result came, while warning that complex security evaluation may have edge cases and that the recipe only covers common actions like `View`, `Edit`, and `Administrate` ([Page Security Visualizer](https://community.rockrms.com/recipes/441)).
+For each authorization question, capture:
 
-For agents, inheritance troubleshooting should be explicit:
-
-- If no direct rule exists, identify the parent authority.
-- If a direct rule exists but the observed behavior differs, inspect higher-level deny rules and custom code checks.
-- If a page is visible but a block is missing, inspect block security separately.
-- If a block appears but an action button is missing, inspect action-specific authorization in block code or block settings.
-- If a report shows too much data, inspect not only the page and block but also the data view, report, entity security, and Lava/SQL used by the block.
-
-### The Code Layer
-
-Rock’s framework handles some visibility checks, but developers must still secure internal actions. Official block guidance says the page framework can hide a block from users who cannot view it, but block code must check security before allowing other operations ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)). The quickstart shows the same pattern: check authorization before showing or wiring an Add action ([Customizing and Securing Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks)).
-
-The code layer includes:
-
-- C# block authorization checks.
-- Obsidian server-side permission bags.
-- Custom action verbs.
-- Lava filters such as `HasRightsTo`.
-- API endpoint attributes.
-- Workflow action code.
-- Helix endpoint validation.
-- Agent tool permission checks.
-
-### The Cache Layer
-
-Rock caches authorization information. The source pack includes `AuthorizationCacheConsumer`, which consumes authorization cache update messages and applies cache invalidation/update behavior ([AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs)). Agents should not overstate cache mechanics from a snippet, but operationally they should consider cache staleness when a permission change does not appear immediately.
-
-Inspect or try:
-
-- Whether the change was saved on the correct object.
-- Whether the user’s role membership is current.
-- Whether the user needs to log out/in.
-- Whether Rock cache needs to be cleared through supported admin tools.
-- Whether a multi-node environment is receiving cache update messages.
-- Whether the failing request is served by a different node or stale browser session.
-
-## 4. Source Authority And How To Use This Guide
-
-Use this guide as a synthesis, not as a replacement for live verification. The source pack includes official/developer documentation, release notes, RockU training pages, GitHub source snippets, and community recipes. These sources have different authority levels.
-
-### Highest Authority Sources
-
-Use these first:
-
-- **Rock source code snippets** for constants, available enums, cache classes, and view-model field names. Examples include `Authorization.cs`, `ApiKeyPurpose.cs`, and permission bag types ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs), [ApiKeyPurpose.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs)).
-- **Official developer docs** for supported patterns, especially block security, REST API auth, v2 API security, Lava command warnings, Helix security, and custom tool security ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns), [Lava Commands](https://community.rockrms.com/lava/commands), [Helix Security](https://community.rockrms.com/developer/helix/overview/security), [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-- **Release notes and tech bulletins** for version-specific security changes, especially v17.5, v17.8, v18.3, and v19.1 ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Medium Authority Sources
-
-Use these as contextual evidence:
-
-- **RockU training pages** for training topics and conceptual coverage. The source pack includes Group Security and Reporting Security pages, but only compact metadata was available ([Group Security](https://community.rockrms.com/rocku/groups/group-security), [Reporting Security](https://community.rockrms.com/rocku/reporting/reporting-security)).
-- **Mobile docs** for mobile-specific auth patterns and block caveats, including Auth0, Entra, Rock logins, and group finder behavior ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins), [Using Auth0](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-auth0), [Using Entra](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-entra), [Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-- **RockU training transcripts** for operational security review topics such as tag security. Treat these as training context: inspect tag type, tag configuration, visibility, and secured actions before assuming person-profile access controls all tag exposure ([Tag Security](https://community.rockrms.com/rocku/individuals-in-rock/tag-security)).
-- **Rock Cast security discussions** for operational framing, not authoritative implementation guidance. Episode 125 can help frame role, permission, release-note, and audit questions, but exact behavior must still be verified against docs, source, and the live `Auth` model ([Episode 125: Security](https://shows.acast.com/rock-cast/episodes/episode-125-security)).
-
-### Lower Authority But Useful Sources
-
-Use community recipes and third-party resources as examples, audit ideas, or cautionary patterns. Community recipes are explicitly not reviewed or endorsed by the Rock core team. They can be operationally useful but should not be treated as core behavior unless verified in code or official docs.
-
-Useful recipe-derived patterns include:
-
-- Listing direct `Auth` records by role ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
-- Visualizing effective page/block security with inheritance caveats ([Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-- Auditing duplicate/orphaned page and block rules ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)).
-- Designing deny-based non-finance admin roles with caution ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-- Avoiding reports or custom tabs that ignore security ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)).
-
-### How Agents Should Use This Guide
-
-For implementation:
-
-1. Use this guide to form the investigation path.
-2. Verify the live Rock version.
-3. Inspect the exact object and actor.
-4. Prefer official UI, Model Map, source, or read-only SQL to confirm fields.
-5. Make the smallest permission change that satisfies the task.
-6. Test with the actual actor or a controlled test account.
-7. Record the before/after security state.
-
-Use official developer docs and source constants as the baseline, then use community visualizer/inspector recipes only as audit aids because direct rows and page trees can miss inherited or code-level checks ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs), [Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-
-For generated code or custom tools:
-
-1. Use server-side permission checks.
-2. Avoid raw integer IDs in public/model-facing outputs.
-3. Treat Lava and SQL as privileged surfaces.
-4. Do not expose API keys, Lava templates, or admin-only endpoints to clients.
-5. Add migrations for default v2 API authorization when core functionality requires it.
-
-## 5. Core Configuration And Data Model
-
-Rock’s security model is implemented through configuration records, securable entities, security roles, login/authentication records, and code-level authorization checks. The source pack does not include a full Model Map export, so exact table/column names beyond source snippets and common entity names must be verified in a live instance before automation.
-
-### Core Configuration Areas
-
-Agents should expect to work in these areas:
-
-- **Admin Tools > Security > Security Roles** for role/group management, as referenced by the non-finance admin recipe ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-- **Security dialogs on pages, blocks, and list rows** for item-specific permissions.
-- **Person Profile > Security** for user logins and account-related settings. Mobile app review docs reference creating credentials from the profile Security tab ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)).
-- **API key configuration** for integrations, TV apps, mobile apps, remote Lava, and REST/API access.
-- **System Settings or Security Settings** for cookie/token behavior, account protection, and related global controls. A third-party release spotlight notes a v16.7 setting to reject security cookies older than a configured date; verify the exact setting name and availability in the live version ([GitHub Spotlight: 9/6/2024](https://www.triumph.tech/resources/github-spotlight-962024-2)).
-- **CMS Configuration** for sites, pages, blocks, mobile/TV applications, and app API keys. Apple TV and Roku docs identify application settings such as API key, page view tracking, and authentication page, but the hydrated excerpt is thin; verify the exact fields in the live application detail page ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)).
-- **Workflow Type, Document Type, File Type, Report, Data View, Group Type, and Group detail screens** for domain-specific security.
-
-### `Auth` Records
-
-Many Rock permissions are stored as authorization records. Community recipes around security inspection and dashboards focus on the `Auth` table/records as the operational source for explicit security entries ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243), [Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)).
-
-An `Auth` audit should verify:
-
-- Secured entity type.
-- Secured entity identifier.
-- Action.
-- Allow/deny value.
-- Principal type: person-specific or group/security-role.
-- Principal identifier.
-- Order/precedence, if present.
-- Whether the target entity still exists.
-- Whether the rule is inherited or direct.
-- Whether the current Rock version has known security migrations affecting the object.
-
-Do not assume a direct `Auth` list gives effective access. It can miss parent authority, inherited rules, custom code checks, or action-specific logic.
-
-### Authorization Constants
-
-The source code is the best authority for standard action constants in the provided pack. `Authorization.cs` defines `VIEW`, `VIEW_ALL`, `EDIT`, `DELETE`, `ADMINISTRATE`, `APPROVE`, `INTERACT`, `REFUND`, and `MANAGE_MEMBERS` among other security constants ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-
-Operational meaning:
-
-- `View`: display/read the object or its public properties.
-- `ViewAll`: broader viewing power that may override entity-specific restrictions in certain contexts; inspect code before relying on it.
-- `Edit`: modify the object or related editable properties.
-- `Delete`: separate delete control in places where delete is not simply edit.
-- `Administrate`: manage settings, security, or child configuration.
-- `Approve`: approve content, communications, prayer requests, ads, or similar approval workflows.
-- `Interact`: interaction permission, used by some content-style entities.
-- `Refund`: financial refund capability.
-- `ManageMembers`: manage group membership.
-
-If troubleshooting a custom block, inspect attributes such as `[SecurityAction(...)]` because custom verbs may exist ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)).
-
-### Security Roles As Groups
-
-Security roles are generally implemented through Rock group concepts. The source pack’s RockU Group Security page confirms security is a formal topic inside group training ([Group Security](https://community.rockrms.com/rocku/groups/group-security)). The non-finance admin recipe walks through creating a security role under Admin Tools > Security > Security Roles and adding a person to it ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-
-When working with roles, verify:
-
-- Whether the group is marked/used as a security role.
-- Current active members.
-- Whether membership is inherited through group type, parent group, or manual group membership.
-- Whether inactive, archived, or former staff remain in roles.
-- Whether person-specific rules exist that bypass the intended role model.
-- Whether a deny role is used to restrict a subset of admins.
-
-### Person, User Login, And Account Security
-
-A person record is not the same as a user login. A person may have multiple logins, no login, mobile credentials, or app-review credentials. The mobile app review guidance says app stores require active demo credentials and that these do not need special permissions ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)). That is a useful principle for all temporary/test accounts: use purpose-specific accounts with minimal access.
-
-For live verification, inspect:
-
-- Person profile Security tab.
-- User login records.
-- Login provider.
-- Account protection profile.
-- Elevated security level.
-- Personal token settings.
-- MFA/external auth settings, if installed/configured.
-- Security role/group membership.
-
-The check-in documentation notes that account protection profile can affect duplicate matching behavior in family pre-registration based on Security Settings ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)). This is a reminder that security settings can affect CRM workflows outside obvious permission screens.
-
-### API Keys And Purpose
-
-The source pack includes `ApiKeyPurpose.cs` and its Obsidian TypeScript equivalent, which identify that Rock tracks an intended purpose for API keys ([ApiKeyPurpose.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs), [apiKeyPurpose.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Security/apiKeyPurpose.ts)). The snippets do not include enum values, so verify values in source or the live UI before writing automation.
-
-Operationally, agents should treat API keys as identity-bearing credentials:
-
-- Every key should have an owner/use case.
-- The linked actor should have only the permissions needed.
-- Keys should not be embedded in public JavaScript.
-- Keys should be rotated when exposed.
-- Keys should be disabled or deleted when no longer used.
-- App-specific keys should be scoped by use and reviewed separately from general REST integration keys.
-
-### Document Type And File Type Security
-
-Release notes identify a high-severity issue fixed in v17.8: files uploaded through the Entity Document Add workflow action were not properly linked to the parent document, causing Rock to evaluate file type security instead of document type security. The fix links files correctly so document type security applies; default document types may copy security from paired file types if no security already exists, and document type list screens can display public-viewable warnings ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agents auditing documents must inspect:
-
-- Document Type security.
-- File Type security.
-- Binary file linkage to document.
-- Workflow action used to create/upload the file.
-- Rock version.
-- Whether built-in document types have inherited/copied security.
-- Whether any document type is publicly viewable.
-
-This is a high-risk area because a file may appear protected by one layer while another layer controls access.
-
-### Workflow Type Security
-
-Release notes for newer versions identify workflow type view permission hardening: several core workflow types that previously lacked explicit View permissions were restricted to staff-oriented roles and Rock Administration ([Release Notes](https://www.rockrms.com/releasenotes)). The source pack also includes a hotfix/migration snippet named `HardenCoreWorkflowSecurity`, which restricts view on core workflow types and adds `SanitizeSql` to certain out-of-box workflow SQL Lava expressions ([291_HardenCoreWorkflowSecurity.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs)).
-
-Agents working with workflow security should inspect:
-
-- Workflow Type View/Edit/Administrate permissions.
-- Workflow Activity and Action permissions, if exposed.
-- Workflow entry pages and blocks.
-- Entity attached to workflows.
-- Lava/SQL attributes in workflow action settings.
-- Whether workflows are public-entry workflows, staff workflows, or system workflows.
-- Version-specific hardening migrations.
-
-### Reporting And Data View Security
-
-RockU includes a Reporting Security training topic ([Reporting Security](https://community.rockrms.com/rocku/reporting/reporting-security)). The release notes also include an API bug fix in v17.5: a model’s `./DataView/{id}` endpoint checked permissions on the wrong entity, sometimes causing permission denied even when the person or API key had DataView permission ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-For agents, reporting security requires layered checks:
-
-- Data View security.
-- Report security.
-- Dynamic Data block/page security.
-- Underlying entity security.
-- API endpoint security when reports are exposed through API.
-- Lava/SQL used in dynamic blocks.
-- Whether a custom report bypasses security by querying directly.
-- Whether a recipe or custom page explicitly warns it ignores security, as the registrations tab recipe does ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)).
-
-## 6. Primary Entities And Relationships
-
-The source pack does not provide a full Model Map, so this section describes relationships at an operational level. Before writing SQL or migration code, verify exact entity names, table names, foreign keys, and property names in the live Model Map or source.
-
-### Person, UserLogin, Group, And Security Role
-
-A person is the human record. A user login is an authentication credential. A group can represent organizational membership, serving teams, families, small groups, or security roles. Security-role membership affects authorization.
-
-Rock's security docs and group-security training support this separation between authenticated actor, role/group membership, and authorization rules; source constants then define the actions being checked ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Group Security](https://community.rockrms.com/rocku/groups/group-security), [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-
-Common relationship pattern:
-
-- `Person` represents the individual.
-- `UserLogin` authenticates the individual.
-- `GroupMember` links the person to a group/security role.
-- Security role groups are referenced by authorization records.
-- A permission check evaluates the person and their relevant role memberships.
-
-Operational checks:
-
-- If a user cannot access something, confirm they have a login and are logged in as the expected person.
-- If a person has multiple duplicate records, confirm which person owns the login.
-- If a role assignment seems ineffective, confirm the group membership is active/current.
-- If a former staff member retains access, inspect both security-role membership and user-specific auth entries.
-- If an API key is used, identify the person or account behind the key, not only the key label.
-
-### EntityType And Securable Entities
-
-Rock uses entity metadata to secure many object types. The developer security page references entity type security and entity parent authority ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)). An authorization record usually needs to know what type of thing it secures.
-
-Common secured entities include:
-
-- Page.
-- Block.
-- Group.
-- GroupType.
-- Report.
-- DataView.
-- WorkflowType.
-- DocumentType.
-- BinaryFileType/FileType.
-- ContentChannelItem.
-- Communication.
-- Financial objects.
-- Custom plugin entities.
-- API endpoints or endpoint-related objects in newer patterns.
-
-Live verification:
-
-- Inspect Entity Type for the secured object.
-- Confirm whether the object implements a securable interface or parent authority.
-- Confirm whether the UI security dialog is editing the object you think it is.
-- For custom entities, inspect source code for authorization methods and parent authority.
-
-### Page, Site, And Block
-
-A site contains pages. Pages contain blocks. Page security controls whether the page can be visited. Block security controls whether the block renders or can be administered. Block code can further check action-specific authorization.
-
-Developer docs state that a block does not need to hide itself for View access because the page framework handles that, but the block must check security for additional functionality ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)). The Page Security Visualizer recipe treats pages and blocks as a hierarchy and evaluates inherited effective permissions ([Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-
-Operational checks:
-
-- If the page returns access denied, inspect page View.
-- If the page loads but a section is missing, inspect block View.
-- If the block loads but a button is absent, inspect block action authorization and code.
-- If an admin cannot configure the block, inspect `Administrate`.
-- If content appears to the wrong audience, inspect both page/block security and data source security.
-
-### Group, GroupType, And Group Security
-
-Group security can apply to group detail screens, group finder results, member management, attendance, scheduling, and serving eligibility. The RockU Group Security topic confirms this area has dedicated training ([Group Security](https://community.rockrms.com/rocku/groups/group-security)). `ManageMembers` appears in source as a standard authorization action ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-
-A mobile Group Finder doc warns that returned groups matching filters do not account for user security and that the Lava template should use `HasRightsTo` as needed to check view permissions ([Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)). This is one of the clearest examples of why agents must not assume search results are security-filtered.
-
-Operational checks:
-
-- Group Type security.
-- Individual Group security.
-- Parent group inheritance.
-- Group member role permissions.
-- `View` for group visibility.
-- `Edit` for group edits.
-- `ManageMembers` for membership changes.
-- Attendance/scheduling permissions where separate.
-- Custom Lava templates that display groups.
-- Mobile or public group finder security filters.
-
-### Report, DataView, And Dynamic Data
-
-Reports and data views are often secured separately from pages. A user may be able to see a report page but not the data view, or a custom SQL/Lava page may expose rows without respecting data view/report permissions.
-
-Operational checks:
-
-- Report View/Edit/Administrate.
-- DataView View/Edit/Administrate.
-- Page and block View.
-- Dynamic Data block settings.
-- SQL command security and Lava command settings.
-- Entity permissions for underlying records.
-- Version-specific API endpoint behavior for DataView routes, especially v17.5 fix ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-### WorkflowType, Workflow, Activity, And Action
-
-Workflow Type security governs who can view, edit, administrate, or launch workflows depending on configuration. Workflow pages and blocks may add additional security. Workflows often run with system-like behavior and can execute SQL, Lava, communications, entity updates, and file operations, making them high-risk.
-
-Operational checks:
-
-- Workflow Type View/Edit/Administrate.
-- Workflow entry block/page security.
-- Workflow action settings.
-- Lava/SQL commands in workflow actions.
-- Entity context passed to workflow.
-- Scheduled job that launches workflows.
-- Release hardening affecting core workflow types ([Release Notes](https://www.rockrms.com/releasenotes), [291_HardenCoreWorkflowSecurity.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs)).
-
-### DocumentType, BinaryFileType, BinaryFile, And Document
-
-Document/file security is layered and version-sensitive. The v17.8 release note explains that workflow-uploaded files previously could be checked against File Type security rather than Document Type security because of missing parent linkage; after the fix, Document Type security is intended to control access ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-Operational checks:
-
-- Is the file a generic binary file or a document-linked file?
-- What Document Type applies?
-- What Binary File Type applies?
-- Was it created by workflow action?
-- Is the parent document linked?
-- Is the document type public viewable?
-- Did the instance run the v17.8+ migration/hotfix?
-
-### API Endpoints, Auth Clients, Claims, And Scopes
-
-The source pack shows Obsidian view-model files for auth claims, auth client list, and auth scope list, but not full docs on OpenID/OAuth configuration ([authClaimBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/AuthClaims/authClaimBag.d.ts), [authClientListOptionsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/AuthClientList/authClientListOptionsBag.d.ts), [authScopeListOptionsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Security/AuthScopeList/authScopeListOptionsBag.d.ts)). Agents should verify this area in the live UI and current docs before making changes.
-
-For API access, distinguish:
-
-- Legacy REST cookie/token auth.
-- API keys for apps and integrations.
-- v2 API endpoint security.
-- Auth clients/scopes/claims, if using modern auth features.
-- External identity providers like Auth0 or Entra for mobile login ([Using Auth0](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-auth0), [Using Entra](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-entra)).
-
-## 7. Common Security And Permissions Workflows
-
-### Grant A Staff User Access To A Page
-
-1. Identify the person and login.
-2. Identify the page by route, page title, or page ID.
-3. Inspect page `View` security.
-4. Inspect parent page security if no direct rule exists.
-5. Inspect each block on the page for `View`.
-6. Inspect action verbs needed inside the page, such as `Edit`, `Approve`, or `Administrate`.
-7. Add the user to an existing role if the access matches a durable staff responsibility.
-8. Avoid person-specific allows unless this is a temporary exception.
-9. Test as the user or controlled test account.
-
-This workflow follows Rock's page/block authorization model: page access, block visibility, and action-specific checks can be separate, and community visualizer patterns are useful for tracing inherited page/block rules ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-
-Do not grant `Administrate` just to make a page visible. `Administrate` can allow configuration and security changes.
-
-### Explain Why A User Can See A Page
-
-1. Confirm the user’s person record and role memberships.
-2. Inspect direct page `Auth` entries.
-3. Inspect inherited page rules up the page tree.
-4. Inspect whether a role allow applies.
-5. Inspect whether a person-specific allow applies.
-6. Inspect whether the page or block has public/all-user access.
-7. Inspect whether the user is in Rock Administration or another broad role.
-8. If the page contains sensitive data, inspect the block and underlying data source too.
-
-Community recipes focused on page/block security dashboards are useful audit ideas for this pattern, especially for duplicate/orphaned rules and role/user-specific rules ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol), [Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-
-### Create A New Security Role
-
-Use a role when multiple people share an ongoing responsibility. Do not create roles for one-off exceptions unless the exception is operationally meaningful.
-
-Implementation path:
-
-1. Define the responsibility in plain language.
-2. Define what the role should view, edit, administrate, approve, or manage.
-3. Define what the role must not see.
-4. Create the security role under the Security Roles area.
-5. Add a description explaining the role’s purpose.
-6. Add members.
-7. Apply permissions to pages, blocks, entity types, reports, data views, workflows, groups, document types, or API endpoints as needed.
-8. Test with a non-admin account.
-9. Document the role.
-
-For deny-based roles, be careful. The non-finance admin recipe demonstrates using a role to deny selected finance access while the person also has broad admin access, but it explicitly cautions that this is not a complete security boundary against a determined Rock admin ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-
-### Remove Access For Departed Staff
-
-1. Disable or remove the person’s user logins according to local policy.
-2. Remove from staff/security role groups.
-3. Search for person-specific `Auth` entries.
-4. Search for API keys linked to the person or account.
-5. Check workflow assignments, scheduled jobs, communication approvals, and integration ownership.
-6. Check mobile/app credentials if relevant.
-7. Confirm the person cannot log in.
-8. Confirm role membership cleanup did not remove access needed by active staff.
-
-A security dashboard recipe’s mention of rules tied to people who have left is a practical audit item ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)).
-
-### Secure A Custom Block
-
-Official developer guidance supports this pattern:
-
-1. Allow the framework to handle block `View` where appropriate.
-2. Use server-side authorization checks for action buttons, save operations, deletes, approvals, exports, or custom actions.
-3. Check both block-level permission and entity-level permission where the block acts on a specific entity.
-4. Use standard action constants from `Rock.Security.Authorization`.
-5. Define custom security verbs with `[SecurityAction(...)]` when the block has domain-specific actions.
-6. Return permission flags to Obsidian clients from the server rather than deciding sensitive access purely in TypeScript.
-7. Retest as a user with view-only access and as a user with edit/admin access.
-
-Developer docs show checking block authorization before exposing Add behavior and also checking entity authorization for a specific group ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Customizing and Securing Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks)).
-
-### Secure A Custom Lava Page
-
-1. Identify whether Lava commands are enabled.
-2. Identify whether the Lava queries data through entity commands, SQL, workflows, or REST.
-3. Check whether the page and block are secured.
-4. Add explicit `HasRightsTo` checks where a collection is not security-filtered.
-5. Avoid exposing raw IDs in URLs; prefer IdKeys or GUIDs for public routes.
-6. Avoid rendering hidden sensitive data into the page.
-7. Avoid client-side calls to remote Lava with exposed API keys.
-8. Test anonymous and low-privilege users.
-
-Lava command docs warn that commands can bypass built-in security and business logic and must be enabled intentionally per context ([Lava Commands](https://community.rockrms.com/lava/commands)). The mobile Group Finder doc warns its returned groups do not account for user security and advises checking rights in Lava as needed ([Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-
-### Secure A REST Integration
-
-1. Identify the endpoint.
-2. Identify auth method: cookie, authorization token/API key, or v2 API auth.
-3. Identify the linked person/account for the key.
-4. Grant the minimum role permissions to that account.
-5. Avoid using an administrator account.
-6. Avoid embedding keys in client-side code.
-7. Use HTTPS.
-8. Rotate keys after exposure or staff/vendor transition.
-9. Test exact read/write operations.
-10. Log or monitor integration use where possible.
-
-The REST API docs describe cookie and authorization-token access ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)). Remote Lava docs warn strongly against exposing API keys with client-side Lava calls ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-## 8. Authorization Deep Dive
-
-### Standard Actions
-
-The developer docs and source code establish the standard vocabulary. Commonly encountered actions include:
-
-| Action | Operational Use |
-| --- | --- |
-| `View` | See the page, block, entity, report, or object. |
-| `ViewAll` | Broader view override used in some code paths; verify exact behavior in source for the entity. |
-| `Edit` | Modify the object or create/update related content. |
-| `Delete` | Delete where delete is secured separately. |
-| `Administrate` | Change settings, security, or child configuration. |
-| `Approve` | Approve content, communications, prayer, ads, or similar items. |
-| `Interact` | Interact with certain content-style objects. |
-| `Refund` | Refund a financial transaction. |
-| `ManageMembers` | Manage group members. |
-
-Sources: developer block security docs and Rock source constants ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-
-### Custom Actions
-
-Custom block functionality should not overload `Edit` when a narrower action is needed. Official developer docs say custom action names can be defined by decorating a block with a security action attribute ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)).
-
-Use custom actions when:
-
-- A user can view/edit general data but should not approve.
-- A user can manage one operation but not another.
-- A block has sensitive exports.
-- A block performs external side effects.
-- A block launches workflows or sends communications.
-- A financial operation needs separate authorization.
-
-Agent checklist for custom action review:
-
-- Does the block define custom security actions?
-- Are those actions documented for admins?
-- Does server-side code enforce them?
-- Does UI hide buttons based on the same checks?
-- Is there a server-side guard even if a user posts directly?
-- Are migrations or default permissions needed?
-
-### Allow And Deny Strategy
-
-Rock supports granular allow/deny configuration. Use allows to grant normal access by role. Use denies sparingly for exception boundaries, especially when broad admin roles are involved.
-
-Deny-based design is appropriate when:
-
-- A broad role must be blocked from a narrow sensitive area.
-- A temporary or special exclusion is needed.
-- A sensitive domain like finance needs explicit separation.
-
-But denies can become difficult to reason about. Agents should document:
-
-- Why the deny exists.
-- Which broader allow it is counteracting.
-- Who owns review.
-- How to test it.
-- Whether it should expire.
-
-The non-finance admin recipe is a practical example of deny-based thinking with a strong caveat that broad administrators may still have ways to access data ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-
-### Person-Specific Permissions
-
-Person-specific rules can solve urgent cases but create long-term audit problems. Prefer role-based permissions unless the access is truly personal, temporary, or exception-based.
-
-Use person-specific entries only when:
-
-- The access is temporary and documented.
-- The person’s responsibility is unique.
-- There is no existing role and creating one would be misleading.
-- You set a review date.
-
-Audit person-specific entries regularly. Community dashboard examples call out user-specific vs role-based rules and rules for former staff as practical security health checks ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)).
-
-### Page And Block Security Order
-
-The developer security page identifies “Block Security Order” as a core security topic ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)). The source pack does not include the detailed order algorithm. Agents should not invent it. In live work, verify by inspecting:
-
-- Direct block rules.
-- Direct page rules.
-- Parent page rules.
-- User-specific rules.
-- Role-based rules.
-- Any deny entries.
-- The actual effective result through the UI or controlled test account.
-
-If effective behavior differs from expected behavior, inspect the Rock source for the current version or use a known-good page security visualizer only as a diagnostic aid, not as final authority ([Page Security Visualizer](https://community.rockrms.com/recipes/441)).
-
-### Entity Parent Authority
-
-Entity parent authority controls where Rock looks when the entity itself does not carry direct security. The developer security page lists it as a security concept ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)). Because exact parent authority varies by entity, agents must inspect the entity’s code, Model Map, or live security dialog.
-
-Examples of questions to ask:
-
-- Does a block inherit from the page?
-- Does a document file inherit from Document Type or File Type?
-- Does a content item inherit from content channel?
-- Does a group inherit from group type or parent group?
-- Does a workflow inherit from workflow type?
-- Does a report inherit from data view or page?
-- Does a custom entity implement a parent authority method?
-
-### Authorization Cache
-
-Authorization changes may involve cache updates. The source pack includes a cache consumer for authorization update messages ([AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs)). Agents should include cache in troubleshooting when changes do not apply.
-
-Operational branch:
-
-- If the UI still denies immediately after a change, re-check the saved rule.
-- If another user/session sees different behavior, check session/login state.
-- If a multi-node environment behaves inconsistently, inspect cache/message-bus health.
-- If a key/integration still has old access, rotate or disable the key and test a fresh request.
-- If a browser still shows stale UI, force refresh and re-login.
-
-Do not treat cache clearing as the first fix. It should follow evidence that the rule is correct and stale state is plausible.
-
-## 9. API Auth Deep Dive
-
-### Legacy REST API Authorization
-
-Rock’s REST API supports external applications and internal components. Official REST docs say authorization can be based on an HTTP cookie or an authorization token ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)).
-
-Cookie-based access generally means:
-
-- Authenticate with valid Rock user credentials.
-- Receive a Rock auth cookie.
-- Send the cookie with subsequent requests.
-- Authorization then acts as that user.
-
-Authorization-token/API-key access generally means:
-
-- Send the token/key in the required header.
-- Rock maps that credential to an authorized context.
-- Authorization depends on the permissions granted to the linked account/key context.
-
-Agents should verify the exact header names, endpoint routes, and authentication behavior in the live version before automating. The provided REST doc excerpt mentions `Authorization-Token`; remote Lava examples also show that header ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-### v2 API Pattern
-
-Rock v17 introduced a new v2 API pattern. The developer API patterns page says the v2 pattern is secure by default: secured endpoints do not allow execution until explicit authorization has been granted. If an out-of-box staff role needs a secured endpoint for Rock to function, the developer must add default permissions in a migration; if it is a third-party feature, leaving it denied by default may be correct ([API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)).
-
-Agent implications:
-
-- Do not assume new v2 endpoints are public.
-- If a new secured endpoint breaks staff functionality, check whether default auth migration exists.
-- If a plugin adds endpoints, inspect endpoint security.
-- If writing migration code, add only the required roles/actions.
-- Test with a non-admin staff account, not only Rock Administration.
-
-### API Keys
-
-The source pack includes API key purpose enum files but not full UI documentation. Treat API key purpose as a classification aid, not as proof of effective scope unless source/live UI confirms behavior ([ApiKeyPurpose.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs), [apiKeyPurpose.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Security/apiKeyPurpose.ts)).
-
-Operational rules:
-
-- Name keys by system and owner.
-- Use one key per integration.
-- Use low-privilege users/accounts.
-- Do not reuse staff personal accounts for integrations.
-- Do not expose keys in public JavaScript.
-- Rotate on vendor/staff changes.
-- Review keys during access audits.
-- Test key access to exact endpoints.
-
-### Remote Lava Endpoint
-
-Remote Lava is high risk. The Lava remote endpoint renders submitted Lava under the authority of the linked key/user. The docs warn that exposing the endpoint and key in browser-visible JavaScript allows users to submit arbitrary Lava with that authority and recommend avoiding that pattern in favor of server-side calls ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-Hardening checklist:
-
-- Use HTTPS only.
-- Do not call from public client-side JavaScript.
-- Use a narrowly permissioned key.
-- Restrict Lava commands.
-- Sanitize inputs.
-- Avoid templates that accept raw entity IDs.
-- Log usage.
-- Disable if not needed.
-- Rotate key if exposed.
-
-### Mobile And TV App API Keys
-
-Apple TV and Roku app docs reference application API key settings and related configuration such as page view tracking and authentication page ([Creating An App](https://community.rockrms.com/developer/apple-tv-docs/building-your-first-app/creating-an-app), [Roku Applications](https://community.rockrms.com/developer/roku-docs/getting-started/applications)). Hydrated excerpts are thin for those pages, so agents should inspect the live application detail page before changing fields.
-
-Questions to verify:
-
-- Which key does the app use?
-- What actor/permissions does that key have?
-- Is the key used only by the intended app?
-- Does the app expose authenticated content?
-- Is page view tracking enabled?
-- What authentication page is configured?
-- Are old app keys still active?
-
-### External Identity Providers: Auth0 And Entra
-
-Mobile docs include Auth0 and Microsoft Entra as login provider patterns. Auth0 docs describe a cloud identity platform and Rock Mobile configuration; Entra docs describe app registration, permissions, optional claims, and Rock Mobile configuration ([Using Auth0](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-auth0), [Using Entra](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/login/using-entra)).
-
-Agents should separate authentication from authorization:
-
-- Auth0/Entra proves identity or supplies claims.
-- Rock still needs to map identity to a person/login.
-- Rock permissions still decide what the person can do.
-- Missing claims can break login/account matching.
-- Overbroad external app permissions can expose identity data.
-- Demo/app-review logins should not have special permissions ([Rock Logins](https://community.rockrms.com/developer/mobile-docs/app-factory/rock-logins)).
-
-### API Auth Troubleshooting
-
-If an API request returns permission denied:
-
-1. Confirm the endpoint URL and version.
-2. Confirm auth method: cookie, token, v2 auth, OAuth/client, or anonymous.
-3. Confirm the request is HTTPS where required.
-4. Confirm the header name and value.
-5. Identify the linked person/account/key.
-6. Confirm that actor can perform the same action in the UI.
-7. Inspect endpoint security.
-8. Inspect entity/model security.
-9. Inspect DataView/Report security if the route uses reporting.
-10. Check release caveats, especially v17.5 DataView route permission fix ([Release Notes](https://www.rockrms.com/releasenotes)).
-11. Test with a deliberately low-privilege key and with an admin key to isolate authentication vs authorization vs endpoint behavior.
-
-## 10. Related Rock Areas: People, Groups, Api, Cms, Workflows
-
-### People
-
-Person security touches logins, account protection, impersonation, personal tokens, signals, badges, documents, workflows, and profile tabs.
-
-Person-profile customizations are especially risky because they often show consolidated data. A registrations tab recipe warns that its initial implementation does not account for registration template security, meaning restricted registrations could become visible through the custom tab ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)). Treat any custom person profile tab as a data-exposure risk until entity-level authorization is proven.
-
-Person security work should inspect:
-
-- Person profile page and block security.
-- Security tab visibility.
-- Signals block security.
-- Documents tab and document type security.
-- Badges and what data they reveal.
-- Registration/event custom tabs.
-- Workflows launched from the profile.
-- Person-specific auth entries.
-- User login status.
-- Account protection settings.
-
-A security signal notification recipe describes adjusting the Security tab and Signals block so staff could view signal notes and selected staff could add signals ([Notify Staff of New Security Signal](https://community.rockrms.com/recipes/494)). That is a useful pattern: separate view from add/edit and make the role boundary explicit.
-
-### Groups
-
-Group security affects ministries, serving teams, small groups, check-in groups, group scheduling, RSVP, attendance, and public group finders. The RockU Group Security topic confirms this area is a formal training area ([Group Security](https://community.rockrms.com/rocku/groups/group-security)).
-
-Critical group checks:
-
-- Group type security.
-- Group detail security.
-- Group member management.
-- Group attendance access.
-- Public group finder filtering.
-- Mobile group finder templates.
-- Whether returned group lists are security-filtered.
-- Whether `ManageMembers` is required.
-
-The mobile Group Finder doc is explicit that returned groups do not account for user security and recommends using `HasRightsTo` in Lava as needed ([Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)). Any public or mobile group finder should be reviewed for this.
-
-### API
-
-API security spans legacy REST, v2 endpoints, Lava render endpoints, app keys, TV/mobile apps, custom agent tools, and auth clients/scopes.
-
-Key principles:
-
-- Keys are credentials.
-- Endpoint security is separate from entity security.
-- v2 endpoints are secure by default when secured.
-- Remote Lava is especially dangerous if exposed.
-- API keys should be tied to low-privilege accounts.
-- Never test only as Rock Administration.
-
-Sources: REST API docs, v2 API patterns, remote Lava docs, and custom tool docs ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava), [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-
-### CMS
-
-CMS security includes sites, pages, blocks, content channels, content channel items, HTML blocks, Lava, shortcodes, and app shells.
-
-CMS checks:
-
-- Site/page hierarchy.
-- Page security.
-- Block security.
-- Content channel/item security.
-- HTML block Lava command settings.
-- Shortcode security and command enablement.
-- Public routes using raw IDs.
-- Obsidian block use of IdKey.
-- SecurityColumn availability in admin grids.
-
-The Obsidian `SecurityColumn` documentation describes a grid column that opens the standard security editor modal for an item, with properties such as item title and disabled field ([SecurityColumn](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn)). For admin tools, using the standard security editor is preferable to custom ad hoc permission UIs.
-
-### Workflows
-
-Workflows can create, update, query, notify, upload, and automate. They can be launched by users, blocks, jobs, entity triggers, or data views. This makes workflow security a core operational concern.
-
-Workflow checks:
-
-- Who can view the workflow type?
-- Who can launch it?
-- Who can edit/administer it?
-- What entity does it operate on?
-- Does it run SQL or Lava?
-- Does it upload documents/files?
-- Does it send communications?
-- Does it expose person data?
-- Are out-of-box workflow hardening migrations applied?
-
-Release notes and source snippets show workflow type view hardening and SQL/Lava sanitization work in newer versions ([Release Notes](https://www.rockrms.com/releasenotes), [291_HardenCoreWorkflowSecurity.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs)).
-
-## 11. Administration And Operational Guardrails
-
-### Least Privilege
-
-Grant the smallest durable role that allows the work. Avoid making staff Rock administrators because a page is missing. Avoid giving integration keys admin-level rights. Avoid person-specific allows when a role fits.
-
-The non-finance admin recipe is a useful cautionary example: broad admin rights with targeted denies can help in a narrow scenario, but it is not a complete containment boundary for a determined administrator ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181)).
-
-Least privilege checklist:
-
-- Does the actor need view, edit, approve, administrate, or manage members?
-- Can access be scoped to a page/block/entity rather than all admin tools?
-- Can access be granted through an existing role?
-- Is there a data domain boundary such as finance, safety, minors, counseling, or personnel?
-- Is the permission temporary?
-- Is there a review date?
-
-### Separation Of Duties
-
-Separate sensitive operations:
-
-- Finance viewing vs finance editing/refunds.
-- Communication drafting vs approval.
-- Group viewing vs member management.
-- Workflow launch vs workflow administration.
-- Document upload vs document viewing.
-- Security signal viewing vs signal creation.
-- API integration read vs write.
-
-Use custom action verbs where needed. Source constants include action-specific verbs like `Refund` and `ManageMembers`, and developer docs allow custom security actions ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs), [Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)).
-
-### Sensitive Domain Guardrails
-
-High-risk domains include:
-
-- Giving/finance.
-- Minors and check-in.
-- Safety/security signals.
-- Background checks and volunteer eligibility.
-- Counseling/care notes.
-- Documents and statements.
-- Workflows with SQL/Lava.
-- API keys and Lava endpoints.
-- Person profile custom tabs.
-- Public group finders.
-
-Community recipes illustrate several of these risks: finance admin separation, security signal visibility, volunteer safety indicators, and custom person registration visibility ([Add a Non-Finance Admin Security Role](https://community.rockrms.com/recipes/181), [Notify Staff of New Security Signal](https://community.rockrms.com/recipes/494), [Volunteer Capacity Indicator](https://community.rockrms.com/recipes/452), [Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)).
-
-### Temporary Access And Impersonation
-
-Impersonation is useful for debugging but risky. A community recipe describes temporarily changing elevated security level to allow impersonation and then restoring it via workflow; treat this as an example requiring careful review, not official policy ([Just in Time Impersonation](https://community.rockrms.com/recipes/337)).
-
-Temporary access guardrails:
-
-- Prefer test accounts.
-- Record who requested access and why.
-- Avoid broad admin if view-only is sufficient.
-- Set an expiration/review.
-- Restore settings after testing.
-- Do not use impersonation to bypass policy.
-- Disable personal tokens where policy requires.
-- Confirm elevated security level is restored.
-
-### Public And Anonymous Access
-
-Public access should be intentional. When a page, block, document type, group finder, Lava endpoint, or API route is public, agents must inspect what data can be reached by changing query strings, IDs, IdKeys, filters, and post bodies.
-
-Public access checklist:
-
-- Test anonymous.
-- Test with manipulated route parameters.
-- Use IdKeys/GUIDs instead of raw IDs where appropriate.
-- Check server-side authorization, not just hidden UI.
-- Inspect Lava templates for unguarded entity access.
-- Inspect API endpoints with curl/Postman-style direct calls.
-- Confirm no API key is visible in page source.
-- Confirm file/document types are not public unless intended.
-
-Helix docs warn that endpoints can be accessed outside the frontend and that users can modify parameters, so endpoints must be secured and inputs validated ([Helix Security](https://community.rockrms.com/developer/helix/overview/security)).
-
-### Lava Command Governance
-
-Lava command docs state commands can bypass built-in security and business logic and must be enabled where needed ([Lava Commands](https://community.rockrms.com/lava/commands)). This makes Lava command configuration a security boundary.
-
-Governance:
-
-- Maintain an inventory of blocks with enabled commands.
-- Limit SQL/entity commands to trusted staff/admin pages.
-- Do not enable commands broadly in Communication Entry unless required.
-- Review shortcodes that execute privileged logic.
-- Sanitize user-supplied values.
-- Avoid raw SQL in public contexts.
-- Use `HasRightsTo` where data is not security-filtered.
-- Review workflow Lava/SQL attributes after upgrades.
-
-### Security Audits
-
-Recurring audit checklist:
-
-- Security roles and members.
-- Rock Administration members.
-- Person-specific auth entries.
-- Public/all-user page/block/document rules.
-- Duplicate and orphaned auth records.
-- Former staff access.
-- API keys.
-- Remote Lava usage.
-- Workflow types with public view.
-- Document types marked public.
-- Data views/reports with sensitive data.
-- Public/mobile group finders.
-- Custom person tabs.
-- Lava command-enabled blocks.
-- Multi-node cache consistency, if applicable.
-
-Community recipes provide dashboard and visualizer examples for these audits, but agents should validate any recipe logic before relying on it ([Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol), [Page Security Visualizer](https://community.rockrms.com/recipes/441), [Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
-
-## 12. Developer, API, Lava, And Source-Code Landmarks
-
-### `Rock.Security.Authorization`
-
-Primary source-code landmark for standard action constants and authorization infrastructure. The snippet includes constants for common verbs and a cache key ([Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs)).
-
-Use it to verify:
-
-- Exact action names.
-- Whether a verb exists in core.
-- Whether a custom action name conflicts with core naming.
-- SameSite cookie-related settings, if inspecting auth cookie behavior.
-
-### `AuthorizationCacheConsumer`
-
-Source landmark for cache update handling. The snippet shows a consumer applying authorization cache update messages ([AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs)).
-
-Use it to understand:
-
-- Authorization cache updates are message-driven.
-- Stale permission behavior may involve cache/message-bus state.
-- Multi-node environments may require cache propagation checks.
-
-### Block Authorization APIs
-
-Official docs show:
-
-- `IsUserAuthorized(action)` for current block/user checks.
-- Entity `IsAuthorized(action, person)` checks for secured model objects.
-- Standard action names.
-- `[SecurityAction(...)]` for custom action verbs ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Customizing and Securing Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks)).
-
-Pattern:
-
-- UI visibility is not enough.
-- Server-side event handlers must re-check authorization.
-- Entity-specific operations need entity-specific checks.
-- Page checks can be used when page-level permission is the intended authority.
-
-### Obsidian Permission Bags
-
-Modern blocks often pass authorization flags to clients. The source pack includes communication detail and entry permission/authorization bags showing action-specific booleans such as approve, cancel, and edit states ([CommunicationDetailPermissionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationDetail/CommunicationDetailPermissionsBag.cs), [communicationDetailPermissionsBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationDetail/communicationDetailPermissionsBag.d.ts), [communicationEntryAuthorizationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryAuthorizationBag.d.ts)).
-
-Review questions:
-
-- Are permission flags computed server-side?
-- Are dangerous actions checked again on submit?
-- Does the client hide actions based on accurate flags?
-- Are flags named clearly enough for maintenance?
-
-### `SecurityColumn`
-
-Obsidian grids can use a standard `SecurityColumn` to open the security editor modal for a row item ([SecurityColumn](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn)). Use standard UI surfaces where possible, because custom permission editors are more likely to omit inheritance, disabled states, or entity titles.
-
-### API Patterns
-
-The v2 API pattern page is the key source for newer endpoint security. It says v2 endpoints are secure by default and need explicit authorization; core-required permissions should be added through migrations ([API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)).
-
-Review questions:
-
-- Is the endpoint v1/legacy REST or v2?
-- Is it decorated/secured?
-- Are default auth rules created in a migration?
-- Is the endpoint intended for third-party use?
-- Does the endpoint validate both auth and input?
-
-### Lava Commands
-
-Lava commands are privileged. The docs warn that commands can bypass built-in security/business logic and must be explicitly enabled in contexts such as HTML blocks and Communication Entry ([Lava Commands](https://community.rockrms.com/lava/commands)).
-
-Review questions:
-
-- Which commands are enabled?
-- Who can edit the block/template?
-- Is the page public?
-- Does the Lava use user-supplied parameters?
-- Does it check rights before displaying records?
-- Does it execute SQL or workflows?
-
-### Remote Lava
-
-Remote Lava renders submitted templates through an API endpoint and key. The docs warn against browser-visible JavaScript usage because endpoint/key exposure allows arbitrary Lava under that key’s authority ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-Review questions:
-
-- Is the endpoint enabled?
-- Is it restricted to HTTPS?
-- Where is the key stored?
-- Is any JavaScript exposing it?
-- What permissions does the linked key/user have?
-- Can it be replaced with server-side code?
-
-### Helix Endpoints
-
-Helix security docs warn that endpoints can be invoked externally and parameters can be modified; they recommend securing endpoints, validating inputs, and using IdKeys or GUIDs for query-string identifiers ([Helix Security](https://community.rockrms.com/developer/helix/overview/security)).
-
-Review questions:
-
-- Does the endpoint enforce server-side authorization?
-- Does it validate every parameter?
-- Does it use IdKey/GUID instead of raw ID?
-- Does it assume the frontend is the only caller?
-- Does it leak sensitive fields in responses?
-
-### Agent Tools
-
-Rock custom tool docs say every tool inherits Rock security and that public agents should only have tools safe for strangers. They also warn not to expose raw integer IDs to the model; use IdKey and convert internally ([Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools)).
-
-Tool review checklist:
-
-- Who can run the tool?
-- What Rock permissions does it rely on?
-- Does it expose raw IDs?
-- Does it return sensitive data?
-- Does it mutate data?
-- Is it safe for a public agent?
-- Are inputs validated?
-- Are outputs minimized?
-
-## 13. Reporting, Analytics, And Model Map
-
-### Reporting Security
-
-RockU includes Reporting Security as part of the reporting curriculum ([Reporting Security](https://community.rockrms.com/rocku/reporting/reporting-security)). The source pack excerpt does not include the full lesson, so agents should verify exact report/data view permission behavior in live Rock or official docs.
-
-Operational model:
-
-- A report can be secured.
-- A data view can be secured.
-- A page/block displaying the report can be secured.
-- The underlying entity may have security.
-- Custom SQL/Lava may bypass some of those layers unless explicitly coded.
-
-### Dynamic Data And SQL Reports
-
-Dynamic Data blocks can be powerful and dangerous. The registrations tab recipe explicitly warns that it does not account for registration template security and may show registrations even where templates are restricted ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)). This is the pattern to watch for whenever SQL/Lava joins bypass standard screens.
-
-Audit questions:
-
-- Does the SQL query enforce the same security as the standard UI?
-- Does the block filter by current person only where intended?
-- Does it expose hidden registrations, financial data, security notes, or documents?
-- Can route parameters be changed to view another person’s data?
-- Does the page use raw person IDs?
-- Does the current user have rights to every row returned?
-
-### DataView API Caveat
-
-Release notes for v17.5 describe a bug where a model’s `./DataView/{id}` endpoint checked permissions on the wrong entity and could deny access even when the person or API key had explicit DataView permission ([Release Notes](https://www.rockrms.com/releasenotes)). If an API DataView route behaves unexpectedly, verify Rock version before redesigning permissions.
-
-Troubleshooting branch:
-
-- If v17.5 or later: inspect DataView security and actor permissions.
-- If earlier than the fix: check whether the bug applies and whether an upgrade/hotfix is needed.
-- If using an API key: confirm explicit DataView permission on the key’s actor.
-- If a model endpoint is involved: inspect model/entity security too.
-
-### Model Map Use
-
-The prompt references Model Map, but the source pack does not include hydrated Model Map entries. For live work, use Model Map to confirm:
-
-- Entity class.
-- Table name.
-- Primary key.
-- Guid/IdKey availability.
-- Security-related navigation properties.
-- Parent authority behavior if documented.
-- Foreign key relationship from `Auth` records to target entity.
-- Whether the entity implements authorization.
-
-Do not invent fields. If a playbook says “query `Auth`,” first verify table and column names in the live Rock version.
-
-### Analytics For Security Health
-
-Useful security analytics include:
-
-- Count of public page/block rules.
-- Count of public document types.
-- Count of person-specific auth rules.
-- Count of inactive/former staff in security roles.
-- Count of API keys by purpose/owner.
-- Count of auth records pointing to deleted entities.
-- Duplicate direct rules for same entity/action/principal.
-- Workflow types with no explicit View security.
-- Data views/reports containing sensitive entity types.
-- Lava command-enabled HTML blocks.
-- Group finder pages that do not check rights.
-- Check-in security code volume for very large ministries.
-
-A Triumph resource warns that Rock will not allow a check-in security code to be reused within a day, and very large ministries using short codes can approach code-space limits, causing performance issues ([Heads Up: Check-in for Very Large Ministries](https://www.triumph.tech/resources/check-in-for-very-large-ministries)). This is a security-adjacent operational metric: code length and uniqueness policy affect both safety and performance.
-
-## 14. Version And Release Caveats
-
-### v14: IdKey In Public Obsidian Blocks
-
-Developer security docs say that starting with Rock v14 Obsidian blocks, IdKey can/should be used instead of raw IDs, especially in public-facing blocks ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)). Agents reviewing public routes should flag raw integer IDs for replacement or mitigation.
-
-### v14: Check-in Manager Delete Attendance Verb
-
-The check-in documentation notes that Rock 14.0 added a security verb controlling who can delete attendance from the Check-in Manager Roster ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)). If a staff user cannot delete attendance, inspect the specific check-in/attendance delete permission rather than broadly granting edit/admin.
-
-### v15: Fluid Lava Requirement For Some Community Security Tools
-
-The Page Security Visualizer recipe says it requires the Fluid Lava engine and will not work on DotLiquid ([Page Security Visualizer](https://community.rockrms.com/recipes/441)). If using community audit tooling, verify Lava engine/version first.
-
-### v16.7: Security Cookie Rejection Setting
-
-A Triumph release spotlight reports a v16.7 setting to reject security cookies older than a configured date, useful after login token misuse or sharing; users logged in before the date must re-login ([GitHub Spotlight: 9/6/2024](https://www.triumph.tech/resources/github-spotlight-962024-2)). Verify the exact setting name and current availability in the Rock instance before using it.
-
-### v17: v2 API Secure By Default
-
-The developer API patterns page says v17 introduced v2 API endpoints and that secured endpoints default to no access until explicitly authorized ([API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)). Plugin and custom endpoint work must include security review and migrations where appropriate.
-
-### v17.5: DataView Endpoint Permission Fix
-
-Release notes describe a v17.5 fix for model `./DataView/{id}` endpoints checking permissions on the wrong entity ([Release Notes](https://www.rockrms.com/releasenotes)). If a DataView endpoint denies access unexpectedly, verify whether the instance is before or after this fix.
-
-### v17.8: Document Upload Security Fix
-
-Release notes describe a v17.8 fix for Entity Document Add workflow action uploads not linking files to parent documents, causing File Type security to be used instead of Document Type security. The fix also copies security to built-in document types if no security was configured and surfaces public-viewable warnings ([Release Notes](https://www.rockrms.com/releasenotes)). Document security audits must account for this version boundary.
-
-### v18.3 And v19.1: Workflow Type View Hardening And Document Type Visibility
-
-Release note excerpts for v18.3 and v19.1 mention workflow type view hardening and document type view permission changes/public labels ([Release Notes](https://www.rockrms.com/releasenotes)). If an upgrade changes workflow visibility or document warnings, inspect release notes and tech bulletins before reverting security.
-
-### v18.3/v19.1/v20 Pre-Alpha Notes
-
-A Triumph GitHub spotlight mentions v18.3 document security fixes, v19.1 highlights, and v20 pre-alpha context ([GitHub Spotlight: 5/21/2026](https://www.triumph.tech/resources/github-spotlight-5212026)). Treat third-party spotlights as helpful release awareness, then confirm against official release notes or source.
-
-## 15. Implementation Playbooks
-
-### Playbook: Audit Who Can Administrate A Page
-
-1. Identify page route/title/ID.
-2. Inspect direct page `Administrate` rules.
-3. Inspect parent page inherited `Administrate`.
-4. Inspect block-level `Administrate` for blocks on the page.
-5. Resolve each role to active members.
-6. Resolve person-specific entries.
-7. Flag public/all-user admin rules immediately.
-8. Flag former staff, inactive users, and broad admin roles.
-9. Test with a non-admin account.
-10. Document final effective access and source of inheritance.
-
-Useful source patterns: page/block visualizer and security dashboard recipes ([Page Security Visualizer](https://community.rockrms.com/recipes/441), [Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol)).
-
-### Playbook: Build A Staff-Only Report Page
-
-1. Create or identify the Data View.
-2. Secure the Data View to the staff role that should use it.
-3. Create or identify the Report.
-4. Secure the Report.
-5. Create the page under the appropriate internal hierarchy.
-6. Secure page `View` to the staff role.
-7. Add the report/dynamic block.
-8. Secure block `View` and `Administrate`.
-9. Avoid SQL that bypasses entity security.
-10. Test as authorized staff, unauthorized staff, and anonymous.
-11. If exposed through API, test endpoint permissions.
-
-Source caution: custom report tabs can expose data if they do not account for underlying security ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)).
-
-### Playbook: Create A Public Group Finder Safely
-
-1. Identify group types and groups eligible for public display.
-2. Confirm which groups should be hidden.
-3. Configure page/block public access only as needed.
-4. Review block template.
-5. Add `HasRightsTo` checks where the returned group collection is not security-filtered.
-6. Avoid exposing private group attributes.
-7. Use IdKeys/GUIDs for detail links where possible.
-8. Test anonymous with changed filters and route parameters.
-9. Test hidden/private group IDs/IdKeys.
-10. Document public display rules.
-
-Source caveat: mobile Group Finder results do not account for user security by default ([Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-
-### Playbook: Harden A Workflow Type
-
-1. Identify workflow type and purpose.
-2. Classify as public-entry, staff, admin, or system.
-3. Inspect View/Edit/Administrate.
-4. Restrict View if workflow data contains sensitive values.
-5. Restrict Edit/Administrate to workflow admins.
-6. Inspect actions using SQL, Lava, entity updates, documents, communications, or web requests.
-7. Sanitize Lava-derived SQL values where applicable.
-8. Inspect workflow entry pages/blocks.
-9. Test launch and view behavior.
-10. Review version hardening notes.
-
-Sources: release notes and workflow hardening source snippet ([Release Notes](https://www.rockrms.com/releasenotes), [291_HardenCoreWorkflowSecurity.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs)).
-
-### Playbook: Review A Custom Lava/SQL Block
-
-1. Identify page and block.
-2. Inspect page/block security.
-3. Inspect enabled Lava commands.
-4. Identify all parameters: route, query string, form, person context.
-5. Identify all entities queried.
-6. Add or verify `HasRightsTo` checks.
-7. Sanitize user input.
-8. Avoid raw SQL in public contexts.
-9. Avoid direct person ID route exposure.
-10. Test unauthorized users and anonymous.
-11. Review output for hidden sensitive fields.
-
-Sources: Lava command warning and Rock architecture note that Lava authors may access data not available to the current person and must handle rights checks ([Lava Commands](https://community.rockrms.com/lava/commands), [Rock Architecture](https://community.rockrms.com/developer/developer-codex/coding-standards/rock-architecture)).
-
-### Playbook: Add A v2 API Endpoint
-
-1. Confirm endpoint belongs to the v2 API pattern.
-2. Decide whether it should be secured.
-3. Define the intended actor roles.
-4. Add server-side authorization.
-5. If core staff need it, add default permissions in a migration.
-6. If third-party only, leave denied by default until configured.
-7. Validate all input.
-8. Use IdKeys/GUIDs instead of raw IDs where possible.
-9. Test with no auth, low-privilege auth, intended auth, and admin.
-10. Document required permissions.
-
-Source: v2 API secure-by-default guidance ([API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns)).
-
-### Playbook: Rotate An Exposed API Key
-
-1. Identify where the key was exposed.
-2. Identify linked actor and permissions.
-3. Disable or revoke the old key.
-4. Create a replacement key only if the integration is still needed.
-5. Store key server-side.
-6. Remove browser/client exposure.
-7. Rotate credentials in dependent systems.
-8. Review logs for suspicious use.
-9. Reduce permissions if overbroad.
-10. Document the incident and owner.
-
-Source: REST/API key and remote Lava warnings ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-### Playbook: Review Document Security After Upgrade
-
-1. Confirm Rock version.
-2. Identify document types.
-3. Identify paired file types.
-4. Inspect View rules on built-in and custom document types.
-5. Check for public-viewable labels/warnings.
-6. Inspect workflow-created documents.
-7. Verify binary files are linked to parent documents.
-8. Test as unauthorized user.
-9. Compare file URL access vs document UI access.
-10. Update document type permissions before changing file type permissions if document type is intended authority.
-
-Source: v17.8 document upload/document type security fix ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 16. Troubleshooting Decision Tree
-
-### User Cannot See A Page
-
-1. Is the user logged in as the expected person?
-2. Does the person have an active login?
-3. Is the page route correct?
-4. Does the page have direct `View` security?
-5. Does a parent page deny or allow?
-6. Is the user in the allowed role?
-7. Is there a deny rule for the user or role?
-8. Does the page load but block is hidden?
-9. Does the site require a different context?
-10. Is authorization cache/session stale?
-
-Check page and block authorization separately, then inspect inherited rules with a visualizer-style page tree if the direct rule does not explain the result ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Page Security Visualizer](https://community.rockrms.com/recipes/441), [AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs)).
-
-If the page loads for admins only, do not immediately add the user to Rock Administration. Identify the missing `View` rule.
-
-### User Can See Page But Not Button
-
-1. Identify the button action.
-2. Inspect block action security.
-3. Inspect custom security verbs.
-4. Inspect entity-specific permission for the row/object.
-5. Inspect server-side permission bag if Obsidian.
-6. Test direct submit/post if possible.
-7. Confirm the block code checks `IsUserAuthorized` or entity `IsAuthorized`.
-
-Source pattern: developers must check action-level permissions inside blocks ([Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks)).
-
-### User Can See Too Much Data
-
-1. Identify where data comes from.
-2. Is it a standard block, SQL, Lava, report, or API?
-3. Does the data source enforce security?
-4. Does the custom template use `HasRightsTo`?
-5. Are route/query parameters changeable?
-6. Are raw IDs exposed?
-7. Does the user have broad role access?
-8. Is a person-specific allow present?
-9. Is the data public because page/block is public?
-10. Does a recipe/customization warn it ignores security?
-
-Source caution: custom registration tab can expose restricted registrations if not security-aware ([Registrations Tab on Person Profile](https://community.rockrms.com/recipes/344)).
-
-### API Key Gets Permission Denied
-
-1. Confirm key is active.
-2. Confirm correct header.
-3. Confirm endpoint URL/version.
-4. Identify linked actor.
-5. Test actor’s UI permission.
-6. Inspect endpoint security.
-7. Inspect entity/data view/report security.
-8. If v2 endpoint, confirm explicit authorization exists.
-9. If DataView route, check v17.5 caveat.
-10. If remote Lava, confirm HTTPS and command/security settings.
-
-Sources: REST API, v2 API, and DataView endpoint fix ([The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns), [Release Notes](https://www.rockrms.com/releasenotes)).
-
-### API Key Works But Should Not
-
-1. Disable key if exposure is active.
-2. Identify linked actor and roles.
-3. Inspect endpoint security.
-4. Inspect broad role permissions.
-5. Inspect `ViewAll`, admin, or entity type security.
-6. Inspect remote Lava or custom endpoint bypass.
-7. Rotate key.
-8. Recreate with least privilege.
-9. Move key out of client-side code.
-10. Review logs.
-
-Source warning: remote Lava with exposed key allows arbitrary Lava under that key’s authority ([Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
-
-### Workflow Visible To Wrong Users
-
-1. Inspect Workflow Type View.
-2. Inspect workflow list/detail page security.
-3. Inspect block security.
-4. Inspect role memberships.
-5. Check upgrade version and hardening migrations.
-6. Confirm no public/all-user rule.
-7. Inspect workflow data sensitivity.
-8. Restrict View to staff/admin roles as appropriate.
-
-Source: workflow type view hardening release notes ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Document Or File Visible To Wrong Users
-
-1. Identify file/document URL.
-2. Determine whether it is linked to a Document.
-3. Inspect Document Type security.
-4. Inspect Binary File Type security.
-5. Check whether workflow uploaded it.
-6. Confirm Rock version relative to v17.8 fix.
-7. Test as anonymous and low-privilege user.
-8. Fix document type permissions if document type is intended authority.
-9. Fix file type permissions if generic binary file exposure is involved.
-
-Source: document workflow upload security fix ([Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Group Finder Shows Private Groups
-
-1. Identify group finder block and platform.
-2. Inspect group selection/filter settings.
-3. Inspect group/group type security.
-4. Inspect template.
-5. Add `HasRightsTo` check if returned groups are not security-filtered.
-6. Remove sensitive attributes from output.
-7. Test anonymous and low-privilege users.
-8. Test direct detail links.
-
-Source: mobile Group Finder caveat ([Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder)).
-
-### Permission Change Did Not Apply
-
-1. Confirm the rule was saved.
-2. Confirm it was saved on the correct entity.
-3. Confirm action verb.
-4. Confirm role membership.
-5. Confirm user logged out/in if membership/session is stale.
-6. Check direct deny rules.
-7. Check inheritance.
-8. Check cache/message-bus state in multi-node environments.
-9. Check custom code path.
-10. Test with another controlled account.
-
-Source: authorization cache consumer source snippet ([AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs)).
-
-## 17. Agent Task Recipes
-
-### Recipe: Answer “Who Has Access To This?”
-
-Return:
-
-- Secured object.
-- Action verb.
-- Direct allows.
-- Direct denies.
-- Inherited source.
-- Effective roles.
-- Effective people, if needed.
-- Person-specific exceptions.
-- Public/all-user access.
-- Unknowns requiring live test.
-
-Do not answer from direct `Auth` rows alone unless the question is explicitly “what rules are configured?” The role inspector recipe warns direct rows do not account for inheritance ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
-
-### Recipe: Answer “Why Was I Denied?”
-
-Return:
-
-- Actor identified.
+- Person or integration identity.
+- Entity type and entity ID or GUID.
 - Requested action.
-- Object identified.
-- Direct rule result.
-- Inherited rule result.
-- Role membership state.
-- Version caveat checked.
-- Next remediation.
+- Direct permission rules in order.
+- Inherited rules and their source.
+- Relevant role memberships.
+- Additional parent or child entities that may impose a separate check.
 
-Do not stop at direct `Auth` rows: Rock security includes inherited authority and code-level action checks, and the role inspector recipe explicitly warns that direct row listings do not account for inheritance ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
+Use `Admin Tools > Settings > Inspect Security` to evaluate a person against an entity type and entity ID or GUID. The result can identify the source of the effective permission, including an inherited parent. Rock also provides an administrative unlock operation for accidental self-lockout; treat that as a recovery control, not a substitute for understanding the rule chain. [Inspect Security](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security), [Handle Permissions](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions)
 
-Example shape:
+### Auditing changes
 
-```markdown
-The denial is for `Edit` on the Group Detail block, not for `View` on the page. The user can load the page through role `X`, but the block does not grant `Edit`, and the group entity also does not grant `Edit`/`ManageMembers`. Add the user to the group manager role or grant the role `ManageMembers` on the target group/group type, then retest as that user.
-```
+The Security Change Audit records changes to an item’s permission rules, including rules assigned directly to a person or to a role. It does not record adding or removing a person from a security role. When investigating a changed outcome, review both the item audit and the relevant role membership history or current membership through an appropriate separate process. [View the Security Change Audit](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit)
 
-### Recipe: Review A Permission Change Request
+## Login, Accounts, And Protection Profiles
 
-Before making changes, classify:
+A Rock user account authenticates a person and connects that identity to the pages, tools, and information available to them. Authentication success does not itself grant authorization; effective access still depends on secured items and role membership. [Intro to User Accounts](https://community.rockrms.com/documentation/core-concepts/security/user-accounts/intro-to-user-accounts), [Intro to Login and Authentication](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/intro-to-login-and-authentication)
 
-- Is this access temporary or durable?
-- Does an existing role match?
-- Does the requested action require View, Edit, Administrate, Approve, Delete, Refund, or ManageMembers?
-- Is the data sensitive?
-- Is there a lower-scope object?
-- Does this require workflow/report/API changes too?
+Account Protection Profiles influence safeguards for people whose access is more sensitive. Current documented settings include controls for duplicate checking, predictable file identifiers, protected-record merges, personal tokens, two-factor authentication, passwordless throttling and session duration, disabling passwordless sign-in for selected profiles, and rejecting older authentication cookies. Some security settings intentionally favor account protection over duplicate prevention. [Configure Security Settings](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings)
 
-Then implement the smallest change and test.
+If an impersonation token or similar sensitive credential may have been exposed, changing the cookie-rejection cutoff alone does not disable the token. Follow the current incident guidance, revoke the relevant capability, reject affected sessions where appropriate, and notify affected stakeholders according to organizational policy. [Configure Security Settings](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings)
 
-### Recipe: Review A Custom Agent Tool
+### Passwordless login and 2FA
 
-Use Rock’s custom tool guidance:
+Passwordless login in the documented Obsidian Login and Account Entry blocks uses email links or SMS codes. It depends on working communication configuration, block settings, selected templates, IP throttling, session duration, and Protection Profile restrictions. Shared family email addresses can also produce a person-selection step. [Use Passwordless Login](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-passwordless-login)
 
-- Confirm who can run the tool.
-- Confirm tool security before attaching to an agent.
-- For public agents, include only stranger-safe tools.
-- Do not return raw integer IDs to the model; use IdKey and convert internally.
-- Validate input.
-- Avoid exposing sensitive fields.
-- Re-check permissions server-side before mutation.
+Rock’s documented 2FA flow uses email or SMS as an additional step and is enabled by Protection Profile. It requires the related communication configuration. People using passwordless login who are also subject to 2FA must establish a traditional username and password. Built-in external providers such as Google and Facebook do not satisfy Rock’s documented 2FA flow; enabling 2FA while the Login block hides database login and redirects directly to one external provider can lock users out. [Two-Factor Authentication](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication)
 
-Source: [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools).
+The Obsidian Login block can also send confirmation when a protected person uses an unrecognized browser. The feature is disabled until Account Protection Profiles are selected in the block settings, and its recognition cookie is documented as expiring after a year while being renewed on login. [Register on an Unrecognized Browser](https://community.rockrms.com/documentation/core-concepts/security/user-accounts/register-for-an-account-on-an-unrecognized-br)
 
-### Recipe: Review A Public Route
+### External authentication and OIDC
 
-Inspect:
+After a fresh installation, the Rock database provider is the active authentication provider. Additional providers must be configured and activated, then enabled on the relevant Login blocks. Provider configuration can include callback URLs, client identifiers, client secrets, requested scopes, and provider-side review. Protect those credentials and validate every configured login route rather than assuming activation affects all Login blocks. [External Authentication](https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/intro-to-external-authentication), [Google Authentication](https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-google-authentication), [Auth0 Authentication](https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/set-up-auth0-authentication)
 
-- Route parameters.
-- Raw IDs vs IdKeys/GUIDs.
-- Page View.
-- Block View.
-- Entity-specific authorization.
-- Lava commands.
-- API calls in browser.
-- File/document links.
-- Query string manipulation.
-- Anonymous test.
-- Low-privilege authenticated test.
+Rock can also act as an OpenID Connect authorization server so an external client can rely on Rock-authenticated identity. Keep the server/client distinction explicit and verify client configuration, requested scopes, redirect behavior, and installed-version fixes. Rock v19.4 release notes include an OIDC authorization fix involving the `openid` scope and returned ID token. [Intro to OpenID Connect](https://community.rockrms.com/documentation/core-concepts/security/rock-authentication/intro-to-openid-connect), [Rock release notes](https://www.rockrms.com/releasenotes)
 
-Sources: IdKey guidance, Helix security, and remote Lava warnings ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Helix Security](https://community.rockrms.com/developer/helix/overview/security), [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)).
+### Login investigation
 
-### Recipe: Review A Security Role
+Use `Admin Tools > Settings > Security > Login History` for successful and unsuccessful attempts. The Person Profile History tab provides a person-scoped view. Documented statuses include verification required, unconfirmed user, user not found, invalid credentials, password change required, locked out, and invalid OIDC client. Use the recorded failure reason before changing credentials, providers, or protection settings. [Use Login History](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history)
 
-Return:
+## API Authentication And Identity-Bound Links
 
-- Role name.
-- Purpose/description.
-- Active members.
-- Former/inactive members.
-- Direct auth entries.
-- Sensitive domains granted.
-- Deny rules.
-- Person-specific overlaps.
-- API keys or workflows depending on the role.
-- Recommended cleanup.
+Rock REST requests require authorization. The approved official claim identifies two supported approaches: an HTTP cookie associated with an existing Rock user session or an `Authorization-Token` that accompanies subsequent API requests. The authenticated identity must still have permission for the requested API surface and data. [The Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) (approved claim `claim:2cb25390d2b5f4ffeb6f`)
 
-Use direct `Auth` listing as a starting point, not final effective access ([Security Role Permissions Inspector](https://community.rockrms.com/recipes/243)).
+Before diagnosing or changing an integration, identify:
 
-### Recipe: Review After Upgrade
+- Exact controller and route.
+- HTTP method and whether the operation reads or writes.
+- Authenticated person, session, or REST key.
+- Entity and action being authorized.
+- Direct and inherited grants.
+- Token storage, transmission, rotation, and revocation expectations.
+- Installed Rock version and applicable release notes.
+- Readback or rollback method for writes.
 
-Check:
+Do not broaden a role merely because a request returns `401`, `403`, or a permission message. First separate missing authentication from insufficient authorization, invalid route or method, version-specific defects, and entity-level restrictions.
 
-- Release notes for the exact version.
-- Workflow type view changes.
-- Document type/file type changes.
-- API endpoint behavior changes.
-- Security cookie/token settings.
-- New action verbs.
-- Lava/shortcode deprecations.
-- Public-viewable warnings.
-- Custom recipes relying on old behavior.
-- AI assistant boundaries. Triumph's AI ministry discussion is useful public training context: AI can assist ministry work, but data boundaries, staff review, and live-system verification govern what an agent should see or do ([AI in Digital Ministry](https://www.triumph.tech/resources/ai-in-digital-ministry)).
+Rock v17.5 fixed a REST issue where a model’s `DataView/{id}` endpoint checked permissions on the wrong entity, sometimes denying a person or API key that had explicit DataView permission. If this symptom appears on an older installation, compare the installed version with that fix before rewriting the permission model. [Rock release notes](https://www.rockrms.com/releasenotes)
 
-Sources: [Release Notes](https://www.rockrms.com/releasenotes), [GitHub Spotlight: 9/6/2024](https://www.triumph.tech/resources/github-spotlight-962024-2), [GitHub Spotlight: 5/21/2026](https://www.triumph.tech/resources/github-spotlight-5212026).
+For public-facing Obsidian blocks beginning with Rock v14, use IdKeys rather than exposing predictable numeric entity IDs in URLs. An IdKey only reduces exposure of sequential identifiers: the server must still validate the referenced entity and authorize the caller. [Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security) (approved claim `claim:751d703f1c8d30a9db1e`)
 
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
+A `PersonActionIdentifier` identifies a person for one bound action, such as an RSVP. It is not a general-purpose login credential or authorization token and must not be accepted for unrelated operations. [Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security) (approved claim `claim:9734cd32fce9f8e7c221`)
 
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
+A reviewed community pattern recommends PATCH rather than PUT when an API v2 integration owns only a subset of an entity, followed by non-production testing and field-scoped readback. This is a community implementation pattern that still requires validation against the installed API documentation, endpoint semantics, and Model Map; the pack does not establish it as universal endpoint behavior. [Community API v2 pattern](https://community.rockrms.com/api-docs)
 
-- Approved claims routed to this concept: `63`
-- Full generated claim table: `approved-claims.md`
+## CMS, Content, Personalization, And Lava
 
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | Rock's PersonActionIdentifier identifies a person only for a specific bound action, such as RSVP, rather than functioning as a general-purpose authentication or authorization token. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
-| official | behavior | Rock evaluates an item's ordered Allow and Deny permission rules from top to bottom and applies the first rule matching the current person, so a broad deny placed above a narrower allow can block the narrower role. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
-| official | behavior | The Security Change Audit records changes to an item's permission rules, including role rules or direct user rules, but it does not record adding or removing a person from a security role. | [source](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit) |
-| official | configuration | Rock REST API requests require authorization; supported approaches include an HTTP cookie tied to an existing Rock user session or an `Authorization-Token`, which must accompany subsequent API requests. | [source](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
-| official | configuration | Creating a top-level Sign-Up group requires Edit permission on both the Project Type group attribute and the Sign-Up Groups block, in addition to the permissions needed to manage the project or its attendees. | [source](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) |
-| official | implementation_pattern | Rock Mobile documentation marks which Lava filters can run locally in the shell; in XAML-producing Lava, escape user-entered text, URLs, and other strings that may contain characters such as `&` or `'`. | [source](https://community.rockrms.com/developer/mobile-docs/essentials/lava) |
-| official | implementation_pattern | For public-facing Obsidian blocks beginning with Rock v14, IdKey is preferred over exposing numeric entity IDs in URLs, but the server must still authorize and validate the referenced entity. | [source](https://community.rockrms.com/developer/303---blast-off/rock-security) |
-| official | operational_guidance | The Inspect Security page can show the source of a person's effective permission for a selected entity type and entity ID or GUID, including the parent from which an inherited rule originates. | [source](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions) |
-| official | operational_guidance | Lava tools should return structured AgentToolResult values and use the dedicated filters for instructions, compact history content, metadata and Rock reference routes. Parameters should be explicit and sanitized, and the built-in tool logs should be used to inspect calls, inputs and results during debugging. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Prompt context is layered across Rock's core prompt, organization prompt, agent instructions, skill instructions and current-person context. The practical guidance is to keep each layer concise, add instructions only when testing shows they are needed and pass IdKeys rather than raw integer identifiers. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | Custom tools should use clear verb-and-entity names and intentionally shaped result types such as Lookup, List, Get, Summary, Insights, AvailableAttributes and AddOrUpdate. Tool names, parameters and bounded result shapes help the model choose correctly and avoid filling its context window with unnecessary data. | [source](https://www.youtube.com/watch?v=UvW68dZBcJ8) |
-| official | operational_guidance | The summit's SQL-based Lava examples were intentionally simplified teaching examples. Production tools should prefer cache objects or entity commands when appropriate, return only needed fields, enforce authorization and consider business logic and query cost before choosing SQL. | [source](https://www.youtube.com/watch?v=dpYJiOAiJYM) |
-| More |  | 51 additional approved claims are tracked in `approved-claims.md`. |  |
+### Pages and blocks
 
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
+Adding a page or block changes both navigation and authorization. Before publishing, inspect the site, page hierarchy, route, block type, zone, direct security, and inherited security. When a page is missing or unexpectedly exposed, test the exact user context and compare parent-page, page, and block security instead of treating the route as the only boundary. [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy) (approved claims `claim:39735f6a8684f32d8191` and `claim:09bc1e14a8ad2c40145e`)
 
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
+Content Channel View pages are both presentation and data-exposure surfaces. Lists can reveal titles, dates, attributes, and detail links. Audit the channel, item, block, page, route, and Lava template together. Hiding an item in one rendering path does not prove it is unavailable through another configured view or detail route. [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view) (approved claims `claim:49453ea8932cdc4b0736` and `claim:d5d56ebc6176db44cbc`)
 
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
+Personalization conditionally selects content based on an audience rule and person state. It is not authorization. Diagnose personalized output by checking the rule, person data used by the rule, fallback content, cache behavior, and exact authenticated or anonymous state; independently secure the page, block, and underlying entity. [Personalization](https://community.rockrms.com/rocku/cms/personalization) (approved claims `claim:64100db2b5d60396b9fd` and `claim:95e015e3407ed10e9e7c`)
 
-- Approved media records routed to this concept: `35`
-- Full generated media table: `approved-media.md`
+### Advanced HTML and Lava commands
 
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Advanced HTML Block Transcript Insight](https://community.rockrms.com/rocku/cms/advanced-html-block) | approved_for_public_distillation | 2 | media-insight:2cf056c2b84e6365 |
-| [Assessments - Emotional Intelligence (EQ) Transcript Insight](https://community.rockrms.com/rocku/individuals-in-rock/assessments-emotional-intelligence) | approved_for_public_distillation | 2 | media-insight:2d198493692adb6c |
-| [Attendance Self-Entry Transcript Insight](https://community.rockrms.com/rocku/check-in/attendance-self-entry) | approved_for_public_distillation | 3 | media-insight:1fb05cc8930bc9e2 |
-| [BI Embed Report Transcript Insight](https://community.rockrms.com/rocku/business-intelligence-bi/bi-embed-report) | approved_for_public_distillation | 3 | media-insight:5fc8b3a315612c59 |
-| [Check-in Celebrations Transcript Insight](https://community.rockrms.com/rocku/check-in/check-in-celebrations) | approved_for_public_distillation | 2 | media-insight:726c382b13da37a9 |
-| [Check-in Settings Transcript Insight](https://community.rockrms.com/rocku/check-in/settings) | approved_for_public_distillation | 3 | media-insight:43111d964e899603 |
-| [Communication Preferences [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-preferences-legacy) | approved_for_public_distillation | 3 | media-insight:424563b14f71f033 |
-| [Communication Templates [Legacy] Transcript Insight](https://community.rockrms.com/rocku/communication/communication-templates-legacy) | approved_for_public_distillation | 3 | media-insight:66b971954eb3655e |
-| More |  | 27 additional reviewed media records are tracked in `approved-media.md`. |  |
+Advanced HTML blocks can combine markup, Lava, request or entity context, and enabled commands. Treat edit access as privileged. Review page and block authorization, every enabled Lava command, query-string and context inputs, sanitization, and whether rendered output exposes sensitive entity data. [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block) (approved claims `claim:4c6c24811261384a0eb4` and `claim:7e6e3979faad614f0b42`)
 
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
+Lava Commands can bypass Rock’s normal security or business-logic paths. Enable only the commands needed on each execution surface. HTML blocks begin with no commands enabled unless configured, so a working command also indicates an explicit configuration decision that should be reviewed. [Lava Commands](https://community.rockrms.com/lava/commands) (approved claim `claim:7bca2f8db03f8f468586`)
 
-## 18. Source Map And Dependency Notes
+Lava APIs can support custom channels such as Apple TV or Roku, but Lava webhooks do not include security by default. The supplied pack’s reviewed read-only conclusion also found no explicit permission check in the inspected webhook handler path. Inspect each configured URL, method, template, and enabled-command set, and add an intentional authentication and authorization boundary before operational use. [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api) (approved claim `claim:410bf6750e90b7193262`)
 
-### Primary Source Map
+When Lava produces mobile XAML, use the documented filters that are supported locally in the shell and escape user-entered text, URLs, and strings containing characters such as `&` or `'`. Output escaping protects markup integrity but does not authorize the data being rendered. [Rock Mobile Lava](https://community.rockrms.com/developer/mobile-docs/essentials/lava) (approved claim `claim:3b4b8ec335aa0a17968c`)
 
-| Topic | Best Source(s) |
-| --- | --- |
-| Standard action constants | [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs) |
-| Authorization cache | [AuthorizationCacheConsumer.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs) |
-| Block security checks | [Securing Access to Your Blocks](https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks), [Customizing and Securing Blocks](https://community.rockrms.com/developer/quickstart-tutorials/blocks/customizing-and-securing-blocks) |
-| Rock security concepts | [Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Rock Security Video](https://community.rockrms.com/developer/videos/70) |
-| v2 API security | [API Patterns](https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns) |
-| REST API auth | [The Rock Rest API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api) |
-| API key purpose | [ApiKeyPurpose.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Security/ApiKeyPurpose.cs), [apiKeyPurpose.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Security/apiKeyPurpose.ts) |
-| Lava command risk | [Lava Commands](https://community.rockrms.com/lava/commands) |
-| Remote Lava risk | [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava) |
-| Helix endpoint security | [Helix Security](https://community.rockrms.com/developer/helix/overview/security) |
-| Agent tool security | [Writing Custom Tools](https://community.rockrms.com/developer/ai-agents/writing-custom-tools) |
-| Obsidian security UI | [SecurityColumn](https://community.rockrms.com/developer/obsidian/grid-reference/columns/securitycolumn) |
-| Obsidian permission bags | [CommunicationDetailPermissionsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Communication/CommunicationDetail/CommunicationDetailPermissionsBag.cs), [communicationEntryAuthorizationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Communication/CommunicationEntry/communicationEntryAuthorizationBag.d.ts) |
-| Group security | [Group Security](https://community.rockrms.com/rocku/groups/group-security), [Group Finder](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder) |
-| Tag security | [Tag Security](https://community.rockrms.com/rocku/individuals-in-rock/tag-security) |
-| Reporting security | [Reporting Security](https://community.rockrms.com/rocku/reporting/reporting-security), [Release Notes](https://www.rockrms.com/releasenotes) |
-| Security operations context | [Episode 125: Security](https://shows.acast.com/rock-cast/episodes/episode-125-security), [AI in Digital Ministry](https://www.triumph.tech/resources/ai-in-digital-ministry) |
-| Workflow/document release caveats | [Release Notes](https://www.rockrms.com/releasenotes), [291_HardenCoreWorkflowSecurity.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Plugin/HotFixes/291_HardenCoreWorkflowSecurity.cs) |
-| Security dashboards/audit examples | [Security Management - Data Integrity and QoL](https://community.rockrms.com/recipes/522/security-management-data-integrity-and-qol), [Page Security Visualizer](https://community.rockrms.com/recipes/441), [Security Role Permissions Inspector](https://community.rockrms.com/recipes/243) |
+## Helix Applications And Endpoint Security
 
-### Dependency Notes: People
+Treat every Helix endpoint as callable independently of its front end. The browser interface cannot be the security boundary. Validate all query and body inputs, enforce the caller’s View or Edit rights, avoid GET for mutations, and sanitize values before any SQL use. Endpoint-backed applications require both security and data-integrity review because they can expose data or perform work beyond static rendering. [Helix Security](https://community.rockrms.com/developer/helix/overview/security) (approved claims `claim:72d56e7ee7ef0be4b92e` and `claim:da56681f6277c12df324`)
 
-Security depends on the People domain because authorization almost always resolves to a person and their relationships:
+A complete endpoint review should cover:
 
-- Person record.
-- User login.
-- Security role memberships.
-- Account protection profile.
-- Signals, badges, documents, and profile tabs.
-- External identity mapping for mobile login.
+- Application and endpoint authorization.
+- Endpoint security mode.
+- Page and content-block security.
+- Enabled Lava commands.
+- CSRF behavior for state-changing requests.
+- Rate-limit configuration.
+- Input allowlists, length bounds, and sanitization.
+- Data returned for anonymous, intended-role, and administrator contexts.
+- Correct HTTP method and idempotency expectations.
+- Readback of mutations and failure behavior.
 
-Verify live person/login mapping before making access changes.
+Reviewed community experience adds two useful hypotheses that require local verification:
 
-### Dependency Notes: Groups
+- An endpoint using application-level security may fail for anonymous or non-admin users when the parent Lava Application lacks the intended authorization, even if the page and content block are visible. Inspect the endpoint security mode and parent application, then test with the intended role; administrator success is insufficient. [Helix endpoint guidance](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
+- Full-page iframe embedding can be affected by Content Security Policy and sandbox behavior. A page-hosted Lava Application block or purpose-built endpoint may provide a clearer integration boundary, but the correct choice depends on current headers, authentication, and application behavior. [Lava Application content blocks](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-Security depends on Groups because roles are group-like and many protected ministry objects are groups:
+Rock v19.5 release notes describe a fix for non-administrators being blocked from a Lava Application endpoint when the Lava Application Developer role was inactive, before normal permissions were evaluated. Check the installed version before compensating with broader access. [Rock release notes](https://www.rockrms.com/releasenotes)
 
-- Security roles.
-- Group membership.
-- Group type inheritance.
-- Group finder visibility.
-- `ManageMembers`.
-- Attendance and scheduling actions.
+## Sensitive People And Ministry Data
 
-For group visibility, always inspect both group security and template filtering.
+### Person Profile and notes
 
-### Dependency Notes: API
+The Person Profile is a collection of tabs, blocks, badges, notes, attributes, and actions. Identify the exact surface before changing access. Permission to view the profile does not imply permission to edit every person-related record; review page, block, entity, action, and field-level exposure. [Person Profile](https://community.rockrms.com/rocku/individuals-in-rock/person-profile) (approved claims `claim:34144e7226c4a430a307` and `claim:5c53977793c7673b19e9`)
 
-Security depends on API because integrations and modern blocks can bypass normal UI paths:
+Person Notes are structured staff context, not one undifferentiated text field. Note type, target entity, visibility, sensitivity, author and date metadata, lifecycle, and downstream workflow or report consumers all matter. Use Note Types to govern categorization and which roles may create or view sensitive notes. [Person Note](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1), [Note Types](https://community.rockrms.com/rocku/core-concepts/note-types) (approved claims `claim:00300ae5ab574ad7c48b`, `claim:09c6a4834867ba6879d7`, and `claim:c161a6f06a707e04dbea`)
 
-- REST cookie/token auth.
-- API keys.
-- v2 endpoint security.
-- Remote Lava.
-- Auth clients/scopes/claims.
-- Mobile/TV app keys.
-- Agent tools.
+### Background checks
 
-API security must be tested with direct requests, not only UI behavior.
+Background-check administrators can access detailed results and approve or deny requests at multiple points. Current documentation directs administrators to the dedicated Background Check Administration security role and describes sensitive profile fields including status, date, result, report document, and driver’s-license data. Keep that role limited to trusted personnel and separately review workflow, document, profile-field, and provider access. [Administer Background Checks](https://community.rockrms.com/documentation/core-concepts/security/background-checks/administer-background-checks)
 
-### Dependency Notes: CMS
+Rock documents integrations with Checkr and Protect My Ministry. Provider configuration includes credentials or tokens and result webhooks; Protect My Ministry’s result webhook must use HTTPS, while Checkr requires its configured webhook to return results. Never place provider secrets in templates, logs, guide output, or client-visible code. [Configure Checkr](https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-checkr), [Configure Protect My Ministry](https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-protect-my-ministry)
 
-Security depends on CMS because pages and blocks are the front door to much of Rock:
+Rock v17.8 corrected workflow-added document linkage so access is evaluated through Document Type security rather than falling back to File Type security. It also added a warning for publicly viewable Document Types. Review version applicability and both security surfaces when protected documents may have been uploaded through workflows. [Rock release notes](https://www.rockrms.com/releasenotes)
 
-- Site/page hierarchy.
-- Block security.
-- HTML/Lava blocks.
-- Content channels.
-- Obsidian security editor.
-- Public routes.
-- Mobile shells.
+### Communications and reports
 
-If a page is public, every block and data source on it must be reviewed.
+Communication safeguards span sender policy, access, templates, delivery configuration, and version behavior. Communication visibility is distinct from authorization to approve, cancel, edit, or send. Review the current block and entity permissions before enabling operational communication actions. [Rocking Security and Email Safeguards](https://shows.acast.com/rock-cast/episodes/episode-168-rocking-security-navigating-new-features-and-ema) (community-reviewed approved claim `claim:21e74a6bcebdab9c194a`)
 
-### Dependency Notes: Workflows
+Analytics-enabled or persisted data can reduce repeated reconstruction of operational metrics, but a snapshot is still a data-exposure surface. When an external BI report is embedded in Rock, honor the external platform’s licensing and secure the Rock page and block for the intended roles. The supplied verification did not evaluate any external license. [Community analytics example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdREmjz), [Embedded BI example](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/D9PDOXelqz) (approved claims `claim:a5f0a54f29d226cec5fc` and `claim:ffba67d8847c47e68ea6`)
 
-Security depends on Workflows because workflows can automate privileged operations:
+## Feature-Specific Authorization Workflows
 
-- Workflow Type permissions.
-- Workflow entry blocks.
-- SQL/Lava action attributes.
-- Entity updates.
-- Document uploads.
-- Communications.
-- Scheduled jobs.
+### Sign-Ups and groups
 
-Release notes show Rock continues to harden workflow security, so always check version caveats before assuming current behavior.
+Sign-Up authorization can come from Group Role permissions, project-level permissions, or Group Type security. Inspect all three sources when access is missing or unexpectedly broad. Creating a top-level Sign-Up group additionally requires Edit permission on both the Project Type group attribute and the Sign-Up Groups block. [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions) (approved claims `claim:fc1c8fb6ae5414717fe3` and `claim:32be14ce0431e82d2f1b`)
 
-### Live Verification Requirements
+Rock v19.3 release notes state that the Sign-Up Finder was corrected to honor Group View security. A discrepancy on an earlier v19 build may be a version defect rather than a missing role grant. [Rock release notes](https://www.rockrms.com/releasenotes)
 
-Before finalizing production changes, inspect these in the actual Rock instance:
+### Mobile check-in
 
-- Current Rock version and applied hotfixes.
-- Exact `Auth` record schema and target entity IDs.
-- Entity parent authority for the specific object.
-- Current role membership.
-- User login mapping.
-- API key owner/purpose/linked actor.
-- Page and block security dialogs.
-- DataView, Report, Workflow Type, Document Type, and File Type security.
-- Lava command settings.
-- Whether custom blocks define custom action verbs.
-- Whether a page/block/template uses raw IDs.
-- Whether release notes apply to the installed version.
+Mobile check-in uses virtual kiosk device records, campus geofences, and a Mobile Check-in Launcher configured with the correct devices, check-in configuration, theme, and valid areas. Campuses needing distinct boundaries should use separate devices. These configuration relationships were structurally verified in the supplied evidence, but no specific launcher or geofence was certified. [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration) (approved claims `claim:0b6f8c45033ed0228a3b`, `claim:72dd1841cd10ed6d5a30`, and `claim:c78fd6f074218814ab14`)
 
-These checks are required because security behavior is version- and instance-specific; official docs, source constants, release notes, and live `Auth`/page/block state must agree before changing production access ([Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security), [Authorization.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/Authorization.cs), [Release Notes](https://www.rockrms.com/releasenotes)).
+Launcher text can be customized with Lava, but early screens may not have an identified person. Do not assume person context exists when rendering prompts or making authorization decisions. Location permission can also be absent, denied, limited to app use, or always allowed in the supplied implementation snapshot; test geofence behavior under the actual device permission state. [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration), [location-permission implementation snapshot](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Mobile/LocationPermissionStatus.cs)
 
-This guide is a draft authority synthesis. Treat it as the operating manual for investigation and implementation, then anchor every production change in live Rock evidence.
+### CAPTCHA and exposed forms
+
+Rock v19 documents self-hosted proof-of-work CAPTCHA with organization-wide Visible, Invisible, and Disabled modes plus block-level support. CAPTCHA is enabled by default on supported blocks but may be disabled in individual block settings. Support varies by block generation and Rock version, so confirm the actual block type and test every exposed form. [Configure CAPTCHA](https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha), [Use CAPTCHA](https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha)
+
+### Version-scoped operational controls
+
+The following are approved v19 caveats, not universal behavior:
+
+- Prevent Duplicate Registrants can stop a matched person from being registered twice, but its warning may disclose that someone is already registered to a person who knows matching identity details. Evaluate the event’s sensitivity before enabling it. [v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=357s)
+- A person without merge permission can request notification after an authorized reviewer completes a merge, keeping request submission separate from merge authority. [v19 feature overview](https://www.youtube.com/watch?v=c-wycR9HEuQ&t=902s)
+- Selected connection requests can support reassignment, status changes, completion, workflows, activities, SMS, and email, subject to permissions, templates, snippets, and phone eligibility. [v19 Connections overview](https://www.youtube.com/watch?v=7rxTGLLhlrU&t=466s)
+- Outreach Toolbox can contain contact-specific prayer, connection, touchpoint, and pulse information. Review block settings and who may see that contact data before ministry use. [Outreach Toolbox overview](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s)
+
+## AI Agents, Tools, And Data Access
+
+Rock’s presented agent model separates agents, skills, and tools, with configuration and security decisions at each layer. Chat versus MCP and Internal versus Public are separate choices. Expose only the tools appropriate to the current person and agent. Tool availability and Rock authorization must both permit an operation; organizations can, for example, make drafting available without exposing sending or destructive tools. These are approved pre-release or early-release design claims and must be checked against the installed version. [AI Summit](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=1441s), [RockIQ Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=385s)
+
+The planned MCP flow uses OAuth so the external harness holds and renews access tokens rather than exposing a general Rock API key to the model. The pre-release design applies Rock permissions as the authenticated person. Administrators must still verify the released implementation, client authorization, scopes, revocation, and each tool’s actual permission behavior. [RockIQ Q&A on permissions](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=113s), [RockIQ Q&A on OAuth](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s)
+
+Do not give an AI integration unrestricted database access or an arbitrary SQL-execution tool. Route operations through managed Rock code that enforces authorization and business rules. Reviewed static SQL inside a narrowly secured tool is distinct from allowing a model to generate and execute open-ended SQL. Before choosing SQL, consider cache objects or entity commands, return only necessary fields, and account for business logic and query cost. [AI Summit SQL warning](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4280s), [RockIQ production guidance](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=1490s)
+
+Custom tool names and result shapes should be explicit and bounded. Lava tools should return structured `AgentToolResult` values, sanitize explicit parameters, use the dedicated filters for instructions, compact history, metadata, and Rock routes, and use built-in tool logs to inspect calls and results. Pass IdKeys rather than raw integer identifiers in prompt context, while retaining server-side authorization. [AI Summit tool design](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4054s), [AI Summit Lava tools](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s), [AI Summit prompt context](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=4573s)
+
+## Version And Authority Caveats
+
+Most hydrated Rock documentation in this evidence pack was retrieved as current v19 documentation on September 3, 2026. The release-note snapshot also listed v20.0 as Alpha. Do not apply alpha or pre-release behavior to a production installation without confirming the installed build and released documentation. [Rock release notes](https://www.rockrms.com/releasenotes)
+
+Several approved claims have an unprocessed version scope. Treat them as guidance to verify, not proof that every supported Rock version behaves identically.
+
+High-impact version checks in the pack include:
+
+- v17.5: corrected DataView REST permission evaluation.
+- v17.8: corrected workflow-added Document linkage and Document Type security evaluation.
+- v19.3: corrected Sign-Up Finder handling of Group View security.
+- v19.4: corrected OIDC authorization behavior involving the `openid` scope.
+- v19.5: corrected a Lava Application endpoint failure involving an inactive developer role.
+- v19: introduced or documented the self-hosted proof-of-work CAPTCHA controls and the other version-scoped features described above.
+
+Self-hosted operators own their patch cadence. Supported dot releases can contain security fixes, so patch releases should not be treated as optional without reviewing current supported branches, release notes, and local compatibility. Major-version validation and patch-version validation are separate activities. [Patch-cadence discussion](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s), [Rock release notes](https://www.rockrms.com/releasenotes)
+
+Official documentation and approved official claims are the primary authority. RockU claims in this pack are operational training guidance with bounded structural verification. Community contributions are examples or troubleshooting hypotheses and require installation-specific validation. Public source excerpts at commit `471fd303d111b2e46218228dbc1e93dba8856fa3` describe implementation at that snapshot, not a target installation’s configuration.
+
+## Troubleshooting Decision Tree
+
+### A person cannot access an item they should be able to use
+
+1. Confirm the exact person, entity type, entity identifier, and requested action.
+2. Use Inspect Security to locate the effective result and inherited source.
+3. Read the direct and inherited Allow/Deny rules in order; the first matching rule wins.
+4. Confirm current role membership separately because the Security Change Audit does not record role-membership changes.
+5. Inspect adjacent secured entities, such as parent page, block, Group Type, project, application, or endpoint.
+6. Retest as the person, not only as an administrator.
+7. Check release notes before compensating for a known version defect. [Handle Permissions](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions), [Security Change Audit](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit)
+
+### A page or content item is missing or publicly exposed
+
+1. Resolve the exact site and route.
+2. Inspect the page hierarchy and inherited page security.
+3. Inspect each block’s security, block type, zone, and configuration.
+4. For content channels, inspect channel, item, list block, detail block, route, and Lava template.
+5. Separate personalization rules from authorization.
+6. Test anonymous, intended-role, and administrator sessions.
+7. Inspect alternate routes, mobile surfaces, and direct endpoints before declaring the content closed or protected. [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy), [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view)
+
+### Login fails after enabling 2FA or an external provider
+
+1. Read the Login History status and detailed failure reason.
+2. Confirm which Account Protection Profile applies.
+3. Verify the email or SMS communication configuration required by 2FA.
+4. Confirm the person has a usable Rock username and password when Rock 2FA requires it.
+5. Inspect the Login block’s database-login and external-provider redirect settings.
+6. Do not enable Rock 2FA for a flow that exposes only an incompatible built-in external provider.
+7. For OIDC, verify client identity, scopes, redirect settings, and installed-version fixes. [Two-Factor Authentication](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication), [Use Login History](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history)
+
+### A REST request returns unauthorized or permission denied
+
+1. Confirm that the session cookie or `Authorization-Token` is present and valid.
+2. Identify the authenticated person or REST key rather than reasoning from the token string alone.
+3. Confirm route, controller, method, entity, and intended action.
+4. Inspect the identity’s direct and inherited grants.
+5. Determine whether the failure is authentication, authorization, validation, routing, or a known version bug.
+6. Check the v17.5 DataView fix if that endpoint family is involved.
+7. Stop before broadening permissions unless the missing grant is demonstrated. [The Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api), [Rock release notes](https://www.rockrms.com/releasenotes)
+
+### A Helix endpoint works for administrators but not the intended role
+
+1. Confirm page and block access for the intended role.
+2. Inspect the endpoint’s security mode.
+3. Inspect direct endpoint authorization.
+4. Where application-level security applies, inspect the parent Lava Application.
+5. Inspect enabled commands, input validation, CSRF, and rate-limit settings.
+6. Check whether the installed version predates the relevant v19.5 fix.
+7. Retest as anonymous, intended role, and administrator; do not treat admin override as role proof. [Helix Security](https://community.rockrms.com/developer/helix/overview/security), [Rock release notes](https://www.rockrms.com/releasenotes)
+
+### A note is missing, visible to the wrong staff, or behaves unexpectedly downstream
+
+1. Identify the exact Person Profile block or other entity surface.
+2. Identify the Note Type and target entity.
+3. Inspect note-type and surface permissions.
+4. Review author and date metadata plus current lifecycle state.
+5. Identify reports and workflows that consume that Note Type.
+6. Test with the intended staff role and an unauthorized role.
+7. Stop before reclassifying or moving notes if that would alter reporting or workflow meaning. [Person Note](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1), [Note Types](https://community.rockrms.com/rocku/core-concepts/note-types)
+
+### A public form is receiving abuse or CAPTCHA is not appearing
+
+1. Confirm the installed Rock version and exact block generation.
+2. Verify the organization-wide CAPTCHA mode.
+3. Inspect the block-level CAPTCHA setting.
+4. Determine whether the configured mode is Visible, Invisible, or Disabled.
+5. Test a real submission path; absence of a checkbox does not prove CAPTCHA is inactive.
+6. Confirm the block is among the version’s supported CAPTCHA surfaces.
+7. Continue to enforce authorization, validation, and rate limits where relevant. [Configure CAPTCHA](https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha), [Use CAPTCHA](https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha)
+
+### A top-level Sign-Up project cannot be created or is visible to the wrong people
+
+1. Inspect Group Role, project-level, and Group Type authorization.
+2. Confirm Edit permission on the Project Type group attribute.
+3. Confirm Edit permission on the Sign-Up Groups block.
+4. Inspect Group View security for finder visibility.
+5. Compare the installed version with the v19.3 Sign-Up Finder fix.
+6. Test creation, management, and public discovery as separate actions. [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions), [Rock release notes](https://www.rockrms.com/releasenotes)
+
+## Agent Task Recipes
+
+### Recipe: Explain an effective permission result
+
+**Outcome:** A sourced explanation of why one person is allowed or denied one action.
+
+1. Record the person, entity type, entity ID or GUID, and requested action.
+2. Run the equivalent of an Inspect Security review.
+3. Capture the matching direct or inherited rule and its position.
+4. Identify the parent when the rule is inherited.
+5. Check relevant role membership separately.
+6. State the effective result, matching rule, inheritance source, and any unverified adjacent boundary. [Inspect Security](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security)
+
+**Do not assume:**
+
+- A role name proves membership.
+- A visible route proves block or entity access.
+- An administrator result represents the user’s result.
+
+**Stop when:**
+
+- The exact entity or person cannot be identified.
+- A write would be required to continue and no authorization to change security was given.
+
+### Recipe: Publish a page or block with bounded access
+
+**Outcome:** The intended audience can use the surface while unauthorized users cannot.
+
+1. Identify the site, page hierarchy, route, zone, block type, and data source.
+2. Inspect inherited page security before adding direct rules.
+3. Add the minimum necessary direct rule only when inheritance does not express the requirement.
+4. Inspect block security and any underlying entity or endpoint.
+5. Review Lava commands, query/context inputs, personalization, and detail routes.
+6. Test anonymously, as the intended role, and as an administrator.
+7. Verify alternate and mobile routes before publishing. [Handle Permissions](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions), [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+
+**Inspect:**
+
+- First-matching Allow/Deny order.
+- Parent-page inheritance.
+- Data exposed by list and detail views.
+- Whether personalization is being mistaken for authorization.
+
+### Recipe: Preflight a least-privilege REST integration
+
+**Outcome:** A documented integration identity with only the access required for known routes and methods.
+
+1. Inventory every route and HTTP method.
+2. Classify each operation as read or write.
+3. Identify the authenticated user session or REST key.
+4. Map each operation to its entity and authorization action.
+5. Grant only demonstrated permissions.
+6. Store and transmit credentials outside templates, logs, and client-visible output.
+7. Test against non-production or non-sensitive records where possible.
+8. Read back intended writes and compare only integration-owned fields.
+9. Document rotation, revocation, logging, and rollback. [The Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)
+
+**Do not assume:**
+
+- A successful call proves least privilege.
+- An IdKey authorizes access.
+- An API key should have administrator-equivalent rights.
+- Community PATCH guidance applies identically to every API v2 endpoint.
+
+### Recipe: Secure a Lava API or Helix endpoint
+
+**Outcome:** A directly callable endpoint with explicit identity, authorization, validation, and bounded output.
+
+1. Enumerate the endpoint URL, method, parent application, page, and block.
+2. Define authenticated and anonymous behavior explicitly.
+3. Enforce the caller’s required View or Edit permission.
+4. Validate and sanitize every query and body value.
+5. Use non-GET methods for mutations.
+6. Enable only required Lava commands.
+7. Review CSRF and rate-limit settings.
+8. Return only approved fields.
+9. Test direct calls without the front end.
+10. Test unauthorized, intended-role, and administrator contexts.
+11. Verify resulting data or mutations independently. [Helix Security](https://community.rockrms.com/developer/helix/overview/security), [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
+
+**Stop when:**
+
+- Authorization depends only on hidden UI.
+- Arbitrary SQL or unrestricted database access is required.
+- Administrator success is the only available test evidence.
+
+### Recipe: Audit Person Profile notes
+
+**Outcome:** Sensitive notes are categorized, visible, and consumed only as intended.
+
+1. Inventory the relevant Note Types and target entity contexts.
+2. Map who may view, add, edit, or otherwise act on each type.
+3. Inspect the Person Profile page and block surfaces.
+4. Sample author, date, visibility, and lifecycle behavior without publishing private note text.
+5. Identify workflows and reports that consume each type.
+6. Test with authorized and unauthorized staff roles.
+7. Record configuration gaps without moving or rewriting notes. [Note Types](https://community.rockrms.com/rocku/core-concepts/note-types), [Person Note](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1)
+
+### Recipe: Validate an AI agent tool before production
+
+**Outcome:** A bounded tool whose availability, authorization, input handling, and output have been demonstrated.
+
+1. Identify agent, skill, tool, current-person context, and Chat or MCP exposure.
+2. Confirm whether the feature is released in the installed Rock version.
+3. Define explicit parameters and a bounded result shape.
+4. Expose only the minimum operation; separate drafting from sending and omit destructive tools unless required.
+5. Route data access through managed Rock code.
+6. Enforce Rock permission checks for the authenticated person.
+7. Sanitize inputs and avoid arbitrary model-generated SQL execution.
+8. Test allowed and denied users.
+9. Inspect built-in tool logs for calls, inputs, results, and failures.
+10. Test OAuth scope and revocation for MCP clients.
+11. Stop before production use if any permission behavior remains inferred. [AI Summit](https://www.youtube.com/watch?v=UvW68dZBcJ8&t=5268s), [RockIQ Q&A](https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s)
+
+### Recipe: Run a security-sensitive upgrade preflight
+
+**Outcome:** A version-aware plan that distinguishes security fixes from feature changes.
+
+1. Record the installed Rock version and hosting model.
+2. Review current supported branches and release notes.
+3. Identify security-relevant fixes between the installed and target versions.
+4. Separate major-version validation from dot-release validation.
+5. Inventory affected authentication, API, CMS, workflow, document, and Helix surfaces.
+6. Rehearse the upgrade and rollback in the organization’s approved environment.
+7. Retest unauthorized, intended-role, and administrator scenarios.
+8. Verify protected documents, Sign-Up visibility, OIDC, APIs, and endpoint authorization where applicable.
+9. Do not declare completion from package installation alone; verify rendered and callable behavior. [Rock release notes](https://www.rockrms.com/releasenotes), [Patch-cadence discussion](https://www.youtube.com/watch?v=pvgZLvcfmFQ&t=396s)
+
+## Known Gaps And Live Verification
+
+The guide cannot determine the following without a bounded review of the target installation:
+
+- Installed Rock version, enabled plugins, block generations, or local customizations.
+- Actual security-role membership and Elevated Security Levels.
+- Direct and inherited rules on a particular page, block, group, Note Type, content item, workflow, application, endpoint, API controller, or report.
+- Whether external authentication callback URLs, scopes, secrets, and provider-side approvals are current.
+- Whether passwordless communications, SMS sender configuration, 2FA, browser checks, or cookie revocation behave correctly end to end.
+- Whether a Lava webhook has an application-specific security layer.
+- Whether a Helix endpoint’s security mode, parent application authorization, CSRF, rate limiting, and enabled commands are correctly configured.
+- Whether CAPTCHA is active and effective on each exposed form.
+- External BI licensing.
+- Specific mobile check-in device, campus, geofence, area, theme, or location-permission behavior.
+- AI/MCP availability and authorization behavior in the installed release.
+- Current supported branches and security patches.
+
+The evidence pack includes reviewed read-only conclusions from June 9, 2026 confirming that several relevant schema and authorization surfaces existed in one connected Rock instance. Those conclusions support the inspection workflows in this guide but do not prove any other installation’s configuration.
+
+All reviewed community patterns remain examples requiring local verification. In particular:
+
+- Do not adopt the community API v2 PATCH pattern without confirming endpoint semantics.
+- Do not rely on parent Lava Application authorization behavior without testing the installed endpoint security mode.
+- Do not treat full-page iframe limitations, seasonal-feature closeout steps, anonymous SMS verification, saved-account payment checks, or delayed-workflow revalidation as verified local behavior.
+- Do not deploy the supplied communication-history, registration-dashboard, registration-transfer, or SMS-verification recipes without reviewing their permissions, data exposure, provider behavior, and end-to-end results.
+- Do not retain plain verification codes or expose matched person identifiers based only on a community recipe; define retention and verification rules for the target installation.
+
+The Group Security RockU record in the pack was approved only as a public-safe training distillation, and its hydrated page did not supply detailed instructional evidence. This guide therefore does not infer group-security mechanics beyond the approved Sign-Up and general authorization claims.
+
+## Source Map
+
+### Primary official security documentation
+
+- [Security](https://community.rockrms.com/documentation/core-concepts/security)
+- [Intro to Security](https://community.rockrms.com/documentation/core-concepts/security/overview/intro-to-security)
+- [Intro to Security Roles](https://community.rockrms.com/documentation/core-concepts/security/security-roles/intro-to-security-roles)
+- [Administering Security Roles](https://community.rockrms.com/documentation/core-concepts/security/security-roles/administering-security-roles)
+- [Handle Permissions](https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions)
+- [Inspect Security](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/inspect-security)
+- [Configure Security Settings](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/configure-security-settings)
+- [Security Change Audit](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit)
+- [Cloning Security Role Groups](https://community.rockrms.com/documentation/core-concepts/security/advanced-security/cloning-security-role-groups)
+
+### Authentication and accounts
+
+- [Intro to Login and Authentication](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/intro-to-login-and-authentication)
+- [Passwordless Login](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-passwordless-login)
+- [Two-Factor Authentication](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication)
+- [Login History](https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history)
+- [Unrecognized Browser](https://community.rockrms.com/documentation/core-concepts/security/user-accounts/register-for-an-account-on-an-unrecognized-br)
+- [External Authentication](https://community.rockrms.com/documentation/core-concepts/security/external-authentication-services/intro-to-external-authentication)
+- [OpenID Connect](https://community.rockrms.com/documentation/core-concepts/security/rock-authentication/intro-to-openid-connect)
+- [CAPTCHA](https://community.rockrms.com/documentation/core-concepts/security/captcha/intro-to-captcha)
+
+### APIs, Lava, Helix, and source evidence
+
+- [Rock REST API](https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api)
+- [Rock Security](https://community.rockrms.com/developer/303---blast-off/rock-security)
+- [Lava Commands](https://community.rockrms.com/lava/commands)
+- [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
+- [Helix Security](https://community.rockrms.com/developer/helix/overview/security)
+- [Authorization implementation snapshot](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Security/Authorization.cs)
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+
+### Operational RockU sources
+
+- [Adding Pages and Blocks](https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy)
+- [Advanced HTML Block](https://community.rockrms.com/rocku/cms/advanced-html-block)
+- [Content Channel View](https://community.rockrms.com/rocku/content-channels/content-channel-view)
+- [Personalization](https://community.rockrms.com/rocku/cms/personalization)
+- [Person Profile](https://community.rockrms.com/rocku/individuals-in-rock/person-profile)
+- [Person Note](https://community.rockrms.com/rocku/individuals-in-rock/person-note-1)
+- [Note Types](https://community.rockrms.com/rocku/core-concepts/note-types)
+- [Mobile Check-in Configuration](https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration)
+
+### Sensitive workflows and feature documentation
+
+- [Administer Background Checks](https://community.rockrms.com/documentation/core-concepts/security/background-checks/administer-background-checks)
+- [Configure Checkr](https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-checkr)
+- [Configure Protect My Ministry](https://community.rockrms.com/documentation/core-concepts/security/background-checks/configure-protect-my-ministry)
+- [Configure Sign-Up Permissions](https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions)
+
+### Reviewed community examples
+
+- [Communication History Active Search](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search)
+- [Event Registration Analytics Dashboard](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
+- [Registration-to-Connection Request](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/03efbb093c024d31ae4df3b6e6af56bdbbcafe00/Recipes/registration-to-connection-request)
+- [Workflow-Backed SMS Verification](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/workflow-backed-sms-verification)
+
+These community sources illustrate patterns only. Each is marked as requiring live verification before use.

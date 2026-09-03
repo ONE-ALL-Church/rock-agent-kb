@@ -2,207 +2,284 @@
   "branches": [
     {
       "do_not_assume": [],
+      "entities": [
+        "Person",
+        "DataView",
+        "Group"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-intended-recipients-are-missing-or-shown-as-ineligible",
+      "id": "intended-recipients-are-missing-or-shown-as-ineligible",
+      "inspect": [
+        "Person",
+        "DataView",
+        "Group"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-lists",
+        "https://community.rockrms.com/documentation/engagement/communications/send-a-communication/simple-editor"
+      ],
+      "start_with": [
+        "Confirm the original audience source: manual selection, grid, communication list, Data View, group or stored communication.",
+        "If it is a communication list, inspect the underlying group and its current active membership.",
+        "If membership is synchronized, confirm the Group Sync source and last successful refresh.",
+        "Check whether Personalization Segments, category settings or match behavior reduce the audience.",
+        "Inspect the person’s email or SMS eligibility, bulk preference, list membership and medium preference.",
+        "Check whether the person is deceased, inactive for the relevant address or otherwise excluded by the current recipient logic.",
+        "Verify the selected medium and sending number.",
+        "Compare the final eligible count with the intended source count."
+      ],
+      "title": "Intended recipients are missing or shown as ineligible",
+      "when": "Intended recipients are missing or shown as ineligible"
+    },
+    {
+      "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "16-troubleshooting-decision-tree-a-communication-did-not-send",
-      "id": "a-communication-did-not-send",
+      "guide_section_id": "troubleshooting-decision-tree-email-appears-sent-but-delivery-or-analytics-are-missing",
+      "id": "email-appears-sent-but-delivery-or-analytics-are-missing",
       "inspect": [],
-      "source_urls": [],
-      "start_with": [
-        "Find the `Communication` record.",
-        "Check status: draft, pending approval, approved, sent, failed, or future-dated.",
-        "Check `FutureSendDateTime`.",
-        "Check approval state and approver permissions.",
-        "Check Communications Send Job state and history.",
-        "Check recipient rows: are there pending recipients?",
-        "Check medium entity type on recipients.",
-        "Check transport active/configured state."
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-history-analytics",
+        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/email-analytics"
       ],
-      "title": "A communication did not send",
-      "when": "A communication did not send"
+      "start_with": [
+        "Locate the communication in Communication History and inspect recipient statuses.",
+        "Distinguish pending, failed, delivered and interacted records.",
+        "Confirm the Email medium points to the intended active transport.",
+        "Inspect provider-side acceptance and delivery events without exposing credentials or raw recipient data.",
+        "Verify bounce, open, click, unsubscribe and spam webhooks or tracking options.",
+        "Check whether the transport supports the expected analytic event.",
+        "Send a bounded test to representative mailbox providers.",
+        "Stop when the Rock record, provider event and test inbox establish where the chain breaks. Communication History & Analytics"
+      ],
+      "title": "Email appears sent but delivery or analytics are missing",
+      "when": "Email appears sent but delivery or analytics are missing"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "Group",
-        "Workflow"
+      "do_not_assume": [
+        "Do not change DNS or transport credentials without authorized change control."
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-some-recipients-are-missing",
-      "id": "some-recipients-are-missing",
-      "inspect": [
-        "Group",
-        "Workflow"
-      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-email-shows-an-unexpected-sender-or-on-behalf-of-label",
+      "id": "email-shows-an-unexpected-sender-or-on-behalf-of-label",
+      "inspect": [],
       "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/email/email-integrations",
+        "https://community.rockrms.com/documentation/engagement/communications/email/configure-email"
+      ],
+      "start_with": [
+        "Inspect the communication’s From and Reply-To values.",
+        "Confirm the sender domain permitted by local policy.",
+        "Compare the visible From domain with the domain configured in the provider and Rock transport.",
+        "Verify provider-domain authentication and DNS state.",
+        "Retest with the exact production sender pattern.",
+        "Do not change DNS or transport credentials without authorized change control. Email Integrations"
+      ],
+      "title": "Email shows an unexpected sender or “on behalf of” label",
+      "when": "Email shows an unexpected sender or “on behalf of” label"
+    },
+    {
+      "do_not_assume": [
+        "For Mailgun, compare the configuration with Rock’s instruction to avoid overlapping tracking behavior."
+      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-two-unsubscribe-options-appear-in-an-email",
+      "id": "two-unsubscribe-options-appear-in-an-email",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-mediums"
+      ],
+      "start_with": [
+        "Inspect Rock’s Email medium unsubscribe HTML and one-click setting.",
+        "Inspect the provider’s tracking or unsubscribe insertion.",
+        "Determine which layer should own each visible option.",
+        "For Mailgun, compare the configuration with Rock’s instruction to avoid overlapping tracking behavior.",
+        "Send a new test and inspect both the header and body.",
+        "Stop when the unsubscribe path is clear, functional and not duplicated unintentionally."
+      ],
+      "title": "Two unsubscribe options appear in an email",
+      "when": "Two unsubscribe options appear in an email"
+    },
+    {
+      "do_not_assume": [
+        "Retest with a bounded copy; do not overwrite a production template merely to diagnose visibility."
+      ],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-template-is-missing-or-cannot-be-saved",
+      "id": "a-template-is-missing-or-cannot-be-saved",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/prepare-for-communications/communication-templates",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Identify recipient source: list, communication, grid, entity set, workflow, connection requests.",
-        "If list-based, inspect group membership and active status.",
-        "Check deceased status.",
-        "Check segments and AND/OR match behavior.",
-        "Check duplicate removal.",
-        "Check email/SMS/push eligibility.",
-        "Check communication type changes during wizard authoring.",
-        "Check v18.2 recipient exclusion fix if the user changed communication type mid-wizard (Rock Release Notes)."
+        "Confirm whether the editor expects a Legacy, Beta or flow-specific template.",
+        "Check template Active state, category and View/Edit permissions.",
+        "Confirm whether it is enabled for the current wizard or editor.",
+        "Check the Rock patch level.",
+        "If saving fails when the name contains special characters, determine whether the installation includes the v18.3 fix before applying a workaround.",
+        "Retest with a bounded copy; do not overwrite a production template merely to diagnose visibility. Communication Templates"
       ],
-      "title": "Some recipients are missing",
-      "when": "Some recipients are missing"
+      "title": "A template is missing or cannot be saved",
+      "when": "A template is missing or cannot be saved"
     },
     {
-      "do_not_assume": [],
+      "do_not_assume": [
+        "Do not bypass approval by recreating the communication on another surface."
+      ],
       "entities": [
-        "Workflow"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing",
-      "id": "email-delivered-but-analytics-are-missing",
-      "inspect": [
-        "Workflow"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/ask/using/2824"
-      ],
-      "start_with": [
-        "Confirm the send created `CommunicationRecipient` records.",
-        "Confirm it used the expected email medium.",
-        "Confirm transport supports analytics.",
-        "Confirm tracking is enabled for this send path.",
-        "Confirm provider webhooks/callbacks.",
-        "Confirm Rock has opens/clicks in the relevant analytics table or model.",
-        "Compare with a wizard-sent test email.",
-        "If workflow-sent, verify whether the workflow action path supports communication analytics. A community Q&A reports this exact difference for Mailgun but does not provide a confirmed fix in the source pack (Mailgun Tracking Q&A)."
-      ],
-      "title": "Email delivered but analytics are missing",
-      "when": "Email delivered but analytics are missing"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Page",
         "Block"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-sms-reply-is-not-visible",
-      "id": "sms-reply-is-not-visible",
+      "guide_section_id": "troubleshooting-decision-tree-a-communication-remains-pending-approval",
+      "id": "a-communication-remains-pending-approval",
       "inspect": [
-        "Person",
-        "Page",
         "Block"
       ],
       "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/email/advanced-email",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Check provider inbound webhook delivery.",
-        "Check SMS Pipeline.",
-        "Confirm SMS Conversations action is present.",
-        "Check system phone number.",
-        "Check conversation block filters and allowed numbers.",
-        "Check assigned person and personal-number filters.",
-        "Check conversation age/month limit.",
-        "Check page/block security."
+        "Confirm whether its recipient count triggered the configured approval threshold.",
+        "Inspect its `Pending Approval` status in Communication History.",
+        "Confirm the approver has block-level Approve permission.",
+        "Confirm the approval-notification recipients are members of `RSR - Communication Approvers`.",
+        "Inspect the configured approval System Communication and email transport.",
+        "If the approver lands in the wrong editor, check whether the installation predates the v18.2 redirect fix.",
+        "Do not bypass approval by recreating the communication on another surface. Advanced Email"
       ],
-      "title": "SMS reply is not visible",
-      "when": "SMS reply is not visible"
+      "title": "A communication remains pending approval",
+      "when": "A communication remains pending approval"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-incoming-sms-does-not-reach-the-expected-conversation-or-workflow",
+      "id": "incoming-sms-does-not-reach-the-expected-conversation-or-workflow",
+      "inspect": [
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms",
+        "https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline"
+      ],
+      "start_with": [
+        "Confirm the provider number and public webhook URL target the intended Rock endpoint or pipeline.",
+        "Confirm the transport and System Phone Number are active and SMS-enabled.",
+        "Inspect the pipeline attached to the number.",
+        "Walk actions in order and inspect every filter.",
+        "Pay special attention to unfiltered actions because they execute for every message reaching them.",
+        "Confirm the workflow type, input mapping and security if an action launches a workflow.",
+        "Confirm forwarding, assigned recipient and notification settings separately.",
+        "Test with one controlled inbound message and verify the resulting conversation, workflow or reply. Configure SMS"
+      ],
+      "title": "Incoming SMS does not reach the expected conversation or workflow",
+      "when": "Incoming SMS does not reach the expected conversation or workflow"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-sms-recipient-did-not-receive-message",
-      "id": "sms-recipient-did-not-receive-message",
+      "guide_section_id": "troubleshooting-decision-tree-an-automated-sms-reply-is-absent-from-history",
+      "id": "an-automated-sms-reply-is-absent-from-history",
       "inspect": [
         "Person"
       ],
       "source_urls": [
-        "https://community.rockrms.com/recipes/438",
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/engagement/communications/sms/sms-pipeline"
       ],
       "start_with": [
-        "Check recipient `CommunicationRecipient` status and status note.",
-        "Check person's phone record.",
-        "Confirm mobile phone type.",
-        "Confirm SMS enabled state.",
-        "Confirm opt-out state.",
-        "Confirm bad-number provider errors.",
-        "Confirm From number and provider send logs.",
-        "Check whether the UI only appeared to send. Community experience shows staff can miss pending/failure state without stronger UI warnings (Disabled SMS Mobile Phone Warning)."
+        "Confirm that the expected pipeline action actually executed.",
+        "Inspect whether **Save Response** is enabled on that action.",
+        "Check SMS Conversations, Communication History and the person’s History tab.",
+        "Confirm that the message was associated with the intended person.",
+        "If auditability is required, enable retention only through an authorized configuration change and account for the additional stored history.",
+        "Retest with one controlled message."
       ],
-      "title": "SMS recipient did not receive message",
-      "when": "SMS recipient did not receive message"
+      "title": "An automated SMS reply is absent from history",
+      "when": "An automated SMS reply is absent from history"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Block"
+        "Device"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-template-is-missing-from-wizard",
-      "id": "template-is-missing-from-wizard",
+      "guide_section_id": "troubleshooting-decision-tree-sms-segments-cost-or-delivery-differ-from-expectations",
+      "id": "sms-segments-cost-or-delivery-differ-from-expectations",
       "inspect": [
-        "Block"
+        "Device"
       ],
       "source_urls": [
-        "https://community.rockrms.com/documentation/bookcontent/8"
+        "https://community.rockrms.com/documentation/engagement/communications/sms/configure-sms",
+        "https://community.rockrms.com/recipes/542/sms-creditsegment-calculator-widget-qol"
       ],
       "start_with": [
-        "Check template active state.",
-        "Check category filter.",
-        "Check template permissions.",
-        "Check whether template supports the wizard.",
-        "Check template version.",
-        "Check block allowed communication types.",
-        "Check whether it is a Communication Flow template rather than a system-wide Communication Template.",
-        "Check whether the current user has edit/view rights, as the official manual notes templates may be hidden by permissions or setup (Communicating With Rock)."
+        "Inspect the final rendered message, not only the template text.",
+        "Check characters that may change encoding and segment count.",
+        "Confirm the final eligible recipient count.",
+        "Compare any local calculator result with the provider’s actual segmentation and billing rules.",
+        "Inspect provider throttling, attachment limits and delivery events.",
+        "Test representative carriers and device types for MMS.",
+        "Treat community calculators as estimates and revalidate them after editor changes. Configure SMS"
       ],
-      "title": "Template is missing from wizard",
-      "when": "Template is missing from wizard"
+      "title": "SMS segments, cost or delivery differ from expectations",
+      "when": "SMS segments, cost or delivery differ from expectations"
     },
     {
-      "do_not_assume": [],
-      "entities": [
-        "Page",
-        "Block"
+      "do_not_assume": [
+        "Coach from patterns across multiple records; do not assign motive from one event."
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-user-cannot-view-communication-detail",
-      "id": "user-cannot-view-communication-detail",
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-unsubscribe-appears-unexpected",
+      "id": "an-unsubscribe-appears-unexpected",
       "inspect": [
-        "Page",
-        "Block"
+        "Person"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/unsubscribe-report",
+        "https://community.rockrms.com/documentation/engagement/communications/communication-reports/communication-saturation-report"
       ],
       "start_with": [
-        "Check page and block security.",
-        "Check whether the user created or sent the communication.",
-        "Check Communication Detail `Communication Access Mode`.",
-        "Check `View All` security action in v19.1+.",
-        "Check whether strict access is expected.",
-        "Review release notes and tech bulletin for the current version (Rock Release Notes)."
+        "Determine whether the scope is list, flow, bulk or all email.",
+        "Identify the communication, sender, topic and relevant timing where the report provides them.",
+        "Review the person’s current preference and history.",
+        "Check recent saturation across channels.",
+        "Inspect whether the message was correctly classified and targeted.",
+        "Review provider complaint or unsubscribe events when available.",
+        "Coach from patterns across multiple records; do not assign motive from one event.",
+        "For v20 SMS opt-out attribution, account for the documented best-effort association behavior. Unsubscribe Report"
       ],
-      "title": "User cannot view communication detail",
-      "when": "User cannot view communication detail"
+      "title": "An unsubscribe appears unexpected",
+      "when": "An unsubscribe appears unexpected"
     }
   ],
   "concept_id": "communications",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:51:09+00:00",
   "guide_sections": [
-    "16-troubleshooting-decision-tree",
-    "16-troubleshooting-decision-tree-a-communication-did-not-send",
-    "16-troubleshooting-decision-tree-some-recipients-are-missing",
-    "16-troubleshooting-decision-tree-email-delivered-but-analytics-are-missing",
-    "16-troubleshooting-decision-tree-sms-reply-is-not-visible",
-    "16-troubleshooting-decision-tree-sms-recipient-did-not-receive-message",
-    "16-troubleshooting-decision-tree-template-is-missing-from-wizard",
-    "16-troubleshooting-decision-tree-user-cannot-view-communication-detail",
-    "17-agent-task-recipes",
-    "17-agent-task-recipes-recipe-audit-a-single-sent-communication",
-    "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-an-email",
-    "17-agent-task-recipes-recipe-explain-why-a-person-did-not-get-sms",
-    "17-agent-task-recipes-recipe-audit-communication-list-freshness",
-    "17-agent-task-recipes-recipe-review-a-communication-template",
-    "17-agent-task-recipes-recipe-investigate-sms-conversation-access",
-    "17-agent-task-recipes-recipe-determine-whether-a-workflow-email-supports-analytics"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-intended-recipients-are-missing-or-shown-as-ineligible",
+    "troubleshooting-decision-tree-email-appears-sent-but-delivery-or-analytics-are-missing",
+    "troubleshooting-decision-tree-email-shows-an-unexpected-sender-or-on-behalf-of-label",
+    "troubleshooting-decision-tree-two-unsubscribe-options-appear-in-an-email",
+    "troubleshooting-decision-tree-a-template-is-missing-or-cannot-be-saved",
+    "troubleshooting-decision-tree-a-communication-remains-pending-approval",
+    "troubleshooting-decision-tree-incoming-sms-does-not-reach-the-expected-conversation-or-workflow",
+    "troubleshooting-decision-tree-an-automated-sms-reply-is-absent-from-history",
+    "troubleshooting-decision-tree-sms-segments-cost-or-delivery-differ-from-expectations",
+    "troubleshooting-decision-tree-an-unsubscribe-appears-unexpected",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-preflight-a-broad-email-communication",
+    "agent-task-recipes-recipe-diagnose-one-missing-recipient",
+    "agent-task-recipes-recipe-validate-an-email-transport-and-its-event-loop",
+    "agent-task-recipes-recipe-validate-inbound-sms-routing",
+    "agent-task-recipes-recipe-create-a-communication-flow-without-over-messaging",
+    "agent-task-recipes-recipe-investigate-rising-unsubscribes-or-saturation",
+    "agent-task-recipes-recipe-retest-a-workflow-backed-communication-safely",
+    "agent-task-recipes-recipe-bound-an-agent-that-can-draft-communications"
   ]
 }

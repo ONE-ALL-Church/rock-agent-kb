@@ -10,11 +10,14 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Find All Pending Signature Requests For A Template](tasks/recipe-find-all-pending-signature-requests-for-a-template.md) | `Person`, `PersonAlias`, `Workflow` | `Person`, `PersonAlias`, `Workflow` |
-| [Recipe: Verify A Person Has A Valid Signed Waiver](tasks/recipe-verify-a-person-has-a-valid-signed-waiver.md) | `Person`, `PersonAlias` | `Person`, `PersonAlias` |
-| [Recipe: Diagnose A Failed Registration Signature](tasks/recipe-diagnose-a-failed-registration-signature.md) | `Person`, `PersonAlias`, `Block` | `Person`, `PersonAlias`, `Block` |
-| [Recipe: Audit Public Exposure Risk](tasks/recipe-audit-public-exposure-risk.md) | `Workflow`, `Page` | `Workflow`, `Page` |
-| [Recipe: Build A Staff Resend Process](tasks/recipe-build-a-staff-resend-process.md) | `Person`, `Workflow` | `Person`, `Workflow` |
+| [Recipe: Configure an entity document type and management surface](tasks/recipe-configure-an-entity-document-type-and-management-surface.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: Create and validate a merge template](tasks/recipe-create-and-validate-a-merge-template.md) | `Person`, `Group`, `GroupMember`, `Family` | `Person`, `Group`, `GroupMember`, `Family` |
+| [Recipe: Configure a signature template](tasks/recipe-configure-a-signature-template.md) | `Workflow`, `Attribute` | `Workflow`, `Attribute` |
+| [Recipe: Add an electronic signature to a workflow](tasks/recipe-add-an-electronic-signature-to-a-workflow.md) | `Person`, `Workflow`, `Attribute` | `Person`, `Workflow`, `Attribute` |
+| [Recipe: Configure an event-registration signature requirement](tasks/recipe-configure-an-event-registration-signature-requirement.md) | `Person`, `Page`, `Block` | `Person`, `Page`, `Block` |
+| [Recipe: Review a completed signature document and resend its receipt](tasks/recipe-review-a-completed-signature-document-and-resend-its-receipt.md) |  |  |
+| [Recipe: Decide whether to offload signed-PDF rendering](tasks/recipe-decide-whether-to-offload-signed-pdf-rendering.md) |  |  |
+| [Recipe: Evaluate a community resend or reset workaround](tasks/recipe-evaluate-a-community-resend-or-reset-workaround.md) | `Step`, `Group`, `Workflow` | `Step`, `Group`, `Workflow` |
 
 ## Entities
 
@@ -25,11 +28,8 @@ generated: true
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `GroupMember` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Label` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
@@ -41,61 +41,34 @@ generated: true
 | `17.8` | core | Fixed an issue where files uploaded through the Entity Document Add workflow action weren't properly linked to their parent Document. Because of that missing link, Rock couldn't check the Document Type's security rules when someone tried to |
 | `18.3` | core | Fixed an issue with internal Event Registration blocks (Registration Instance - Registration List, Registration Details, and Registrant Details) where a Signature Document could be incorrectly shown for a registrant without a valid Signatur |
 | `16.1` | core | Fixed Signature Document Templates filtering to not show inactive templates in Workflow Actions. Fixes: #5511 |
-| `15.2` | core | Fixed inactive signature document template from being selected in event registration. Fixes: #5510 |
 
 ## Sections Needing Review
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `3-documents-and-signatures-mental-model-entity-documents` | normal | live verification |
-| `3-documents-and-signatures-mental-model-merge-documents` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-entity-document-configuration` | normal | live verification |
-| `6-primary-entities-and-relationships-entity-document-relationships` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-add-a-document-to-a-person` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-add-documents-to-groups-or-other-entities` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-add-entity-documents-from-workflows` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-generate-a-merge-document-from-a-grid` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-collect-a-signature-in-a-workflow` | normal | live verification |
-| `7-common-documents-and-signatures-workflows-collect-a-signature-in-event-registration` | high | live verification |
-| `8-document-templates-deep-dive-merge-templates` | normal | live verification |
-| `8-document-templates-deep-dive-signature-document-templates` | high | live verification |
-| `8-document-templates-deep-dive-signature-placement` | normal | live verification |
-| `9-electronic-signatures-deep-dive-typed-versus-drawn-signatures` | normal | live verification |
-| `9-electronic-signatures-deep-dive-validity-and-reuse` | normal | live verification |
-| `9-electronic-signatures-deep-dive-workflows` | normal | live verification |
-| `9-electronic-signatures-deep-dive-event-registrations` | normal | live verification |
-| `9-electronic-signatures-deep-dive-managing-signed-documents` | normal | live verification |
-| `10-generated-pdfs-deep-dive-what-the-pdf-represents` | normal | live verification |
-| `10-generated-pdfs-deep-dive-pdf-preview-versus-signed-pdf` | structural | live verification |
-| `10-generated-pdfs-deep-dive-performance-and-offloading` | normal | live verification |
-| `10-generated-pdfs-deep-dive-pdf-troubleshooting` | normal | live verification |
-| `11-related-rock-areas-people-workflows-communications-security-platform-configuration-cms-security` | high | live verification |
-| `12-administration-and-operational-guardrails-before-creating-a-new-signature-template` | normal | live verification |
-| `12-administration-and-operational-guardrails-data-integrity-guardrails` | community-supported | community-supported |
-| `13-developer-api-lava-and-source-code-landmarks-api-considerations` | structural | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-lava-in-signature-templates` | normal | live verification |
-| `14-reporting-analytics-and-model-map-model-map` | citation-only | live verification |
-| `14-reporting-analytics-and-model-map-signature-reporting` | citation-only | live verification |
-| `14-reporting-analytics-and-model-map-entity-document-reporting` | structural | live verification |
-| `14-reporting-analytics-and-model-map-merge-document-analytics` | structural | live verification |
-| `15-version-and-release-caveats-inactive-signature-templates` | normal | live verification |
-| `15-version-and-release-caveats-signature-placement-keyword` | normal | live verification |
-| `15-version-and-release-caveats-signature-template-detail-pdf-viewer` | citation-only | live verification |
-| `16-implementation-playbooks-playbook-build-a-new-event-waiver` | normal | live verification |
-| `16-implementation-playbooks-playbook-add-documents-to-a-group-page` | structural | live verification |
-| `16-implementation-playbooks-playbook-build-a-merge-letter-template` | normal | live verification |
-| `16-implementation-playbooks-playbook-move-from-legacy-signature-provider-to-rock-native-signatures` | normal | live verification |
-| `16-implementation-playbooks-playbook-audit-document-security-after-upgrade` | structural | live verification |
-| `17-troubleshooting-decision-tree-merge-documents` | normal | live verification |
-| `17-troubleshooting-decision-tree-electronic-signatures` | normal | live verification |
-| `17-troubleshooting-decision-tree-generated-pdfs` | normal | live verification |
-| `18-agent-task-recipes-recipe-find-all-pending-signature-requests-for-a-template` | structural | live verification |
-| `18-agent-task-recipes-recipe-verify-a-person-has-a-valid-signed-waiver` | structural | live verification |
-| `18-agent-task-recipes-recipe-diagnose-a-failed-registration-signature` | structural | live verification |
-| `18-agent-task-recipes-recipe-audit-public-exposure-risk` | structural | live verification |
-| `18-agent-task-recipes-recipe-build-a-staff-resend-process` | normal | live verification |
-| `19-source-map-and-dependency-notes` | high | live verification |
+| `scope-and-boundaries` | needs-citation | needs-citation |
+| `mental-model` | normal | live verification |
+| `entity-documents-document-types-and-storage` | normal | live verification |
+| `document-templates-and-merge-documents-word-templates` | normal | live verification |
+| `document-templates-and-merge-documents-html-templates` | normal | live verification |
+| `electronic-signatures-electronic-signatures-in-event-registration` | high | live verification |
+| `managing-completed-signature-documents` | high | live verification |
+| `troubleshooting-decision-tree-a-document-type-is-missing-from-the-documents-block` | normal | live verification |
+| `troubleshooting-decision-tree-an-entity-document-add-workflow-fails` | high | live verification |
+| `troubleshooting-decision-tree-a-user-cannot-view-or-download-a-document` | high | live verification |
+| `troubleshooting-decision-tree-lava-fails-in-a-word-merge-template` | normal | live verification |
+| `troubleshooting-decision-tree-email-addresses-are-missing-from-an-html-merge-document` | normal | live verification |
+| `troubleshooting-decision-tree-a-workflow-uses-the-wrong-signature-template` | high | live verification |
+| `troubleshooting-decision-tree-the-wrong-person-is-expected-to-sign` | normal | live verification |
+| `troubleshooting-decision-tree-event-registration-signatures-break-or-display-the-wrong-document` | high | live verification |
+| `troubleshooting-decision-tree-a-signed-pdf-is-not-generated-or-delivery-stalls` | normal | live verification |
+| `agent-task-recipes-recipe-configure-an-entity-document-type-and-management-surface` | normal | live verification |
+| `agent-task-recipes-recipe-create-and-validate-a-merge-template` | normal | live verification |
+| `agent-task-recipes-recipe-configure-a-signature-template` | normal | live verification |
+| `agent-task-recipes-recipe-add-an-electronic-signature-to-a-workflow` | normal | live verification |
+| `agent-task-recipes-recipe-configure-an-event-registration-signature-requirement` | normal | live verification |
+| `agent-task-recipes-recipe-review-a-completed-signature-document-and-resend-its-receipt` | normal | live verification |
+| `agent-task-recipes-recipe-decide-whether-to-offload-signed-pdf-rendering` | normal | live verification |
+| `agent-task-recipes-recipe-evaluate-a-community-resend-or-reset-workaround` | community-supported | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
+| `source-map-training-and-community-examples` | community-supported | community-supported |

@@ -6,1121 +6,626 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "3f491523f1f74bdf50c552bbdb164b386550c469eb83cff08949ba18dbe17387"
 ---
 
 # Helix
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Helix is Rock’s server-driven web-development surface for building interactive pages with HTMX, Lava Applications, endpoint-executed Lava, Lava Commands, and form-control shortcodes. A typical Helix interaction begins in a Lava Application Content block, sends an HTMX request to a Lava Endpoint, and replaces part of the current page with the endpoint’s rendered response. Because endpoints can expose data or perform mutations, treat every endpoint as independently callable and subject it to explicit authorization, input-validation, data-integrity, and performance review. [Helix overview](https://community.rockrms.com/developer/helix/overview) [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-- Concept data-model landmarks: [Helix index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+For an existing application, inspect the application and endpoint records before changing its page markup. Record the application slug and configuration, then inspect each endpoint’s slug, HTTP method, security mode, code template, enabled Lava commands, caching configuration, and active state. The same application and endpoint slugs may identify more than one endpoint when the HTTP methods differ. [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+Do not infer readiness from a successful administrator test. Verify the installed Rock version or plugin packaging, anonymous and intended-role access, mutation behavior, server-side validation, rendered page behavior, and observability data. A reviewed read-only installation probe confirmed that Lava Applications and Lava Endpoints are secured entities with endpoint metadata and authorization records, but that conclusion does not prove any particular endpoint is configured correctly.
 
-## 1. Executive Summary For Agents
+## Scope And Boundaries
 
-Helix is Rock RMS's application-building layer for interactive, server-rendered Lava experiences. It combines HTMX-style partial page updates, Lava Applications, Lava Endpoints, Lava Commands, and Lava form/control shortcodes into a way to build richer Rock pages without writing a custom C# block for every workflow. The official overview describes Helix as the next evolution of Lava for web development and frames it around four technologies: HTMX, Lava Applications, Lava Commands, and Control Shortcodes ([Helix Overview](https://community.rockrms.com/developer/helix/overview)).
+This guide covers:
 
-For an agent doing real Rock work, the practical mental model is:
+- Helix’s operational model and maturity caveats.
+- HTMX calls from Rock pages.
+- Lava Applications, configuration rigging, content blocks, and endpoints.
+- HTTP methods, request merge fields, and endpoint responses.
+- Lava Forms, control shortcodes, validation, and loading indicators.
+- Application and endpoint security.
+- Endpoint observability.
+- Development strategies, limitations, and production-readiness checks.
+- Reviewed community implementation patterns, clearly separated from official behavior.
 
-1. A **Lava Application** is the named container and route namespace.
-2. A **Lava Endpoint** is the unit of backend behavior. It has a slug, HTTP method, security mode, Lava code template, optional command enablement, and cache settings ([Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)).
-3. A **Lava Application Content** block is the recommended frontend host. It registers HTMX and exposes application configuration to the block template ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)).
-4. HTMX attributes such as `hx-get`, `hx-post`, `hx-target`, and `hx-swap` call Lava Endpoints and replace part of the page with endpoint output ([HTMX Syntax Style Guides](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides)).
-5. Security must be designed at the endpoint level. Users can call endpoints directly with tools outside the rendered page, so frontend hiding, IdKey obfuscation, and UI-only checks are not enough ([Security](https://community.rockrms.com/developer/helix/overview/security)).
-6. Production-readiness depends on route discipline, command minimization, server-side validation, observability review, database-call control, and clear ownership.
+Detailed Lava syntax and command-specific semantics belong in the [official Lava documentation](https://community.rockrms.com/lava). Domain-specific data models—such as communications, attendance, registration, groups, workflows, or AI retrieval—belong in their owning concepts. This guide addresses only the Helix boundary around those domains.
 
-Helix is not just "Lava with AJAX." It changes the operational risk profile of Lava. Traditional Lava often renders once during page load. Helix lets users trigger server-side Lava repeatedly through HTTP calls. That makes stale assumptions, unsafe query-string parameters, overbroad enabled commands, and expensive entity loops much more dangerous. Treat every endpoint like a small API backed by Rock security, Rock data, and Lava.
+The evidence pack contains no reviewed live result for a specific endpoint, page, role, plugin installation, cache policy, rate limit, or production deployment. Those conditions must be checked in the target installation under **Known Gaps And Live Verification**.
 
-Release status matters. Older Helix documentation still refers to plugin installation and limited beta, but Rock release notes state that core Helix support for Lava Applications was added in Rock v18.1 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). The FAQ also notes that Helix is now in core ([FAQ](https://community.rockrms.com/developer/helix/overview/faq)). In a live Rock instance, always verify the installed Rock version, whether Helix is core or plugin-provided, and whether the relevant admin pages, blocks, shortcodes, and endpoints exist before assuming a feature path.
+## Mental Model
 
-## 2. Scope And Terminology
-
-This guide covers the Helix concept area: HTMX integration, Lava Applications, Lava Endpoints, Lava Application Content blocks, forms and controls, endpoint security, observability, operational guardrails, source-code landmarks, and related Rock areas such as Lava, API integrations, CMS, workflows, forms, and reporting.
-
-Use the following terms consistently:
-
-**Helix**
-The umbrella concept for Rock's modern Lava-driven interactive web application approach. The developer docs present it as a project combining HTMX, Lava Applications, Lava Commands, and Control Shortcodes ([Helix](https://community.rockrms.com/developer/helix)).
-
-**HTMX**
-A client-side library that uses HTML attributes to issue HTTP requests and swap server-rendered responses into the DOM. In Helix, HTMX usually calls Lava Endpoints and receives HTML fragments.
-
-**Lava Application**
-A CMS model and configuration container for related endpoints. It has fields such as name, description, slug, active state, configuration rigging, and security settings. The model map identifies Lava Application as a CMS model ([Model Map](https://community.rockrms.com/ModelMap)), and the generated view model exposes name, description, slug, active state, and configuration rigging ([LavaApplicationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs)).
-
-**Lava Endpoint**
-An endpoint row belonging to a Lava Application. It is selected by application slug, endpoint slug, and HTTP method. It runs a Lava code template and returns the response body.
-
-**Slug**
-The route segment used to address an application or endpoint. The application slug and endpoint slug together form the practical route. Official docs use examples such as `group-toolbox` for an application and `my-groups` for an endpoint ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications), [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications)).
-
-**Configuration Rigging**
-Application-level JSON converted into an object available to backend endpoint Lava and frontend content-block Lava. It is intended for stable configuration, not dynamic data. If dynamic data is needed, the docs recommend a persisted dataset instead ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)).
-
-**Lava Application Content Block**
-The frontend block intended to host Helix UI. It can link to a Lava Application, register HTMX, provide convenience styling/features, and render an initial Lava template ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)).
-
-**Lava Form**
-A Helix form wrapper represented with `<lava-form>` tags. It exists because Rock's WebForms page model normally has a single page-level form, while HTMX and HTML form behavior assume independent forms ([Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms)).
-
-**Control Shortcodes**
-Lava shortcodes that render common form controls with Rock-style markup and validation conventions. Official Helix examples include a `textbox` shortcode and a `campuspicker` shortcode ([Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)).
-
-**Security Mode**
-The endpoint setting controlling how access is evaluated. Source-code enums list `Endpoint Execute`, `Application View`, `Application Edit`, and `Application Administrate` ([LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs), [lavaEndpointSecurityMode.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointSecurityMode.ts)).
-
-## 3. Helix Mental Model
-
-Helix is best understood as "server-rendered interaction endpoints inside Rock."
-
-A standard Lava page builds markup when the page renders. Helix keeps that strength but makes parts of the page addressable after initial load. A user clicks a button, changes a field, or submits a form. HTMX sends an HTTP request. Rock routes the request to a Lava Endpoint. The endpoint runs Lava, checks configured security, optionally uses enabled Lava Commands, and returns markup or another response body. HTMX swaps the response into the target part of the DOM.
-
-A minimal flow looks like this:
+A Helix application is best understood as a server-rendered request loop:
 
 ```text
-User action
-  -> HTMX request from a Lava Application Content block
-  -> application slug + endpoint slug + HTTP method match
-  -> endpoint security check
-  -> endpoint Lava code template executes
-  -> optional entity/query/modify commands run if enabled
-  -> response returned
-  -> HTMX swaps response into target element
+Page request
+  -> Lava Application Content block renders the initial interface
+  -> HTMX-enabled element issues GET, POST, PUT, or DELETE
+  -> application slug + endpoint slug + HTTP method select an endpoint
+  -> endpoint authorization and server-side validation must pass
+  -> enabled Lava commands and endpoint template perform the work
+  -> endpoint returns an HTML fragment or response instructions
+  -> HTMX replaces or updates the selected page region
 ```
 
-The "server-rendered fragments" part is essential. Helix does not require a JavaScript SPA architecture. It also does not remove the need for backend design. Each endpoint is a miniature backend surface.
+The Lava Application is the organizing and security boundary. Its endpoints are the individual work units. The Content block is the preferred page-hosted front end: it registers HTMX and lets templates use the caret route form, such as `^/application-slug/endpoint-slug`, instead of hard-coding the complete API path. [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-The most important operational distinction is this: **the rendered UI is not the security boundary**. If a user can inspect a request in browser dev tools, they can repeat or alter that request outside the page. The security guidance explicitly warns that endpoint requests can be intercepted and replayed through tools such as curl or Postman, and therefore endpoint code must validate input and authorize the action itself ([Security](https://community.rockrms.com/developer/helix/overview/security)).
+This loop has three separate security layers:
 
-A good Helix application therefore has three layers:
+1. Whether the application or endpoint permits the caller to execute it.
+2. Whether the endpoint independently validates every query, form, header, and body value.
+3. Whether the caller may view or modify the particular entity selected by those values.
 
-1. **Page shell**: Rock page, Lava Application Content block, initial markup, layout, and target containers.
-2. **Interaction endpoints**: small endpoint templates with explicit HTTP methods, security mode, validation, command enablement, and response shape.
-3. **Data and domain rules**: entity queries, workflows, persisted datasets, attributes, groups, people, content channels, interactions, or other Rock systems used by the endpoint.
+An opaque identifier such as an IdKey or GUID can reduce easy guessing, but it does not replace the third check. [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-Do not use Helix as an excuse to build an entire unmanaged product inside Lava. The customizing guidance recommends staying as low on the customization pyramid as practical and warns that Lava Applications may be the wrong tool when custom models are needed, endpoint count grows very large, or the app becomes fragile ([Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock)).
+## Overview And Roadmap
 
-## 4. Source Authority And How To Use This Guide
+Helix extends Lava-driven pages beyond a single render at page load. HTMX supplies partial-page requests and replacement; Lava Applications organize the server-side endpoints; Lava Commands can read, modify, delete, transact, or shape HTTP responses when enabled; and control shortcodes reduce the markup required for Rock-style forms. [Helix overview](https://community.rockrms.com/developer/helix/overview) [Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)
 
-Use sources in this order:
+Helix should sit only as high in the customization stack as the application requires. The official customization guidance identifies three signals that a Lava Application may have outgrown the approach:
 
-1. **Rock release notes** for version availability and shipped behavior.
-2. **Official Helix developer docs** for intended configuration and authoring patterns.
-3. **Rock source-code snippets** for enums, model fields, generated API surfaces, migrations, and implementation landmarks.
-4. **Lava documentation** for command behavior, filters, shortcodes, observability tags, and security caveats.
-5. **Model Map** for entity category and model existence.
-6. **Community recipes and vendor resources** for examples only, never as authoritative security or performance guidance.
+- It requires custom models.
+- It is approaching or exceeding 50 endpoints.
+- Development has become complex and fragile.
 
-The source pack contains some version tension. For example, the plugin installation page still describes Helix as limited beta and plugin-based ([Plugin Installation](https://community.rockrms.com/developer/helix/overview/plugin-installation)), while release notes say Lava Application support entered core in Rock v18.1 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)) and the FAQ says Helix is now in core ([FAQ](https://community.rockrms.com/developer/helix/overview/faq)). When this guide says "verify in a live instance," inspect the actual Rock version, installed packages, admin pages, block types, database tables, and source build rather than relying on stale documentation.
+At that point, assess a purpose-built custom solution instead of continuing to expand the Lava Application. [Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock)
 
-For source-code-backed facts, prefer the current branch cited in the pack, but verify against the exact Rock version running in production. The source files in the pack point to `develop`, and the generated docs mention changes by commit and date in `docs/cms/lava-applications.md` ([Rock docs source](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md)). Production instances may lag behind or run a maintenance branch.
+The published roadmap is not a commitment. It lists ideas such as additional recipes and controls, simplified animation and drag-and-drop, toast support, real-time use cases, alternative DOM-morphing or client scripting integrations, and client-side templates. Do not design a production dependency around any roadmap item until the target Rock release or installed package proves it exists. [Helix roadmap](https://community.rockrms.com/developer/helix/overview/roadmap)
 
-## 5. Core Configuration And Data Model
+## HTMX
 
-### Lava Application Configuration
+The Helix Content block registers HTMX, allowing ordinary HTML elements to describe their request and replacement behavior through attributes. A typical element identifies:
 
-A Lava Application is configured with these core fields in the developer docs:
+- The method and caret route, such as `hx-get` or `hx-post`.
+- The destination region through `hx-target`.
+- Optional replacement behavior through attributes such as `hx-swap`.
+- Optional progress behavior through `hx-indicator`.
 
-| Field | Purpose | Agent notes |
-| --- | --- | --- |
-| Name | Friendly admin name | Choose a name that groups related endpoints and helps Magnus/editor workflows. |
-| Description | Documentation for maintainers | Put intent, owner, data surfaces, and risk notes here. |
-| Slug | Application route segment | Use stable lowercase route naming. Changing it can break HTMX calls. |
-| Configuration | JSON rigging object | Use for stable app-level values, not live dynamic data. |
+Use one HTML attribute per line and put the CSS `class` attribute first. This style is official readability guidance, not a runtime requirement. [HTMX syntax style guide](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides)
 
-The official Applications page states that configuration rigging is JSON converted into a dynamic object available in backend endpoints and frontend content blocks. It can be read through `ConfigurationRigging.[PropertyKey]` and is not meant to be a dynamic structure ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)).
+When an interaction behaves unexpectedly:
 
-Source-code view models and migrations add useful implementation details. The application bag exposes `Name`, `IsActive`, `Description`, `Slug`, and `ConfigurationRigging` ([LavaApplicationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs)). The TypeScript bag exposes the same conceptual fields plus attributes and attribute values ([lavaApplicationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts)). The migration creates `LavaApplication` columns including `Name`, `Description`, `IsSystem`, `IsActive`, `SecurityMode`, `Slug`, `AdditionalSettingsJson`, `ConfigurationRiggingJson`, audit fields, GUID, and foreign key fields ([AddLavaApplications.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs)).
+- Inspect the browser console for HTMX diagnostics.
+- Confirm that `hx-target` resolves to the intended element.
+- Walk up the DOM and inspect inherited HTMX attributes on ancestor elements.
+- Confirm that the element’s method matches the configured endpoint method.
+- Inspect the returned fragment rather than assuming the initial page template produced the faulty markup.
 
-Operationally, agents should inspect:
+HTMX attribute inheritance is useful but can cause unexpected behavior when a parent’s settings silently affect a descendant. [Helix strategies: tips](https://community.rockrms.com/developer/helix/strategies/tips)
 
-- Whether the application is active.
-- Whether the slug matches all HTMX references.
-- Whether configuration rigging is valid JSON.
-- Whether any values in configuration rigging are environment-specific.
-- Whether the security verbs match intended maintainers and runtime users.
-- Whether the application was imported from plugin-era Helix or created in core.
+External HTMX examples may illustrate the framework, but their server-side assumptions do not automatically describe Lava Applications. Translate them through Rock’s Content block, endpoint routing, security, and Lava execution model. [HTMX learning resources](https://community.rockrms.com/developer/helix/htmx/learning-more)
 
-### Lava Endpoint Configuration
+## Lava Applications
 
-The Endpoints docs identify these endpoint fields:
+A Lava Application groups related endpoints and provides a shared namespace, configuration, and security boundary. Its documented settings include:
 
-| Field | Purpose | Agent notes |
-| --- | --- | --- |
-| Name | Friendly endpoint name | Use action-oriented names such as `Group Search Results` or `Update Preference`. |
-| Description | Maintainer documentation | Include request shape, response shape, commands, and security assumptions. |
-| Slug | Endpoint route segment | Combine with application slug and HTTP method. |
-| HTTP Method | Request method match | Use GET for read-only rendering; POST, PUT, DELETE for state changes. |
-| Security Mode | Runtime access check | Choose endpoint-specific or application-inherited security. |
-| Code Template | Lava body | Keep small and observable. |
-| Enabled Lava Commands | Command allow-list | Enable only what the endpoint needs. |
-| Caching Settings | Endpoint cache behavior | Use only where response varies safely. |
+- **Name:** the administrative label.
+- **Description:** documentation for maintainers.
+- **Slug:** the route segment used to identify the application.
+- **Configuration rigging:** optional JSON converted into a dynamic object available to endpoint and linked Content block templates.
 
-The source enum for HTTP method defines `Get`, `Post`, `Put`, and `Delete` ([LavaEndpointHttpMethod.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointHttpMethod.cs), [lavaEndpointHttpMethod.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Cms/lavaEndpointHttpMethod.ts)). The security enum defines endpoint execute and three application-based options ([LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs)).
+Templates read configuration properties through `ConfigurationRigging`. The official guidance treats this configuration as static application rigging; use a Persisted Dataset when the required structure is dynamic. [Application configuration](https://community.rockrms.com/developer/helix/lava-applications/applications)
 
-The migration creates a `LavaEndpoint` table with fields visible in the snippet such as `Name`, `Description`, `LavaApplicationId`, `Slug`, `IsSystem`, `EnabledLavaCommands`, `IsActive`, and `AdditionalSettingsJson` ([AddLavaApplications.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs)). Because the source excerpt is bounded, inspect the full migration or live database schema before relying on the complete column list.
+Applications use Rock’s standard View, Edit, and Administrate verbs for management and add Execute View, Execute Edit, and Execute Administrate for endpoint execution patterns. The documentation also describes initialization behavior that grants application-management access to the Lava Application Developers and Rock Administration roles when a new application is created. Immutable Rock source at commit `471fd303d111b2e46218228dbc1e93dba8856fa3` shows the save hook adding View, Edit, and Administrate authorization records for those roles. Treat that code as implementation evidence for that commit, then verify the installed version and actual authorization records. [Application security](https://community.rockrms.com/developer/helix/lava-applications/applications) [Application save hook](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs)
 
-### Content Block Configuration
+### Lava Application Content block
 
-The Lava Application Content block is the recommended frontend integration point. The docs identify these settings:
+The recommended page-hosted front end is the Lava Application Content block. It registers HTMX and supplies Helix conveniences and styling. Its documented configuration includes a block name, an optional linked application, and the initial Lava template. Linking the application also makes its configuration rigging available to the template. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
 
-| Setting | Purpose |
-| --- | --- |
-| Name | Block name, useful for editing and Magnus association |
-| Application | Optional but recommended link to the target Lava Application |
-| Lava Template | Initial content rendered when the block loads |
-
-When the content block is linked to an application, the application's configuration rigging object is shared with the Lava template ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)). The docs recommend using the caret route notation, such as:
+Within the Content block, prefer:
 
 ```html
-<button
-  class="btn btn-primary"
-  hx-get="^/application-slug/endpoint-slug"
-  hx-target=".results">
-  Load
-</button>
+hx-get="^/application-slug/endpoint-slug"
 ```
 
-The `^` means the route is associated with a Lava Application, simplifying the route compared with the full API route ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)).
-
-## 6. Primary Entities And Relationships
-
-At the Rock data level, Helix centers on two CMS entities:
+The caret identifies a Lava Application route. The documented complete route is:
 
 ```text
-LavaApplication
-  has many LavaEndpoint
-
-LavaEndpoint
-  belongs to LavaApplication
+/api/v2/lava-app/1/{application-slug}/{endpoint-slug}
 ```
 
-The source docs describe `LavaApplication` as the namespace and `LavaEndpoint` rows as the individual routes within that namespace. Each endpoint has its own route pattern, security, and Lava body ([docs/cms/lava-applications.md](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md)). The service method `GetByLavApplicationId` returns endpoints belonging to a specified application ID, confirming the direct relationship in source ([LavaEndpointService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs)).
+Use the complete route only when the integration genuinely operates outside the Content block boundary and its authentication and exposure have been reviewed. A working request made through an authenticated staff page is not proof that the complete route is a safe public API. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block) [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-The practical route identity is not only the URL text. The Lava Applications docs state that endpoints can share the same route when the HTTP methods differ, meaning route uniqueness is determined by the slug path plus method ([Lava Applications](https://community.rockrms.com/developer/helix/lava-applications)).
+### Editing with Magnus
 
-Security relationships are also important:
+The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code. Because a Content block can link to an application, Magnus can keep the front-end template and back-end endpoint files together during development. Verify that Magnus is installed and configured for the target packaging model before relying on this workflow. [Magnus](https://community.rockrms.com/developer/helix/lava-applications/magnus)
 
-- Applications have standard Rock entity verbs such as View, Edit, and Administrate, according to the Applications docs ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)).
-- Newly added Lava Applications receive base security entries for Rock administrators and the Lava Application Developers role in the save hook snippet ([LavaApplication.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs)).
-- Endpoints can check their own Execute verb or rely on application-level verbs, depending on endpoint security mode ([Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)).
+## Lava Endpoints
 
-Agents should inspect the following when troubleshooting relationships:
+Endpoints are the application work units called by the client. Before changing an interaction, inspect the endpoint’s name, description, slug, method, security mode, code template, enabled Lava commands, and caching settings. The endpoint documentation says its cache configuration controls how CDNs and browsers may cache the response. Do not assume a response is uncached merely because its content appears dynamic. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
 
-- `LavaApplication.Id`, `Guid`, `Slug`, `IsActive`.
-- `LavaEndpoint.LavaApplicationId`, `Slug`, `HttpMethod`, `IsActive`, `SecurityMode`.
-- Auth rows for the application and endpoint.
-- Whether the block references the intended application.
-- Whether multiple endpoints share a slug with different HTTP methods.
-- Whether a stale page/block template points to an old slug.
+### Routing and HTTP methods
 
-## 7. Common Helix Workflows
+An endpoint match depends on its application slug, endpoint slug, and HTTP method. Two endpoints can therefore share the same slug route when they listen for different methods. The documented methods are GET, POST, PUT, and DELETE. Immutable Rock enums at commit `471fd303d111b2e46218228dbc1e93dba8856fa3` contain those four method values. [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) [HTTP-method enum](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointHttpMethod.cs)
 
-### Read-Only Partial Refresh
+Use the methods according to the endpoint’s intended effect:
 
-Follow the official [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) endpoint model and [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability) tooling. Verify endpoint security, enabled commands, rendered fragment shape, request parameters, and database-call behavior in the target application before treating a GET interaction as production-safe.
+- Use GET to retrieve content without changing data.
+- Use POST for general creation or mutation.
+- Use PUT when replacing or updating an existing resource fits the contract.
+- Use DELETE for removal.
+- Never use GET for a mutation.
 
-Use case: load filtered groups, upcoming events, prayer items, campus-specific content, or a detail panel without reloading the page.
+The last rule is security-critical because GET requests can be initiated from cross-site links. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-Pattern:
+### Security modes
 
-1. Page loads with a Lava Application Content block.
-2. Initial Lava template renders controls and an empty target.
-3. A button, link, select, or form triggers `hx-get`.
-4. Endpoint validates query-string parameters.
-5. Endpoint runs read-only Lava and returns an HTML fragment.
-6. HTMX swaps that fragment into the target.
+The endpoint’s security mode selects the authorization scope used for execution. The documentation and immutable enum identify these modes:
 
-Operational checks:
+- Endpoint Execute.
+- Application View.
+- Application Edit.
+- Application Administrate.
 
-- Use `GET` only for read-only actions.
-- Keep endpoint command enablement read-only where possible.
-- Use `hx-target` that points to a stable container.
-- Avoid returning a full page shell.
-- Use observability to inspect database calls.
+The first uses authorization on the endpoint itself; the application modes delegate the execution decision to the corresponding application-level pattern. Inspect the selected mode and the relevant authorization entries rather than checking only page or block security. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Security-mode enum](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointSecurityMode.cs)
 
-### State-Changing Action
+### Request merge fields
 
-Use case: update a preference, remove a following record, mark a task complete, trigger a workflow, or save form input.
+The endpoint documentation identifies these request-related merge fields:
 
-Pattern:
+- `RawUrl`
+- `Method`
+- `QueryString`
+- `RemoteAddress`
+- `RemoteName`
+- `ServerName`
+- `Form`
+- `Headers`
+- `Cookies`
 
-1. Use `POST`, `PUT`, or `DELETE`, not `GET`.
-2. Put controls inside `<lava-form>` if using Helix validation.
-3. Validate on the client for usability and again in endpoint Lava for security.
-4. Check CurrentPerson authorization against the specific entity or action.
-5. Enable only the required modifying Lava Commands.
-6. Return a narrow success/failure fragment.
-7. Log or observe meaningful operations.
+For Rock 19 and later, the approved claim and developer documentation also identify `Body` and `RawBody`. `Body` converts JSON or XML into objects, while `RawBody` preserves the request body as a string. Neither provides a request body for GET. Rock’s release notes specifically list the addition in 19.1, so verify the exact minor release before depending on it. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Rock release notes](https://www.rockrms.com/releasenotes)
 
-The security docs specifically warn not to use GET for modifications because links can initiate GET requests too easily ([Security](https://community.rockrms.com/developer/helix/overview/security)). The form validation docs state validation only applies to POST, PUT, and DELETE calls, not GET ([Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)).
+Every value from these merge fields remains untrusted input. Validate its presence, type, allowed values, length, and relationship to the current caller before reading or modifying data. Sanitize or parameterize any value used in SQL. [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-### Admin Utility
+### Enabled commands and endpoint responses
 
-A community recipe shows Helix used for managing Following records. It combines a Lava Application, a webpage, a Page Parameter Filter block, a Lava Application Content block, and HTML Content blocks for styling/scripts ([Manage Following records with Helix](https://community.rockrms.com/recipes/497)). Treat community recipes as examples, not best-practice authority. The recipe itself includes a community disclaimer and emphasizes updating entity type IDs to match the local Rock instance.
+An endpoint exposes only the Lava commands selected in its Enabled Lava Commands setting. Inspect that allowlist before diagnosing a command failure or authorizing an endpoint for a broader audience. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
 
-Agent checks for admin utilities:
+The HTTP Response command, documented for Rock 18.0, can return HTMX response headers that redirect, retarget content, trigger an event, reload the page, or update browser history. It can also change the HTTP status from the default successful status. [HTTP Response](https://community.rockrms.com/lava/commands/http-response)
 
-- Confirm the utility is internal-only.
-- Confirm endpoint Execute permission is restricted.
-- Confirm entity IDs and entity type IDs match the live instance.
-- Confirm modifying commands are enabled only on the endpoint that needs them.
-- Confirm the endpoint does not expose records the actor cannot administrate.
-- Confirm there is a rollback or audit path for destructive operations.
+When one endpoint performs several dependent writes, the DB Transaction command can group them so a failure rolls the changes back rather than leaving only part of the operation committed. Its documentation begins at Rock 18.0 and identifies a context-isolation addition at 19.3; verify the installed command behavior before using version-specific options. [DB Transaction](https://community.rockrms.com/lava/commands/db-transaction)
 
-### Guided Search Or Finder
+For content needed during the initial page render, the Rock 18.0 `renderlavaendpoint` command can execute an endpoint and inject its output without an additional HTMX request. Its method defaults to GET unless specified. Do not use that default to invoke a mutating endpoint. [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint)
 
-Helix is well-suited for server-rendered search/finder tools, especially where filters map to Rock groups, content channels, events, or persisted datasets. Triumph describes a guided group finder powered by Helix with a multi-step guided form, group details page, and high-performance results page ([Triumph Guided Group Finder](https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix)). Treat this as implementation evidence that the pattern is viable, not as a source for internal Rock behavior.
+## Forms And Controls
 
-Recommended shape:
+### Lava Forms
 
-- Use one endpoint for initial results.
-- Use separate endpoints for filter changes, detail panels, and join/contact actions.
-- Cache only public, non-personalized fragments.
-- Keep filters explicit and validate all values.
-- Prefer GUIDs or IdKeys in public URLs.
-- Verify group security and campus/season filters in live data.
+HTML and HTMX normally treat forms as independent units, but ASP.NET WebForms uses one page-wide form. Helix introduces `<lava-form>` as a logical form boundary so form behavior and validation can work without adding invalid nested HTML forms. Use this model when diagnosing validation or submission behavior inside a Rock page. [Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms)
 
-## 8. Overview And Roadmap Deep Dive
+### Control shortcodes
 
-The official overview positions Helix as a way to overcome the "render once at page load" limitation of traditional Lava by using HTMX to refresh parts of a page without full reloads ([Helix Overview](https://community.rockrms.com/developer/helix/overview)). The same overview frames Lava Applications as the way to obtain and organize the server-side endpoints needed by HTMX.
+Helix supplies Lava shortcodes for common controls. For example, a textbox or campus picker can be expressed through a shortcode instead of manually reproducing Rock’s label, wrapper, validation, identifier, and input markup. Installed controls can be inspected under `Admin Tools > CMS Configuration > Lava Shortcodes` in the Helix category. The documentation warns against editing the supplied controls directly because later updates may overwrite those changes. [Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)
 
-The roadmap page is explicitly speculative. It lists possible future ideas such as more recipes, more form controls, animation and drag-drop simplification, a toast framework, Real-time Engine use cases, idiomorph support, Hyperscript or Alpine.js support, and client-side templates powered by the Rock v2 Search API ([Roadmap](https://community.rockrms.com/developer/helix/overview/roadmap)). Do not plan production work as if those roadmap items exist. For each roadmap-adjacent feature, inspect the live instance and source branch.
-
-Version caveats:
-
-- The Helix landing page in the pack still says early alpha, while release notes say core support arrived in v18.1 ([Helix](https://community.rockrms.com/developer/helix), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-- The plugin installation page still mentions limited beta and the Helix/Magnus plugin relationship ([Plugin Installation](https://community.rockrms.com/developer/helix/overview/plugin-installation)).
-- The FAQ says Helix is now in core and that Rock Mobile support is not available through the plugin because Rock Mobile is a closed framework in that context ([FAQ](https://community.rockrms.com/developer/helix/overview/faq)).
-- Rock v19.1 release notes add `Body` and `RawBody` merge fields to Lava Applications ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-For agents, the roadmap implication is simple: design Helix apps with stable primitives that exist now. Do not depend on future toast, drag-drop, idiomorph, Alpine, or Real-time Engine integration unless the live instance proves it.
-
-## 9. HTMX Deep Dive
-
-HTMX is the interaction layer. Helix includes HTMX in Rock when using the Lava Application Content block, so authors can add attributes to HTML elements rather than writing custom JavaScript for common request/swap behavior ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)).
-
-Common attributes:
-
-| Attribute | Use |
-| --- | --- |
-| `hx-get` | Read-only endpoint request |
-| `hx-post` | Create/action endpoint request |
-| `hx-put` | Update endpoint request |
-| `hx-delete` | Delete endpoint request |
-| `hx-target` | Element that receives the response |
-| `hx-swap` | How the response replaces or modifies target content |
-| `hx-validate` | Validation-related behavior on controls, used in Helix form patterns |
-
-The Helix syntax style guide recommends formatting HTMX-heavy markup with one attribute per line and putting CSS classes first for readability ([Syntax Style Guides](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides)). A practical house style:
-
-```html
-<a
-  class="btn btn-sm btn-primary"
-  hx-post="^/group-toolbox/join?GroupGuid={{ group.Guid }}"
-  hx-target="closest .group-card"
-  hx-swap="outerHTML">
-  Join
-</a>
-```
-
-Do not duplicate `hx-swap` on the same element. The source example in the docs excerpt shows a duplicate attribute; treat that as a documentation/example issue to avoid, because duplicate HTML attributes produce ambiguous behavior.
-
-HTMX inheritance matters. The tips page notes that many HTMX attributes can inherit from parent elements and that this can be powerful but surprising ([Tips](https://community.rockrms.com/developer/helix/strategies/tips)). When debugging, inspect parent containers for inherited `hx-*` attributes before changing the endpoint.
-
-HTMX troubleshooting checklist:
-
-- Open browser dev tools and inspect the console.
-- Inspect the Network request: URL, method, request headers, query string, body, response code, response body.
-- Confirm `hx-target` matches an element present at request time.
-- Confirm the response fragment is valid for the swap mode.
-- Confirm parent elements are not contributing inherited attributes unexpectedly.
-- Confirm the Lava Application Content block registered HTMX.
-- Confirm the endpoint method matches the HTMX method.
-- Confirm the caret route syntax is valid for the block context.
-- Confirm the endpoint returns a fragment rather than a full page or login page.
-
-## 10. Lava Applications Deep Dive
-
-A Lava Application groups related endpoints behind a stable application slug. The docs describe this as a simplification for HTMX applications that need multiple server-side endpoints returning snippets ([Lava Applications](https://community.rockrms.com/developer/helix/lava-applications)).
-
-Use a Lava Application when:
-
-- A Rock admin/developer can express the behavior safely in Lava.
-- The app fits existing Rock entities and does not need custom database models.
-- The behavior is more interactive than a static Lava page.
-- A custom C# block would be too much overhead.
-- Endpoint count remains manageable.
-- The security model is clear and testable.
-
-Avoid or reconsider Lava Applications when:
-
-- You need custom models or complex persistence.
-- You expect dozens of endpoints and complicated state transitions.
-- You need a heavily tested domain layer.
-- You need advanced client-side behavior beyond the current Helix primitives.
-- The endpoint must handle high traffic with strict latency budgets and complex queries.
-- The team cannot safely maintain Lava Commands, endpoint security, and validation.
-
-The Customizing Rock guidance gives concrete warning signs: custom models, 50+ endpoints, and development that feels complex or fragile ([Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock)).
-
-### Configuration Rigging Strategy
-
-Use configuration rigging for stable settings:
-
-```json
-{
-  "ResultsPageSize": 12,
-  "DefaultCampusGuid": "00000000-0000-0000-0000-000000000000",
-  "AllowedGroupTypeGuids": [
-    "00000000-0000-0000-0000-000000000000"
-  ]
-}
-```
-
-Good uses:
-
-- Page size.
-- Known defined value GUIDs.
-- Content channel GUIDs.
-- Group type GUIDs.
-- Feature flags for stable behavior.
-- Environment-specific text or route names.
-
-Poor uses:
-
-- User-specific state.
-- Frequently changing lists.
-- Live search data.
-- Secrets.
-- API keys.
-- Authorization rules that should be stored in Rock security.
-
-If dynamic data is needed, the docs recommend a persisted dataset rather than configuration rigging ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)). If secrets are needed, use the appropriate Rock secure configuration or integration pattern and verify with the live instance; do not place secrets in frontend-accessible block configuration.
-
-### Application Security
-
-Lava Applications behave like Rock entities with security verbs. The Applications docs mention standard verbs such as View, Edit, and Administrate, plus endpoint-related security options ([Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)). The source save hook adds base security for administrators and the Lava Application Developers role on new applications ([LavaApplication.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs)).
-
-Agents should check:
-
-- Who can view the application configuration.
-- Who can edit endpoints.
-- Who can administrate the application.
-- Whether endpoint security mode references application permissions.
-- Whether a page's block security conflicts with endpoint security.
-- Whether unauthenticated users can call public endpoints intentionally.
-- Whether security inherited from plugin-era migration is still appropriate.
-
-## 11. Lava Endpoints Deep Dive
-
-Endpoints are the core unit of work. The docs call them the fundamental units that encapsulate logic called from the client ([Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)).
-
-### Routing
-
-The practical route uses:
-
-```text
-/application-slug/endpoint-slug
-```
-
-Inside a Lava Application Content block, use the caret shorthand:
-
-```html
-<div
-  hx-get="^/people-search/results?CampusGuid={{ campus.Guid }}"
-  hx-target=".people-search-results">
-</div>
-```
-
-The docs state the caret marks the route as associated with a Lava Application ([Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)). If the caret shorthand fails, inspect the rendered HTML, content block type, app selection, and the full request URL in dev tools.
-
-The source docs mention a request routing model in which requests route to a Lava Application router and matching endpoint, while other Lava can call endpoints through `renderlavaendpoint` ([docs/cms/lava-applications.md](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md)). Verify exact route prefixes in the live Rock version, because docs and source snippets may differ by branch.
-
-### HTTP Methods
-
-Endpoint methods are `GET`, `POST`, `PUT`, and `DELETE` in source ([LavaEndpointHttpMethod.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointHttpMethod.cs)).
-
-Use them this way:
-
-| Method | Use |
-| --- | --- |
-| GET | Read-only fragments and queries |
-| POST | Create, submit, trigger, or action endpoints |
-| PUT | Update an existing entity/state |
-| DELETE | Delete/remove action |
-
-Do not modify data in GET endpoints. The security docs explicitly call this out as unsafe because GET requests can be initiated from cross-site links and are easier to trigger accidentally ([Security](https://community.rockrms.com/developer/helix/overview/security)).
-
-### Security Modes
-
-Source and docs identify these modes:
-
-| Mode | Meaning |
-| --- | --- |
-| Endpoint Execute | Check the Execute verb on the specific endpoint |
-| Application View | Use application-level View permission |
-| Application Edit | Use application-level Edit permission |
-| Application Administrate | Use application-level Administrate permission |
-
-The Endpoints docs describe Endpoint Execute as checking whether `CurrentPerson` can run the endpoint, while application modes use application permissions to reduce administrative overhead ([Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)). The enum values are confirmed in source ([LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs)).
-
-Use Endpoint Execute for public or sensitive actions where individual endpoint authorization matters. Use application-level modes for consistent internal tools with clear app-level roles. Do not use broad application permissions for destructive endpoints unless every user with that permission should run every destructive action.
-
-### Enabled Lava Commands
-
-Endpoint code templates can enable Lava Commands. The Lava Commands docs emphasize that commands can bypass built-in security and business logic, so they must be enabled intentionally ([Getting Started With Lava Commands](https://community.rockrms.com/lava/commands)). Endpoint-level command enablement should be minimal.
-
-Common command risk levels:
-
-| Command family | Risk |
-| --- | --- |
-| Entity read | Medium: can expose data and create expensive queries |
-| SQL | High: injection and performance risks |
-| Modify Entity | High: data integrity risks |
-| Delete Entity | Very high: destructive |
-| DB Transaction | High: batching changes can magnify errors |
-| HTTP Response | Medium: response control can affect clients |
-| Web Request | Medium/high: outbound calls, secrets, timeouts |
-| Workflow Activate | Medium/high: can trigger side effects |
-
-The Helix Lava Commands page now points authors to the main Lava documentation for command details, including Delete Entity, Modify Entity, DB Transaction, HTTP Response, and Render Lava Endpoint ([Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)).
-
-### Merge Fields And Request Body
-
-Endpoint Lava commonly uses query-string values, current person context, application configuration, and request body values. Rock v19.1 release notes state that Body and RawBody merge fields were added to Lava Applications ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)). The source docs also mention the Body/RawBody change as a 2026-03-10 commit ([docs/cms/lava-applications.md](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md)).
-
-Before writing an endpoint that depends on `Body` or `RawBody`, verify the live version includes the feature. In older versions, a JSON POST may not expose request body data as expected.
-
-## 12. Forms And Controls Deep Dive
-
-Rock's WebForms architecture creates a form mismatch. HTMX and HTML expect independent forms, but ASP.NET WebForms has one large page form. Helix introduces `<lava-form>` as an independent form abstraction to support validation and avoid nested form problems ([Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms)).
-
-### Lava Form Pattern
-
-Use `<lava-form>` around related controls and actions:
-
-```html
-<lava-form>
-  {[ textbox name:'lastname' label:'Last Name' value:'' isrequired:'true' ]}
-
-  <button
-    class="btn btn-primary"
-    hx-post="^/people-search/save"
-    hx-target=".form-response">
-    Save
-    <img
-      src="/Assets/Images/Spinners/small-circle-light.svg"
-      class="htmx-indicator">
-  </button>
-
-  <div class="form-response"></div>
-</lava-form>
-```
-
-This is an illustrative pattern. Verify exact shortcode parameters in the live instance by checking `Admin Tools > CMS Configuration > Lava Shortcodes` and the Helix category, as recommended by the Using Form Controls docs ([Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)).
-
-### Control Shortcodes
-
-The provided controls reduce verbose Rock form-control markup. The docs show that a textbox can be rendered with a shortcode rather than hand-authored control markup, and that more complex controls such as campus pickers are available ([Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)).
-
-Do not edit shipped Helix shortcodes in place. The docs warn that modifying them is discouraged because future updates may overwrite changes ([Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)). For custom needs:
-
-- Create a new shortcode.
-- Put it in an appropriate category.
-- Use project-specific naming.
-- Document parameters.
-- Enable only necessary Lava Commands.
-- Prefer wrapping common label/control markup through a shared base control pattern.
-
-The Creating New Controls docs state that most new controls are developed from the `rock-control` base shortcode and that common parameters include label-style information and control configuration ([Creating New Controls](https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls)). The general Lava shortcode documentation explains choosing inline vs block shortcodes based on the amount and shape of data passed ([Authoring Shortcodes](https://community.rockrms.com/lava/shortcodes/authoring-shortcodes)).
+For a new reusable control, the documented pattern starts from the `rock-control` base shortcode. Common parameters include `label`, `isrequired`, `type`, `validationmessage`, and a unique `id`; the control’s actual input markup is placed inside the base shortcode. Decide whether the control is broadly reusable or project-specific before treating it as a toolkit extension. [Creating New Controls](https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls)
 
 ### Validation
 
-Helix form validation applies only inside `<lava-form>` tags and only for POST, PUT, and DELETE calls. It does not run for GET ([Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)).
+Helix client-side validation applies only to controls within `<lava-form>` and is processed for POST, PUT, and DELETE—not GET. It can use native HTML validation attributes, and a custom field message can be supplied in an element whose identifier follows `rfv-{control id}`. A `<lava-validationsummary />` can place the summary at a chosen location inside the Lava Form. Supplied Helix control shortcodes generate much of this convention automatically. [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)
 
-Validation pattern:
+Client-side validation is only a usability layer. The endpoint must repeat all security and integrity validation because a caller can bypass the page and invoke the endpoint directly. [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation) [Helix security](https://community.rockrms.com/developer/helix/overview/security)
 
-- Use native HTML5 validation attributes.
-- Provide validation messages with the convention expected by Helix controls.
-- Use `<lava-validationsummary />` inside the `<lava-form>` when a custom summary location is needed.
-- Always duplicate critical validation server-side in endpoint Lava.
+### Loading indicators
 
-The docs explicitly warn that client-side validation is not enough because endpoints can be accessed directly ([Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)).
+A submitting control can contain its own element with the `htmx-indicator` class. For a form-level indicator, place the indicator inside the Lava Form and set the submitting control’s `hx-indicator` to the form selector. [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)
 
-### Loading Indicators
+Spinner paths depend on packaging:
 
-HTMX supports loading indicators, and Helix provides spinner paths. For Rock v18 or later, the docs show spinner assets under `/Assets/Images/Spinners/...`; for plugin-era Helix, paths are under `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/...` ([Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)).
+- Rock 18 or later core examples use `/Assets/Images/Spinners/`.
+- The Helix plugin uses `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/`.
 
-Agent checks:
+Inspect the installed packaging and confirm the asset returns successfully rather than switching paths based only on the page’s age. [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)
 
-- If spinner images 404, verify Rock version and plugin/core path.
-- Keep button indicators small.
-- Do not make the indicator shift layout.
-- Use `htmx-indicator` class.
-- For long-running results, use a larger indicator near the target region.
+## Security And Observability
 
-## 13. Security And Observability Deep Dive
+### Endpoint security review
 
-### Security Principles
+Treat every endpoint as directly callable outside its intended front end. For each endpoint:
 
-The Helix security page is direct: endpoints can be accessed outside the frontend, parameters can be modified, and endpoint authors must validate input and secure data access ([Security](https://community.rockrms.com/developer/helix/overview/security)).
+1. Identify whether it reads, writes, deletes, starts a workflow, or exposes person-backed data.
+2. Inspect its endpoint or application execution mode and authorization assignments.
+3. Test the intended caller rather than relying on administrator access.
+4. Validate and allowlist query, form, header, and body values.
+5. Prefer IdKeys or GUIDs over easily guessed numeric identifiers where practical.
+6. Independently verify the caller’s right to view or edit the selected entity.
+7. Keep mutations off GET.
+8. Sanitize or parameterize values before SQL use.
+9. Keep Enabled Lava Commands no broader than the template requires.
+10. Review caching so private or user-specific responses are not exposed through an inappropriate cache policy.
 
-Security rules for agents:
+The first eight checks come directly from the official security and endpoint guidance. The command and caching checks follow from the endpoint’s documented configuration surface. [Helix security](https://community.rockrms.com/developer/helix/overview/security) [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
 
-1. Treat every endpoint as an API.
-2. Do not trust query-string IDs.
-3. Prefer GUIDs or IdKeys over sequential integer IDs in public routes.
-4. Do not rely on GUIDs or IdKeys as the only control.
-5. Check the actor's right to view or modify the specific entity.
-6. Use GET only for read-only operations.
-7. Validate all query-string and body inputs.
-8. Sanitize SQL inputs or avoid SQL entirely.
-9. Enable only required Lava Commands.
-10. Return only the data needed by the UI fragment.
-11. Test direct endpoint access while logged out, logged in as a low-privilege user, and logged in as the intended role.
-
-Attribute security also matters. Lava attribute filters gained additional security considerations around Rock v17.5, including an optional parameter to bypass attribute-level security checks. The docs warn to use bypassing only when appropriate because it skips a safeguard ([Attribute Filters](https://community.rockrms.com/lava/filters/attribute-filters)). In Helix, this is especially important because endpoint output may be called dynamically and exposed outside the initial page context.
+A reviewed read-only installation probe found secured Lava Application and Lava Endpoint entity types and authorization rows for both. It also found endpoint metadata for method, security, enabled commands, caching, rate limiting, activity, and additional settings. This is evidence that agents should inspect those surfaces; it is not evidence that another installation exposes identical controls or that any existing endpoint is secure.
 
 ### Observability
 
-The Helix Observability docs state that each Lava Endpoint call has an observability activity named with the endpoint and application, and that root activity attributes include `rock.lava_endpoint` and `rock.lava_application`; the HTTP method is already part of the activity ([Observability](https://community.rockrms.com/developer/helix/lava-applications/observability)).
+Each Lava Endpoint call creates an observability activity named with both the endpoint and application names. The root activity records `rock.lava_endpoint` and `rock.lava_application`, and the HTTP method is available through an existing activity attribute. Use those fields to isolate a route and compare methods when investigating errors or latency. [Endpoint observability](https://community.rockrms.com/developer/helix/lava-applications/observability)
+
+Monitor endpoint traces during development to identify slow execution and excessive database calls. Rock’s broader observability system can expose page, block, database-transaction, and job timing. [Endpoint observability](https://community.rockrms.com/developer/helix/lava-applications/observability) [Intro to Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability/intro-to-observability)
+
+Rock 19.0 documentation places observability configuration under `Admin Tools > Settings > System Configuration`. It includes feature selection for traces, metrics, and logs; provider endpoint and protocol; headers; trace level; span and attribute limits; optional SQL statement collection; and targeted-query diagnostics. It also instructs administrators to confirm that the Observability HTTP module is active. Targeted query data can include parameter values and stack traces, so enable it only for a bounded investigation and review the possibility of personally identifiable information before collection. [Configure Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability)
+
+## Strategies And Limitations
 
-Operationally, use observability to answer:
+The `{% javascript %}` and `{% stylesheet %}` Lava commands do not work in Helix endpoint templates. Endpoint output is injected dynamically, and RockPage is not available to coordinate or reliably deduplicate those resources. Load required assets through a page, theme, block, or another verified host boundary instead of expecting an endpoint fragment to register them. [Helix limitations](https://community.rockrms.com/developer/helix/strategies/limitations) [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
+
+The official Related Entities strategy page contains only a “writing in progress” notice in the supplied evidence. No operational behavior can be established from that title, so this guide intentionally makes no claim about a related-entity feature. [Related Entities](https://community.rockrms.com/developer/helix/strategies/related-entities)
+
+### Reviewed community patterns
+
+The following are reviewed community patterns, not guarantees of Rock core behavior. Each requires adaptation and live verification:
+
+- **Public page boundary:** Prefer a page-hosted Content block, purpose-built endpoint, or bounded read-only adapter over treating a complete Rock page inside an iframe as the long-term integration contract. Keep authentication, person-backed forms, verification, workflow activation, and mutations behind explicit review and testing. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block) [Endpoint security](https://community.rockrms.com/developer/helix/overview/security)
+- **Active search:** Render a useful first view on the server, then use caret routes inside the Content block for subsequent filters. Test anonymous and intended-role access separately; a successful staff-session request does not establish public safety. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
+- **Server-owned result state:** A reviewed pattern places sort and direction values in the returned result fragment so filtering, sorting, and refresh requests share one server contract. Nullable columns receive an explicit blank bucket in the server-side ordering. This is a community design pattern, not built-in Helix behavior.
+- **Read-only dashboards:** Keep read endpoints separate from mutation endpoints. Domain-specific joins and status rules require evidence from the owning models, and rows without the owning domain record should not receive actions that depend on that record.
+- **Communication search:** An immutable public recipe separates the filter shell from the results endpoint, allowlists enum and page-size inputs, parameterizes text search, pages before recipient aggregation, and keeps message bodies and recipient details out of the initial view. [Communication History Active Search](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search)
+- **Public AI retrieval:** A reviewed pattern separates a broad approved-route registry from a smaller search corpus, keeping authenticated, payment, registration, private-media, and staff-only material out of public semantic retrieval. This is an application architecture recommendation, not a Helix core feature.
+- **Rendered validation:** Exact source readback and successful rendering are separate gates. A reviewed dashboard pattern tests an unauthorized visitor, the intended role, and an administrator; checks known data invariants and representative rows; exercises filters and empty states; inspects Lava and console errors; and measures responsive overflow. [Public dashboard recipe source](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
+- **Community recipes:** The public Following-management recipe demonstrates a page composed from a Lava Application, Content block, endpoint, filter block, and supplemental page assets. Rock explicitly warns that community recipes are not reviewed or endorsed by the core team, so inspect their security, identifiers, commands, and version assumptions before adoption. [Manage Following records with Helix](https://community.rockrms.com/recipes/497)
+
+## Version And Authority Caveats
+
+- Rock’s core release notes say Lava Application support was added to core in Rock 18.1. [Rock release notes](https://www.rockrms.com/releasenotes)
+- The Helix landing page still describes Helix as early alpha, while the plugin-installation page describes a limited beta requiring both the Helix and Magnus plugins. The FAQ says Helix is now in core. These pages reflect different lifecycle or packaging moments; do not combine them into one installation rule. [Helix landing page](https://community.rockrms.com/developer/helix) [Plugin installation](https://community.rockrms.com/developer/helix/overview/plugin-installation) [Helix FAQ](https://community.rockrms.com/developer/helix/overview/faq)
+- Spinner assets and several Lava commands are documented from Rock 18.0, while the release note places core Lava Application support in 18.1. Verify the actual feature and asset availability in the installed build.
+- Developer documentation labels `Body` and `RawBody` as Rock 19+, while release notes specifically list their addition in 19.1. Use the exact minor version as the deployment gate. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Rock release notes](https://www.rockrms.com/releasenotes)
+- Rock 19.5 release notes describe a fix for non-administrators being unable to run an endpoint when the Lava Application Developer role was inactive. Include exact patch level and role state when diagnosing similar authorization failures. [Rock release notes](https://www.rockrms.com/releasenotes)
+- The supplied Content block claim carries a `2.0` version tag whose meaning is not established by the excerpt. Do not interpret it as a Rock core version without separate evidence.
+- The supplied GitHub source observations use immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. They describe that implementation snapshot, not the target installation.
+- Roadmap items are ideas, not released behavior.
+- Community contributions and recipes are examples. They require security, schema, performance, and rendered-page review before use.
+
+## Troubleshooting Decision Tree
+
+### An HTMX action does nothing or updates the wrong region
+
+1. Confirm the page uses a Lava Application Content block or otherwise loads HTMX.
+2. Inspect the browser console for HTMX errors.
+3. Confirm the element’s `hx-get`, `hx-post`, `hx-put`, or `hx-delete` value.
+4. Confirm `hx-target` matches an existing element at request time.
+5. Walk up the DOM and inspect inherited HTMX attributes.
+6. Inspect the network response and returned fragment.
+7. Stop when the request reaches the intended endpoint and consistently replaces the intended element. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block) [Helix tips](https://community.rockrms.com/developer/helix/strategies/tips)
+
+### The endpoint returns not found or the wrong handler runs
+
+1. Record the application slug, endpoint slug, and request method.
+2. Confirm both records are active in the target installation.
+3. Confirm the endpoint is attached to the expected application.
+4. Compare the request method with the endpoint method.
+5. Check for another endpoint using the same slug with a different method.
+6. From a Content block, test the caret route; outside it, inspect the documented complete route.
+7. Stop when the route and method identify one intended endpoint. [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
+
+### A user is denied while an administrator succeeds
+
+1. Identify the exact user or role being tested; do not use administrator override as evidence.
+2. Inspect the endpoint security mode.
+3. If it uses Endpoint Execute, inspect authorization on that endpoint.
+4. If it uses an application mode, inspect the corresponding application execution authorization.
+5. Inspect the application’s management security separately from execution security.
+6. Record Rock’s exact patch version and whether the Lava Application Developer role is active, because Rock 19.5 fixed a related non-administrator failure.
+7. Stop when the intended role succeeds and an unauthorized role is still denied. [Application security](https://community.rockrms.com/developer/helix/lava-applications/applications) [Endpoint security modes](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Rock release notes](https://www.rockrms.com/releasenotes)
 
-- Which endpoint is slow?
-- Which HTTP method is being called?
-- Which application owns the endpoint?
-- How many database calls does the endpoint trigger?
-- Did a UI change increase endpoint latency?
-- Are users repeatedly triggering an expensive endpoint?
-- Are errors isolated to one endpoint or application?
+### Form validation is skipped or nested-form behavior is inconsistent
 
-Lava also has an `observe` command, available since v16.3 according to the Lava docs, that wraps contained Lava in an observability activity and allows custom tags ([Observe](https://community.rockrms.com/lava/tags/observe)). Use it inside complex endpoint templates to separate expensive sub-operations, but avoid over-instrumenting every trivial line.
+1. Confirm the inputs are inside `<lava-form>`.
+2. Confirm the request uses POST, PUT, or DELETE; Helix validation is not processed on GET.
+3. Check native HTML validation attributes.
+4. For custom controls, confirm the validation message element follows `rfv-{control id}`.
+5. Confirm any validation summary is inside the Lava Form.
+6. Invoke the endpoint directly with invalid input and confirm server-side rejection.
+7. Stop only when both the browser and direct endpoint request enforce the required rules. [Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)
+
+### Body or RawBody is empty or unavailable
+
+1. Confirm the request is not GET.
+2. Record the installed Rock minor version.
+3. Treat developer documentation’s Rock 19+ label and the 19.1 release note as a reason to verify exact availability.
+4. Confirm the client actually sent a body and inspect its content type.
+5. Use `Body` when object conversion is expected and `RawBody` when the original string is required.
+6. Stop when the endpoint receives the expected representation without depending on an unsupported version. [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) [Rock release notes](https://www.rockrms.com/releasenotes)
+
+### A loading spinner is missing
+
+1. Confirm the indicator has the `htmx-indicator` class.
+2. For a form-wide indicator, confirm `hx-indicator` targets the Lava Form.
+3. Determine whether the installation uses core Rock 18+ assets or the Helix plugin.
+4. Test the appropriate asset path directly.
+5. Confirm the request lasts long enough for the indicator state to be visible.
+6. Stop when the indicator appears for the intended request and disappears after completion. [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)
 
-Example pattern:
+### Endpoint-injected styles or scripts do not load
 
-```liquid
-{% observe name:'Group Finder Query' app-feature:'group-finder' app-feature-version:'1' %}
-  {% group where:'GroupTypeId == {{ groupTypeId }}' limit:'25' %}
-    ...
-  {% endgroup %}
-{% endobserve %}
-```
+1. Inspect the endpoint for `{% javascript %}` or `{% stylesheet %}`.
+2. Remove the assumption that those commands can register assets from a Helix fragment.
+3. Move the dependency to a verified page, theme, or block-level loading boundary.
+4. Retest both the initial render and later fragment replacements.
+5. Stop when the dependency is loaded once through a supported host and the fragment works without endpoint-side resource registration. [Helix limitations](https://community.rockrms.com/developer/helix/strategies/limitations)
 
-Verify the organization tag prefix and tag naming conventions locally. The docs recommend organization-prefixed tags in the observe command ([Observe](https://community.rockrms.com/lava/tags/observe)).
+### An endpoint is slow or makes excessive database calls
+
+1. Locate its observability activity using the endpoint and application names.
+2. Confirm the recorded HTTP method.
+3. Compare total execution time and database activity across representative requests.
+4. Inspect repeated or unexpectedly expensive database calls.
+5. Use targeted query diagnostics only for a bounded investigation and review whether parameters contain personal data.
+6. Retest after each change.
+7. Stop when representative traces meet the application’s defined performance target without unsafe diagnostic collection. [Endpoint observability](https://community.rockrms.com/developer/helix/lava-applications/observability) [Configure Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability)
+
+### Sorting or filtering resets after refresh
+
+1. Confirm whether state exists only in browser-side variables.
+2. As a reviewed community pattern, have the server-rendered result fragment emit current sort and direction values.
+3. Include those values in filter and refresh requests.
+4. Have sortable headers send the next sort and direction explicitly.
+5. Define ordering for null or blank values.
+6. Retest filtering, sorting, manual refresh, and auto-refresh together.
+7. Stop when all requests use one documented server-side state contract. [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
+
+## Agent Task Recipes
+
+### Recipe: Inspect an existing Helix application before changing it
+
+**Outcome:** A bounded map of the current application flow and its security-sensitive surfaces.
+
+1. Record the installed Rock version and whether Helix is core- or plugin-provided.
+2. Inspect the Lava Application’s name, description, slug, configuration rigging, activity state, and security.
+3. Identify every linked Lava Application Content block.
+4. Inventory the application’s endpoints by name, slug, method, and activity state.
+5. For each endpoint, record security mode, enabled commands, caching, code-template purpose, and any exposed rate-limit or CSRF setting.
+6. Trace each page action to its endpoint and target element.
+7. Identify which endpoints read, mutate, delete, or launch other work.
+8. Review representative observability activities before altering behavior.
+
+**Inspect:**
+
+- Application and endpoint authorization.
+- Method and route collisions.
+- Input sources.
+- Entity-level permission checks.
+- Cache policy.
+- Database activity.
+
+**Do not assume:**
+
+- Page security protects the endpoint.
+- Administrator success proves role access.
+- A staff-session route is suitable for public use.
+- Settings observed in another installation exist here.
 
-## 14. Strategies And Limitations Deep Dive
+**Stop when:**
 
-The Strategies section currently contains tips, related entities, and limitations. The related-entities page is marked as writing in progress in the source pack, so do not infer hidden behavior from it ([Related Entities](https://community.rockrms.com/developer/helix/strategies/related-entities)).
+- Every page action maps to one endpoint and method.
+- Every mutation has an explicit security and validation boundary.
+- Unknown installed-state questions are recorded for live verification.
+
+Sources: [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications), [Lava Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints), and [Endpoint observability](https://community.rockrms.com/developer/helix/lava-applications/observability).
+
+### Recipe: Build a read-only HTMX result fragment
+
+**Outcome:** A page-hosted query interaction that returns only authorized display content.
 
-Known documented limitations:
+1. Create or select a Lava Application with a documented name, description, and slug.
+2. Add a GET endpoint for the result fragment.
+3. Configure its security mode for the intended audience.
+4. Enable only the Lava commands required to read and render the result.
+5. Validate and allowlist all query values.
+6. Check the caller’s right to view each protected entity.
+7. Add a Lava Application Content block and link it to the application.
+8. Render useful initial content.
+9. Add the HTMX request using a caret route and an explicit target.
+10. Test empty, invalid, unauthorized, and representative result states.
+11. Inspect endpoint traces and database calls.
 
-- Lava `{% javascript %}` and `{% stylesheet %}` commands do not work in Helix endpoint-rendered fragments because they rely on `RockPage`, and dynamic partial updates do not have that page execution context ([Limitations](https://community.rockrms.com/developer/helix/strategies/limitations)).
+**Do not assume:**
 
-Practical implications:
+- IdKeys or GUIDs provide authorization.
+- Read-only behavior makes private fields safe to expose.
+- A default cache policy is appropriate for person-specific output.
 
-- Put required page JavaScript and CSS in the page shell, theme, asset bundle, or a stable HTML Content block.
-- Do not expect an endpoint fragment to register scripts/styles with the full page.
-- Keep endpoint output as markup and data, not asset registration.
-- If an endpoint returns markup that depends on JavaScript initialization, verify that the necessary initializer runs after HTMX swaps.
-- Use HTMX lifecycle events only when necessary and document them in the page shell.
+**Stop when:**
 
-The Tips docs recommend using browser dev tools and checking HTMX attribute inheritance ([Tips](https://community.rockrms.com/developer/helix/strategies/tips)). That should be the first debugging branch for most broken interactions.
+- Anonymous and authenticated behavior matches the intended audience.
+- The endpoint performs no mutation.
+- Returned fields and cache behavior have been reviewed.
+- Observability shows acceptable database work.
 
-## 15. Related Rock Areas: Lava, Api Integrations, Security, Cms, Workflows, Forms, Htmx, Observability
+Sources: [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block), [Helix security](https://community.rockrms.com/developer/helix/overview/security), and [Endpoint observability](https://community.rockrms.com/developer/helix/lava-applications/observability).
 
-### Lava
+### Recipe: Build a validated mutation form
 
-Helix is built on Lava. Agents must know Lava output tags, tags, filters, entity commands, commands, and shortcodes. The Lava reference describes Lava as Rock's templating language and notes the transition away from DotLiquid support around v17 ([Lava](https://community.rockrms.com/lava)). Verify the active Lava engine and syntax compatibility in the live instance.
+**Outcome:** A non-GET endpoint that rejects unauthorized or invalid direct calls as well as invalid browser submissions.
 
-### API Integrations
+1. Place the controls inside `<lava-form>`.
+2. Prefer supplied Helix control shortcodes where they meet the requirement.
+3. Add native validation rules and clear validation messages.
+4. Use POST, PUT, or DELETE according to the operation.
+5. Configure endpoint or application execution security.
+6. Enable only the commands needed for the mutation.
+7. Repeat every validation rule in the endpoint.
+8. Resolve the target entity from validated input.
+9. Verify the caller’s edit rights to that entity.
+10. Parameterize or sanitize any SQL inputs.
+11. If multiple writes must succeed together, assess the DB Transaction command.
+12. Return an appropriate status or HTMX response instruction.
+13. Test the endpoint directly with missing, malformed, unauthorized, and tampered input.
 
-Helix endpoints are not the same as Rock REST API v1/v2. Rock's API documentation distinguishes API v1 and API v2 resources and links to Lava API concepts ([API Documentation](https://community.rockrms.com/api-docs)). Use Rock API for external integrations when appropriate; use Helix for Rock-hosted interactive pages. Do not expose Helix endpoints as public integration APIs without a full security and compatibility review.
+**Inspect:**
 
-### Security
+- Security mode and authorization entries.
+- Enabled Lava Commands.
+- Request body availability for the installed version.
+- Transaction behavior.
+- Response status and rendered error state.
 
-Rock security applies at multiple layers: page/block security, application security, endpoint security, entity security, attribute security, command enablement, and custom Lava checks. Never assume one layer covers all cases.
+**Stop when:**
 
-### CMS
+- Direct calls cannot bypass validation or authorization.
+- GET cannot trigger the mutation.
+- Partial failure cannot leave unacceptable data state.
+- Success and error responses are visible and traceable.
 
-Lava Applications are CMS models. Source records and Model Map place Lava Application in the CMS category ([Model Map](https://community.rockrms.com/ModelMap)). Admin pages and blocks for Lava Applications should be managed as CMS configuration.
+Sources: [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation), [Helix security](https://community.rockrms.com/developer/helix/overview/security), [DB Transaction](https://community.rockrms.com/lava/commands/db-transaction), and [HTTP Response](https://community.rockrms.com/lava/commands/http-response).
 
-### Workflows
+### Recipe: Render endpoint content on first paint
 
-Helix can trigger workflows if the appropriate Lava Commands or endpoint logic are enabled. Use this for bounded actions, not as an unreviewed business-process engine. If an endpoint triggers workflow activation, verify workflow security, input attributes, and idempotency.
+**Outcome:** Endpoint-generated content appears during the initial page render without a second request or avoidable layout shift.
 
-### Forms
-
-Helix forms solve the WebForms nested-form issue through `<lava-form>`, control shortcodes, and validation conventions ([Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms)).
-
-### HTMX
-
-HTMX controls request/response behavior through attributes. Debug with browser dev tools, not by staring only at Lava, and verify `hx-*` request/target/swap behavior against the Helix HTMX docs ([HTMX](https://community.rockrms.com/developer/helix/htmx)).
-
-### Observability
-
-Helix endpoint calls are observable, and custom `observe` spans can be added inside Lava. Use these before optimizing blindly ([Observability](https://community.rockrms.com/developer/helix/lava-applications/observability), [Observe](https://community.rockrms.com/lava/tags/observe)).
-
-## 16. Administration And Operational Guardrails
-
-Use this checklist before shipping a Helix application:
-
-| Area | Guardrail |
-| --- | --- |
-| Ownership | Application description names owner, purpose, and support path. |
-| Version | Installed Rock version supports required features. |
-| Route stability | Slugs are final and references are searched before changes. |
-| Security | Endpoint modes are intentional and tested directly. |
-| Commands | Each endpoint enables only required commands. |
-| Validation | Client and server validation both exist for writes. |
-| Observability | Slow or complex endpoints are observable. |
-| Caching | Cache settings do not leak personalized data. |
-| Accessibility | Controls have labels, validation messages, and predictable focus behavior. |
-| Failure handling | Endpoint returns useful error fragments. |
-| Upgrade path | Plugin/core differences are documented. |
-| Source control | Magnus or other export path captures application and endpoint content where available. |
-
-Use separate environments:
-
-- Develop in a non-production Rock instance.
-- Test with realistic data volume.
-- Test as anonymous, low-privilege, intended user, and admin.
-- Promote with documented steps.
-- Verify post-deploy endpoints and observability.
-
-If Magnus is used, the docs say it allows editing applications and endpoints in VS Code and helps group front-end content blocks with backend endpoints ([Magnus](https://community.rockrms.com/developer/helix/lava-applications/magnus)). Verify Magnus installation and sync behavior locally; do not assume every Lava Application is source-controlled.
-
-## 17. Developer, API, Lava, And Source-Code Landmarks
-
-Key source-code and documentation landmarks:
-
-| Landmark | Why it matters |
-| --- | --- |
-| [docs/cms/lava-applications.md](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md) | Source documentation for mental model, commits, Body/RawBody note, RenderLavaEndpoint notes. |
-| [LavaApplicationBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/LavaApplicationDetail/LavaApplicationBag.cs) | Confirms exposed app detail fields. |
-| [lavaApplicationBag.d.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/LavaApplicationDetail/lavaApplicationBag.d.ts) | Confirms Obsidian frontend bag fields. |
-| [LavaApplication.SaveHook.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs) | Shows base security added for admins and Lava Application Developers. |
-| [LavaApplicationService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaApplication/LavaApplicationService.cs) | Shows cache-assisted GUID lookup. |
-| [LavaEndpointService.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CMS/LavaEndpoint/LavaEndpointService.cs) | Shows endpoint lookup by LavaApplicationId. |
-| [LavaEndpointSecurityMode.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointSecurityMode.cs) | Source enum for endpoint security modes. |
-| [LavaEndpointHttpMethod.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Cms/LavaEndpointHttpMethod.cs) | Source enum for endpoint HTTP methods. |
-| [LavaApplicationsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs) | Generated API v2 model surface for Lava Applications. |
-| [LavaEndpointsController.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs) | Generated API v2 model surface for Lava Endpoints. |
-| [AddLavaApplications.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs) | Migration table/field creation and plugin cleanup context. |
-| [Lava Commands](https://community.rockrms.com/lava/commands) | Command enablement and security caveats. |
-| [Render Lava Endpoint](https://community.rockrms.com/page/3761) | Endpoint rendering command reference, linked from Helix/Lava docs. Verify full details live. |
-
-The generated API controllers show authenticated CRUD model endpoints for Lava Applications and Endpoints under `api/v2/models/lavaapplications` and `api/v2/models/lavaendpoints`, with secured read/write actions in the snippets ([LavaApplicationsController](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaApplicationsController.CodeGenerated.cs), [LavaEndpointsController](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/LavaEndpointsController.CodeGenerated.cs)). These are model-management APIs, not the same thing as calling a Lava Endpoint route for HTMX interaction.
-
-## 18. Reporting, Analytics, And Model Map
-
-Model Map identifies Lava Application as a CMS model ([Model Map](https://community.rockrms.com/ModelMap)). The generated model services include queryable attribute support for both LavaApplication and LavaEndpoint in code-generated service files ([LavaApplicationService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaApplicationService.CodeGenerated.cs), [LavaEndpointService.CodeGenerated.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/CodeGenerated/LavaEndpointService.CodeGenerated.cs)).
-
-Reporting opportunities:
-
-- List all Lava Applications and endpoints.
-- Identify inactive applications with active endpoints.
-- Identify endpoints with modifying commands enabled.
-- Identify public or broadly executable endpoints.
-- Identify endpoints using SQL command.
-- Identify endpoints without descriptions.
-- Identify duplicate slug/method patterns.
-- Identify endpoints modified recently.
-- Identify application configuration rigging containing environment-specific values.
-- Correlate observability traces with endpoint names and applications.
-
-Potential report fields to inspect in a live instance:
-
-```text
-LavaApplication.Id
-LavaApplication.Name
-LavaApplication.Slug
-LavaApplication.IsActive
-LavaApplication.SecurityMode
-LavaApplication.ConfigurationRiggingJson
-LavaEndpoint.Id
-LavaEndpoint.Name
-LavaEndpoint.LavaApplicationId
-LavaEndpoint.Slug
-LavaEndpoint.IsActive
-LavaEndpoint.EnabledLavaCommands
-LavaEndpoint.AdditionalSettingsJson
-```
-
-Because the bounded source excerpt does not show the full endpoint schema, inspect `INFORMATION_SCHEMA.COLUMNS`, the model class, or the full migration in the exact Rock version before writing production SQL.
-
-## 19. Version And Release Caveats
-
-Known version facts from the source pack:
-
-| Version | Fact | Source |
-| --- | --- | --- |
-| v16.3 | `observe` Lava tag documented as available. | [Observe](https://community.rockrms.com/lava/tags/observe) |
-| v17 | Lava docs discuss ending DotLiquid support with v17. | [Lava](https://community.rockrms.com/lava) |
-| v17.5 | Attribute security behavior and bypass parameter discussed. | [Attribute Filters](https://community.rockrms.com/lava/filters/attribute-filters) |
-| v18.1 | Core release notes say Helix support for Lava Applications was added to core. | [Rock Core Release Notes](https://www.rockrms.com/releasenotes) |
-| v18+ | Loading indicator docs use `/Assets/Images/Spinners/...` paths. | [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
-| plugin-era Helix | Spinner paths under `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/...`. | [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
-| v19.1 | Body and RawBody merge fields added to Lava Applications. | [Rock Core Release Notes](https://www.rockrms.com/releasenotes) |
-
-Caveats:
-
-- Some docs still describe Helix as alpha/beta or plugin-based. Verify against live version.
-- Release notes in the pack say v19.1 is beta as of May 20, 2026. Treat v19.1 features as version-dependent.
-- Source snippets point to the `develop` branch. Production may differ.
-- Model Map excerpt is minimal. Use live model/entity inspection for exact reporting.
-- Community recipes may be written for Rock 16.6 or plugin Helix and may not match core Helix behavior exactly ([Manage Following records with Helix](https://community.rockrms.com/recipes/497)).
-
-## 20. Implementation Playbooks
-
-### Playbook A: Build A Read-Only Results Panel
-
-Use [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications), [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability), and the documented [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) behavior as the implementation baseline. Test direct endpoint access, authorization, parameter validation, empty results, and query cost in the target Rock version.
-
-1. Create a Lava Application with name, description, slug, and stable configuration rigging.
-2. Create a GET endpoint named `Results`.
-3. Use Endpoint Execute or Application View security depending on audience.
-4. Enable only read commands needed for the query.
-5. Add a Lava Application Content block to the page.
-6. Link the block to the application.
-7. Render filter controls and an empty result container.
-8. Use `hx-get="^/app-slug/results"` and `hx-target`.
-9. Validate all query-string values in the endpoint.
-10. Return only the result fragment.
-11. Test as intended and unintended users.
-12. Inspect observability for database call count and latency.
-
-### Playbook B: Build A Safe Update Form
-
-Use the official [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) security and endpoint contracts, and permit only the exact modify commands required by the form. Verify server-side authorization, validation, identifiers, duplicate submission behavior, and a complete readback in a non-production path before enabling the live endpoint.
-
-1. Create or reuse a Lava Application.
-2. Create a PUT or POST endpoint for the update.
-3. Set Endpoint Execute security for precise control.
-4. Enable only required modify commands.
-5. Wrap controls in `<lava-form>`.
-6. Use control shortcodes where possible.
-7. Add client validation for usability.
-8. Add server-side validation in endpoint Lava.
-9. Use GUID or IdKey identifiers where possible.
-10. Check actor permission against the target entity.
-11. Return a success or validation-error fragment.
-12. Test direct endpoint calls with altered parameters.
-
-### Playbook C: Convert A Static Lava Page To Helix
-
-1. Identify the interactive parts only.
-2. Keep static page shell in the content block.
-3. Split each interaction into a small endpoint.
-4. Keep GET endpoints read-only.
-5. Move shared constants into configuration rigging.
-6. Move dynamic reusable data into persisted datasets or normal Rock entities.
-7. Add loading indicators.
-8. Add observability around expensive subqueries.
-9. Remove endpoint reliance on `{% javascript %}` and `{% stylesheet %}`.
-10. Test the page with JavaScript console and network tools open.
-
-### Playbook D: Audit An Existing Helix App
-
-1. Inventory applications and endpoints.
-2. Confirm live Rock version and plugin/core status.
-3. Review descriptions for ownership and purpose.
-4. Review all slugs and page references.
-5. Review endpoint HTTP methods.
-6. Review endpoint security mode.
-7. Review enabled Lava Commands.
-8. Review endpoint code for SQL, entity security bypass, attribute security bypass, and modification logic.
-9. Test direct access.
-10. Review observability.
-11. Document findings and recommended fixes.
-
-## 21. Troubleshooting Decision Tree
-
-### The button does nothing
-
-Check browser console first. The Helix tips page recommends dev tools because HTMX configuration errors often surface there ([Tips](https://community.rockrms.com/developer/helix/strategies/tips)).
-
-Then inspect:
-
-- Is HTMX loaded?
-- Is the block a Lava Application Content block?
-- Is the element inside markup rendered after page load?
-- Is the `hx-*` attribute valid?
-- Is another parent `hx-*` attribute inherited unexpectedly?
-- Is JavaScript blocked by a page error?
-
-### The request is sent but endpoint is not found
-
-Check:
-
-- Application slug.
-- Endpoint slug.
-- Caret notation.
-- HTTP method.
-- Endpoint active state.
-- Application active state.
-- Whether route changed during migration.
-- Whether the full endpoint route differs in this Rock version.
-
-### The endpoint returns login markup or unauthorized
-
-Check:
-
-- CurrentPerson context.
-- Page/block security versus endpoint security.
-- Endpoint Security Mode.
-- Endpoint Execute permission.
-- Application View/Edit/Administrate permission if inherited.
-- Anonymous access expectations.
-- Whether the request is cross-site or missing auth cookies.
-
-### The endpoint works in UI but fails when called directly
-
-This usually means the UI is supplying hidden context that the endpoint assumes. Fix the endpoint, not only the UI.
-
-Check:
-
-- Required parameters.
-- Body parsing.
-- CSRF or auth expectations.
-- Server-side validation.
-- Explicit entity authorization.
-- Error handling for missing values.
-
-### Validation does not run
-
-Check:
-
-- Controls are inside `<lava-form>`.
-- Method is POST, PUT, or DELETE.
-- Required validation attributes are present.
-- Validation summary is inside `<lava-form>`.
-- Shortcode output includes expected IDs and messages.
-- GET requests are not expected to validate ([Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)).
-
-### Spinner does not show
-
-Check:
-
-- `htmx-indicator` class exists.
-- Image path matches core v18+ or plugin-era path.
-- Request is long enough to see it.
-- CSS does not hide it permanently.
-- The indicator is inside or associated with the triggering element.
-
-### Endpoint is slow
-
-Check observability for endpoint activity name and database calls ([Observability](https://community.rockrms.com/developer/helix/lava-applications/observability)).
-
-Then inspect:
-
-- Entity command loops.
-- Missing `limit`.
-- Missing pagination.
-- Attribute prefetch patterns.
-- Security checks on large entity result sets.
-- Repeated endpoint calls from HTMX triggers.
-- Cache eligibility.
-- SQL command performance.
-- Nested calls to Render Lava Endpoint.
-- External web requests and timeout behavior.
-
-### Endpoint modifies wrong data
-
-Stop using the endpoint until reviewed.
-
-Check:
-
-- Identifier source.
-- GUID/IdKey mapping.
-- CurrentPerson authorization.
-- Entity type IDs in configuration.
-- Live instance entity IDs versus copied recipe IDs.
-- HTTP method.
-- Server-side validation.
-- Enabled modify/delete commands.
-- Whether multiple endpoints share a slug with different methods.
-
-## 22. Agent Task Recipes
-
-### Recipe: Find The Endpoint Behind A Button
-
-1. Inspect the rendered element.
-2. Read `hx-get`, `hx-post`, `hx-put`, or `hx-delete`.
-3. Note the application slug and endpoint slug.
-4. Note the HTTP method.
-5. Find the Lava Application by slug.
-6. Find the Lava Endpoint by slug and method.
-7. Check active state, security mode, enabled commands, and code template.
-8. Test the request in browser dev tools.
-9. Review observability using endpoint/application names.
-
-### Recipe: Determine Whether A Helix App Is Public-Safe
-
-1. Identify every endpoint.
-2. Mark each endpoint read-only or write/destructive.
-3. Confirm GET endpoints do not modify data.
-4. Confirm public endpoints expose only public data.
-5. Confirm identifiers use GUIDs or IdKeys where appropriate.
-6. Confirm direct endpoint calls cannot access unauthorized records.
-7. Confirm SQL input is sanitized or removed.
-8. Confirm no sensitive attribute security bypass exists.
-9. Confirm cache settings cannot leak personalized fragments.
-10. Document residual risk.
-
-### Recipe: Upgrade A Plugin-Era Helix App
-
-1. Verify current Rock version.
-2. Verify whether Helix is core, plugin, or both.
-3. Inventory plugin asset paths.
-4. Replace spinner paths if moving to Rock v18+ core asset paths.
-5. Verify Lava Application tables and endpoints migrated.
-6. Verify Magnus or source export still works.
-7. Verify security rows after migration.
-8. Test routes and caret notation.
-9. Test Body/RawBody only if the version supports them.
-10. Remove plugin assumptions from documentation.
-
-### Recipe: Review A Community Recipe Before Use
-
-1. Read the recipe as an example, not an authority.
-2. Verify Rock version compatibility.
-3. Replace all entity type IDs with live instance values.
-4. Replace all group, role, page, block, and defined value IDs with live values.
-5. Review enabled Lava Commands.
-6. Review endpoint Execute permissions.
-7. Run in a non-production environment.
-8. Test with a low-privilege account.
-9. Add observability.
-10. Document rollback.
-
-### Recipe: Add Observability To A Complex Endpoint
-
-1. Find the slow logical block.
-2. Wrap only that block with `{% observe %}`.
-3. Use a stable name.
-4. Add organization-prefixed tags.
-5. Escape tag values if dynamic.
-6. Compare traces before/after.
-7. Remove noisy instrumentation if it does not help.
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `17`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | behavior | Helix Lava Forms address the mismatch between independent HTML forms and ASP.NET WebForms' single-page form model, which matters when validating or troubleshooting nested form behavior. | [source](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) |
-| official | behavior | In Rock 19 and later, Helix Lava endpoints expose request content through Body and RawBody merge fields; Body converts JSON or XML into objects, RawBody preserves the original string, and neither field supplies a body for GET requests. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
-| official | behavior | Each Helix Lava Endpoint call creates an observability activity whose name identifies both the endpoint and its Lava Application; the root activity also records their names as attributes, while the HTTP method is available through an existing activity attribute. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
-| official | configuration | In Rock 18 or later, Helix loading indicators can reference spinner assets under `/Assets/Images/Spinners/`; installations using the Helix plugin instead use `/Plugins/tech_triumph/LavaHelix/Assets/Spinners/`. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
-| official | configuration | Helix Lava Endpoints are the application work units called from the client, so agents should inspect endpoint name, description, slug, behavior, and security before changing an application flow. | [source](https://community.rockrms.com/developer/helix/lava-applications/endpoints) |
-| official | implementation_pattern | The Magnus plugin supports editing Lava Applications and their endpoints in Visual Studio Code, allowing linked front-end content blocks and back-end endpoints to be managed together during application development. | [source](https://community.rockrms.com/developer/helix/lava-applications/magnus) |
-| official | implementation_pattern | A Helix form can display a form-level HTMX loading indicator by placing an element with the `htmx-indicator` class inside the form and setting the submitting control's `hx-indicator` attribute to target that form. | [source](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) |
-| official | implementation_pattern | The Lava Application Content block automatically registers HTMX, and its templates can call an application endpoint with `^/application-slug/endpoint-slug` instead of hard-coding the full `/api/v2/lava-app/1/...` route. | [source](https://community.rockrms.com/developer/helix/lava-applications/content-block) |
-| official | implementation_pattern | A Helix Lava Application groups server-side endpoints that return HTML fragments, and each endpoint is addressed by a route composed from the application slug and endpoint slug; endpoints may share that route when they use different HTTP methods. | [source](https://community.rockrms.com/developer/helix/lava-applications) |
-| official | operational_guidance | When developing Helix Lava Applications, monitor endpoint observability data to identify inefficient execution and excessive database calls. | [source](https://community.rockrms.com/developer/helix/lava-applications/observability) |
-| official | operational_guidance | Consider replacing a Helix Lava Application with a purpose-built custom solution if it would require custom models, at least 50 endpoints, or has become difficult and fragile to develop. | [source](https://community.rockrms.com/developer/helix/overview/customizing-rock) |
-| official | operational_guidance | For readable Helix HTMX markup, place each HTML attribute on its own line and list the CSS class attribute first. | [source](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides) |
-| More |  | 5 additional approved claims are tracked in `approved-claims.md`. |  |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-No approved media distillations are currently routed to this concept.
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 23. Source Map And Dependency Notes
-
-Primary Helix docs:
-
-- [Helix](https://community.rockrms.com/developer/helix)
-- [Overview](https://community.rockrms.com/developer/helix/overview)
-- [Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock)
-- [Plugin Installation](https://community.rockrms.com/developer/helix/overview/plugin-installation)
-- [FAQ](https://community.rockrms.com/developer/helix/overview/faq)
-- [Roadmap](https://community.rockrms.com/developer/helix/overview/roadmap)
-- [Security](https://community.rockrms.com/developer/helix/overview/security)
-
-HTMX:
-
-- [HTMX](https://community.rockrms.com/developer/helix/htmx)
-- [Learning More](https://community.rockrms.com/developer/helix/htmx/learning-more)
-- [Syntax Style Guides](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides)
-
-Lava Applications:
-
-- [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications)
-- [Applications](https://community.rockrms.com/developer/helix/lava-applications/applications)
-- [Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints)
-- [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block)
-- [Magnus](https://community.rockrms.com/developer/helix/lava-applications/magnus)
-- [Observability](https://community.rockrms.com/developer/helix/lava-applications/observability)
-
-Forms and controls:
-
-- [Forms & Controls](https://community.rockrms.com/developer/helix/forms-controls)
-- [Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms)
-- [Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls)
-- [Creating New Controls](https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls)
-- [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation)
-- [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator)
-
-Strategies:
-
-- [Strategies](https://community.rockrms.com/developer/helix/strategies)
-- [Tips](https://community.rockrms.com/developer/helix/strategies/tips)
-- [Related Entities](https://community.rockrms.com/developer/helix/strategies/related-entities)
-- [Limitations](https://community.rockrms.com/developer/helix/strategies/limitations)
-
-Related Lava and API docs:
-
-- [Lava](https://community.rockrms.com/lava)
-- [Lava Commands](https://community.rockrms.com/lava/commands)
-- [Helix Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)
-- [Observe](https://community.rockrms.com/lava/tags/observe)
-- [Attribute Filters](https://community.rockrms.com/lava/filters/attribute-filters)
-- [Entity Command](https://community.rockrms.com/lava/commands/entity-commands)
-- [Cache Command](https://community.rockrms.com/lava/commands/cache-commands)
-- [Web Request Command](https://community.rockrms.com/lava/commands/web-request-commands)
-- [Creating APIs Using Lava](https://community.rockrms.com/lava/lava-api)
-- [Using Lava Remotely](https://community.rockrms.com/lava/remote-lava)
-- [API Documentation](https://community.rockrms.com/api-docs)
-
-Release, model, source, and examples:
-
+1. Confirm the installed version supports `renderlavaendpoint`.
+2. Select a read-safe endpoint for the initial render.
+3. Invoke it with the caret route.
+4. Specify the method when it is not GET.
+5. Do not rely on the default GET method for any mutation.
+6. Compare the initial output with the later HTMX-rendered fragment.
+7. Confirm authorization behaves consistently in both contexts.
+8. Measure whether the extra-request and layout-shift problem is resolved.
+
+**Stop when:**
+
+- The initial content is present in the first render.
+- The endpoint remains authorized and non-mutating for its chosen method.
+- Later HTMX updates preserve the same output contract.
+
+Source: [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint).
+
+### Recipe: Validate a rendered Helix dashboard
+
+**Outcome:** Evidence that source targeting, authorization, data semantics, interaction behavior, and responsive layout all work in the actual page context.
+
+1. Confirm the saved application, endpoint, and Content block source matches the intended source.
+2. Open the rendered page as an unauthorized visitor.
+3. Test as the intended role.
+4. Test as an administrator, but record that result separately.
+5. Assert known totals or invariants and representative rows.
+6. Exercise each filter, sort, refresh, and empty state.
+7. Inspect visible errors, hidden Lava error surfaces, network failures, and console errors.
+8. Test narrow and wide layouts for clipped labels, unintended internal scrolling, and unbounded horizontal overflow.
+9. Inspect endpoint traces for representative requests.
+
+**Do not assume:**
+
+- Source equality proves rendered behavior.
+- Administrator access proves intended-role access.
+- A successful HTTP response proves correct data semantics.
+- Desktop rendering proves responsive readiness.
+
+**Stop when:**
+
+- All audience states, invariants, interactions, and layout checks pass independently.
+
+This recipe is based on a reviewed community task pattern and requires installation-specific verification. [Public dashboard recipe source](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard)
+
+### Recipe: Decide whether to replace a Lava Application
+
+**Outcome:** A documented decision to retain Helix or move to a purpose-built solution.
+
+1. Count the application’s endpoints.
+2. Identify whether the requested design requires custom models.
+3. Assess whether ordinary changes are becoming complex or fragile.
+4. Review security, deployment, testing, and maintenance costs.
+5. If custom models, approximately 50 or more endpoints, or persistent fragility are present, compare a purpose-built implementation.
+6. Keep the application in Helix only when its operational boundaries remain understandable and supportable.
+
+**Stop when:**
+
+- The selected approach has a clear ownership, security, testing, and maintenance model.
+
+Source: [Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock).
+
+## Known Gaps And Live Verification
+
+No target installation was examined for this guide. Before changing or approving a Helix application, perform a bounded read-only review of:
+
+- The exact Rock version and patch.
+- Whether Helix is supplied by core, the historical plugin, or another package.
+- Magnus installation and configuration when that workflow is required.
+- Application and endpoint schema present in the installation.
+- Active applications, endpoints, and Content blocks.
+- Actual slug-and-method route matches.
+- Application and endpoint authorization records.
+- Intended-role and anonymous execution results.
+- Enabled Lava Commands.
+- Cache, rate-limit, CSRF, and additional endpoint settings exposed by that version.
+- `Body` and `RawBody` behavior on the installed minor version.
+- Spinner asset availability.
+- Observability configuration, provider delivery, and endpoint activities.
+- Database-call volume for representative requests.
+- Direct-call rejection for invalid and unauthorized mutations.
+- Rendered-page behavior, including responsive layout and console errors.
+
+Additional evidence gaps remain:
+
+- The Related Entities documentation supplied no usable behavior beyond a work-in-progress notice.
+- The roadmap does not establish release dates or committed features.
+- The Content block claim’s `2.0` version label is ambiguous.
+- Historical alpha, beta-plugin, and core-release documentation has not been reconciled into a single current packaging matrix.
+- Mobile availability is mentioned only in a historically worded FAQ and is not established as current behavior.
+- Reviewed community patterns have not been proven against an arbitrary installation.
+- The connected-instance verification in the evidence pack confirmed relevant tables and authorization surfaces, but not the correctness of any specific application or endpoint.
+
+## Source Map
+
+### Official Helix documentation
+
+- [Helix](https://community.rockrms.com/developer/helix) — lifecycle language and high-level feature positioning.
+- [Overview](https://community.rockrms.com/developer/helix/overview) — HTMX, Lava Applications, Lava Commands, and control shortcodes.
+- [Customizing Rock](https://community.rockrms.com/developer/helix/overview/customizing-rock) — customization boundaries and exit signals.
+- [Plugin Installation](https://community.rockrms.com/developer/helix/overview/plugin-installation) — historical plugin and Magnus requirements.
+- [FAQ](https://community.rockrms.com/developer/helix/overview/faq) — core-status and historical mobile statements.
+- [Roadmap](https://community.rockrms.com/developer/helix/overview/roadmap) — noncommitted future ideas.
+- [Security](https://community.rockrms.com/developer/helix/overview/security) — direct-call, validation, authorization, method, and SQL guidance.
+- [HTMX](https://community.rockrms.com/developer/helix/htmx) — HTMX topic index.
+- [HTMX Syntax Style Guides](https://community.rockrms.com/developer/helix/htmx/syntax-style-guides) — markup formatting.
+- [HTMX Learning More](https://community.rockrms.com/developer/helix/htmx/learning-more) — external learning and example caveats.
+- [Lava Applications](https://community.rockrms.com/developer/helix/lava-applications) — application and endpoint model.
+- [Applications](https://community.rockrms.com/developer/helix/lava-applications/applications) — configuration rigging and application security.
+- [Content Block](https://community.rockrms.com/developer/helix/lava-applications/content-block) — HTMX registration and caret routes.
+- [Endpoints](https://community.rockrms.com/developer/helix/lava-applications/endpoints) — endpoint settings, methods, merge fields, caching, and limitations.
+- [Magnus](https://community.rockrms.com/developer/helix/lava-applications/magnus) — VS Code editing workflow.
+- [Endpoint Observability](https://community.rockrms.com/developer/helix/lava-applications/observability) — endpoint activity naming and attributes.
+- [Forms & Controls](https://community.rockrms.com/developer/helix/forms-controls) — forms topic index.
+- [Understanding Forms](https://community.rockrms.com/developer/helix/forms-controls/understanding-forms) — WebForms and Lava Form boundary.
+- [Using Form Controls](https://community.rockrms.com/developer/helix/forms-controls/using-form-controls) — supplied shortcodes.
+- [Creating New Controls](https://community.rockrms.com/developer/helix/forms-controls/creating-new-controls) — `rock-control` extension pattern.
+- [Form Validation](https://community.rockrms.com/developer/helix/forms-controls/form-validation) — client-side validation conventions.
+- [Loading Indicator](https://community.rockrms.com/developer/helix/forms-controls/loading-indicator) — HTMX indicators and versioned asset paths.
+- [Strategies](https://community.rockrms.com/developer/helix/strategies) — strategy topic index.
+- [Tips](https://community.rockrms.com/developer/helix/strategies/tips) — console diagnostics and inherited attributes.
+- [Limitations](https://community.rockrms.com/developer/helix/strategies/limitations) — RockPage-dependent command limitation.
+- [Related Entities](https://community.rockrms.com/developer/helix/strategies/related-entities) — documented evidence gap.
+
+### Supporting official documentation
+
+- [Lava Commands](https://community.rockrms.com/developer/helix/lava-commands)
+- [HTTP Response](https://community.rockrms.com/lava/commands/http-response)
+- [DB Transaction](https://community.rockrms.com/lava/commands/db-transaction)
+- [Render Lava Endpoint](https://community.rockrms.com/lava/commands/render-lava-endpoint)
+- [Rock Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability)
+- [Intro to Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability/intro-to-observability)
+- [Configure Observability](https://community.rockrms.com/documentation/supporting-rock/data/observability/configure-observability)
 - [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
-- [Model Map](https://community.rockrms.com/ModelMap)
-- [SparkDevNetwork/Rock](https://github.com/SparkDevNetwork/Rock)
-- [Rock source docs for Lava Applications](https://github.com/SparkDevNetwork/Rock/blob/develop/docs/cms/lava-applications.md)
-- [Manage Following records with Helix](https://community.rockrms.com/recipes/497)
-- [Triumph Guided Group Finder](https://www.triumph.tech/resources/enhancing-community-connection-triumphs-guided-group-finder-powered-by-helix)
+- [Lava Application Model Map](https://community.rockrms.com/ModelMap)
 
-Dependency notes:
+### Immutable implementation evidence
 
-- Helix depends heavily on Lava competence. Agents should understand entity commands, filters, shortcodes, and command security before editing endpoints.
-- Helix depends on Rock CMS configuration. Page/block placement and security still matter.
-- Helix depends on Rock security. Endpoint mode is necessary but not sufficient for entity-level authorization.
-- Helix depends on HTMX behavior. Browser dev tools are part of the normal troubleshooting workflow.
-- Helix depends on observability for production confidence. Endpoint-level traces should be reviewed for non-trivial apps.
-- Helix may depend on Magnus for practical source editing in some environments, but Magnus presence and behavior must be verified live.
-- Helix version behavior must be verified in the live Rock instance, especially around core/plugin status, Body/RawBody merge fields, spinner asset paths, and endpoint route handling.
+- [Lava endpoint security modes](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointSecurityMode.cs)
+- [Lava endpoint HTTP methods](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Cms/LavaEndpointHttpMethod.cs)
+- [Lava Application save hook](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/CMS/LavaApplication/LavaApplication.SaveHook.cs)
+- [Lava Applications implementation notes](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/docs/cms/lava-applications.md)
+- [Rock 18 Lava Application migration](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Migrations/Migrations/Version%2018.0/Version%2018.0/202505072235453_AddLavaApplications.cs)
+
+### Community examples
+
+- [Manage Following records with Helix](https://community.rockrms.com/recipes/497) — unendorsed community recipe requiring independent review.
+- [Communication History Active Search](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/066de269c3071461f8da3702dab917d4d16a07c4/Recipes/communication-history-active-search) — immutable read-only search pattern.
+- [Event Registration Analytics Dashboard](https://github.com/ONE-ALL-Church/RockRMS-OA-Public/tree/8bbd478b31673f25d40fe31ce8ea492be91d16d4/Recipes/event-registration-analytics-dashboard) — immutable source for the reviewed rendered-validation pattern.

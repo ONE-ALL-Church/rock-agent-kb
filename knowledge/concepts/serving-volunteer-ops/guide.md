@@ -6,2148 +6,802 @@ guide_status: llm_generated_needs_review
 authority_level: draft
 reviewed_by:
 reviewed_at:
+synthesis_model: "gpt-5.6-sol"
+synthesis_reasoning_effort: "xhigh"
+synthesis_prompt_id: "rock-kb-concept-guide-synthesis"
+synthesis_prompt_version: "2.0.0"
+synthesis_source_pack_hash: "fbd19496aa3ad20405854d0570318a0232e0403aa42235affd7b75d9b894cbc5"
 ---
 
 # Serving And Volunteer Operations
 
-<!-- BEGIN GENERATED MODEL MAP POINTERS -->
-## Generated Model Map Pointers
+## Agent Summary
 
-Agents starting from this long-form guide should inspect the stable generated model-map artifacts first, then use the pre-alpha diff only for upcoming-version callouts:
+Rock’s serving workflow is built from several related but distinct layers:
 
-- Concept data-model landmarks: [Serving And Volunteer Operations index](index.md#data-model-landmarks)
-- Global model-map index: [Rock Model Map](../../model-map/index.md)
-- Stable model rows: `../../model-map/stable-models.jsonl`
-- Stable property rows: `../../model-map/stable-properties.jsonl`
-- Stable method rows: `../../model-map/stable-methods.jsonl`
-- Pre-alpha/upcoming model rows: `../../model-map/latest-models.jsonl`
-- Pre-alpha/upcoming method rows: `../../model-map/latest-methods.jsonl`
-- Stable-to-pre-alpha model-map diff: `../../model-map/version-diff.jsonl`
+1. A group type enables and supplies defaults for scheduling, RSVP, attendance, reminders, decline handling, and coordinator notifications.
+2. A group represents the operating team and carries its roster, group-level overrides, schedule coordinator, locations, and schedules.
+3. Group Scheduling places volunteers into a location or position at a scheduled time.
+4. Confirmation state records whether the volunteer is pending, confirmed, declined, or unavailable; it does not by itself prove that the person served.
+5. Attendance must be recorded separately after the gathering or serving occurrence.
+6. Training, workflows, communications, reporting, and mobile follow-up can extend the process, but each needs its own configuration and verification.
 
-<!-- END GENERATED MODEL MAP POINTERS -->
+For Rock v19’s documented Group Scheduling configuration, named locations answer where a person serves, schedules answer when, and the Group Scheduler assigns people to those positions. Scheduling must be enabled on the relevant group type before its scheduling features become available. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-## 1. Executive Summary For Agents
+An agent should therefore diagnose serving operations in this order: establish the correct group and group type, inspect locations and schedules, inspect the assignment and response state, inspect communication configuration and jobs, then inspect actual attendance. Do not treat a sent request, an accepted assignment, or an attendance reminder as proof that a volunteer served.
 
-Serving and volunteer operations in Rock RMS are built on the Groups system, then extended through scheduling, locations, attendance, communications, workflow, requirements, security, and reporting. An agent working on this area should not treat "serving" as one isolated feature. A volunteer serving experience is usually a coordinated chain:
+## Scope And Boundaries
 
-1. A person expresses interest or is added to a serving team.
-2. That serving team is represented as a `Group`, usually under a ministry-specific `GroupType`.
-3. The person's team membership is represented by `GroupMember` and a `GroupRole`.
-4. The team's where-and-when service options are represented through `GroupLocation`, `GroupLocationSchedule`, and `Schedule`.
-5. Future service assignments, confirmations, declines, and attendance are represented through attendance-related records tied to an `AttendanceOccurrence`.
-6. Requirements such as background checks, training, applications, or policy acknowledgements are represented through group requirements, workflows, person attributes, document records, or ministry-specific data.
-7. Communication is delivered through group scheduling communications, system communications, reminders, workflow messages, or custom Lava.
-8. Follow-up is handled through group attendance, no-show reporting, connection requests, workflows, communications, and ministry dashboards.
+This guide covers:
 
-The highest-value agent behavior is to trace the complete operational path instead of editing only the visible page or email. For example, if a volunteer says "I cannot accept my serving request," inspect the scheduled attendance record, the person alias, the group, the group location schedule, the confirmation workflow or endpoint, the system communication, and any relevant release caveats. Rock v17.2 fixed a bug where the Group Scheduling Confirmation workflow could process automated link-checker opens or mishandle required decline reasons, so instances below or around that version need special scrutiny when confirmations behave unexpectedly ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+- Serving teams represented through groups and group types.
+- Locations or positions and serving schedules.
+- Schedule confirmations, declines, reminders, coordinator alerts, and volunteer self-service.
+- Group RSVP when it is used for an invitation-based serving workflow.
+- Training requirements that can be supported through Rock LMS.
+- Attendance entry, attendance reminders, digest emails, and bounded follow-up.
+- Related reporting, embedded-dashboard security, and mobile relationship-care follow-up.
+- Community patterns for schedule exceptions and external schedule visibility.
 
-Serving operations depend heavily on the exact instance configuration. When source material is thin, do not infer. Inspect the live Rock instance: the group type, inherited group type configuration, block settings, system communication, workflow actions, group requirements, schedule assignments, location assignments, and attendance rows. Community recipes are useful examples, but Rock explicitly warns that recipes are community-contributed and not reviewed or endorsed by the core team, so agents should use them as patterns to evaluate, not as canonical implementation rules ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459), [Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238)).
+This guide does not replace the owning guides for Groups, Scheduling, Locations, Check-in, Communications, Workflows, People, Security, or LMS. It also does not establish that a particular installation has a given group structure, background-check provider, workflow, notification job, mobile shell, or plugin.
 
-The operational model is:
+The supplied evidence does not describe the detailed configuration or enforcement behavior of Rock’s built-in Group Requirements feature. It supports LMS-based training patterns and one background-check provider migration warning, but not a complete requirements engine guide. Those limits are preserved below rather than filled by inference.
 
-- `GroupType` defines what kind of serving team exists and what behavior is available.
-- `Group` is the actual serving team.
-- `GroupRole` defines a person's role on the team.
-- `GroupMember` links the person to the serving team and role.
-- `Location` and `Schedule` define where and when the team can serve.
-- `AttendanceOccurrence` is the service instance.
-- `Attendance` records carry attendance, scheduled assignment, RSVP/confirmation, and related tracking depending on version and configuration.
-- `SystemCommunication`, workflow, and block actions drive confirmations, reminders, and response handling.
-- `GroupRequirement`, person attributes, workflows, and external integrations drive eligibility.
-- Security on pages, blocks, groups, group types, and check-in verbs determines who can view, manage, schedule, confirm, or delete records.
+## Mental Model
 
-For agents, the key guardrail is this: serving operations are ministry-facing and people-facing at the same time. A technically valid configuration can still be operationally broken if it hides schedules from volunteers, sends replies to a generic inbox, allows unqualified people to be scheduled, suppresses attendance reminders incorrectly, or exposes private volunteer data on an external page.
+### Policy, team, assignment, response, and attendance
 
-## 2. Scope And Terminology
+Treat serving operations as five connected records or decisions:
 
-This guide covers Rock RMS serving and volunteer operations: serving teams, volunteer schedules, schedule preferences, confirmations, RSVP-style responses, decline flows, attendance, volunteer requirements, communications, follow-up, reporting, and agent troubleshooting.
+- **Policy layer:** The group type enables scheduling, RSVP, and attendance behavior and can provide inherited communication, reminder, decline, and notification settings.
+- **Team layer:** The group carries the people, operational identity, schedule coordinator, and any group-specific overrides.
+- **Assignment layer:** A volunteer is placed at a location or position for a schedule.
+- **Response layer:** The volunteer’s schedule can be pending, confirmed, declined, or unavailable. The v19 Schedule Toolbox displays those states and allows supported transitions such as accepting, declining, or cancelling a prior confirmation. [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox)
+- **Attendance layer:** After the event, Rock records who actually attended or that the group did not meet. This is separate from the scheduling response. [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance)
 
-It does not replace the broader Rock guides for Groups, Check-In, Communications, Workflows, People, Security, or Reporting. It explains how those areas intersect when a church uses Rock to recruit, qualify, schedule, communicate with, and track volunteers.
+This separation matters operationally. Rock v18.3 fixed the attendance-reminder job so scheduling- and RSVP-related attendance records would not suppress a reminder unless at least one person actually attended or the group was marked as not meeting. That release note is direct evidence that scheduling or RSVP tracking must not be interpreted as completed attendance. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-### Core Terms
+### Group Scheduling and Group RSVP are related but different
 
-**Serving team**  
-A ministry team represented as a Rock group. Examples: Elementary 9:00 Room 1, Worship Vocalists, Parking Team, Cafe Team, Communion Prep, Youth Small Group Leaders. In Rock data terms this is normally a `Group`.
+Group Scheduling is the volunteer-placement workflow: configure where and when help is needed, place volunteers, request confirmation, monitor responses, and send schedule-specific communications. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-**Serve team / volunteer team**  
-Common church-facing language for a serving team. Treat it as the same operational object unless the instance has separate group types for sign-up opportunities, interest forms, or volunteer pools.
+Group RSVP is an occurrence-based invitation workflow tied directly to a group. It requires an RSVP-enabled group type, an existing group, and at least one occurrence before RSVP messages can be sent. It can collect accept or decline responses and optional decline reasons. [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp), [Add RSVP Occurrences](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences)
 
-**Serving opportunity**  
-A place where a person can serve. Depending on implementation, this may be a group, a sign-up group, a connection opportunity, a workflow option, or a content item that eventually routes into a group or connection request. A community example for serving interest uses a public ministry listing, a workflow form, observation scheduling, connector notification, and follow-up application steps ([Serving Interest Process](https://community.rockrms.com/recipes/169)).
+Do not assume that enabling one feature configures the other.
 
-**Group type**  
-The configuration container for a family of groups. It controls roles, attributes, hierarchy, requirements, attendance behavior, scheduling behavior, security patterns, and block behavior. RockU separates training for Group Types, Group Type Inheritance, Group Requirements, Group Security, and Group Scheduling, which is a useful signal that agents should inspect group type configuration before assuming a problem is inside one group ([Group Types](https://community.rockrms.com/rocku/groups/group-types), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), [Group Security](https://community.rockrms.com/rocku/groups/group-security)).
+### Serving status is not volunteer eligibility
 
-**Group role**  
-A role a member holds in the serving team. Examples: Leader, Coach, Coordinator, Member, Volunteer, Substitute, Trainee. Roles determine leadership, communication targeting, attendance permissions in some blocks, and filtering.
+Being a group member, being scheduled, accepting an assignment, completing training, and being eligible to serve are different conditions. The evidence supports connecting LMS completion with groups, group sync, and workflow actions as an implementation pattern, but it does not establish a universal automatic eligibility rule. Approved claim `claim:4bc0aee305fa6b1bd524` was supported by a bounded read-only structural review of LMS, group-member, and workflow-action surfaces; that review did not verify a particular ministry’s implementation. [Community LMS session at 26:43](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
 
-**Schedule**  
-The reusable date/time pattern assigned to group locations. A schedule might be Sunday 9:00 AM, Sunday 11:00 AM, Wednesday 6:30 PM, 1st and 3rd Sunday, or 5th Sunday. The community recipe on fifth-week templates highlights that template schedules must match the day they apply to; a "1st and 3rd Week" Sunday schedule is not a valid template for a Tuesday ministry just because the words look generic ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)).
+## Serving Teams And Roles
 
-**Group location**  
-The location assigned to a group. For serving, this may be a room, ministry area, campus zone, parking lot, auditorium, production booth, classroom, or a broad campus location. Check-in documentation recommends broad locations in some cases so kiosks can see groups without excessive configuration ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+### Establish the operating group structure
 
-**Group location schedule**  
-The join between a group location and a schedule. Source snippets show this relationship explicitly through `GroupLocationSchedule` joined from `GroupLocation` to `Schedule` ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
+Before working on an individual schedule, identify:
 
-**Scheduled attendance / scheduled assignment**  
-A future attendance-related record indicating that a person has been scheduled or requested to serve. The exact fields and enum names should be verified in the live instance and Rock version. Source-code view models show that the scheduler sends confirmations and reports counts of eligible recipients, sent communications, warnings, and errors ([GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
+- The group type governing the team.
+- The specific group representing the team.
+- The active team members.
+- The locations or positions associated with the group.
+- The schedules associated with those locations.
+- The group’s schedule coordinator.
+- Any settings inherited from the group type and any group-level overrides.
 
-**Confirmation**  
-The volunteer's response to a scheduled serving request. Source-code enums for the schedule toolbox show row statuses of `Pending`, `Confirmed`, `Declined`, and `Unavailable` ([ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs), [toolboxScheduleRowConfirmationStatus.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts)).
+The official v19 scheduling documentation describes named locations and schedules as prerequisites for volunteer scheduling. Locations may represent rooms, areas, or serving positions such as Audio or Piano. It recommends one named schedule for each time; the same time can be reused across sites when appropriate. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-**Schedule Toolbox**  
-A volunteer-facing block for managing scheduled attendances. The mobile developer documentation says it lets an individual accept, decline, cancel a prior response, and optionally provide a decline reason. It is available for mobile v4.0 / core v13.1 and is customizable through templates ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)).
+Do not infer configuration from a group or role name. A team named “Ushers,” for example, is not proven to be schedulable until its group type, group-location associations, schedules, and scheduling settings have been inspected.
 
-**Attendance**  
-The actual record of whether someone attended or served. Attendance in Rock is also used by scheduling and RSVP features in ways that matter operationally. Rock v18.3 fixed the Send Attendance Reminder job so scheduling/RSVP tracking records alone do not suppress reminders as if real attendance had been taken ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+### Distinguish operational roles
 
-**Requirement**  
-An eligibility rule that must be met before someone should serve, lead, check in, or be scheduled. Examples: background check, child safety training, application, reference check, membership, baptism, age, grade, ministry approval, abuse-prevention acknowledgement. RockU has a specific Group Requirements training topic ([Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements)).
+The evidence explicitly identifies two role-like responsibilities:
 
-**Follow-up**  
-The operational response after attendance, decline, no-show, interest submission, requirement failure, or inactivity. This can be manual, report-driven, workflow-driven, communication-driven, or connection-request-driven.
+- A **Schedule Coordinator** is the person configured to receive selected accept, decline, or self-schedule notifications for a group.
+- A group role marked **Is Leader** can determine who receives an attendance digest for child attendance groups in the required digest hierarchy.
 
-## 3. Serving And Volunteer Operations Mental Model
+Schedule Coordinator notification options can be set as group-type defaults and overridden at the group level. Selecting no group-level options uses the group-type defaults; selecting `None` disables the otherwise inherited notifications for that group. [Managing Schedule Coordinator Notifications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications)
 
-Think of serving operations as five layers.
+The attendance digest uses a specific three-level structure: one parent group, region or area groups whose leaders receive the digest, and attendance groups beneath those regions. The leader of an attendance group can also be contacted from the digest. [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email)
 
-### Layer 1: Team Structure
+Do not assume that every group leader is the Schedule Coordinator or that an `Is Leader` role automatically grants access to every scheduling, attendance, or reporting page. Page, block, group, and data permissions remain separate security concerns.
 
-Rock's group system provides the durable structure. Every serving team needs a clear group type, group hierarchy, roles, active/archive rules, campus strategy, and security model. If the team structure is wrong, scheduling and reporting will become fragile.
+### Be precise when identifying volunteers in reports
 
-Good team structure answers:
+The v19 Volunteer Generosity report uses a report-specific definition: an active person with at least one recorded attendance in the prior year in a group whose group type purpose is `Serving Area`. The report can filter by attendance date range, campus, and team and shows the relationship between serving and giving rather than exact contribution amounts. [Volunteer Generosity](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity)
 
-- What ministry owns this team?
-- Is this a real team, a sign-up opportunity, a serving pool, or a one-time event slot?
-- Which group type owns it?
-- Does the group type inherit attributes or behavior from another group type?
-- What roles exist?
-- Which roles are leaders, schedulers, coordinators, volunteers, substitutes, trainees, or inactive members?
-- Does the group have a campus?
-- Does the group have a parent group?
-- Should the group be visible externally?
-- Is the group active and not archived?
-- Does this group need check-in behavior?
-- Does this group need scheduling behavior?
-- Are requirements enforced at group type, group, or ministry process level?
+Do not generalize that report definition into a universal eligibility or roster rule. A person can be on a serving-team roster without satisfying that report’s attendance-based definition.
 
-RockU's training path is useful here: Group Viewer, Group Details, Group Types, Group Type Inheritance, Group Location, Group Purposes, Requirements, Security, and Scheduling are separate training topics because each contributes to the final behavior ([Group Viewer](https://community.rockrms.com/rocku/groups/group-viewer), [Group Details](https://community.rockrms.com/rocku/groups/group-details), [Group Types](https://community.rockrms.com/rocku/groups/group-types)).
+## Schedules And Confirmations
 
-### Layer 2: Where And When
+### Configure the scheduling foundation
 
-Serving is not only membership. A person serves at a time and usually a place. Rock represents that through schedules and locations assigned to groups. Source-code and SQL snippets show the common join path:
+For documented v19 Group Scheduling:
 
-`Group` -> `GroupLocation` -> `GroupLocationSchedule` -> `Schedule`
+1. Configure the named locations or positions.
+2. Configure accurate named schedules.
+3. Associate the applicable locations and schedules with the serving groups.
+4. Enable `Scheduling Enabled` on the governing group type.
+5. Select the confirmation and reminder System Communications.
+6. Set confirmation and reminder offsets.
+7. Choose `Ask` or `Auto Accept` confirmation logic.
+8. Decide whether declines require a reason.
+9. Configure an optional cancellation workflow.
+10. Configure coordinator notification defaults and any justified group overrides.
 
-A source snippet also includes `Location` and schedule fields such as name, start time, end time, frequency, and frequency qualifier in a query that lists group type, group, location, and schedule relationships ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
+These settings and their roles are described in the official scheduling configuration article. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-Agent rule: when a schedule is missing from a volunteer page, scheduler, check-in, or sign-up finder, inspect both the group and the group-location-schedule assignment. Do not stop at the `Schedule` table. A schedule may exist but not be assigned to the serving group's active location.
+The decline reasons available to volunteers come from the `Group Schedule Decline Reason` defined type when the group type requires a reason. A cancellation workflow may be launched when a scheduled person indicates they cannot serve. The evidence does not specify what that workflow should do; its behavior must be inspected rather than inferred.
 
-### Layer 3: Assignment And Response
+### Choose confirmation logic deliberately
 
-Scheduling creates a future assignment. The volunteer then confirms, declines, remains pending, or becomes unavailable. Source-code enums explicitly identify `Pending`, `Confirmed`, `Declined`, and `Unavailable` as statuses used by the group schedule toolbox ([ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs)).
+With `Ask`, the volunteer is asked to accept or decline. With `Auto Accept`, assignments are treated as accepted and the confirmation message contains only a decline option. Rock’s documentation warns that changing from `Ask` to `Auto Accept` while confirmations are already in flight can leave an unconfirmed person with a message that offers only Decline and no way to Accept. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-The mobile Schedule Toolbox documentation frames the volunteer-facing actions as accepting, declining, cancelling a previous response, and providing a decline reason where configured ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)). Release notes add an important operational caveat: the confirmation workflow has had bugs around automated link checkers and required decline reasons, fixed in v17.2 ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+Treat confirmation-logic changes as a controlled migration:
 
-Agent rule: if responses look wrong, verify the Rock version, the system communication links, the confirmation workflow, whether a decline reason is required, and whether an email-security tool may be opening links.
+- Inspect outstanding pending assignments.
+- Review the confirmation communication.
+- Test with a bounded recipient set.
+- Avoid changing the logic immediately before a major serving date.
+- Verify the resulting volunteer experience rather than relying on the saved setting alone.
 
-### Layer 4: Actual Attendance
+### Send confirmation and schedule communications
 
-Attendance is the record of reality: who served, who checked in, who was present, and who did not attend. Rock's data model separates occurrence-level context from person-level attendance. A source SQL view uses `AttendanceOccurrence` joined to `Attendance`, `PersonAlias`, and `Group`, including occurrence group, schedule, location, occurrence date, Sunday date, and attended person ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
+Rock v19 documents three routes:
 
-That separation matters. A scheduled serving request is not always the same thing as actual attendance. Rock v18.3's reminder fix demonstrates the operational risk: scheduling/RSVP-related attendance records can exist before actual attendance is taken, and jobs must distinguish tracking records from real attendance ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+- Send confirmation requests from the Group Scheduler.
+- Let the `Send Group Schedule Notifications` job send confirmation and reminder communications based on group-type settings.
+- Create a targeted one-time communication through Group Schedule Communication.
 
-Agent rule: when reporting attendance, no-shows, or reminder suppression, distinguish scheduled/requested/RSVP tracking from `DidAttend` records and from "group did not meet" markers. Inspect the exact columns in the live version before writing SQL.
+The documented default job schedule is daily at 4:00 p.m.; its execution time can be changed in Jobs Administration. Rock supplies Scheduling Confirmation Email and Group Attendance Reminder system communications, which may be customized. [Use Group Scheduling Communications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications)
 
-### Layer 5: Operational Feedback Loop
+The Group Schedule Communication page can narrow recipients by groups, child groups, invitation status, locations, schedules, and week before opening the Communication Wizard with the recipient list. [Use Group Scheduling Communications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications)
 
-Volunteer operations are not complete when a schedule is sent. Real operations include:
+Email and SMS delivery have additional conditions. For SMS, messaging must be configured, the person must have an SMS-enabled phone number, and the selected System Communication must support SMS. Rock determines the medium from the group member’s communication preference or, when absent, the person’s profile preference. [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule)
 
-- recruiting new volunteers,
-- qualifying them,
-- assigning them,
-- reminding them,
-- collecting confirmation responses,
-- recording attendance,
-- following up on absences,
-- monitoring roster health,
-- replacing declined volunteers,
-- auditing requirement compliance,
-- measuring serve frequency,
-- detecting over-scheduled volunteers,
-- keeping team data clean,
-- ensuring security boundaries remain appropriate.
+### Notify the coordinator of schedule changes
 
-RockU includes scheduling analytics, roster and communications, RSVP, attendance, and group history as separate topics in the Groups track ([Group Scheduling - Analytics](https://community.rockrms.com/rocku/groups/group-scheduling-analytics), [Group Scheduling Roster and Communications](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications), [Group History](https://community.rockrms.com/rocku/groups/group-history)). Agents should treat reporting and follow-up as part of the system, not an afterthought.
+Coordinator notifications can be enabled for any combination of:
 
-## 4. Source Authority And How To Use This Guide
+- Accept
+- Decline
+- Self-schedule
 
-Anchor normal scheduling behavior in the official [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), then use [Rock Core Release Notes](https://www.rockrms.com/releasenotes) and version-matched source for changed behavior.
+The group must have a Schedule Coordinator, and the effective notification options must allow the relevant event. Rock’s documented `Scheduling Response Email` System Communication contains the logic for the response-specific coordinator message. [Managing Schedule Coordinator Notifications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications)
 
-Use source authority in this order:
+A missing coordinator alert should be diagnosed as configuration or delivery behavior, not as proof that no volunteer action occurred.
 
-1. Live Rock instance configuration and data.
-2. Official Rock documentation.
-3. RockU training pages.
-4. Rock release notes.
-5. Rock source code and model-map records.
-6. Developer docs.
-7. Community recipes and Q&A.
+### Support volunteer self-service
 
-Official docs and release notes are generally stronger than recipes. Source code is strong for entity relationships and implementation landmarks, but it still must be mapped to the deployed Rock version. Community recipes are valuable because they show real ministry patterns, but they are not canonical and may be insecure, inefficient, or version-specific.
+In v19, the Schedule Toolbox is available from the public-facing My Account area. It can show pending, confirmed, declined, and unavailable engagements. Depending on block settings, volunteers may:
 
-### How Agents Should Use This Guide
+- Accept or decline assignments.
+- Cancel a prior confirmation.
+- Set periods of unavailability.
+- Switch among schedulable family members.
+- Download an `.ics` calendar file.
+- Copy a calendar subscription link.
 
-Use this guide to plan inspections and changes. Do not assume every field, block, or route exists in every Rock version. Before editing or writing SQL, inspect:
+Calendar options are not available until the person has an actual confirmed schedule. Cancelling a confirmed assignment changes it to declined, and a reason is required when the group type requires one. Schedule Toolbox actions and labels can be changed or disabled through block settings. [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox)
 
-- Rock version.
-- Group type configuration.
-- Group type inheritance.
-- Group role definitions.
-- Group active/archive state.
-- Campus assignment.
-- Group location schedule assignments.
-- Schedule recurrence and date constraints.
-- Attendance occurrence records.
-- Attendance response/status fields.
-- System communications.
-- Workflow actions.
-- Block settings.
-- Security.
-- Jobs and job history.
-- Release-note caveats around the affected feature.
+Group Scheduling is not limited to weekend services; the official documentation also identifies uses such as VBS, camps, recurring gatherings, and special events. [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox)
 
-### When To Prefer Live Verification
+## RSVP-Based Serving Invitations
 
-The official [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) establishes the product surface, but it cannot establish one church's assignments, inherited settings, permissions, or sent communications.
+### Enable RSVP at the correct level
 
-Live verification is required when the question depends on:
+RSVP is enabled on a group type and becomes available to groups of that type. An actual group must exist even if it initially has no members, because people who accept can be added to that group. [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp)
 
-- a specific group, group type, schedule, location, or campus;
-- whether a person is eligible to serve;
-- why a volunteer cannot accept, decline, or view a request;
-- whether a schedule was sent;
-- whether attendance was recorded;
-- which communication was sent;
-- who received a message;
-- whether a workflow acted on a record;
-- whether a check-in kiosk should show a group;
-- whether a job suppressed reminders;
-- whether a release-note fix is present.
+At the group-type level, configure:
 
-The source pack gives strong landmarks, but not enough to infer instance-specific behavior. Say what to inspect rather than inventing certainty.
+- `Group RSVP Enabled`.
+- An optional RSVP reminder System Communication.
+- RSVP reminder offset days.
 
-## 5. Core Configuration And Data Model
+Only System Communications in the `RSVP Confirmation` category are available for the reminder selection. Leaving the communication blank or setting the offset to `0` allows those values to be managed on individual groups; a nonzero group-type offset is inherited and cannot be changed per group. [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp)
 
-### Group Types
+After RSVP is enabled, the Group Viewer exposes the RSVP list and group-level reminder settings where inheritance permits them. [Use the Group Viewer with RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp)
 
-The serving system starts with the group type. In Rock, a group type defines how a category of groups behaves. For serving, group types commonly represent ministries or operational patterns:
+### Create and review an occurrence
 
-- Weekend Serving Teams.
-- Kids Ministry Serving Teams.
-- Youth Serving Teams.
-- Worship Teams.
-- Guest Services Teams.
-- Production Teams.
-- One-time Event Volunteer Opportunities.
-- Seasonal Sign-Up Teams.
-- Check-In Serving Groups.
-- Volunteer Interest or Placement Groups.
+At least one occurrence is required before sending an RSVP request. An occurrence can include:
 
-A group type should be inspected for:
+- A name visible to invitees.
+- A date.
+- An optional check-in schedule.
+- A location.
+- Custom accept and decline messages.
+- Optional decline reasons.
 
-- name and purpose;
-- inherited group type;
-- allowed child group types;
-- roles;
-- attributes;
-- requirements;
-- scheduling settings;
-- attendance settings;
-- location behavior;
-- group member attributes;
-- security;
-- lava templates or block behavior that depend on group type;
-- active/inactive and archive policies.
+Available decline reasons are maintained under the `Group RSVP Decline Reason` defined type. [Add RSVP Occurrences](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences)
 
-RockU's group-type training is the best authority in the pack for the breadth of group type behavior ([Group Types](https://community.rockrms.com/rocku/groups/group-types)). Check-in documentation also emphasizes group type inheritance for check-in scenarios, where attributes such as age range or grade range are inherited by child group types rather than duplicated manually ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+After sending the request, monitor the occurrence from RSVP Detail. That page shows occurrence information, response totals, invitees, and responses. Authorized operators can update a response or add a decline note when a person responds through another channel. Decline-reason fields appear only when they were enabled for the occurrence. [View RSVP Details](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details)
 
-### Group Type Inheritance
+If the sender used `Register Recipients`, everyone from the communication appears on the RSVP detail list. Otherwise, the list contains only people who responded. A “missing” nonrespondent may therefore reflect how the communication was created rather than a failed response record. [View RSVP Details](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details)
 
-Inheritance matters when serving intersects with check-in or specialized ministry group types. Check-in documentation describes inheritance as a way for one group type to use attributes from another, such as check-in by grade inheriting from check-in by age, and ability-level check-in inheriting from age-based check-in ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+## Volunteer Requirements And Training
 
-For serving operations, inheritance can explain why:
+### Use the evidence-supported LMS model
 
-- a visible group does not expose the expected attributes;
-- age or grade restrictions are enforced even if they are not obvious on the current group type;
-- check-in availability differs between rooms;
-- the group scheduler sees unexpected group paths;
-- an inherited group type creates a hierarchy the agent did not account for.
+The approved evidence describes Rock LMS as a hierarchy of programs, courses, class instances, learning plans, activities, and learning participants. The program determines whether the learning experience is on-demand or based on an academic calendar. Approved claim `claim:dd3b03571388d00cc80b` was structurally verified against the corresponding LMS surfaces in a bounded read-only review; that verified the feature surface, not any particular volunteer-training program. [Community LMS session at 02:52](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
 
-Agent inspection path:
+A class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities. Training design must therefore identify both the volunteer’s required action and the staff member’s review responsibility. Approved claim `claim:882208fdf2bb82703931` was supported by structural verification of activity, participant, completion, grading, file, and notification surfaces. [Community LMS session at 07:17](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
 
-1. Open the group type.
-2. Record its inherited group type.
-3. Record parent/child group type associations.
-4. Inspect inherited attributes.
-5. Inspect requirements at each layer.
-6. Inspect whether scheduling/check-in behavior is enabled at the expected layer.
-7. Confirm whether the block or query uses the group type itself, its descendants, or a hard-coded group type id.
+Existing training videos can be turned into LMS activities, but a video asset alone does not define completion, sequencing, or facilitator review. Those rules should follow the intended readiness outcome. Approved claim `claim:c538cf61594b1114dc41` was structurally verified against LMS course, class, activity, completion, and workflow surfaces, not against a particular deployment. [Community LMS migration session at 04:02](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz)
 
-Source code for `CheckinAreaPath` shows Rock must account for parent group type paths and even guard against circular references or multiple parents when building check-in area paths ([CheckinAreaPath.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupType/CheckinAreaPath.cs)). That is a warning against assuming a simple one-parent hierarchy without inspecting the live configuration.
+### Connect completion to operations intentionally
 
-### Groups
+LMS activity completion can interact with groups, group sync, and workflow actions, making it useful for volunteer onboarding and follow-up. This is an approved, community-reviewed implementation pattern, not a promise that an LMS completion automatically changes group membership or eligibility in every installation. [Community LMS session at 26:43](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
 
-The group is the serving team itself. Inspect:
+For each training requirement, define:
 
-- `Id`;
-- `Guid`;
-- `Name`;
-- `GroupTypeId`;
-- `ParentGroupId`;
-- `CampusId`;
-- active status;
-- archive status;
-- leader/coordinator fields;
-- schedule coordinator, if used;
-- group attributes;
-- group member count;
-- group locations;
-- group schedules;
-- group requirements;
-- group security.
+- The precise learner action.
+- Whether completion is automatic or facilitator-scored.
+- The person responsible for review.
+- The intended operational result.
+- Whether a group sync or workflow performs that result.
+- How exceptions, expiration, or retraining will be handled.
+- What evidence an operator must inspect before scheduling the person.
 
-A community dynamic-sender recipe uses `Attendance.Occurrence.Group.ScheduleCoordinatorPersonAliasId`, which is a practical source signal that groups may carry a schedule coordinator person alias used in scheduling communications ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)). Do not assume it is populated. Inspect the group record and fallback behavior.
+Do not label a volunteer “approved” merely because an activity has a completion row. Eligibility may also depend on ministry policy, background checks, staff review, group membership, or version-specific integrations not established by this pack.
 
-### Group Roles
+### Train staff before volunteer rollout
 
-Use [Group Details](https://community.rockrms.com/rocku/groups/group-details) for the configured team record and [Group Security](https://community.rockrms.com/rocku/groups/group-security) for role-dependent access before attributing behavior to a role name alone.
+Official approved guidance recommends training and activating staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practice degrades data quality. [Rock Cast episode 214 at 40:09](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s)
 
-Roles define function inside the team. For serving operations, common roles include:
+A bounded rollout should therefore validate the staff workflow first: enroll, complete, review, trigger any operational action, inspect the resulting group or workflow state, and rehearse exception handling before inviting the volunteer population.
 
-- Team Leader.
-- Coach.
-- Coordinator.
-- Scheduler.
-- Volunteer.
-- Substitute.
-- Trainee.
-- Observer.
-- Inactive.
-- Applicant.
+### Treat background-check providers as versioned dependencies
 
-Operationally, roles can drive:
+The supplied Rock v20 release-page excerpt warns that the legacy Protect My Ministry v1 integration cannot submit new requests after upgrading and directs installations to move to Checkr or a plugin provider before the upgrade. The same release page identifies v20.0 as alpha at the captured time. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-- who receives leader emails;
-- who can take attendance;
-- who appears as a volunteer;
-- who is eligible for scheduling;
-- who is excluded from scheduling;
-- who receives requirement notices;
-- which people are included in reports;
-- who is considered a leader for security or communication purposes.
+This evidence does not document the full background-check setup, status model, permissions, or eligibility enforcement. Verify the installed Rock version, active provider, plugin compatibility, existing requests, and migration guidance before treating background-check status as part of a serving automation.
 
-Agent guardrail: do not assume every `GroupMember` is an active schedulable volunteer. Inspect role, status, group member attributes, requirements, and scheduling preferences.
+## Attendance And Follow-Up
 
-### Group Members
+### Enable attendance deliberately
 
-A `GroupMember` links a person to a group and role. For volunteer operations, inspect:
+A group can take attendance only when `Takes Attendance` is enabled on its group type. A group schedule is not required, but a schedule simplifies entry by guiding operators to the expected meeting dates. Group-type schedule exclusions can prevent attendance reminders on dates when groups are not expected to meet. The group type can also enable attendance reminders to leaders. [Configure Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance)
 
-- person;
-- person alias;
-- group;
-- role;
-- member status;
-- communication preference;
-- group member attributes;
-- requirement status;
-- schedule preferences;
-- whether the member is active, inactive, pending, or otherwise excluded by local convention.
+This means a missing attendance control should be investigated at the group-type level before assuming a page or browser problem.
 
-Community examples around filtering volunteers by schedule preference stress that volunteers must be part of a scheduling group and have preferences set before they appear in that pattern ([Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238)). That is an example, not a universal rule, but it is a useful troubleshooting branch: if a volunteer is missing from a schedule-preference report, verify membership and preference records before blaming the block.
+### Record what actually happened
 
-### Locations
+For a group configured to take attendance, the internal Group Viewer provides an attendance grid and an entry page. Operators can:
 
-Locations define where serving happens. They may be physical rooms, broad campus areas, or named operational locations. Check-in documentation notes that broader locations can make check-in kiosk visibility easier in some configurations ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+- Select the attendance date.
+- Review the named schedule when present.
+- Mark that the group did not meet.
+- Select an attendance type or location when enabled.
+- Record attendance notes when enabled.
+- Print a roster.
+- Mark the attending members.
 
-Inspect:
+The `We Did Not Meet` state is distinct from an occurrence with no recorded attendees. Attendance can also be delegated through the Group Leader Toolbox. [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance)
 
-- `Location.Id`;
-- `Location.Name`;
-- parent location path;
-- campus association, if relevant;
-- whether the location is active;
-- whether the location has printers for check-in scenarios;
-- whether the group is assigned to this location through `GroupLocation`;
-- whether schedules are assigned through `GroupLocationSchedule`.
+Do not convert every difference between confirmed assignments and recorded attendance into a “no-show.” First account for an unentered occurrence, a group that did not meet, a late cancellation, an incorrect date, schedule, or location, and delayed data entry.
 
-Source-code view models for check-in schedule building expose `groupLocationId`, `groupPath`, `locationName`, `locationPath`, and active `scheduleIds`, which confirms that group-location-schedule configuration is a first-class operational surface in check-in schedule tools ([GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs)).
+### Use Rapid Attendance Entry for high-volume entry
 
-### Schedules
+Rapid Attendance Entry starts by selecting the group and attendance date. Location and schedule choices appear according to the selected group’s configuration. The block can also be configured for notes, person updates, prayer requests, and workflows. When it launches a workflow, Rock passes the person as the workflow entity and can populate matching Group, Location, and Schedule attributes. [Rapid Attendance Entry](https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry)
 
-Schedules define time. They can represent single service times, recurring patterns, fifth-week exceptions, seasonal patterns, and ministry-specific rhythms.
+Because the block exposes more than attendance, review its settings and permissions before delegating it. Do not assume that every field or action shown in the documentation is enabled in the target installation.
 
-Inspect:
+### Use reminders and digests for data completion
 
-- schedule name;
-- iCalendar or recurrence pattern where used;
-- start time;
-- end time;
-- frequency;
-- frequency qualifier;
-- effective start/end dates;
-- whether it is active;
-- whether it applies to the expected day of week;
-- whether it is assigned to the group location;
-- whether it is used as a template preference or actual serving time.
+Attendance reminders depend on the group type, schedule, exclusion dates, reminder configuration, and scheduled job behavior. Rock v18.3 fixed a case where scheduling- or RSVP-related tracking records could incorrectly suppress leader reminders. Confirm the installed patch level when diagnosing that symptom. [Configure Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance), [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
 
-Community guidance on schedule templates emphasizes naming clarity and day-of-week correctness, especially when adding fifth-week schedules for auto-scheduling ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)). If a schedule is used for auto-scheduling, verify that the template corresponds to the same day and pattern as the ministry event.
+The Group Attendance Digest can summarize multiple attendance groups, but it is designed for the documented three-level hierarchy. Do not enable it for an arbitrary tree and assume recipients or rollups will be correct. [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email)
 
-### AttendanceOccurrence
+### Build follow-up from verified states
 
-`AttendanceOccurrence` represents the occurrence context: group, schedule, location, occurrence date, Sunday date, and related metadata. The source SQL view joins `AttendanceOccurrence` as `O` to `Attendance`, then uses `O.GroupId`, `O.ScheduleId`, `O.LocationId`, `O.OccurrenceDate`, and `O.SundayDate` ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
+A safe follow-up sequence is:
 
-For agents, this means attendance questions usually require both occurrence and person-level attendance inspection:
+1. Verify that the occurrence existed for the intended date, schedule, location, and group.
+2. Verify whether the group met.
+3. Verify actual attendance entry.
+4. Inspect the volunteer’s scheduling response separately.
+5. Treat unexplained differences as review candidates.
+6. Launch or record follow-up only after the operational meaning is known.
 
-- Which group was this occurrence for?
-- Which schedule?
-- Which location?
-- Which date?
-- Was this actual attendance, a scheduled assignment, an RSVP artifact, or a reminder-related record?
-- Is there more than one occurrence that looks similar?
-- Did the group meet?
-- Was attendance recorded for the person?
+The supplied evidence does not establish a core, automatic volunteer no-show workflow. If an installation has one, inspect its criteria, workflow actions, security, communication templates, and duplicate-prevention behavior before relying on it.
 
-### Attendance
+## Reporting And Operational Visibility
 
-`Attendance` is person-level and occurrence-linked. In serving contexts it may carry attendance, scheduled assignment, RSVP/confirmation, decline, and related flags depending on version and feature path.
+The v19 Volunteer Generosity report can filter serving-related insight by attendance date range, campus, and team. It shows whether volunteers gave during rolling monthly periods but does not expose exact donation amounts in this report. Its definition of a volunteer depends on active status, serving attendance within the prior year, and a group type whose purpose is `Serving Area`. [Volunteer Generosity](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity)
 
-Inspect live columns rather than guessing. Commonly relevant concepts include:
+When embedding Power BI or a similar reporting product in Rock, pair the Rock page and block with appropriate Rock security roles and separately verify the external reporting license. Approved claim `claim:60d40983fd53c0173dd9` was supported by a bounded read-only review of Rock Page, Block, and Auth surfaces; it did not verify external BI licensing or a particular dashboard’s authorization. [Community reporting session at 49:32](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz)
 
-- person alias;
-- occurrence;
-- start/end datetime;
-- attended status;
-- scheduled/requested status;
-- RSVP or confirmation status;
-- decline reason;
-- scheduled by person alias;
-- created/modified audit fields.
+Do not treat access to a Rock page as proof that the external provider will authorize the viewer, and do not treat provider authorization as proof that the Rock page is appropriately secured.
 
-The source SQL view filters real attendance with `A.DidAttend = 1`, which is a reminder that not every attendance row should be counted as attended service ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)). Release notes further distinguish scheduling/RSVP tracking records from actual attendance for reminder suppression ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+## Relationship-Care Follow-Up With Outreach Toolbox
 
-### Communications
+Outreach Toolbox is adjacent to volunteer operations rather than a replacement for Group Scheduling. Official approved evidence presents it as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Current mobile-shell support, page placement, authentication, and configuration must be verified before rollout. Approved claim `claim:483a11b884e0e69ffd4d`. [Outreach Toolbox v19 overview](https://www.youtube.com/watch?v=LNcx8t0mlQ4)
 
-Serving communications include:
+Its dashboard can surface contacts due for outreach or prayer, giving the signed-in user a list of current relationship-care actions. Availability and permissions remain deployment conditions. Approved claim `claim:54aeb223a9029e9f7707`. [Outreach Toolbox dashboard](https://www.youtube.com/shorts/c6T9Ha13jKE)
 
-- scheduling confirmation email;
-- scheduling response email;
-- reminders;
-- roster messages;
-- decline notifications;
-- coordinator emails;
-- workflow emails;
-- SMS reminders;
-- family-serving pages;
-- app push or mobile block actions, if implemented.
+Onboarding can collect assignment days and reminder preferences, while configurable jobs determine reminder time-of-day values. Operational use requires testing the job schedule and push delivery in the target mobile environment. Approved claim `claim:9c8ce297c9c4a4cda982`. [Outreach Toolbox at 01:04](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s)
 
-The mobile Schedule Toolbox documentation includes sections for scheduler receipt of confirmation emails and scheduling response email behavior ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)). A community dynamic-sender recipe shows how one organization used Lava in the scheduling confirmation system communication to choose a sender from the group schedule coordinator, scheduled-by person, or organization default ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)). Treat that as a pattern to evaluate and test, not as a core guarantee.
+The feature can track contact-specific prayer and connection cadences, completed touchpoint history, periodic pulse updates, and configurable milestone prompts. Before ministry use, review who can see contact data and which block settings are active. Approved claim `claim:e704f98991439e3e1576`. [Outreach Toolbox at 07:56](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s)
 
-### Workflows
+Do not use Outreach Toolbox reminders as evidence of a serving assignment, confirmation, attendance record, or completed volunteer follow-up unless the organization has explicitly designed and verified that connection.
 
-Workflows often fill gaps between Rock's core scheduling features and local ministry process. Common workflow uses:
+## Community Implementation Patterns
 
-- serving interest intake;
-- observation scheduling;
-- background check request;
-- application routing;
-- manual approval;
-- requirement reminders;
-- decline follow-up;
-- no-show follow-up;
-- family serving request management;
-- coordinator alerts.
+The following are community examples, not official Rock behavior or endorsed implementation designs.
 
-A community serving-interest recipe describes a flow from public interest form to observation, connector notification, reminders, application/background check, and connection-request activity notes ([Serving Interest Process](https://community.rockrms.com/recipes/169)). A family-serving recipe describes custom workflows to accept or decline serving requests for family members from a My Account page ([Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489)). Both are community examples; inspect security, authorization, person scoping, and workflow entity updates before using similar patterns.
+A community recipe for adding fifth-week behavior to member schedule templates describes A/B rotation, every-other-week schedules, and manually maintained specific-date schedules. It notes that schedule templates are day-of-week-sensitive and recommends clear names. Its fifth-week-only pattern requires ongoing date maintenance. Evaluate the pattern against the target version and calendar before adopting it. [Community recipe: Group Member Schedule Templates](https://community.rockrms.com/recipes/356)
 
-## 6. Primary Entities And Relationships
+Another community recipe exposes a serving schedule on an external group-toolbox page using copied pages, a customized Lava file, Dynamic Data, a page-parameter filter, and SQL. The recipe itself warns that community recipes are not reviewed or endorsed by the Rock core team and may affect performance or security. Do not copy its SQL or page design without security review, parameter validation, upgrade planning, and testing against the installed schema. [Community recipe: View Serving Schedule on External Page](https://community.rockrms.com/recipes/459)
 
-### Relationship Map
+A community Q&A response describes creating separate sign-up group types for campus and service-time combinations, then limiting the Serving Finder page to the relevant sign-up group. This is an anecdotal configuration pattern, not verified core guidance. Before following it, compare the administrative overhead and reporting impact with the target installation’s existing group-type design. [Community Q&A: Limit sign-up registration by schedule or campus](https://community.rockrms.com/ask/using/2808)
 
-The practical relationship map for serving operations is:
+## Version And Authority Caveats
 
-`Person`  
--> `PersonAlias`  
--> `GroupMember`  
--> `GroupRole`  
--> `Group`  
--> `GroupType`  
--> `GroupLocation`  
--> `Location`  
--> `GroupLocationSchedule`  
--> `Schedule`  
--> `AttendanceOccurrence`  
--> `Attendance`  
--> `Communication`, `Workflow`, `Requirement`, and reporting outputs.
+- Most official configuration documentation in this pack is scoped to Rock v19. Verify the target installation’s exact version and the selected documentation version before applying labels, paths, defaults, or block behavior.
+- Rock v19.3 fixed the RSVP Response heading so an Accept or Decline link uses the attendance occurrence name rather than generic RSVP text. If the wrong heading appears, confirm the installed patch level before customizing the block. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- Rock v18.3 fixed attendance reminders that could be suppressed by scheduling- or RSVP-related tracking records. Older installations may reproduce that historical defect. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- The captured release page identifies Rock v20.0 as alpha and includes a migration warning for legacy Protect My Ministry v1 background checks. Pre-release behavior should not be described as installed or production-ready without target-environment verification. [Rock Core Release Notes](https://www.rockrms.com/releasenotes)
+- LMS claims in this guide are community-reviewed implementation guidance with approved structural verification. That verification established relevant feature surfaces in a reviewed installation, not a universal volunteer-training configuration.
+- Outreach Toolbox claims come from official v19 preview material but remain conditional on mobile shell, authentication, page and block configuration, jobs, push delivery, and permissions.
+- Community recipes and Q&A are examples. They are not official product guarantees and should be reviewed for security, performance, maintainability, and version compatibility.
+- Supplied source-code excerpts reference immutable commit `471fd303d111b2e46218228dbc1e93dba8856fa3` on the public Rock repository. They can clarify implementation vocabulary but do not prove what code or configuration is installed on a target instance.
 
-For check-in-related serving:
+## Troubleshooting Decision Tree
 
-`GroupTypeAssociation` and group type inheritance influence check-in area paths, available group types, and inherited eligibility attributes ([CheckinAreaPath.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Group/GroupType/CheckinAreaPath.cs), [Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+### The team does not appear in Group Scheduling
 
-For scheduling UI and block responses:
+1. Confirm that the operator is inspecting the intended group and group type.
+2. Inspect whether `Scheduling Enabled` is active on that group type.
+3. Confirm that the required named locations or positions exist.
+4. Confirm that the required named schedules exist and have accurate times.
+5. Confirm that the locations and schedules are associated with the group.
+6. Inspect the scheduler’s current group and location selections.
+7. If all configuration appears correct, verify permissions and the installed version before changing data.
 
-Group Scheduler view models expose selected locations, location names, schedule names, and send-confirmation outcomes ([GroupSchedulerLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs), [GroupSchedulerGroupLocationScheduleNamesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs), [GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
+Source: [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule).
 
-### GroupType -> Group
+### A volunteer received no confirmation or reminder
 
-RockU treats [Group Types](https://community.rockrms.com/rocku/groups/group-types) and [Group Details](https://community.rockrms.com/rocku/groups/group-details) as separate configuration surfaces, which is the correct boundary for deciding whether a symptom is inherited or isolated to one team.
+1. Determine whether the communication was expected from a manual scheduler action or the scheduled notification job.
+2. Inspect the group type’s confirmation and reminder communications.
+3. Inspect the confirmation and reminder offset days.
+4. Confirm whether the assignment had already received the relevant communication.
+5. Inspect the `Send Group Schedule Notifications` job, including its schedule and recent result.
+6. For SMS, verify SMS configuration, an SMS-enabled number, the System Communication medium, and effective communication preference.
+7. Distinguish “no eligible recipients” from “eligible recipients found but delivery failed.”
+8. Stop before resending broadly if prior delivery cannot be determined.
 
-A group type can have many groups. A serving team is usually one group inside a serving group type. If a problem affects many teams, start at the group type. If it affects one team, inspect the group first but still compare inherited group type settings.
+Sources: [Use Group Scheduling Communications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications), [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule). The distinction between eligible-recipient count, sent count, warnings, and errors is also present in the public implementation contract at commit `471fd303d111b2e46218228dbc1e93dba8856fa3`. [GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)
 
-Common symptoms of group type issues:
+### A volunteer cannot accept an assignment
 
-- all teams missing from scheduler;
-- all teams missing from check-in;
-- all teams missing required fields;
-- all volunteers failing requirements;
-- all teams hidden from external finder;
-- all teams using wrong role labels;
-- all team attendance reminders failing.
+1. Inspect the current assignment state in Schedule Toolbox.
+2. Inspect whether confirmation logic is `Ask` or `Auto Accept`.
+3. If it is `Auto Accept`, verify whether the assignment is already treated as accepted and only Decline should be offered.
+4. Determine whether confirmation logic changed after the assignment was created but before the message was received.
+5. Review Schedule Toolbox block settings for disabled actions or changed labels.
+6. Test with a bounded assignment before changing confirmation logic again.
 
-Common symptoms of group-level issues:
+Sources: [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule), [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox).
 
-- one team missing from schedule board;
-- one team missing location;
-- one team archived or inactive;
-- one team has wrong campus;
-- one team missing schedule coordinator;
-- one team has no members in schedulable role;
-- one team has stale requirements;
-- one team has incorrect security.
+### The Schedule Coordinator was not alerted
 
-### Group -> GroupMember -> PersonAlias -> Person
+1. Confirm that the group has a Schedule Coordinator.
+2. Identify the event: Accept, Decline, or Self-schedule.
+3. Inspect the group-level notification options.
+4. If no group-level options are selected, inspect the group-type defaults.
+5. If `None` is selected at group level, recognize that inherited notifications are disabled.
+6. Inspect the Scheduling Response Email System Communication and its delivery result.
+7. Verify the coordinator’s reachable address before replaying any notification.
 
-A person can have multiple aliases; Rock commonly uses `PersonAliasId` in attendance and scheduling records. The SQL view joins `Attendance.PersonAliasId` to `PersonAlias.Id` and then uses `PersonAlias.PersonId` ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)). Agents should resolve aliases to the person rather than assuming the id on the attendance row is the person id.
+Source: [Managing Schedule Coordinator Notifications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications).
 
-Troubleshooting steps:
+### RSVP features are missing
 
-1. Identify the person.
-2. Resolve current and historical person aliases.
-3. Inspect group membership for the relevant group.
-4. Verify role and status.
-5. Verify communication fields and preferences.
-6. Verify requirement status.
-7. Verify schedule preferences.
-8. Inspect attendance records by person alias, not only person id.
-9. Check merged records if a person appears duplicated or missing.
+1. Confirm that an actual group exists.
+2. Inspect the group type and enable `Group RSVP Enabled` if authorized.
+3. Return to the group in Group Viewer and look for the RSVP list.
+4. Create at least one occurrence before attempting to send an RSVP request.
+5. Inspect inherited versus group-level reminder communication and offset settings.
+6. Verify the operator’s access if the controls remain absent.
 
-### Group -> GroupLocation -> Location
+Sources: [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp), [Use the Group Viewer with RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp).
 
-Groups can have locations. Some groups have one location; others have multiple rooms or areas. The scheduler and check-in tools may display group and location paths, not just names. Source view models include `groupPath`, `locationPath`, and `locationName` ([GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs)).
+### An RSVP invitee is missing from the response list
 
-Common issues:
+1. Open the correct occurrence’s RSVP Detail page.
+2. Verify whether the person actually responded.
+3. Determine whether `Register Recipients` was used when the request was sent.
+4. If it was not used, expect nonrespondents to be absent from the list.
+5. If the person responded through another channel, update the response only after confirming identity and occurrence.
+6. Do not resend to the full audience merely to populate the list.
 
-- group has no location;
-- location is too narrow for kiosk visibility;
-- wrong location path;
-- inactive or archived group still has group-location-schedule records;
-- schedule exists but is not assigned to the location;
-- duplicate similarly named locations confuse operators.
+Source: [View RSVP Details](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details).
 
-Rock v18.3 fixed a check-in issue where scheduled times could include schedules from archived or inactive groups that still had group-location-schedule assignments, reinforcing the need to clean up inactive/archived group scheduling relationships ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+### The attendance button is missing
 
-### GroupLocation -> GroupLocationSchedule -> Schedule
+1. Confirm that the group belongs to the expected group type.
+2. Inspect the group type’s Attendance / Check-in settings.
+3. Confirm that `Takes Attendance` is enabled.
+4. Reload the group in Group Viewer.
+5. If still absent, verify page, block, and operator security without altering the group structure.
 
-A group can be assigned to a location and that group location can be assigned one or more schedules. Source SQL shows `GroupLocationSchedule` as the link between `GroupLocation` and `Schedule` ([View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql)).
+Sources: [Configure Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance), [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance).
 
-Agent checks:
+### An attendance reminder was not sent
 
-- Does the schedule exist?
-- Is it active?
-- Is it assigned to the group's location?
-- Is the group active and not archived?
-- Does the schedule match the expected campus/service time?
-- Does the recurring pattern produce the requested date?
-- Is a schedule exclusion date range configured at the group type? Source view models include a group type schedule exclusion bag with start/end date semantics ([GroupTypeGroupScheduleExclusionBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/GroupTypeDetail/GroupTypeGroupScheduleExclusionBag.cs)).
-
-### AttendanceOccurrence -> Attendance
-
-`AttendanceOccurrence` is the occurrence. `Attendance` is the person-level record. The SQL view in the source pack exists for backward compatibility with pre-v8 attendance formats, which is itself a version caveat: older scripts may query attendance differently than modern Rock models ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
-
-Agent checks:
-
-- Does an occurrence exist for the group, schedule, location, and date?
-- Are there attendance rows for the person alias?
-- Are the rows actual attendance or scheduling/RSVP tracking?
-- Was `DidAttend` set?
-- Was the group marked did not meet?
-- Is the occurrence duplicated?
-- Did a workflow or confirmation route update the correct row?
-- Did an automated link checker trigger an update in affected versions?
-
-### GroupRequirement And Eligibility Data
-
-The source pack does not provide full model details for group requirements. It does provide RockU's Group Requirements training page as a topic anchor ([Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements)). Therefore, agents should not invent exact schema behavior when requirements matter. Inspect the live instance:
-
-- group type requirements;
-- group-specific requirements;
-- requirement type;
-- whether requirement is warning-only or blocking;
-- whether applies to all roles or selected roles;
-- person data source used by requirement;
-- workflow or attribute backing the requirement;
-- last calculated status;
-- failure reason;
-- requirement cache or recalculation behavior, if present in that version.
-
-## 7. Common Serving And Volunteer Operations Workflows
-
-### New Volunteer Interest Intake
-
-A serving-interest intake process usually has these stages:
-
-1. Public serving opportunities are displayed.
-2. A person selects a ministry or role.
-3. A form collects basic contact and preference information.
-4. A workflow or connection request is created.
-5. A coordinator is notified.
-6. The potential volunteer may select an observation date.
-7. The volunteer receives confirmation.
-8. The coordinator follows up.
-9. The person completes application, training, or background check.
-10. The person is approved or redirected.
-11. The person is added to the serving team.
-12. Schedule preferences are collected.
-13. The person is scheduled for first serve.
-14. Attendance and follow-up begin.
-
-A community example describes an interest form, communication preference capture, optional observation date selection, email/text confirmation, connector notification, reminder before observation, and later serving application/background check trigger ([Serving Interest Process](https://community.rockrms.com/recipes/169)). That pattern is operationally useful because it separates interest from eligibility and placement. Do not add a person directly to a sensitive serving team until requirements and approval are satisfied.
-
-Agent implementation checks:
-
-- Is the public form creating a workflow, connection request, group member, or all three?
-- Is the ministry selection stored as a structured value?
-- Is the person's communication preference captured and honored?
-- Are minors handled correctly?
-- Is observation optional or required?
-- Are coordinator notifications routed to a person, group role, or static email?
-- Are reminders scheduled with a workflow timer or job?
-- Are applications and background checks integrated securely?
-- Is every workflow action auditable?
-- Is there a dead-end state where a volunteer submits interest but no owner is notified?
-
-### Build Or Audit A Serving Team
-
-Use the official [Group Details](https://community.rockrms.com/rocku/groups/group-details), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), and [Group Security](https://community.rockrms.com/rocku/groups/group-security) surfaces as the minimum configuration checkpoints.
-
-A serving team should have:
-
-- a correct group type;
-- a clear parent group;
-- a campus if the ministry is campus-specific;
-- active state;
-- archive state false;
-- correct roles;
-- correct leader/coordinator;
-- correct members;
-- location assignment;
-- schedule assignment;
-- requirements;
-- security;
-- attendance settings;
-- scheduling settings;
-- communication settings;
-- reporting inclusion.
-
-Agent audit path:
-
-1. Open the group.
-2. Confirm active and not archived.
-3. Confirm group type.
-4. Confirm campus.
-5. Confirm parent hierarchy.
-6. Confirm roles and member status.
-7. Confirm leader/coordinator.
-8. Confirm group location.
-9. Confirm assigned schedule.
-10. Confirm requirements.
-11. Confirm security.
-12. Confirm scheduling block visibility.
-13. Confirm attendance and reporting outputs.
-
-### Volunteer Schedule Preference Collection
-
-Schedule preferences let volunteers tell the scheduler when they prefer to serve. RockU includes "Person Preferences and Auto Schedule" as a dedicated scheduling training topic ([Person Preferences and Auto Schedule](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule)). The community schedule-preference recipe uses Page Parameter Filter and Dynamic Data to find volunteers by group, schedule, and location preference, with the explicit caveat that volunteers must be in a scheduling group and have preferences set ([Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238)).
-
-Operational guidance:
-
-- Collect preferences only after a person is in the correct serving group.
-- Use ministry-specific schedule templates where needed.
-- Name template schedules clearly.
-- Include fifth-week patterns if the ministry needs auto-scheduling for fifth Sundays.
-- Do not reuse Sunday templates for weekday ministries without verifying schedule day.
-- Teach volunteers where preferences live.
-- Build a report for volunteers missing preferences.
-- Periodically audit stale preferences.
-
-### Auto-Scheduling
-
-Auto-scheduling depends on:
-
-- group membership;
-- schedule preferences;
-- group location schedules;
-- template schedules;
-- role eligibility;
-- requirement eligibility;
-- exclusions;
-- date range;
-- ministry constraints;
-- operator review.
-
-The fifth-week community recipe exists because Rock Core did not ship fifth-Sunday group member schedule templates in that example, creating a recurring operational gap for auto-scheduling four times per year ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)). Before trusting auto-scheduling, simulate or review generated assignments for edge cases:
-
-- fifth Sundays;
-- holiday weekends;
-- special services;
-- multi-campus weekends;
-- one-off events;
-- people with multiple teams;
-- people serving in family units;
-- minors;
-- requirement-expired volunteers;
-- people already scheduled elsewhere.
-
-### Send Schedule Confirmations
-
-Scheduling confirmations should be sent only after the schedule has been reviewed. Source view models for sending confirmations distinguish:
-
-- whether there are communications to send;
-- eligible recipient count;
-- communications sent count;
-- warnings;
-- errors ([GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
-
-Agent checks after sending:
-
-- Were any eligible recipients found?
-- Were communications actually sent?
-- Were warnings produced?
-- Were errors produced?
-- Were volunteers without email or phone excluded?
-- Did security or communication preferences suppress delivery?
-- Did the system communication render correctly?
-- Did confirmation links point to the correct Rock route?
-- Does the sender address route replies to the ministry owner?
-
-A community recipe shows a dynamic sender pattern that falls back from group schedule coordinator to scheduled-by person to organization defaults ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)). If implementing that pattern, verify the sender field accepts Lava in the local version and system communication, that the schedule coordinator has a valid email, and that SPF/DMARC alignment is still valid for the sending domain.
-
-### Volunteer Confirms Or Declines
-
-Volunteer response paths can include:
-
-- one-click confirmation email;
-- Schedule Toolbox;
-- mobile Schedule Toolbox;
-- custom workflow page;
-- family account page;
-- staff manual update.
-
-The mobile Schedule Toolbox documentation says the block manages opportunities for an individual and supports accept, decline, cancel, decline reason, and customization through templates ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)). Source-code enums identify `Pending`, `Confirmed`, `Declined`, and `Unavailable` statuses for toolbox rows ([ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs)).
-
-Troubleshooting response failure:
-
-1. Identify the scheduled attendance row.
-2. Verify it belongs to the correct person alias.
-3. Verify occurrence group, location, schedule, and date.
-4. Verify the response endpoint or workflow.
-5. Verify the confirmation token or parameters.
-6. Verify whether decline reason is required.
-7. Verify Rock version for the v17.2 link-checker/decline-reason fix.
-8. Check communication history.
-9. Check exception log.
-10. Check workflow history if response is workflow-driven.
-
-### View Serving Schedule Externally
-
-Some churches want volunteers to view serving schedules without internal-site access. A community recipe creates separate external pages, copies the group toolbox page structure, adds a Schedule tab to Group Detail, and uses Dynamic Data plus Page Parameter Filter to show the schedule for a selected date ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459)).
-
-This is useful but risky. Before exposing schedules externally:
-
-- create separate pages for serving teams instead of editing shared group pages;
-- restrict to authenticated volunteers if personal data is shown;
-- avoid exposing private contact information;
-- filter by group membership or ministry permissions;
-- parameterize group id safely;
-- avoid raw SQL injection risks in Dynamic Data;
-- test with a non-staff volunteer account;
-- verify no small group or unrelated group pages were changed;
-- avoid showing minors' private data;
-- include only fields needed by volunteers.
-
-### Manage Family Members' Serving Requests
-
-The core Schedule Toolbox is individual-centered in the community example. A draft recipe describes creating a custom page where a signed-in person can see future serving requests for family members and trigger workflows to accept or decline them ([Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489)).
-
-This is a high-risk customization because family membership does not automatically mean permission to update another person's serving commitments in every context. Before implementing:
-
-- verify family relationship rules;
-- verify age/minor policy;
-- verify whether spouses can respond for each other;
-- verify whether parents can respond for minors;
-- verify whether adult children are excluded;
-- authorize by family role and age, not just shared family id;
-- prevent arbitrary attendance id updates;
-- use encrypted identifiers or server-side lookup;
-- log who responded;
-- preserve decline reason;
-- test merged-family and split-household cases.
-
-### Record Serving Attendance
-
-Attendance can be recorded through:
-
-- Group Attendance blocks;
-- Check-In;
-- Check-In Manager;
-- manual entry;
-- workflow;
-- API;
-- custom pages.
-
-RockU includes Group Attendance as a training topic ([Group Attendance](https://community.rockrms.com/rocku/groups/group-attendance)). A community recipe for the Obsidian Group Attendance Detail block adds a toast confirmation because the block saves in real time without a page reload, which can confuse leaders who expect a traditional Save button ([Enhancing the Obsidian Group Attendance Detail Block with a Toast Confirmation](https://community.rockrms.com/recipes/461)).
-
-Agent checks:
-
-- Does the page use legacy or Obsidian block?
-- Does attendance save immediately?
-- Is the leader expecting a save button?
-- Are permissions correct?
-- Is the occurrence date correct?
-- Are scheduled but absent people handled?
-- Are no-shows reported?
-- Are scheduling rows being confused with attended rows?
-- Is `DidAttend` set correctly?
-- Does the group have the right schedule and location?
-
-### Follow Up On Declines And No-Shows
-
-Declines and no-shows are operational signals.
-
-Decline follow-up should answer:
-
-- Did the volunteer decline early enough to replace them?
-- Was a decline reason required?
-- Was the decline reason stored?
-- Was the coordinator notified?
-- Is this a one-time decline or pattern?
-- Is the person unavailable for future dates?
-- Should schedule preferences be updated?
-
-No-show follow-up should answer:
-
-- Was the person actually scheduled?
-- Did they confirm?
-- Did they check in elsewhere?
-- Was attendance taken?
-- Was the group marked did not meet?
-- Did the volunteer serve but attendance was missed?
-- Should the volunteer receive care, correction, or schedule adjustment?
-- Should the coordinator be notified?
-
-Rock v18.3's reminder fix is relevant when follow-up depends on attendance reminders: scheduling/RSVP tracking rows should not suppress reminders as though real attendance exists ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 8. Serving Teams And Roles Deep Dive
-
-### Designing Serving Group Types
-
-[Group Types](https://community.rockrms.com/rocku/groups/group-types) defines the structural starting point, while [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements) and [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) cover distinct eligibility and scheduling concerns.
-
-A serving group type should reflect operational behavior, not only ministry branding. Design for:
-
-- roster management;
-- scheduling;
-- attendance;
-- check-in integration;
-- requirements;
-- communications;
-- reporting;
-- security;
-- lifecycle.
-
-Recommended group type questions:
-
-- Will these groups be scheduled?
-- Will volunteers take attendance?
-- Will children or vulnerable populations be involved?
-- Are background checks required?
-- Are training requirements role-specific?
-- Do groups need locations?
-- Do groups need schedules?
-- Do groups appear externally?
-- Do volunteers self-join, apply, or get placed?
-- Are groups campus-specific?
-- Are groups seasonal?
-- Are groups event-specific?
-- Are groups reused or archived after use?
-- Do groups need parent/child hierarchy?
-- Will the group type be used by Check-In?
-
-### Real Team vs Sign-Up Opportunity vs Interest Pipeline
-
-Do not overload one group type if the lifecycle differs. Three common objects look similar but behave differently:
-
-**Real serving team**  
-A durable group used for scheduling, attendance, communication, and reporting.
-
-**Sign-up opportunity**  
-A public or seasonal opportunity where people indicate availability. A community Q&A example solved campus/service-specific Christmas volunteer sign-ups by creating separate sign-up group types for each campus/service time, then limiting the finder to the relevant sign-up group ([Sign-Up Registration - Limit to particular schedule / campus](https://community.rockrms.com/ask/using/2808)).
-
-**Interest pipeline**  
-A workflow or connection flow for people not yet approved or placed. The serving-interest recipe uses workflow and connector actions before the person reaches full serving application/background-check steps ([Serving Interest Process](https://community.rockrms.com/recipes/169)).
-
-Agent rule: before changing membership or schedule behavior, identify which object you are working with. A sign-up group may not be the final serving team.
-
-### Role Design
-
-Roles should be stable and meaningful. Avoid creating a new role for every schedule or location; use group locations and schedules for where/when. Use roles for responsibility and eligibility.
-
-Good role examples:
-
-- Leader.
-- Assistant Leader.
-- Coordinator.
-- Scheduler.
-- Volunteer.
-- Substitute.
-- Trainee.
-- Observer.
-- Applicant.
-- Inactive.
-
-Poor role examples:
-
-- Sunday 9:00.
-- Sunday 11:00.
-- Room 101.
-- June Volunteer.
-- Christmas Eve 4 PM.
-
-Those are usually schedules, locations, or event assignments, not roles.
-
-### Role-Based Scheduling
-
-Before scheduling a person, verify:
-
-- group member status;
-- role;
-- whether role is schedulable by local convention;
-- whether requirement applies to that role;
-- whether the person has opted out;
-- whether they have schedule preferences;
-- whether they are already scheduled elsewhere.
-
-Some ministries use substitute or trainee roles. Decide whether those roles should be auto-scheduled, manually scheduled only, or excluded entirely.
-
-### Team Coordinator Fields
-
-The dynamic sender recipe uses group schedule coordinator as the first sender fallback for scheduling confirmations ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)). If your instance uses schedule coordinators:
-
-- populate the field consistently;
-- require valid email addresses;
-- define fallback behavior;
-- document ownership when a coordinator leaves staff;
-- include coordinator in security groups only where appropriate;
-- monitor blank coordinator fields.
-
-### Group History
-
-RockU includes Group History as a training topic ([Group History](https://community.rockrms.com/rocku/groups/group-history)). For serving teams, history can help diagnose:
-
-- who added a volunteer;
-- who changed a role;
-- when a person left;
-- whether a schedule or location was changed;
-- whether a group was archived;
-- whether a leader field changed;
-- whether a role was renamed.
-
-If history is incomplete or not sufficient for the question, inspect audit fields, communication history, workflow history, and SQL row timestamps in the live instance.
-
-## 9. Schedules And Confirmations Deep Dive
-
-### Meeting Details
-
-RockU separates "Group Scheduling - Overview" and "Group Scheduling - Meeting Details," which reflects the two-part model: scheduling is not only picking people, it also depends on the meeting's date/time/location context ([Group Scheduling - Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), [Group Scheduling - Meeting Details](https://community.rockrms.com/rocku/groups/group-scheduling-meeting-details)).
-
-Meeting detail checks:
-
-- group;
-- occurrence date;
-- schedule;
-- location;
-- campus;
-- capacity or needed count, if used;
-- roles needed;
-- excluded dates;
-- existing scheduled people;
-- confirmed count;
-- declined count;
-- pending count;
-- attendance state after the event.
-
-### Scheduler And Status Board
-
-RockU includes a "Group Scheduler and Status Board" topic in the scheduling sequence, although the source pack only includes compact metadata for it through the RockU navigation list. Use it as an authority pointer and inspect the live block/page for settings. The source-code view models show that the scheduler handles selected locations, group schedule names, and send-confirmation outcomes ([GroupSchedulerLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs), [GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
-
-Status board checks:
-
-- Which group type or group is selected?
-- Which date range is selected?
-- Which locations are selected?
-- Which schedules are selected?
-- Are inactive or archived groups excluded?
-- Are all required roles filled?
-- Are pending confirmations visible?
-- Are declines visible?
-- Can the operator send confirmations?
-- Are warnings/errors displayed after sending?
-
-### Confirmation Statuses
-
-Source-code enums define the schedule toolbox row statuses:
-
-- `Pending`: person has not confirmed availability.
-- `Confirmed`: person has committed.
-- `Declined`: person declined.
-- `Unavailable`: person is unavailable.
-
-Use those statuses conceptually, but verify the live storage fields and enum values before writing SQL or API updates. The C# and TypeScript enum records are implementation landmarks for current/develop code, not a guarantee that every deployed version stores responses identically ([ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs), [toolboxScheduleRowConfirmationStatus.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts)).
-
-### Decline Reasons
-
-The Schedule Toolbox documentation says decline can include a reason ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)). Release notes say v17.2 fixed a case where the Group Scheduling Confirmation workflow could incorrectly record a response if a decline reason was required but not provided ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent checks:
-
-- Is decline reason required?
-- Is the confirmation link one-button or multi-step?
-- Does the workflow block response until a reason exists?
-- Are automated link checkers opening decline links?
-- Does the deployed version include the v17.2 fix?
-- Are decline reasons defined values, free text, or workflow attributes?
-- Does the scheduler receive the reason?
-
-### Automated Link Checkers
-
-Email security tools may open links before a person does. Release notes explicitly mention automated link-checker behavior in the Group Scheduling Confirmation workflow fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Symptoms:
-
-- volunteers appear confirmed immediately after send;
-- volunteers appear declined without action;
-- responses occur at send time;
-- response user agent looks like a scanner;
-- decline reason missing;
-- many responses happen at the same timestamp.
-
-Mitigations to inspect:
-
-- Rock version and fix availability;
-- confirmation workflow design;
-- one-click vs confirmation landing page;
-- token handling;
-- required human action before mutating attendance;
-- email security logs;
-- communication open/click logs.
-
-### Mobile Schedule Toolbox
-
-The mobile Schedule Toolbox block is documented for mobile v4.0 / core v13.1 and supports accept, decline, cancel, templates, scheduler confirmation emails, and scheduling response email configuration ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)).
-
-Agent checks for mobile:
-
-- Is the app using the mobile block or a web page?
-- Is the person authenticated?
-- Does the block scope to the current individual only?
-- Are templates customized?
-- Did custom template syntax break?
-- Are commands wired correctly?
-- Does the response email send?
-- Are push notifications involved?
-- Is the mobile shell caching old content?
-- Does the same request work on web?
-
-The developer doc warns that the default template had invalid `|` characters on specific lines until a fix was in place. If an older instance has a broken template, compare against the deployed block documentation and local template carefully without copying remote text wholesale ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)).
-
-## 10. Volunteer Requirements Deep Dive
+1. Confirm that attendance reminders are enabled for the group type.
+2. Confirm that the group was scheduled to meet.
+3. Inspect group and group-type exclusion dates.
+4. Determine whether actual attendance was entered or the group was marked as not meeting.
+5. Do not treat scheduling or RSVP response records as actual attendance.
+6. Confirm the installed Rock version and whether the v18.3 reminder fix applies.
+7. Inspect the reminder job and delivery result.
 
-### Requirement Categories
-
-Serving requirements commonly fall into these categories:
-
-- identity and profile completeness;
-- age or grade minimum;
-- membership or covenant status;
-- baptism or spiritual milestone;
-- background check;
-- child safety training;
-- mandated reporter training;
-- ministry-specific training;
-- application approval;
-- reference approval;
-- interview;
-- observation;
-- signed policy or document;
-- driver's license or insurance;
-- medical certification;
-- recurring renewal.
-
-RockU's Group Requirements page is the primary source pointer in the pack for core requirement behavior ([Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements)). The serving-interest community recipe shows an operational flow where application and background check are triggered after observation and connector review ([Serving Interest Process](https://community.rockrms.com/recipes/169)).
-
-### Requirement Placement
-
-Requirements can be implemented at different layers:
-
-- group type requirement;
-- group-specific requirement;
-- role-specific requirement;
-- workflow step;
-- connection opportunity status;
-- person attribute;
-- group member attribute;
-- document/signature record;
-- external integration;
-- data view/report used by staff.
-
-Agent rule: do not assume a visible "requirements" list is the only eligibility system. Many churches combine Rock requirements with workflows and external background-check integrations.
-
-### Blocking vs Warning
-
-Some requirements block scheduling or service. Others warn staff but allow scheduling. Inspect the live configuration:
-
-- Does the requirement block adding a person?
-- Does it block scheduling?
-- Does it block check-in?
-- Does it only display a warning?
-- Does it apply to all roles?
-- Does it apply to leaders only?
-- Does the block enforce it or only report it?
-- Is there an override path?
-- Who can override?
-
-### Requirement Failure Troubleshooting
-
-If a volunteer is marked ineligible:
-
-1. Identify the requirement name.
-2. Inspect whether it is group type, group, or role-specific.
-3. Inspect the underlying data source.
-4. Inspect the person's record.
-5. Inspect person aliases if requirement logic joins alias-based tables.
-6. Inspect expired records.
-7. Inspect workflow state.
-8. Inspect background-check integration state.
-9. Inspect requirement recalculation timing.
-10. Inspect permissions: the operator may not be able to see the sensitive requirement detail.
-
-### Sensitive Data Guardrails
-
-Requirements often involve sensitive data. Agents should avoid exposing:
-
-- background-check details;
-- abuse-prevention flags;
-- legal documents;
-- minor information;
-- medical certifications;
-- rejection reasons;
-- private notes.
-
-Report only the operational state needed: satisfied, missing, expired, pending, failed, needs review. If detail is required, direct the operator to the secure Rock page and role authorized to view it.
-
-## 11. Attendance And Follow-Up Deep Dive
-
-### Attendance vs Scheduled Assignment
-
-A scheduled assignment says a person was asked or expected to serve. Attendance says whether they actually did. Do not count scheduled rows as attendance without verifying attended status.
-
-The source SQL view counts attendance by joining `Attendance` to `AttendanceOccurrence` and filtering `DidAttend = 1` ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)). Release notes show that Rock itself had to distinguish scheduling/RSVP tracking records from actual attendance in the Send Attendance Reminder job ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-### Group Attendance Blocks
-
-RockU has Group Attendance as a training topic ([Group Attendance](https://community.rockrms.com/rocku/groups/group-attendance)). A community recipe notes that the Obsidian Group Attendance Detail block can save without a page reload, making user feedback important ([Enhancing the Obsidian Group Attendance Detail Block with a Toast Confirmation](https://community.rockrms.com/recipes/461)).
-
-Rapid Attendance Entry is another attendance-capture surface that can matter for volunteer follow-up. A reviewed RockU transcript insight says the block can combine attendance marking with family edits, person notes, prayer requests, and workflow launch actions when its settings enable those actions; use that as a prompt to inspect page variants and enabled actions before assuming attendance entry is only recording present/absent state ([Rapid Attendance Entry, 02:17](https://community.rockrms.com/rocku/check-in/rapid-attendance-entry)).
-
-Agent checks:
+Sources: [Configure Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance), [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
 
-- Which attendance block is used?
-- Does the page pass group id and occurrence date correctly?
-- Are schedules and locations included?
-- Is attendance saved automatically?
-- Is there a visible save confirmation?
-- Does the leader have permission?
-- Are absent scheduled people displayed?
-- Are additions allowed?
-- Are check-in records also writing attendance?
+### A confirmed volunteer appears absent
 
-### Check-In Attendance
+1. Confirm the group, occurrence date, schedule, and location.
+2. Confirm whether the team met.
+3. Confirm that attendance entry is complete.
+4. Inspect whether the volunteer later cancelled or declined.
+5. Correct data-entry errors before starting follow-up.
+6. Treat the remaining difference as a follow-up candidate, not a proven no-show.
+7. Inspect any local no-show workflow before launching or replaying it.
 
-Serving teams that intersect with check-in require special care. Check-in documentation describes group types, inherited attributes, group location, schedules, printers, check-in manager, and roster filtering by schedule in later versions ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+Sources: [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox), [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance).
 
-Agent checks for check-in serving:
+### Rapid Attendance Entry lacks an expected location, schedule, or action
 
-- Is this a serving team or a check-in group?
-- Does the group belong to the configured check-in area?
-- Does the group type inherit the right attributes?
-- Are age/grade/ability restrictions correct?
-- Is the group assigned a broad enough location?
-- Is the schedule active at check-in time?
-- Is the kiosk configured for the location?
-- Is the group active and not archived?
-- Are inactive or archived groups still leaking schedules?
-- Is the roster filter set to the expected schedule?
+1. Confirm the selected group.
+2. Inspect the locations and schedules configured for that group.
+3. Remember that a schedule selector appears only when multiple schedules apply to the selected location.
+4. Inspect the Rapid Attendance Entry block settings.
+5. Confirm whether attendance, notes, workflows, and related actions are enabled.
+6. Verify campus filtering when expected locations are absent.
+7. Stop before adding duplicate people or families; search thoroughly first.
 
-### Attendance Reminder Job
+Source: [Rapid Attendance Entry](https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry).
 
-Rock v18.3 fixed the Send Attendance Reminder job so group leaders still receive reminders when a group only has scheduling/RSVP-related attendance records. The job should suppress reminders only when real attendance exists or the group was marked did not meet ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+### Training completion did not change serving eligibility
 
-If leaders are not receiving reminders:
+1. Confirm the correct person, learning participant, class, and activity.
+2. Inspect whether the activity is complete and whether facilitator scoring is still required.
+3. Identify the intended downstream mechanism: group sync, workflow action, or staff review.
+4. Inspect whether that mechanism ran and whether it encountered an exception.
+5. Confirm that ministry policy permits the expected status change.
+6. Do not manually mark the person eligible until all non-LMS requirements are known.
 
-1. Verify Rock version.
-2. Inspect the job configuration.
-3. Inspect job history.
-4. Inspect group leader role and email addresses.
-5. Inspect occurrence records for the date.
-6. Inspect whether actual `DidAttend` rows exist.
-7. Inspect whether group was marked did not meet.
-8. Inspect scheduling/RSVP rows that may be mistaken for attendance in older versions.
-9. Inspect communication failures.
+Sources: approved claims `claim:882208fdf2bb82703931` and `claim:4bc0aee305fa6b1bd524`, supported by [the community LMS session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN).
 
-### No-Show Reporting
+### Outreach Toolbox reminders are not arriving
 
-No-show logic should compare:
+1. Confirm that the environment supports the documented v19 Rock Mobile experience.
+2. Confirm that the person is signed in.
+3. Inspect page placement, block settings, and authentication.
+4. Confirm the person’s assignment days and reminder preferences.
+5. Inspect the job’s configured time and recent execution.
+6. Test push-notification delivery in the target mobile environment.
+7. Inspect permissions for contact and touchpoint data.
+8. Do not infer a completed follow-up from a scheduled or attempted notification.
 
-- scheduled/confirmed people;
-- actual attendance;
-- group did not meet state;
-- late attendance entry;
-- substitute attendance;
-- check-in attendance;
-- declined/unavailable status.
+Sources: approved claims `claim:483a11b884e0e69ffd4d`, `claim:9c8ce297c9c4a4cda982`, and `claim:e704f98991439e3e1576`, supported by [the official v19 walkthrough](https://www.youtube.com/watch?v=LNcx8t0mlQ4).
 
-Avoid shaming reports that confuse data-entry lag with absence. Operationally, no-show follow-up should usually run after attendance entry is expected to be complete.
+## Agent Task Recipes
 
-### Follow-Up Workflows
+### Recipe: Configure a serving team for scheduling
 
-Follow-up workflows can be triggered by:
+**Outcome:** A bounded serving group is ready for assignments at verified locations and times.
 
-- decline;
-- no response;
-- no-show;
-- requirement expiration;
-- schedule conflict;
-- serving frequency threshold;
-- inactivity;
-- new volunteer first serve;
-- leader attendance not submitted.
+1. Identify the intended group type and group.
+2. Inspect existing named locations and schedules before creating anything.
+3. Add only the missing locations or positions and schedules.
+4. Associate them with the serving group.
+5. Enable Group Scheduling on the group type.
+6. Select confirmation and reminder System Communications.
+7. Set the confirmation and reminder offsets.
+8. Choose `Ask` or `Auto Accept`.
+9. Configure decline-reason and cancellation-workflow behavior.
+10. Assign a Schedule Coordinator and choose notification events.
+11. Test one assignment through the volunteer-facing Schedule Toolbox.
+12. Verify the resulting assignment state and communication outcome.
 
-For each workflow, inspect:
+**Inspect:**
 
-- trigger;
-- entity type;
-- person alias resolution;
-- deduplication;
-- reminders;
-- escalation;
-- completion criteria;
-- communication templates;
-- security;
-- logging.
+- Group-type defaults.
+- Group-level overrides.
+- Schedule accuracy.
+- Location meaning.
+- Volunteer communication preference.
+- Schedule Toolbox block settings.
 
-## 12. Related Rock Areas: Groups, Scheduling, Locations, Check In, Communications, Workflows, People, Security
+**Do not assume:**
 
-### Groups
+- A group name makes it schedulable.
+- A saved assignment was communicated.
+- An accepted assignment is attendance.
 
-Groups are the backbone. Almost every serving operation eventually traces to group type, group, role, membership, requirement, location, schedule, attendance, or security. RockU's Groups track is the strongest source set in this pack for the conceptual spread of group features ([Group Viewer](https://community.rockrms.com/rocku/groups/group-viewer), [Group Details](https://community.rockrms.com/rocku/groups/group-details), [Group Types](https://community.rockrms.com/rocku/groups/group-types)).
+**Stop when:**
 
-### Scheduling
+- The correct test assignment appears in the volunteer experience.
+- Its response state is visible.
+- The intended communication result has been verified.
 
-Scheduling is a layer on group membership and meeting details. It includes meeting details, scheduler/status board, preferences, auto-schedule, analytics, RSVP, requests, responses, roster, and communications. RockU's scheduling sequence is an important navigation map for staff training and agent triage ([Group Scheduling - Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), [Person Preferences and Auto Schedule](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule), [Group Scheduling Roster and Communications](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications)).
+Source: [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule).
 
-### Locations
+### Recipe: Send and triage volunteer confirmations
 
-Locations affect scheduler visibility, check-in visibility, reporting, campus service filtering, and volunteer communication. Source view models expose group path, location path, and active schedule ids for group locations ([GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs)).
+**Outcome:** The intended volunteers receive a confirmation request without an uncontrolled duplicate send.
 
-### Check-In
+1. Select the correct groups, locations, schedules, and week.
+2. Review current assignment states.
+3. Determine whether the scheduled job has already sent the request.
+4. Preview the confirmation communication and its response links.
+5. Send only to the bounded eligible set.
+6. Compare eligible-recipient count with sent count.
+7. Review warnings and errors.
+8. Monitor pending, confirmed, declined, and unavailable states.
+9. Route declines or cancellations according to the configured workflow.
+10. Verify coordinator notification separately.
 
-Check-in can record attendance and can also expose scheduling/location issues. Check-in documentation notes version-specific features such as a security verb controlling attendance deletion, check-out configuration, and roster filtering by schedule in Rock 14.0 updates ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+**Inspect:**
 
-### Communications
+- Prior communication state.
+- Confirmation logic.
+- Delivery medium.
+- Response state.
+- Coordinator alert result.
 
-Communications include system communications, group communications, scheduling confirmations, response emails, reminders, and workflow messages. The Schedule Toolbox developer doc includes scheduler confirmation and scheduling response email sections ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)). Community sender customization shows practical Lava usage in system communication fields ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)).
+**Stop when:**
 
-### Workflows
+- Each intended assignment has a known send status.
+- Failures are isolated.
+- No duplicate broad resend is required.
 
-Workflows bridge gaps between core objects and local ministry process. Use workflows for serving interest, observation, applications, background checks, family responses, no-show follow-up, and coordinator notifications where core scheduling does not cover the full process ([Serving Interest Process](https://community.rockrms.com/recipes/169), [Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489)).
+Sources: [Use Group Scheduling Communications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications), [Managing Schedule Coordinator Notifications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications).
 
-### People
+### Recipe: Configure an RSVP-based serving invitation
 
-People data affects every serving process:
-
-- contact information;
-- email validity;
-- phone/SMS;
-- family relationships;
-- age;
-- grade;
-- connection status;
-- aliases;
-- duplicate/merged records;
-- communication preferences;
-- background-check attributes;
-- training status.
+**Outcome:** A group occurrence can collect and display bounded accept or decline responses.
 
-Resolve person aliases when tracing attendance and scheduling records. Source SQL joins `Attendance.PersonAliasId` to `PersonAlias.Id`, then uses `PersonAlias.PersonId` ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
+1. Confirm that RSVP is the intended workflow rather than Group Scheduling.
+2. Confirm that the target group exists.
+3. Enable RSVP on the group type.
+4. Configure the reminder communication and offset at either group-type or group level.
+5. Create the occurrence with its date, optional schedule, and location.
+6. Add custom response messages when needed.
+7. Enable and select decline reasons only when the ministry will use them.
+8. Send the RSVP request and decide whether to register all recipients.
+9. Monitor RSVP Detail.
+10. Record verified phone or in-person response changes when authorized.
 
-### Security
+**Do not assume:**
 
-Serving security covers:
+- RSVP enables scheduling.
+- A nonrespondent will appear when recipients were not registered.
+- An acceptance proves attendance.
 
-- who can view groups;
-- who can edit groups;
-- who can schedule;
-- who can take attendance;
-- who can view requirements;
-- who can view minors;
-- who can access external schedule pages;
-- who can respond for family members;
-- who can delete attendance;
-- who can send communications.
+**Stop when:**
 
-RockU has Group Security as a dedicated topic ([Group Security](https://community.rockrms.com/rocku/groups/group-security)). Check-in documentation notes a version update adding a security verb controlling who can delete attendance from Check-in Manager roster ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
+- The occurrence is correct.
+- The bounded request is sent.
+- Response-list behavior matches the chosen recipient-registration method.
 
-## 13. Administration And Operational Guardrails
+Sources: [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp), [Add RSVP Occurrences](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences), [View RSVP Details](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details).
 
-### Configuration Guardrails
+### Recipe: Close out serving attendance
 
-Maintain a serving operations register with:
+**Outcome:** The occurrence records who served or that the team did not meet, with discrepancies ready for human review.
 
-- group type id/name;
-- ministry owner;
-- coordinator;
-- default roles;
-- requirements;
-- schedule templates;
-- locations;
-- system communications;
-- workflows;
-- pages/blocks;
-- reports;
-- security groups;
-- known version caveats.
+1. Open the correct group attendance occurrence.
+2. Verify the date, schedule, and location.
+3. Mark `We Did Not Meet` if that is what occurred.
+4. Otherwise, record actual attendees.
+5. Add only appropriate operational notes.
+6. Compare the completed attendance list with confirmed assignments.
+7. Investigate late changes and data-entry omissions.
+8. Produce a bounded follow-up list of unresolved differences.
+9. Launch follow-up only after confirming each difference’s meaning.
 
-### Page And Block Guardrails
+**Do not assume:**
 
-Before editing a serving page:
+- Pending means absent.
+- Confirmed means attended.
+- No attendance rows means the team met with zero volunteers.
 
-- identify whether the page is shared with small groups, families, or other group types;
-- copy pages when customization should apply only to serving teams;
-- inspect page parameters;
-- inspect block settings;
-- test with staff and non-staff users;
-- avoid exposing internal status boards externally;
-- avoid raw person/contact data in public pages.
+**Stop when:**
 
-The external schedule recipe specifically copied the Group Toolbox page family to avoid changing small group pages when customizing serving team pages ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459)). That is a useful pattern: isolate serving customizations when shared pages would create unintended changes.
+- Attendance or `Did Not Meet` is recorded.
+- Unresolved differences are identified without being mislabeled as no-shows.
 
-### Communication Guardrails
+Source: [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance).
 
-Before sending scheduling communications:
+### Recipe: Build an LMS-based volunteer training path
 
-- verify recipient count;
-- verify eligible count;
-- preview the message;
-- verify merge fields;
-- verify from address and reply-to;
-- verify coordinator fallback;
-- verify confirmation links;
-- verify unsubscribe/communication preference implications;
-- send a test to staff;
-- inspect warnings/errors after send.
+**Outcome:** A volunteer completes defined learning activities and reaches an explicitly reviewed operational result.
 
-The scheduler send-confirmation response model explicitly includes eligible recipient count, sent count, warnings, and errors, so agents should use those as operational checks where exposed by the UI/API ([GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
+1. Define the readiness outcome before building activities.
+2. Choose the appropriate program mode: on-demand or academic-calendar based.
+3. Place the training in the relevant program, course, and class structure.
+4. Create activities for the required learner actions.
+5. Define completion, ordering, scoring, file, and facilitator-review expectations.
+6. Assign staff responsibility for manual review.
+7. Define any group sync or workflow action that should follow completion.
+8. Test with a staff participant first.
+9. Verify the completion record and downstream operational result independently.
+10. Train the staff who will support volunteers.
+11. Roll out to a bounded volunteer cohort.
+12. Monitor exceptions before scaling.
 
-### Data Hygiene Guardrails
+**Inspect:**
 
-Regularly audit:
+- Completion rules.
+- Facilitator-scored work.
+- Workflow or group-sync result.
+- Remaining non-LMS requirements.
 
-- inactive groups with schedules;
-- archived groups with group-location-schedule rows;
-- groups without coordinators;
-- groups without leaders;
-- active volunteers without email;
-- active volunteers without preferences;
-- expired requirements;
-- duplicate schedules;
-- schedules assigned to wrong day;
-- fifth-week gaps;
-- stale sign-up groups;
-- old workflow states;
-- old attendance occurrences without attendance;
-- people scheduled after becoming inactive.
+**Do not assume:**
 
-Rock v18.3's check-in fix around archived/inactive groups appearing in scheduled times is a specific warning that stale group-location-schedule data can leak into operational surfaces ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
+- Watching a video is sufficient.
+- Completion automatically grants eligibility.
+- Structural feature availability proves local configuration.
 
-### Security Guardrails
+**Stop when:**
 
-Use least privilege:
+- Staff have reproduced the full path.
+- Learner and reviewer responsibilities are documented.
+- The downstream result has been independently verified.
 
-- volunteers can view only their schedules and appropriate team context;
-- leaders can manage their teams;
-- schedulers can schedule appropriate group types;
-- ministry admins can edit group configuration;
-- system admins can edit system communications and workflow definitions;
-- sensitive requirement details are limited to authorized roles.
+Sources: approved claims `claim:dd3b03571388d00cc80b`, `claim:882208fdf2bb82703931`, `claim:c538cf61594b1114dc41`, `claim:4bc0aee305fa6b1bd524`, and `claim:c8c3a60f71790dd3616d`, supported by [the LMS session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN), [the LMS migration session](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz), and [Rock Cast episode 214](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s).
 
-For family-serving customizations, do not authorize updates solely because two people share a family group. Verify relationship, age, and local policy ([Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489)).
+### Recipe: Configure an attendance digest
 
-## 14. Developer, API, Lava, And Source-Code Landmarks
+**Outcome:** Leaders at the intended regional level receive attendance summaries for their child attendance groups.
 
-### Schedule Toolbox Developer Doc
+1. Confirm that the group hierarchy has all three required levels.
+2. Identify the single top parent group.
+3. Identify the region or area groups.
+4. Confirm that intended recipients have a role marked `Is Leader` in those groups.
+5. Confirm the child attendance groups where attendance is recorded.
+6. Configure the Send Group Attendance Digest job for the top parent.
+7. Run a bounded test.
+8. Verify each recipient and the child groups represented.
+9. Confirm the attendance-group leader link routes to the intended person.
 
-The Schedule Toolbox mobile developer doc is a key implementation landmark. It describes:
+**Stop when:**
 
-- accepting scheduled attendances;
-- declining;
-- cancelling a previous response;
-- decline reason support;
-- customizable toolbox template;
-- merge fields;
-- commands;
-- confirm decline template;
-- scheduler confirmation emails;
-- scheduling response email;
-- styling ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)).
+- The recipient and group rollup match the intended hierarchy.
+- No unintended group or leader is exposed.
 
-Use it when diagnosing mobile volunteer response issues or customizing the mobile serving experience.
+Source: [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email).
 
-### Confirmation Status Enum
+### Recipe: Secure an embedded volunteer dashboard
 
-Use `ToolboxScheduleRowConfirmationStatus` as a source-code landmark for statuses:
+**Outcome:** The Rock page and external reporting provider both authorize only the intended viewers.
 
-- `Pending = 0`;
-- `Confirmed = 1`;
-- `Declined = 2`;
-- `Unavailable = 3`.
+1. Identify the Rock page and report block.
+2. Inspect Rock page and block authorization.
+3. Define the intended security roles.
+4. Verify the external reporting product’s licensing and identity requirements.
+5. Test with an authorized user.
+6. Test with an unauthorized user.
+7. Confirm that direct report access cannot bypass the intended controls.
+8. Review the displayed volunteer and financial fields for minimum necessary exposure.
 
-Cite and inspect the C# or TypeScript enum, then verify deployed-version storage before writing data updates ([ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs), [toolboxScheduleRowConfirmationStatus.ts](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/Enums/Blocks/Group/Scheduling/toolboxScheduleRowConfirmationStatus.ts)).
+**Do not assume:**
 
-### Scheduler Send Confirmation Response
+- Rock authorization grants a provider license.
+- A provider license grants Rock-page access.
+- A successful administrator test proves ordinary-user access.
 
-The scheduler send-confirmation response bag is useful for expected operational output:
+**Stop when:**
 
-- `AnyCommunicationsToSend`;
-- `CommunicationsSentCount`;
-- `EligibleRecipientCount`;
-- `Errors`;
-- `Warnings` ([GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
+- Both authorization layers have been tested.
+- Unauthorized access is rejected.
+- The displayed data is appropriate for the audience.
 
-If a UI says "no confirmations sent," distinguish "no eligible recipients" from "eligible recipients found but errors occurred."
+Source: approved claim `claim:60d40983fd53c0173dd9`, supported by [the community reporting session](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz).
 
-### Group Scheduler Location Bags
+### Recipe: Pilot Outreach Toolbox for relationship-care follow-up
 
-The scheduler location bags expose available and selected locations and group schedule names ([GroupSchedulerLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerLocationsBag.cs), [GroupSchedulerGroupLocationScheduleNamesBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerGroupLocationScheduleNamesBag.cs)). Use them as landmarks when tracing why a scheduler page shows or hides locations.
+**Outcome:** A bounded group of signed-in mobile users can see, receive, complete, and review configured outreach touchpoints.
 
-### Check-In Scheduled Locations
+1. Confirm the target Rock server and mobile-shell versions.
+2. Verify signed-in access and page placement.
+3. Review block settings and contact-data permissions.
+4. Configure assignment days and reminder preferences for test users.
+5. Inspect the reminder job and time-of-day configuration.
+6. Create bounded prayer and connection cadences.
+7. Test dashboard visibility.
+8. Test push delivery in the real target mobile environment.
+9. Complete a touchpoint and verify history and pulse behavior.
+10. Review who can see the resulting contact data before expanding access.
 
-Check-in scheduled location source files and view models show that check-in can present group, group path, location, location path, and schedules as editable scheduling surfaces ([CheckinScheduledLocations.ascx](https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/CheckIn/CheckinScheduledLocations.ascx), [GetScheduledLocationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/CheckInKiosk/GetScheduledLocationsResponseBag.cs)). Use these when check-in and volunteer scheduling disagree.
+**Do not assume:**
 
-### Attendance View
+- Previewed v19 behavior exists in every mobile deployment.
+- A successful job run proves push delivery.
+- A scheduled touchpoint is a completed action.
 
-`vCheckin_GroupTypeAttendance.sql` is a backward-compatibility view that exposes attendance by group type with joins across attendance occurrence, attendance, person alias, and group. It is useful as a model-map landmark but should not be treated as the only reporting path ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
+**Stop when:**
 
-### Lava Landmarks
+- Access, delivery, completion history, and permissions have each been verified.
 
-Community recipes use Lava for:
+Sources: approved claims `claim:483a11b884e0e69ffd4d`, `claim:54aeb223a9029e9f7707`, `claim:9c8ce297c9c4a4cda982`, and `claim:e704f98991439e3e1576`, supported by [the official Outreach Toolbox walkthrough](https://www.youtube.com/watch?v=LNcx8t0mlQ4) and [dashboard preview](https://www.youtube.com/shorts/c6T9Ha13jKE).
 
-- external schedule display;
-- Dynamic Data blocks;
-- system communication sender fallback;
-- custom Schedule Toolbox pages;
-- family serving request pages ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459), [Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530), [Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489)).
+## Known Gaps And Live Verification
 
-Lava guardrails:
+No live review of the target installation was supplied for this guide. Before relying on it operationally, verify:
 
-- avoid exposing sensitive fields;
-- avoid unparameterized SQL;
-- sanitize page parameters;
-- test with non-admin users;
-- avoid editing shared Lava files unless intended;
-- keep custom Lava under source control where possible;
-- document page/block dependencies.
+- The installed Rock version and patch level.
+- The intended group types, groups, members, roles, and group-type inheritance.
+- Scheduling, RSVP, attendance, decline, and coordinator settings.
+- Group-location and schedule associations.
+- Page, block, group, workflow, attendance, and report permissions.
+- The effective confirmation, reminder, RSVP, coordinator, and digest System Communications.
+- Job schedules, execution results, eligible-recipient counts, sends, warnings, and errors.
+- Email and SMS provider configuration and actual delivery.
+- Schedule Toolbox block settings and the signed-in volunteer experience.
+- Attendance-entry responsibility and the meaning of any local no-show logic.
+- The exact configuration and enforcement behavior of built-in Group Requirements.
+- The active background-check provider, plugin version, provider status mapping, and upgrade path.
+- LMS program, course, class, activity, participant, completion, grading, notification, group-sync, and workflow configuration.
+- Whether an LMS completion actually changes group membership or eligibility.
+- External BI licensing and both Rock-side and provider-side authorization.
+- Rock Mobile shell support, Outreach Toolbox page placement, authentication, block settings, jobs, push delivery, and contact-data visibility.
+- The security, performance, parameter handling, schema compatibility, and upgrade impact of any community Lava, SQL, page, or schedule-template pattern.
 
-## 15. Reporting, Analytics, And Model Map
+The pack does not establish:
 
-### Reporting Concepts
+- A universal serving-team group architecture.
+- A universal definition of volunteer eligibility.
+- A complete built-in Group Requirements workflow.
+- A core automatic volunteer no-show workflow.
+- A universal mapping from training completion to serving approval.
+- Successful communication or push delivery in a target environment.
+- That an embedded report’s external license has been granted.
+- That v20 alpha behavior is appropriate for production use.
 
-Serving reporting should answer:
+## Source Map
 
-- How many active volunteers do we have?
-- Which teams are under-filled?
-- Which dates are under-filled?
-- Which scheduled volunteers have not responded?
-- Which volunteers declined?
-- Which confirmed volunteers did not attend?
-- Which volunteers served most often?
-- Which volunteers have not served recently?
-- Which volunteers have expired requirements?
-- Which teams have no leader or coordinator?
-- Which schedules lack fifth-week coverage?
-- Which inactive groups still have schedules?
-- Which communications failed?
+### Approved answer-bearing claims
 
-RockU includes "Group Scheduling - Analytics" as a training topic ([Group Scheduling - Analytics](https://community.rockrms.com/rocku/groups/group-scheduling-analytics)). The Model Map record in the source pack identifies `Analytics Fact Attendance` as a reporting model ([Model Map](https://community.rockrms.com/ModelMap)). Use Model Map as a discovery path, then inspect the live schema and reporting model in the deployed version.
+- `claim:4bc0aee305fa6b1bd524` — Community-reviewed, structurally live-verified implementation pattern connecting LMS activity completion with groups, group sync, and workflow actions. [Source at 26:43](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
+- `claim:60d40983fd53c0173dd9` — Community-reviewed, structurally live-verified guidance for pairing embedded BI pages with Rock authorization and external licensing checks. [Source at 49:32](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz)
+- `claim:882208fdf2bb82703931` — Community-reviewed, structurally live-verified guidance for learner activities and facilitator responsibilities. [Source at 07:17](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
+- `claim:c538cf61594b1114dc41` — Community-reviewed, structurally live-verified guidance for restructuring existing video content into intentional LMS activities. [Source at 04:02](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz)
+- `claim:dd3b03571388d00cc80b` — Community-reviewed, structurally live-verified LMS hierarchy and delivery-mode guidance. [Source at 02:52](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN)
+- `claim:483a11b884e0e69ffd4d` — Official v19 Outreach Toolbox scope and rollout conditions. [Official walkthrough](https://www.youtube.com/watch?v=LNcx8t0mlQ4)
+- `claim:54aeb223a9029e9f7707` — Official Outreach Toolbox dashboard preview. [Official short](https://www.youtube.com/shorts/c6T9Ha13jKE)
+- `claim:9c8ce297c9c4a4cda982` — Official Outreach Toolbox onboarding, reminder preference, and job caveat. [Source at 01:04](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=64s)
+- `claim:c8c3a60f71790dd3616d` — Official staff-first training guidance. [Source at 40:09](https://www.youtube.com/watch?v=bu5nPeAVCAo&t=2409s)
+- `claim:e704f98991439e3e1576` — Official Outreach Toolbox cadence, history, pulse, milestone, and privacy caveat. [Source at 07:56](https://www.youtube.com/watch?v=LNcx8t0mlQ4&t=476s)
 
-### Attendance Reporting
+### Official documentation and release evidence
 
-For attendance reporting, distinguish:
+- [Configure Group Schedule](https://community.rockrms.com/documentation/engagement/groups/group-schedules/configure-group-schedule) — v19 scheduling prerequisites, group-type settings, communications, declines, workflows, confirmation logic, SMS conditions, and coordinator options.
+- [View your Schedule (Toolbox)](https://community.rockrms.com/documentation/engagement/groups/group-schedules/view-your-schedule-toolbox) — v19 volunteer schedule states, availability, calendar tools, family switching, and block-setting caveats.
+- [Use Group Scheduling Communications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/use-group-scheduling-communications) — v19 manual, job-based, and targeted scheduling communications.
+- [Managing Schedule Coordinator Notifications](https://community.rockrms.com/documentation/engagement/groups/group-scheduler-page/managing-schedule-coordinator-notifications) — v19 coordinator defaults, overrides, and response notifications.
+- [Enable Group RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/enable-group-rsvp) — v19 RSVP enablement and reminder inheritance.
+- [Use the Group Viewer with RSVP](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/use-the-group-viewer-with-rsvp) — v19 RSVP list and group-level reminder settings.
+- [Add RSVP Occurrences](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/add-rsvp-occurrences) — v19 occurrence, location, schedule, messaging, and decline-reason fields.
+- [View RSVP Details](https://community.rockrms.com/documentation/engagement/groups/group-rsvp/view-rsvp-details) — v19 response monitoring and recipient-registration behavior.
+- [Configure Group Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/configure-group-attendance) — v19 attendance enablement, schedules, exclusions, and reminders.
+- [Entering Attendance](https://community.rockrms.com/documentation/engagement/groups/group-attendance/entering-attendance) — v19 internal entry, did-not-meet state, notes, roster, and leader-toolbox delegation.
+- [Rapid Attendance Entry](https://community.rockrms.com/documentation/church-management/check-in/attendance/rapid-attendance-entry) — v19 rapid entry, conditional fields, workflows, and block settings.
+- [Use the Group Attendance Digest Email](https://community.rockrms.com/documentation/engagement/groups/group-attendance/use-the-group-attendance-digest-email) — v19 required digest hierarchy and leader recipients.
+- [Volunteer Generosity](https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity) — v19 report behavior and report-specific volunteer definition.
+- [Rock Core Release Notes](https://www.rockrms.com/releasenotes) — v18.3 attendance-reminder fix, v19.3 RSVP-heading fix, and captured v20 alpha/background-check migration caveat.
 
-- scheduled;
-- requested;
-- pending;
-- confirmed;
-- declined;
-- unavailable;
-- attended;
-- absent/no-show;
-- group did not meet.
+### Public implementation evidence
 
-Use `AttendanceOccurrence` for context and `Attendance` for person-level state. The source SQL view demonstrates occurrence fields such as group, schedule, location, occurrence date, and Sunday date ([vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql)).
+- [ToolboxScheduleRowConfirmationStatus.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs) — implementation vocabulary for pending, confirmed, declined, and unavailable schedule rows.
+- [GroupSchedulerSendConfirmationsResponseBag.cs at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs) — implementation contract distinguishing eligible recipients, sent count, warnings, and errors.
+- [vCheckin_GroupTypeAttendance.sql at commit 471fd303](https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/database/Views/vCheckin_GroupTypeAttendance.sql) — backward-compatibility view showing attended records joined through attendance occurrences, people, and groups. This is implementation evidence, not a recommended reporting interface.
 
-### Schedule Coverage Reporting
+### Community examples
 
-Coverage reports should group by:
-
-- ministry;
-- campus;
-- group type;
-- group;
-- role;
-- schedule;
-- location;
-- occurrence date;
-- needed count;
-- scheduled count;
-- confirmed count;
-- declined count;
-- pending count;
-- attended count.
-
-If needed count is not in the source pack, inspect live group scheduling configuration, group attributes, or custom ministry configuration. Do not invent a capacity model.
-
-### Requirement Reporting
-
-Requirement reports should show:
-
-- person;
-- group;
-- role;
-- requirement;
-- status;
-- expiration date;
-- owner;
-- next action.
-
-Avoid exposing sensitive details. Use summary states unless the report is restricted to authorized staff.
-
-### Schedule Preference Reporting
-
-The community recipe for filtering volunteers by schedule preference uses Page Parameter Filter and Dynamic Data to filter by groups, schedules, and locations ([Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238)). Use that as a pattern only after validating schema and performance in the live instance.
-
-### Analytics Caveats
-
-Analytics can be wrong if:
-
-- scheduled rows are counted as attended;
-- inactive groups are included;
-- archived groups are included;
-- duplicate schedules exist;
-- group hierarchy is misread;
-- person aliases are not resolved;
-- requirements are cached;
-- attendance was entered late;
-- check-in and group attendance both wrote rows;
-- historical group memberships changed;
-- reports ignore campus or location.
-
-## 16. Version And Release Caveats
-
-### Rock v17.2 Group Scheduling Confirmation Fix
-
-Rock v17.2 fixed an issue where Group Scheduling Confirmation workflow could incorrectly record a response if an automated link checker opened the email link or if decline reason was required but missing ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent impact:
-
-- For versions before the fix, suspect email security scanners when responses appear without volunteer action.
-- For any version, inspect decline-reason behavior when declines are malformed.
-- Verify the confirmation workflow and system communication route.
-- Consider requiring a human confirmation page before mutating records if local email security tools are aggressive.
-
-### Rock v18.3 Attendance Reminder Fix
-
-Rock v18.3 fixed the Send Attendance Reminder job so scheduling/RSVP-related attendance records alone do not suppress reminders ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent impact:
-
-- If leaders are not receiving attendance reminders, inspect version and attendance row types.
-- Do not assume any attendance-related row means real attendance exists.
-- Verify `DidAttend` and group did-not-meet state.
-
-### Rock v18.3 Check-In Scheduled Times Fix
-
-Rock v18.3 fixed Check-In Type Detail block scheduled times so schedules from archived or inactive groups with lingering `GroupLocationSchedule` assignments are excluded ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-Agent impact:
-
-- Clean up archived/inactive group schedule assignments.
-- If old schedules appear in check-in, inspect group active/archive state and group-location-schedule rows.
-- Verify deployed version before assuming the filter exists.
-
-### Rock v14 Check-In Manager Roster Updates
-
-Check-in documentation notes Rock 14.0 updates including a new security verb for deleting attendance from Check-in Manager roster, check-out enablement scope, and roster filtering by schedule ([Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266)).
-
-Agent impact:
-
-- If a user cannot delete attendance, inspect the security verb.
-- If roster filtering by schedule is expected, verify version.
-- If check-out behavior differs by kiosk vs manager, inspect check-in configuration.
-
-### Mobile Schedule Toolbox Version
-
-The mobile Schedule Toolbox documentation indicates mobile v4.0 / core v13.1 ([Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox)).
-
-Agent impact:
-
-- Verify mobile and core versions.
-- Verify customized templates against local version.
-- Do not assume mobile block behavior exists in older apps.
-
-## 17. Implementation Playbooks
-
-### Playbook: Launch A New Serving Ministry Team
-
-Before launch, compare the design against [Group Types](https://community.rockrms.com/rocku/groups/group-types), [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), and [Group Security](https://community.rockrms.com/rocku/groups/group-security).
-
-1. Define the ministry owner and coordinator.
-2. Decide whether this is a durable serving team, sign-up opportunity, or intake pipeline.
-3. Select or create the group type.
-4. Define roles.
-5. Define requirements.
-6. Create the group.
-7. Assign campus.
-8. Assign parent group.
-9. Assign group location.
-10. Assign schedules.
-11. Add leader/coordinator.
-12. Add initial volunteers.
-13. Collect schedule preferences.
-14. Configure scheduling communications.
-15. Configure attendance page.
-16. Configure reports.
-17. Test with one volunteer.
-18. Test confirmation and decline.
-19. Test attendance entry.
-20. Document owner and maintenance path.
-
-### Playbook: Add Fifth-Sunday Auto-Schedule Coverage
-
-1. Identify ministries using auto-schedule.
-2. List template schedules volunteers can select.
-3. Identify missing fifth-week templates.
-4. Create schedules with clear day-specific names.
-5. Assign templates only to matching ministry days.
-6. Update volunteer preference instructions.
-7. Test auto-schedule for a fifth Sunday.
-8. Review generated assignments.
-9. Watch for duplicate or wrong-day assignments.
-
-This playbook is based on the fifth-week template issue described in the community recipe ([Group Member Schedule Templates](https://community.rockrms.com/recipes/356)).
-
-### Playbook: Build External Serving Schedule View
-
-1. Identify target volunteers and data needed.
-2. Avoid exposing internal status board directly.
-3. Copy page structure if existing group pages are shared.
-4. Create serving-specific pages.
-5. Add group detail schedule tab or equivalent.
-6. Add safe filters for date, group, schedule, or location.
-7. Use Dynamic Data only with parameter safety.
-8. Restrict access appropriately.
-9. Test with non-staff volunteer.
-10. Verify no unrelated group pages changed.
-11. Document page ids, block ids, and SQL/Lava source.
-
-This follows the isolation pattern from the external schedule recipe while adding security checks ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459)).
-
-### Playbook: Configure Dynamic Sender For Scheduling Confirmations
-
-1. Identify the system communication.
-2. Verify it supports Lava in sender fields.
-3. Decide fallback order.
-4. Populate group schedule coordinators.
-5. Configure from address and name.
-6. Ensure fallback organization sender is valid.
-7. Test groups with coordinator.
-8. Test groups without coordinator.
-9. Test scheduled-by fallback.
-10. Verify reply handling.
-11. Verify DMARC/SPF alignment.
-
-The community recipe uses coordinator, scheduled-by person, and organization defaults as fallback levels ([Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530)).
-
-### Playbook: Add Serving Interest Intake
-
-1. Publish ministry opportunities.
-2. Use a workflow or connection request for interest.
-3. Collect contact and communication preference.
-4. Route to connector/coordinator.
-5. Offer observation scheduling if needed.
-6. Send confirmation.
-7. Send reminder before observation.
-8. Trigger application/background check only when appropriate.
-9. Record activity on the request.
-10. Move approved person into serving team.
-11. Collect schedule preferences.
-12. Schedule first serve.
-13. Follow up after first serve.
-
-This mirrors the operational stages in the serving-interest recipe without copying its implementation details ([Serving Interest Process](https://community.rockrms.com/recipes/169)).
-
-### Playbook: Audit Scheduling Confirmation Failures
-
-1. Identify affected person.
-2. Identify scheduled attendance record.
-3. Identify occurrence group, schedule, location, and date.
-4. Inspect communication history.
-5. Inspect confirmation URL or workflow parameters.
-6. Inspect Rock version.
-7. Check for v17.2 confirmation workflow fix.
-8. Inspect decline reason requirement.
-9. Check exception log.
-10. Check whether email security opened links.
-11. Re-send test confirmation to controlled account.
-12. Verify response writes the expected status.
-
-### Playbook: Audit Attendance Reminder Failure
-
-1. Identify group and date.
-2. Verify group leaders and email addresses.
-3. Verify attendance reminder job configuration.
-4. Inspect job history.
-5. Inspect attendance occurrences.
-6. Separate scheduling/RSVP rows from attended rows.
-7. Check group did-not-meet status.
-8. Verify Rock version for v18.3 reminder fix.
-9. Send test communication if needed.
-10. Document root cause.
-
-### Playbook: Clean Up Archived Groups With Schedules
-
-1. List inactive or archived groups in serving/check-in group types.
-2. Identify group locations.
-3. Identify group-location-schedule assignments.
-4. Decide whether to reactivate, archive fully, or remove schedule assignments.
-5. Verify check-in scheduled times no longer show stale entries.
-6. Verify scheduler no longer shows stale entries.
-7. Document cleanup rules.
-
-This is especially relevant to the v18.3 check-in scheduled-times fix ([Rock Core Release Notes](https://www.rockrms.com/releasenotes)).
-
-## 18. Troubleshooting Decision Tree
-
-### Volunteer Cannot See Schedule
-
-Check:
-
-- Is the person logged in?
-- Is the person in the serving group?
-- Is the group active and not archived?
-- Is the group type included by the page/block?
-- Does the page filter by campus, group, schedule, or location?
-- Does the group have a group location schedule?
-- Is the occurrence within the date range?
-- Is the volunteer scheduled?
-- Is the block scoped to current person only?
-- Does security allow viewing?
-- Is this web Schedule Toolbox, mobile Schedule Toolbox, or custom external page?
-
-Sources: [Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox), [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459).
-
-### Volunteer Cannot Accept Or Decline
-
-Check:
-
-- scheduled attendance exists;
-- person alias matches the volunteer;
-- attendance occurrence matches group/date/schedule/location;
-- confirmation status is pending;
-- confirmation link has valid token/parameters;
-- decline reason requirement;
-- workflow errors;
-- Rock version and v17.2 fix;
-- automated link checker behavior;
-- user is trying to respond for a family member but block only supports self;
-- custom workflow authorization.
-
-Sources: [Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox), [Rock Core Release Notes](https://www.rockrms.com/releasenotes), [Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489).
-
-### Confirmation Recorded Without Volunteer Action
-
-Check:
-
-- communication click/open logs;
-- response timestamp compared to send timestamp;
-- user agent if available;
-- automated email-security scanning;
-- Rock version;
-- v17.2 fix;
-- workflow route;
-- whether one-click links mutate state immediately;
-- required decline reason behavior.
-
-Source: [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-### Scheduler Shows No Eligible Recipients
-
-Check:
-
-- group members exist;
-- members have valid person aliases;
-- members have email/SMS contact;
-- members are in schedulable roles;
-- members meet requirements;
-- schedule assignments exist;
-- date range has occurrences;
-- communication preferences allow send;
-- scheduler response eligible recipient count;
-- warnings/errors.
-
-Source: [GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs).
-
-### Schedule Missing From Group
-
-Check:
-
-- schedule exists;
-- schedule active;
-- schedule recurrence produces target date;
-- schedule assigned to group location;
-- group has correct location;
-- group active and not archived;
-- group type schedule exclusions;
-- schedule day matches ministry day;
-- fifth-week schedule exists if needed.
-
-Sources: [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql), [Group Member Schedule Templates](https://community.rockrms.com/recipes/356).
-
-### Check-In Does Not Show Serving Group
-
-Check:
-
-- group type belongs to check-in area;
-- inherited group type attributes;
-- age/grade/ability requirements;
-- group active and not archived;
-- location configured broadly enough;
-- kiosk configured for location;
-- schedule active at current time;
-- group-location-schedule exists;
-- check-in type scheduled times not polluted by archived groups;
-- version-specific check-in behavior.
-
-Sources: [Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266), [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-### Attendance Reminder Not Sent
-
-Check:
-
-- job configuration;
-- job history;
-- leader role and emails;
-- communication failures;
-- attendance occurrence exists;
-- actual attended rows exist;
-- group did not meet marker;
-- scheduling/RSVP rows only;
-- Rock version and v18.3 fix.
-
-Source: [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-
-### Attendance Looks Too High
-
-Check:
-
-- scheduled rows counted as attended;
-- duplicate occurrences;
-- check-in plus manual attendance duplicates;
-- person alias merges;
-- date range includes multiple services;
-- group hierarchy includes child groups unexpectedly;
-- report joins attendance without `DidAttend`;
-- archived groups included;
-- test data included.
-
-Source: [vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql).
-
-### Volunteers Missing From Preference Report
-
-Check:
-
-- person is in a scheduling group;
-- group is active;
-- group type matches report filter;
-- volunteer has preferences set;
-- schedule id matches;
-- location id matches;
-- campus filter;
-- role filter;
-- person alias/person id join;
-- custom SQL parameter handling.
-
-Source: [Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238).
-
-### External Schedule Page Shows Wrong Groups
-
-Check:
-
-- page was copied or shared;
-- block settings;
-- page parameter;
-- Dynamic Data SQL;
-- group type filter;
-- security;
-- whether small group pages share same Lava file;
-- cached content;
-- archived/inactive group filters.
-
-Source: [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459).
-
-## 19. Agent Task Recipes
-
-### Recipe: Find The Real Object Behind A Serving Issue
-
-1. Ask for the person, date, team, and service time.
-2. Resolve person and aliases.
-3. Identify the serving group.
-4. Identify group type.
-5. Identify group location.
-6. Identify schedule.
-7. Identify attendance occurrence.
-8. Identify attendance/scheduling row.
-9. Identify communication/workflow history.
-10. Report the exact broken link in the chain.
-
-### Recipe: Confirm A Volunteer Is Eligible To Serve
-
-Inspect:
-
-- person active status;
-- age/grade if relevant;
-- group membership;
-- role;
-- group member status;
-- group requirements;
-- person attributes backing requirements;
-- background check/training state;
-- workflow/application state;
-- schedule preferences;
-- local ministry approval.
-
-If requirement source is unclear, say: "Inspect the group requirement definition and its backing data source in the live Rock instance."
-
-### Recipe: Explain Why A Volunteer Was Not Scheduled
-
-Inspect:
-
-- group membership;
-- schedulable role;
-- schedule preferences;
-- availability/unavailability;
-- existing schedule conflicts;
-- group location schedule;
-- required role counts;
-- requirements;
-- manual exclusions;
-- auto-schedule settings;
-- scheduler warnings.
-
-### Recipe: Verify Schedule Confirmation Send Health
-
-Inspect:
-
-- selected group/date/location/schedule;
-- eligible recipient count;
-- sent count;
-- warnings;
-- errors;
-- communication history;
-- failed recipients;
-- system communication template;
-- sender fallback;
-- confirmation link route.
-
-Use the send-confirmation response model as a checklist where available ([GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs)).
-
-### Recipe: Safely Customize A Volunteer-Facing Page
-
-1. Identify whether the page is shared.
-2. Copy shared pages when customization is serving-specific.
-3. Limit page data to current person or authorized group.
-4. Avoid exposing private contact fields.
-5. Use safe parameters.
-6. Test with non-admin account.
-7. Document page ids and block settings.
-8. Keep Lava and SQL in source control where possible.
-
-The external schedule recipe demonstrates why copied pages may be necessary when serving teams share a toolbox with other group categories ([View Serving Schedule on External Page](https://community.rockrms.com/recipes/459)).
-
-### Recipe: Investigate Family Serving Response Request
-
-1. Identify current logged-in person.
-2. Identify target scheduled person.
-3. Verify family relationship.
-4. Verify age and role policy.
-5. Verify scheduled attendance row.
-6. Verify authorization to respond.
-7. Verify workflow action updates only that row.
-8. Log responder.
-9. Preserve decline reason.
-10. Test with spouse, minor child, adult child, and unrelated person.
-
-Source pattern: [Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489).
-
-### Recipe: Build A Serving Health Dashboard
-
-Include:
-
-- active volunteer count;
-- volunteers missing preferences;
-- volunteers with expired requirements;
-- pending confirmations by date;
-- declined confirmations by date;
-- unfilled role slots;
-- no-shows;
-- first-time servers;
-- inactive volunteers still scheduled;
-- archived groups with schedules;
-- communications failed;
-- attendance reminders not sent.
-
-Cite reporting model landmarks where appropriate: [Model Map](https://community.rockrms.com/ModelMap), [vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql).
-
-<!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
-## Approved Claim Coverage
-
-This generated summary links the long-form guide to the approved public claim graph. Claims remain governed by `claims/approved-claims.jsonl`; community-derived rows are labeled by authority tier and should not be treated as official Rock behavior.
-
-- Approved claims routed to this concept: `10`
-- Full generated claim table: `approved-claims.md`
-
-| Authority | Type | Claim | Source |
-| --- | --- | --- | --- |
-| official | operational_guidance | Train and activate staff before expecting them to train volunteers. Staff-first sequencing creates training multipliers and reduces the risk that inconsistent volunteer practices damage data quality. | [source](https://www.youtube.com/watch?v=bu5nPeAVCAo) |
-| official | release_caveat | Outreach Toolbox is presented as a Rock Mobile v19 signed-in experience for maintaining personal outreach contacts and scheduled prayer or connection touchpoints. Verify current mobile-shell support, page placement and authentication requirements before rollout. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| official | release_caveat | The Outreach Toolbox dashboard can surface people due for outreach and prayer touchpoints, helping a signed-in user see today's relationship-care actions. Verify current mobile availability and permissions before relying on it operationally. | [source](https://www.youtube.com/shorts/c6T9Ha13jKE) |
-| official | release_caveat | Outreach Toolbox onboarding lets a signed-in person choose assignment days and reminder preferences, while configurable jobs define reminder time-of-day values. Test job scheduling and push-notification delivery in the target mobile environment. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| official | release_caveat | Outreach Toolbox can track contact-specific prayer and connection cadences, completed touchpoint history and periodic pulse updates, with configurable milestone prompts. Review who can see the contact data and which block settings are enabled before ministry use. | [source](https://www.youtube.com/watch?v=LNcx8t0mlQ4) |
-| community-reviewed | implementation_pattern | LMS activity completion can interact with existing Rock concepts such as groups, group sync, and workflow actions, which makes LMS useful for volunteer training and operational follow-up. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | When embedding Power BI or similar reports in Rock, pair report pages with appropriate Rock security roles and licensing checks so only authorized, licensed users can access the embedded dashboards. | [source](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) |
-| community-reviewed | operational_guidance | An LMS class can combine content acknowledgements, required video watching, quizzes, file uploads, and facilitator-scored activities, so training design should define both learner actions and staff review responsibilities. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-| community-reviewed | operational_guidance | Existing training videos can become Rock LMS activities, but completion, sequencing, and facilitator review should be configured intentionally around the desired learner outcome. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) |
-| community-reviewed | operational_guidance | Rock LMS organizes training into programs, courses, class instances, learning plans, activities, and learning participants, with the program deciding whether the experience is on-demand or academic-calendar based. | [source](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) |
-
-<!-- END GENERATED APPROVED CLAIM COVERAGE -->
-
-<!-- BEGIN GENERATED APPROVED MEDIA COVERAGE -->
-## Approved Media Coverage
-
-This generated summary links the long-form guide to reviewed media distillations. Full media coverage is tracked in `approved-media.md`; raw transcripts and media URLs remain private.
-
-- Approved media records routed to this concept: `11`
-- Full generated media table: `approved-media.md`
-
-| Source | Review Status | Insights | Citation |
-| --- | --- | --- | --- |
-| [Episode 40: v8 and more team updates Transcript Insight](https://shows.acast.com/rock-cast/episodes/episode-40-v8-and-more-team-updates) | approved_for_public_distillation | 3 | media-insight:6e8d02135da566a7 |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/4xB9KJEl8W) | approved_for_public_distillation | 3 | media-insight:0a89bf5f60ad43fb |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz) | approved_for_public_distillation | 6 | media-insight:392aedce4cf2d99c |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/QvPN40xmA2) | approved_for_public_distillation | 3 | media-insight:4634d7d6cd38df2c |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/D9PDq4MBqz) | approved_for_public_distillation | 3 | media-insight:a5cb300eafd257ca |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/KQmK8D2l8G) | approved_for_public_distillation | 3 | media-insight:a8361b8714eb62ff |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/pLPb9Y9lR4) | approved_for_public_distillation | 3 | media-insight:c664b64e781d5fbb |
-| [Media Watch Transcript Insight](https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/qMlA3ybBEN) | approved_for_public_distillation | 5 | media-insight:d1eb1a265dd0762b |
-| More |  | 3 additional reviewed media records are tracked in `approved-media.md`. |  |
-
-<!-- END GENERATED APPROVED MEDIA COVERAGE -->
-
-## 20. Source Map And Dependency Notes
-
-### Highest-Authority Source Links In This Pack
-
-- RockU Groups track pages provide training landmarks for group configuration, attendance, requirements, security, scheduling, RSVP, roster, and analytics: [Group Types](https://community.rockrms.com/rocku/groups/group-types), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), [Group Security](https://community.rockrms.com/rocku/groups/group-security), [Group Scheduling - Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview), [Person Preferences and Auto Schedule](https://community.rockrms.com/rocku/groups/person-preferences-and-auto-schedule), [Group Scheduling - Analytics](https://community.rockrms.com/rocku/groups/group-scheduling-analytics), [Group Scheduling Roster and Communications](https://community.rockrms.com/rocku/groups/group-scheduling-roster-and-communications).
-- Official check-in documentation anchors group type inheritance, group location, schedule, kiosk visibility, roster filtering, and check-in security caveats: [Checking-out Check-in](https://community.rockrms.com/documentation/bookcontent/10/266).
-- Release notes provide version caveats for scheduling confirmations, attendance reminders, and check-in scheduled times: [Rock Core Release Notes](https://www.rockrms.com/releasenotes).
-- Mobile developer docs provide Schedule Toolbox behavior and customization landmarks: [Schedule Toolbox](https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/schedule-toolbox).
-- Rock source code provides entity and view-model landmarks: [ToolboxScheduleRowConfirmationStatus.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Enums/Blocks/Group/Scheduling/ToolboxScheduleRowConfirmationStatus.cs), [GroupSchedulerSendConfirmationsResponseBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Group/Scheduling/GroupScheduler/GroupSchedulerSendConfirmationsResponseBag.cs), [vCheckin_GroupTypeAttendance.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/database/Views/vCheckin_GroupTypeAttendance.sql), [GroupLocationsBag.cs](https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/CheckIn/Configuration/CheckInScheduleBuilder/GroupLocationsBag.cs), [View_GroupTypeGroupLocationSchedule.sql](https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Archive/View_GroupTypeGroupLocationSchedule.sql).
-
-### Community Example Sources
-
-Community sources are useful operational examples but should be reviewed for security, performance, version fit, and local policy:
-
-- External serving schedule page pattern: [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459).
-- Fifth-week schedule template pattern: [Group Member Schedule Templates](https://community.rockrms.com/recipes/356).
-- Volunteer preference filtering pattern: [Find & Filter for Volunteers by Schedule Preference](https://community.rockrms.com/recipes/238).
-- Dynamic sender pattern for scheduling confirmations: [Dynamic Sender for Group Scheduling Confirmations](https://community.rockrms.com/recipes/530).
-- Serving interest workflow pattern: [Serving Interest Process](https://community.rockrms.com/recipes/169).
-- Family serving response customization pattern: [Manage Family Members' Serving Requests on MyAccount](https://community.rockrms.com/recipes/489).
-- Attendance save feedback pattern: [Enhancing the Obsidian Group Attendance Detail Block with a Toast Confirmation](https://community.rockrms.com/recipes/461).
-- Campus/service sign-up finder scoping example: [Sign-Up Registration - Limit to particular schedule / campus](https://community.rockrms.com/ask/using/2808).
-
-### Dependency Notes
-
-The official Groups training separates [Group Scheduling](https://community.rockrms.com/rocku/groups/group-scheduling-overview), [Group Requirements](https://community.rockrms.com/rocku/groups/group-requirements), and [Group Security](https://community.rockrms.com/rocku/groups/group-security), so agents should preserve those ownership boundaries when crossing into adjacent guides.
-
-Serving and volunteer operations depend on these topics:
-
-- **Groups:** group types, groups, roles, members, inheritance, requirements, security.
-- **Scheduling:** schedule preferences, group scheduler, confirmations, RSVP, auto-schedule, status board.
-- **Locations:** group locations, location paths, campus-specific service contexts.
-- **Check-In:** kiosk visibility, check-in groups, schedule activation, attendance, roster filtering.
-- **Communications:** system communications, reminders, response emails, coordinator sender logic.
-- **Workflows:** interest intake, application, background check, observation, family response, follow-up.
-- **People:** aliases, family relationships, contact information, communication preferences, age/grade.
-- **Security:** page/block access, group security, attendance deletion, requirement visibility, family authorization.
-- **Reporting:** attendance facts, group scheduling analytics, no-show reporting, requirement compliance.
-
-### Live Verification Required
-
-The [Group Scheduling Overview](https://community.rockrms.com/rocku/groups/group-scheduling-overview) describes intended product behavior; the exact records and settings below remain instance-owned evidence.
-
-The source pack is not sufficient to determine any specific church's live behavior for:
-
-- exact group type settings;
-- exact requirement enforcement;
-- exact attendance columns and enum storage in the deployed version;
-- exact workflow actions;
-- exact system communication ids;
-- exact page/block settings;
-- exact security rules;
-- exact group hierarchy;
-- exact schedule recurrence;
-- exact check-in kiosk configuration;
-- exact external page exposure.
-
-When performing real Rock work, inspect the live instance first, then use this guide to choose the right branch and source landmarks.
+- [Group Member Schedule Templates: fifth-week and Auto-Schedule](https://community.rockrms.com/recipes/356) — unendorsed community scheduling-template patterns.
+- [View Serving Schedule on External Page](https://community.rockrms.com/recipes/459) — unendorsed community Lava, Dynamic Data, page, and SQL pattern.
+- [Limit sign-up registration by schedule or campus](https://community.rockrms.com/ask/using/2808) — anecdotal community group-type and Serving Finder pattern.

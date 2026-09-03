@@ -2,216 +2,277 @@
   "branches": [
     {
       "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-the-agent-does-not-show-a-tool",
+      "id": "the-agent-does-not-show-a-tool",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools"
+      ],
+      "start_with": [
+        "Confirm the installed Rock version and packaging include the tool.",
+        "Confirm the method or Lava tool is registered; native methods require an `AgentToolGuid`.",
+        "Confirm the skill is attached to the intended agent.",
+        "Confirm the tool is enabled within that skill.",
+        "Confirm the current person can use the agent, skill and tool.",
+        "Confirm the agent type is correct; Chat and MCP are separate configurations.",
+        "For an external client, refresh tool discovery after authorization or configuration changes.",
+        "Inspect tool logs before changing the prompt."
+      ],
+      "title": "The agent does not show a tool",
+      "when": "The agent does not show a tool"
+    },
+    {
+      "do_not_assume": [],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
-      "id": "agent-does-not-call-the-expected-tool",
+      "guide_section_id": "troubleshooting-decision-tree-the-agent-chooses-the-wrong-tool",
+      "id": "the-agent-chooses-the-wrong-tool",
       "inspect": [],
       "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools",
         "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/debugging-tools"
       ],
       "start_with": [
-        "Is the tool attached to a skill?",
-        "Is the skill attached to the agent?",
-        "Does the user have access to the agent, skill, and tool?",
-        "Is the tool name clear?",
-        "Does the tool description match the request?",
-        "Do agent or skill instructions discourage the tool?",
-        "Is the request ambiguous?",
-        "Is cached configuration stale?"
+        "Check whether tool names follow a clear verb-and-entity pattern.",
+        "Compare overlapping tool purposes and remove redundant capabilities.",
+        "Inspect parameter names, descriptions, prerequisites and return descriptions.",
+        "Verify that lookup, list and get responsibilities are distinct.",
+        "Temporarily ask the model to explain which tools it considered.",
+        "Shorten or relocate conflicting organization, agent or skill instructions.",
+        "Retest with representative phrasing and ambiguous phrasing. Writing Custom Tools and"
       ],
-      "title": "Agent Does Not Call The Expected Tool",
-      "when": "Agent Does Not Call The Expected Tool"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "DataView",
-        "Group",
-        "Campus",
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-tool-returns-no-records",
-      "id": "tool-returns-no-records",
-      "inspect": [
-        "Person",
-        "DataView",
-        "Group",
-        "Campus",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Current person's authorization.",
-        "Active/inactive filters.",
-        "Campus/group/entity filters.",
-        "Date filters and timezone.",
-        "IdKey decoding.",
-        "Attribute key spelling.",
-        "Data View/report security.",
-        "Whether the record exists in live Rock."
-      ],
-      "title": "Tool Returns No Records",
-      "when": "Tool Returns No Records"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-tool-returns-too-much-data",
-      "id": "tool-returns-too-much-data",
-      "inspect": [
-        "Person"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Missing filters.",
-        "Lookup used where list was needed.",
-        "Summary returning raw child collections.",
-        "Sensitive fields included unnecessarily.",
-        "Lack of pagination.",
-        "No result cap.",
-        "Overly broad current-person access.",
-        "Tool description causing overuse."
-      ],
-      "title": "Tool Returns Too Much Data",
-      "when": "Tool Returns Too Much Data"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Workflow",
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-write-tool-fails",
-      "id": "write-tool-fails",
-      "inspect": [
-        "Person",
-        "Workflow",
-        "Attribute"
-      ],
-      "source_urls": [],
-      "start_with": [
-        "Approval was explicit.",
-        "IdKey resolves.",
-        "Target entity exists.",
-        "Current person has edit/write permission.",
-        "Required fields are present.",
-        "Attribute field values are valid.",
-        "Workflow/activity state allows the change.",
-        "Save validation errors."
-      ],
-      "title": "Write Tool Fails",
-      "when": "Write Tool Fails"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-permissions-look-wrong",
-      "id": "permissions-look-wrong",
-      "inspect": [
-        "Person",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/documentation/BookContent/9"
-      ],
-      "start_with": [
-        "Tool security.",
-        "Skill security.",
-        "Agent security.",
-        "Entity security.",
-        "Page/block security.",
-        "Security role membership.",
-        "Elevated security levels.",
-        "Inherited permissions."
-      ],
-      "title": "Permissions Look Wrong",
-      "when": "Permissions Look Wrong"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Person",
-        "DataView",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-api-endpoint-denies-access",
-      "id": "api-endpoint-denies-access",
-      "inspect": [
-        "Person",
-        "DataView",
-        "Block"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/AIAgentSessionsController.CodeGenerated.cs",
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Authentication.",
-        "API key/person permissions.",
-        "Generated v2 route path.",
-        "Required action security such as unrestricted read/write in generated controller snippets (AIAgentSessionsController.CodeGenerated.cs).",
-        "Version-specific bugs or release notes.",
-        "DataView endpoint behavior if using DataView routes, especially around the Rock 17.5 permission fix (Rock Core Release Notes).",
-        "Whether endpoint behavior intentionally bypasses entity security but relies on action-level security.",
-        "Whether a custom controller or block action is safer than direct model endpoint use."
-      ],
-      "title": "API Endpoint Denies Access",
-      "when": "API Endpoint Denies Access"
+      "title": "The agent chooses the wrong tool",
+      "when": "The agent chooses the wrong tool"
     },
     {
       "do_not_assume": [
-        "Avoid embedding long-lived tokens directly in Lava prompts."
+        "Remember that MCP agents do not receive Rock context anchors.",
+        "Pass the selected `IdKey`, never a raw integer ID."
       ],
       "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
-      "id": "lava-webrequest-or-external-call-behaves-unexpectedly",
+      "guide_section_id": "troubleshooting-decision-tree-the-agent-acts-on-the-wrong-person-or-entity",
+      "id": "the-agent-acts-on-the-wrong-person-or-entity",
       "inspect": [],
       "source_urls": [
-        "https://community.rockrms.com/ask/developing/2708"
+        "https://community.rockrms.com/developer/ai-agents/agents/context-anchors"
       ],
       "start_with": [
-        "Test the endpoint outside Lava.",
-        "Test from the Rock server.",
-        "Confirm headers and token format.",
-        "Check Lava command availability/security.",
-        "Check exception logs.",
-        "Check network/TLS/firewall behavior.",
-        "Avoid embedding long-lived tokens directly in Lava prompts.",
-        "Prefer native tools or secured integrations for important external API calls."
+        "Inspect the current Chat context anchor, if applicable.",
+        "Remember that MCP agents do not receive Rock context anchors.",
+        "Resolve the target through a lookup or list operation.",
+        "If multiple candidates remain, stop and ask for clarification.",
+        "Pass the selected `IdKey`, never a raw integer ID.",
+        "Use Get to read the selected entity before mutation.",
+        "Read the entity back after mutation."
       ],
-      "title": "Lava WebRequest Or External Call Behaves Unexpectedly",
-      "when": "Lava WebRequest Or External Call Behaves Unexpectedly"
+      "title": "The agent acts on the wrong person or entity",
+      "when": "The agent acts on the wrong person or entity"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-the-tool-returns-unauthorized-or-sensitive-data",
+      "id": "the-tool-returns-unauthorized-or-sensitive-data",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/agents"
+      ],
+      "start_with": [
+        "Disable the tool on the affected agent if exposure may continue.",
+        "Confirm whether the agent is Internal or Public.",
+        "Inspect agent, skill, tool and entity permissions separately.",
+        "Review the result object for fields that should be omitted or replaced for Public use.",
+        "Confirm authorization filtering occurs in code rather than only in instructions.",
+        "Test with a least-privileged identity and an anonymous or public path where applicable.",
+        "Review logs for prior calls and follow the organization’s incident process if data was exposed."
+      ],
+      "title": "The tool returns unauthorized or sensitive data",
+      "when": "The tool returns unauthorized or sensitive data"
+    },
+    {
+      "do_not_assume": [
+        "Do not solve context pressure by removing authorization checks."
+      ],
+      "entities": [
+        "Page"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages",
+      "id": "a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages",
+      "inspect": [
+        "Page"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/list-tools"
+      ],
+      "start_with": [
+        "Identify whether per-item authorization is applied.",
+        "If it is, verify that the native tool uses cursor pagination.",
+        "If it is not, confirm page-number ordering is deterministic.",
+        "Check that filters and cursor or page values are returned as metadata.",
+        "Confirm the result set is bounded and returns only required fields.",
+        "Inspect query cost on production-like volume.",
+        "Do not solve context pressure by removing authorization checks."
+      ],
+      "title": "A list is incomplete, repeats items or becomes slow on later pages",
+      "when": "A list is incomplete, repeats items or becomes slow on later pages"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [],
+      "guide_section_id": "troubleshooting-decision-tree-a-lava-tool-errors-or-returns-unexpected-no-data",
+      "id": "a-lava-tool-errors-or-returns-unexpected-no-data",
+      "inspect": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/lava-tools"
+      ],
+      "start_with": [
+        "Inspect tool logs for the supplied parameters and status.",
+        "Confirm the tool accepted `IdKey` and converted it internally.",
+        "Sanitize every string used in SQL.",
+        "Distinguish `NoData` from `Error`.",
+        "Confirm the selected fields and joins match the requested result.",
+        "Verify authorization rather than assuming a valid identifier implies visibility.",
+        "Replace raw SQL with cache objects or entity commands when that better preserves Rock behavior."
+      ],
+      "title": "A Lava tool errors or returns unexpected no-data",
+      "when": "A Lava tool errors or returns unexpected no-data"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-mutation-was-refused-or-changed-the-wrong-state",
+      "id": "a-mutation-was-refused-or-changed-the-wrong-state",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/developer/ai-agents/writing-custom-tools/native-tools/addorupdate-tools"
+      ],
+      "start_with": [
+        "Stop additional write calls.",
+        "Read the target’s current state.",
+        "Confirm the target `IdKey`, current person and agent.",
+        "Check required lookup and Get prerequisites.",
+        "Confirm the person has both tool access and entity-level authorization.",
+        "Verify the action is allowed in the entity’s current state.",
+        "Review tool parameters, especially nullable fields and add-versus-update behavior.",
+        "Require a fresh confirmation before retrying."
+      ],
+      "title": "A mutation was refused or changed the wrong state",
+      "when": "A mutation was refused or changed the wrong state"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-connection-request-ai-summary-is-missing",
+      "id": "a-connection-request-ai-summary-is-missing",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s"
+      ],
+      "start_with": [
+        "Confirm the connection type has an AI prompt configured.",
+        "Confirm an AI provider is configured and available.",
+        "Confirm the installed version supports the feature.",
+        "Check permissions and logs for the requesting person.",
+        "Retest with a suitable connection request.",
+        "Treat any generated result as assistance rather than authoritative person data."
+      ],
+      "title": "A connection-request AI summary is missing",
+      "when": "A connection-request AI summary is missing"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools",
+      "id": "an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools",
+      "inspect": [
+        "Person"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/watch?v=dpYJiOAiJYM&t=340s"
+      ],
+      "start_with": [
+        "Confirm the installed MCP implementation and supported Rock version.",
+        "Verify the external client registration and authorization.",
+        "Confirm the authenticated Rock person.",
+        "Inspect scopes, token expiry and revocation behavior.",
+        "Confirm the intended MCP agent is selected.",
+        "Review its attached skills and tools.",
+        "Test an allowed and denied operation.",
+        "Revoke the client if the discovered capability exceeds the intended boundary."
+      ],
+      "title": "An MCP client cannot authenticate or discovers unexpected tools",
+      "when": "An MCP client cannot authenticate or discovers unexpected tools"
+    },
+    {
+      "do_not_assume": [
+        "Do not infer downstream completion merely because launch succeeded."
+      ],
+      "entities": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-does-not-launch",
+      "id": "a-workflow-does-not-launch",
+      "inspect": [
+        "Person",
+        "Workflow",
+        "Attribute"
+      ],
+      "source_urls": [
+        "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.AI.Agent/Skills/WorkflowSkill.LaunchWorkflow.cs"
+      ],
+      "start_with": [
+        "Confirm the workflow type exists and is active.",
+        "Confirm the current person is authorized for it.",
+        "Confirm the Workflow skill is attached to the agent.",
+        "Check whether the agent’s configuration limits launchable workflow types.",
+        "Retrieve AvailableAttributes for the workflow type before supplying values.",
+        "Inspect the action result and logs for validation errors.",
+        "Read the workflow back to verify activation and supplied values.",
+        "Do not infer downstream completion merely because launch succeeded."
+      ],
+      "title": "A workflow does not launch",
+      "when": "A workflow does not launch"
     }
   ],
   "concept_id": "ai-agents-automation",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:57+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-agent-does-not-call-the-expected-tool",
-    "18-troubleshooting-decision-tree-tool-returns-no-records",
-    "18-troubleshooting-decision-tree-tool-returns-too-much-data",
-    "18-troubleshooting-decision-tree-write-tool-fails",
-    "18-troubleshooting-decision-tree-permissions-look-wrong",
-    "18-troubleshooting-decision-tree-api-endpoint-denies-access",
-    "18-troubleshooting-decision-tree-lava-webrequest-or-external-call-behaves-unexpectedly",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-find-the-right-person",
-    "19-agent-task-recipes-recipe-summarize-this-person",
-    "19-agent-task-recipes-recipe-draft-a-communication",
-    "19-agent-task-recipes-recipe-create-a-connection-request",
-    "19-agent-task-recipes-recipe-explain-a-workflow-queue",
-    "19-agent-task-recipes-recipe-audit-agent-security",
-    "19-agent-task-recipes-recipe-build-a-safe-public-agent",
-    "19-agent-task-recipes-recipe-review-an-agent-answer"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-the-agent-does-not-show-a-tool",
+    "troubleshooting-decision-tree-the-agent-chooses-the-wrong-tool",
+    "troubleshooting-decision-tree-the-agent-acts-on-the-wrong-person-or-entity",
+    "troubleshooting-decision-tree-the-tool-returns-unauthorized-or-sensitive-data",
+    "troubleshooting-decision-tree-a-list-is-incomplete-repeats-items-or-becomes-slow-on-later-pages",
+    "troubleshooting-decision-tree-a-lava-tool-errors-or-returns-unexpected-no-data",
+    "troubleshooting-decision-tree-a-mutation-was-refused-or-changed-the-wrong-state",
+    "troubleshooting-decision-tree-a-connection-request-ai-summary-is-missing",
+    "troubleshooting-decision-tree-an-mcp-client-cannot-authenticate-or-discovers-unexpected-tools",
+    "troubleshooting-decision-tree-a-workflow-does-not-launch",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-design-a-safe-read-only-lookup-surface",
+    "agent-task-recipes-recipe-build-a-bounded-list-and-get-pair",
+    "agent-task-recipes-recipe-add-a-controlled-addorupdate-capability",
+    "agent-task-recipes-recipe-configure-a-drafting-agent-without-send-authority",
+    "agent-task-recipes-recipe-launch-a-workflow-through-an-agent",
+    "agent-task-recipes-recipe-review-a-public-agent-before-launch",
+    "agent-task-recipes-recipe-diagnose-incorrect-tool-selection",
+    "agent-task-recipes-recipe-roll-out-an-agent-assisted-process-to-staff"
   ]
 }

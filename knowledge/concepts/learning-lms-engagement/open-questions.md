@@ -13,50 +13,32 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Community-Supported Only
 
-- `14-developer-api-lava-and-source-code-landmarks-lava-landmarks`: Lava Landmarks
+- `scope-and-boundaries`: Scope And Boundaries
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model`: 5. Core Configuration And Data Model
-- `6-primary-entities-and-relationships-lms-entity-relationships`: LMS Entity Relationships
-- `7-common-learning-lms-and-engagement-workflows-create-an-on-demand-training-program`: Create An On-Demand Training Program
-- `7-common-learning-lms-and-engagement-workflows-create-an-academic-calendar-program`: Create An Academic Calendar Program
-- `7-common-learning-lms-and-engagement-workflows-assign-training-to-volunteers-or-staff`: Assign Training To Volunteers Or Staff
-- `7-common-learning-lms-and-engagement-workflows-record-a-ministry-milestone`: Record A Ministry Milestone
-- `7-common-learning-lms-and-engagement-workflows-automate-follow-up-from-learning-completion`: Automate Follow-Up From Learning Completion
-- `8-courses-and-lessons-deep-dive-course-configuration-checks`: Course Configuration Checks
-- `8-courses-and-lessons-deep-dive-class-design`: Class Design
-- `8-courses-and-lessons-deep-dive-learning-plan-activity-design`: Learning Plan Activity Design
-- `8-courses-and-lessons-deep-dive-lessons-versus-activities`: Lessons Versus Activities
-- `9-requirements-and-completion-deep-dive-lms-course-requirements`: LMS Course Requirements
-- `9-requirements-and-completion-deep-dive-completion-tracking`: Completion Tracking
-- `9-requirements-and-completion-deep-dive-activity-completion-workflows`: Activity Completion Workflows
-- `10-engagement-journeys-deep-dive-step-types`: Step Types
-- `10-engagement-journeys-deep-dive-adding-steps`: Adding Steps
-- `10-engagement-journeys-deep-dive-achievements-and-streaks`: Achievements And Streaks
-- `11-reporting-and-administration-deep-dive-lms-reporting`: LMS Reporting
-- `11-reporting-and-administration-deep-dive-administration`: Administration
-- `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-people`: People
-- `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-communications`: Communications
-- `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-workflows`: Workflows
-- `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-event-registration`: Event Registration
-- `12-related-rock-areas-people-groups-communications-workflows-event-registration-data-views-reports-security-platform-configuration-security`: Security
-- `13-administration-and-operational-guardrails-guardrail-3-verify-entity-types-before-automating`: Guardrail 3: Verify Entity Types Before Automating
-- `13-administration-and-operational-guardrails-guardrail-4-preserve-customized-system-communications`: Guardrail 4: Preserve Customized System Communications
-- `13-administration-and-operational-guardrails-guardrail-7-mark-legacy-training-as-legacy`: Guardrail 7: Mark Legacy Training As Legacy
-- `14-developer-api-lava-and-source-code-landmarks-source-repository`: Source Repository
-- `14-developer-api-lava-and-source-code-landmarks-lava-landmarks`: Lava Landmarks
-- `15-reporting-analytics-and-model-map`: 15. Reporting, Analytics, And Model Map
-- `16-version-and-release-caveats-rock-v17-0`: Rock v17.0
-- `16-version-and-release-caveats-rock-v18-1`: Rock v18.1
-- `16-version-and-release-caveats-rock-v18-3-and-v19-1-release-notes-in-pack`: Rock v18.3 And v19.1 Release Notes In Pack
-- `16-version-and-release-caveats-develop-branch-caveat`: Develop Branch Caveat
-- `17-implementation-playbooks-playbook-launch-a-volunteer-training-lms-program`: Playbook: Launch A Volunteer Training LMS Program
-- `17-implementation-playbooks-playbook-add-a-new-course-requirement`: Playbook: Add A New Course Requirement
-- `17-implementation-playbooks-playbook-convert-a-training-completion-into-an-engagement-step`: Playbook: Convert A Training Completion Into An Engagement Step
+- `courses-and-lessons-revise-a-class-without-disrupting-the-current-one`: Revise a class without disrupting the current one
+- `activity-design-and-staff-responsibilities-file-upload`: File upload
+- `requirements-and-completion-course-requirements`: Course requirements
+- `requirements-and-completion-grading-systems-and-class-completion`: Grading systems and class completion
+- `engagement-journeys-and-learner-access`: Engagement Journeys And Learner Access
+- `groups-workflows-and-operational-follow-up`: Groups, Workflows, And Operational Follow-Up
+- `notifications-and-communications`: Notifications And Communications
+- `staff-enablement-and-change-management`: Staff Enablement And Change Management
+- `troubleshooting-decision-tree-a-learner-cannot-find-a-program-or-course`: A learner cannot find a program or course
+- `troubleshooting-decision-tree-a-learner-is-blocked-from-enrollment`: A learner is blocked from enrollment
+- `troubleshooting-decision-tree-a-facilitator-cannot-open-lms-administration-pages`: A facilitator cannot open LMS administration pages
+- `troubleshooting-decision-tree-an-activity-is-submitted-but-still-incomplete`: An activity is submitted but still incomplete
+- `troubleshooting-decision-tree-a-failed-learner-is-marked-complete`: A failed learner is marked complete
+- `troubleshooting-decision-tree-program-completion-is-not-updating`: Program completion is not updating
+- `troubleshooting-decision-tree-learning-notifications-are-delayed-or-absent`: Learning notifications are delayed or absent
+- `troubleshooting-decision-tree-an-lms-dashboard-is-slow`: An LMS dashboard is slow
+- `agent-task-recipes-recipe-create-a-self-paced-volunteer-training-course`: Recipe: Create a self-paced volunteer training course
+- `agent-task-recipes-recipe-prepare-an-academic-calendar-class`: Recipe: Prepare an Academic Calendar class
+- `agent-task-recipes-recipe-connect-course-completion-to-operational-follow-up`: Recipe: Connect course completion to operational follow-up
+- `agent-task-recipes-recipe-roll-out-training-for-a-changed-rock-interface`: Recipe: Roll out training for a changed Rock interface
+- `agent-task-recipes-recipe-build-a-bounded-lms-completion-report`: Recipe: Build a bounded LMS completion report
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification
 
 ## Live Verification Clarification
 

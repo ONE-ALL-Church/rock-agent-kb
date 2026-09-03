@@ -10,53 +10,41 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (233 words)
 
 ## Community-Supported Only
 
-- `7-common-helix-workflows-admin-utility`: Admin Utility
+- `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard`: Recipe: Validate a rendered Helix dashboard
+- `source-map-community-examples`: Community examples
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `3-helix-mental-model`: 3. Helix Mental Model
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-lava-application-configuration`: Lava Application Configuration
-- `5-core-configuration-and-data-model-lava-endpoint-configuration`: Lava Endpoint Configuration
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `7-common-helix-workflows-read-only-partial-refresh`: Read-Only Partial Refresh
-- `7-common-helix-workflows-admin-utility`: Admin Utility
-- `7-common-helix-workflows-guided-search-or-finder`: Guided Search Or Finder
-- `8-overview-and-roadmap-deep-dive`: 8. Overview And Roadmap Deep Dive
-- `9-htmx-deep-dive`: 9. HTMX Deep Dive
-- `10-lava-applications-deep-dive`: 10. Lava Applications Deep Dive
-- `10-lava-applications-deep-dive-configuration-rigging-strategy`: Configuration Rigging Strategy
-- `11-lava-endpoints-deep-dive-routing`: Routing
-- `11-lava-endpoints-deep-dive-merge-fields-and-request-body`: Merge Fields And Request Body
-- `12-forms-and-controls-deep-dive-lava-form-pattern`: Lava Form Pattern
-- `12-forms-and-controls-deep-dive-loading-indicators`: Loading Indicators
-- `13-security-and-observability-deep-dive-security-principles`: Security Principles
-- `13-security-and-observability-deep-dive-observability`: Observability
-- `14-strategies-and-limitations-deep-dive`: 14. Strategies And Limitations Deep Dive
-- `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-lava`: Lava
-- `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-workflows`: Workflows
-- `15-related-rock-areas-lava-api-integrations-security-cms-workflows-forms-htmx-observability-htmx`: HTMX
-- `16-administration-and-operational-guardrails`: 16. Administration And Operational Guardrails
-- `17-developer-api-lava-and-source-code-landmarks`: 17. Developer, API, Lava, And Source-Code Landmarks
-- `18-reporting-analytics-and-model-map`: 18. Reporting, Analytics, And Model Map
-- `19-version-and-release-caveats`: 19. Version And Release Caveats
-- `20-implementation-playbooks-playbook-a-build-a-read-only-results-panel`: Playbook A: Build A Read-Only Results Panel
-- `20-implementation-playbooks-playbook-b-build-a-safe-update-form`: Playbook B: Build A Safe Update Form
-- `20-implementation-playbooks-playbook-c-convert-a-static-lava-page-to-helix`: Playbook C: Convert A Static Lava Page To Helix
-- `20-implementation-playbooks-playbook-d-audit-an-existing-helix-app`: Playbook D: Audit An Existing Helix App
-- `21-troubleshooting-decision-tree-the-button-does-nothing`: The button does nothing
-- `21-troubleshooting-decision-tree-endpoint-is-slow`: Endpoint is slow
-- `21-troubleshooting-decision-tree-endpoint-modifies-wrong-data`: Endpoint modifies wrong data
-- `22-agent-task-recipes-recipe-find-the-endpoint-behind-a-button`: Recipe: Find The Endpoint Behind A Button
-- `22-agent-task-recipes-recipe-upgrade-a-plugin-era-helix-app`: Recipe: Upgrade A Plugin-Era Helix App
-- `22-agent-task-recipes-recipe-review-a-community-recipe-before-use`: Recipe: Review A Community Recipe Before Use
-- `approved-claim-coverage`: Approved Claim Coverage
-- `23-source-map-and-dependency-notes`: 23. Source Map And Dependency Notes
+- `agent-summary`: Agent Summary
+- `htmx`: HTMX
+- `lava-applications`: Lava Applications
+- `lava-applications-editing-with-magnus`: Editing with Magnus
+- `lava-endpoints`: Lava Endpoints
+- `lava-endpoints-security-modes`: Security modes
+- `lava-endpoints-request-merge-fields`: Request merge fields
+- `lava-endpoints-enabled-commands-and-endpoint-responses`: Enabled commands and endpoint responses
+- `forms-and-controls-control-shortcodes`: Control shortcodes
+- `forms-and-controls-loading-indicators`: Loading indicators
+- `security-and-observability-endpoint-security-review`: Endpoint security review
+- `strategies-and-limitations-reviewed-community-patterns`: Reviewed community patterns
+- `version-and-authority-caveats`: Version And Authority Caveats
+- `troubleshooting-decision-tree-an-htmx-action-does-nothing-or-updates-the-wrong-region`: An HTMX action does nothing or updates the wrong region
+- `troubleshooting-decision-tree-the-endpoint-returns-not-found-or-the-wrong-handler-runs`: The endpoint returns not found or the wrong handler runs
+- `troubleshooting-decision-tree-a-user-is-denied-while-an-administrator-succeeds`: A user is denied while an administrator succeeds
+- `troubleshooting-decision-tree-body-or-rawbody-is-empty-or-unavailable`: Body or RawBody is empty or unavailable
+- `troubleshooting-decision-tree-a-loading-spinner-is-missing`: A loading spinner is missing
+- `troubleshooting-decision-tree-endpoint-injected-styles-or-scripts-do-not-load`: Endpoint-injected styles or scripts do not load
+- `troubleshooting-decision-tree-an-endpoint-is-slow-or-makes-excessive-database-calls`: An endpoint is slow or makes excessive database calls
+- `troubleshooting-decision-tree-sorting-or-filtering-resets-after-refresh`: Sorting or filtering resets after refresh
+- `agent-task-recipes-recipe-inspect-an-existing-helix-application-before-changing-it`: Recipe: Inspect an existing Helix application before changing it
+- `agent-task-recipes-recipe-build-a-read-only-htmx-result-fragment`: Recipe: Build a read-only HTMX result fragment
+- `agent-task-recipes-recipe-build-a-validated-mutation-form`: Recipe: Build a validated mutation form
+- `agent-task-recipes-recipe-validate-a-rendered-helix-dashboard`: Recipe: Validate a rendered Helix dashboard
+- `agent-task-recipes-recipe-decide-whether-to-replace-a-lava-application`: Recipe: Decide whether to replace a Lava Application
 
 ## Live Verification Clarification
 

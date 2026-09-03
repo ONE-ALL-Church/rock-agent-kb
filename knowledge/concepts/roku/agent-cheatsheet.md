@@ -10,19 +10,18 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Inventory Existing Roku App](tasks/recipe-inventory-existing-roku-app.md) | `Person`, `Page` | `Person`, `Page` |
-| [Recipe: Review A Roku Page For Safety](tasks/recipe-review-a-roku-page-for-safety.md) | `Person`, `Page`, `Attribute` | `Person`, `Page`, `Attribute` |
-| [Recipe: Convert A Static Media List To Dynamic RowList](tasks/recipe-convert-a-static-media-list-to-dynamic-rowlist.md) | `Page`, `Attribute` | `Page`, `Attribute` |
-| [Recipe: Diagnose A Cache Leak](tasks/recipe-diagnose-a-cache-leak.md) | `Person`, `Device`, `Page` | `Person`, `Device`, `Page` |
-| [Recipe: Add A Safe Diagnostic Page](tasks/recipe-add-a-safe-diagnostic-page.md) | `Person`, `Label`, `Page`, `Attribute` | `Person`, `Label`, `Page`, `Attribute` |
-| [Recipe: Validate Post-Upgrade Roku Behavior](tasks/recipe-validate-post-upgrade-roku-behavior.md) | `Page`, `Attribute` | `Page`, `Attribute` |
+| [Recipe: Prepare A Roku Development Readiness Review](tasks/recipe-prepare-a-roku-development-readiness-review.md) | `Page` | `Page` |
+| [Recipe: Author A Focusable Roku Page Skeleton](tasks/recipe-author-a-focusable-roku-page-skeleton.md) | `Group`, `Device`, `Page` | `Group`, `Device`, `Page` |
+| [Recipe: Build And Validate A Navigation Action](tasks/recipe-build-and-validate-a-navigation-action.md) | `Page` | `Page` |
+| [Recipe: Add Campus Or Other Application Context](tasks/recipe-add-campus-or-other-application-context.md) | `Page` | `Page` |
+| [Recipe: Configure A Remote Login Journey](tasks/recipe-configure-a-remote-login-journey.md) | `Person`, `Label`, `Page` | `Person`, `Label`, `Page` |
+| [Recipe: Configure Resumable Media Playback](tasks/recipe-configure-resumable-media-playback.md) |  |  |
+| [Recipe: Review A Roku-Related Lava Endpoint](tasks/recipe-review-a-roku-related-lava-endpoint.md) | `Page` | `Page` |
 
 ## Entities
 
 | Entity | Common Joins | Agent Notes |
 | --- | --- | --- |
-| `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Device` | `Location` | Check kiosk/device assignment, physical printer, DPI, and Windows app version where relevant. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
@@ -30,9 +29,6 @@ generated: true
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
-| `Step` | `StepType`, `StepProgram`, `Person` | Verify the Step row exists before troubleshooting badge display or engagement reporting. |
-| `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
 ## Release Caveats
 
@@ -43,49 +39,30 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `3-roku-apps-mental-model` | normal | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | normal | live verification |
-| `5-core-configuration-and-data-model-application-configuration` | normal | live verification |
-| `5-core-configuration-and-data-model-page-configuration` | normal | live verification |
-| `5-core-configuration-and-data-model-lava-merge-fields` | normal | live verification |
-| `6-primary-entities-and-relationships` | normal | live verification |
-| `7-common-roku-apps-workflows-build-a-first-app` | normal | live verification |
-| `7-common-roku-apps-workflows-add-a-page` | normal | live verification |
-| `7-common-roku-apps-workflows-build-a-menu` | normal | live verification |
-| `7-common-roku-apps-workflows-add-login` | normal | live verification |
-| `8-roku-getting-started-deep-dive-provisioning` | normal | live verification |
-| `8-roku-getting-started-deep-dive-page-construction` | normal | live verification |
-| `8-roku-getting-started-deep-dive-device-validation` | normal | live verification |
-| `9-roku-commands-deep-dive-navigation-commands` | normal | live verification |
-| `9-roku-commands-deep-dive-media-commands` | normal | live verification |
-| `10-roku-controls-deep-dive-rock-page` | normal | live verification |
-| `10-roku-controls-deep-dive-rock-button` | normal | live verification |
-| `10-roku-controls-deep-dive-rock-focusgroup` | normal | live verification |
-| `10-roku-controls-deep-dive-built-in-scenegraph-nodes` | normal | live verification |
-| `11-roku-layouts-and-resources-deep-dive-rowlist` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-api-integrations` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-lava` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-cms` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-security` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-media` | normal | live verification |
-| `12-related-rock-areas-api-integrations-lava-cms-security-media-tv-apps-tv-apps` | normal | live verification |
-| `13-administration-and-operational-guardrails-version-gate` | normal | live verification |
-| `13-administration-and-operational-guardrails-environment-separation` | structural | live verification |
-| `13-administration-and-operational-guardrails-secret-handling` | structural | live verification |
-| `13-administration-and-operational-guardrails-interaction-tracking` | normal | live verification |
-| `13-administration-and-operational-guardrails-content-governance` | structural | live verification |
-| `15-reporting-analytics-and-model-map` | normal | live verification |
-| `16-version-and-release-caveats` | normal | live verification |
-| `17-implementation-playbooks-playbook-create-a-minimal-roku-home-page` | normal | live verification |
-| `17-implementation-playbooks-playbook-build-a-media-row` | normal | live verification |
-| `17-implementation-playbooks-playbook-add-campus-selection` | normal | live verification |
-| `17-implementation-playbooks-playbook-add-login` | normal | live verification |
-| `17-implementation-playbooks-playbook-tune-caching` | normal | live verification |
-| `19-agent-task-recipes-recipe-review-a-roku-page-for-safety` | structural | live verification |
-| `19-agent-task-recipes-recipe-convert-a-static-media-list-to-dynamic-rowlist` | structural | live verification |
-| `19-agent-task-recipes-recipe-diagnose-a-cache-leak` | structural | live verification |
-| `19-agent-task-recipes-recipe-add-a-safe-diagnostic-page` | structural | live verification |
-| `19-agent-task-recipes-recipe-validate-post-upgrade-roku-behavior` | structural | live verification |
-| `20-source-map-and-dependency-notes-release-notes-and-community-examples` | normal | live verification |
+| `agent-summary` | normal | live verification |
+| `getting-started-and-application-configuration` | normal | live verification |
+| `page-authoring-and-caching` | normal | live verification |
+| `roku-command-model` | normal | live verification |
+| `application-context-commands` | normal | live verification |
+| `remote-authentication-and-personal-commands` | normal | live verification |
+| `media-playback-and-watch-progress` | normal | live verification |
+| `layout-nodes-and-rowlist` | normal | live verification |
+| `security-and-api-guardrails` | normal | live verification |
+| `version-and-authority-caveats` | normal | live verification |
+| `troubleshooting-decision-tree-the-roku-application-cannot-connect-to-rock` | normal | live verification |
+| `troubleshooting-decision-tree-a-page-is-blank-or-does-not-render-as-expected` | normal | live verification |
+| `troubleshooting-decision-tree-selecting-a-button-or-content-item-does-nothing` | normal | live verification |
+| `troubleshooting-decision-tree-back-navigation-returns-to-the-wrong-screen` | normal | live verification |
+| `troubleshooting-decision-tree-personalized-content-is-stale-or-appears-for-the-wrong-person` | normal | live verification |
+| `troubleshooting-decision-tree-the-qr-login-flow-does-not-complete` | normal | live verification |
+| `troubleshooting-decision-tree-video-or-audio-does-not-play` | normal | live verification |
+| `troubleshooting-decision-tree-playback-resumes-but-creates-a-new-interaction` | normal | live verification |
+| `troubleshooting-decision-tree-a-rowlist-has-no-rows-or-items` | normal | live verification |
+| `agent-task-recipes-recipe-prepare-a-roku-development-readiness-review` | normal | live verification |
+| `agent-task-recipes-recipe-author-a-focusable-roku-page-skeleton` | normal | live verification |
+| `agent-task-recipes-recipe-build-and-validate-a-navigation-action` | normal | live verification |
+| `agent-task-recipes-recipe-add-campus-or-other-application-context` | normal | live verification |
+| `agent-task-recipes-recipe-configure-a-remote-login-journey` | normal | live verification |
+| `agent-task-recipes-recipe-configure-resumable-media-playback` | normal | live verification |
+| `agent-task-recipes-recipe-review-a-roku-related-lava-endpoint` | normal | live verification |
+| `known-gaps-and-live-verification` | needs-citation | needs-citation |

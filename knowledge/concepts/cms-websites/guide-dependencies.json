@@ -2122,399 +2122,291 @@
   },
   "approved_media_hash": "3bdaa3f81aedd25505090095d795a16dbf7f2dd1e8a58bf4786c0c386bf87b75",
   "approved_media_path": "knowledge/concepts/cms-websites/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:51:08+00:00",
   "concept_id": "cms-websites",
-  "guide_hash": "ae9e9926bcb93414b0e5c28dd6ecddd236ff7908b3a0a6de5510ccf98f09d3ce",
-  "guide_line_count": 1583,
+  "guide_hash": "a6472a728e139978c3dbb8bc820793d85bc02fff02510e19370f2750db7cb418",
+  "guide_line_count": 654,
   "guide_path": "knowledge/concepts/cms-websites/guide.md",
-  "guide_word_count": 13759,
+  "guide_word_count": 7315,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
+      "authority": "official",
+      "content_hash": "cac9af7c315a9768bcf49336e3db12a808c452afb9c9635b454c8778ce2f64cb",
+      "excerpt_hash": "323923c4edd24e110a1d837bcf007ba6f6318317fe5cac41602a2c29168cc866",
+      "source_id": "rock_documentation",
+      "source_key": "645c0e29039a776f",
+      "source_record_id": "rock_documentation:article:2149",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/intro-to-websites-in-rock"
     },
     {
       "authority": "official-training",
-      "content_hash": "55eea129eb630f601a56fec41b770ed247bfa9961155dfef81fcb92f58594e12",
-      "excerpt_hash": "e0f0d3cd14d6fc98d2d120ae3c7f8683d8a8263de2fd33e223f7c5fea264289f",
+      "content_hash": "5e70283122164b801b8fc022fb329d05b546ef34fdc7c481200280225a7e02ae",
+      "excerpt_hash": "ecf761d50f463562459e09a34d518d73b120c48bc836215bc6ae46af672313ff",
       "source_id": "rock_rocku",
-      "source_key": "35633587d4819f55",
-      "source_record_id": "rock_rocku:35633587d4819f55",
-      "url": "https://community.rockrms.com/rocku/cms"
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "media-insight:7848aa46e6ac3794",
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
     },
     {
-      "authority": "community-example",
-      "content_hash": "551c28cd803e3665a93ea5736df5dc994e24a9916caa6994f69af730d2ab696a",
-      "excerpt_hash": "10d177cee5f50cb361101baa6375824a4997bbf147bec05bebacec07ca237ead",
-      "source_id": "rock_recipes",
-      "source_key": "7ca0c3010644f891",
-      "source_record_id": "rock_recipes:7ca0c3010644f891",
-      "url": "https://community.rockrms.com/recipes/261"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "da1bfeda49ddd6145f08457a85d9cf1c9ccf0e345da7383595a35911f32c784b",
-      "excerpt_hash": "bae6208a03f0cc4a3840e314fee4854a92d31e831cb9a2e1770f71d3b2925a81",
-      "source_id": "rock_rocku",
-      "source_key": "c67fe29c0ec0384f",
-      "source_record_id": "rock_rocku:c67fe29c0ec0384f",
-      "url": "https://community.rockrms.com/rocku/cms/font-awesome-5-1"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "346c763054bc8f7a5a1851f25d7bb90e186b5de5bed0fcca7ab25f6485b661d1",
-      "excerpt_hash": "1c849560e4d7e48d32a200cda7b7339bdebb3e03b5f21c64cff298047b3bd5d8",
-      "source_id": "rock_rocku",
-      "source_key": "beced54c25df1aa9",
-      "source_record_id": "rock_rocku:beced54c25df1aa9",
-      "url": "https://community.rockrms.com/rocku/cms/tabler-icons"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "418d8a073d951567eba0d68dc2ddf9c114d95fe04d10f40e9d18d49983e38322",
-      "excerpt_hash": "97a1e9a29feda06910d8536e403f4c08756a67dd84dabd6306618a7d7df89d9e",
-      "source_id": "rock_rocku",
-      "source_key": "bb00c039f16af55d",
-      "source_record_id": "rock_rocku:bb00c039f16af55d",
-      "url": "https://community.rockrms.com/rocku/cms/html-block"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "07868246b037dc35153722d121c23a8d96daec7735a20341ccb14a301bdbe6e5",
-      "excerpt_hash": "149153ba0784bec2b56e3ee4a47705e72ad0849376b36908f729fe8cb3b5c706",
-      "source_id": "rock_rocku",
-      "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "rock_rocku:9ae5804fa3a0ac7d",
-      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
+      "authority": "official",
+      "content_hash": "463af12354b3c20c6f50648fb18b2a16f9aa313ef9635cc83b2a59e1173d935c",
+      "excerpt_hash": "73c35eac5e987005578384bd5858f3a9a4a12c0468305cc0415feb916678077f",
+      "source_id": "rock_documentation",
+      "source_key": "bb967eaa604104d2",
+      "source_record_id": "rock_documentation:article:2157",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration"
     },
     {
       "authority": "official-developer",
-      "content_hash": "0f3d7f5c0e732108c787af227d9f134211e6735bf79004a2528327afb2f597bd",
-      "excerpt_hash": "2b50a82e8164b2fac69f0a518f77f56d2d0926acc7191ae0fb68131df430c9d2",
+      "content_hash": "5d80e097cd74750e355d51203fd9846939c4db92d710cf9986c309029becb0e7",
+      "excerpt_hash": "e7f85bc879e7a9bec21bef0a39aadeb5dfa3a43c6f95d238d05c0b3f7e9cb240",
       "source_id": "rock_lava_docs",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_lava_docs:30be60a23d3d0317",
-      "url": "https://community.rockrms.com/lava/commands"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "3e4668ebf0e638d0106471af818e754ddcf0416847208625402eaa387da1b7f5",
-      "excerpt_hash": "d08a524f68e90d0b2318e3d6995c69b7eb8a40dbd875f68177bb88d9e9abcd59",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "61f3aed131f8bff8",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "ab58fbfec3364cccc03e78a180684b64851ac0d2dd954055a349fa74e940037b",
-      "excerpt_hash": "cf3c896e9dab52d231cb7a08966179b52b40b479aa285b0c2940970c049f1fa6",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "06bcb0153237c9a3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "2579e654c5fbb6e04b7e793e26349b86d4ec829cd582d90998d4ccaf912b437a",
-      "excerpt_hash": "8e9043f4c58c42d8ea574ef5f9787f4888c3ba95669133a96c2fc04c40b843a9",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1ebbaa4483d1ef62",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
+      "source_key": "85024b5d7a249be6",
+      "source_record_id": "rock_lava_docs:85024b5d7a249be6",
+      "url": "https://community.rockrms.com/lava/commands/getting-started"
     },
     {
       "authority": "official-training",
-      "content_hash": "46a72a110901ef416a5bc7c81531fde3ea4cac1a867970f8b8fb01d246faf417",
-      "excerpt_hash": "16b37acd66224b56c1eb4a6debb427e4a19d785b5331f86b8f489f665fbd9f54",
+      "content_hash": "112d9027279ac5e537160b04757a11094a2d5a127a7c4876fae9b444ba504279",
+      "excerpt_hash": "1f70faf9a02e6051b4b3dff975d57886516531a6371640e314037c1426209aa9",
       "source_id": "rock_rocku",
       "source_key": "11cdf9c3e9ac92ed",
-      "source_record_id": "rock_rocku:11cdf9c3e9ac92ed",
+      "source_record_id": "media-insight:dc386f106ea69120",
       "url": "https://community.rockrms.com/rocku/cms/personalization"
     },
     {
       "authority": "official-training",
-      "content_hash": "62c8711d95d611ea134926b73007252c758ef320b4da35469af1391d7f3169b3",
-      "excerpt_hash": "081fc308a111e5052f26b9dc993c753b9759c7081e17e03669c690d75e4e1b24",
+      "content_hash": "847acc4d7f67b85222141ee41422881279527cf1844d8aaffd071254733232cf",
+      "excerpt_hash": "e6f686699c13d6585ab5c2aec7bfd1014d1b59fa1d36f3e28ee15e2e86f06d53",
       "source_id": "rock_rocku",
-      "source_key": "e4bb4304ab76f3f9",
-      "source_record_id": "rock_rocku:e4bb4304ab76f3f9",
-      "url": "https://community.rockrms.com/rocku/cms/asset-manager"
+      "source_key": "b51b24ed7912d814",
+      "source_record_id": "media-insight:7b84e33ae0a6eee9",
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view"
     },
     {
       "authority": "official-training",
-      "content_hash": "550f6ec2b817222e602f86f27ca05ae23b67c4fd4933bffe6350af73c3f0883f",
-      "excerpt_hash": "41f556d5cbf50c0074563fb0b3a92d49550826031fdfb1fe1709ef4907e521d5",
+      "content_hash": null,
+      "excerpt_hash": null,
       "source_id": "rock_rocku",
-      "source_key": "2000146157764196",
-      "source_record_id": "rock_rocku:2000146157764196",
-      "url": "https://community.rockrms.com/rocku/cms/entity-documents"
+      "source_key": "d5267087d68309c8",
+      "source_record_id": "",
+      "url": "https://community.rockrms.com/rocku/cms/content-component"
     },
     {
-      "authority": "official-release",
-      "content_hash": "3f4203a89e966a3cec63d69eaeef9813735f6cddf47ce3da7dc47d52cdc9065f",
-      "excerpt_hash": "0a059981e7563eb2755b76f54146eaf6989d2d4af3c4b50f9af24cb34be6addd",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:8b54403698a83494",
-      "url": "https://www.rockrms.com/releasenotes"
+      "authority": "official",
+      "content_hash": "de895755e7d820049ab35748e1f3a47fd153c048d0a027c0938f3e1c3538fd6e",
+      "excerpt_hash": "4600b17f72a5fe25df6706f3559eacbc9d4cb1c3837dac26c7f4e1dab3dfd773",
+      "source_id": "rock_documentation",
+      "source_key": "ec5b982ff7668281",
+      "source_record_id": "rock_documentation:article:2165",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/sites/create-a-site"
     },
     {
-      "authority": "official-training",
-      "content_hash": "d3c821f9405fc3c703215c4321a87dec8af3996d5a39a9ca7272118eb198e344",
-      "excerpt_hash": "704dc5360f0dddd49c92ea4650fa29783908c576f72a20a62d9b7a095ae83295",
-      "source_id": "rock_rocku",
-      "source_key": "805340549055ac6c",
-      "source_record_id": "rock_rocku:805340549055ac6c",
-      "url": "https://community.rockrms.com/rocku/cms/short-links"
+      "authority": "official",
+      "content_hash": "9f51bae66ab88bce107f3f25a301bd6f6f059e34ad7bea5f67d9b9a63fbfa095",
+      "excerpt_hash": "2b8705eb3fb0c3136e630408ee2aff3035b810724d461d0fc4b8dfb5994b6c77",
+      "source_id": "rock_documentation",
+      "source_key": "87ddbf825307c860",
+      "source_record_id": "rock_documentation:article:2151",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/routes"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "1a18d3fd6e650568418a3d36412666f6fb8bc1df98a07710d9471659cb7c7460",
-      "excerpt_hash": "34144da9163fc2491cc316f229bd5828d68e030a8e502a46d1169e92854ed17f",
-      "source_id": "rock_developer",
-      "source_key": "688f7051e9eaa0b1",
-      "source_record_id": "rock_developer:688f7051e9eaa0b1",
-      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+      "authority": "official",
+      "content_hash": "d2eb475056588faed0c67b11966efbe9b5a1e5171d4a2789dc5835d76b2839e5",
+      "excerpt_hash": "7f9d74dbe6b246cd0b7737799f098f45f9c9a72f6734b45457458a2d818665b1",
+      "source_id": "rock_documentation",
+      "source_key": "b7cacde936dd12c0",
+      "source_record_id": "rock_documentation:article:2152",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/cookies"
     },
     {
-      "authority": "official-training",
-      "content_hash": "7aad408e46b960402eeea86861962d29aada424b50f33ad10a7cfc62c81ced6a",
-      "excerpt_hash": "4a20116627ddcc9d8a324d23589d79c7d9ef93580457dc62347f50306825473b",
-      "source_id": "rock_rocku",
-      "source_key": "0343f1e6031032b4",
-      "source_record_id": "rock_rocku:0343f1e6031032b4",
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics"
+      "authority": "official",
+      "content_hash": "3de156aff50c2576099139274e674a9d125e8fca30515bcaa61c5dfd466020a7",
+      "excerpt_hash": "753cabbf9a34672e722c01feaca585c30b0885ad36e8deb172e0cf3ca94d690b",
+      "source_id": "rock_documentation",
+      "source_key": "1e57e3f75a56b1f3",
+      "source_record_id": "rock_documentation:article:2866",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-layouts"
     },
     {
-      "authority": "official-training",
-      "content_hash": "1b3eee0317cc56b32d6d7e71f4eb48f3aad196d490f38f7b586b0d899aae7c38",
-      "excerpt_hash": "cd7820e9228b8b683f2502ac53acfd849c184fd5d5b1c8db330178ea424e5dd6",
-      "source_id": "rock_rocku",
-      "source_key": "d0f7a4f0dd8c84bc",
-      "source_record_id": "rock_rocku:d0f7a4f0dd8c84bc",
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-required-watching"
+      "authority": "official",
+      "content_hash": "1031da1c0c2474471693c47ddc7c88b04f07ffd4e40c7ecc7d10722f2858c251",
+      "excerpt_hash": "b73071d80bf78506fe407362632d96ddc698c7e5a3708cd070570598b05c388e",
+      "source_id": "rock_documentation",
+      "source_key": "d76bc7034b533530",
+      "source_record_id": "rock_documentation:article:2171",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/html-content-block/intro-to-the-html-content-block"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "aa4b9d01f3221d1f4e6f05546e3f146bc1673c26ba118534e7eb98bb94a62c08",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "source_id": "rock_developer",
-      "source_key": "b6101e209d895fc3",
-      "source_record_id": "rock_developer:b6101e209d895fc3",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list"
+      "authority": "official",
+      "content_hash": "e7fd82f84c8aa5775b242c9fe0d1513bcc393ac093b27ffd59846d51b19a5d3b",
+      "excerpt_hash": "61a62d494d2b7c5f5556ff632d6f7d2ceaa15871e0e72acae16b4ab52aace710",
+      "source_id": "rock_documentation",
+      "source_key": "8d86d52185c4e441",
+      "source_record_id": "rock_documentation:article:2172",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/html-content-block/configure-block-settings"
     },
     {
-      "authority": "community-example",
-      "content_hash": "0abe45f52db85676accdafad653ecc13b9c1dabb2a8bb377d969c61b080d8bb2",
-      "excerpt_hash": "d700d18f49b5d6e9be0eb86962f1bf4c59c69bbf6b0a7e97e29f4678b1aae1e6",
-      "source_id": "rock_recipes",
-      "source_key": "08d28c7142d649ae",
-      "source_record_id": "rock_recipes:08d28c7142d649ae",
-      "url": "https://community.rockrms.com/recipes/432"
+      "authority": "official",
+      "content_hash": "aebe5aefe80a1c7a12f9732ecfb1c3fc79d908c8f19d3c38c6f732ea15d89ced",
+      "excerpt_hash": "7f0cba527f94cc878f99db87305a093290a29f4931a686c328c9bb1ba1b2dfce",
+      "source_id": "rock_documentation",
+      "source_key": "9fa7aa1bf4914e73",
+      "source_record_id": "rock_documentation:article:2174",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/intro-to-context"
     },
     {
-      "authority": "source-code",
-      "content_hash": "0902719388e4ff2a1b05c45117914cd59e23a4e2c3873db06b8d0f63b9e07e76",
-      "excerpt_hash": "6cfd42da3e7c1dc71bf5d665a2dad650d3ebf5a4be063a97cba5f691fa7f1fee",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "115115cf94e6e0c0",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs"
+      "authority": "official",
+      "content_hash": "2d570e86c0b2b39d3b5930d2936d9ddeb51cf88d474d9ecaa308afbd06ea2d32",
+      "excerpt_hash": "251f486f2bf67707115e686eeabd960a1be47b1b1ca47ed8e83f4846d0b3488d",
+      "source_id": "rock_documentation",
+      "source_key": "b60a13d72fa9894f",
+      "source_record_id": "rock_documentation:article:2175",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/html-block-context"
     },
     {
-      "authority": "official-developer",
-      "content_hash": "6734f1062768fbefd5fa97a14cf734254dd9080a2abcf6f5397ee6d348218da4",
-      "excerpt_hash": "95d59b38f71a8a93bb420db1563f38a8480084ebe8c60cb3f289efa057fe17c3",
-      "source_id": "rock_developer",
-      "source_key": "8a4a79ea31348a1e",
-      "source_record_id": "rock_developer:8a4a79ea31348a1e",
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes"
+      "authority": "official",
+      "content_hash": "2a954f0f1daf508c53ebe09116dab85b7f2c860fffb4c697152d9db022f68cc4",
+      "excerpt_hash": "65e6443521151d16b3e1b8e7e9d99b971c42c2de8fba2cc811e438b80940846e",
+      "source_id": "rock_documentation",
+      "source_key": "9745f6f159607000",
+      "source_record_id": "rock_documentation:article:2176",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/campus-context-setter"
     },
     {
-      "authority": "source-code",
-      "content_hash": "92a51684fffc3fe995e1ce58f3e69d643c4debd8d01580d6bf44ec26b6e23610",
-      "excerpt_hash": "ab09ea6326901fd745000e95aa16112df5009d5057e6c6076de18b21ed66a53a",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e0adff021dcba420",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts"
+      "authority": "official",
+      "content_hash": "158042061a246bbab95f4ec6b32b97c4d131581ee865af50602221a833748d17",
+      "excerpt_hash": "f9bd72378579a357776c3a2caa84877beb5b6ae19d8ca4c7977ad3f5132ebd37",
+      "source_id": "rock_documentation",
+      "source_key": "32a2947ac762657d",
+      "source_record_id": "rock_documentation:article:2177",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/context-on-the-person-profile"
     },
     {
-      "authority": "source-code",
-      "content_hash": "e6065dd96c1988146d7fff833a332badd90b210a3451bae1f6af474d88f5f406",
-      "excerpt_hash": "99f768c54fddca3ef8ae102653eef263a7d63d9f0aefb4f7fd1c4bc3e0ab6f22",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9df9ca539eea0fc5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts"
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "15263855449daa09",
+      "source_record_id": "org_contribution:oneall:createshortlink-argument-order-preflight",
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
+      "authority": "official",
+      "content_hash": "6cf6e4d0f3a2709d14c8ceef6490365ee5b5e01ecfd5114addfb4d4f4131be57",
+      "excerpt_hash": "6bf4e4ffd7438281febca0ef55a7bffd4d3c0ed2e1f551b6d152c3788d1df15e",
+      "source_id": "rock_documentation",
+      "source_key": "f115b21c5843aa4b",
+      "source_record_id": "rock_documentation:article:2150",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes"
+    },
+    {
+      "authority": "official",
+      "content_hash": "f982433336a6e1f733282a50e13ebf7101325f16942f77bc7fc7d3f6bf100b74",
+      "excerpt_hash": "235b2fbfcd50a47f38a45bced88f2717cb0f590ddfd140c000b3c18fb1d61828",
+      "source_id": "rock_documentation",
+      "source_key": "d91ad4be9fc41804",
+      "source_record_id": "rock_documentation:article:2154",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/what-not-to-do"
     },
     {
       "authority": "source-code",
       "content_hash": "e6788fc06af37ad2687999015897bf4f094e606433b0d7676812b421a9493527",
       "excerpt_hash": "f8de3c145d4a4a2440eb363b0ed7d35f75b7090ed176265c7e9a1efb63a7b06e",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "ad357405a230b4ef",
+      "source_key": "6abea3d9a87cac30",
       "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
     },
     {
       "authority": "source-code",
-      "content_hash": "b109cbd74fb22e72b1faba86c153e44964ff0f72a52d8904225949cc68eaf62f",
-      "excerpt_hash": "69b1eb9b41084ef317f3d1d6a79809a35292d9937f2518b10a7a37721cff27ed",
+      "content_hash": "3e4668ebf0e638d0106471af818e754ddcf0416847208625402eaa387da1b7f5",
+      "excerpt_hash": "d08a524f68e90d0b2318e3d6995c69b7eb8a40dbd875f68177bb88d9e9abcd59",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "4de6560c6a663d54",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs"
+      "source_key": "89c53c518e82d55f",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
     },
     {
-      "authority": "source-code",
-      "content_hash": "f44007a53f5307871b43371af6353e0ff7ccc5f354fd9811cd2ca5fbff08ccea",
-      "excerpt_hash": "218a4312581a0dcf13d44cdb745fb41e115c2d8f07f662ede7d0a761d98a18b4",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4972354351b13eea",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "87ddac85fe014235a1e72960a2e69e29cb557d70e1b8bb962ea2712ed8a69e8d",
-      "excerpt_hash": "476ee7d236d76d6da8c98e7d86d456394121a472812f8d29a4ab525c1fb61db5",
-      "source_id": "rock_rocku",
-      "source_key": "abe6ddf5dad7eb7c",
-      "source_record_id": "rock_rocku:abe6ddf5dad7eb7c",
-      "url": "https://community.rockrms.com/rocku/cms/publishing-rock-media"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "b99a24ba6f596b05f7ed417c9c162082b3ad4f8bd3506057246647085bce9f2b",
-      "excerpt_hash": "92c85f59698de08ffc71bc49c1425c3f717cccb593a328f136995a1a6953dae4",
-      "source_id": "rock_rocku",
-      "source_key": "2c6dd9ebf7d3f598",
-      "source_record_id": "rock_rocku:2c6dd9ebf7d3f598",
-      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "4c0b4c4135c23cdc00b57cdb78a558e88111ece796d9f7e3a942d5a527e3f5bc",
-      "excerpt_hash": "db8905ebbd02b29aed5d63643c37f3ca0a9b38ab35232e3a79b82536ce4946b6",
-      "source_id": "rock_rocku",
-      "source_key": "379c5b8830e79dbf",
-      "source_record_id": "rock_rocku:379c5b8830e79dbf",
-      "url": "https://community.rockrms.com/rocku/cms/page-builder"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "fd00702cd58067c1055ca28c8cb5903ec5fd31d06ef01748db5e94a363c92d8b",
-      "excerpt_hash": "92093997dbfa8119493903255e088d12cddcdb6051a946507ec81a433a828240",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "efda15d5517b0a38",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "1fb0b312a3a9cebe5752eaf877b635a300986c87b249b3d820b4047f0e32e982",
-      "excerpt_hash": "6022a70ace89d5bac2fa1348ea514d85ec2e76e7fcfd90b7b86db740e0f2f90e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ecd2e14ade74500f",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "e488783aa2a9ebe812fed52ea0a4c77a9ca35b1b8774c4f0cdfc6d762b2c2116",
-      "excerpt_hash": "4901ab878c9546f84e2fe3c7b9f0fcd28275aedfdc0a4684d6c3270373909e30",
-      "source_id": "rock_recipes",
-      "source_key": "950d01229b6a2dfc",
-      "source_record_id": "rock_recipes:950d01229b6a2dfc",
-      "url": "https://community.rockrms.com/recipes/535"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "5ddad5ffce5ee4643688aec8defd4eb4b25775ef4777eeee23cfc33b19504c6a",
-      "excerpt_hash": "1ac5c34cdd2b22a9f9a38b2200b477c9c6638392de1bac50adc327cc1a00778c",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "16938e2c718a767b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a9bc54d3371a9c44e3c93b31d39ed7b64cfe27e50b57af44495209ad4ba6ff14",
-      "excerpt_hash": "374dc601812383729f6d2a68584383abd234db4f76ba268451fd4c00c72e348d",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e589fab4db59b97a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts"
-    },
-    {
-      "authority": "official-training",
+      "authority": "org-contribution",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "b51b24ed7912d814",
+      "source_id": "org_contribution",
+      "source_key": "fa4cdce04d4dcdcb",
+      "source_record_id": "org_contribution:oneall:forgot-username-email-results-users-filter",
+      "url": "https://community.rockrms.com/documentation"
+    },
+    {
+      "authority": "unknown",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "citation",
+      "source_key": "4e3a8aa1d3a4e953",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view"
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
     },
     {
       "authority": "official",
-      "content_hash": "ccf7a5efc1fd2cf286cba7f466dcb96caaa343d855da308cc893255f9c124a03",
-      "excerpt_hash": "ca042edb49f1a37a90474324609388031ad5d45bfa5bfb4ba77215cf504856e7",
+      "content_hash": "7e9870c8978dd5e728df40a028d8b499a429fb9aed3e7cd2ec97b7c8839efd49",
+      "excerpt_hash": "95f54d86f2f740eba7d4da20898143540827c3a7608bf4c3a0a5dc42caf2c9f4",
       "source_id": "rock_documentation",
-      "source_key": "d3956fe7fabc25d7",
-      "source_record_id": "rock_documentation:d3956fe7fabc25d7",
-      "url": "https://community.rockrms.com/documentation/bookcontent/6"
+      "source_key": "6eb6c5d3ac789352",
+      "source_record_id": "rock_documentation:article:2168",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/sample-landing-pages"
     },
     {
-      "authority": "official-training",
-      "content_hash": "e5bd84bcd24fe3e3019796ccc3643253dfc41a47fdd33d32d7292e63aab61db5",
-      "excerpt_hash": "448cf83a4b7882adff3466d4b5426dfcfd956037b66969fa57c8293b0d94e4d4",
-      "source_id": "rock_rocku",
-      "source_key": "6c1db4d1bec69cfb",
-      "source_record_id": "rock_rocku:6c1db4d1bec69cfb",
-      "url": "https://community.rockrms.com/rocku/cms/cms-components"
+      "authority": "official",
+      "content_hash": "76af5235dee06dbe684a44dd47d3858e930750e77cbe5f3c0a8020317a690adb",
+      "excerpt_hash": "9545e240be24d5914e45e5a65a436fe305c20add6079ceb3d92ab70ba082add7",
+      "source_id": "rock_documentation",
+      "source_key": "14550ea79b32e746",
+      "source_record_id": "rock_documentation:article:2169",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/set-up-landing-pages"
     },
     {
-      "authority": "official-training",
-      "content_hash": "64536f0dba200195d85e27cbf62da9409a235aaed049ecbfd78e8969f0043114",
-      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
-      "source_id": "rock_rocku",
-      "source_key": "96f179b05ec9a0dc",
-      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
-      "url": "https://community.rockrms.com/rocku/cms/cache-tags"
+      "authority": "official",
+      "content_hash": "d0dc55ddb640ac4fe42ad045f2f0c6a3875631f6293b41f9aa7bb89160108ad0",
+      "excerpt_hash": "32917f79329bfe51e984d87cbd4e4a20df0bdf3193b7c80790eb6e56bb7d98d8",
+      "source_id": "rock_documentation",
+      "source_key": "6c3b090a87296fc7",
+      "source_record_id": "rock_documentation:article:2153",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/seo"
     },
     {
-      "authority": "source-code",
-      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
-    },
-    {
-      "authority": "official-training",
+      "authority": "org-contribution",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "2875911abf284e79",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
+      "source_id": "org_contribution",
+      "source_key": "a29d340a8ade7182",
+      "source_record_id": "org_contribution:oneall:helix-active-search-return-inner-html-only",
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
-      "authority": "official-training",
+      "authority": "community-example",
+      "content_hash": "ddce4017bc63bf45ce3e97740c86ad1e8d99020d3033f4f8c876a721d0483d09",
+      "excerpt_hash": "edca9c4cdde24108a17b7e03d097cf86a0e3dcaf8f97555862cbc79208327262",
+      "source_id": "rock_recipes",
+      "source_key": "08d28c7142d649ae",
+      "source_record_id": "rock_recipes:08d28c7142d649ae",
+      "url": "https://community.rockrms.com/recipes/432"
+    },
+    {
+      "authority": "official-developer",
       "content_hash": null,
       "excerpt_hash": null,
-      "source_id": "rock_rocku",
-      "source_key": "87a5ab006404f4af",
+      "source_id": "rock_developer",
+      "source_key": "688f7051e9eaa0b1",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
+    },
+    {
+      "authority": "org-contribution",
+      "content_hash": null,
+      "excerpt_hash": null,
+      "source_id": "org_contribution",
+      "source_key": "79a4202cc4d0f854",
+      "source_record_id": "org_contribution:oneall:helix-endpoint-script-style-tag-boundary",
+      "url": "https://community.rockrms.com/lava/commands"
     },
     {
       "authority": "official-developer",
@@ -2530,18 +2422,9 @@
       "content_hash": null,
       "excerpt_hash": null,
       "source_id": "citation",
-      "source_key": "f7086ab6ff215e14",
+      "source_key": "98de8c1c6fc9ea76",
       "source_record_id": "",
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
-    },
-    {
-      "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_documentation",
-      "source_key": "c3be071dd5b3a869",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block"
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=155s"
     },
     {
       "authority": "official-developer",
@@ -2553,1798 +2436,787 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
     },
     {
-      "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_documentation",
-      "source_key": "f115b21c5843aa4b",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes"
+      "authority": "official-release",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "b55a69fd271958e8b6553dfbfe54751cc264fdd2d030abf6a0ddcaf62eb750fc",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:8b54403698a83494",
+      "url": "https://www.rockrms.com/releasenotes"
     },
     {
       "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "b104820dbceb25bbf18e75c3ad21aa512a9f87dac2e40b63cbfa92e8d3c2d340",
+      "excerpt_hash": "5f7d6c36c6c9b4341c453dbd8b591953ebddd59437b2d6a25aaa710ad230eb74",
       "source_id": "rock_documentation",
-      "source_key": "8f4bd6647d2fc942",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode"
+      "source_key": "542cef07af8e12a4",
+      "source_record_id": "rock_documentation:article:2156",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-load-time"
+    },
+    {
+      "authority": "official-training",
+      "content_hash": "f33aa6496900eb29898a0a103a97015d8eee5a8d293ef5ac7730d64f827c4598",
+      "excerpt_hash": "4f94be8548bdf5d6a68f7004a457239c5f9c2530d846df460753848e935378ed",
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "media-insight:2cf056c2b84e6365",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block"
     },
     {
       "authority": "official",
-      "content_hash": null,
-      "excerpt_hash": null,
+      "content_hash": "c68852ad36d9b6077ced66da1086547c75e9aa115f7cf7b50f261922aa8f6ef2",
+      "excerpt_hash": "9a4678d59a27e798a52358356a9b502cd6b6aa2509391c5d393304cf903069cc",
       "source_id": "rock_documentation",
-      "source_key": "bb967eaa604104d2",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration"
+      "source_key": "185624d3ffe6dd9f",
+      "source_record_id": "rock_documentation:article:1380",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites"
     },
     {
-      "authority": "official-developer",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_developer",
-      "source_key": "fd3fd2bfe8a855c0",
-      "source_record_id": "",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
-    },
-    {
-      "authority": "unknown",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "citation",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "",
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": "7d8f92391b46f6eac0a50d3b877bfc3b813cccc2035781b5360af81718e79b92",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "triumph_resources",
-      "source_key": "ed3acb4204b5cddd",
-      "source_record_id": "triumph_resources:ed3acb4204b5cddd",
-      "url": "https://www.triumph.tech/resources/github-spotlight-1242025"
+      "authority": "source-code",
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "url": "https://github.com/SparkDevNetwork/Rock"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
-      "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 59,
-      "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
-      "source_keys": [
-        "35633587d4819f55"
-      ],
-      "start_line": 29
-    },
-    {
       "confidence": "normal",
-      "end_line": 124,
-      "heading": "2. Scope And Terminology",
+      "end_line": 31,
+      "heading": "Agent Summary",
       "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology",
+      "section_id": "agent-summary",
       "source_keys": [
-        "7ca0c3010644f891",
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9",
-        "bb00c039f16af55d",
-        "9ae5804fa3a0ac7d",
-        "9ae5804fa3a0ac7d",
-        "30be60a23d3d0317",
-        "61f3aed131f8bff8",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
+        "645c0e29039a776f",
+        "2c6dd9ebf7d3f598",
+        "bb967eaa604104d2",
+        "85024b5d7a249be6",
         "11cdf9c3e9ac92ed",
-        "61f3aed131f8bff8",
-        "e4bb4304ab76f3f9",
-        "2000146157764196",
-        "776256c424368312",
-        "805340549055ac6c"
+        "b51b24ed7912d814",
+        "d5267087d68309c8"
       ],
-      "start_line": 60
+      "start_line": 18
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 41,
+      "heading": "Scope And Boundaries",
+      "needs_live_verification": false,
+      "section_id": "scope-and-boundaries",
+      "source_keys": [
+        "645c0e29039a776f",
+        "2c6dd9ebf7d3f598",
+        "bb967eaa604104d2",
+        "85024b5d7a249be6",
+        "11cdf9c3e9ac92ed",
+        "b51b24ed7912d814",
+        "d5267087d68309c8"
+      ],
+      "start_line": 32
     },
     {
       "confidence": "normal",
-      "end_line": 144,
-      "heading": "3. CMS And Websites Mental Model",
+      "end_line": 58,
+      "heading": "Mental Model",
       "needs_live_verification": false,
-      "section_id": "3-cms-and-websites-mental-model",
+      "section_id": "mental-model",
       "source_keys": [
-        "688f7051e9eaa0b1",
-        "61f3aed131f8bff8",
-        "06bcb0153237c9a3",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc",
+        "645c0e29039a776f"
+      ],
+      "start_line": 42
+    },
+    {
+      "confidence": "normal",
+      "end_line": 76,
+      "heading": "Sites, Routes, And Navigation",
+      "needs_live_verification": true,
+      "section_id": "sites-routes-and-navigation",
+      "source_keys": [
+        "ec5b982ff7668281",
+        "87ddbf825307c860",
+        "b7cacde936dd12c0"
+      ],
+      "start_line": 59
+    },
+    {
+      "confidence": "normal",
+      "end_line": 90,
+      "heading": "Pages, Layouts, Zones, And Blocks",
+      "needs_live_verification": true,
+      "section_id": "pages-layouts-zones-and-blocks",
+      "source_keys": [
+        "1e57e3f75a56b1f3",
+        "bb967eaa604104d2",
+        "bb967eaa604104d2"
+      ],
+      "start_line": 77
+    },
+    {
+      "confidence": "normal",
+      "end_line": 104,
+      "heading": "HTML Content, Scheduling, And Shared Components",
+      "needs_live_verification": false,
+      "section_id": "html-content-scheduling-and-shared-components",
+      "source_keys": [
+        "d76bc7034b533530",
+        "8d86d52185c4e441",
+        "d5267087d68309c8"
+      ],
+      "start_line": 91
+    },
+    {
+      "confidence": "normal",
+      "end_line": 126,
+      "heading": "Advanced HTML, Lava, And Context",
+      "needs_live_verification": true,
+      "section_id": "advanced-html-lava-and-context",
+      "source_keys": [
+        "85024b5d7a249be6",
+        "9fa7aa1bf4914e73",
+        "b60a13d72fa9894f",
+        "9745f6f159607000",
+        "32a2947ac762657d",
+        "15263855449daa09"
+      ],
+      "start_line": 105
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 145,
+      "heading": "Personalization",
+      "needs_live_verification": true,
+      "section_id": "personalization",
+      "source_keys": [
         "11cdf9c3e9ac92ed"
       ],
-      "start_line": 125
+      "start_line": 127
     },
     {
       "confidence": "normal",
-      "end_line": 169,
-      "heading": "4. Source Authority And How To Use This Guide",
-      "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
-      "source_keys": [
-        "35633587d4819f55",
-        "688f7051e9eaa0b1",
-        "b6101e209d895fc3",
-        "06bcb0153237c9a3",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312",
-        "08d28c7142d649ae",
-        "7ca0c3010644f891"
-      ],
-      "start_line": 145
-    },
-    {
-      "confidence": "structural",
-      "end_line": 171,
-      "heading": "5. Core Configuration And Data Model",
+      "end_line": 164,
+      "heading": "Themes And Styling",
       "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
+      "section_id": "themes-and-styling",
       "source_keys": [
-        "7ca0c3010644f891",
-        "08d28c7142d649ae",
-        "115115cf94e6e0c0",
-        "8a4a79ea31348a1e",
-        "e0adff021dcba420",
-        "61f3aed131f8bff8",
-        "9df9ca539eea0fc5",
-        "ad357405a230b4ef",
-        "4de6560c6a663d54",
-        "4972354351b13eea",
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc"
+        "f115b21c5843aa4b",
+        "d91ad4be9fc41804"
       ],
-      "start_line": 170
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 186,
-      "heading": "Sites",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-sites",
-      "source_keys": [
-        "7ca0c3010644f891"
-      ],
-      "start_line": 172
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 201,
-      "heading": "Pages",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-pages",
-      "source_keys": [
-        "08d28c7142d649ae"
-      ],
-      "start_line": 187
+      "start_line": 146
     },
     {
       "confidence": "normal",
-      "end_line": 219,
-      "heading": "Blocks",
+      "end_line": 181,
+      "heading": "Content Channels And Media Presentation",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-blocks",
+      "section_id": "content-channels-and-media-presentation",
       "source_keys": [
-        "115115cf94e6e0c0"
+        "b51b24ed7912d814",
+        "6abea3d9a87cac30",
+        "89c53c518e82d55f",
+        "fa4cdce04d4dcdcb",
+        "4e3a8aa1d3a4e953"
+      ],
+      "start_line": 165
+    },
+    {
+      "confidence": "normal",
+      "end_line": 201,
+      "heading": "Landing Pages And SEO",
+      "needs_live_verification": false,
+      "section_id": "landing-pages-and-seo",
+      "source_keys": [
+        "6eb6c5d3ac789352",
+        "14550ea79b32e746",
+        "6c3b090a87296fc7",
+        "a29d340a8ade7182"
+      ],
+      "start_line": 182
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 218,
+      "heading": "Page Parameters, Filters, And Short Links",
+      "needs_live_verification": true,
+      "section_id": "page-parameters-filters-and-short-links",
+      "source_keys": [
+        "fa4cdce04d4dcdcb",
+        "08d28c7142d649ae",
+        "15263855449daa09"
       ],
       "start_line": 202
     },
     {
-      "confidence": "structural",
-      "end_line": 229,
-      "heading": "Layouts And Zones",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-layouts-and-zones",
-      "source_keys": [
-        "115115cf94e6e0c0"
-      ],
-      "start_line": 220
-    },
-    {
       "confidence": "normal",
-      "end_line": 245,
-      "heading": "Themes",
+      "end_line": 243,
+      "heading": "Obsidian, Helix, HTMX, And Forms",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-themes",
+      "section_id": "obsidian-helix-htmx-and-forms",
       "source_keys": [
-        "8a4a79ea31348a1e"
+        "688f7051e9eaa0b1",
+        "a29d340a8ade7182",
+        "a29d340a8ade7182",
+        "79a4202cc4d0f854",
+        "c877aeede8d53f3d",
+        "98de8c1c6fc9ea76"
       ],
-      "start_line": 230
+      "start_line": 219
     },
     {
       "confidence": "normal",
       "end_line": 258,
-      "heading": "Content Channel Types",
+      "heading": "Mobile Content Boundary",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-content-channel-types",
+      "section_id": "mobile-content-boundary",
       "source_keys": [
-        "e0adff021dcba420"
+        "127269e4afa33de4"
       ],
-      "start_line": 246
+      "start_line": 244
     },
     {
       "confidence": "normal",
-      "end_line": 287,
-      "heading": "Content Channels",
+      "end_line": 280,
+      "heading": "Version And Authority Caveats",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-content-channels",
+      "section_id": "version-and-authority-caveats",
       "source_keys": [
-        "61f3aed131f8bff8"
+        "776256c424368312"
       ],
       "start_line": 259
     },
     {
-      "confidence": "normal",
-      "end_line": 308,
-      "heading": "Content Channel Items",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-content-channel-items",
-      "source_keys": [
-        "9df9ca539eea0fc5"
-      ],
-      "start_line": 288
-    },
-    {
-      "confidence": "normal",
-      "end_line": 314,
-      "heading": "Media And Linked Media Elements",
-      "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-media-and-linked-media-elements",
-      "source_keys": [
-        "ad357405a230b4ef",
-        "4de6560c6a663d54",
-        "4972354351b13eea",
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc"
-      ],
-      "start_line": 309
-    },
-    {
       "confidence": "structural",
-      "end_line": 318,
-      "heading": "6. Primary Entities And Relationships",
+      "end_line": 282,
+      "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships",
+      "section_id": "troubleshooting-decision-tree",
       "source_keys": [
+        "87ddbf825307c860",
         "2c6dd9ebf7d3f598",
-        "776256c424368312",
-        "30be60a23d3d0317",
-        "06bcb0153237c9a3",
-        "ad357405a230b4ef",
-        "4de6560c6a663d54",
-        "7ca0c3010644f891",
-        "1ebbaa4483d1ef62"
-      ],
-      "start_line": 315
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 331,
-      "heading": "Site To Page",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-site-to-page",
-      "source_keys": [
-        "2c6dd9ebf7d3f598"
-      ],
-      "start_line": 319
-    },
-    {
-      "confidence": "structural",
-      "end_line": 335,
-      "heading": "Page To Layout To Zone To Block",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-page-to-layout-to-zone-to-block",
-      "source_keys": [
-        "2c6dd9ebf7d3f598"
-      ],
-      "start_line": 332
-    },
-    {
-      "confidence": "normal",
-      "end_line": 341,
-      "heading": "Page To Block Settings",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-page-to-block-settings",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 336
-    },
-    {
-      "confidence": "normal",
-      "end_line": 352,
-      "heading": "Block To Lava Commands",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-block-to-lava-commands",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 342
-    },
-    {
-      "confidence": "normal",
-      "end_line": 369,
-      "heading": "Content Channel Type To Channel To Item",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-content-channel-type-to-channel-to-item",
-      "source_keys": [
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 353
-    },
-    {
-      "confidence": "normal",
-      "end_line": 382,
-      "heading": "Content Channel Item To Media",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-content-channel-item-to-media",
-      "source_keys": [
-        "ad357405a230b4ef",
-        "4de6560c6a663d54"
-      ],
-      "start_line": 370
-    },
-    {
-      "confidence": "normal",
-      "end_line": 397,
-      "heading": "Page And Content To Interactions",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-page-and-content-to-interactions",
-      "source_keys": [
-        "7ca0c3010644f891",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62"
-      ],
-      "start_line": 383
-    },
-    {
-      "confidence": "normal",
-      "end_line": 408,
-      "heading": "Files, Binary Files, Entity Documents, And Security",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-files-binary-files-entity-documents-and-security",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 398
-    },
-    {
-      "confidence": "structural",
-      "end_line": 410,
-      "heading": "7. Common CMS And Websites Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-cms-and-websites-workflows",
-      "source_keys": [
-        "2c6dd9ebf7d3f598",
-        "379c5b8830e79dbf",
-        "bb00c039f16af55d",
-        "9ae5804fa3a0ac7d",
-        "776256c424368312",
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc",
-        "61f3aed131f8bff8",
+        "bb967eaa604104d2",
         "11cdf9c3e9ac92ed",
-        "08d28c7142d649ae",
-        "7ca0c3010644f891"
+        "b60a13d72fa9894f",
+        "b51b24ed7912d814",
+        "776256c424368312",
+        "fa4cdce04d4dcdcb",
+        "a29d340a8ade7182",
+        "542cef07af8e12a4",
+        "c877aeede8d53f3d",
+        "127269e4afa33de4",
+        "15263855449daa09",
+        "4e3a8aa1d3a4e953"
       ],
-      "start_line": 409
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 429,
-      "heading": "Create A New Public Page",
-      "needs_live_verification": true,
-      "section_id": "7-common-cms-and-websites-workflows-create-a-new-public-page",
-      "source_keys": [
-        "2c6dd9ebf7d3f598",
-        "379c5b8830e79dbf"
-      ],
-      "start_line": 411
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 446,
-      "heading": "Add Or Edit An HTML Content Block",
-      "needs_live_verification": true,
-      "section_id": "7-common-cms-and-websites-workflows-add-or-edit-an-html-content-block",
-      "source_keys": [
-        "bb00c039f16af55d",
-        "9ae5804fa3a0ac7d"
-      ],
-      "start_line": 430
+      "start_line": 281
     },
     {
       "confidence": "normal",
-      "end_line": 466,
-      "heading": "Build A Content Channel Listing And Detail Flow",
+      "end_line": 293,
+      "heading": "A page is missing or visible to the wrong visitor",
       "needs_live_verification": true,
-      "section_id": "7-common-cms-and-websites-workflows-build-a-content-channel-listing-and-detail-flow",
+      "section_id": "troubleshooting-decision-tree-a-page-is-missing-or-visible-to-the-wrong-visitor",
       "source_keys": [
+        "87ddbf825307c860",
+        "2c6dd9ebf7d3f598"
+      ],
+      "start_line": 283
+    },
+    {
+      "confidence": "normal",
+      "end_line": 304,
+      "heading": "A saved page, block, route, or style change does not appear",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-saved-page-block-route-or-style-change-does-not-appear",
+      "source_keys": [
+        "bb967eaa604104d2"
+      ],
+      "start_line": 294
+    },
+    {
+      "confidence": "normal",
+      "end_line": 315,
+      "heading": "The wrong personalized or contextual content appears",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-the-wrong-personalized-or-contextual-content-appears",
+      "source_keys": [
+        "11cdf9c3e9ac92ed",
+        "b60a13d72fa9894f"
+      ],
+      "start_line": 305
+    },
+    {
+      "confidence": "normal",
+      "end_line": 326,
+      "heading": "A content-channel item is missing, duplicated, or exposed",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-content-channel-item-is-missing-duplicated-or-exposed",
+      "source_keys": [
+        "b51b24ed7912d814",
         "776256c424368312"
+      ],
+      "start_line": 316
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 336,
+      "heading": "A Page Parameter Filter does not update its consumer",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-page-parameter-filter-does-not-update-its-consumer",
+      "source_keys": [
+        "fa4cdce04d4dcdcb"
+      ],
+      "start_line": 327
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 347,
+      "heading": "A Helix endpoint works for an administrator but fails for the intended visitor",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-an-administrator-but-fails-for-the-intended-visitor",
+      "source_keys": [
+        "a29d340a8ade7182"
+      ],
+      "start_line": 337
+    },
+    {
+      "confidence": "structural",
+      "end_line": 358,
+      "heading": "An HTMX result is correct but its controls, assets, or metadata are wrong",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-an-htmx-result-is-correct-but-its-controls-assets-or-metadata-are-wrong",
+      "source_keys": [
+        "a29d340a8ade7182"
+      ],
+      "start_line": 348
+    },
+    {
+      "confidence": "normal",
+      "end_line": 367,
+      "heading": "A page is slow",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-page-is-slow",
+      "source_keys": [
+        "542cef07af8e12a4"
+      ],
+      "start_line": 359
+    },
+    {
+      "confidence": "normal",
+      "end_line": 377,
+      "heading": "A web form fails validation, nests incorrectly, or receives bot submissions",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-web-form-fails-validation-nests-incorrectly-or-receives-bot-submissions",
+      "source_keys": [
+        "c877aeede8d53f3d"
+      ],
+      "start_line": 368
+    },
+    {
+      "confidence": "normal",
+      "end_line": 386,
+      "heading": "Mobile content is stale or lacks `CurrentPerson`",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-mobile-content-is-stale-or-lacks-currentperson",
+      "source_keys": [
+        "127269e4afa33de4"
+      ],
+      "start_line": 378
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 396,
+      "heading": "A generated short link is blank or uses the wrong options",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-generated-short-link-is-blank-or-uses-the-wrong-options",
+      "source_keys": [
+        "15263855449daa09"
+      ],
+      "start_line": 387
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 405,
+      "heading": "Background-generated media is linked before it is ready",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-background-generated-media-is-linked-before-it-is-ready",
+      "source_keys": [
+        "4e3a8aa1d3a4e953"
+      ],
+      "start_line": 397
+    },
+    {
+      "confidence": "structural",
+      "end_line": 407,
+      "heading": "Agent Task Recipes",
+      "needs_live_verification": false,
+      "section_id": "agent-task-recipes",
+      "source_keys": [
+        "bb967eaa604104d2",
+        "9ae5804fa3a0ac7d",
+        "85024b5d7a249be6",
+        "f115b21c5843aa4b",
+        "b51b24ed7912d814",
+        "11cdf9c3e9ac92ed",
+        "fa4cdce04d4dcdcb",
+        "a29d340a8ade7182",
+        "14550ea79b32e746",
+        "127269e4afa33de4"
+      ],
+      "start_line": 406
+    },
+    {
+      "confidence": "normal",
+      "end_line": 433,
+      "heading": "Recipe: Publish a page and block safely",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-publish-a-page-and-block-safely",
+      "source_keys": [
+        "bb967eaa604104d2"
+      ],
+      "start_line": 408
+    },
+    {
+      "confidence": "normal",
+      "end_line": 446,
+      "heading": "Recipe: Copy a page hierarchy without carrying stale configuration",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-copy-a-page-hierarchy-without-carrying-stale-configuration",
+      "source_keys": [
+        "bb967eaa604104d2"
+      ],
+      "start_line": 434
+    },
+    {
+      "confidence": "normal",
+      "end_line": 461,
+      "heading": "Recipe: Audit an Advanced HTML or stored-Lava surface",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-audit-an-advanced-html-or-stored-lava-surface",
+      "source_keys": [
+        "9ae5804fa3a0ac7d",
+        "85024b5d7a249be6"
       ],
       "start_line": 447
     },
     {
-      "confidence": "citation-only",
-      "end_line": 480,
-      "heading": "Publish Media Through CMS",
+      "confidence": "normal",
+      "end_line": 475,
+      "heading": "Recipe: Change a theme without surprising other sites or pages",
       "needs_live_verification": true,
-      "section_id": "7-common-cms-and-websites-workflows-publish-media-through-cms",
+      "section_id": "agent-task-recipes-recipe-change-a-theme-without-surprising-other-sites-or-pages",
       "source_keys": [
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc"
+        "f115b21c5843aa4b"
       ],
-      "start_line": 467
+      "start_line": 462
     },
     {
-      "confidence": "normal",
-      "end_line": 492,
-      "heading": "Add Personalization To A Page Or Channel",
+      "confidence": "citation-only",
+      "end_line": 488,
+      "heading": "Recipe: Publish a content-channel list and detail experience",
       "needs_live_verification": true,
-      "section_id": "7-common-cms-and-websites-workflows-add-personalization-to-a-page-or-channel",
+      "section_id": "agent-task-recipes-recipe-publish-a-content-channel-list-and-detail-experience",
       "source_keys": [
-        "61f3aed131f8bff8",
+        "b51b24ed7912d814"
+      ],
+      "start_line": 476
+    },
+    {
+      "confidence": "citation-only",
+      "end_line": 502,
+      "heading": "Recipe: Build and verify personalized content",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-and-verify-personalized-content",
+      "source_keys": [
         "11cdf9c3e9ac92ed"
       ],
-      "start_line": 481
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 504,
-      "heading": "Add A Search Or Filter Interface For Pages",
-      "needs_live_verification": false,
-      "section_id": "7-common-cms-and-websites-workflows-add-a-search-or-filter-interface-for-pages",
-      "source_keys": [
-        "08d28c7142d649ae"
-      ],
-      "start_line": 493
+      "start_line": 489
     },
     {
       "confidence": "community-supported",
       "end_line": 515,
-      "heading": "Build Page View Reporting",
-      "needs_live_verification": false,
-      "section_id": "7-common-cms-and-websites-workflows-build-page-view-reporting",
+      "heading": "Recipe: Connect a Page Parameter Filter to a consumer",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-connect-a-page-parameter-filter-to-a-consumer",
       "source_keys": [
-        "7ca0c3010644f891"
+        "fa4cdce04d4dcdcb"
       ],
-      "start_line": 505
+      "start_line": 503
     },
     {
-      "confidence": "structural",
-      "end_line": 517,
-      "heading": "8. Pages And Blocks Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "8-pages-and-blocks-deep-dive",
+      "confidence": "community-supported",
+      "end_line": 530,
+      "heading": "Recipe: Build a bounded Helix active-search page",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-bounded-helix-active-search-page",
       "source_keys": [
-        "7ca0c3010644f891",
-        "08d28c7142d649ae",
-        "efda15d5517b0a38",
-        "06bcb0153237c9a3",
-        "688f7051e9eaa0b1",
-        "ecd2e14ade74500f",
-        "115115cf94e6e0c0",
-        "776256c424368312",
-        "379c5b8830e79dbf"
+        "a29d340a8ade7182"
       ],
       "start_line": 516
     },
     {
-      "confidence": "structural",
-      "end_line": 533,
-      "heading": "Page Identity",
-      "needs_live_verification": false,
-      "section_id": "8-pages-and-blocks-deep-dive-page-identity",
+      "confidence": "normal",
+      "end_line": 544,
+      "heading": "Recipe: Launch a landing page",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-launch-a-landing-page",
       "source_keys": [
-        "7ca0c3010644f891"
+        "14550ea79b32e746"
       ],
-      "start_line": 518
+      "start_line": 531
+    },
+    {
+      "confidence": "needs-citation",
+      "end_line": 557,
+      "heading": "Recipe: Retire a seasonal public feature",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-retire-a-seasonal-public-feature",
+      "source_keys": [
+        "14550ea79b32e746"
+      ],
+      "start_line": 545
     },
     {
       "confidence": "community-supported",
-      "end_line": 546,
-      "heading": "Page Hierarchy And Navigation",
+      "end_line": 569,
+      "heading": "Recipe: Publish background-generated video",
       "needs_live_verification": true,
-      "section_id": "8-pages-and-blocks-deep-dive-page-hierarchy-and-navigation",
+      "section_id": "agent-task-recipes-recipe-publish-background-generated-video",
       "source_keys": [
-        "08d28c7142d649ae"
+        "fa4cdce04d4dcdcb"
       ],
-      "start_line": 534
-    },
-    {
-      "confidence": "normal",
-      "end_line": 571,
-      "heading": "Page Parameters",
-      "needs_live_verification": true,
-      "section_id": "8-pages-and-blocks-deep-dive-page-parameters",
-      "source_keys": [
-        "efda15d5517b0a38",
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 547
+      "start_line": 558
     },
     {
       "confidence": "normal",
       "end_line": 582,
-      "heading": "Block Types And Implementation Generations",
-      "needs_live_verification": false,
-      "section_id": "8-pages-and-blocks-deep-dive-block-types-and-implementation-generations",
+      "heading": "Recipe: Configure mobile CMS content with the correct freshness and identity",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-configure-mobile-cms-content-with-the-correct-freshness-and-identity",
       "source_keys": [
-        "688f7051e9eaa0b1",
-        "ecd2e14ade74500f",
-        "115115cf94e6e0c0"
+        "127269e4afa33de4"
       ],
-      "start_line": 572
+      "start_line": 570
     },
     {
-      "confidence": "normal",
-      "end_line": 606,
-      "heading": "Block Settings",
-      "needs_live_verification": true,
-      "section_id": "8-pages-and-blocks-deep-dive-block-settings",
+      "confidence": "needs-citation",
+      "end_line": 605,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": false,
+      "section_id": "known-gaps-and-live-verification",
       "source_keys": [
-        "06bcb0153237c9a3"
+        "127269e4afa33de4"
       ],
       "start_line": 583
     },
     {
-      "confidence": "normal",
-      "end_line": 619,
-      "heading": "Block Security",
-      "needs_live_verification": true,
-      "section_id": "8-pages-and-blocks-deep-dive-block-security",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 607
-    },
-    {
-      "confidence": "normal",
-      "end_line": 629,
-      "heading": "Dynamic Data Blocks",
-      "needs_live_verification": false,
-      "section_id": "8-pages-and-blocks-deep-dive-dynamic-data-blocks",
-      "source_keys": [
-        "776256c424368312",
-        "7ca0c3010644f891"
-      ],
-      "start_line": 620
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 641,
-      "heading": "Page Builder",
-      "needs_live_verification": false,
-      "section_id": "8-pages-and-blocks-deep-dive-page-builder",
-      "source_keys": [
-        "379c5b8830e79dbf"
-      ],
-      "start_line": 630
-    },
-    {
       "confidence": "structural",
-      "end_line": 643,
-      "heading": "9. Themes Deep Dive",
+      "end_line": 607,
+      "heading": "Source Map",
       "needs_live_verification": false,
-      "section_id": "9-themes-deep-dive",
+      "section_id": "source-map",
       "source_keys": [
-        "35633587d4819f55",
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9",
-        "e4bb4304ab76f3f9",
-        "950d01229b6a2dfc"
-      ],
-      "start_line": 642
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 662,
-      "heading": "What Themes Control",
-      "needs_live_verification": true,
-      "section_id": "9-themes-deep-dive-what-themes-control",
-      "source_keys": [
-        "35633587d4819f55"
-      ],
-      "start_line": 644
-    },
-    {
-      "confidence": "structural",
-      "end_line": 673,
-      "heading": "Theme Selection",
-      "needs_live_verification": true,
-      "section_id": "9-themes-deep-dive-theme-selection",
-      "source_keys": [
-        "35633587d4819f55"
-      ],
-      "start_line": 663
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 686,
-      "heading": "Icon Systems",
-      "needs_live_verification": true,
-      "section_id": "9-themes-deep-dive-icon-systems",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 674
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 707,
-      "heading": "Asset Manager And Theme Assets",
-      "needs_live_verification": false,
-      "section_id": "9-themes-deep-dive-asset-manager-and-theme-assets",
-      "source_keys": [
-        "e4bb4304ab76f3f9"
-      ],
-      "start_line": 687
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 720,
-      "heading": "JavaScript In CMS",
-      "needs_live_verification": false,
-      "section_id": "9-themes-deep-dive-javascript-in-cms",
-      "source_keys": [
-        "950d01229b6a2dfc"
-      ],
-      "start_line": 708
-    },
-    {
-      "confidence": "structural",
-      "end_line": 722,
-      "heading": "10. Content Channels Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-content-channels-deep-dive",
-      "source_keys": [
-        "950d01229b6a2dfc",
-        "61f3aed131f8bff8",
-        "06bcb0153237c9a3",
-        "9df9ca539eea0fc5",
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a",
+        "2c6dd9ebf7d3f598",
+        "9ae5804fa3a0ac7d",
         "b51b24ed7912d814",
-        "776256c424368312",
-        "e0adff021dcba420"
-      ],
-      "start_line": 721
-    },
-    {
-      "confidence": "structural",
-      "end_line": 740,
-      "heading": "When To Use Content Channels",
-      "needs_live_verification": false,
-      "section_id": "10-content-channels-deep-dive-when-to-use-content-channels",
-      "source_keys": [
-        "950d01229b6a2dfc"
-      ],
-      "start_line": 723
-    },
-    {
-      "confidence": "normal",
-      "end_line": 760,
-      "heading": "Content Channel Design",
-      "needs_live_verification": false,
-      "section_id": "10-content-channels-deep-dive-content-channel-design",
-      "source_keys": [
-        "61f3aed131f8bff8"
-      ],
-      "start_line": 741
-    },
-    {
-      "confidence": "normal",
-      "end_line": 764,
-      "heading": "Content Channel Item Statuses",
-      "needs_live_verification": false,
-      "section_id": "10-content-channels-deep-dive-content-channel-item-statuses",
-      "source_keys": [
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 761
-    },
-    {
-      "confidence": "normal",
-      "end_line": 779,
-      "heading": "Dates And Ordering",
-      "needs_live_verification": true,
-      "section_id": "10-content-channels-deep-dive-dates-and-ordering",
-      "source_keys": [
-        "9df9ca539eea0fc5"
-      ],
-      "start_line": 765
-    },
-    {
-      "confidence": "normal",
-      "end_line": 789,
-      "heading": "Categories And Navigation",
-      "needs_live_verification": true,
-      "section_id": "10-content-channels-deep-dive-categories-and-navigation",
-      "source_keys": [
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a"
-      ],
-      "start_line": 780
-    },
-    {
-      "confidence": "normal",
-      "end_line": 820,
-      "heading": "Content Channel Item View",
-      "needs_live_verification": true,
-      "section_id": "10-content-channels-deep-dive-content-channel-item-view",
-      "source_keys": [
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 790
-    },
-    {
-      "confidence": "normal",
-      "end_line": 835,
-      "heading": "Content Channel Item List",
-      "needs_live_verification": true,
-      "section_id": "10-content-channels-deep-dive-content-channel-item-list",
-      "source_keys": [
-        "9df9ca539eea0fc5",
-        "b51b24ed7912d814",
-        "776256c424368312"
-      ],
-      "start_line": 821
-    },
-    {
-      "confidence": "normal",
-      "end_line": 846,
-      "heading": "Content Channel Detail",
-      "needs_live_verification": false,
-      "section_id": "10-content-channels-deep-dive-content-channel-detail",
-      "source_keys": [
-        "e0adff021dcba420",
-        "61f3aed131f8bff8"
-      ],
-      "start_line": 836
-    },
-    {
-      "confidence": "structural",
-      "end_line": 848,
-      "heading": "11. Related Rock Areas: Lava, Security, Media, Content, Personalization",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization",
-      "source_keys": [
-        "30be60a23d3d0317",
-        "d3956fe7fabc25d7",
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc",
         "11cdf9c3e9ac92ed",
-        "61f3aed131f8bff8"
-      ],
-      "start_line": 847
-    },
-    {
-      "confidence": "normal",
-      "end_line": 866,
-      "heading": "Lava",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization-lava",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 849
-    },
-    {
-      "confidence": "normal",
-      "end_line": 886,
-      "heading": "Security",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization-security",
-      "source_keys": [
-        "d3956fe7fabc25d7"
-      ],
-      "start_line": 867
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 901,
-      "heading": "Media",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization-media",
-      "source_keys": [
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc"
-      ],
-      "start_line": 887
-    },
-    {
-      "confidence": "structural",
-      "end_line": 920,
-      "heading": "Content",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization-content",
-      "source_keys": [
-        "abe6ddf5dad7eb7c",
-        "0343f1e6031032b4",
-        "d0f7a4f0dd8c84bc"
-      ],
-      "start_line": 902
-    },
-    {
-      "confidence": "normal",
-      "end_line": 934,
-      "heading": "Personalization",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-lava-security-media-content-personalization-personalization",
-      "source_keys": [
-        "11cdf9c3e9ac92ed",
-        "61f3aed131f8bff8",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 921
-    },
-    {
-      "confidence": "structural",
-      "end_line": 936,
-      "heading": "12. Administration And Operational Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails",
-      "source_keys": [
-        "6c1db4d1bec69cfb",
-        "96f179b05ec9a0dc",
-        "06bcb0153237c9a3",
-        "776256c424368312",
-        "08d28c7142d649ae",
-        "7ca0c3010644f891",
-        "d3956fe7fabc25d7"
-      ],
-      "start_line": 935
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 954,
-      "heading": "Production Change Protocol",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-production-change-protocol",
-      "source_keys": [
-        "6c1db4d1bec69cfb",
-        "96f179b05ec9a0dc"
-      ],
-      "start_line": 937
-    },
-    {
-      "confidence": "normal",
-      "end_line": 972,
-      "heading": "Cache Guardrails",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-cache-guardrails",
-      "source_keys": [
-        "96f179b05ec9a0dc",
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 955
-    },
-    {
-      "confidence": "normal",
-      "end_line": 983,
-      "heading": "Shared Content Guardrails",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-shared-content-guardrails",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 973
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 995,
-      "heading": "Community Recipe Guardrails",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-community-recipe-guardrails",
-      "source_keys": [
-        "08d28c7142d649ae",
-        "7ca0c3010644f891"
-      ],
-      "start_line": 984
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1007,
-      "heading": "Reporting Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-reporting-guardrails",
-      "source_keys": [
-        "d3956fe7fabc25d7"
-      ],
-      "start_line": 996
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1019,
-      "heading": "Upgrade Guardrails",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-upgrade-guardrails",
-      "source_keys": [
-        "d3956fe7fabc25d7"
-      ],
-      "start_line": 1008
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1021,
-      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "d275b5b94a9da833",
-        "688f7051e9eaa0b1",
-        "61f3aed131f8bff8",
-        "e0adff021dcba420",
-        "9df9ca539eea0fc5",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a",
-        "115115cf94e6e0c0",
-        "b6101e209d895fc3",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1020
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1025,
-      "heading": "Rock Source Repository",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-rock-source-repository",
-      "source_keys": [
-        "d275b5b94a9da833"
-      ],
-      "start_line": 1022
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1035,
-      "heading": "Obsidian Blocks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-obsidian-blocks",
-      "source_keys": [
-        "688f7051e9eaa0b1"
-      ],
-      "start_line": 1026
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1046,
-      "heading": "Content Channel Source Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-content-channel-source-landmarks",
-      "source_keys": [
-        "61f3aed131f8bff8",
-        "e0adff021dcba420",
-        "9df9ca539eea0fc5",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a"
-      ],
-      "start_line": 1036
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1050,
-      "heading": "Web Forms CMS Block Landmark",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-web-forms-cms-block-landmark",
-      "source_keys": [
-        "115115cf94e6e0c0"
-      ],
-      "start_line": 1047
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1054,
-      "heading": "Mobile CMS Landmark",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-cms-landmark",
-      "source_keys": [
-        "b6101e209d895fc3"
-      ],
-      "start_line": 1051
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1058,
-      "heading": "Lava Command Landmark",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-command-landmark",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1055
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1060,
-      "heading": "14. Reporting, Analytics, And Model Map",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map",
-      "source_keys": [
-        "7ca0c3010644f891",
-        "1ebbaa4483d1ef62",
-        "06bcb0153237c9a3",
-        "0343f1e6031032b4"
-      ],
-      "start_line": 1059
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1075,
-      "heading": "Page View Analytics",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-page-view-analytics",
-      "source_keys": [
-        "7ca0c3010644f891"
-      ],
-      "start_line": 1061
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1090,
-      "heading": "Content Item Analytics",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-content-item-analytics",
-      "source_keys": [
-        "1ebbaa4483d1ef62",
-        "06bcb0153237c9a3"
-      ],
-      "start_line": 1076
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1101,
-      "heading": "Media Analytics",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-media-analytics",
-      "source_keys": [
-        "0343f1e6031032b4"
-      ],
-      "start_line": 1091
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1129,
-      "heading": "Model Map Usage",
-      "needs_live_verification": true,
-      "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
-      "source_keys": [
-        "0343f1e6031032b4"
-      ],
-      "start_line": 1102
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1131,
-      "heading": "15. Version And Release Caveats",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats",
-      "source_keys": [
-        "776256c424368312",
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1130
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1137,
-      "heading": "v19.1 CMS Caveat: HTML Content Shared Deletion",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v19-1-cms-caveat-html-content-shared-deletion",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1132
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1143,
-      "heading": "v18.2 CMS Caveat: Content Channel Delete Authorization",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v18-2-cms-caveat-content-channel-delete-authorization",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1138
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1149,
-      "heading": "v18.2 Entity Document Caveat",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-v18-2-entity-document-caveat",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1144
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1155,
-      "heading": "v17.1 Content Channel Breadcrumb Caveat",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-v17-1-content-channel-breadcrumb-caveat",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1150
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1161,
-      "heading": "v16.1 Dynamic Data Caveat",
-      "needs_live_verification": false,
-      "section_id": "15-version-and-release-caveats-v16-1-dynamic-data-caveat",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1156
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1165,
-      "heading": "Icon Version Caveats",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-icon-version-caveats",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1162
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1169,
-      "heading": "Source Branch Caveat",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats-source-branch-caveat",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1166
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1171,
-      "heading": "16. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9",
-        "2875911abf284e79",
-        "87a5ab006404f4af",
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1170
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1185,
-      "heading": "Playbook: Diagnose A Missing Page",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-diagnose-a-missing-page",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1172
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1200,
-      "heading": "Playbook: Diagnose A Block That Does Not Render",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-diagnose-a-block-that-does-not-render",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1186
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1214,
-      "heading": "Playbook: Safely Modify Advanced HTML",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-safely-modify-advanced-html",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1201
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1233,
-      "heading": "Playbook: Build A Content Channel",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-build-a-content-channel",
-      "source_keys": [
-        "2875911abf284e79",
-        "87a5ab006404f4af"
-      ],
-      "start_line": 1215
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1252,
-      "heading": "Playbook: Audit A Public CMS Page For Security",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-audit-a-public-cms-page-for-security",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1234
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1264,
-      "heading": "Playbook: Add Content Item Analytics",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-add-content-item-analytics",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1253
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1277,
-      "heading": "Playbook: Troubleshoot Media Required Watching",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-troubleshoot-media-required-watching",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1265
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1279,
-      "heading": "17. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree",
-      "source_keys": [
-        "805340549055ac6c",
-        "776256c424368312",
-        "7ca0c3010644f891",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1278
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1288,
-      "heading": "The Page Returns Not Found",
-      "needs_live_verification": true,
-      "section_id": "17-troubleshooting-decision-tree-the-page-returns-not-found",
-      "source_keys": [
-        "805340549055ac6c",
-        "776256c424368312"
-      ],
-      "start_line": 1280
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1301,
-      "heading": "The Page Loads But Content Is Missing",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-the-page-loads-but-content-is-missing",
-      "source_keys": [
-        "805340549055ac6c",
-        "776256c424368312"
-      ],
-      "start_line": 1289
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1312,
-      "heading": "The Wrong Content Shows",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-the-wrong-content-shows",
-      "source_keys": [
-        "805340549055ac6c",
-        "776256c424368312"
-      ],
-      "start_line": 1302
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1322,
-      "heading": "Authors Cannot Edit Content",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-authors-cannot-edit-content",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1313
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1332,
-      "heading": "Lava Works For Staff But Not Public",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-lava-works-for-staff-but-not-public",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1323
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1342,
-      "heading": "Analytics Are Empty",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-analytics-are-empty",
-      "source_keys": [
-        "7ca0c3010644f891",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62"
-      ],
-      "start_line": 1333
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1352,
-      "heading": "Files Or Documents Are Accessible To The Wrong Users",
-      "needs_live_verification": true,
-      "section_id": "17-troubleshooting-decision-tree-files-or-documents-are-accessible-to-the-wrong-users",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1343
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1361,
-      "heading": "Styling Or Icons Are Broken",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-styling-or-icons-are-broken",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1353
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1363,
-      "heading": "18. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9",
-        "30be60a23d3d0317",
-        "b51b24ed7912d814",
-        "08d28c7142d649ae",
-        "7ca0c3010644f891",
-        "d0f7a4f0dd8c84bc"
-      ],
-      "start_line": 1362
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1374,
-      "heading": "Recipe: “Find The Block That Controls This Text”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-find-the-block-that-controls-this-text",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1364
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1390,
-      "heading": "Recipe: “Why Is This Content Item Not Public?”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-why-is-this-content-item-not-public",
-      "source_keys": [
-        "c67fe29c0ec0384f",
-        "beced54c25df1aa9"
-      ],
-      "start_line": 1375
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1409,
-      "heading": "Recipe: “Can I Enable SQL In This HTML Block?”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-can-i-enable-sql-in-this-html-block",
-      "source_keys": [
-        "30be60a23d3d0317"
-      ],
-      "start_line": 1391
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1428,
-      "heading": "Recipe: “Add A Detail Page For Channel Items”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-add-a-detail-page-for-channel-items",
-      "source_keys": [
-        "b51b24ed7912d814"
-      ],
-      "start_line": 1410
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1440,
-      "heading": "Recipe: “Review A Community Recipe Before Installing”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-review-a-community-recipe-before-installing",
-      "source_keys": [
-        "08d28c7142d649ae"
-      ],
-      "start_line": 1429
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1454,
-      "heading": "Recipe: “Build A Page View Report”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-build-a-page-view-report",
-      "source_keys": [
-        "7ca0c3010644f891"
-      ],
-      "start_line": 1441
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1469,
-      "heading": "Recipe: “Troubleshoot Required Watching”",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-troubleshoot-required-watching",
-      "source_keys": [
-        "d0f7a4f0dd8c84bc"
-      ],
-      "start_line": 1455
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1495,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
-        "c877aeede8d53f3d",
-        "f7086ab6ff215e14",
-        "c3be071dd5b3a869",
-        "c3be071dd5b3a869",
-        "127269e4afa33de4",
+        "d5267087d68309c8",
+        "185624d3ffe6dd9f",
+        "645c0e29039a776f",
+        "ec5b982ff7668281",
+        "87ddbf825307c860",
+        "bb967eaa604104d2",
+        "1e57e3f75a56b1f3",
         "f115b21c5843aa4b",
-        "8f4bd6647d2fc942",
-        "bb967eaa604104d2",
+        "d91ad4be9fc41804",
+        "d76bc7034b533530",
+        "8d86d52185c4e441",
+        "9fa7aa1bf4914e73",
+        "b60a13d72fa9894f",
+        "9745f6f159607000",
+        "32a2947ac762657d",
+        "542cef07af8e12a4",
+        "6eb6c5d3ac789352",
+        "14550ea79b32e746",
+        "6c3b090a87296fc7",
+        "b7cacde936dd12c0",
+        "fa4cdce04d4dcdcb",
+        "85024b5d7a249be6",
+        "15263855449daa09",
         "688f7051e9eaa0b1",
-        "fd3fd2bfe8a855c0",
-        "bb967eaa604104d2",
-        "5fa353d6f0648800"
-      ],
-      "start_line": 1470
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1516,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
-      "source_keys": [
-        "87a5ab006404f4af",
-        "2c6dd9ebf7d3f598",
-        "9ae5804fa3a0ac7d",
-        "e4bb4304ab76f3f9",
-        "6c1db4d1bec69cfb",
-        "96f179b05ec9a0dc",
-        "2875911abf284e79",
-        "b51b24ed7912d814"
-      ],
-      "start_line": 1496
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1518,
-      "heading": "19. Source Map And Dependency Notes",
-      "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes",
-      "source_keys": [
-        "35633587d4819f55",
-        "bb00c039f16af55d",
-        "9ae5804fa3a0ac7d",
-        "379c5b8830e79dbf",
-        "2c6dd9ebf7d3f598",
-        "30be60a23d3d0317",
-        "688f7051e9eaa0b1",
+        "a29d340a8ade7182",
+        "c877aeede8d53f3d",
+        "127269e4afa33de4",
         "776256c424368312",
-        "d275b5b94a9da833",
-        "61f3aed131f8bff8",
-        "e0adff021dcba420",
-        "9df9ca539eea0fc5",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
-        "ad357405a230b4ef",
-        "4de6560c6a663d54",
-        "4972354351b13eea",
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a",
-        "ecd2e14ade74500f",
-        "115115cf94e6e0c0",
         "08d28c7142d649ae",
-        "7ca0c3010644f891",
-        "950d01229b6a2dfc",
-        "ed3acb4204b5cddd"
-      ],
-      "start_line": 1517
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1528,
-      "heading": "Primary Official / Core Sources",
-      "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes-primary-official-core-sources",
-      "source_keys": [
-        "35633587d4819f55",
-        "bb00c039f16af55d",
-        "9ae5804fa3a0ac7d",
-        "379c5b8830e79dbf",
-        "2c6dd9ebf7d3f598",
-        "30be60a23d3d0317",
-        "688f7051e9eaa0b1",
-        "776256c424368312",
+        "4e3a8aa1d3a4e953",
         "d275b5b94a9da833"
       ],
-      "start_line": 1519
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1538,
-      "heading": "Source-Code Landmarks Used",
-      "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes-source-code-landmarks-used",
-      "source_keys": [
-        "61f3aed131f8bff8",
-        "e0adff021dcba420",
-        "9df9ca539eea0fc5",
-        "06bcb0153237c9a3",
-        "1ebbaa4483d1ef62",
-        "ad357405a230b4ef",
-        "4de6560c6a663d54",
-        "4972354351b13eea",
-        "efda15d5517b0a38",
-        "16938e2c718a767b",
-        "e589fab4db59b97a",
-        "ecd2e14ade74500f",
-        "115115cf94e6e0c0"
-      ],
-      "start_line": 1529
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1545,
-      "heading": "Secondary And Community Sources",
-      "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes-secondary-and-community-sources",
-      "source_keys": [
-        "08d28c7142d649ae",
-        "7ca0c3010644f891",
-        "950d01229b6a2dfc",
-        "ed3acb4204b5cddd"
-      ],
-      "start_line": 1539
+      "start_line": 606
     },
     {
       "confidence": "citation-only",
-      "end_line": 1583,
-      "heading": "Dependencies To Other Guides",
+      "end_line": 615,
+      "heading": "Approved operational claim sources",
       "needs_live_verification": false,
-      "section_id": "19-source-map-and-dependency-notes-dependencies-to-other-guides",
+      "section_id": "source-map-approved-operational-claim-sources",
       "source_keys": [
-        "35633587d4819f55"
+        "2c6dd9ebf7d3f598",
+        "9ae5804fa3a0ac7d",
+        "b51b24ed7912d814",
+        "11cdf9c3e9ac92ed",
+        "d5267087d68309c8"
       ],
-      "start_line": 1546
+      "start_line": 608
+    },
+    {
+      "confidence": "normal",
+      "end_line": 637,
+      "heading": "Official website documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-website-documentation",
+      "source_keys": [
+        "185624d3ffe6dd9f",
+        "645c0e29039a776f",
+        "ec5b982ff7668281",
+        "87ddbf825307c860",
+        "bb967eaa604104d2",
+        "1e57e3f75a56b1f3",
+        "f115b21c5843aa4b",
+        "d91ad4be9fc41804",
+        "d76bc7034b533530",
+        "8d86d52185c4e441",
+        "9fa7aa1bf4914e73",
+        "b60a13d72fa9894f",
+        "9745f6f159607000",
+        "32a2947ac762657d",
+        "542cef07af8e12a4",
+        "6eb6c5d3ac789352",
+        "14550ea79b32e746",
+        "6c3b090a87296fc7",
+        "b7cacde936dd12c0"
+      ],
+      "start_line": 616
+    },
+    {
+      "confidence": "normal",
+      "end_line": 649,
+      "heading": "Official specialized documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-specialized-documentation",
+      "source_keys": [
+        "fa4cdce04d4dcdcb",
+        "85024b5d7a249be6",
+        "15263855449daa09",
+        "fa4cdce04d4dcdcb",
+        "688f7051e9eaa0b1",
+        "a29d340a8ade7182",
+        "c877aeede8d53f3d",
+        "127269e4afa33de4",
+        "776256c424368312"
+      ],
+      "start_line": 638
+    },
+    {
+      "confidence": "normal",
+      "end_line": 654,
+      "heading": "Community examples and implementation observations",
+      "needs_live_verification": false,
+      "section_id": "source-map-community-examples-and-implementation-observations",
+      "source_keys": [
+        "08d28c7142d649ae",
+        "4e3a8aa1d3a4e953",
+        "d275b5b94a9da833"
+      ],
+      "start_line": 650
     }
   ],
-  "source_pack_hydrated_at": "2026-06-03T16:04:51+00:00",
+  "source_pack_hydrated_at": "2026-09-03T14:35:27+00:00",
   "sources": [
     {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "55eea129eb630f601a56fec41b770ed247bfa9961155dfef81fcb92f58594e12",
-      "excerpt_hash": "e0f0d3cd14d6fc98d2d120ae3c7f8683d8a8263de2fd33e223f7c5fea264289f",
+      "content_hash": "cac9af7c315a9768bcf49336e3db12a808c452afb9c9635b454c8778ce2f64cb",
+      "excerpt_hash": "323923c4edd24e110a1d837bcf007ba6f6318317fe5cac41602a2c29168cc866",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "35633587d4819f55",
-      "source_record_id": "rock_rocku:35633587d4819f55",
-      "title": "CMS",
+      "source_id": "rock_documentation",
+      "source_key": "645c0e29039a776f",
+      "source_record_id": "rock_documentation:article:2149",
+      "title": "Intro to Websites in Rock",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "admin",
+        "api",
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/cms",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "551c28cd803e3665a93ea5736df5dc994e24a9916caa6994f69af730d2ab696a",
-      "excerpt_hash": "10d177cee5f50cb361101baa6375824a4997bbf147bec05bebacec07ca237ead",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "7ca0c3010644f891",
-      "source_record_id": "rock_recipes:7ca0c3010644f891",
-      "title": "Easy Page Views Reporting",
-      "topics": [
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/261",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/intro-to-websites-in-rock",
       "version": null
     },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "da1bfeda49ddd6145f08457a85d9cf1c9ccf0e345da7383595a35911f32c784b",
-      "excerpt_hash": "bae6208a03f0cc4a3840e314fee4854a92d31e831cb9a2e1770f71d3b2925a81",
+      "content_hash": "5e70283122164b801b8fc022fb329d05b546ef34fdc7c481200280225a7e02ae",
+      "excerpt_hash": "ecf761d50f463562459e09a34d518d73b120c48bc836215bc6ae46af672313ff",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "c67fe29c0ec0384f",
-      "source_record_id": "rock_rocku:c67fe29c0ec0384f",
-      "title": "Font Awesome 5 [Legacy]",
+      "source_key": "2c6dd9ebf7d3f598",
+      "source_record_id": "media-insight:7848aa46e6ac3794",
+      "title": "Adding Pages and Blocks Transcript Insight",
       "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/font-awesome-5-1",
+      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "346c763054bc8f7a5a1851f25d7bb90e186b5de5bed0fcca7ab25f6485b661d1",
-      "excerpt_hash": "1c849560e4d7e48d32a200cda7b7339bdebb3e03b5f21c64cff298047b3bd5d8",
+      "content_hash": "463af12354b3c20c6f50648fb18b2a16f9aa313ef9635cc83b2a59e1173d935c",
+      "excerpt_hash": "73c35eac5e987005578384bd5858f3a9a4a12c0468305cc0415feb916678077f",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "beced54c25df1aa9",
-      "source_record_id": "rock_rocku:beced54c25df1aa9",
-      "title": "Tabler Icons",
+      "source_id": "rock_documentation",
+      "source_key": "bb967eaa604104d2",
+      "source_record_id": "rock_documentation:article:2157",
+      "title": "Block Configuration",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "admin",
+        "operations",
+        "security",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/tabler-icons",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "418d8a073d951567eba0d68dc2ddf9c114d95fe04d10f40e9d18d49983e38322",
-      "excerpt_hash": "97a1e9a29feda06910d8536e403f4c08756a67dd84dabd6306618a7d7df89d9e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "bb00c039f16af55d",
-      "source_record_id": "rock_rocku:bb00c039f16af55d",
-      "title": "HTML Block",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/html-block",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "07868246b037dc35153722d121c23a8d96daec7735a20341ccb14a301bdbe6e5",
-      "excerpt_hash": "149153ba0784bec2b56e3ee4a47705e72ad0849376b36908f729fe8cb3b5c706",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "9ae5804fa3a0ac7d",
-      "source_record_id": "rock_rocku:9ae5804fa3a0ac7d",
-      "title": "Advanced HTML Block",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration",
       "version": null
     },
     {
       "authority": "official-developer",
       "authority_score": 90,
       "change_type": null,
-      "content_hash": "0f3d7f5c0e732108c787af227d9f134211e6735bf79004a2528327afb2f597bd",
-      "excerpt_hash": "2b50a82e8164b2fac69f0a518f77f56d2d0926acc7191ae0fb68131df430c9d2",
+      "content_hash": "5d80e097cd74750e355d51203fd9846939c4db92d710cf9986c309029becb0e7",
+      "excerpt_hash": "e7f85bc879e7a9bec21bef0a39aadeb5dfa3a43c6f95d238d05c0b3f7e9cb240",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_lava_docs",
-      "source_key": "30be60a23d3d0317",
-      "source_record_id": "rock_lava_docs:30be60a23d3d0317",
+      "source_key": "85024b5d7a249be6",
+      "source_record_id": "rock_lava_docs:85024b5d7a249be6",
       "title": "Getting Started",
       "topics": [
         "cms",
@@ -4353,8 +3225,385 @@
         "security",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/lava/commands",
+      "url": "https://community.rockrms.com/lava/commands/getting-started",
       "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "112d9027279ac5e537160b04757a11094a2d5a127a7c4876fae9b444ba504279",
+      "excerpt_hash": "1f70faf9a02e6051b4b3dff975d57886516531a6371640e314037c1426209aa9",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "11cdf9c3e9ac92ed",
+      "source_record_id": "media-insight:dc386f106ea69120",
+      "title": "Personalization Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/cms/personalization",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "847acc4d7f67b85222141ee41422881279527cf1844d8aaffd071254733232cf",
+      "excerpt_hash": "e6f686699c13d6585ab5c2aec7bfd1014d1b59fa1d36f3e28ee15e2e86f06d53",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "b51b24ed7912d814",
+      "source_record_id": "media-insight:7b84e33ae0a6eee9",
+      "title": "Content Channel View Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "kind": "citation_only",
+      "source_id": "rock_rocku",
+      "source_key": "d5267087d68309c8",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/rocku/cms/content-component",
+      "url": "https://community.rockrms.com/rocku/cms/content-component"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "de895755e7d820049ab35748e1f3a47fd153c048d0a027c0938f3e1c3538fd6e",
+      "excerpt_hash": "4600b17f72a5fe25df6706f3559eacbc9d4cb1c3837dac26c7f4e1dab3dfd773",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ec5b982ff7668281",
+      "source_record_id": "rock_documentation:article:2165",
+      "title": "Create a Site",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/sites/create-a-site",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9f51bae66ab88bce107f3f25a301bd6f6f059e34ad7bea5f67d9b9a63fbfa095",
+      "excerpt_hash": "2b8705eb3fb0c3136e630408ee2aff3035b810724d461d0fc4b8dfb5994b6c77",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "87ddbf825307c860",
+      "source_record_id": "rock_documentation:article:2151",
+      "title": "Routes",
+      "topics": [
+        "admin",
+        "operations",
+        "security",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/routes",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d2eb475056588faed0c67b11966efbe9b5a1e5171d4a2789dc5835d76b2839e5",
+      "excerpt_hash": "7f9d74dbe6b246cd0b7737799f098f45f9c9a72f6734b45457458a2d818665b1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b7cacde936dd12c0",
+      "source_record_id": "rock_documentation:article:2152",
+      "title": "Cookies",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/cookies",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "3de156aff50c2576099139274e674a9d125e8fca30515bcaa61c5dfd466020a7",
+      "excerpt_hash": "753cabbf9a34672e722c01feaca585c30b0885ad36e8deb172e0cf3ca94d690b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "1e57e3f75a56b1f3",
+      "source_record_id": "rock_documentation:article:2866",
+      "title": "Page Layouts",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-layouts",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "1031da1c0c2474471693c47ddc7c88b04f07ffd4e40c7ecc7d10722f2858c251",
+      "excerpt_hash": "b73071d80bf78506fe407362632d96ddc698c7e5a3708cd070570598b05c388e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d76bc7034b533530",
+      "source_record_id": "rock_documentation:article:2171",
+      "title": "Intro to the HTML Content Block",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/html-content-block/intro-to-the-html-content-block",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "e7fd82f84c8aa5775b242c9fe0d1513bcc393ac093b27ffd59846d51b19a5d3b",
+      "excerpt_hash": "61a62d494d2b7c5f5556ff632d6f7d2ceaa15871e0e72acae16b4ab52aace710",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "8d86d52185c4e441",
+      "source_record_id": "rock_documentation:article:2172",
+      "title": "Configure Block Settings",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/html-content-block/configure-block-settings",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "aebe5aefe80a1c7a12f9732ecfb1c3fc79d908c8f19d3c38c6f732ea15d89ced",
+      "excerpt_hash": "7f0cba527f94cc878f99db87305a093290a29f4931a686c328c9bb1ba1b2dfce",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9fa7aa1bf4914e73",
+      "source_record_id": "rock_documentation:article:2174",
+      "title": "Intro to Context",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/intro-to-context",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2d570e86c0b2b39d3b5930d2936d9ddeb51cf88d474d9ecaa308afbd06ea2d32",
+      "excerpt_hash": "251f486f2bf67707115e686eeabd960a1be47b1b1ca47ed8e83f4846d0b3488d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b60a13d72fa9894f",
+      "source_record_id": "rock_documentation:article:2175",
+      "title": "HTML Block Context",
+      "topics": [
+        "admin",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/html-block-context",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "2a954f0f1daf508c53ebe09116dab85b7f2c860fffb4c697152d9db022f68cc4",
+      "excerpt_hash": "65e6443521151d16b3e1b8e7e9d99b971c42c2de8fba2cc811e438b80940846e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "9745f6f159607000",
+      "source_record_id": "rock_documentation:article:2176",
+      "title": "Campus Context Setter",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/campus-context-setter",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "158042061a246bbab95f4ec6b32b97c4d131581ee865af50602221a833748d17",
+      "excerpt_hash": "f9bd72378579a357776c3a2caa84877beb5b6ae19d8ca4c7977ad3f5132ebd37",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "32a2947ac762657d",
+      "source_record_id": "rock_documentation:article:2177",
+      "title": "Context on the Person Profile",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/block-context/context-on-the-person-profile",
+      "version": null
+    },
+    {
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:createshortlink-argument-order-preflight",
+      "contribution_type": "task_card",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "15263855449daa09",
+      "source_record_id": "org_contribution:oneall:createshortlink-argument-order-preflight",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/filters/other-filters",
+        "https://community.rockrms.com/ModelMap"
+      ],
+      "title": "Preflight CreateShortLink argument order before using generated links operationally",
+      "topics": [
+        "lava",
+        "cms-websites"
+      ],
+      "url": "https://community.rockrms.com/lava/filters/other-filters"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "6cf6e4d0f3a2709d14c8ceef6490365ee5b5e01ecfd5114addfb4d4f4131be57",
+      "excerpt_hash": "6bf4e4ffd7438281febca0ef55a7bffd4d3c0ed2e1f551b6d152c3788d1df15e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "f115b21c5843aa4b",
+      "source_record_id": "rock_documentation:article:2150",
+      "title": "Themes",
+      "topics": [
+        "admin",
+        "check-in",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "f982433336a6e1f733282a50e13ebf7101325f16942f77bc7fc7d3f6bf100b74",
+      "excerpt_hash": "235b2fbfcd50a47f38a45bced88f2717cb0f590ddfd140c000b3c18fb1d61828",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d91ad4be9fc41804",
+      "source_record_id": "rock_documentation:article:2154",
+      "title": "What Not to Do",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/what-not-to-do",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "e6788fc06af37ad2687999015897bf4f094e606433b0d7676812b421a9493527",
+      "excerpt_hash": "f8de3c145d4a4a2440eb363b0ed7d35f75b7090ed176265c7e9a1efb63a7b06e",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "cms",
+        "block",
+        "content channel",
+        "contentchannel",
+        "media",
+        "content"
+      ],
+      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "6abea3d9a87cac30",
+      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
     },
     {
       "authority": "source-code",
@@ -4373,263 +3622,143 @@
       "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
       "repo": "SparkDevNetwork/Rock",
       "source_id": "sparkdevnetwork_rock",
-      "source_key": "61f3aed131f8bff8",
+      "source_key": "89c53c518e82d55f",
       "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
       "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelBag.d.ts"
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "ab58fbfec3364cccc03e78a180684b64851ac0d2dd954055a349fa74e940037b",
-      "excerpt_hash": "cf3c896e9dab52d231cb7a08966179b52b40b479aa285b0c2940970c049f1fa6",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:forgot-username-email-results-users-filter",
+      "contribution_type": "troubleshooting_pattern",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "fa4cdce04d4dcdcb",
+      "source_record_id": "org_contribution:oneall:forgot-username-email-results-users-filter",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/documentation",
+        "https://community.rockrms.com/ModelMap"
       ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "06bcb0153237c9a3",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewCustomSettingsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "2579e654c5fbb6e04b7e793e26349b86d4ec829cd582d90998d4ccaf912b437a",
-      "excerpt_hash": "8e9043f4c58c42d8ea574ef5f9787f4888c3ba95669133a96c2fc04c40b843a9",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
+      "title": "Filter password-reset communication output by the returned user accounts",
+      "topics": [
+        "cms-websites",
+        "security-permissions"
       ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1ebbaa4483d1ef62",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemView/contentChannelItemViewOptionsBag.d.ts"
+      "url": "https://community.rockrms.com/documentation"
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "unknown",
+      "authority_score": 0,
+      "kind": "citation_only",
+      "source_id": "citation",
+      "source_key": "4e3a8aa1d3a4e953",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr",
+      "url": "https://community.rockrms.com/community-hubs/5QlyA2Ydlq/media/25BMk3Glnr"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "46a72a110901ef416a5bc7c81531fde3ea4cac1a867970f8b8fb01d246faf417",
-      "excerpt_hash": "16b37acd66224b56c1eb4a6debb427e4a19d785b5331f86b8f489f665fbd9f54",
+      "content_hash": "7e9870c8978dd5e728df40a028d8b499a429fb9aed3e7cd2ec97b7c8839efd49",
+      "excerpt_hash": "95f54d86f2f740eba7d4da20898143540827c3a7608bf4c3a0a5dc42caf2c9f4",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "11cdf9c3e9ac92ed",
-      "source_record_id": "rock_rocku:11cdf9c3e9ac92ed",
-      "title": "Personalization",
+      "source_id": "rock_documentation",
+      "source_key": "6eb6c5d3ac789352",
+      "source_record_id": "rock_documentation:article:2168",
+      "title": "Sample Landing Pages",
       "topics": [
-        "training",
+        "admin",
+        "operations",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/personalization",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/sample-landing-pages",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "62c8711d95d611ea134926b73007252c758ef320b4da35469af1391d7f3169b3",
-      "excerpt_hash": "081fc308a111e5052f26b9dc993c753b9759c7081e17e03669c690d75e4e1b24",
+      "content_hash": "76af5235dee06dbe684a44dd47d3858e930750e77cbe5f3c0a8020317a690adb",
+      "excerpt_hash": "9545e240be24d5914e45e5a65a436fe305c20add6079ceb3d92ab70ba082add7",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "e4bb4304ab76f3f9",
-      "source_record_id": "rock_rocku:e4bb4304ab76f3f9",
-      "title": "Asset Manager",
+      "source_id": "rock_documentation",
+      "source_key": "14550ea79b32e746",
+      "source_record_id": "rock_documentation:article:2169",
+      "title": "Set Up Landing Pages",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "admin",
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/asset-manager",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/landing-pages/set-up-landing-pages",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "550f6ec2b817222e602f86f27ca05ae23b67c4fd4933bffe6350af73c3f0883f",
-      "excerpt_hash": "41f556d5cbf50c0074563fb0b3a92d49550826031fdfb1fe1709ef4907e521d5",
+      "content_hash": "d0dc55ddb640ac4fe42ad045f2f0c6a3875631f6293b41f9aa7bb89160108ad0",
+      "excerpt_hash": "32917f79329bfe51e984d87cbd4e4a20df0bdf3193b7c80790eb6e56bb7d98d8",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "2000146157764196",
-      "source_record_id": "rock_rocku:2000146157764196",
-      "title": "Entity Documents",
+      "source_id": "rock_documentation",
+      "source_key": "6c3b090a87296fc7",
+      "source_record_id": "rock_documentation:article:2153",
+      "title": "SEO",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "admin",
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/entity-documents",
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/seo",
       "version": null
     },
     {
-      "authority": "official-release",
-      "authority_score": 95,
-      "change_type": "bug_fix",
-      "content_hash": "3f4203a89e966a3cec63d69eaeef9813735f6cddf47ce3da7dc47d52cdc9065f",
-      "excerpt_hash": "0a059981e7563eb2755b76f54146eaf6989d2d4af3c4b50f9af24cb34be6addd",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": "June 23, 2025",
-      "severity": "normal",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:8b54403698a83494",
-      "title": "Rock Core Release Notes",
-      "topics": [
-        "releases",
-        "development",
-        "operations"
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:helix-active-search-return-inner-html-only",
+      "contribution_type": "guide_section",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "a29d340a8ade7182",
+      "source_record_id": "org_contribution:oneall:helix-active-search-return-inner-html-only",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/developer/helix/lava-applications/content-block",
+        "https://community.rockrms.com/developer/helix/lava-applications/endpoints",
+        "https://community.rockrms.com/developer/helix/htmx/syntax-style-guides"
       ],
-      "url": "https://www.rockrms.com/releasenotes",
-      "version": "17.1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "d3c821f9405fc3c703215c4321a87dec8af3996d5a39a9ca7272118eb198e344",
-      "excerpt_hash": "704dc5360f0dddd49c92ea4650fa29783908c576f72a20a62d9b7a095ae83295",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "805340549055ac6c",
-      "source_record_id": "rock_rocku:805340549055ac6c",
-      "title": "Short Links",
+      "title": "Keep Helix active-search endpoints focused on inner result HTML",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "cms-websites",
+        "lava"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/short-links",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "1a18d3fd6e650568418a3d36412666f6fb8bc1df98a07710d9471659cb7c7460",
-      "excerpt_hash": "34144da9163fc2491cc316f229bd5828d68e030a8e502a46d1169e92854ed17f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "688f7051e9eaa0b1",
-      "source_record_id": "rock_developer:688f7051e9eaa0b1",
-      "title": "Creating Blocks",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian",
-        "sql"
-      ],
-      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "7aad408e46b960402eeea86861962d29aada424b50f33ad10a7cfc62c81ced6a",
-      "excerpt_hash": "4a20116627ddcc9d8a324d23589d79c7d9ef93580457dc62347f50306825473b",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "0343f1e6031032b4",
-      "source_record_id": "rock_rocku:0343f1e6031032b4",
-      "title": "Rock Media Analytics",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-analytics",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "1b3eee0317cc56b32d6d7e71f4eb48f3aad196d490f38f7b586b0d899aae7c38",
-      "excerpt_hash": "cd7820e9228b8b683f2502ac53acfd849c184fd5d5b1c8db330178ea424e5dd6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "d0f7a4f0dd8c84bc",
-      "source_record_id": "rock_rocku:d0f7a4f0dd8c84bc",
-      "title": "Rock Media Required Watching",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/rock-media-required-watching",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "aa4b9d01f3221d1f4e6f05546e3f146bc1673c26ba118534e7eb98bb94a62c08",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b6101e209d895fc3",
-      "source_record_id": "rock_developer:b6101e209d895fc3",
-      "title": "Lava Item List",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/lava-item-list",
-      "version": null
+      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "0abe45f52db85676accdafad653ecc13b9c1dabb2a8bb377d969c61b080d8bb2",
-      "excerpt_hash": "d700d18f49b5d6e9be0eb86962f1bf4c59c69bbf6b0a7e97e29f4678b1aae1e6",
+      "content_hash": "ddce4017bc63bf45ce3e97740c86ad1e8d99020d3033f4f8c876a721d0483d09",
+      "excerpt_hash": "edca9c4cdde24108a17b7e03d097cf86a0e3dcaf8f97555862cbc79208327262",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -4650,463 +3779,39 @@
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "0902719388e4ff2a1b05c45117914cd59e23a4e2c3873db06b8d0f63b9e07e76",
-      "excerpt_hash": "6cfd42da3e7c1dc71bf5d665a2dad650d3ebf5a4be063a97cba5f691fa7f1fee",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "lava",
-        "content"
-      ],
-      "path": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "115115cf94e6e0c0",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
-      "title": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx.cs"
-    },
-    {
       "authority": "official-developer",
       "authority_score": 90,
-      "change_type": null,
-      "content_hash": "6734f1062768fbefd5fa97a14cf734254dd9080a2abcf6f5397ee6d348218da4",
-      "excerpt_hash": "95d59b38f71a8a93bb420db1563f38a8480084ebe8c60cb3f289efa057fe17c3",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
+      "kind": "citation_only",
       "source_id": "rock_developer",
-      "source_key": "8a4a79ea31348a1e",
-      "source_record_id": "rock_developer:8a4a79ea31348a1e",
-      "title": "Themes",
-      "topics": [
-        "api",
-        "development",
-        "lava",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/apple-tv-docs/styling/themes",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "92a51684fffc3fe995e1ce58f3e69d643c4debd8d01580d6bf44ec26b6e23610",
-      "excerpt_hash": "ab09ea6326901fd745000e95aa16112df5009d5057e6c6076de18b21ed66a53a",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e0adff021dcba420",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelDetail/contentChannelDetailOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "e6065dd96c1988146d7fff833a332badd90b210a3451bae1f6af474d88f5f406",
-      "excerpt_hash": "99f768c54fddca3ef8ae102653eef263a7d63d9f0aefb4f7fd1c4bc3e0ab6f22",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "9df9ca539eea0fc5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelItemList/contentChannelItemListOptionsBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "e6788fc06af37ad2687999015897bf4f094e606433b0d7676812b421a9493527",
-      "excerpt_hash": "f8de3c145d4a4a2440eb363b0ed7d35f75b7090ed176265c7e9a1efb63a7b06e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "media",
-        "content"
-      ],
-      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ad357405a230b4ef",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
-      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsRequestBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "b109cbd74fb22e72b1faba86c153e44964ff0f72a52d8904225949cc68eaf62f",
-      "excerpt_hash": "69b1eb9b41084ef317f3d1d6a79809a35292d9937f2518b10a7a37721cff27ed",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "media",
-        "content"
-      ],
-      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4de6560c6a663d54",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
-      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/GetLinkedMediaElementsResponseBag.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "f44007a53f5307871b43371af6353e0ff7ccc5f354fd9811cd2ca5fbff08ccea",
-      "excerpt_hash": "218a4312581a0dcf13d44cdb745fb41e115c2d8f07f662ede7d0a761d98a18b4",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "media",
-        "content"
-      ],
-      "path": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "4972354351b13eea",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
-      "title": "Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Cms/ContentChannelItemList/LinkedMediaElementBag.cs"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "87ddac85fe014235a1e72960a2e69e29cb557d70e1b8bb962ea2712ed8a69e8d",
-      "excerpt_hash": "476ee7d236d76d6da8c98e7d86d456394121a472812f8d29a4ab525c1fb61db5",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "abe6ddf5dad7eb7c",
-      "source_record_id": "rock_rocku:abe6ddf5dad7eb7c",
-      "title": "Publishing Rock Media",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/publishing-rock-media",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "b99a24ba6f596b05f7ed417c9c162082b3ad4f8bd3506057246647085bce9f2b",
-      "excerpt_hash": "92c85f59698de08ffc71bc49c1425c3f717cccb593a328f136995a1a6953dae4",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "2c6dd9ebf7d3f598",
-      "source_record_id": "rock_rocku:2c6dd9ebf7d3f598",
-      "title": "Adding Pages and Blocks",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "4c0b4c4135c23cdc00b57cdb78a558e88111ece796d9f7e3a942d5a527e3f5bc",
-      "excerpt_hash": "db8905ebbd02b29aed5d63643c37f3ca0a9b38ab35232e3a79b82536ce4946b6",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "379c5b8830e79dbf",
-      "source_record_id": "rock_rocku:379c5b8830e79dbf",
-      "title": "Page Builder",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/page-builder",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "fd00702cd58067c1055ca28c8cb5903ec5fd31d06ef01748db5e94a363c92d8b",
-      "excerpt_hash": "92093997dbfa8119493903255e088d12cddcdb6051a946507ec81a433a828240",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "efda15d5517b0a38",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "1fb0b312a3a9cebe5752eaf877b635a300986c87b249b3d820b4047f0e32e982",
-      "excerpt_hash": "6022a70ace89d5bac2fa1348ea514d85ec2e76e7fcfd90b7b86db740e0f2f90e",
-      "kind": "github_file",
-      "language": "ASP.NET Web Forms",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "lava",
-        "content"
-      ],
-      "path": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "ecd2e14ade74500f",
-      "source_record_id": "SparkDevNetwork/Rock:RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
-      "title": "RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/RockWeb/Blocks/Cms/ContentChannelItemPersonalListLava.ascx"
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "e488783aa2a9ebe812fed52ea0a4c77a9ca35b1b8774c4f0cdfc6d762b2c2116",
-      "excerpt_hash": "4901ab878c9546f84e2fe3c7b9f0fcd28275aedfdc0a4684d6c3270373909e30",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "950d01229b6a2dfc",
-      "source_record_id": "rock_recipes:950d01229b6a2dfc",
-      "title": "Chip Cursor Pet - just for fun",
-      "topics": [
-        "check-in",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/535",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "5ddad5ffce5ee4643688aec8defd4eb4b25775ef4777eeee23cfc33b19504c6a",
-      "excerpt_hash": "1ac5c34cdd2b22a9f9a38b2200b477c9c6638392de1bac50adc327cc1a00778c",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "16938e2c718a767b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationChannelBag.d.ts"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a9bc54d3371a9c44e3c93b31d39ed7b64cfe27e50b57af44495209ad4ba6ff14",
-      "excerpt_hash": "374dc601812383729f6d2a68584383abd234db4f76ba268451fd4c00c72e348d",
-      "kind": "github_file",
-      "language": "TypeScript",
-      "matched_terms": [
-        "cms",
-        "block",
-        "content channel",
-        "contentchannel",
-        "content"
-      ],
-      "path": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e589fab4db59b97a",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
-      "title": "Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.JavaScript.Obsidian/Framework/ViewModels/Blocks/Cms/ContentChannelNavigation/contentChannelNavigationGetGridDataRequestBag.d.ts"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "b51b24ed7912d814",
+      "source_key": "688f7051e9eaa0b1",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/content-channel-view",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-view"
+      "title": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks",
+      "url": "https://community.rockrms.com/developer/obsidian/blocks/creating-blocks"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "change_type": null,
-      "content_hash": "ccf7a5efc1fd2cf286cba7f466dcb96caaa343d855da308cc893255f9c124a03",
-      "excerpt_hash": "ca042edb49f1a37a90474324609388031ad5d45bfa5bfb4ba77215cf504856e7",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_documentation",
-      "source_key": "d3956fe7fabc25d7",
-      "source_record_id": "rock_documentation:d3956fe7fabc25d7",
-      "title": "Taking Off With Reporting",
-      "topics": [
-        "admin",
-        "lava",
-        "operations",
-        "usage"
+      "authority": "org-contribution",
+      "authority_score": 58,
+      "content_hash": null,
+      "contribution_id": "oneall:helix-endpoint-script-style-tag-boundary",
+      "contribution_type": "troubleshooting_pattern",
+      "kind": "org_contribution",
+      "needs_live_verification": true,
+      "org_id": "oneall",
+      "source_id": "org_contribution",
+      "source_key": "79a4202cc4d0f854",
+      "source_record_id": "org_contribution:oneall:helix-endpoint-script-style-tag-boundary",
+      "source_record_ids": [],
+      "source_urls": [
+        "https://community.rockrms.com/lava/commands",
+        "https://community.rockrms.com/developer/helix",
+        "https://github.com/SparkDevNetwork/Rock"
       ],
-      "url": "https://community.rockrms.com/documentation/bookcontent/6",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "e5bd84bcd24fe3e3019796ccc3643253dfc41a47fdd33d32d7292e63aab61db5",
-      "excerpt_hash": "448cf83a4b7882adff3466d4b5426dfcfd956037b66969fa57c8293b0d94e4d4",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "6c1db4d1bec69cfb",
-      "source_record_id": "rock_rocku:6c1db4d1bec69cfb",
-      "title": "CMS Components",
+      "title": "Do not assume Lava javascript and stylesheet tags work inside Helix endpoints",
       "topics": [
-        "training",
-        "usage",
-        "workflow"
+        "cms-websites",
+        "lava"
       ],
-      "url": "https://community.rockrms.com/rocku/cms/cms-components",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "64536f0dba200195d85e27cbf62da9409a235aaed049ecbfd78e8969f0043114",
-      "excerpt_hash": "8d4e1bd9282322eceb599d396d63d6b76b1c59411396918f011a1894524efc5d",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "96f179b05ec9a0dc",
-      "source_record_id": "rock_rocku:96f179b05ec9a0dc",
-      "title": "Cache Tags",
-      "topics": [
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/cms/cache-tags",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "change_type": null,
-      "content_hash": "db3a77bcaaf958e491a04fdb80dc907646b13617b8768a5e0bb36de8c2f069e4",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "2875911abf284e79",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels",
-      "url": "https://community.rockrms.com/rocku/content-channels/content-channel-types-and-content-channels"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "kind": "citation_only",
-      "source_id": "rock_rocku",
-      "source_key": "87a5ab006404f4af",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/rocku/content-channels/adding-content",
-      "url": "https://community.rockrms.com/rocku/content-channels/adding-content"
+      "url": "https://community.rockrms.com/lava/commands"
     },
     {
       "authority": "official-developer",
@@ -5123,20 +3828,10 @@
       "authority_score": 0,
       "kind": "citation_only",
       "source_id": "citation",
-      "source_key": "f7086ab6ff215e14",
+      "source_key": "98de8c1c6fc9ea76",
       "source_record_id": "",
-      "title": "https://community.rockrms.com/lava/filters/other-filters",
-      "url": "https://community.rockrms.com/lava/filters/other-filters"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "c3be071dd5b3a869",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block",
-      "url": "https://community.rockrms.com/documentation/church-management/reporting/reporting-blocks/page-parameter-filter-block"
+      "title": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=155s",
+      "url": "https://www.youtube.com/watch?v=c-wycR9HEuQ&t=155s"
     },
     {
       "authority": "official-developer",
@@ -5149,85 +3844,127 @@
       "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/cms/content"
     },
     {
-      "authority": "official",
-      "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "f115b21c5843aa4b",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/website-fundamentals/themes"
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "bug_fix",
+      "content_hash": "081b86a187d782fc179298a3633b59f0dca28b476a8afb5b9a205ee3796bec61",
+      "excerpt_hash": "b55a69fd271958e8b6553dfbfe54751cc264fdd2d030abf6a0ddcaf62eb750fc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": "June 23, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:8b54403698a83494",
+      "title": "Rock Core Release Notes",
+      "topics": [
+        "releases",
+        "development",
+        "operations"
+      ],
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "17.1"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "8f4bd6647d2fc942",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/content-management/digital-media/media-player-lava-shortcode"
-    },
-    {
-      "authority": "official",
-      "authority_score": 100,
-      "kind": "citation_only",
-      "source_id": "rock_documentation",
-      "source_key": "bb967eaa604104d2",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration",
-      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/block-configuration"
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "kind": "citation_only",
-      "source_id": "rock_developer",
-      "source_key": "fd3fd2bfe8a855c0",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/developer/helix/lava-applications/content-block",
-      "url": "https://community.rockrms.com/developer/helix/lava-applications/content-block"
-    },
-    {
-      "authority": "unknown",
-      "authority_score": 0,
-      "kind": "citation_only",
-      "source_id": "citation",
-      "source_key": "5fa353d6f0648800",
-      "source_record_id": "",
-      "title": "https://www.youtube.com/watch?v=edanHiYSDIM",
-      "url": "https://www.youtube.com/watch?v=edanHiYSDIM"
-    },
-    {
-      "authority": "official-triumph",
-      "authority_score": 105,
       "change_type": null,
-      "content_hash": "7d8f92391b46f6eac0a50d3b877bfc3b813cccc2035781b5360af81718e79b92",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_hash": "b104820dbceb25bbf18e75c3ad21aa512a9f87dac2e40b63cbfa92e8d3c2d340",
+      "excerpt_hash": "5f7d6c36c6c9b4341c453dbd8b591953ebddd59437b2d6a25aaa710ad230eb74",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "triumph_resources",
-      "source_key": "ed3acb4204b5cddd",
-      "source_record_id": "triumph_resources:ed3acb4204b5cddd",
-      "title": "GitHub Spotlight: 12/4/2025",
+      "source_id": "rock_documentation",
+      "source_key": "542cef07af8e12a4",
+      "source_record_id": "rock_documentation:article:2156",
+      "title": "Page Load Time",
       "topics": [
-        "ai",
-        "github",
-        "implementation",
-        "lava",
+        "admin",
         "operations",
-        "releases",
-        "resources",
-        "security",
-        "triumph",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites/manage-pages/page-load-time",
+      "version": null
+    },
+    {
+      "authority": "official-training",
+      "authority_score": 75,
+      "change_type": null,
+      "content_hash": "f33aa6496900eb29898a0a103a97015d8eee5a8d293ef5ac7730d64f827c4598",
+      "excerpt_hash": "4f94be8548bdf5d6a68f7004a457239c5f9c2530d846df460753848e935378ed",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_rocku",
+      "source_key": "9ae5804fa3a0ac7d",
+      "source_record_id": "media-insight:2cf056c2b84e6365",
+      "title": "Advanced HTML Block Transcript Insight",
+      "topics": [
+        "media",
+        "podcast",
+        "timestamped-insights",
+        "training",
+        "usage",
         "workflow"
       ],
-      "url": "https://www.triumph.tech/resources/github-spotlight-1242025",
+      "url": "https://community.rockrms.com/rocku/cms/advanced-html-block",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "c68852ad36d9b6077ced66da1086547c75e9aa115f7cf7b50f261922aa8f6ef2",
+      "excerpt_hash": "9a4678d59a27e798a52358356a9b502cd6b6aa2509391c5d393304cf903069cc",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "185624d3ffe6dd9f",
+      "source_record_id": "rock_documentation:article:1380",
+      "title": "Websites",
+      "topics": [
+        "admin",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/digital-publishing/websites",
+      "version": null
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "change_type": null,
+      "content_hash": "4e827f902226ef7cad5586c61d9edd0e950f0104a4c8e10f12bc217e345eb4ae",
+      "excerpt_hash": "b93d8b2aba34019c9334e74a0f4cabec9b520e1bcc1c24d1bc51608e6a18cecb",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "d275b5b94a9da833",
+      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
+      "title": "SparkDevNetwork/Rock",
+      "topics": [
+        "development",
+        "source",
+        "api",
+        "model-map"
+      ],
+      "url": "https://github.com/SparkDevNetwork/Rock",
       "version": null
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "1f67abb67d8c73e24ead44780fa055f9b88dd0ca72678166f7d20bfca080fb56"
+  }
 }

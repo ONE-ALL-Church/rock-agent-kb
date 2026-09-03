@@ -43,13 +43,12 @@ Confirm mobile check-in uses the intended configuration template, kiosk, areas, 
 
 ## Source Links
 
-- https://github.com/SparkDevNetwork/Rock/blob/develop/docs/check-in/mobile-check-in.md
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-configuration
-- https://community.rockrms.com/developer/mobile-docs/essentials/advanced-topics/proximity-attendance
-- https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Blocks/Mobile/CheckIn/CheckIn.cs
+- https://community.rockrms.com/documentation/church-management/check-in/additional-check-in-options/use-proximity-attendance
 - https://community.rockrms.com/rocku/check-in/mobile-check-in-overview
-- https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-attendance-entry
-- https://community.rockrms.com/rocku/check-in/rapid-attendance-entry
 - https://community.rockrms.com/rocku/check-in/using-mobile-check-in
-- https://community.rockrms.com/recipes/483
-- https://community.rockrms.com/recipes/116
+- https://community.rockrms.com/documentation/church-management/check-in/kiosks/configure-kiosks
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskResolutionBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.JavaScript.Obsidian.Blocks/src/CheckIn/MobileCheckInLauncher/types.partial.ts
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/CustomSettingsBag.cs
+- https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock.ViewModels/Blocks/CheckIn/MobileCheckInLauncher/KioskAvailabilityBag.cs

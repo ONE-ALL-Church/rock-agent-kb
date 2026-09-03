@@ -3,201 +3,262 @@
     {
       "do_not_assume": [],
       "entities": [
+        "Group",
         "Campus"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-request-missing-from-board",
-      "id": "request-missing-from-board",
+      "guide_section_id": "troubleshooting-decision-tree-a-connector-cannot-see-an-expected-request",
+      "id": "a-connector-cannot-see-an-expected-request",
+      "inspect": [
+        "Group",
+        "Campus"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-types?Version=v19.0",
+        "https://community.rockrms.com/documentation/engagement/connections/connection-requests/navigate-the-connections-tools?Version=v19.0",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Confirm the request exists and inspect its type, opportunity, campus, state, status, and assigned connector.",
+        "Check whether the connector is looking at My Requests, All Requests, My Types, or My Opportunities.",
+        "Clear or deliberately set campus, opportunity, state, and status filters.",
+        "Check security at the request, opportunity, and type levels.",
+        "If campaign-generated, confirm connector-group membership and campus compatibility.",
+        "Inspect the installed patch level if opportunity counts or navigation visibility disagree with permissions; v19.3 includes a related fix.",
+        "Stop when the request is visible under the intended identity and scope, or when a specific security/configuration mismatch has been isolated."
+      ],
+      "title": "A connector cannot see an expected request",
+      "when": "A connector cannot see an expected request"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Group",
+        "Campus",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-list-field-source-grouping-option-or-view-is-missing",
+      "id": "a-list-field-source-grouping-option-or-view-is-missing",
+      "inspect": [
+        "Group",
+        "Campus",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views?Version=v19.0",
+        "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=247s"
+      ],
+      "start_with": [
+        "Confirm Rock v19 and the exact block being used.",
+        "Inspect the connection type's enabled views.",
+        "Open List settings and inspect selected columns, grouping, and sorting.",
+        "Confirm request sources are configured if the source field is expected.",
+        "Verify opportunity and campus filters.",
+        "Compare behavior using an authorized administrator and the affected connector.",
+        "Stop when the missing element is explained by version, block settings, source configuration, or security."
+      ],
+      "title": "A list field, source, grouping option, or view is missing",
+      "when": "A list field, source, grouping option, or view is missing"
+    },
+    {
+      "do_not_assume": [
+        "Stop when the blocking lifecycle or placement requirement is identified; do not bypass it through an unrelated state change."
+      ],
+      "entities": [
+        "Group",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-request-cannot-skip-to-a-later-status-or-cannot-be-completed",
+      "id": "a-request-cannot-skip-to-a-later-status-or-cannot-be-completed",
+      "inspect": [
+        "Group",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/connections/configure-connections/configure-connection-types?Version=v19.0",
+        "https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views?Version=v19.0"
+      ],
+      "start_with": [
+        "Inspect whether sequential status mode is enabled.",
+        "Verify configured status order and the request's current status.",
+        "Move through the next adjacent status if sequential mode is intentional.",
+        "Confirm the request has reached the final status before completion.",
+        "Inspect whether a placement group, group requirement, or completion note is required.",
+        "Verify the intended placement group, role, and member status.",
+        "Stop when the blocking lifecycle or placement requirement is identified; do not bypass it through an unrelated state change."
+      ],
+      "title": "A request cannot skip to a later status or cannot be completed",
+      "when": "A request cannot skip to a later status or cannot be completed"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Campus"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-due-soon-or-overdue-counts-look-wrong",
+      "id": "due-soon-or-overdue-counts-look-wrong",
       "inspect": [
         "Campus"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=82s",
+        "https://community.rockrms.com/documentation/engagement/connections/connection-requests/operational-snapshot?Version=v19.0"
       ],
       "start_with": [
-        "Confirm the request exists.",
-        "Confirm the request's Connection Type and Opportunity.",
-        "Confirm the opportunity is active.",
-        "Confirm board is scoped to the same type/opportunity.",
-        "Check board State filter.",
-        "Check board Status filter.",
-        "Check campus filter.",
-        "Check connector preference filter."
+        "Confirm the metric's campus, type, and opportunity scope.",
+        "Inspect the connection type's due-date calculation mode.",
+        "Check opportunity- and status-level due-date or due-soon offsets.",
+        "Confirm whether the request has a calculated due date.",
+        "Separate active requests from Future Follow-up, inactive, and completed requests.",
+        "Open a small sample of underlying requests and reproduce the expected calculation.",
+        "Stop when the discrepancy is explained or a version-specific defect is reproducible."
       ],
-      "title": "Request Missing From Board",
-      "when": "Request Missing From Board"
+      "title": "Due-soon or overdue counts look wrong",
+      "when": "Due-soon or overdue counts look wrong"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Page",
-        "Block"
+        "Schedule",
+        "Workflow"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-request-missing-from-mobile-request-list",
-      "id": "request-missing-from-mobile-request-list",
+      "guide_section_id": "troubleshooting-decision-tree-a-future-follow-up-request-did-not-return-to-the-active-queue",
+      "id": "a-future-follow-up-request-did-not-return-to-the-active-queue",
       "inspect": [
-        "Page",
-        "Block"
+        "Schedule",
+        "Workflow"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/connection/connection-request-list"
+        "https://community.rockrms.com/documentation/engagement/connections/overview/intro-to-connections?Version=v19.0",
+        "https://community.rockrms.com/documentation/engagement/connections/connections-tools/connection-workflows?Version=v19.0"
       ],
       "start_with": [
-        "Confirm the block has the correct opportunity context.",
-        "Confirm query/page parameter name and value.",
-        "Confirm the request is not in Connected state, because the mobile Request List block excludes Connected-state requests.",
-        "Confirm mobile app version supports the block.",
-        "Confirm user security.",
-        "Confirm API/network errors."
+        "Confirm the request is in Future Follow-up state.",
+        "Inspect the stored follow-up date.",
+        "Confirm the date has passed in the installation's effective time context.",
+        "Inspect the Connection Request Workflow Triggers job's schedule and recent results.",
+        "Check whether another workflow or status rule changed the request after deferral.",
+        "Re-open the request without restrictive list filters.",
+        "Stop when the job, date, state, or filter condition explains the behavior."
       ],
-      "title": "Request Missing From Mobile Request List",
-      "when": "Request Missing From Mobile Request List"
+      "title": "A future follow-up request did not return to the active queue",
+      "when": "A future follow-up request did not return to the active queue"
     },
     {
       "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-opportunity-missing-from-selector-or-report",
-      "id": "opportunity-missing-from-selector-or-report",
-      "inspect": [],
+      "entities": [
+        "DataView",
+        "Group",
+        "Schedule",
+        "Campus",
+        "Family"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-campaign-creates-no-requests-or-assigns-them-to-the-wrong-people",
+      "id": "a-campaign-creates-no-requests-or-assigns-them-to-the-wrong-people",
+      "inspect": [
+        "DataView",
+        "Group",
+        "Schedule",
+        "Campus",
+        "Family"
+      ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/ConnectionRequest/ConnectionOpportunityFilter.cs"
+        "https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/set-up-connection-campaigns?Version=v19.0",
+        "https://community.rockrms.com/documentation/engagement/connections/connection-campaigns/intro-to-campaign-connectors?Version=v19.0"
       ],
       "start_with": [
-        "Confirm opportunity is active.",
-        "Confirm opportunity belongs to the expected Connection Type.",
-        "Confirm report filter is based on Connection Request if using native filters.",
-        "Confirm security.",
-        "Confirm display order/name.",
-        "Confirm cache refresh if recently changed."
+        "Confirm the campaign is active and points to the intended opportunity.",
+        "Validate the source Data View with a bounded sample.",
+        "Inspect family limits and opt-out-group membership.",
+        "Confirm whether creation is All at Once or As Needed.",
+        "Check the daily limit; zero or blank prevents automatic creation and assignment.",
+        "Inspect the campaign-processing job and its recent result.",
+        "Confirm connectors belong to the configured group and match campus rules.",
+        "Inspect per-connector daily-limit and schedule-day overrides."
       ],
-      "title": "Opportunity Missing From Selector Or Report",
-      "when": "Opportunity Missing From Selector Or Report"
+      "title": "A campaign creates no requests or assigns them to the wrong people",
+      "when": "A campaign creates no requests or assigns them to the wrong people"
     },
     {
       "do_not_assume": [],
+      "entities": [
+        "DataView",
+        "Workflow"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-workflow-did-not-launch-or-a-bulk-action-affected-only-some-requests",
+      "id": "a-workflow-did-not-launch-or-a-bulk-action-affected-only-some-requests",
+      "inspect": [
+        "DataView",
+        "Workflow"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/engagement/connections/connections-tools/connection-workflows?Version=v19.0",
+        "https://community.rockrms.com/documentation/engagement/connections/connections-tools/bulk-update-connection-requests?Version=v19.0",
+        "https://www.rockrms.com/releasenotes"
+      ],
+      "start_with": [
+        "Identify whether the workflow is configured on the type or opportunity.",
+        "Verify the trigger matches the event; bulk launch requires a Manual trigger.",
+        "Confirm any status, age-classification, or Data View applicability filter.",
+        "For Activity Added, verify the workflow expects an activity rather than a request.",
+        "Read the bulk-action result count and inspect excluded requests.",
+        "Check workflow persistence and workflow history.",
+        "Inspect the Rock patch level for known workflow-related fixes.",
+        "Stop when applicability, trigger configuration, input entity, permissions, or execution history explains the outcome."
+      ],
+      "title": "A workflow did not launch or a bulk action affected only some requests",
+      "when": "A workflow did not launch or a bulk action affected only some requests"
+    },
+    {
+      "do_not_assume": [
+        "Stop if provider access, prompt configuration, or evidence quality is insufficient; do not copy unverified generated statements into authoritative person data."
+      ],
       "entities": [
         "Person",
-        "Group",
-        "Campus",
-        "Workflow",
         "Block"
       ],
-      "guide_section_id": "18-troubleshooting-decision-tree-request-did-not-auto-assign",
-      "id": "request-did-not-auto-assign",
+      "guide_section_id": "troubleshooting-decision-tree-an-ai-summary-is-unavailable-or-unreliable",
+      "id": "an-ai-summary-is-unavailable-or-unreliable",
       "inspect": [
         "Person",
-        "Group",
-        "Campus",
-        "Workflow",
         "Block"
       ],
       "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionOpportunityDetail/DefaultConnectorOptionsRequestBag.cs",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Rest/v2/Models/CodeGenerated/ConnectionOpportunityConnectorGroupsController.CodeGenerated.cs"
+        "https://community.rockrms.com/documentation/engagement/connections/connection-requests/connections-views?Version=v19.0",
+        "https://www.youtube.com/watch?v=7rxTGLLhlrU&t=583s"
       ],
       "start_with": [
-        "Check connector groups on the opportunity.",
-        "Check default connector.",
-        "Check connector group membership.",
-        "Check campus compatibility.",
-        "Check workflow/automation.",
-        "Check person/group security.",
-        "Check inactive group members.",
-        "Check whether assignment is manual by design."
+        "Confirm the installed version and that the feature exists in the active request block.",
+        "Inspect the connection type's AI-summary settings.",
+        "Confirm a prompt is configured.",
+        "Confirm an AI provider is configured and available.",
+        "Check whether generation is manual or automatic.",
+        "Verify the current user's access to the request and AI surface.",
+        "Compare generated claims with request activities and governed person data.",
+        "Stop if provider access, prompt configuration, or evidence quality is insufficient; do not copy unverified generated statements into authoritative person data."
       ],
-      "title": "Request Did Not Auto-Assign",
-      "when": "Request Did Not Auto-Assign"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Workflow",
-        "Block"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-status-change-did-something-unexpected",
-      "id": "status-change-did-something-unexpected",
-      "inspect": [
-        "Workflow",
-        "Block"
-      ],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.ViewModels/Blocks/Engagement/ConnectionTypeDetail/ConnectionStatusBag.cs"
-      ],
-      "start_with": [
-        "Inspect the selected status configuration.",
-        "Check auto-inactivate.",
-        "Check auto future follow-up pause.",
-        "Check note-required-on-completion.",
-        "Check due offsets.",
-        "Check status automations.",
-        "Check workflow history.",
-        "Check request history."
-      ],
-      "title": "Status Change Did Something Unexpected",
-      "when": "Status Change Did Something Unexpected"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block",
-        "Attribute"
-      ],
-      "guide_section_id": "18-troubleshooting-decision-tree-signup-missing-attributes",
-      "id": "signup-missing-attributes",
-      "inspect": [
-        "Block",
-        "Attribute"
-      ],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Determine whether missing attributes are type-level or opportunity-level.",
-        "Verify attribute security.",
-        "Verify block settings.",
-        "Verify Rock version.",
-        "Check v17.2 fix for inherited request attributes.",
-        "Test in staff and public contexts."
-      ],
-      "title": "Signup Missing Attributes",
-      "when": "Signup Missing Attributes"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "18-troubleshooting-decision-tree-list-sorting-looks-wrong",
-      "id": "list-sorting-looks-wrong",
-      "inspect": [],
-      "source_urls": [
-        "https://www.rockrms.com/releasenotes"
-      ],
-      "start_with": [
-        "Confirm sort field and direction.",
-        "Confirm date basis.",
-        "Compare board/list/direct query.",
-        "Check v18.3 fix for date sorting.",
-        "Verify timezone/date display."
-      ],
-      "title": "List Sorting Looks Wrong",
-      "when": "List Sorting Looks Wrong"
+      "title": "An AI summary is unavailable or unreliable",
+      "when": "An AI summary is unavailable or unreliable"
     }
   ],
   "concept_id": "connections",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T16:50:49+00:00",
   "guide_sections": [
-    "18-troubleshooting-decision-tree",
-    "18-troubleshooting-decision-tree-request-missing-from-board",
-    "18-troubleshooting-decision-tree-request-missing-from-mobile-request-list",
-    "18-troubleshooting-decision-tree-opportunity-missing-from-selector-or-report",
-    "18-troubleshooting-decision-tree-request-did-not-auto-assign",
-    "18-troubleshooting-decision-tree-status-change-did-something-unexpected",
-    "18-troubleshooting-decision-tree-signup-missing-attributes",
-    "18-troubleshooting-decision-tree-list-sorting-looks-wrong",
-    "19-agent-task-recipes",
-    "19-agent-task-recipes-recipe-audit-one-connection-type",
-    "19-agent-task-recipes-recipe-explain-why-a-request-is-hidden",
-    "19-agent-task-recipes-recipe-validate-signup-flow",
-    "19-agent-task-recipes-recipe-build-opportunity-cards",
-    "19-agent-task-recipes-recipe-investigate-connector-workload"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-connector-cannot-see-an-expected-request",
+    "troubleshooting-decision-tree-a-list-field-source-grouping-option-or-view-is-missing",
+    "troubleshooting-decision-tree-a-request-cannot-skip-to-a-later-status-or-cannot-be-completed",
+    "troubleshooting-decision-tree-due-soon-or-overdue-counts-look-wrong",
+    "troubleshooting-decision-tree-a-future-follow-up-request-did-not-return-to-the-active-queue",
+    "troubleshooting-decision-tree-a-campaign-creates-no-requests-or-assigns-them-to-the-wrong-people",
+    "troubleshooting-decision-tree-a-workflow-did-not-launch-or-a-bulk-action-affected-only-some-requests",
+    "troubleshooting-decision-tree-an-ai-summary-is-unavailable-or-unreliable",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-configure-a-new-connection-pipeline",
+    "agent-task-recipes-recipe-triage-an-unassigned-or-overdue-queue",
+    "agent-task-recipes-recipe-transfer-and-complete-a-request-safely",
+    "agent-task-recipes-recipe-launch-a-connection-campaign",
+    "agent-task-recipes-recipe-connect-preregistration-to-staff-follow-up",
+    "agent-task-recipes-recipe-validate-status-automation"
   ]
 }

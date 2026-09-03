@@ -10,11 +10,12 @@ generated: true
 
 | Task | Inspect | Entities |
 | --- | --- | --- |
-| [Recipe: Read-Only Finance Record Inspection](tasks/recipe-read-only-finance-record-inspection.md) | `Person`, `PersonAlias`, `Location`, `Block` | `Person`, `PersonAlias`, `Location`, `Block` |
-| [Recipe: Statement Eligibility Explanation](tasks/recipe-statement-eligibility-explanation.md) | `Person`, `DataView` | `Person`, `DataView` |
-| [Recipe: Safe Account Cleanup Assessment](tasks/recipe-safe-account-cleanup-assessment.md) | `DataView`, `Location`, `Schedule`, `Block`, `Attribute` | `DataView`, `Location`, `Schedule`, `Block`, `Attribute` |
-| [Recipe: Giving Automation Review](tasks/recipe-giving-automation-review.md) | `DataView`, `Schedule` | `DataView`, `Schedule` |
-| [Recipe: Pledge Progress Analysis](tasks/recipe-pledge-progress-analysis.md) | `Person`, `Page` | `Person`, `Page` |
+| [Recipe: Trace a public gift end to end](tasks/recipe-trace-a-public-gift-end-to-end.md) | `Person`, `Location`, `Page` | `Person`, `Location`, `Page` |
+| [Recipe: Validate an online giving page before launch](tasks/recipe-validate-an-online-giving-page-before-launch.md) | `Schedule`, `Campus`, `Page`, `Block` | `Schedule`, `Campus`, `Page`, `Block` |
+| [Recipe: Reconcile an online batch](tasks/recipe-reconcile-an-online-batch.md) | `Workflow` | `Workflow` |
+| [Recipe: Generate and validate contribution statements](tasks/recipe-generate-and-validate-contribution-statements.md) | `Person`, `Family` | `Person`, `Family` |
+| [Recipe: Build a detail-preserving finance report](tasks/recipe-build-a-detail-preserving-finance-report.md) | `Person`, `Group`, `Location`, `Family`, `Page` | `Person`, `Group`, `Location`, `Family`, `Page` |
+| [Recipe: Transfer scheduled giving to a new gateway](tasks/recipe-transfer-scheduled-giving-to-a-new-gateway.md) | `Schedule`, `Block` | `Schedule`, `Block` |
 
 ## Entities
 
@@ -23,13 +24,11 @@ generated: true
 | `Attribute` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Block` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Campus` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `DataView` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Family` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Group` | `GroupType`, `Location`, `Schedule`, `AttendanceOccurrence` | Verify active state, campus, group type, location, schedule, and capacity assumptions. |
 | `Location` | `Group`, `AttendanceOccurrence`, `Device` | Check active state, campus, location hierarchy, and printer behavior. |
 | `Page` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Person` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
-| `PersonAlias` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 | `Schedule` | `Group`, `AttendanceOccurrence` | Schedule windows are a frequent reason eligible rooms do not appear. |
 | `Workflow` |  | Verify the exact record/entity shape in the live Rock version before making changes. |
 
@@ -44,55 +43,26 @@ generated: true
 
 | Section | Confidence | Reason |
 | --- | --- | --- |
-| `generated-model-map-pointers` | citation-only | live verification |
-| `1-executive-summary-for-agents` | normal | live verification |
-| `2-scope-and-terminology` | high | live verification |
-| `4-source-authority-and-how-to-use-this-guide` | high | live verification |
-| `5-core-configuration-and-data-model-financial-accounts` | normal | live verification |
-| `5-core-configuration-and-data-model-financial-gateways` | high | live verification |
-| `5-core-configuration-and-data-model-blocks-and-pages` | normal | live verification |
-| `6-primary-entities-and-relationships-batches-and-transactions` | high | live verification |
-| `6-primary-entities-and-relationships-scheduled-transactions-and-payment-plans` | normal | live verification |
-| `6-primary-entities-and-relationships-pledges` | normal | live verification |
-| `6-primary-entities-and-relationships-people-personalias-businesses-families-and-giving-units` | normal | live verification |
-| `7-common-giving-and-finance-workflows-text-giving` | normal | live verification |
-| `7-common-giving-and-finance-workflows-manual-entry-and-check-processing` | high | live verification |
-| `7-common-giving-and-finance-workflows-external-giving-imports` | community-supported | live verification |
-| `8-transactions-deep-dive-transaction-dates` | normal | live verification |
-| `8-transactions-deep-dive-transaction-types` | normal | live verification |
-| `8-transactions-deep-dive-transaction-attributes` | community-supported | community-supported |
-| `8-transactions-deep-dive-transaction-security` | normal | live verification |
-| `9-statements-deep-dive-statement-recipients` | normal | live verification |
-| `9-statements-deep-dive-statement-eligibility` | normal | live verification |
-| `9-statements-deep-dive-receipts-vs-statements` | community-supported | community-supported |
-| `10-batches-deep-dive-batch-fields-to-inspect` | normal | live verification |
-| `10-batches-deep-dive-automated-batches` | normal | live verification |
-| `10-batches-deep-dive-check-scanning-and-mobile-batch-processing` | normal | live verification |
-| `11-related-rock-areas-people-groups-workflows-security-reporting-people` | structural | live verification |
-| `11-related-rock-areas-people-groups-workflows-security-reporting-groups` | normal | live verification |
-| `11-related-rock-areas-people-groups-workflows-security-reporting-workflows` | community-supported | live verification |
-| `11-related-rock-areas-people-groups-workflows-security-reporting-reporting` | citation-only | live verification |
-| `12-administration-and-operational-guardrails-change-control` | structural | live verification |
-| `12-administration-and-operational-guardrails-account-governance` | community-supported | community-supported |
-| `12-administration-and-operational-guardrails-gateway-governance` | normal | live verification |
-| `12-administration-and-operational-guardrails-receipt-and-statement-controls` | normal | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-api-considerations` | normal | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-lava-considerations` | community-supported | live verification |
-| `13-developer-api-lava-and-source-code-landmarks-mobile-developer-landmarks` | normal | live verification |
-| `14-reporting-analytics-and-model-map-giving-analytics` | normal | live verification |
-| `14-reporting-analytics-and-model-map-bi-financial-transaction-reporting` | citation-only | live verification |
-| `15-version-and-release-caveats` | high | live verification |
-| `16-implementation-playbooks-playbook-add-a-new-giving-account` | normal | live verification |
-| `16-implementation-playbooks-playbook-configure-online-giving` | structural | live verification |
-| `16-implementation-playbooks-playbook-enable-mobile-batch-check-scanning` | normal | live verification |
-| `16-implementation-playbooks-playbook-build-a-giving-analytics-report` | citation-only | live verification |
-| `16-implementation-playbooks-playbook-import-giving-from-an-external-system` | community-supported | live verification |
-| `17-troubleshooting-decision-tree-recurring-gift-did-not-run` | normal | live verification |
-| `17-troubleshooting-decision-tree-receipt-language-is-wrong` | normal | live verification |
-| `18-agent-task-recipes-recipe-read-only-finance-record-inspection` | structural | live verification |
-| `18-agent-task-recipes-recipe-statement-eligibility-explanation` | structural | live verification |
-| `18-agent-task-recipes-recipe-safe-account-cleanup-assessment` | structural | live verification |
-| `18-agent-task-recipes-recipe-giving-automation-review` | community-supported | live verification |
-| `18-agent-task-recipes-recipe-pledge-progress-analysis` | community-supported | live verification |
-| `approved-claim-coverage` | normal | live verification |
-| `19-source-map-and-dependency-notes` | high | live verification |
+| `scope-and-boundaries` | normal | live verification |
+| `mental-model` | normal | live verification |
+| `transactions` | normal | live verification |
+| `payment-gateways` | normal | live verification |
+| `online-giving-and-receipts` | normal | live verification |
+| `text-giving` | normal | live verification |
+| `batches` | normal | live verification |
+| `giving-units-businesses-and-pledges` | normal | live verification |
+| `reporting-and-reconciliation` | normal | live verification |
+| `security-and-administration` | normal | live verification |
+| `troubleshooting-decision-tree-a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible` | normal | live verification |
+| `troubleshooting-decision-tree-a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists` | normal | live verification |
+| `troubleshooting-decision-tree-a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people` | normal | live verification |
+| `troubleshooting-decision-tree-giving-overview-journey-or-alerts-appear-stale-or-incorrect` | normal | live verification |
+| `troubleshooting-decision-tree-text-giving-setup-processing-refund-or-failure-messaging-does-not-work` | normal | live verification |
+| `troubleshooting-decision-tree-users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard` | normal | live verification |
+| `agent-task-recipes-recipe-trace-a-public-gift-end-to-end` | citation-only | live verification |
+| `agent-task-recipes-recipe-validate-an-online-giving-page-before-launch` | normal | live verification |
+| `agent-task-recipes-recipe-generate-and-validate-contribution-statements` | normal | live verification |
+| `agent-task-recipes-recipe-build-a-detail-preserving-finance-report` | normal | live verification |
+| `agent-task-recipes-recipe-transfer-scheduled-giving-to-a-new-gateway` | normal | live verification |
+| `known-gaps-and-live-verification` | structural | live verification |
+| `source-map-community-example` | community-supported | community-supported |

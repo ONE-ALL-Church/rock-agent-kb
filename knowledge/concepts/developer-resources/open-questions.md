@@ -10,53 +10,55 @@ This file is for human reviewers and future agents. It lists guide areas where s
 
 ## Needs Citation
 
+- `scope-and-boundaries`: Scope And Boundaries (154 words)
+- `version-and-authority-caveats`: Version And Authority Caveats (193 words)
+- `agent-task-recipes-recipe-verify-a-save-or-rock-managed-file-deployment`: Recipe: Verify a save or Rock-managed file deployment (171 words)
+- `known-gaps-and-live-verification`: Known Gaps And Live Verification (222 words)
 
 ## Community-Supported Only
 
-- `29-source-map-and-dependency-notes-community-examples-and-q-a`: Community Examples And Q&A
+- `helix-development-content-blocks-and-routing`: Content blocks and routing
 
 ## Needs Live Verification
 
-- `generated-model-map-pointers`: Generated Model Map Pointers
-- `1-executive-summary-for-agents`: 1. Executive Summary For Agents
-- `2-scope-and-terminology`: 2. Scope And Terminology
-- `3-rock-developer-resources-mental-model-layer-1-platform-and-runtime`: Layer 1: Platform and runtime
-- `3-rock-developer-resources-mental-model-layer-3-data-model-and-persistence`: Layer 3: Data model and persistence
-- `3-rock-developer-resources-mental-model-layer-5-release-and-branch-reality`: Layer 5: Release and branch reality
-- `4-source-authority-and-how-to-use-this-guide`: 4. Source Authority And How To Use This Guide
-- `5-core-configuration-and-data-model-pages-layouts-sites-and-blocks`: Pages, layouts, sites, and blocks
-- `5-core-configuration-and-data-model-attributes-and-defined-values`: Attributes and defined values
-- `5-core-configuration-and-data-model-custom-entities-and-services`: Custom entities and services
-- `5-core-configuration-and-data-model-lava-applications-and-lava-endpoints`: Lava Applications and Lava Endpoints
-- `6-primary-entities-and-relationships`: 6. Primary Entities And Relationships
-- `6-primary-entities-and-relationships-page-block-and-block-type`: Page, block, and block type
-- `6-primary-entities-and-relationships-person-and-personalias`: Person and PersonAlias
-- `6-primary-entities-and-relationships-attribute-attributevalue-definedtype-definedvalue`: Attribute, AttributeValue, DefinedType, DefinedValue
-- `6-primary-entities-and-relationships-workflow-and-workflow-actions`: Workflow and workflow actions
-- `6-primary-entities-and-relationships-lavaapplication-and-lavaendpoint`: LavaApplication and LavaEndpoint
-- `6-primary-entities-and-relationships-interaction-and-analytics`: Interaction and analytics
-- `6-primary-entities-and-relationships-theme`: Theme
-- `7-common-rock-developer-resources-workflows-package-and-deploy-a-plugin-or-theme`: Package and deploy a plugin or theme
-- `7-common-rock-developer-resources-workflows-diagnose-a-broken-developer-feature`: Diagnose a broken developer feature
-- `8-developer-codex-deep-dive`: 8. Developer Codex Deep Dive
-- `8-developer-codex-deep-dive-code-generator-and-model-changes`: Code generator and model changes
-- `8-developer-codex-deep-dive-obsidian-chop-swap-sneak`: Obsidian Chop, Swap, Sneak
-- `8-developer-codex-deep-dive-testing-and-peer-review`: Testing and peer review
-- `9-developer-101-launchpad-deep-dive-operational-pattern`: Operational pattern
-- `9-developer-101-launchpad-deep-dive-personalias-vs-person`: PersonAlias vs Person
-- `9-developer-101-launchpad-deep-dive-security`: Security
-- `10-developer-202-ignition-deep-dive-migrations-in-202`: Migrations in 202
-- `10-developer-202-ignition-deep-dive-data-migration-helper-methods`: Data migration helper methods
-- `10-developer-202-ignition-deep-dive-agent-cautions`: Agent cautions
-- `11-developer-303-blast-off-deep-dive-data-view-filters-and-dynamic-linq`: Data view filters and Dynamic LINQ
-- `11-developer-303-blast-off-deep-dive-rest-api`: REST API
-- `12-obsidian-deep-dive-detail-blocks`: Detail blocks
-- `12-obsidian-deep-dive-grids`: Grids
-- `12-obsidian-deep-dive-field-types-and-ui-controls`: Field types and UI controls
-- `13-helix-deep-dive-plugin-vs-core-status`: Plugin vs core status
-- `13-helix-deep-dive-lava-applications`: Lava Applications
-- `13-helix-deep-dive-lava-endpoints`: Lava Endpoints
-- `14-ai-agents-deep-dive-live-verification`: Live verification
+- `agent-summary`: Agent Summary
+- `scope-and-boundaries`: Scope And Boundaries
+- `mental-model`: Mental Model
+- `learning-path-quickstart-101-202-and-303`: Learning Path: Quickstart, 101, 202, And 303
+- `developer-codex`: Developer Codex
+- `developer-codex-naming-and-compatibility`: Naming and compatibility
+- `obsidian-development`: Obsidian Development
+- `obsidian-development-plugin-development`: Plugin development
+- `obsidian-development-replacing-webforms-blocks`: Replacing WebForms blocks
+- `helix-development-applications-and-endpoints`: Applications and endpoints
+- `helix-development-content-blocks-and-routing`: Content blocks and routing
+- `helix-development-security-and-data-integrity`: Security and data integrity
+- `helix-development-packaging-status-conflict`: Packaging-status conflict
+- `ai-agents`: AI Agents
+- `rock-mobile-development`: Rock Mobile Development
+- `apple-tv-and-roku-development-apple-tv`: Apple TV
+- `apple-tv-and-roku-development-roku`: Roku
+- `packaging-plugins-and-themes`: Packaging Plugins And Themes
+- `utility-design-query-branch-and-release-references`: Utility, Design, Query, Branch, And Release References
+- `troubleshooting-decision-tree-a-rest-request-returns-an-authorization-error`: A REST request returns an authorization error
+- `troubleshooting-decision-tree-an-obsidian-action-works-but-redirect-or-metadata-lava-does-nothing`: An Obsidian action works but redirect or metadata Lava does nothing
+- `troubleshooting-decision-tree-an-obsidian-block-shows-stale-or-mismatched-generated-types`: An Obsidian block shows stale or mismatched generated types
+- `troubleshooting-decision-tree-a-webforms-to-obsidian-replacement-loses-settings`: A WebForms-to-Obsidian replacement loses settings
+- `troubleshooting-decision-tree-a-helix-request-does-not-update-the-target-content`: A Helix request does not update the target content
+- `troubleshooting-decision-tree-a-helix-form-submits-or-validates-unpredictably`: A Helix form submits or validates unpredictably
+- `troubleshooting-decision-tree-a-mobile-feature-works-on-one-device-but-not-another`: A mobile feature works on one device but not another
+- `troubleshooting-decision-tree-roku-navigation-or-focus-is-broken`: Roku navigation or focus is broken
+- `troubleshooting-decision-tree-slingshot-imported-records-but-downstream-reporting-is-wrong`: Slingshot imported records but downstream reporting is wrong
+- `agent-task-recipes-recipe-select-the-correct-developer-resource`: Recipe: Select the correct developer resource
+- `agent-task-recipes-recipe-review-an-obsidian-block-change`: Recipe: Review an Obsidian block change
+- `agent-task-recipes-recipe-regenerate-artifacts-after-a-model-change`: Recipe: Regenerate artifacts after a model change
+- `agent-task-recipes-recipe-review-a-helix-endpoint-before-changing-it`: Recipe: Review a Helix endpoint before changing it
+- `agent-task-recipes-recipe-validate-rock-mobile-compatibility`: Recipe: Validate Rock Mobile compatibility
+- `agent-task-recipes-recipe-build-or-repair-a-roku-page`: Recipe: Build or repair a Roku page
+- `agent-task-recipes-recipe-prepare-a-plugin-or-theme-package`: Recipe: Prepare a plugin or theme package
+- `agent-task-recipes-recipe-validate-a-slingshot-migration`: Recipe: Validate a Slingshot migration
+- `agent-task-recipes-recipe-inspect-page-content-with-a-rock-ai-agent`: Recipe: Inspect page content with a Rock AI agent
+- `agent-task-recipes-recipe-verify-a-save-or-rock-managed-file-deployment`: Recipe: Verify a save or Rock-managed file deployment
 
 ## Live Verification Clarification
 

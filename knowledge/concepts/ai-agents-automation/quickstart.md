@@ -18,38 +18,33 @@ Rock AI agents, custom tools, automation patterns, tool security, least privileg
 
 ## Primary Tasks
 
-- [Recipe: “Find The Right Person”](tasks/recipe-find-the-right-person.md): Never assume the first name match is correct when the requested action is sensitive.
-- [Recipe: “Summarize This Person”](tasks/recipe-summarize-this-person.md): Complete “Summarize This Person” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Draft A Communication”](tasks/recipe-draft-a-communication.md): Complete “Draft A Communication” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Create A Connection Request”](tasks/recipe-create-a-connection-request.md): Complete “Create A Connection Request” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Explain A Workflow Queue”](tasks/recipe-explain-a-workflow-queue.md): Complete “Explain A Workflow Queue” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Audit Agent Security”](tasks/recipe-audit-agent-security.md): Complete “Audit Agent Security” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Build A Safe Public Agent”](tasks/recipe-build-a-safe-public-agent.md): Complete “Build A Safe Public Agent” with evidence-backed checks and a verifiable outcome.
-- [Recipe: “Review An Agent Answer”](tasks/recipe-review-an-agent-answer.md): <!-- BEGIN GENERATED APPROVED CLAIM COVERAGE -->
+- [Recipe: Design a safe read-only lookup surface](tasks/recipe-design-a-safe-read-only-lookup-surface.md): The agent can resolve a natural-language reference to an authorized Rock entity without receiving unnecessary data.
+- [Recipe: Build a bounded List and Get pair](tasks/recipe-build-a-bounded-list-and-get-pair.md): The agent can search a large entity set and retrieve details only for the selected item.
+- [Recipe: Add a controlled AddOrUpdate capability](tasks/recipe-add-a-controlled-addorupdate-capability.md): An authorized user can create or edit one entity through a validated, auditable tool.
+- [Recipe: Configure a drafting agent without send authority](tasks/recipe-configure-a-drafting-agent-without-send-authority.md): Staff can research and compose a communication while sending remains a separate approved action.
+- [Recipe: Launch a workflow through an agent](tasks/recipe-launch-a-workflow-through-an-agent.md): The agent launches one permitted workflow with valid attribute values and verifies the resulting record.
+- [Recipe: Review a Public agent before launch](tasks/recipe-review-a-public-agent-before-launch.md): The public surface exposes only reviewed, non-sensitive and non-destructive capabilities.
+- [Recipe: Diagnose incorrect tool selection](tasks/recipe-diagnose-incorrect-tool-selection.md): The model consistently chooses the intended tool for representative requests.
+- [Recipe: Roll out an agent-assisted process to staff](tasks/recipe-roll-out-an-agent-assisted-process-to-staff.md): Staff understand the approved use case, review boundary and authoritative Rock workflow before volunteer rollout.
 
 ## High-Signal Sections
 
-- `1-executive-summary-for-agents` lines 29-56: 1. Executive Summary For Agents (high)
-- `2-scope-and-terminology` lines 57-109: 2. Scope And Terminology (high)
-- `3-ai-agents-and-automation-mental-model` lines 110-137: 3. AI Agents And Automation Mental Model (normal)
-- `4-source-authority-and-how-to-use-this-guide` lines 138-165: 4. Source Authority And How To Use This Guide (high)
-- `5-core-configuration-and-data-model` lines 166-217: 5. Core Configuration And Data Model (normal)
-- `6-primary-entities-and-relationships` lines 218-246: 6. Primary Entities And Relationships (normal)
+- `agent-summary` lines 18-40: Agent Summary (normal)
+- `scope-and-boundaries` lines 41-60: Scope And Boundaries (normal)
+- `mental-model-agent-skill-and-tool` lines 63-70: Agent, skill and tool (normal)
+- `mental-model-chat-mcp-internal-and-public-are-separate-choices` lines 86-91: Chat, MCP, Internal and Public are separate choices (normal)
+- `agent-tools-and-lookup-surfaces-shape-tools-around-intent` lines 94-110: Shape tools around intent (normal)
+- `agent-tools-and-lookup-surfaces-use-lookup-list-and-get-as-a-sequence` lines 111-116: Use lookup, list and get as a sequence (normal)
 
 ## Core Entities
 
-- `Attendance`: Person-specific attendance fact written by check-in, group attendance, rapid attendance, mobile attendance, or related flows.
 - `Attribute`: Rock concept/entity referenced by the ai-agents-automation guide.
-- `Block`: Rock concept/entity referenced by the ai-agents-automation guide.
-- `Campus`: Rock concept/entity referenced by the ai-agents-automation guide.
 - `DataView`: Rock concept/entity referenced by the ai-agents-automation guide.
-- `Family`: Rock concept/entity referenced by the ai-agents-automation guide.
+- `Device`: Kiosk, printer, or device record that affects check-in availability and label routing.
 - `Group`: Concrete attendance destination, room, service, team, class, or group.
 - `Page`: Rock concept/entity referenced by the ai-agents-automation guide.
 - `Person`: Rock concept/entity referenced by the ai-agents-automation guide.
-- `PersonAlias`: Rock concept/entity referenced by the ai-agents-automation guide.
-- `Schedule`: Time window that makes groups and locations available for check-in or attendance.
-- `Step`: Person-specific engagement milestone instance.
+- `Workflow`: Rock concept/entity referenced by the ai-agents-automation guide.
 
 ## Version Caveats
 

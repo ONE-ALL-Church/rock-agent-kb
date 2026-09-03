@@ -481,435 +481,30 @@
   },
   "approved_media_hash": "4d7bbfff0f1989211ab5de1e52ef13980a8ea83632257b2785e28e9dd4e24006",
   "approved_media_path": "knowledge/concepts/giving-finance/approved-media.md",
-  "built_at": "2026-08-12T12:50:00+00:00",
+  "built_at": "2026-09-03T16:50:52+00:00",
   "concept_id": "giving-finance",
-  "guide_hash": "45b93394ffdc766705d6a19d17518d4058f66bdf74bd4dfa46fbf867df6685fa",
-  "guide_line_count": 1466,
+  "guide_hash": "9f48decebc44aa157da214cef9f1e8a40c09bcd4eced114ce2c5d73c6e42431d",
+  "guide_line_count": 499,
   "guide_path": "knowledge/concepts/giving-finance/guide.md",
-  "guide_word_count": 12941,
+  "guide_word_count": 6576,
   "rebuild_triggers": [
     {
-      "authority": "official-model-map",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
-    {
       "authority": "official-training",
-      "content_hash": "1f49118c728364ad3916610bb2403bee77b058fd7a3223105d44430e761be863",
-      "excerpt_hash": "a497dd39b34386017872ba31e9811ae5fd5a3d3b5dbeadcfcc0380d95c7bea6d",
-      "source_id": "rock_rocku",
-      "source_key": "5feb321c12dae9ff",
-      "source_record_id": "rock_rocku:5feb321c12dae9ff",
-      "url": "https://community.rockrms.com/rocku/finance"
-    },
-    {
-      "authority": "official",
-      "content_hash": "b0b4c87572e3cb39d6d7871ab3e4ee93f59763ed88f6e4f96a925bc105a37ab8",
-      "excerpt_hash": "6887a0f6caabe8e7924ec25581868d89284d8ebaebee832771473ac70eb11365",
-      "source_id": "rock_documentation",
-      "source_key": "1590d03b5f992088",
-      "source_record_id": "rock_documentation:1590d03b5f992088",
-      "url": "https://community.rockrms.com/documentation/bookcontent/15"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "16a95eff66470ca2ebf6e88daa362a1bfb732cf054103b6acd1efa3eb9a5daba",
-      "excerpt_hash": "5eaac337635a9840da63d90c5717af86a6ec8bcb445506816bbe014ed5f9226a",
-      "source_id": "rock_rocku",
-      "source_key": "af0487d0f556989c",
-      "source_record_id": "rock_rocku:af0487d0f556989c",
-      "url": "https://community.rockrms.com/rocku/finance/accounts"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "5fcb1a6bcab704b71ec112ccedb48101db8f388b68cf65a54bf3e053ca1a1ddc",
-      "excerpt_hash": "2d527d587315da02c339a56225803ed16703df9bee6f16318dd0715f66653783",
-      "source_id": "rock_rocku",
-      "source_key": "ec34ce9b780ba158",
-      "source_record_id": "rock_rocku:ec34ce9b780ba158",
-      "url": "https://community.rockrms.com/rocku/finance/transactions"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "bf8ab49ebfc73d8aed4ac177427fbedaa2cb327a36065c3f45088298eb37049d",
-      "excerpt_hash": "3fcde3c10fb3aad195b7ec0dea209d1b499a2b8dcc61813986ad09d5b7bb8d5b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5677270e119d7a61",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "da1938f2f504d34ea8bce34359aeae8f837ff93a9dee46648a3289e8c13f57e2",
-      "excerpt_hash": "c89dc625250c4ba70145fb779ada46613159049191ecd2c0cda2e7664959a987",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b2c36a9129416365",
-      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_FinancialTransactions_Contributions.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_FinancialTransactions_Contributions.sql"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "15e29a0277f76b1d0dead5e4a503fbf41c45764efa392d9a0d57d2a0578ff032",
-      "excerpt_hash": "ed6fad28ccaca9fddd34388c3806d6d89ced4105e99b4120569580f28f41dd12",
-      "source_id": "rock_rocku",
-      "source_key": "ca4ddbe5fd63e55a",
-      "source_record_id": "rock_rocku:ca4ddbe5fd63e55a",
-      "url": "https://community.rockrms.com/rocku/finance/batches"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "8acd89953f0c1f9f2a24a64b0595db1b25d5b691b4603a2f1f0673562c0b1c48",
-      "excerpt_hash": "61ade2401448db4a31141c8c4ebf3fdebca1ff7aef8b59d50988d775500845d7",
-      "source_id": "rock_rocku",
-      "source_key": "cc6fb3df674b28c2",
-      "source_record_id": "rock_rocku:cc6fb3df674b28c2",
-      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "7e1aa8d58e97454ebdb6131a62294b65fe5b57c1b20b8011d5ab4eea153d5729",
-      "excerpt_hash": "bbcf963b3f0dd292756ebe96c0b51cb56e0a028f5586acda702045c278689bd2",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e3b6796157b1f817",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "12c52a902aeb21d2713dfe585505426906d3ccfd6d8caf9ceb68b4f4a9f121ae",
-      "excerpt_hash": "1e61f8daa8d10fcbdef57b47c4adb54c1bdb85bf2ccb44e5ade2f99258471921",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "93e728ed6a65605f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 12.0/Version 1.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "61b4d21bdf1042c5de16ad96bd90b930037709d7bca99bd610d71b9d960681b0",
-      "excerpt_hash": "afb6ea870851eec1f2f3f536b7229dca3985adf4bb044759ac2b8f32fe7cbc79",
-      "source_id": "rock_recipes",
-      "source_key": "ec1feb0cddfde711",
-      "source_record_id": "rock_recipes:ec1feb0cddfde711",
-      "url": "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "2dc5b55aab4b963c1c92df5e783e9d70d733e2ee2ec55232f76c98cc6b6c97a8",
-      "excerpt_hash": "2a1ae9ba2e478ee9be8e3fc365bed91cde3c5cb8937949948d694878a8e8cda8",
-      "source_id": "rock_rocku",
-      "source_key": "1580376f4e942547",
-      "source_record_id": "rock_rocku:1580376f4e942547",
-      "url": "https://community.rockrms.com/rocku/finance/contribution-statements"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c5f1c505119bb5b8f73247631fa67c055bf570890c61d672ab100a8616e72752",
-      "excerpt_hash": "bde197f4cdf675782e1d20835825befe6e2d6bc64ab4b413afb8a9ec38912766",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5b1781d01419f12b",
-      "source_record_id": "SparkDevNetwork/Rock:Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "72958eb3eae859e74126a7068fc699cae332c5af12035b15ba950c738cd9199f",
-      "excerpt_hash": "0ec7295be5c98ebdbcdeb0a0a09218a122153b0084a3d6c4afc5d721099f3c7e",
-      "source_id": "rock_rocku",
-      "source_key": "6dca8c5215eee229",
-      "source_record_id": "rock_rocku:6dca8c5215eee229",
-      "url": "https://community.rockrms.com/rocku/finance/pledges"
-    },
-    {
-      "authority": "official-release",
-      "content_hash": "9ee1a45ce6c3fe6c88d4e4878e301b2b1921230f8419e9349297ed28d6bcceb6",
-      "excerpt_hash": "10b4a51c661528eddb0c118266a733b564329727c7645d25c94ee1472c5de446",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:7f01c27e9446f84c",
-      "url": "https://www.rockrms.com/releasenotes"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "08ab69fb98651144cb73a890a2df82b7757b3e05ab0fcf88f8649ca254ce3c54",
-      "excerpt_hash": "fd95e95b831d0e5b77e4c70180971067145dec79df4de835b0cf4d309c730011",
-      "source_id": "rock_rocku",
-      "source_key": "d61d88d50d1aa308",
-      "source_record_id": "rock_rocku:d61d88d50d1aa308",
-      "url": "https://community.rockrms.com/rocku/finance/businesses"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "a6901d12e04303f9b225446b1e3fba75ef91caf5ce1f0ee9e84c5db22f9a00a4",
-      "excerpt_hash": "3555e5d09ad4191163a757b58eac27555c55771f1ab7249b37cd89f44dbb7f4b",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b885bd6863fa2063",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "ece777197f7a9f8f2447b6e36e733a3c0b4bebeb78013fee0ebae218e59048b7",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "url": "https://github.com/SparkDevNetwork/Rock"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "f484ac80027a2dbcab567362775eb605b32b9bd06325fc23dd9d645446b9dcad",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "source_id": "rock_developer",
-      "source_key": "cd275eaf0cc0a25a",
-      "source_record_id": "rock_developer:cd275eaf0cc0a25a",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list"
-    },
-    {
-      "authority": "official-developer",
-      "content_hash": "cfd29ec6af2d8420ca0ef97faf044916273e7b153de13d1dcacc7476b72e68e2",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "source_id": "rock_developer",
-      "source_key": "b298af2cf3202cfb",
-      "source_record_id": "rock_developer:b298af2cf3202cfb",
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "2050e92a5e254f81600f4df05c3071ac45ac0121de672b396cfeac6aa6a9824a",
-      "excerpt_hash": "a5b17aa49beeb0a9264866e5ded33783a3bae53fb1e1989a202c6111379e0caf",
-      "source_id": "rock_recipes",
-      "source_key": "fe44664d13d01acc",
-      "source_record_id": "rock_recipes:fe44664d13d01acc",
-      "url": "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "dcd88b7efbc78f58fbbacc71eb562b44a48793add6a932d900e8424a5032c5a6",
-      "excerpt_hash": "2358d6e704159572f0da52ce0ae6f5d9681d41388af5556cc78acf3d91a6b5b0",
-      "source_id": "rock_recipes",
-      "source_key": "bbc64e1562c729c9",
-      "source_record_id": "rock_recipes:bbc64e1562c729c9",
-      "url": "https://community.rockrms.com/recipes/122"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "878fda1948cdf2bf9ab1275c4d6a78d2db86e0e7e1b0550e3e7b6435248ca7d5",
-      "excerpt_hash": "efa11b5a471931f097f2cc3e1bd6070322120bf1c20ec23786f0ea91f0c1fa41",
-      "source_id": "rock_recipes",
-      "source_key": "23faa2ec51ba6e7d",
-      "source_record_id": "rock_recipes:23faa2ec51ba6e7d",
-      "url": "https://community.rockrms.com/recipes/254"
-    },
-    {
-      "authority": "official-triumph",
-      "content_hash": "2a15a24f852dd72d961355e9155ed6cd20eb62b6eccc181dec931df4dfc6f2d0",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "source_id": "triumph_resources",
-      "source_key": "638bd14421adcd15",
-      "source_record_id": "triumph_resources:638bd14421adcd15",
-      "url": "https://www.triumph.tech/resources/giving-unit-analytics"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "cf87cea9419e58ca6b0ec38d8b55a9d3dc868feeb74fcf2aa84f160966380672",
-      "excerpt_hash": "7cbf8e17311951fa9fc68488ca828db463dfbcc703f9b3c9c7131687a275d397",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b196110a35f428f4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "9afac56c44062487bfe622da39d399597d297efcf4f33b6d3741e7df368e148f",
-      "excerpt_hash": "f96d7a98bb8b040f57a87959a039ab311840f08355375696a6f4573086e84560",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c1283df39ad4c6a6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8faa0b0dc43d8db0601f9fd0fdefe00e196f60dd166f721f8c63a9781b340276",
-      "excerpt_hash": "599fe690a50f345b07b3554c8987081626f19a217e9438c9999a2df3c889c107",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "6a88cc551d5535ba",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs"
-    },
-    {
-      "authority": "community-example",
-      "content_hash": "b64909c0a2067f6b75b453084f2083e954a2e69569c0f52e8571eed8923ef056",
-      "excerpt_hash": "6adfd4f8157d09a8eee01561954ec0be35bce8affe3fd5cca5b0806beec33dbb",
-      "source_id": "rock_recipes",
-      "source_key": "c9eb9fb42916f1a8",
-      "source_record_id": "rock_recipes:c9eb9fb42916f1a8",
-      "url": "https://community.rockrms.com/recipes/90"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "8588b83374a0075e0f5bb2ff4a097ba9c4edaeb8b4bdd49292c426da20073c22",
-      "excerpt_hash": "d9fd1b6dd851141f56d3bf5ce83c8f8608264b1198636dbea4597cc9e637c638",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d645ea33231da869",
-      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "b8c51f7ada0ec4bd0f9f751827493c49ab664f304edddca2436aec3bdb2d7552",
-      "excerpt_hash": "313d4bd841d36410f5b2c68c59207400445c9f30ec37bb1819fe9be551be369c",
-      "source_id": "rock_rocku",
-      "source_key": "be6dab760b9fe26e",
-      "source_record_id": "rock_rocku:be6dab760b9fe26e",
-      "url": "https://community.rockrms.com/rocku/finance/online-giving"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "d72ac4a281cf66ab5fb2b8cd19448f86ce433f2e9713989d347ac2ade8b2f3c1",
-      "excerpt_hash": "ac58f7fa5e190a7102979d6e276e030825a63539d32ef0215eb4783d1c41cf31",
-      "source_id": "rock_rocku",
-      "source_key": "fed56291f8d16502",
-      "source_record_id": "rock_rocku:fed56291f8d16502",
-      "url": "https://community.rockrms.com/rocku/finance/text-giving"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "ae78fefc42e5463525025265901533b5f398f9be0b220b66476673910b4e1037",
-      "excerpt_hash": "ba65271cad5e9171e2e27795bc94ef7d437a2f80aea34e1e512a7c969f97c0d2",
-      "source_id": "rock_rocku",
-      "source_key": "ba7f265d2e01abe2",
-      "source_record_id": "rock_rocku:ba7f265d2e01abe2",
-      "url": "https://community.rockrms.com/rocku/finance/check-matching"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "acefe7ce44b86aded55cc9f3953374b2e48636cfce6bee1124d4b5d07f7a66ba",
-      "excerpt_hash": "86bdc7c53ff09fcdfad9ede9192486bd71ae4f593110d7fa87f401b4f54d0a94",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "7708205014c5fca2",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "419681e097d785ba13092649c0eb338fd90d4e1c782dcbe71cea106f42769fbc",
-      "excerpt_hash": "86c1e6d1883ab0968fe99579be5556f097d7dadea2c840380c0e556e75686c77",
-      "source_id": "rock_rocku",
-      "source_key": "f04811cd352bd561",
-      "source_record_id": "rock_rocku:f04811cd352bd561",
-      "url": "https://community.rockrms.com/rocku/finance/refunds"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "cced83112f64109d1608a45f2b43a9aac594b209f6f719d50eefc780ddae5b44",
-      "excerpt_hash": "7f322a83440e5680cb854bf0dbf6338efe71f6794dcc808a0f45148fd0e9947e",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "2c07ce643ba66ec4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "5a104fed9c0e252e7474f48a46139c64840928ca0d3ba992df43ccf5e32df540",
-      "excerpt_hash": "731ec950dcbd251aa3c05701b8ae8aed84e95bf728763e292a3c6d7353545ca8",
-      "source_id": "rock_rocku",
-      "source_key": "c4a0a588db9ed5b7",
-      "source_record_id": "rock_rocku:c4a0a588db9ed5b7",
-      "url": "https://community.rockrms.com/rocku/finance/fundraising-group"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "66d4a4f3a1404791c53caedd420d73faaa59c6c98eb6a103bb23781d276b3641",
-      "excerpt_hash": "b459fc1de85186907e83edda7685d84a8d7c4b811237ec24ebe56f309e11677a",
-      "source_id": "rock_rocku",
-      "source_key": "3aa7aee58b247692",
-      "source_record_id": "rock_rocku:3aa7aee58b247692",
-      "url": "https://community.rockrms.com/rocku/finance/giving-alerts"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "3005a7e6d8107b639b5a43b8a1767f1dd74064d4d2e17a62ac2e42ba74cf64dc",
-      "excerpt_hash": "87079ac43e32878e1918d533d491af58bca932bc7f382f74a0fca60a8cd84770",
-      "source_id": "rock_rocku",
-      "source_key": "8ad98d9d45088994",
-      "source_record_id": "rock_rocku:8ad98d9d45088994",
-      "url": "https://community.rockrms.com/rocku/finance/benevolence"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "cee00b851a42010b80b9ca0b0a48bbd242f6dfc704977936aa230e54310889a5",
-      "excerpt_hash": "0f0987d3a280bf27880b443743c54d16ebe40d32301631c2283cfd3adaabcee0",
-      "source_id": "rock_rocku",
-      "source_key": "769021e3af96ba14",
-      "source_record_id": "rock_rocku:769021e3af96ba14",
-      "url": "https://community.rockrms.com/rocku/finance/giving-analytics"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "0b7e231168df4056448ae53bd98ab96f799070fbeb0bfb9561f841fcc40eeb6e",
-      "excerpt_hash": "95f96ef0b1a236e283a14f9b4ad8a39d1d4bcc896e660b6a71958f251e4d0e95",
-      "source_id": "rock_rocku",
-      "source_key": "766bb54c11be8cda",
-      "source_record_id": "rock_rocku:766bb54c11be8cda",
-      "url": "https://community.rockrms.com/rocku/finance/giving-overview"
-    },
-    {
-      "authority": "official-training",
-      "content_hash": "ba64e898ef0df198ad56a59b9485b23be99d7af13160828fa5097a46b8306321",
-      "excerpt_hash": "6b5fbcee4549d5f46a60414ef16c3fa463225d7c65ab94653937cc1cffdf1cd4",
+      "content_hash": "2fc690895710c4d44bbff03c409f69d38a8db03bb141edc7c83b3a0a9b61e1b2",
+      "excerpt_hash": "a7bd47a4eba3798a81b73972ae7ea44a94ae9553db7a217f69360db24203a25a",
       "source_id": "rock_rocku",
       "source_key": "435195f5b515221c",
-      "source_record_id": "rock_rocku:435195f5b515221c",
+      "source_record_id": "media-insight:4e7bb5d30da6c77a",
       "url": "https://community.rockrms.com/rocku/finance/giving-journey-1"
     },
     {
-      "authority": "official-training",
-      "content_hash": "b3ef237652bf9363af86dad7b35adf3062bcfe981e4914efd71a239ccda37827",
-      "excerpt_hash": "8e03f78d6a02e5f8223821976f4c1158b78e0fb94d6d702135358d4feaef7b9a",
-      "source_id": "rock_rocku",
-      "source_key": "d26a070ba9bc8cae",
-      "source_record_id": "rock_rocku:d26a070ba9bc8cae",
-      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "39ffb353f4c01779f16f05370daebf386c5fcec722ad39961f74998915c77295",
-      "excerpt_hash": "7172f4d91242d4675ac8716ef55197ce74abe51d264fa43f6204c5105d151873",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5dea5a7114204729",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "c6d0e977af3893aab1d8d39e3ddb5e0bc7fd342130c2306ff7d598f76de6fdff",
-      "excerpt_hash": "2ddeb3f4aff394d769f80a8412ac5c9b1fb029727569e880caaa624486551fae",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d141b5902558d1f5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "ec1e3b2fd001f59e35b5360b7b29aacecbd02ee86f4961de5d70cd6a6b6d3e3c",
-      "excerpt_hash": "045316770a3c8e43a167441d771ce651f9629e8a2b763132e239402f1e9e3d7c",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1bf12866dad17cf5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs"
-    },
-    {
-      "authority": "source-code",
-      "content_hash": "dcb145b17a50d5891f77506608603b56926fb7432f4838c301a3d5f4dc633970",
-      "excerpt_hash": "60aa1b25aef23fe6974cbb503dd877134532400d4f6cb89a6f1363ac89b23aa6",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "226944718ce1264b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs"
+      "authority": "official",
+      "content_hash": "ce7a71767e4dfcdb985f1a8c121319ce3ffa1ecf93b59e4f9f3ba90f623bc723",
+      "excerpt_hash": "844a14b9f3a5aaa06a31da7cdb7e1eae8d1f629de335c43a2d3540debdd52a8a",
+      "source_id": "rock_documentation",
+      "source_key": "1c1c19af948b7cf4",
+      "source_record_id": "rock_documentation:article:1085",
+      "url": "https://community.rockrms.com/documentation/church-management/finance"
     },
     {
       "authority": "official",
@@ -919,6 +514,222 @@
       "source_key": "7808ba03b95d07eb",
       "source_record_id": "",
       "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+    },
+    {
+      "authority": "official",
+      "content_hash": "e147f488781506166b296081f33253d9fa0582397e0d87434a76700794a13d8c",
+      "excerpt_hash": "390e2984bc512a86bb153d23ddd6e9e588c813762b8f10cbac7dddae8df702d6",
+      "source_id": "rock_documentation",
+      "source_key": "953fa69c20ef36dd",
+      "source_record_id": "rock_documentation:article:3528",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/financial-components/intro-to-financial-components"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ff849fb43b96247d2f5a422f47be7453b05d37bd443005a607e2ed92231bc60c",
+      "excerpt_hash": "81bb8413172d2c5650a9ca75928da78cbb5cd12406215d1611fd5ea73d3c4278",
+      "source_id": "rock_documentation",
+      "source_key": "c1037f1d133f9b3b",
+      "source_record_id": "rock_documentation:article:1892",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/intro-to-payment-gateways"
+    },
+    {
+      "authority": "official",
+      "content_hash": "cd68ef54746a61af9b2de01bad521b94e740c828efc128bee92ab749611e4499",
+      "excerpt_hash": "3ed9678f8cf2d6ab097bddcf43ec2d95c3f1189472a69f7dc91318b181fe9405",
+      "source_id": "rock_documentation",
+      "source_key": "dba52273a580508f",
+      "source_record_id": "rock_documentation:article:1874",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/intro-to-online-giving"
+    },
+    {
+      "authority": "official",
+      "content_hash": "59f8ceefe271c97b348a2189a7fbe0ea19f8084c792ed44f57284bce618424de",
+      "excerpt_hash": "4ac46ef2c05ac554970becb70a921dedd3b47ae77b2618655204cddec11749c6",
+      "source_id": "rock_documentation",
+      "source_key": "312b8c7fe0a46866",
+      "source_record_id": "rock_documentation:article:1891",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/advanced-finance/advanced-utility-payment-entry-block-settings"
+    },
+    {
+      "authority": "official",
+      "content_hash": "43642e7194e7323a66cec49aee4ad24b7035f3d0b5be522cdc8a194317abbb40",
+      "excerpt_hash": "8864aed851bc140c4ac628ba6359fd011548f4507443163f45bdc87157f7b1de",
+      "source_id": "rock_documentation",
+      "source_key": "132ff091daa01407",
+      "source_record_id": "rock_documentation:article:1885",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/fundraising-groups/fundraising-financial-transactions"
+    },
+    {
+      "authority": "community-example",
+      "content_hash": "4d3c1283329d4a5e4ff1a84ea68b7b35519d910f98ffd97b74ed98c22d081498",
+      "excerpt_hash": "791ff7be959003cc1b733336c74a983af67989e38adff1b8d3317128fda5d085",
+      "source_id": "rock_recipes",
+      "source_key": "23faa2ec51ba6e7d",
+      "source_record_id": "rock_recipes:23faa2ec51ba6e7d",
+      "url": "https://community.rockrms.com/recipes/254"
+    },
+    {
+      "authority": "official",
+      "content_hash": "be38fb14a59fe5f950cbbb53b70eb287be2c7d62bb6410a03756a5837ac523b5",
+      "excerpt_hash": "1bf88493417007048867890a5749fc3cea73d9af825857095b95224c082ed397",
+      "source_id": "rock_documentation",
+      "source_key": "ff248dddf69daafe",
+      "source_record_id": "rock_documentation:article:1302",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway"
+    },
+    {
+      "authority": "official",
+      "content_hash": "142d283159692fc1b7f475059465a64c47e6817fa3bd373bff60ae66122fb49c",
+      "excerpt_hash": "e2bab549191844a848e554f4e2a1cd9d95ebe2753ec8d61b304b4092610c69d5",
+      "source_id": "rock_documentation",
+      "source_key": "4ea666e29b8793e7",
+      "source_record_id": "rock_documentation:article:1303",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/transfer-gateways"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ce9182df0e423562fdca5b7cefefe9bf1ea64158c40e3e3596dc652af1bf7145",
+      "excerpt_hash": "3cca72434f6d59303c1e57fd5c7eb8d08357779d95324d87bd0c045dd4e6c501",
+      "source_id": "rock_documentation",
+      "source_key": "6fa8ff7e04b456ac",
+      "source_record_id": "rock_documentation:article:1253",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/giving-pages"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b57635b47c7f3a1c7fa00f437f296234ebabbbf9eb5344db6c13964cc170c533",
+      "excerpt_hash": "abace0a2f0bebdcc8c48b614af80cdff71a64225b4442d3025510238fc7a4aab",
+      "source_id": "rock_documentation",
+      "source_key": "93af425e1dea36d6",
+      "source_record_id": "rock_documentation:article:1258",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/use-batches-for-online-giving"
+    },
+    {
+      "authority": "official",
+      "content_hash": "87f8b0fe6a7fbcf6c44e133344bc72c8de7a0a26f1e9990ad4606db84b0fba5d",
+      "excerpt_hash": "373a173aa81b9b14d033229a32bd9f16365ad95eb18d789deadf15272cfce9a5",
+      "source_id": "rock_documentation",
+      "source_key": "e7b754aae1077f46",
+      "source_record_id": "rock_documentation:article:1875",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/text-giving/intro-to-text-giving"
+    },
+    {
+      "authority": "official",
+      "content_hash": "ef432322a647757f0d89fb6bfe414e8d01daf4bb57d06f1807990bb3ef9a01ed",
+      "excerpt_hash": "77e72f43cc3dcffdd47905b4b51d17e63ad4dab00fc58876e3485aa07ac8509d",
+      "source_id": "rock_documentation",
+      "source_key": "f332ae34cb7fc316",
+      "source_record_id": "rock_documentation:article:1262",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/text-giving/configure-text-giving"
+    },
+    {
+      "authority": "official",
+      "content_hash": "b9258d38d62bdea1ae23e2007641eeffa33cb8ed831a5f4bb010f378db62565b",
+      "excerpt_hash": "9ff64e83dac14907d089b135af0a1f760ce3ddfeb6ede35bd7c980f912adb1ab",
+      "source_id": "rock_documentation",
+      "source_key": "bcd5c9971e89f1f4",
+      "source_record_id": "rock_documentation:article:1233",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/financial-components/batches"
+    },
+    {
+      "authority": "official",
+      "content_hash": "f490950058f5787781da968930d392fa4955dca68a28a1accf71f75d01c6bd58",
+      "excerpt_hash": "ebf6f2a88669cf606b75accddd414fd6d1e96f364b0a0f1708c3e550a8400d4d",
+      "source_id": "rock_documentation",
+      "source_key": "bf1c3241fd084a3f",
+      "source_record_id": "rock_documentation:article:1895",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software"
+    },
+    {
+      "authority": "official",
+      "content_hash": "dfc9d37019a4b6f76e0a6acdc474f096bdc93291818b81fdcf1bf85f96321ac8",
+      "excerpt_hash": "082985b5811d79072dc9bef149d2495b5d1890ea22a760248ca87ef3be80378e",
+      "source_id": "rock_documentation",
+      "source_key": "35ef66bdbb130dff",
+      "source_record_id": "rock_documentation:article:1898",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates"
+    },
+    {
+      "authority": "official",
+      "content_hash": "f465ab3d59e50093830879b88d801cfcb35de077bbe01bfc2642528d72bfc962",
+      "excerpt_hash": "3bf02147463ea6fcebef973566a913727cba01e60539ae02f049a515d6db6b7b",
+      "source_id": "rock_documentation",
+      "source_key": "b70869f87e677e91",
+      "source_record_id": "rock_documentation:article:1281",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/family-giving"
+    },
+    {
+      "authority": "official",
+      "content_hash": "9a26acdd1941e624d17c13d3dc2565111451f474abb80f580cafda6cb57141eb",
+      "excerpt_hash": "db7f487818c8033d251191d5814b7e678a52ff3850d014afa9cd7be9f7d7eea1",
+      "source_id": "rock_documentation",
+      "source_key": "aaca3e2e6719f39b",
+      "source_record_id": "rock_documentation:article:1277",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/view-giving-on-person-profile"
+    },
+    {
+      "authority": "official",
+      "content_hash": "d031fb66b7382e311000c2a776312f7d8359c74bfc3e2186e2413d51aede4c59",
+      "excerpt_hash": "1820e7ca3812cc0f69090b36101c758770d95c8463a777dbcb7429fc14d37c91",
+      "source_id": "rock_documentation",
+      "source_key": "58f084c05e106686",
+      "source_record_id": "rock_documentation:article:1880",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/businesses/intro-to-businesses"
+    },
+    {
+      "authority": "official",
+      "content_hash": "479d576eafbf55e7ac95fc3bf82a45287092ab59c22d719d0f66133913cf13f5",
+      "excerpt_hash": "0aa6b9ed9e1ffe836418aa638a66129c582219f60549633895e3cc06e6d5597a",
+      "source_id": "rock_documentation",
+      "source_key": "ddefbc3f5895577c",
+      "source_record_id": "rock_documentation:article:1279",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-automation"
+    },
+    {
+      "authority": "official",
+      "content_hash": "4db21ef5a3657cd3c04eb449fab35e0839ef050edf78f43f60197d84cfb2f20b",
+      "excerpt_hash": "4905ed75a6e0f1c2b760572100b6435e37e5953e20f3bfdde54b400833df94bd",
+      "source_id": "rock_documentation",
+      "source_key": "d0d73e2adb126775",
+      "source_record_id": "rock_documentation:article:1280",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-journey"
+    },
+    {
+      "authority": "official",
+      "content_hash": "41d1f389aa293b104047ca6c2920b8a13606d4a09be5d314f6585012f0257d37",
+      "excerpt_hash": "a6d833186781396ed7e9f35aef2af4f07914bcd0b3e652cd90dea51ac0fbc9c1",
+      "source_id": "rock_documentation",
+      "source_key": "b04e7d7237b01fdb",
+      "source_record_id": "rock_documentation:article:1881",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/use-giving-alerts"
+    },
+    {
+      "authority": "official",
+      "content_hash": "bc1195a5f0977b2ce41bfe69192f72436d86d47b992b5c5be532cb34360f4c0a",
+      "excerpt_hash": "9b8fedec1e61e45409a3fa7cab8d133c3270571419caee190e7bf633d948f383",
+      "source_id": "rock_documentation",
+      "source_key": "c994d3abb04322cc",
+      "source_record_id": "rock_documentation:article:1275",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-analytics"
+    },
+    {
+      "authority": "official",
+      "content_hash": "88fbf9153c66be4922606a4df88c6b69def9b1d5719d4d144c53aa278a2a66ab",
+      "excerpt_hash": "224ce1327f8b596b9a15a08d3cdc02f7257c575f99e4299db58883ddeb863541",
+      "source_id": "rock_documentation",
+      "source_key": "300c1c7b66b6c856",
+      "source_record_id": "rock_documentation:article:1826",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/finance-reports/transaction-fee-report"
+    },
+    {
+      "authority": "official",
+      "content_hash": "20d680964bd88a1b331384a4fa46be2d8e64ce071015ec0cbdd2ad9b3b06d264",
+      "excerpt_hash": "0e2208647640f774da68d5706cb34295b71cb95688e7b15e5469e650a3f2f94b",
+      "source_id": "rock_documentation",
+      "source_key": "c16527bb75a860b8",
+      "source_record_id": "rock_documentation:article:1824",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity"
     },
     {
       "authority": "official-triumph",
@@ -939,1813 +750,724 @@
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
     },
     {
-      "authority": "official-triumph",
-      "content_hash": null,
-      "excerpt_hash": null,
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
+      "authority": "official",
+      "content_hash": "56a3cc449663fbdefd603668d950a726e4ae7721ed5519dc52a85470507adb16",
+      "excerpt_hash": "d0f85b1b5a4a792969d32508d4c845a1a9dee98f1eacd34989fad0e2aedd0101",
+      "source_id": "rock_documentation",
+      "source_key": "896337f6cea82d10",
+      "source_record_id": "rock_documentation:article:1227",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/advanced-finance/security-for-finance"
     },
     {
-      "authority": "official-training",
-      "content_hash": "6c1dfe1d1eafc8298155b0ac5eb856f51cef55736aada0b5250cee505a9dc26b",
-      "excerpt_hash": "413a498ddfe461bfbf0838e99baca703e16d0fda9340fcb77a2eecd980786138",
-      "source_id": "rock_rocku",
-      "source_key": "6b193d1cc321fd46",
-      "source_record_id": "rock_rocku:6b193d1cc321fd46",
-      "url": "https://community.rockrms.com/rocku/finance/financial-settings"
+      "authority": "official-release",
+      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
+      "excerpt_hash": "6485e4f35183325b50949a927524e3937ba8037d95054e74e0315d1d03743f9e",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:7f01c27e9446f84c",
+      "url": "https://www.rockrms.com/releasenotes"
     },
     {
-      "authority": "official-training",
-      "content_hash": "66ac1100d39f4c6bf13886430a2f5cb003bf7ae6b84c7f5be0f1d2428b6b4569",
-      "excerpt_hash": "f730b0e8456df091c39889083bc6aab3481176d075ed3304540a676e7afa8bf9",
-      "source_id": "rock_rocku",
-      "source_key": "6bf6d493898a457d",
-      "source_record_id": "rock_rocku:6bf6d493898a457d",
-      "url": "https://community.rockrms.com/rocku/finance/giving-journey"
+      "authority": "source-code",
+      "content_hash": "bf8ab49ebfc73d8aed4ac177427fbedaa2cb327a36065c3f45088298eb37049d",
+      "excerpt_hash": "3fcde3c10fb3aad195b7ec0dea209d1b499a2b8dcc61813986ad09d5b7bb8d5b",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "47d5eca21180aaee",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs"
     }
   ],
   "routing_context_claim_count": 0,
   "sections": [
     {
       "confidence": "citation-only",
-      "end_line": 28,
-      "heading": "Generated Model Map Pointers",
-      "needs_live_verification": true,
-      "section_id": "generated-model-map-pointers",
-      "source_keys": [
-        "ed6551d38c7e2b18"
-      ],
-      "start_line": 14
-    },
-    {
-      "confidence": "normal",
-      "end_line": 63,
-      "heading": "1. Executive Summary For Agents",
-      "needs_live_verification": true,
-      "section_id": "1-executive-summary-for-agents",
-      "source_keys": [
-        "5feb321c12dae9ff",
-        "1590d03b5f992088",
-        "1590d03b5f992088"
-      ],
-      "start_line": 29
-    },
-    {
-      "confidence": "high",
-      "end_line": 126,
-      "heading": "2. Scope And Terminology",
-      "needs_live_verification": true,
-      "section_id": "2-scope-and-terminology",
-      "source_keys": [
-        "af0487d0f556989c",
-        "ec34ce9b780ba158",
-        "5677270e119d7a61",
-        "b2c36a9129416365",
-        "ca4ddbe5fd63e55a",
-        "1590d03b5f992088",
-        "1590d03b5f992088",
-        "cc6fb3df674b28c2",
-        "e3b6796157b1f817",
-        "93e728ed6a65605f",
-        "ec1feb0cddfde711",
-        "1580376f4e942547",
-        "5b1781d01419f12b",
-        "6dca8c5215eee229",
-        "776256c424368312",
-        "d61d88d50d1aa308",
-        "93e728ed6a65605f",
-        "b885bd6863fa2063"
-      ],
-      "start_line": 64
-    },
-    {
-      "confidence": "normal",
-      "end_line": 155,
-      "heading": "3. Giving And Finance Mental Model",
+      "end_line": 33,
+      "heading": "Agent Summary",
       "needs_live_verification": false,
-      "section_id": "3-giving-and-finance-mental-model",
+      "section_id": "agent-summary",
       "source_keys": [
-        "5677270e119d7a61"
+        "435195f5b515221c",
+        "435195f5b515221c"
       ],
-      "start_line": 127
-    },
-    {
-      "confidence": "high",
-      "end_line": 174,
-      "heading": "4. Source Authority And How To Use This Guide",
-      "needs_live_verification": true,
-      "section_id": "4-source-authority-and-how-to-use-this-guide",
-      "source_keys": [
-        "1590d03b5f992088",
-        "776256c424368312",
-        "d275b5b94a9da833",
-        "5feb321c12dae9ff",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "fe44664d13d01acc",
-        "bbc64e1562c729c9",
-        "23faa2ec51ba6e7d",
-        "638bd14421adcd15"
-      ],
-      "start_line": 156
-    },
-    {
-      "confidence": "structural",
-      "end_line": 176,
-      "heading": "5. Core Configuration And Data Model",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model",
-      "source_keys": [
-        "776256c424368312",
-        "23faa2ec51ba6e7d",
-        "1590d03b5f992088",
-        "bbc64e1562c729c9",
-        "93e728ed6a65605f",
-        "b196110a35f428f4"
-      ],
-      "start_line": 175
+      "start_line": 18
     },
     {
       "confidence": "normal",
-      "end_line": 192,
-      "heading": "Financial Accounts",
+      "end_line": 47,
+      "heading": "Scope And Boundaries",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-financial-accounts",
+      "section_id": "scope-and-boundaries",
       "source_keys": [
-        "776256c424368312",
+        "1c1c19af948b7cf4",
+        "7808ba03b95d07eb"
+      ],
+      "start_line": 34
+    },
+    {
+      "confidence": "normal",
+      "end_line": 67,
+      "heading": "Mental Model",
+      "needs_live_verification": true,
+      "section_id": "mental-model",
+      "source_keys": [
+        "953fa69c20ef36dd",
+        "c1037f1d133f9b3b",
+        "435195f5b515221c"
+      ],
+      "start_line": 48
+    },
+    {
+      "confidence": "normal",
+      "end_line": 79,
+      "heading": "Transactions",
+      "needs_live_verification": true,
+      "section_id": "transactions",
+      "source_keys": [
+        "dba52273a580508f",
+        "953fa69c20ef36dd",
+        "312b8c7fe0a46866",
+        "132ff091daa01407",
         "23faa2ec51ba6e7d"
       ],
-      "start_line": 177
+      "start_line": 68
     },
     {
-      "confidence": "high",
-      "end_line": 221,
-      "heading": "Financial Gateways",
+      "confidence": "normal",
+      "end_line": 94,
+      "heading": "Payment Gateways",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-financial-gateways",
+      "section_id": "payment-gateways",
       "source_keys": [
-        "1590d03b5f992088",
-        "776256c424368312",
-        "bbc64e1562c729c9"
+        "ff248dddf69daafe",
+        "ff248dddf69daafe",
+        "ff248dddf69daafe",
+        "4ea666e29b8793e7"
       ],
-      "start_line": 193
+      "start_line": 80
     },
     {
       "confidence": "normal",
-      "end_line": 236,
-      "heading": "Defined Values",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-defined-values",
-      "source_keys": [
-        "93e728ed6a65605f",
-        "b196110a35f428f4"
-      ],
-      "start_line": 222
-    },
-    {
-      "confidence": "normal",
-      "end_line": 246,
-      "heading": "Entity Attributes",
-      "needs_live_verification": false,
-      "section_id": "5-core-configuration-and-data-model-entity-attributes",
-      "source_keys": [
-        "1590d03b5f992088",
-        "23faa2ec51ba6e7d"
-      ],
-      "start_line": 237
-    },
-    {
-      "confidence": "normal",
-      "end_line": 279,
-      "heading": "Blocks And Pages",
+      "end_line": 106,
+      "heading": "Online Giving And Receipts",
       "needs_live_verification": true,
-      "section_id": "5-core-configuration-and-data-model-blocks-and-pages",
+      "section_id": "online-giving-and-receipts",
       "source_keys": [
-        "776256c424368312"
+        "6fa8ff7e04b456ac",
+        "93af425e1dea36d6",
+        "93af425e1dea36d6",
+        "6fa8ff7e04b456ac",
+        "6fa8ff7e04b456ac"
       ],
-      "start_line": 247
-    },
-    {
-      "confidence": "structural",
-      "end_line": 281,
-      "heading": "6. Primary Entities And Relationships",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships",
-      "source_keys": [
-        "5677270e119d7a61",
-        "b2c36a9129416365",
-        "1590d03b5f992088",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "e3b6796157b1f817",
-        "c1283df39ad4c6a6",
-        "6a88cc551d5535ba",
-        "c9eb9fb42916f1a8",
-        "776256c424368312",
-        "d645ea33231da869",
-        "93e728ed6a65605f",
-        "b885bd6863fa2063"
-      ],
-      "start_line": 280
+      "start_line": 95
     },
     {
       "confidence": "normal",
-      "end_line": 301,
-      "heading": "Transaction Header, Detail, And Payment Detail",
-      "needs_live_verification": false,
-      "section_id": "6-primary-entities-and-relationships-transaction-header-detail-and-payment-detail",
-      "source_keys": [
-        "5677270e119d7a61"
-      ],
-      "start_line": 282
-    },
-    {
-      "confidence": "high",
-      "end_line": 317,
-      "heading": "Batches And Transactions",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-batches-and-transactions",
-      "source_keys": [
-        "b2c36a9129416365",
-        "1590d03b5f992088",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb"
-      ],
-      "start_line": 302
-    },
-    {
-      "confidence": "normal",
-      "end_line": 341,
-      "heading": "Scheduled Transactions And Payment Plans",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-scheduled-transactions-and-payment-plans",
-      "source_keys": [
-        "e3b6796157b1f817",
-        "c1283df39ad4c6a6",
-        "6a88cc551d5535ba",
-        "e3b6796157b1f817"
-      ],
-      "start_line": 318
-    },
-    {
-      "confidence": "normal",
-      "end_line": 359,
-      "heading": "Pledges",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-pledges",
-      "source_keys": [
-        "c9eb9fb42916f1a8",
-        "776256c424368312"
-      ],
-      "start_line": 342
-    },
-    {
-      "confidence": "normal",
-      "end_line": 374,
-      "heading": "People, PersonAlias, Businesses, Families, And Giving Units",
-      "needs_live_verification": true,
-      "section_id": "6-primary-entities-and-relationships-people-personalias-businesses-families-and-giving-units",
-      "source_keys": [
-        "d645ea33231da869",
-        "93e728ed6a65605f",
-        "b885bd6863fa2063",
-        "776256c424368312"
-      ],
-      "start_line": 360
-    },
-    {
-      "confidence": "structural",
-      "end_line": 376,
-      "heading": "7. Common Giving And Finance Workflows",
-      "needs_live_verification": false,
-      "section_id": "7-common-giving-and-finance-workflows",
-      "source_keys": [
-        "be6dab760b9fe26e",
-        "1590d03b5f992088",
-        "23faa2ec51ba6e7d",
-        "fed56291f8d16502",
-        "776256c424368312",
-        "ba7f265d2e01abe2",
-        "ca4ddbe5fd63e55a",
-        "b298af2cf3202cfb",
-        "cc6fb3df674b28c2",
-        "7708205014c5fca2",
-        "b196110a35f428f4",
-        "bbc64e1562c729c9",
-        "f04811cd352bd561",
-        "5b1781d01419f12b",
-        "d61d88d50d1aa308",
-        "93e728ed6a65605f",
-        "fe44664d13d01acc"
-      ],
-      "start_line": 375
-    },
-    {
-      "confidence": "normal",
-      "end_line": 402,
-      "heading": "Online Giving",
-      "needs_live_verification": false,
-      "section_id": "7-common-giving-and-finance-workflows-online-giving",
-      "source_keys": [
-        "be6dab760b9fe26e",
-        "1590d03b5f992088",
-        "23faa2ec51ba6e7d"
-      ],
-      "start_line": 377
-    },
-    {
-      "confidence": "normal",
-      "end_line": 416,
+      "end_line": 116,
       "heading": "Text Giving",
       "needs_live_verification": true,
-      "section_id": "7-common-giving-and-finance-workflows-text-giving",
+      "section_id": "text-giving",
       "source_keys": [
-        "fed56291f8d16502",
-        "776256c424368312"
+        "e7b754aae1077f46",
+        "f332ae34cb7fc316",
+        "f332ae34cb7fc316"
       ],
-      "start_line": 403
-    },
-    {
-      "confidence": "high",
-      "end_line": 433,
-      "heading": "Manual Entry And Check Processing",
-      "needs_live_verification": true,
-      "section_id": "7-common-giving-and-finance-workflows-manual-entry-and-check-processing",
-      "source_keys": [
-        "ba7f265d2e01abe2",
-        "ca4ddbe5fd63e55a",
-        "1590d03b5f992088",
-        "b298af2cf3202cfb",
-        "776256c424368312"
-      ],
-      "start_line": 417
+      "start_line": 107
     },
     {
       "confidence": "normal",
-      "end_line": 455,
-      "heading": "Scheduled Giving And Recurring Giving",
-      "needs_live_verification": false,
-      "section_id": "7-common-giving-and-finance-workflows-scheduled-giving-and-recurring-giving",
+      "end_line": 139,
+      "heading": "Batches",
+      "needs_live_verification": true,
+      "section_id": "batches",
       "source_keys": [
-        "cc6fb3df674b28c2",
-        "7708205014c5fca2",
-        "b196110a35f428f4",
-        "bbc64e1562c729c9"
+        "bcd5c9971e89f1f4",
+        "bcd5c9971e89f1f4",
+        "bcd5c9971e89f1f4",
+        "bcd5c9971e89f1f4",
+        "bcd5c9971e89f1f4"
       ],
-      "start_line": 434
-    },
-    {
-      "confidence": "high",
-      "end_line": 470,
-      "heading": "Refunds And Reversals",
-      "needs_live_verification": false,
-      "section_id": "7-common-giving-and-finance-workflows-refunds-and-reversals",
-      "source_keys": [
-        "f04811cd352bd561",
-        "1590d03b5f992088",
-        "5b1781d01419f12b"
-      ],
-      "start_line": 456
+      "start_line": 117
     },
     {
       "confidence": "normal",
-      "end_line": 483,
-      "heading": "Businesses",
+      "end_line": 161,
+      "heading": "Statements",
       "needs_live_verification": false,
-      "section_id": "7-common-giving-and-finance-workflows-businesses",
+      "section_id": "statements",
       "source_keys": [
-        "d61d88d50d1aa308",
-        "93e728ed6a65605f"
+        "bf1c3241fd084a3f",
+        "bf1c3241fd084a3f",
+        "35ef66bdbb130dff",
+        "b70869f87e677e91",
+        "bf1c3241fd084a3f"
       ],
-      "start_line": 471
+      "start_line": 140
     },
     {
-      "confidence": "community-supported",
-      "end_line": 500,
-      "heading": "External Giving Imports",
+      "confidence": "normal",
+      "end_line": 169,
+      "heading": "Giving Units, Businesses, And Pledges",
       "needs_live_verification": true,
-      "section_id": "7-common-giving-and-finance-workflows-external-giving-imports",
+      "section_id": "giving-units-businesses-and-pledges",
       "source_keys": [
-        "fe44664d13d01acc"
+        "aaca3e2e6719f39b",
+        "58f084c05e106686",
+        "953fa69c20ef36dd",
+        "35ef66bdbb130dff"
       ],
-      "start_line": 484
+      "start_line": 162
+    },
+    {
+      "confidence": "normal",
+      "end_line": 179,
+      "heading": "Giving Automation, Journey, And Alerts",
+      "needs_live_verification": false,
+      "section_id": "giving-automation-journey-and-alerts",
+      "source_keys": [
+        "ddefbc3f5895577c",
+        "d0d73e2adb126775",
+        "b04e7d7237b01fdb",
+        "435195f5b515221c"
+      ],
+      "start_line": 170
+    },
+    {
+      "confidence": "normal",
+      "end_line": 191,
+      "heading": "Reporting And Reconciliation",
+      "needs_live_verification": true,
+      "section_id": "reporting-and-reconciliation",
+      "source_keys": [
+        "c994d3abb04322cc",
+        "c994d3abb04322cc",
+        "300c1c7b66b6c856",
+        "c16527bb75a860b8",
+        "f5e7897c401dd153",
+        "e80bc4203561cbcb"
+      ],
+      "start_line": 180
+    },
+    {
+      "confidence": "normal",
+      "end_line": 204,
+      "heading": "Security And Administration",
+      "needs_live_verification": true,
+      "section_id": "security-and-administration",
+      "source_keys": [
+        "896337f6cea82d10",
+        "896337f6cea82d10"
+      ],
+      "start_line": 192
+    },
+    {
+      "confidence": "normal",
+      "end_line": 218,
+      "heading": "Version And Authority Caveats",
+      "needs_live_verification": false,
+      "section_id": "version-and-authority-caveats",
+      "source_keys": [
+        "776256c424368312",
+        "776256c424368312",
+        "776256c424368312",
+        "47d5eca21180aaee"
+      ],
+      "start_line": 205
     },
     {
       "confidence": "structural",
-      "end_line": 502,
-      "heading": "8. Transactions Deep Dive",
+      "end_line": 220,
+      "heading": "Troubleshooting Decision Tree",
       "needs_live_verification": false,
-      "section_id": "8-transactions-deep-dive",
+      "section_id": "troubleshooting-decision-tree",
       "source_keys": [
-        "5677270e119d7a61",
-        "d645ea33231da869",
-        "93e728ed6a65605f",
-        "b2c36a9129416365",
-        "ec1feb0cddfde711",
-        "1590d03b5f992088",
-        "b885bd6863fa2063",
-        "23faa2ec51ba6e7d",
-        "fe44664d13d01acc"
+        "93af425e1dea36d6",
+        "ff248dddf69daafe",
+        "bcd5c9971e89f1f4",
+        "b70869f87e677e91",
+        "35ef66bdbb130dff",
+        "c994d3abb04322cc",
+        "ddefbc3f5895577c",
+        "d0d73e2adb126775",
+        "f332ae34cb7fc316",
+        "896337f6cea82d10",
+        "e80bc4203561cbcb"
       ],
-      "start_line": 501
+      "start_line": 219
     },
     {
       "confidence": "normal",
-      "end_line": 526,
-      "heading": "Transaction Grain",
-      "needs_live_verification": false,
-      "section_id": "8-transactions-deep-dive-transaction-grain",
-      "source_keys": [
-        "5677270e119d7a61"
-      ],
-      "start_line": 503
-    },
-    {
-      "confidence": "normal",
-      "end_line": 550,
-      "heading": "Transaction Dates",
+      "end_line": 228,
+      "heading": "A gateway accepted a payment, but no Rock transaction is visible",
       "needs_live_verification": true,
-      "section_id": "8-transactions-deep-dive-transaction-dates",
+      "section_id": "troubleshooting-decision-tree-a-gateway-accepted-a-payment-but-no-rock-transaction-is-visible",
       "source_keys": [
-        "d645ea33231da869"
+        "93af425e1dea36d6"
       ],
-      "start_line": 527
+      "start_line": 221
     },
     {
       "confidence": "normal",
-      "end_line": 556,
-      "heading": "Transaction Types",
+      "end_line": 237,
+      "heading": "A transaction is in the wrong batch or no expected batch exists",
       "needs_live_verification": true,
-      "section_id": "8-transactions-deep-dive-transaction-types",
+      "section_id": "troubleshooting-decision-tree-a-transaction-is-in-the-wrong-batch-or-no-expected-batch-exists",
       "source_keys": [
-        "93e728ed6a65605f",
-        "b2c36a9129416365",
-        "ec1feb0cddfde711"
+        "ff248dddf69daafe",
+        "93af425e1dea36d6"
       ],
-      "start_line": 551
-    },
-    {
-      "confidence": "high",
-      "end_line": 562,
-      "heading": "Transaction Sources",
-      "needs_live_verification": false,
-      "section_id": "8-transactions-deep-dive-transaction-sources",
-      "source_keys": [
-        "1590d03b5f992088",
-        "b885bd6863fa2063"
-      ],
-      "start_line": 557
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 574,
-      "heading": "Transaction Attributes",
-      "needs_live_verification": false,
-      "section_id": "8-transactions-deep-dive-transaction-attributes",
-      "source_keys": [
-        "23faa2ec51ba6e7d"
-      ],
-      "start_line": 563
+      "start_line": 229
     },
     {
       "confidence": "normal",
-      "end_line": 590,
-      "heading": "Transaction Security",
-      "needs_live_verification": true,
-      "section_id": "8-transactions-deep-dive-transaction-security",
+      "end_line": 247,
+      "heading": "A batch has an amount, count, account, or currency variance",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree-a-batch-has-an-amount-count-account-or-currency-variance",
       "source_keys": [
-        "1590d03b5f992088",
-        "fe44664d13d01acc",
-        "ec1feb0cddfde711"
+        "bcd5c9971e89f1f4"
       ],
-      "start_line": 575
+      "start_line": 238
+    },
+    {
+      "confidence": "normal",
+      "end_line": 257,
+      "heading": "A statement omits a gift, includes an unexpected gift, or combines the wrong people",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-a-statement-omits-a-gift-includes-an-unexpected-gift-or-combines-the-wrong-people",
+      "source_keys": [
+        "b70869f87e677e91",
+        "35ef66bdbb130dff"
+      ],
+      "start_line": 248
+    },
+    {
+      "confidence": "normal",
+      "end_line": 265,
+      "heading": "Giving Analytics does not match a transaction-date total",
+      "needs_live_verification": false,
+      "section_id": "troubleshooting-decision-tree-giving-analytics-does-not-match-a-transaction-date-total",
+      "source_keys": [
+        "c994d3abb04322cc"
+      ],
+      "start_line": 258
+    },
+    {
+      "confidence": "normal",
+      "end_line": 274,
+      "heading": "Giving Overview, Journey, or alerts appear stale or incorrect",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-giving-overview-journey-or-alerts-appear-stale-or-incorrect",
+      "source_keys": [
+        "ddefbc3f5895577c",
+        "d0d73e2adb126775"
+      ],
+      "start_line": 266
+    },
+    {
+      "confidence": "normal",
+      "end_line": 284,
+      "heading": "Text Giving setup, processing, refund, or failure messaging does not work",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-text-giving-setup-processing-refund-or-failure-messaging-does-not-work",
+      "source_keys": [
+        "f332ae34cb7fc316"
+      ],
+      "start_line": 275
+    },
+    {
+      "confidence": "normal",
+      "end_line": 292,
+      "heading": "Users can see finance data they should not see, or cannot see an embedded dashboard",
+      "needs_live_verification": true,
+      "section_id": "troubleshooting-decision-tree-users-can-see-finance-data-they-should-not-see-or-cannot-see-an-embedded-dashboard",
+      "source_keys": [
+        "896337f6cea82d10",
+        "e80bc4203561cbcb"
+      ],
+      "start_line": 285
     },
     {
       "confidence": "structural",
-      "end_line": 592,
-      "heading": "9. Statements Deep Dive",
+      "end_line": 294,
+      "heading": "Agent Task Recipes",
       "needs_live_verification": false,
-      "section_id": "9-statements-deep-dive",
+      "section_id": "agent-task-recipes",
       "source_keys": [
-        "5b1781d01419f12b",
-        "2c07ce643ba66ec4",
-        "93e728ed6a65605f",
-        "776256c424368312",
-        "1580376f4e942547",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 591
-    },
-    {
-      "confidence": "normal",
-      "end_line": 614,
-      "heading": "Statement Inputs",
-      "needs_live_verification": false,
-      "section_id": "9-statements-deep-dive-statement-inputs",
-      "source_keys": [
-        "5b1781d01419f12b",
-        "2c07ce643ba66ec4"
-      ],
-      "start_line": 593
-    },
-    {
-      "confidence": "normal",
-      "end_line": 634,
-      "heading": "Statement Recipients",
-      "needs_live_verification": true,
-      "section_id": "9-statements-deep-dive-statement-recipients",
-      "source_keys": [
-        "93e728ed6a65605f",
-        "776256c424368312",
-        "776256c424368312"
-      ],
-      "start_line": 615
-    },
-    {
-      "confidence": "normal",
-      "end_line": 655,
-      "heading": "Statement Eligibility",
-      "needs_live_verification": true,
-      "section_id": "9-statements-deep-dive-statement-eligibility",
-      "source_keys": [
-        "1580376f4e942547",
-        "5b1781d01419f12b"
-      ],
-      "start_line": 635
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 669,
-      "heading": "Receipts Vs Statements",
-      "needs_live_verification": false,
-      "section_id": "9-statements-deep-dive-receipts-vs-statements",
-      "source_keys": [
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 656
-    },
-    {
-      "confidence": "structural",
-      "end_line": 671,
-      "heading": "10. Batches Deep Dive",
-      "needs_live_verification": false,
-      "section_id": "10-batches-deep-dive",
-      "source_keys": [
-        "ca4ddbe5fd63e55a",
-        "1590d03b5f992088",
-        "b298af2cf3202cfb",
-        "776256c424368312",
-        "cd275eaf0cc0a25a"
-      ],
-      "start_line": 670
-    },
-    {
-      "confidence": "normal",
-      "end_line": 685,
-      "heading": "Batch Purpose",
-      "needs_live_verification": false,
-      "section_id": "10-batches-deep-dive-batch-purpose",
-      "source_keys": [
-        "ca4ddbe5fd63e55a",
-        "1590d03b5f992088"
-      ],
-      "start_line": 672
-    },
-    {
-      "confidence": "normal",
-      "end_line": 706,
-      "heading": "Batch Fields To Inspect",
-      "needs_live_verification": true,
-      "section_id": "10-batches-deep-dive-batch-fields-to-inspect",
-      "source_keys": [
-        "b298af2cf3202cfb"
-      ],
-      "start_line": 686
-    },
-    {
-      "confidence": "normal",
-      "end_line": 717,
-      "heading": "Batch Status",
-      "needs_live_verification": false,
-      "section_id": "10-batches-deep-dive-batch-status",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 707
-    },
-    {
-      "confidence": "normal",
-      "end_line": 729,
-      "heading": "Automated Batches",
-      "needs_live_verification": true,
-      "section_id": "10-batches-deep-dive-automated-batches",
-      "source_keys": [
-        "1590d03b5f992088"
-      ],
-      "start_line": 718
-    },
-    {
-      "confidence": "normal",
-      "end_line": 747,
-      "heading": "Check Scanning And Mobile Batch Processing",
-      "needs_live_verification": true,
-      "section_id": "10-batches-deep-dive-check-scanning-and-mobile-batch-processing",
-      "source_keys": [
-        "b298af2cf3202cfb",
-        "cd275eaf0cc0a25a",
-        "776256c424368312"
-      ],
-      "start_line": 730
-    },
-    {
-      "confidence": "structural",
-      "end_line": 749,
-      "heading": "11. Related Rock Areas: People, Groups, Workflows, Security, Reporting",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting",
-      "source_keys": [
-        "b298af2cf3202cfb",
-        "cd275eaf0cc0a25a",
-        "776256c424368312",
-        "93e728ed6a65605f",
-        "b885bd6863fa2063",
-        "c4a0a588db9ed5b7",
-        "3aa7aee58b247692",
-        "8ad98d9d45088994",
-        "fe44664d13d01acc",
-        "1590d03b5f992088",
-        "ec1feb0cddfde711",
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
         "435195f5b515221c",
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 748
-    },
-    {
-      "confidence": "structural",
-      "end_line": 771,
-      "heading": "People",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-people",
-      "source_keys": [
-        "b298af2cf3202cfb",
-        "cd275eaf0cc0a25a",
-        "776256c424368312"
-      ],
-      "start_line": 750
-    },
-    {
-      "confidence": "normal",
-      "end_line": 777,
-      "heading": "Groups",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-groups",
-      "source_keys": [
-        "93e728ed6a65605f",
-        "b885bd6863fa2063",
-        "c4a0a588db9ed5b7"
-      ],
-      "start_line": 772
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 803,
-      "heading": "Workflows",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-workflows",
-      "source_keys": [
-        "3aa7aee58b247692",
-        "8ad98d9d45088994",
-        "fe44664d13d01acc"
-      ],
-      "start_line": 778
-    },
-    {
-      "confidence": "normal",
-      "end_line": 822,
-      "heading": "Security",
-      "needs_live_verification": false,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-security",
-      "source_keys": [
-        "1590d03b5f992088",
-        "fe44664d13d01acc",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 804
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 843,
-      "heading": "Reporting",
-      "needs_live_verification": true,
-      "section_id": "11-related-rock-areas-people-groups-workflows-security-reporting-reporting",
-      "source_keys": [
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
-        "435195f5b515221c",
-        "d26a070ba9bc8cae",
-        "435195f5b515221c",
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 823
-    },
-    {
-      "confidence": "structural",
-      "end_line": 845,
-      "heading": "12. Administration And Operational Guardrails",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails",
-      "source_keys": [
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
-        "435195f5b515221c",
-        "d26a070ba9bc8cae",
-        "23faa2ec51ba6e7d",
-        "1590d03b5f992088",
-        "b298af2cf3202cfb",
-        "776256c424368312"
-      ],
-      "start_line": 844
-    },
-    {
-      "confidence": "structural",
-      "end_line": 858,
-      "heading": "Change Control",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-change-control",
-      "source_keys": [
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
-        "435195f5b515221c",
-        "d26a070ba9bc8cae",
-        "435195f5b515221c",
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 846
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 873,
-      "heading": "Account Governance",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-account-governance",
-      "source_keys": [
-        "23faa2ec51ba6e7d"
-      ],
-      "start_line": 859
-    },
-    {
-      "confidence": "normal",
-      "end_line": 888,
-      "heading": "Gateway Governance",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-gateway-governance",
-      "source_keys": [
-        "1590d03b5f992088"
-      ],
-      "start_line": 874
-    },
-    {
-      "confidence": "normal",
-      "end_line": 904,
-      "heading": "Batch Controls",
-      "needs_live_verification": false,
-      "section_id": "12-administration-and-operational-guardrails-batch-controls",
-      "source_keys": [
-        "b298af2cf3202cfb"
-      ],
-      "start_line": 889
-    },
-    {
-      "confidence": "normal",
-      "end_line": 921,
-      "heading": "Receipt And Statement Controls",
-      "needs_live_verification": true,
-      "section_id": "12-administration-and-operational-guardrails-receipt-and-statement-controls",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 905
-    },
-    {
-      "confidence": "structural",
-      "end_line": 923,
-      "heading": "13. Developer, API, Lava, And Source-Code Landmarks",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks",
-      "source_keys": [
-        "d275b5b94a9da833",
-        "e3b6796157b1f817",
-        "c1283df39ad4c6a6",
-        "7708205014c5fca2",
-        "b196110a35f428f4",
-        "6a88cc551d5535ba",
-        "5dea5a7114204729",
-        "5677270e119d7a61",
-        "b885bd6863fa2063",
-        "5b1781d01419f12b",
-        "2c07ce643ba66ec4",
-        "93e728ed6a65605f",
-        "d141b5902558d1f5",
-        "1bf12866dad17cf5",
-        "226944718ce1264b",
-        "776256c424368312",
-        "fe44664d13d01acc",
-        "23faa2ec51ba6e7d",
-        "ec1feb0cddfde711",
-        "c9eb9fb42916f1a8",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb"
-      ],
-      "start_line": 922
-    },
-    {
-      "confidence": "normal",
-      "end_line": 948,
-      "heading": "Source Repository",
-      "needs_live_verification": false,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-source-repository",
-      "source_keys": [
-        "d275b5b94a9da833",
-        "e3b6796157b1f817",
-        "c1283df39ad4c6a6",
-        "7708205014c5fca2",
-        "b196110a35f428f4",
-        "6a88cc551d5535ba",
-        "5dea5a7114204729",
-        "5677270e119d7a61",
-        "b885bd6863fa2063",
-        "5b1781d01419f12b",
-        "2c07ce643ba66ec4",
-        "93e728ed6a65605f",
-        "d141b5902558d1f5",
-        "1bf12866dad17cf5",
-        "226944718ce1264b"
-      ],
-      "start_line": 924
-    },
-    {
-      "confidence": "normal",
-      "end_line": 956,
-      "heading": "API Considerations",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-api-considerations",
-      "source_keys": [
-        "b885bd6863fa2063",
-        "5677270e119d7a61",
-        "776256c424368312",
-        "fe44664d13d01acc"
-      ],
-      "start_line": 949
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 974,
-      "heading": "Lava Considerations",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-lava-considerations",
-      "source_keys": [
-        "23faa2ec51ba6e7d",
-        "ec1feb0cddfde711",
-        "c9eb9fb42916f1a8"
-      ],
-      "start_line": 957
-    },
-    {
-      "confidence": "normal",
-      "end_line": 983,
-      "heading": "Mobile Developer Landmarks",
-      "needs_live_verification": true,
-      "section_id": "13-developer-api-lava-and-source-code-landmarks-mobile-developer-landmarks",
-      "source_keys": [
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "776256c424368312"
-      ],
-      "start_line": 975
-    },
-    {
-      "confidence": "structural",
-      "end_line": 985,
-      "heading": "14. Reporting, Analytics, And Model Map",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map",
-      "source_keys": [
-        "5dea5a7114204729",
-        "b885bd6863fa2063",
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
-        "1590d03b5f992088",
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 984
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1002,
-      "heading": "Transactional Tables Vs Analytics Tables",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-transactional-tables-vs-analytics-tables",
-      "source_keys": [
-        "5dea5a7114204729",
-        "b885bd6863fa2063",
-        "5dea5a7114204729",
-        "b885bd6863fa2063"
-      ],
-      "start_line": 986
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1017,
-      "heading": "Giving Analytics",
-      "needs_live_verification": true,
-      "section_id": "14-reporting-analytics-and-model-map-giving-analytics",
-      "source_keys": [
-        "769021e3af96ba14",
-        "766bb54c11be8cda",
-        "1590d03b5f992088"
-      ],
-      "start_line": 1003
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1029,
-      "heading": "BI Financial Transaction Reporting",
-      "needs_live_verification": true,
-      "section_id": "14-reporting-analytics-and-model-map-bi-financial-transaction-reporting",
-      "source_keys": [
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 1018
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1044,
-      "heading": "Model Map Usage",
-      "needs_live_verification": false,
-      "section_id": "14-reporting-analytics-and-model-map-model-map-usage",
-      "source_keys": [
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 1030
-    },
-    {
-      "confidence": "high",
-      "end_line": 1061,
-      "heading": "15. Version And Release Caveats",
-      "needs_live_verification": true,
-      "section_id": "15-version-and-release-caveats",
-      "source_keys": [
-        "1590d03b5f992088",
-        "1590d03b5f992088",
-        "638bd14421adcd15",
-        "ec1feb0cddfde711",
-        "fe44664d13d01acc",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312",
-        "776256c424368312"
-      ],
-      "start_line": 1045
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1063,
-      "heading": "16. Implementation Playbooks",
-      "needs_live_verification": false,
-      "section_id": "16-implementation-playbooks",
-      "source_keys": [
-        "1590d03b5f992088",
-        "be6dab760b9fe26e",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "769021e3af96ba14",
-        "d26a070ba9bc8cae",
-        "fe44664d13d01acc"
-      ],
-      "start_line": 1062
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1080,
-      "heading": "Playbook: Add A New Giving Account",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-add-a-new-giving-account",
-      "source_keys": [
-        "1590d03b5f992088",
-        "be6dab760b9fe26e"
-      ],
-      "start_line": 1064
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1094,
-      "heading": "Playbook: Configure Online Giving",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-configure-online-giving",
-      "source_keys": [
-        "1590d03b5f992088",
-        "be6dab760b9fe26e"
-      ],
-      "start_line": 1081
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1108,
-      "heading": "Playbook: Enable Mobile Batch Check Scanning",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-enable-mobile-batch-check-scanning",
-      "source_keys": [
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb"
-      ],
-      "start_line": 1095
-    },
-    {
-      "confidence": "citation-only",
-      "end_line": 1123,
-      "heading": "Playbook: Build A Giving Analytics Report",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-build-a-giving-analytics-report",
-      "source_keys": [
-        "769021e3af96ba14",
-        "d26a070ba9bc8cae"
-      ],
-      "start_line": 1109
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1141,
-      "heading": "Playbook: Import Giving From An External System",
-      "needs_live_verification": true,
-      "section_id": "16-implementation-playbooks-playbook-import-giving-from-an-external-system",
-      "source_keys": [
-        "fe44664d13d01acc"
-      ],
-      "start_line": 1124
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1143,
-      "heading": "17. Troubleshooting Decision Tree",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree",
-      "source_keys": [
-        "776256c424368312",
-        "e3b6796157b1f817",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1142
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1156,
-      "heading": "A Gift Is Missing From A Person's Giving History",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-person-s-giving-history",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1144
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1170,
-      "heading": "A Gift Is Missing From A Statement",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-a-gift-is-missing-from-a-statement",
-      "source_keys": [
-        "776256c424368312",
-        "776256c424368312"
-      ],
-      "start_line": 1157
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1183,
-      "heading": "Batch Total Does Not Match",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-batch-total-does-not-match",
-      "source_keys": [
-        "776256c424368312"
-      ],
-      "start_line": 1171
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1196,
-      "heading": "Recurring Gift Did Not Run",
-      "needs_live_verification": true,
-      "section_id": "17-troubleshooting-decision-tree-recurring-gift-did-not-run",
-      "source_keys": [
-        "e3b6796157b1f817"
-      ],
-      "start_line": 1184
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1208,
-      "heading": "Receipt Language Is Wrong",
-      "needs_live_verification": true,
-      "section_id": "17-troubleshooting-decision-tree-receipt-language-is-wrong",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1197
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1219,
-      "heading": "External Import Created Duplicates",
-      "needs_live_verification": false,
-      "section_id": "17-troubleshooting-decision-tree-external-import-created-duplicates",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1209
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1221,
-      "heading": "18. Agent Task Recipes",
-      "needs_live_verification": false,
-      "section_id": "18-agent-task-recipes",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711",
-        "bbc64e1562c729c9",
-        "c9eb9fb42916f1a8"
-      ],
-      "start_line": 1220
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1251,
-      "heading": "Recipe: Read-Only Finance Record Inspection",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-read-only-finance-record-inspection",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1222
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1277,
-      "heading": "Recipe: Statement Eligibility Explanation",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-statement-eligibility-explanation",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1252
-    },
-    {
-      "confidence": "structural",
-      "end_line": 1301,
-      "heading": "Recipe: Safe Account Cleanup Assessment",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-safe-account-cleanup-assessment",
-      "source_keys": [
-        "776256c424368312",
-        "ec1feb0cddfde711"
-      ],
-      "start_line": 1278
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1327,
-      "heading": "Recipe: Giving Automation Review",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-giving-automation-review",
-      "source_keys": [
-        "bbc64e1562c729c9"
-      ],
-      "start_line": 1302
-    },
-    {
-      "confidence": "community-supported",
-      "end_line": 1355,
-      "heading": "Recipe: Pledge Progress Analysis",
-      "needs_live_verification": true,
-      "section_id": "18-agent-task-recipes-recipe-pledge-progress-analysis",
-      "source_keys": [
-        "c9eb9fb42916f1a8"
-      ],
-      "start_line": 1328
-    },
-    {
-      "confidence": "normal",
-      "end_line": 1376,
-      "heading": "Approved Claim Coverage",
-      "needs_live_verification": true,
-      "section_id": "approved-claim-coverage",
-      "source_keys": [
+        "312b8c7fe0a46866",
+        "ff248dddf69daafe",
+        "bcd5c9971e89f1f4",
+        "bf1c3241fd084a3f",
+        "35ef66bdbb130dff",
+        "f5e7897c401dd153",
         "7808ba03b95d07eb",
-        "435195f5b515221c",
-        "435195f5b515221c",
-        "435195f5b515221c",
-        "f5e7897c401dd153",
-        "f5e7897c401dd153",
-        "e80bc4203561cbcb",
-        "f5e7897c401dd153"
+        "4ea666e29b8793e7"
       ],
-      "start_line": 1356
+      "start_line": 293
     },
     {
       "confidence": "citation-only",
-      "end_line": 1394,
-      "heading": "Approved Media Coverage",
-      "needs_live_verification": false,
-      "section_id": "approved-media-coverage",
+      "end_line": 331,
+      "heading": "Recipe: Trace a public gift end to end",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-trace-a-public-gift-end-to-end",
       "source_keys": [
-        "d26a070ba9bc8cae",
-        "4c0fe1130f878c66",
-        "769021e3af96ba14",
-        "435195f5b515221c",
-        "be6dab760b9fe26e",
-        "fed56291f8d16502"
+        "435195f5b515221c"
       ],
-      "start_line": 1377
+      "start_line": 295
     },
     {
-      "confidence": "high",
-      "end_line": 1466,
-      "heading": "19. Source Map And Dependency Notes",
+      "confidence": "normal",
+      "end_line": 356,
+      "heading": "Recipe: Validate an online giving page before launch",
       "needs_live_verification": true,
-      "section_id": "19-source-map-and-dependency-notes",
+      "section_id": "agent-task-recipes-recipe-validate-an-online-giving-page-before-launch",
       "source_keys": [
-        "1590d03b5f992088",
-        "776256c424368312",
-        "5feb321c12dae9ff",
-        "d275b5b94a9da833",
-        "5677270e119d7a61",
-        "b885bd6863fa2063",
-        "5dea5a7114204729",
-        "e3b6796157b1f817",
-        "b196110a35f428f4",
-        "5b1781d01419f12b",
-        "93e728ed6a65605f",
-        "cd275eaf0cc0a25a",
-        "b298af2cf3202cfb",
-        "ec34ce9b780ba158",
-        "ca4ddbe5fd63e55a",
-        "af0487d0f556989c",
-        "cc6fb3df674b28c2",
-        "f04811cd352bd561",
-        "d61d88d50d1aa308",
-        "be6dab760b9fe26e",
-        "ba7f265d2e01abe2",
-        "6dca8c5215eee229",
-        "769021e3af96ba14",
-        "8ad98d9d45088994",
-        "1580376f4e942547",
-        "6b193d1cc321fd46",
-        "c4a0a588db9ed5b7",
-        "6bf6d493898a457d",
-        "766bb54c11be8cda",
-        "3aa7aee58b247692",
-        "fed56291f8d16502",
-        "d26a070ba9bc8cae",
-        "23faa2ec51ba6e7d",
-        "bbc64e1562c729c9",
-        "fe44664d13d01acc",
-        "ec1feb0cddfde711",
-        "c9eb9fb42916f1a8"
+        "312b8c7fe0a46866",
+        "ff248dddf69daafe"
       ],
-      "start_line": 1395
+      "start_line": 332
+    },
+    {
+      "confidence": "normal",
+      "end_line": 377,
+      "heading": "Recipe: Reconcile an online batch",
+      "needs_live_verification": false,
+      "section_id": "agent-task-recipes-recipe-reconcile-an-online-batch",
+      "source_keys": [
+        "bcd5c9971e89f1f4"
+      ],
+      "start_line": 357
+    },
+    {
+      "confidence": "normal",
+      "end_line": 401,
+      "heading": "Recipe: Generate and validate contribution statements",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-generate-and-validate-contribution-statements",
+      "source_keys": [
+        "bf1c3241fd084a3f",
+        "35ef66bdbb130dff"
+      ],
+      "start_line": 378
+    },
+    {
+      "confidence": "normal",
+      "end_line": 423,
+      "heading": "Recipe: Build a detail-preserving finance report",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-build-a-detail-preserving-finance-report",
+      "source_keys": [
+        "f5e7897c401dd153",
+        "7808ba03b95d07eb"
+      ],
+      "start_line": 402
+    },
+    {
+      "confidence": "normal",
+      "end_line": 444,
+      "heading": "Recipe: Transfer scheduled giving to a new gateway",
+      "needs_live_verification": true,
+      "section_id": "agent-task-recipes-recipe-transfer-scheduled-giving-to-a-new-gateway",
+      "source_keys": [
+        "4ea666e29b8793e7",
+        "ff248dddf69daafe"
+      ],
+      "start_line": 424
+    },
+    {
+      "confidence": "structural",
+      "end_line": 461,
+      "heading": "Known Gaps And Live Verification",
+      "needs_live_verification": true,
+      "section_id": "known-gaps-and-live-verification",
+      "source_keys": [
+        "4ea666e29b8793e7",
+        "ff248dddf69daafe"
+      ],
+      "start_line": 445
+    },
+    {
+      "confidence": "structural",
+      "end_line": 463,
+      "heading": "Source Map",
+      "needs_live_verification": false,
+      "section_id": "source-map",
+      "source_keys": [
+        "435195f5b515221c",
+        "e80bc4203561cbcb",
+        "f5e7897c401dd153",
+        "7808ba03b95d07eb",
+        "1c1c19af948b7cf4",
+        "953fa69c20ef36dd",
+        "bcd5c9971e89f1f4",
+        "dba52273a580508f",
+        "6fa8ff7e04b456ac",
+        "93af425e1dea36d6",
+        "ff248dddf69daafe",
+        "4ea666e29b8793e7",
+        "f332ae34cb7fc316",
+        "b70869f87e677e91",
+        "ddefbc3f5895577c",
+        "d0d73e2adb126775",
+        "b04e7d7237b01fdb",
+        "c994d3abb04322cc",
+        "bf1c3241fd084a3f",
+        "35ef66bdbb130dff",
+        "896337f6cea82d10",
+        "776256c424368312",
+        "47d5eca21180aaee",
+        "23faa2ec51ba6e7d"
+      ],
+      "start_line": 462
+    },
+    {
+      "confidence": "normal",
+      "end_line": 471,
+      "heading": "Approved claim spine",
+      "needs_live_verification": false,
+      "section_id": "source-map-approved-claim-spine",
+      "source_keys": [
+        "435195f5b515221c",
+        "435195f5b515221c",
+        "e80bc4203561cbcb",
+        "f5e7897c401dd153",
+        "7808ba03b95d07eb"
+      ],
+      "start_line": 464
+    },
+    {
+      "confidence": "normal",
+      "end_line": 491,
+      "heading": "Official v19.0 documentation",
+      "needs_live_verification": false,
+      "section_id": "source-map-official-v19-0-documentation",
+      "source_keys": [
+        "1c1c19af948b7cf4",
+        "953fa69c20ef36dd",
+        "bcd5c9971e89f1f4",
+        "dba52273a580508f",
+        "6fa8ff7e04b456ac",
+        "93af425e1dea36d6",
+        "ff248dddf69daafe",
+        "4ea666e29b8793e7",
+        "f332ae34cb7fc316",
+        "b70869f87e677e91",
+        "ddefbc3f5895577c",
+        "d0d73e2adb126775",
+        "b04e7d7237b01fdb",
+        "c994d3abb04322cc",
+        "bf1c3241fd084a3f",
+        "35ef66bdbb130dff",
+        "896337f6cea82d10"
+      ],
+      "start_line": 472
+    },
+    {
+      "confidence": "normal",
+      "end_line": 496,
+      "heading": "Versioned and implementation evidence",
+      "needs_live_verification": false,
+      "section_id": "source-map-versioned-and-implementation-evidence",
+      "source_keys": [
+        "776256c424368312",
+        "47d5eca21180aaee"
+      ],
+      "start_line": 492
+    },
+    {
+      "confidence": "community-supported",
+      "end_line": 499,
+      "heading": "Community example",
+      "needs_live_verification": false,
+      "section_id": "source-map-community-example",
+      "source_keys": [
+        "23faa2ec51ba6e7d"
+      ],
+      "start_line": 497
     }
   ],
-  "source_pack_hydrated_at": "2026-06-03T16:04:50+00:00",
+  "source_pack_hydrated_at": "2026-09-03T16:01:57+00:00",
   "sources": [
-    {
-      "authority": "official-model-map",
-      "authority_score": 86,
-      "kind": "generated_model_map_pointer",
-      "source_id": "rock_model_map",
-      "source_key": "ed6551d38c7e2b18",
-      "source_record_id": "rock_model_map:stable-demo-scrape",
-      "title": "Stable Rock Model Map scrape",
-      "url": "https://rocksolidchurchdemo.com/admin/power-tools/model-map"
-    },
     {
       "authority": "official-training",
       "authority_score": 75,
       "change_type": null,
-      "content_hash": "1f49118c728364ad3916610bb2403bee77b058fd7a3223105d44430e761be863",
-      "excerpt_hash": "a497dd39b34386017872ba31e9811ae5fd5a3d3b5dbeadcfcc0380d95c7bea6d",
+      "content_hash": "2fc690895710c4d44bbff03c409f69d38a8db03bb141edc7c83b3a0a9b61e1b2",
+      "excerpt_hash": "a7bd47a4eba3798a81b73972ae7ea44a94ae9553db7a217f69360db24203a25a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_rocku",
-      "source_key": "5feb321c12dae9ff",
-      "source_record_id": "rock_rocku:5feb321c12dae9ff",
-      "title": "Finance",
+      "source_key": "435195f5b515221c",
+      "source_record_id": "media-insight:4e7bb5d30da6c77a",
+      "title": "Giving Journey Transcript Insight",
       "topics": [
-        "finance",
+        "media",
+        "podcast",
+        "timestamped-insights",
         "training",
         "usage",
         "workflow"
       ],
-      "url": "https://community.rockrms.com/rocku/finance",
+      "url": "https://community.rockrms.com/rocku/finance/giving-journey-1",
       "version": null
     },
     {
       "authority": "official",
       "authority_score": 100,
       "change_type": null,
-      "content_hash": "b0b4c87572e3cb39d6d7871ab3e4ee93f59763ed88f6e4f96a925bc105a37ab8",
-      "excerpt_hash": "6887a0f6caabe8e7924ec25581868d89284d8ebaebee832771473ac70eb11365",
+      "content_hash": "ce7a71767e4dfcdb985f1a8c121319ce3ffa1ecf93b59e4f9f3ba90f623bc723",
+      "excerpt_hash": "844a14b9f3a5aaa06a31da7cdb7e1eae8d1f629de335c43a2d3540debdd52a8a",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "1590d03b5f992088",
-      "source_record_id": "rock_documentation:1590d03b5f992088",
-      "title": "Rock Solid Finances",
+      "source_key": "1c1c19af948b7cf4",
+      "source_record_id": "rock_documentation:article:1085",
+      "title": "Finance",
       "topics": [
         "admin",
         "finance",
         "operations",
         "usage"
       ],
-      "url": "https://community.rockrms.com/documentation/bookcontent/15",
+      "url": "https://community.rockrms.com/documentation/church-management/finance",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
+      "kind": "citation_only",
+      "source_id": "rock_documentation",
+      "source_key": "7808ba03b95d07eb",
+      "source_record_id": "",
+      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
+      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "16a95eff66470ca2ebf6e88daa362a1bfb732cf054103b6acd1efa3eb9a5daba",
-      "excerpt_hash": "5eaac337635a9840da63d90c5717af86a6ec8bcb445506816bbe014ed5f9226a",
+      "content_hash": "e147f488781506166b296081f33253d9fa0582397e0d87434a76700794a13d8c",
+      "excerpt_hash": "390e2984bc512a86bb153d23ddd6e9e588c813762b8f10cbac7dddae8df702d6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "af0487d0f556989c",
-      "source_record_id": "rock_rocku:af0487d0f556989c",
-      "title": "Accounts",
+      "source_id": "rock_documentation",
+      "source_key": "953fa69c20ef36dd",
+      "source_record_id": "rock_documentation:article:3528",
+      "title": "Intro to Financial Components",
       "topics": [
+        "admin",
         "finance",
-        "training",
-        "usage",
-        "workflow"
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/accounts",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/financial-components/intro-to-financial-components",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "5fcb1a6bcab704b71ec112ccedb48101db8f388b68cf65a54bf3e053ca1a1ddc",
-      "excerpt_hash": "2d527d587315da02c339a56225803ed16703df9bee6f16318dd0715f66653783",
+      "content_hash": "ff849fb43b96247d2f5a422f47be7453b05d37bd443005a607e2ed92231bc60c",
+      "excerpt_hash": "81bb8413172d2c5650a9ca75928da78cbb5cd12406215d1611fd5ea73d3c4278",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "ec34ce9b780ba158",
-      "source_record_id": "rock_rocku:ec34ce9b780ba158",
-      "title": "Transactions",
+      "source_id": "rock_documentation",
+      "source_key": "c1037f1d133f9b3b",
+      "source_record_id": "rock_documentation:article:1892",
+      "title": "Intro to Payment Gateways",
       "topics": [
+        "admin",
         "finance",
-        "training",
-        "usage",
-        "workflow"
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/transactions",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/intro-to-payment-gateways",
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "bf8ab49ebfc73d8aed4ac177427fbedaa2cb327a36065c3f45088298eb37049d",
-      "excerpt_hash": "3fcde3c10fb3aad195b7ec0dea209d1b499a2b8dcc61813986ad09d5b7bb8d5b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5677270e119d7a61",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
-      "title": "Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "da1938f2f504d34ea8bce34359aeae8f837ff93a9dee46648a3289e8c13f57e2",
-      "excerpt_hash": "c89dc625250c4ba70145fb779ada46613159049191ecd2c0cda2e7664959a987",
-      "kind": "github_file",
-      "language": "SQL",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "contribution"
-      ],
-      "path": "Dev Tools/Sql/Populate_FinancialTransactions_Contributions.sql",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b2c36a9129416365",
-      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_FinancialTransactions_Contributions.sql",
-      "title": "Dev Tools/Sql/Populate_FinancialTransactions_Contributions.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_FinancialTransactions_Contributions.sql"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "15e29a0277f76b1d0dead5e4a503fbf41c45764efa392d9a0d57d2a0578ff032",
-      "excerpt_hash": "ed6fad28ccaca9fddd34388c3806d6d89ced4105e99b4120569580f28f41dd12",
+      "content_hash": "cd68ef54746a61af9b2de01bad521b94e740c828efc128bee92ab749611e4499",
+      "excerpt_hash": "3ed9678f8cf2d6ab097bddcf43ec2d95c3f1189472a69f7dc91318b181fe9405",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "ca4ddbe5fd63e55a",
-      "source_record_id": "rock_rocku:ca4ddbe5fd63e55a",
-      "title": "Batches",
+      "source_id": "rock_documentation",
+      "source_key": "dba52273a580508f",
+      "source_record_id": "rock_documentation:article:1874",
+      "title": "Intro to Online Giving",
       "topics": [
+        "admin",
         "finance",
-        "training",
-        "usage",
-        "workflow"
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/batches",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/intro-to-online-giving",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "8acd89953f0c1f9f2a24a64b0595db1b25d5b691b4603a2f1f0673562c0b1c48",
-      "excerpt_hash": "61ade2401448db4a31141c8c4ebf3fdebca1ff7aef8b59d50988d775500845d7",
+      "content_hash": "59f8ceefe271c97b348a2189a7fbe0ea19f8084c792ed44f57284bce618424de",
+      "excerpt_hash": "4ac46ef2c05ac554970becb70a921dedd3b47ae77b2618655204cddec11749c6",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "cc6fb3df674b28c2",
-      "source_record_id": "rock_rocku:cc6fb3df674b28c2",
-      "title": "Scheduled Transactions",
+      "source_id": "rock_documentation",
+      "source_key": "312b8c7fe0a46866",
+      "source_record_id": "rock_documentation:article:1891",
+      "title": "Advanced Utility Payment Entry Block Settings",
       "topics": [
+        "admin",
         "finance",
-        "training",
-        "usage",
-        "workflow"
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/scheduled-transactions",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/advanced-finance/advanced-utility-payment-entry-block-settings",
       "version": null
     },
     {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "7e1aa8d58e97454ebdb6131a62294b65fe5b57c1b20b8011d5ab4eea153d5729",
-      "excerpt_hash": "bbcf963b3f0dd292756ebe96c0b51cb56e0a028f5586acda702045c278689bd2",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "finance",
-        "financial",
-        "transaction",
-        "payment"
-      ],
-      "path": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "e3b6796157b1f817",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs",
-      "title": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlan.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "12c52a902aeb21d2713dfe585505426906d3ccfd6d8caf9ceb68b4f4a9f121ae",
-      "excerpt_hash": "1e61f8daa8d10fcbdef57b47c4adb54c1bdb85bf2ccb44e5ade2f99258471921",
-      "kind": "github_file",
-      "language": "SQL",
-      "matched_terms": [
-        "finance",
-        "statement",
-        "groups",
-        "contribution"
-      ],
-      "path": "Rock.Migrations/Migrations/Version 12.0/Version 1.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "93e728ed6a65605f",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Migrations/Migrations/Version 12.0/Version 1.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
-      "title": "Rock.Migrations/Migrations/Version 12.0/Version 1.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Migrations/Migrations/Version%2012.0/Version%201.12.4/202104291818024_GroupSalutation_spFinance_ContributionStatementQuery.sql"
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "61b4d21bdf1042c5de16ad96bd90b930037709d7bca99bd610d71b9d960681b0",
-      "excerpt_hash": "afb6ea870851eec1f2f3f536b7229dca3985adf4bb044759ac2b8f32fe7cbc79",
+      "content_hash": "43642e7194e7323a66cec49aee4ad24b7035f3d0b5be522cdc8a194317abbb40",
+      "excerpt_hash": "8864aed851bc140c4ac628ba6359fd011548f4507443163f45bdc87157f7b1de",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "ec1feb0cddfde711",
-      "source_record_id": "rock_recipes:ec1feb0cddfde711",
-      "title": "Shortcode 1: The Email Subject",
+      "source_id": "rock_documentation",
+      "source_key": "132ff091daa01407",
+      "source_record_id": "rock_documentation:article:1885",
+      "title": "Fundraising Financial Transactions",
       "topics": [
+        "admin",
         "finance",
-        "integrations",
-        "lava",
-        "recipes",
-        "security",
-        "sql",
-        "workflow"
+        "operations",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/recipes/510/giving-receipt-system-email-shortcodes",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "2dc5b55aab4b963c1c92df5e783e9d70d733e2ee2ec55232f76c98cc6b6c97a8",
-      "excerpt_hash": "2a1ae9ba2e478ee9be8e3fc365bed91cde3c5cb8937949948d694878a8e8cda8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "1580376f4e942547",
-      "source_record_id": "rock_rocku:1580376f4e942547",
-      "title": "Contribution Statements",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/contribution-statements",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c5f1c505119bb5b8f73247631fa67c055bf570890c61d672ab100a8616e72752",
-      "excerpt_hash": "bde197f4cdf675782e1d20835825befe6e2d6bc64ab4b413afb8a9ec38912766",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "statement"
-      ],
-      "path": "Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5b1781d01419f12b",
-      "source_record_id": "SparkDevNetwork/Rock:Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
-      "title": "Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Applications/Wpf/StatementGenerator/Client/FinancialStatementTemplateTransactionSetting.cs"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "72958eb3eae859e74126a7068fc699cae332c5af12035b15ba950c738cd9199f",
-      "excerpt_hash": "0ec7295be5c98ebdbcdeb0a0a09218a122153b0084a3d6c4afc5d721099f3c7e",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "6dca8c5215eee229",
-      "source_record_id": "rock_rocku:6dca8c5215eee229",
-      "title": "Pledges",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/pledges",
-      "version": null
-    },
-    {
-      "authority": "official-release",
-      "authority_score": 95,
-      "change_type": "new_feature",
-      "content_hash": "9ee1a45ce6c3fe6c88d4e4878e301b2b1921230f8419e9349297ed28d6bcceb6",
-      "excerpt_hash": "10b4a51c661528eddb0c118266a733b564329727c7645d25c94ee1472c5de446",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": "December 8, 2025",
-      "severity": "normal",
-      "source_id": "rock_core_release_notes",
-      "source_key": "776256c424368312",
-      "source_record_id": "rock_core_release_notes:7f01c27e9446f84c",
-      "title": "Rock Core Release Notes",
-      "topics": [
-        "releases",
-        "development",
-        "operations"
-      ],
-      "url": "https://www.rockrms.com/releasenotes",
-      "version": "18.1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "08ab69fb98651144cb73a890a2df82b7757b3e05ab0fcf88f8649ca254ce3c54",
-      "excerpt_hash": "fd95e95b831d0e5b77e4c70180971067145dec79df4de835b0cf4d309c730011",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "d61d88d50d1aa308",
-      "source_record_id": "rock_rocku:d61d88d50d1aa308",
-      "title": "Businesses",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/businesses",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "a6901d12e04303f9b225446b1e3fba75ef91caf5ce1f0ee9e84c5db22f9a00a4",
-      "excerpt_hash": "3555e5d09ad4191163a757b58eac27555c55771f1ab7249b37cd89f44dbb7f4b",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b885bd6863fa2063",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs",
-      "title": "Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsFactFinancialTransaction/AnalyticsFactFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "change_type": null,
-      "content_hash": "ece777197f7a9f8f2447b6e36e733a3c0b4bebeb78013fee0ebae218e59048b7",
-      "excerpt_hash": "10336d57a1cf58ecc322256520279ef4388e88d46738ea5fea2b1553619fbf0f",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d275b5b94a9da833",
-      "source_record_id": "sparkdevnetwork_rock:d275b5b94a9da833",
-      "title": "SparkDevNetwork/Rock",
-      "topics": [
-        "development",
-        "source",
-        "api",
-        "model-map"
-      ],
-      "url": "https://github.com/SparkDevNetwork/Rock",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "f484ac80027a2dbcab567362775eb605b32b9bd06325fc23dd9d645446b9dcad",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "cd275eaf0cc0a25a",
-      "source_record_id": "rock_developer:cd275eaf0cc0a25a",
-      "title": "Financial Batch List",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "mobile",
-        "obsidian"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-list",
-      "version": null
-    },
-    {
-      "authority": "official-developer",
-      "authority_score": 90,
-      "change_type": null,
-      "content_hash": "cfd29ec6af2d8420ca0ef97faf044916273e7b153de13d1dcacc7476b72e68e2",
-      "excerpt_hash": "3e68d25a91695ea185cd0f540add9376b9457529e1a76f192b93711812497f45",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_developer",
-      "source_key": "b298af2cf3202cfb",
-      "source_record_id": "rock_developer:b298af2cf3202cfb",
-      "title": "Financial Batch Detail",
-      "topics": [
-        "api",
-        "development",
-        "finance",
-        "lava",
-        "mobile",
-        "obsidian",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/finance/financial-batch-detail",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/fundraising-groups/fundraising-financial-transactions",
       "version": null
     },
     {
       "authority": "community-example",
       "authority_score": 55,
       "change_type": null,
-      "content_hash": "2050e92a5e254f81600f4df05c3071ac45ac0121de672b396cfeac6aa6a9824a",
-      "excerpt_hash": "a5b17aa49beeb0a9264866e5ded33783a3bae53fb1e1989a202c6111379e0caf",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "fe44664d13d01acc",
-      "source_record_id": "rock_recipes:fe44664d13d01acc",
-      "title": "Syncing Planning Center Giving into Rock RMS",
-      "topics": [
-        "api",
-        "finance",
-        "integrations",
-        "lava",
-        "recipes",
-        "security",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/521/syncing-planning-center-giving-into-rock-rms",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "dcd88b7efbc78f58fbbacc71eb562b44a48793add6a932d900e8424a5032c5a6",
-      "excerpt_hash": "2358d6e704159572f0da52ce0ae6f5d9681d41388af5556cc78acf3d91a6b5b0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "bbc64e1562c729c9",
-      "source_record_id": "rock_recipes:bbc64e1562c729c9",
-      "title": "Automate asking Regular Givers to Set up Recurring Giving",
-      "topics": [
-        "finance",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/122",
-      "version": null
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "878fda1948cdf2bf9ab1275c4d6a78d2db86e0e7e1b0550e3e7b6435248ca7d5",
-      "excerpt_hash": "efa11b5a471931f097f2cc3e1bd6070322120bf1c20ec23786f0ea91f0c1fa41",
+      "content_hash": "4d3c1283329d4a5e4ff1a84ea68b7b35519d910f98ffd97b74ed98c22d081498",
+      "excerpt_hash": "791ff7be959003cc1b733336c74a983af67989e38adff1b8d3317128fda5d085",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
@@ -2766,524 +1488,426 @@
       "version": null
     },
     {
-      "authority": "official-triumph",
-      "authority_score": 105,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "2a15a24f852dd72d961355e9155ed6cd20eb62b6eccc181dec931df4dfc6f2d0",
-      "excerpt_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_hash": "be38fb14a59fe5f950cbbb53b70eb287be2c7d62bb6410a03756a5837ac523b5",
+      "excerpt_hash": "1bf88493417007048867890a5749fc3cea73d9af825857095b95224c082ed397",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "triumph_resources",
-      "source_key": "638bd14421adcd15",
-      "source_record_id": "triumph_resources:638bd14421adcd15",
-      "title": "Giving Unit Analytics",
+      "source_id": "rock_documentation",
+      "source_key": "ff248dddf69daafe",
+      "source_record_id": "rock_documentation:article:1302",
+      "title": "Configure a Gateway",
       "topics": [
-        "ai",
+        "admin",
         "finance",
-        "github",
-        "implementation",
         "operations",
-        "releases",
-        "resources",
-        "triumph"
+        "usage"
       ],
-      "url": "https://www.triumph.tech/resources/giving-unit-analytics",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/configure-a-gateway",
       "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "cf87cea9419e58ca6b0ec38d8b55a9d3dc868feeb74fcf2aa84f160966380672",
-      "excerpt_hash": "7cbf8e17311951fa9fc68488ca828db463dfbcc703f9b3c9c7131687a275d397",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "finance",
-        "financial",
-        "transaction",
-        "payment"
-      ],
-      "path": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "b196110a35f428f4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs",
-      "title": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationService.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "9afac56c44062487bfe622da39d399597d297efcf4f33b6d3741e7df368e148f",
-      "excerpt_hash": "f96d7a98bb8b040f57a87959a039ab311840f08355375696a6f4573086e84560",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "finance",
-        "financial",
-        "transaction",
-        "payment"
-      ],
-      "path": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "c1283df39ad4c6a6",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs",
-      "title": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfiguration.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8faa0b0dc43d8db0601f9fd0fdefe00e196f60dd166f721f8c63a9781b340276",
-      "excerpt_hash": "599fe690a50f345b07b3554c8987081626f19a217e9438c9999a2df3c889c107",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "finance",
-        "financial",
-        "transaction",
-        "payment"
-      ],
-      "path": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "6a88cc551d5535ba",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
-      "title": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentFrequencyConfiguration.cs"
-    },
-    {
-      "authority": "community-example",
-      "authority_score": 55,
-      "change_type": null,
-      "content_hash": "b64909c0a2067f6b75b453084f2083e954a2e69569c0f52e8571eed8923ef056",
-      "excerpt_hash": "6adfd4f8157d09a8eee01561954ec0be35bce8affe3fd5cca5b0806beec33dbb",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_recipes",
-      "source_key": "c9eb9fb42916f1a8",
-      "source_record_id": "rock_recipes:c9eb9fb42916f1a8",
-      "title": "Pledge Analysis Page",
-      "topics": [
-        "finance",
-        "integrations",
-        "lava",
-        "recipes",
-        "sql",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/recipes/90",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "8588b83374a0075e0f5bb2ff4a097ba9c4edaeb8b4bdd49292c426da20073c22",
-      "excerpt_hash": "d9fd1b6dd851141f56d3bf5ce83c8f8608264b1198636dbea4597cc9e637c638",
-      "kind": "github_file",
-      "language": "SQL",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "contribution"
-      ],
-      "path": "Dev Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d645ea33231da869",
-      "source_record_id": "SparkDevNetwork/Rock:Dev Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql",
-      "title": "Dev Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Dev%20Tools/Sql/Populate_FinancialTransactions_Contribution_UsingFrequency.sql"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "b8c51f7ada0ec4bd0f9f751827493c49ab664f304edddca2436aec3bdb2d7552",
-      "excerpt_hash": "313d4bd841d36410f5b2c68c59207400445c9f30ec37bb1819fe9be551be369c",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "be6dab760b9fe26e",
-      "source_record_id": "rock_rocku:be6dab760b9fe26e",
-      "title": "Online Giving",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/online-giving",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "d72ac4a281cf66ab5fb2b8cd19448f86ce433f2e9713989d347ac2ade8b2f3c1",
-      "excerpt_hash": "ac58f7fa5e190a7102979d6e276e030825a63539d32ef0215eb4783d1c41cf31",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "fed56291f8d16502",
-      "source_record_id": "rock_rocku:fed56291f8d16502",
-      "title": "Text Giving",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/text-giving",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "ae78fefc42e5463525025265901533b5f398f9be0b220b66476673910b4e1037",
-      "excerpt_hash": "ba65271cad5e9171e2e27795bc94ef7d437a2f80aea34e1e512a7c969f97c0d2",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "ba7f265d2e01abe2",
-      "source_record_id": "rock_rocku:ba7f265d2e01abe2",
-      "title": "Check Matching",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/check-matching",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "acefe7ce44b86aded55cc9f3953374b2e48636cfce6bee1124d4b5d07f7a66ba",
-      "excerpt_hash": "86bdc7c53ff09fcdfad9ede9192486bd71ae4f593110d7fa87f401b4f54d0a94",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "finance",
-        "financial",
-        "transaction",
-        "payment"
-      ],
-      "path": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "7708205014c5fca2",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs",
-      "title": "Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Finance/FinancialScheduledTransaction/PaymentPlanConfigurationOptions.cs"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "419681e097d785ba13092649c0eb338fd90d4e1c782dcbe71cea106f42769fbc",
-      "excerpt_hash": "86c1e6d1883ab0968fe99579be5556f097d7dadea2c840380c0e556e75686c77",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "f04811cd352bd561",
-      "source_record_id": "rock_rocku:f04811cd352bd561",
-      "title": "Refunds",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/refunds",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "cced83112f64109d1608a45f2b43a9aac594b209f6f719d50eefc780ddae5b44",
-      "excerpt_hash": "7f322a83440e5680cb854bf0dbf6338efe71f6794dcc808a0f45148fd0e9947e",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "statement"
-      ],
-      "path": "Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "2c07ce643ba66ec4",
-      "source_record_id": "SparkDevNetwork/Rock:Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
-      "title": "Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock.Client/CodeGenerated/FinancialStatementTemplateTransactionSetting.cs"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "5a104fed9c0e252e7474f48a46139c64840928ca0d3ba992df43ccf5e32df540",
-      "excerpt_hash": "731ec950dcbd251aa3c05701b8ae8aed84e95bf728763e292a3c6d7353545ca8",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "c4a0a588db9ed5b7",
-      "source_record_id": "rock_rocku:c4a0a588db9ed5b7",
-      "title": "Fundraising Group",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/fundraising-group",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "66d4a4f3a1404791c53caedd420d73faaa59c6c98eb6a103bb23781d276b3641",
-      "excerpt_hash": "b459fc1de85186907e83edda7685d84a8d7c4b811237ec24ebe56f309e11677a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "3aa7aee58b247692",
-      "source_record_id": "rock_rocku:3aa7aee58b247692",
-      "title": "Giving Alerts",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/giving-alerts",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "3005a7e6d8107b639b5a43b8a1767f1dd74064d4d2e17a62ac2e42ba74cf64dc",
-      "excerpt_hash": "87079ac43e32878e1918d533d491af58bca932bc7f382f74a0fca60a8cd84770",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "8ad98d9d45088994",
-      "source_record_id": "rock_rocku:8ad98d9d45088994",
-      "title": "Benevolence",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/benevolence",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "cee00b851a42010b80b9ca0b0a48bbd242f6dfc704977936aa230e54310889a5",
-      "excerpt_hash": "0f0987d3a280bf27880b443743c54d16ebe40d32301631c2283cfd3adaabcee0",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "769021e3af96ba14",
-      "source_record_id": "rock_rocku:769021e3af96ba14",
-      "title": "Giving Analytics",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/giving-analytics",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "0b7e231168df4056448ae53bd98ab96f799070fbeb0bfb9561f841fcc40eeb6e",
-      "excerpt_hash": "95f96ef0b1a236e283a14f9b4ad8a39d1d4bcc896e660b6a71958f251e4d0e95",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "766bb54c11be8cda",
-      "source_record_id": "rock_rocku:766bb54c11be8cda",
-      "title": "Giving Overview",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/giving-overview",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "ba64e898ef0df198ad56a59b9485b23be99d7af13160828fa5097a46b8306321",
-      "excerpt_hash": "6b5fbcee4549d5f46a60414ef16c3fa463225d7c65ab94653937cc1cffdf1cd4",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "435195f5b515221c",
-      "source_record_id": "rock_rocku:435195f5b515221c",
-      "title": "Giving Journey",
-      "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/finance/giving-journey-1",
-      "version": null
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "b3ef237652bf9363af86dad7b35adf3062bcfe981e4914efd71a239ccda37827",
-      "excerpt_hash": "8e03f78d6a02e5f8223821976f4c1158b78e0fb94d6d702135358d4feaef7b9a",
-      "hydrated": true,
-      "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "d26a070ba9bc8cae",
-      "source_record_id": "rock_rocku:d26a070ba9bc8cae",
-      "title": "BI Financial Transaction Report",
-      "topics": [
-        "check-in",
-        "finance",
-        "training",
-        "usage",
-        "workflow"
-      ],
-      "url": "https://community.rockrms.com/rocku/business-intelligence-bi/bi-financial-transaction-report",
-      "version": null
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "39ffb353f4c01779f16f05370daebf386c5fcec722ad39961f74998915c77295",
-      "excerpt_hash": "7172f4d91242d4675ac8716ef55197ce74abe51d264fa43f6204c5105d151873",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "5dea5a7114204729",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs",
-      "title": "Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Model/Reporting/AnalyticsBaseFinancialTransaction/AnalyticsBaseFinancialTransaction.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "c6d0e977af3893aab1d8d39e3ddb5e0bc7fd342130c2306ff7d598f76de6fdff",
-      "excerpt_hash": "2ddeb3f4aff394d769f80a8412ac5c9b1fb029727569e880caaa624486551fae",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "d141b5902558d1f5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs",
-      "title": "Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransaction/TotalAmountFilter.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "ec1e3b2fd001f59e35b5360b7b29aacecbd02ee86f4961de5d70cd6a6b6d3e3c",
-      "excerpt_hash": "045316770a3c8e43a167441d771ce651f9629e8a2b763132e239402f1e9e3d7c",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "1bf12866dad17cf5",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
-      "title": "Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialTransactionDetail/AccountFilter.cs"
-    },
-    {
-      "authority": "source-code",
-      "authority_score": 84,
-      "content_hash": "dcb145b17a50d5891f77506608603b56926fb7432f4838c301a3d5f4dc633970",
-      "excerpt_hash": "60aa1b25aef23fe6974cbb503dd877134532400d4f6cb89a6f1363ac89b23aa6",
-      "kind": "github_file",
-      "language": "C#",
-      "matched_terms": [
-        "financial",
-        "transaction",
-        "reporting"
-      ],
-      "path": "Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
-      "repo": "SparkDevNetwork/Rock",
-      "source_id": "sparkdevnetwork_rock",
-      "source_key": "226944718ce1264b",
-      "source_record_id": "SparkDevNetwork/Rock:Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
-      "title": "Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs",
-      "url": "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Reporting/DataFilter/FinancialScheduledTransactionDetail/AccountFilter.cs"
     },
     {
       "authority": "official",
       "authority_score": 100,
-      "kind": "citation_only",
+      "change_type": null,
+      "content_hash": "142d283159692fc1b7f475059465a64c47e6817fa3bd373bff60ae66122fb49c",
+      "excerpt_hash": "e2bab549191844a848e554f4e2a1cd9d95ebe2753ec8d61b304b4092610c69d5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
       "source_id": "rock_documentation",
-      "source_key": "7808ba03b95d07eb",
-      "source_record_id": "",
-      "title": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations",
-      "url": "https://community.rockrms.com/documentation/church-management/event-calendar/event-registrations/manage-event-registrations"
+      "source_key": "4ea666e29b8793e7",
+      "source_record_id": "rock_documentation:article:1303",
+      "title": "Transfer Gateways",
+      "topics": [
+        "admin",
+        "finance",
+        "lava",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/payment-gateways/transfer-gateways",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ce9182df0e423562fdca5b7cefefe9bf1ea64158c40e3e3596dc652af1bf7145",
+      "excerpt_hash": "3cca72434f6d59303c1e57fd5c7eb8d08357779d95324d87bd0c045dd4e6c501",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "6fa8ff7e04b456ac",
+      "source_record_id": "rock_documentation:article:1253",
+      "title": "Giving Pages",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/giving-pages",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b57635b47c7f3a1c7fa00f437f296234ebabbbf9eb5344db6c13964cc170c533",
+      "excerpt_hash": "abace0a2f0bebdcc8c48b614af80cdff71a64225b4442d3025510238fc7a4aab",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "93af425e1dea36d6",
+      "source_record_id": "rock_documentation:article:1258",
+      "title": "Use Batches for Online Giving",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/online-giving/use-batches-for-online-giving",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "87f8b0fe6a7fbcf6c44e133344bc72c8de7a0a26f1e9990ad4606db84b0fba5d",
+      "excerpt_hash": "373a173aa81b9b14d033229a32bd9f16365ad95eb18d789deadf15272cfce9a5",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "e7b754aae1077f46",
+      "source_record_id": "rock_documentation:article:1875",
+      "title": "Intro to Text Giving",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/text-giving/intro-to-text-giving",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "ef432322a647757f0d89fb6bfe414e8d01daf4bb57d06f1807990bb3ef9a01ed",
+      "excerpt_hash": "77e72f43cc3dcffdd47905b4b51d17e63ad4dab00fc58876e3485aa07ac8509d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "f332ae34cb7fc316",
+      "source_record_id": "rock_documentation:article:1262",
+      "title": "Configure Text Giving",
+      "topics": [
+        "admin",
+        "api",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/text-giving/configure-text-giving",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "b9258d38d62bdea1ae23e2007641eeffa33cb8ed831a5f4bb010f378db62565b",
+      "excerpt_hash": "9ff64e83dac14907d089b135af0a1f760ce3ddfeb6ede35bd7c980f912adb1ab",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "bcd5c9971e89f1f4",
+      "source_record_id": "rock_documentation:article:1233",
+      "title": "Batches",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage",
+        "workflow"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/financial-components/batches",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "f490950058f5787781da968930d392fa4955dca68a28a1accf71f75d01c6bd58",
+      "excerpt_hash": "ebf6f2a88669cf606b75accddd414fd6d1e96f364b0a0f1708c3e550a8400d4d",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "bf1c3241fd084a3f",
+      "source_record_id": "rock_documentation:article:1895",
+      "title": "Set Up the Statement Generator Software",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/contribution-statements/set-up-the-statement-generator-software",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "dfc9d37019a4b6f76e0a6acdc474f096bdc93291818b81fdcf1bf85f96321ac8",
+      "excerpt_hash": "082985b5811d79072dc9bef149d2495b5d1890ea22a760248ca87ef3be80378e",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "35ef66bdbb130dff",
+      "source_record_id": "rock_documentation:article:1898",
+      "title": "Use Contribution Statement Templates",
+      "topics": [
+        "admin",
+        "api",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/contribution-statements/use-contribution-statement-templates",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "f465ab3d59e50093830879b88d801cfcb35de077bbe01bfc2642528d72bfc962",
+      "excerpt_hash": "3bf02147463ea6fcebef973566a913727cba01e60539ae02f049a515d6db6b7b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b70869f87e677e91",
+      "source_record_id": "rock_documentation:article:1281",
+      "title": "Family Giving",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/family-giving",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "9a26acdd1941e624d17c13d3dc2565111451f474abb80f580cafda6cb57141eb",
+      "excerpt_hash": "db7f487818c8033d251191d5814b7e678a52ff3850d014afa9cd7be9f7d7eea1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "aaca3e2e6719f39b",
+      "source_record_id": "rock_documentation:article:1277",
+      "title": "View Giving on Person Profile",
+      "topics": [
+        "admin",
+        "api",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/view-giving-on-person-profile",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "d031fb66b7382e311000c2a776312f7d8359c74bfc3e2186e2413d51aede4c59",
+      "excerpt_hash": "1820e7ca3812cc0f69090b36101c758770d95c8463a777dbcb7429fc14d37c91",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "58f084c05e106686",
+      "source_record_id": "rock_documentation:article:1880",
+      "title": "Intro to Businesses",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "sql",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/businesses/intro-to-businesses",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "479d576eafbf55e7ac95fc3bf82a45287092ab59c22d719d0f66133913cf13f5",
+      "excerpt_hash": "0aa6b9ed9e1ffe836418aa638a66129c582219f60549633895e3cc06e6d5597a",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "ddefbc3f5895577c",
+      "source_record_id": "rock_documentation:article:1279",
+      "title": "Giving Automation",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-automation",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "4db21ef5a3657cd3c04eb449fab35e0839ef050edf78f43f60197d84cfb2f20b",
+      "excerpt_hash": "4905ed75a6e0f1c2b760572100b6435e37e5953e20f3bfdde54b400833df94bd",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "d0d73e2adb126775",
+      "source_record_id": "rock_documentation:article:1280",
+      "title": "Giving Journey",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-journey",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "41d1f389aa293b104047ca6c2920b8a13606d4a09be5d314f6585012f0257d37",
+      "excerpt_hash": "a6d833186781396ed7e9f35aef2af4f07914bcd0b3e652cd90dea51ac0fbc9c1",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "b04e7d7237b01fdb",
+      "source_record_id": "rock_documentation:article:1881",
+      "title": "Use Giving Alerts",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/use-giving-alerts",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "bc1195a5f0977b2ce41bfe69192f72436d86d47b992b5c5be532cb34360f4c0a",
+      "excerpt_hash": "9b8fedec1e61e45409a3fa7cab8d133c3270571419caee190e7bf633d948f383",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "c994d3abb04322cc",
+      "source_record_id": "rock_documentation:article:1275",
+      "title": "Giving Analytics",
+      "topics": [
+        "admin",
+        "api",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/track-giving/giving-analytics",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "88fbf9153c66be4922606a4df88c6b69def9b1d5719d4d144c53aa278a2a66ab",
+      "excerpt_hash": "224ce1327f8b596b9a15a08d3cdc02f7257c575f99e4299db58883ddeb863541",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "300c1c7b66b6c856",
+      "source_record_id": "rock_documentation:article:1826",
+      "title": "Transaction Fee Report",
+      "topics": [
+        "admin",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/finance-reports/transaction-fee-report",
+      "version": null
+    },
+    {
+      "authority": "official",
+      "authority_score": 100,
+      "change_type": null,
+      "content_hash": "20d680964bd88a1b331384a4fa46be2d8e64ce071015ec0cbdd2ad9b3b06d264",
+      "excerpt_hash": "0e2208647640f774da68d5706cb34295b71cb95688e7b15e5469e650a3f2f94b",
+      "hydrated": true,
+      "kind": "normalized_record",
+      "release_date": null,
+      "severity": null,
+      "source_id": "rock_documentation",
+      "source_key": "c16527bb75a860b8",
+      "source_record_id": "rock_documentation:article:1824",
+      "title": "Volunteer Generosity",
+      "topics": [
+        "admin",
+        "check-in",
+        "finance",
+        "operations",
+        "usage"
+      ],
+      "url": "https://community.rockrms.com/documentation/church-management/finance/finance-reports/volunteer-generosity",
+      "version": null
     },
     {
       "authority": "official-triumph",
@@ -3306,62 +1930,78 @@
       "url": "https://community.rockrms.com/community-hubs/2KmggZ0dmR/media/kdlEdprmjz"
     },
     {
-      "authority": "official-triumph",
-      "authority_score": 105,
-      "kind": "citation_only",
-      "source_id": "triumph_resources",
-      "source_key": "4c0fe1130f878c66",
-      "source_record_id": "",
-      "title": "https://www.triumph.tech/resources/dashboard-design-part-1",
-      "url": "https://www.triumph.tech/resources/dashboard-design-part-1"
-    },
-    {
-      "authority": "official-training",
-      "authority_score": 75,
+      "authority": "official",
+      "authority_score": 100,
       "change_type": null,
-      "content_hash": "6c1dfe1d1eafc8298155b0ac5eb856f51cef55736aada0b5250cee505a9dc26b",
-      "excerpt_hash": "413a498ddfe461bfbf0838e99baca703e16d0fda9340fcb77a2eecd980786138",
+      "content_hash": "56a3cc449663fbdefd603668d950a726e4ae7721ed5519dc52a85470507adb16",
+      "excerpt_hash": "d0f85b1b5a4a792969d32508d4c845a1a9dee98f1eacd34989fad0e2aedd0101",
       "hydrated": true,
       "kind": "normalized_record",
       "release_date": null,
       "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "6b193d1cc321fd46",
-      "source_record_id": "rock_rocku:6b193d1cc321fd46",
-      "title": "Financial Settings",
+      "source_id": "rock_documentation",
+      "source_key": "896337f6cea82d10",
+      "source_record_id": "rock_documentation:article:1227",
+      "title": "Security for Finance",
       "topics": [
+        "admin",
         "finance",
-        "training",
-        "usage",
-        "workflow"
+        "operations",
+        "security",
+        "usage"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/financial-settings",
+      "url": "https://community.rockrms.com/documentation/church-management/finance/advanced-finance/security-for-finance",
       "version": null
     },
     {
-      "authority": "official-training",
-      "authority_score": 75,
-      "change_type": null,
-      "content_hash": "66ac1100d39f4c6bf13886430a2f5cb003bf7ae6b84c7f5be0f1d2428b6b4569",
-      "excerpt_hash": "f730b0e8456df091c39889083bc6aab3481176d075ed3304540a676e7afa8bf9",
+      "authority": "official-release",
+      "authority_score": 95,
+      "change_type": "new_feature",
+      "content_hash": "cd386c17c5cb63618cdaa89e5c3ed7381b8f9fd76109ad68fb67995b802951d5",
+      "excerpt_hash": "6485e4f35183325b50949a927524e3937ba8037d95054e74e0315d1d03743f9e",
       "hydrated": true,
       "kind": "normalized_record",
-      "release_date": null,
-      "severity": null,
-      "source_id": "rock_rocku",
-      "source_key": "6bf6d493898a457d",
-      "source_record_id": "rock_rocku:6bf6d493898a457d",
-      "title": "Giving Journey",
+      "release_date": "December 8, 2025",
+      "severity": "normal",
+      "source_id": "rock_core_release_notes",
+      "source_key": "776256c424368312",
+      "source_record_id": "rock_core_release_notes:7f01c27e9446f84c",
+      "title": "Rock Core Release Notes",
       "topics": [
-        "finance",
-        "training",
-        "usage",
-        "workflow"
+        "releases",
+        "development",
+        "operations"
       ],
-      "url": "https://community.rockrms.com/rocku/finance/giving-journey",
-      "version": null
+      "url": "https://www.rockrms.com/releasenotes",
+      "version": "18.1"
+    },
+    {
+      "authority": "source-code",
+      "authority_score": 84,
+      "content_hash": "bf8ab49ebfc73d8aed4ac177427fbedaa2cb327a36065c3f45088298eb37049d",
+      "excerpt_hash": "3fcde3c10fb3aad195b7ec0dea209d1b499a2b8dcc61813986ad09d5b7bb8d5b",
+      "kind": "github_file",
+      "language": "C#",
+      "matched_terms": [
+        "financial",
+        "transaction",
+        "reporting"
+      ],
+      "path": "Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
+      "repo": "SparkDevNetwork/Rock",
+      "source_id": "sparkdevnetwork_rock",
+      "source_key": "47d5eca21180aaee",
+      "source_record_id": "SparkDevNetwork/Rock:Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
+      "title": "Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs",
+      "url": "https://github.com/SparkDevNetwork/Rock/blob/471fd303d111b2e46218228dbc1e93dba8856fa3/Rock/Model/Reporting/AnalyticsSourceFinancialTransaction/AnalyticsSourceFinancialTransaction.cs"
     }
   ],
   "synthesis_profile": "comprehensive",
-  "synthesis_provenance": {}
+  "synthesis_provenance": {
+    "model": "gpt-5.6-sol",
+    "prompt_id": "rock-kb-concept-guide-synthesis",
+    "prompt_version": "2.0.0",
+    "reasoning_effort": "xhigh",
+    "source_pack_hash": "e6563f7e6f51e7d1155719235f03d507f9a5ef36496c68d354c4bfcb787e696b"
+  }
 }

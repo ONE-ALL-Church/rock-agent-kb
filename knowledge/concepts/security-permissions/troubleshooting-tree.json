@@ -1,199 +1,214 @@
 {
   "branches": [
     {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-person-cannot-access-an-item-they-should-be-able-to-use",
+      "id": "a-person-cannot-access-an-item-they-should-be-able-to-use",
+      "inspect": [
+        "Person",
+        "Group",
+        "GroupType",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/security/security-roles/handle-permissions",
+        "https://community.rockrms.com/documentation/core-concepts/security/advanced-security/view-the-security-change-audit"
+      ],
+      "start_with": [
+        "Confirm the exact person, entity type, entity identifier, and requested action.",
+        "Use Inspect Security to locate the effective result and inherited source.",
+        "Read the direct and inherited Allow/Deny rules in order; the first matching rule wins.",
+        "Confirm current role membership separately because the Security Change Audit does not record role-membership changes.",
+        "Inspect adjacent secured entities, such as parent page, block, Group Type, project, application, or endpoint.",
+        "Retest as the person, not only as an administrator.",
+        "Check release notes before compensating for a known version defect. Handle Permissions,"
+      ],
+      "title": "A person cannot access an item they should be able to use",
+      "when": "A person cannot access an item they should be able to use"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-page-or-content-item-is-missing-or-publicly-exposed",
+      "id": "a-page-or-content-item-is-missing-or-publicly-exposed",
+      "inspect": [
+        "Person",
+        "Page",
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/rocku/cms/adding-pages-and-blocks-legacy",
+        "https://community.rockrms.com/rocku/content-channels/content-channel-view"
+      ],
+      "start_with": [
+        "Resolve the exact site and route.",
+        "Inspect the page hierarchy and inherited page security.",
+        "Inspect each block’s security, block type, zone, and configuration.",
+        "For content channels, inspect channel, item, list block, detail block, route, and Lava template.",
+        "Separate personalization rules from authorization.",
+        "Test anonymous, intended-role, and administrator sessions.",
+        "Inspect alternate routes, mobile surfaces, and direct endpoints before declaring the content closed or protected. Adding Pages and Blocks,"
+      ],
+      "title": "A page or content item is missing or publicly exposed",
+      "when": "A page or content item is missing or publicly exposed"
+    },
+    {
       "do_not_assume": [
-        "If the page loads for admins only, do not immediately add the user to Rock Administration."
+        "Do not enable Rock 2FA for a flow that exposes only an incompatible built-in external provider."
       ],
       "entities": [
         "Person",
-        "Page",
         "Block"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-user-cannot-see-a-page",
-      "id": "user-cannot-see-a-page",
+      "guide_section_id": "troubleshooting-decision-tree-login-fails-after-enabling-2fa-or-an-external-provider",
+      "id": "login-fails-after-enabling-2fa-or-an-external-provider",
       "inspect": [
         "Person",
-        "Page",
         "Block"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks",
-        "https://community.rockrms.com/recipes/441",
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs"
+        "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/two-factor-authentication",
+        "https://community.rockrms.com/documentation/core-concepts/security/login-and-authentication/use-login-history"
       ],
       "start_with": [
-        "Is the user logged in as the expected person?",
-        "Does the person have an active login?",
-        "Is the page route correct?",
-        "Does the page have direct `View` security?",
-        "Does a parent page deny or allow?",
-        "Is the user in the allowed role?",
-        "Is there a deny rule for the user or role?",
-        "Does the page load but block is hidden?"
+        "Read the Login History status and detailed failure reason.",
+        "Confirm which Account Protection Profile applies.",
+        "Verify the email or SMS communication configuration required by 2FA.",
+        "Confirm the person has a usable Rock username and password when Rock 2FA requires it.",
+        "Inspect the Login block’s database-login and external-provider redirect settings.",
+        "Do not enable Rock 2FA for a flow that exposes only an incompatible built-in external provider.",
+        "For OIDC, verify client identity, scopes, redirect settings, and installed-version fixes. Two-Factor Authentication,"
       ],
-      "title": "User Cannot See A Page",
-      "when": "User Cannot See A Page"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "Block"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-user-can-see-page-but-not-button",
-      "id": "user-can-see-page-but-not-button",
-      "inspect": [
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/developer/101---launchpad/securing-access-to-your-blocks"
-      ],
-      "start_with": [
-        "Identify the button action.",
-        "Inspect block action security.",
-        "Inspect custom security verbs.",
-        "Inspect entity-specific permission for the row/object.",
-        "Inspect server-side permission bag if Obsidian.",
-        "Test direct submit/post if possible.",
-        "Confirm the block code checks `IsUserAuthorized` or entity `IsAuthorized`."
-      ],
-      "title": "User Can See Page But Not Button",
-      "when": "User Can See Page But Not Button"
+      "title": "Login fails after enabling 2FA or an external provider",
+      "when": "Login fails after enabling 2FA or an external provider"
     },
     {
       "do_not_assume": [],
       "entities": [
         "Person",
-        "Page",
-        "Block"
+        "DataView",
+        "Family"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-user-can-see-too-much-data",
-      "id": "user-can-see-too-much-data",
+      "guide_section_id": "troubleshooting-decision-tree-a-rest-request-returns-unauthorized-or-permission-denied",
+      "id": "a-rest-request-returns-unauthorized-or-permission-denied",
       "inspect": [
         "Person",
-        "Page",
-        "Block"
-      ],
-      "source_urls": [
-        "https://community.rockrms.com/recipes/344"
-      ],
-      "start_with": [
-        "Identify where data comes from.",
-        "Is it a standard block, SQL, Lava, report, or API?",
-        "Does the data source enforce security?",
-        "Does the custom template use `HasRightsTo`?",
-        "Are route/query parameters changeable?",
-        "Are raw IDs exposed?",
-        "Does the user have broad role access?",
-        "Is a person-specific allow present?"
-      ],
-      "title": "User Can See Too Much Data",
-      "when": "User Can See Too Much Data"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [
-        "DataView"
-      ],
-      "guide_section_id": "16-troubleshooting-decision-tree-api-key-gets-permission-denied",
-      "id": "api-key-gets-permission-denied",
-      "inspect": [
-        "DataView"
+        "DataView",
+        "Family"
       ],
       "source_urls": [
         "https://community.rockrms.com/developer/303---blast-off/the-rock-rest-api",
-        "https://community.rockrms.com/developer/developer-codex/coding-standards/api-patterns",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Confirm key is active.",
-        "Confirm correct header.",
-        "Confirm endpoint URL/version.",
-        "Identify linked actor.",
-        "Test actor’s UI permission.",
-        "Inspect endpoint security.",
-        "Inspect entity/data view/report security.",
-        "If v2 endpoint, confirm explicit authorization exists."
+        "Confirm that the session cookie or `Authorization-Token` is present and valid.",
+        "Identify the authenticated person or REST key rather than reasoning from the token string alone.",
+        "Confirm route, controller, method, entity, and intended action.",
+        "Inspect the identity’s direct and inherited grants.",
+        "Determine whether the failure is authentication, authorization, validation, routing, or a known version bug.",
+        "Check the v17.5 DataView fix if that endpoint family is involved.",
+        "Stop before broadening permissions unless the missing grant is demonstrated. The Rock REST API,"
       ],
-      "title": "API Key Gets Permission Denied",
-      "when": "API Key Gets Permission Denied"
+      "title": "A REST request returns unauthorized or permission denied",
+      "when": "A REST request returns unauthorized or permission denied"
     },
     {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "16-troubleshooting-decision-tree-api-key-works-but-should-not",
-      "id": "api-key-works-but-should-not",
-      "inspect": [],
-      "source_urls": [
-        "https://community.rockrms.com/lava/remote-lava"
+      "do_not_assume": [
+        "Retest as anonymous, intended role, and administrator; do not treat admin override as role proof."
       ],
-      "start_with": [
-        "Disable key if exposure is active.",
-        "Identify linked actor and roles.",
-        "Inspect endpoint security.",
-        "Inspect broad role permissions.",
-        "Inspect `ViewAll`, admin, or entity type security.",
-        "Inspect remote Lava or custom endpoint bypass.",
-        "Rotate key.",
-        "Recreate with least privilege."
-      ],
-      "title": "API Key Works But Should Not",
-      "when": "API Key Works But Should Not"
-    },
-    {
-      "do_not_assume": [],
       "entities": [
-        "Workflow",
         "Page",
         "Block"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-workflow-visible-to-wrong-users",
-      "id": "workflow-visible-to-wrong-users",
+      "guide_section_id": "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-the-intended-role",
+      "id": "a-helix-endpoint-works-for-administrators-but-not-the-intended-role",
       "inspect": [
-        "Workflow",
         "Page",
         "Block"
       ],
       "source_urls": [
+        "https://community.rockrms.com/developer/helix/overview/security",
         "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Inspect Workflow Type View.",
-        "Inspect workflow list/detail page security.",
-        "Inspect block security.",
-        "Inspect role memberships.",
-        "Check upgrade version and hardening migrations.",
-        "Confirm no public/all-user rule.",
-        "Inspect workflow data sensitivity.",
-        "Restrict View to staff/admin roles as appropriate."
+        "Confirm page and block access for the intended role.",
+        "Inspect the endpoint’s security mode.",
+        "Inspect direct endpoint authorization.",
+        "Where application-level security applies, inspect the parent Lava Application.",
+        "Inspect enabled commands, input validation, CSRF, and rate-limit settings.",
+        "Check whether the installed version predates the relevant v19.5 fix.",
+        "Retest as anonymous, intended role, and administrator; do not treat admin override as role proof. Helix Security,"
       ],
-      "title": "Workflow Visible To Wrong Users",
-      "when": "Workflow Visible To Wrong Users"
+      "title": "A Helix endpoint works for administrators but not the intended role",
+      "when": "A Helix endpoint works for administrators but not the intended role"
     },
     {
       "do_not_assume": [],
       "entities": [
-        "Workflow"
+        "Person",
+        "Workflow",
+        "Block"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-document-or-file-visible-to-wrong-users",
-      "id": "document-or-file-visible-to-wrong-users",
+      "guide_section_id": "troubleshooting-decision-tree-a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream",
+      "id": "a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream",
       "inspect": [
-        "Workflow"
+        "Person",
+        "Workflow",
+        "Block"
       ],
       "source_urls": [
-        "https://www.rockrms.com/releasenotes"
+        "https://community.rockrms.com/rocku/individuals-in-rock/person-note-1",
+        "https://community.rockrms.com/rocku/core-concepts/note-types"
       ],
       "start_with": [
-        "Identify file/document URL.",
-        "Determine whether it is linked to a Document.",
-        "Inspect Document Type security.",
-        "Inspect Binary File Type security.",
-        "Check whether workflow uploaded it.",
-        "Confirm Rock version relative to v17.8 fix.",
-        "Test as anonymous and low-privilege user.",
-        "Fix document type permissions if document type is intended authority."
+        "Identify the exact Person Profile block or other entity surface.",
+        "Identify the Note Type and target entity.",
+        "Inspect note-type and surface permissions.",
+        "Review author and date metadata plus current lifecycle state.",
+        "Identify reports and workflows that consume that Note Type.",
+        "Test with the intended staff role and an unauthorized role.",
+        "Stop before reclassifying or moving notes if that would alter reporting or workflow meaning. Person Note,"
       ],
-      "title": "Document Or File Visible To Wrong Users",
-      "when": "Document Or File Visible To Wrong Users"
+      "title": "A note is missing, visible to the wrong staff, or behaves unexpectedly downstream",
+      "when": "A note is missing, visible to the wrong staff, or behaves unexpectedly downstream"
+    },
+    {
+      "do_not_assume": [],
+      "entities": [
+        "Block"
+      ],
+      "guide_section_id": "troubleshooting-decision-tree-a-public-form-is-receiving-abuse-or-captcha-is-not-appearing",
+      "id": "a-public-form-is-receiving-abuse-or-captcha-is-not-appearing",
+      "inspect": [
+        "Block"
+      ],
+      "source_urls": [
+        "https://community.rockrms.com/documentation/core-concepts/security/captcha/configure-captcha",
+        "https://community.rockrms.com/documentation/core-concepts/security/captcha/use-captcha"
+      ],
+      "start_with": [
+        "Confirm the installed Rock version and exact block generation.",
+        "Verify the organization-wide CAPTCHA mode.",
+        "Inspect the block-level CAPTCHA setting.",
+        "Determine whether the configured mode is Visible, Invisible, or Disabled.",
+        "Test a real submission path; absence of a checkbox does not prove CAPTCHA is inactive.",
+        "Confirm the block is among the version’s supported CAPTCHA surfaces.",
+        "Continue to enforce authorization, validation, and rate limits where relevant. Configure CAPTCHA,"
+      ],
+      "title": "A public form is receiving abuse or CAPTCHA is not appearing",
+      "when": "A public form is receiving abuse or CAPTCHA is not appearing"
     },
     {
       "do_not_assume": [],
@@ -203,8 +218,8 @@
         "Block",
         "Attribute"
       ],
-      "guide_section_id": "16-troubleshooting-decision-tree-group-finder-shows-private-groups",
-      "id": "group-finder-shows-private-groups",
+      "guide_section_id": "troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people",
+      "id": "a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people",
       "inspect": [
         "Group",
         "GroupType",
@@ -212,66 +227,41 @@
         "Attribute"
       ],
       "source_urls": [
-        "https://community.rockrms.com/developer/mobile-docs/essentials/blocks/groups/group-finder"
+        "https://community.rockrms.com/documentation/engagement/additional-engagement-tools/sign-ups/configure-sign-up-permissions",
+        "https://www.rockrms.com/releasenotes"
       ],
       "start_with": [
-        "Identify group finder block and platform.",
-        "Inspect group selection/filter settings.",
-        "Inspect group/group type security.",
-        "Inspect template.",
-        "Add `HasRightsTo` check if returned groups are not security-filtered.",
-        "Remove sensitive attributes from output.",
-        "Test anonymous and low-privilege users.",
-        "Test direct detail links."
+        "Inspect Group Role, project-level, and Group Type authorization.",
+        "Confirm Edit permission on the Project Type group attribute.",
+        "Confirm Edit permission on the Sign-Up Groups block.",
+        "Inspect Group View security for finder visibility.",
+        "Compare the installed version with the v19.3 Sign-Up Finder fix.",
+        "Test creation, management, and public discovery as separate actions. Configure Sign-Up Permissions,"
       ],
-      "title": "Group Finder Shows Private Groups",
-      "when": "Group Finder Shows Private Groups"
-    },
-    {
-      "do_not_assume": [],
-      "entities": [],
-      "guide_section_id": "16-troubleshooting-decision-tree-permission-change-did-not-apply",
-      "id": "permission-change-did-not-apply",
-      "inspect": [],
-      "source_urls": [
-        "https://github.com/SparkDevNetwork/Rock/blob/develop/Rock/Security/AuthorizationCacheConsumer.cs"
-      ],
-      "start_with": [
-        "Confirm the rule was saved.",
-        "Confirm it was saved on the correct entity.",
-        "Confirm action verb.",
-        "Confirm role membership.",
-        "Confirm user logged out/in if membership/session is stale.",
-        "Check direct deny rules.",
-        "Check inheritance.",
-        "Check cache/message-bus state in multi-node environments."
-      ],
-      "title": "Permission Change Did Not Apply",
-      "when": "Permission Change Did Not Apply"
+      "title": "A top-level Sign-Up project cannot be created or is visible to the wrong people",
+      "when": "A top-level Sign-Up project cannot be created or is visible to the wrong people"
     }
   ],
   "concept_id": "security-permissions",
   "entrypoint": "Choose the branch whose symptom matches the user's task, then inspect the live records before making changes.",
-  "generated_at": "2026-08-12T12:50:00+00:00",
+  "generated_at": "2026-09-03T17:23:11+00:00",
   "guide_sections": [
-    "9-api-auth-deep-dive-api-auth-troubleshooting",
-    "16-troubleshooting-decision-tree",
-    "16-troubleshooting-decision-tree-user-cannot-see-a-page",
-    "16-troubleshooting-decision-tree-user-can-see-page-but-not-button",
-    "16-troubleshooting-decision-tree-user-can-see-too-much-data",
-    "16-troubleshooting-decision-tree-api-key-gets-permission-denied",
-    "16-troubleshooting-decision-tree-api-key-works-but-should-not",
-    "16-troubleshooting-decision-tree-workflow-visible-to-wrong-users",
-    "16-troubleshooting-decision-tree-document-or-file-visible-to-wrong-users",
-    "16-troubleshooting-decision-tree-group-finder-shows-private-groups",
-    "16-troubleshooting-decision-tree-permission-change-did-not-apply",
-    "17-agent-task-recipes",
-    "17-agent-task-recipes-recipe-answer-who-has-access-to-this",
-    "17-agent-task-recipes-recipe-answer-why-was-i-denied",
-    "17-agent-task-recipes-recipe-review-a-permission-change-request",
-    "17-agent-task-recipes-recipe-review-a-custom-agent-tool",
-    "17-agent-task-recipes-recipe-review-a-public-route",
-    "17-agent-task-recipes-recipe-review-a-security-role",
-    "17-agent-task-recipes-recipe-review-after-upgrade"
+    "troubleshooting-decision-tree",
+    "troubleshooting-decision-tree-a-person-cannot-access-an-item-they-should-be-able-to-use",
+    "troubleshooting-decision-tree-a-page-or-content-item-is-missing-or-publicly-exposed",
+    "troubleshooting-decision-tree-login-fails-after-enabling-2fa-or-an-external-provider",
+    "troubleshooting-decision-tree-a-rest-request-returns-unauthorized-or-permission-denied",
+    "troubleshooting-decision-tree-a-helix-endpoint-works-for-administrators-but-not-the-intended-role",
+    "troubleshooting-decision-tree-a-note-is-missing-visible-to-the-wrong-staff-or-behaves-unexpectedly-downstream",
+    "troubleshooting-decision-tree-a-public-form-is-receiving-abuse-or-captcha-is-not-appearing",
+    "troubleshooting-decision-tree-a-top-level-sign-up-project-cannot-be-created-or-is-visible-to-the-wrong-people",
+    "agent-task-recipes",
+    "agent-task-recipes-recipe-explain-an-effective-permission-result",
+    "agent-task-recipes-recipe-publish-a-page-or-block-with-bounded-access",
+    "agent-task-recipes-recipe-preflight-a-least-privilege-rest-integration",
+    "agent-task-recipes-recipe-secure-a-lava-api-or-helix-endpoint",
+    "agent-task-recipes-recipe-audit-person-profile-notes",
+    "agent-task-recipes-recipe-validate-an-ai-agent-tool-before-production",
+    "agent-task-recipes-recipe-run-a-security-sensitive-upgrade-preflight"
   ]
 }
